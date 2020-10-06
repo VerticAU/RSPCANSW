@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Flow Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Flow Mappings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default --></label>
+        <name>Default__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not pass the blank value from Source as the Flow input variable --></help>
+        <label><!-- Disregard Blank Value --></label>
+        <name>Disregard_Blank_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flow Input Format --></label>
+        <name>Flow_Input_Format__c</name>
+        <relationshipLabel><!-- Flow Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Flow Input Name --></label>
+        <name>Flow_Input_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flow Setting --></label>
+        <name>Flow_Setting__c</name>
+        <relationshipLabel><!-- Flow Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Flow Variable Type --></label>
+        <name>Flow_Variable_Type__c</name>
+        <picklistValues>
+            <masterLabel>Input</masterLabel>
+            <translation><!-- Input --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Output</masterLabel>
+            <translation><!-- Output --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Path --></label>
+        <name>Source_Path__c</name>
+    </fields>
+    <fields>
+        <help><!-- The input value does not contain any leading or trailing white space characters. --></help>
+        <label><!-- Trim Value --></label>
+        <name>Trim_Value__c</name>
+    </fields>
+    <layouts>
+        <layout>Flow Mapping Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

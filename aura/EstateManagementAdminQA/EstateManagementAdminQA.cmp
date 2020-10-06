@@ -1,0 +1,180 @@
+<aura:component description="EstateManagementAdminQA" extends="c:vertic_Base">
+
+    <aura:attribute name="meta" type="Map"/>
+
+    <aura:attribute name="activeSections" type="List" default="['bequestDetails']"/>
+    <aura:attribute name="activeSectionsMessage" type="String" default=""/>
+
+    <aura:registerEvent name="isShowNextEvent" type="c:EstateManagementAffiliations_event"/>
+
+    <aura:set attribute="body">
+        <div aura:id="form" class="slds-form" role="list">
+
+            <npsp_plus:ScopedNotification>
+                Deceased donor has a related Bequest Opportunity
+            </npsp_plus:ScopedNotification>
+
+            <lightning:accordion
+                    allowMultipleSectionsOpen="true"
+                    onsectiontoggle="{! c.handleSectionToggle }"
+                    activeSectionName="{! v.activeSections }"
+            >
+                <lightning:accordionSection name="bequestDetails" label="Bequest Details">
+
+
+                    <lightning:card title="{!'Linked Bequest ' + v.meta.dto.opportunity.Name}" iconName="standard:opportunity" variant="base" class="record-card">
+                        <div class="slds-p-horizontal_small">
+                            <lightning:recordViewForm objectApiName="Opportunity" recordId="{!v.meta.dto.opportunity.Id}" density="comfy">
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <span class="slds-form-element__label custom_label">Donor Name</span>
+                                        <div class="slds-form-element__control custom_record_view">
+                                            {!v.meta.dto.opportunity.npsp__Primary_Contact__r.Name}
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="Deceased_Date__c"/>
+                                    </div>
+                                </div>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="Expected_Value__c"/>
+                                    </div>
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="Expected_Value_P__c"/>
+                                    </div>
+                                </div>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <span class="slds-form-element__label custom_label">Date Notified of Death</span>
+                                        <div class="slds-form-element__control custom_record_view">
+                                            {!v.meta.dto.dateNotifiedOfDeath}
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="Date_of_Will__c"/>
+                                    </div>
+                                </div>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="Probability"/>
+                                    </div>
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="Type"/>
+                                    </div>
+                                </div>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="StageName"/>
+                                    </div>
+                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                        <lightning:outputField fieldName="npe01__Payments_Made__c"/>
+                                    </div>
+                                </div>
+                            </lightning:recordViewForm>
+                        </div>
+                    </lightning:card>
+
+                </lightning:accordionSection>
+                <aura:if isTrue="{!not(empty(v.meta.dto.opportunityLineItems))}">
+
+                    <lightning:accordionSection name="bequestItems" label="Bequest Items">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                            <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Bequest Line Item">Bequest Line Item</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Quantity">Quantity</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Sale Price">Sale Price</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Date">Date</div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <aura:iteration items="{!v.meta.dto.opportunityLineItems}" var="item">
+                                <tr>
+                                    <th>
+                                        <div class="slds-truncate">{!item.Product2.Name}</div>
+                                    </th>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            <lightning:formattedNumber value="{!item.Quantity}"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            $
+                                            <lightning:formattedNumber value="{!item.UnitPrice}" maximumFractionDigits="2"/>
+                                        </div>
+                                    </td>
+                                    <td data-label="Prospecting">
+                                        <div class="slds-truncate">
+                                            <ui:outputDate value="{!item.CreatedDate}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                            </tbody>
+                        </table>
+                    </lightning:accordionSection>
+                </aura:if>
+
+            </lightning:accordion>
+
+            <div class="page-toggle" style="display: flex; margin-top: 20px !important; margin-bottom: 20px !important; margin-left: 27px;"> Would you like to create an estate?
+
+                <lightning:input type="toggle"
+                                 label=""
+                                 class=""
+                                 name="toggle"
+                                 messageToggleActive=""
+                                 messageToggleInactive=""
+                                 onchange="{!c.handleIsShowNextEvent}"
+                                 checked="{!v.meta.dto.createEstate}"/>
+            </div>
+
+            <aura:if isTrue="{!v.meta.dto.createEstate}">
+                <aura:if isTrue="{!v.meta.dto.opportunity.npsp__Primary_Contact__r.npsp__Deceased__c == true}">
+
+                    <div class="slds-grid slds-wrap table-block" style="margin-left: 6px; margin-right: 26px;">
+                        <div class="slds-col slds-col--padded slds-size--1-of-2">
+                            <div class="slds-form-element slds-form-element_stacked">
+
+                                <lightning:input label="Estate Name"
+                                                 required="{!true}"
+                                                 disabled="false"
+                                                 value="{!v.meta.dto.account.Name}"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-col--padded slds-size--1-of-2">
+                            <div class="slds-form-element slds-form-element_stacked">
+                                <label class="slds-form-element__label">Donor</label>
+                                <div class="slds-form-element__control">
+                                    {!v.meta.dto.opportunity.npsp__Primary_Contact__r.Name}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </aura:if>
+                <aura:if isTrue="{!v.meta.dto.opportunity.npsp__Primary_Contact__r.npsp__Deceased__c == false}">
+                    Cannot create an estimate or living donor
+                </aura:if>
+                <br/>
+                <br/>
+            </aura:if>
+
+        </div>
+    </aura:set>
+
+</aura:component>

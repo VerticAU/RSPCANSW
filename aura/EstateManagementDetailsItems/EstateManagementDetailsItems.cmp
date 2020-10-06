@@ -1,0 +1,42 @@
+<aura:component description="EstateManagementDetailsItems">
+    <aura:attribute name="affiliations" required="true" type="Object[]" default="[]" />
+    <aura:attribute name="meta" type="Object" />
+
+
+
+
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+        <tr class="slds-text-title_caps">
+            <th scope="col">
+                <div class="" title="Affiliated Contact">Affiliated Contact</div>
+            </th>
+            <th scope="col">
+                <div class="" title="Role">Role</div>
+            </th>
+            <th scope="col">
+                <div class="" title="Status">Status</div>
+            </th>
+            <th scope="col">
+                <div class="" title="Start Date">Start Date</div>
+            </th>
+            <th scope="col">
+                <div class="" title=""></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <aura:iteration var="affiliation" items="{!v.affiliations}" indexVar="index">
+            <c:EstateManagementDetailsItem aura:id="affiliationItem"
+                                   affiliation="{! affiliation }"
+                                   meta="{! v.meta }"
+                                   index="{! index }"
+                                   isDeleteDisabled="{! v.affiliations.length == 1 }"
+            />
+        </aura:iteration>
+        </tbody>
+    </table>
+
+
+</aura:component>

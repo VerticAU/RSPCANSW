@@ -1,0 +1,91 @@
+.THIS .page-header__name {
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: #2999CC !important;
+}
+
+.THIS .page-toggle {
+    margin-bottom: 0px !important;
+}
+
+/*.THIS .slds-input[readonly] {*/
+    /*border-width: 1px !important;*/
+    /*border-color: black !important;*/
+    /*padding-left: 10px !important;*/
+/*}*/
+
+.THIS th {
+    /*border-radius: 1px;*/
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*background-color: #CCCCCC;*/
+    padding: 5px;
+}
+
+
+
+.THIS td, .THIS th {
+    text-align: center !important;
+}
+
+/*.THIS td {*/
+    /*padding-top: 10px !important;*/
+/*}*/
+
+
+.THIS .slds-modal__content:last-child{
+    width: 50rem !important;
+    max-width: 50rem !important;
+}
+
+.THIS .margin-top-right {
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.THIS .wizard-step-body {
+    min-height: 422px;
+
+}
+
+
+.THIS .margin-top-20 {
+    margin-top: 20px !important;
+}
+
+.THIS .exit-button-style {
+    margin-top: 300px;
+    margin-left: auto;
+    display: table;
+}
+
+
+.THIS .slds-accordion__summary-heading {
+    font-size: 12px;
+
+}
+
+.THIS td, .THIS th, .THIS .slds-table {
+    font-size: 12px !important;
+}
+
+.THIS .position-left {
+    float: left;
+}
+
+
+.THIS .slds-table_cell-buffer tr>th:first-child,
+.THIS .slds-table_cell-buffer tr>td:first-child,
+.THIS .slds-table--cell-buffer tr>th:first-child,
+.THIS .slds-table--cell-buffer tr>td:first-child {
+    padding-left: 0px !important;
+}
+
+.THIS .slds-table_cell-buffer tr>th:last-child,
+.THIS .slds-table_cell-buffer tr>td:last-child,
+.THIS .slds-table--cell-buffer tr>th:last-child,
+.THIS .slds-table--cell-buffer tr>td:last-child {
+    padding-right: 0px !important;
+}

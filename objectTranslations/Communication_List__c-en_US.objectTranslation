@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Communication List</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Communication Lists</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Communication Lists --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Communication Name --></label>
+        <name>Communication_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communication --></label>
+        <name>Communication__c</name>
+        <relationshipLabel><!-- Communication Lists --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Communication Lists --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Delivery Mode --></label>
+        <name>Delivery_Mode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason Opted In --></label>
+        <name>Reason_Opted_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason Opted Out --></label>
+        <name>Reason_Opted_Out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Opt In</masterLabel>
+            <translation><!-- Opt In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opt Out</masterLabel>
+            <translation><!-- Opt Out --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Communication List Layout</layout>
+        <sections>
+            <label><!-- Communication --></label>
+            <section>Communication</section>
+        </sections>
+        <sections>
+            <label><!-- Communication Status --></label>
+            <section>Communication Status</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Recipient --></label>
+            <section>Recipient</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Annual Receipt Email Template Name --></label>
+        <name>npsp_plus__Annual_Receipt_Email_Template_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Crypto HMac Key --></label>
+        <name>npsp_plus__Crypto_HMac_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Crypto Key --></label>
+        <name>npsp_plus__Crypto_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Org Wide Email --></label>
+        <name>npsp_plus__Default_Org_Wide_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Donation Receipt Email Template Name --></label>
+        <name>npsp_plus__Donation_Receipt_Email_Template_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payload --></label>
+        <name>npsp_plus__Payload__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>npsp_plus__Version__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -1,0 +1,4 @@
+<apex:page id="TestPayPalCheckout">
+    <script src="https://www.paypal.com/sdk/js?client-id=ATpb6v2OjAISQdupc12hjv8SXdk2AkyRFGEnJVdGaJPuLCIV4Cm8YHiDS_B8JvYvnQncvv28Jwp5Xzjl"></script>
+    <script>paypal.Buttons().render('body');</script>
+</apex:page>

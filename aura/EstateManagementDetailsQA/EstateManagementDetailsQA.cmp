@@ -1,0 +1,37 @@
+<aura:component description="EstateManagementDetailsQA" extends="c:vertic_Base">
+
+    <aura:attribute name="affiliations" type="Object[]" default="[]"/>
+    <aura:attribute name="meta" type="Object"/>
+    <aura:handler name="deleteAffiliationEvent" event="c:EstateManagementAffiliations_event" action="{! c.handleDeleteAffiliationEvent }"/>
+    <aura:attribute name="activeSections" type="List" default="['EstateDetails']"/>
+    <aura:attribute name="activeSectionsMessage" type="String" default=""/>
+    <aura:attribute name="isAdd" type="Boolean" default="false"/>
+
+    <div aura:id="form" class="slds-form" role="list">
+
+        <lightning:accordion
+                allowMultipleSectionsOpen="true"
+                onsectiontoggle="{! c.handleSectionToggle }"
+                activeSectionName="{! v.activeSections }"
+        >
+            <lightning:accordionSection name="EstateDetails" label="Estate Relationships">
+                <aura:set attribute="body">
+
+                    <lightning:button class="slds-float--right margin-top-right slds-button slds-button_neutral" label="+ Add Estate Relationships" onclick="{! c.handleNewAffiliationClick }"/>
+
+
+                    <div>
+                        <c:EstateManagementDetailsItems aura:id="affiliationsList" affiliations="{! v.affiliations }" meta="{! v.meta }"/>
+                    </div>
+
+                </aura:set>
+            </lightning:accordionSection>
+        </lightning:accordion>
+
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+
+</aura:component>

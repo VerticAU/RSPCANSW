@@ -1,0 +1,70 @@
+<aura:component description="Change Make Deceased for Contact"
+                controller="ContactMakeDeceasedActionCtrl"
+                implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"
+                access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:attribute type="String" name="contactStatus" default="load"/>
+    <aura:attribute type="Boolean" name="isBusy" default="false"/>
+    <aura:attribute type="Integer" name="step" default="1"/>
+    <aura:attribute type="Date" name="deceasedDate"/>
+    <aura:attribute type="Date" name="activityDate"/>
+    <c:Utils context="{! this }"/>
+
+    <c:QuickActionModal title="Update Status" heightPX="200" contentHeightPX="100">
+
+        <aura:if isTrue="{!v.contactStatus != 'load'}">
+
+            <aura:if isTrue="{!and((v.step == 1), (v.contactStatus != 'Deceased'))}">
+                <div class="slds-form slds-form_horizontal">
+                    <div>
+                        Updating this contact’s status to deceased will remove them from any mailing lists they are subscribed to and prevent them from being resubscribed. Are you sure you wish to
+                        continue?
+                    </div>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!and((v.step == 2), (v.contactStatus != 'Deceased'))}">
+                <div class="slds-grid slds-wrap table-block">
+                    <div class="slds-col slds-col--padded slds-size--1-of-2">
+                        <lightning:input label="Deceased Date"
+                                         type="date"
+                                         required="{!true}"
+                                         value="{!v.deceasedDate}"
+                        />
+                    </div>
+                    <div class="slds-col slds-col--padded slds-size--1-of-2">
+
+                        <lightning:input label="Date Notified of Death"
+                                         type="date"
+                                         required="{!true}"
+                                         value="{!v.activityDate}"
+                        />
+                    </div>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!v.contactStatus == 'Deceased'}">
+                <div class="slds-form slds-form_horizontal">
+                    <div>
+                        Contact already marked deceased
+                    </div>
+                </div>
+            </aura:if>
+        </aura:if>
+
+            <aura:set attribute="footer">
+                <aura:if isTrue="{!and((v.step == 1), (v.contactStatus != 'Deceased'))}">
+                    <lightning:button variant="brand" label="Next" onclick="{! c.handleNextClick }"/>
+                </aura:if>
+
+                <aura:if isTrue="{!and((v.step == 2), (v.contactStatus != 'Deceased'))}">
+                    <aura:if isTrue="{! v.isBusy }">
+                        <lightning:spinner alternativeText="Processing..."/>
+                    </aura:if>
+                    <lightning:button variant="brand" label="Save" onclick="{! c.handleSaveClick }"/>
+                </aura:if>
+            </aura:set>
+    </c:QuickActionModal>
+</aura:component>

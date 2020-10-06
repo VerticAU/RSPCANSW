@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Default__c</fullName>
+        <description>Default value when blank or no data by source path.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Default</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Disregard_Blank_Value__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Do not pass the blank value from Source  as the Flow input variable</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Do not pass the blank value from Source as the Flow input variable</inlineHelpText>
+        <label>Disregard Blank Value</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Flow_Input_Format__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Flow Input Format</label>
+        <referenceTo>Flow_Input_Format__mdt</referenceTo>
+        <relationshipLabel>Flow Mappings</relationshipLabel>
+        <relationshipName>Flow_Mappings</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flow_Input_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Flow Input Name</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flow_Setting__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Flow Setting</label>
+        <referenceTo>Flow_Setting__mdt</referenceTo>
+        <relationshipLabel>Flow Mappings</relationshipLabel>
+        <relationshipName>Flow_Mappings</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flow_Variable_Type__c</fullName>
+        <defaultValue>&quot;Input&quot;</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Flow Variable Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Input</fullName>
+                    <default>true</default>
+                    <label>Input</label>
+                </value>
+                <value>
+                    <fullName>Output</fullName>
+                    <default>false</default>
+                    <label>Output</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Source_Path__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Source Path</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trim_Value__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>The input value does not contain any leading or trailing white space characters.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The input value does not contain any leading or trailing white space characters.</inlineHelpText>
+        <label>Trim Value</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Flow Mapping</label>
+    <pluralLabel>Flow Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Activity Days --></label>
+        <name>Activity_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Bequest</masterLabel>
+            <translation><!-- Bequest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEA</masterLabel>
+            <translation><!-- HEA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Depended Task Name --></label>
+        <name>Depended_Task_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Key --></label>
+        <name>Group_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Name --></label>
+        <name>Group_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Skip WhatId --></label>
+        <name>Skip_WhatId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Skip WhoId --></label>
+        <name>Skip_WhoId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Engagement Plan Task --></label>
+        <name>npsp__Engagement_Plan_Task__c</name>
+        <relationshipLabel><!-- Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Engagement Plan --></label>
+        <name>npsp__Engagement_Plan__c</name>
+        <relationshipLabel><!-- Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Smart Email Id --></label>
+        <name>wbsendit__Smart_Email_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Smart Email Message Id --></label>
+        <name>wbsendit__Smart_Email_Message_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Smart Email Status --></label>
+        <name>wbsendit__Smart_Email_Status__c</name>
+    </fields>
+</CustomObjectTranslation>

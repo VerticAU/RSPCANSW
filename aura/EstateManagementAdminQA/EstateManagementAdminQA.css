@@ -1,0 +1,19 @@
+.THIS .slds-checkbox_toggle [type=checkbox]:checked + .slds-checkbox_faux_container .slds-checkbox_faux {
+    border-color: #4DD662 !important;
+    background-color: #4DD662 !important;
+}
+
+
+.THIS .slds-input {
+    background-color: #FFFFFF !important;
+    cursor: auto !important;
+}
+
+
+.THIS .custom_label, .THIS .custom_record_view{
+   margin-left: 4px!important;
+}
+
+.THIS .custom_record_view{
+    margin-bottom: 8px!important;
+}

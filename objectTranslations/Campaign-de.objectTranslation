@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Actual Response (%) --></label>
+        <name>Actual_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Campaigns --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Default Giving Strategy Amount --></label>
+        <name>Default_Giving_Strategy_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fundraiser ID --></label>
+        <name>Fundraiser_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fundraiser URL --></label>
+        <name>Fundraiser_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Amount --></label>
+        <name>Giving_Strategy_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Description 1 --></label>
+        <name>Giving_Strategy_Description_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Description 2 --></label>
+        <name>Giving_Strategy_Description_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Image URL 1 --></label>
+        <name>Giving_Strategy_Image_URL_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Image URL 2 --></label>
+        <name>Giving_Strategy_Image_URL_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Percentage 1 --></label>
+        <name>Giving_Strategy_Percentage_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Percentage 2 --></label>
+        <name>Giving_Strategy_Percentage_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Percentage Amount 1 --></label>
+        <name>Giving_Strategy_Percentage_Amount_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy Percentage Amount 2 --></label>
+        <name>Giving_Strategy_Percentage_Amount_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Strategy --></label>
+        <name>Giving_Strategy__c</name>
+        <picklistValues>
+            <masterLabel>Highest Donation Amount</masterLabel>
+            <translation><!-- Highest Donation Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Last Donation Amount</masterLabel>
+            <translation><!-- Last Donation Amount --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Highest Donation Amount --></label>
+        <name>Highest_Donation_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Donation Amount --></label>
+        <name>Last_Donation_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Narrative --></label>
+        <name>Narrative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Website Fundraiser --></label>
+        <name>Website_Fundraiser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>npsp_plus__Channel__c</name>
+        <picklistValues>
+            <masterLabel>Application/Proposal</masterLabel>
+            <translation><!-- Application/Proposal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chat</masterLabel>
+            <translation><!-- Chat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation><!-- DM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F2F</masterLabel>
+            <translation><!-- F2F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out of Home</masterLabel>
+            <translation><!-- Out of Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social</masterLabel>
+            <translation><!-- Social --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TM</masterLabel>
+            <translation><!-- TM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VMB</masterLabel>
+            <translation><!-- VMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eDM</masterLabel>
+            <translation><!-- eDM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Donation Receipt Email Template Name --></label>
+        <name>npsp_plus__Donation_Receipt_Email_Template_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Monitor Id --></label>
+        <name>wbsendit__Campaign_Monitor_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- Connect this Salesforce Campaign to sent campaigns in Campaign Monitor. Use this to manage campaign reports from within Salesforce. Send It will add any members it finds in Campaign Monitor to this campaign. --></help>
+        <label><!-- Campaign Monitor --></label>
+        <name>wbsendit__Campaign_Monitor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Text version of the email sent. --></help>
+        <label><!-- Email Text Version --></label>
+        <name>wbsendit__Email_Text_Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- Web version of the email campaign. --></help>
+        <label><!-- Email Web Version --></label>
+        <name>wbsendit__Email_Web_Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of bounced emails for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Bounced --></label>
+        <name>wbsendit__Num_Bounced__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of clicks for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Clicks --></label>
+        <name>wbsendit__Num_Clicks__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of forwarded emails for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Forwards --></label>
+        <name>wbsendit__Num_Forwards__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of likes for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Likes --></label>
+        <name>wbsendit__Num_Likes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of &quot;Mentions&quot; for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Mentions --></label>
+        <name>wbsendit__Num_Mentions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of open emails for the associated Campaign Monitor campaign. --></help>
+        <label><!-- Num Opens --></label>
+        <name>wbsendit__Num_Opens__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of recipients for the associated Campaign Monitor campaign. --></help>
+        <label><!-- Num Recipients --></label>
+        <name>wbsendit__Num_Recipients__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of Spam Complaints for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Spam Complaints --></label>
+        <name>wbsendit__Num_Spam_Complaints__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of unique open emails for the associated Campaign Monitor campaign. --></help>
+        <label><!-- Num Unique Opens --></label>
+        <name>wbsendit__Num_Unique_Opens__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of unsubscribes for the Campaign Monitor campaign. --></help>
+        <label><!-- Num Unsubscribed --></label>
+        <name>wbsendit__Num_Unsubscribed__c</name>
+    </fields>
+    <fields>
+        <help><!-- World view of the email campaign tracking. --></help>
+        <label><!-- World View Email Tracking --></label>
+        <name>wbsendit__World_View_Email_Tracking__c</name>
+    </fields>
+    <layouts>
+        <layout>Fundraiser Child Campaign Layout</layout>
+        <sections>
+            <label><!-- Campaign Expectations --></label>
+            <section>Campaign Expectations</section>
+        </sections>
+        <sections>
+            <label><!-- Campaign Hierarchy Information --></label>
+            <section>Campaign Hierarchy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Campaign Monitor Statistics --></label>
+            <section>Campaign Monitor Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Giving Strategy Information --></label>
+            <section>Giving Strategy Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Fundraising Campaign Layout</layout>
+        <sections>
+            <label><!-- Campaign Expectations --></label>
+            <section>Campaign Expectations</section>
+        </sections>
+        <sections>
+            <label><!-- Campaign Hierarchy Information --></label>
+            <section>Campaign Hierarchy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Campaign Monitor Statistics --></label>
+            <section>Campaign Monitor Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Giving Strategy Information --></label>
+            <section>Giving Strategy Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Generate CRN --></label>
+        <name>Generate_CRN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Sync Clever Contacts --></label>
+        <name>Sync_Clever_Contacts</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Campaign --></label>
+        <name>Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Fundraiser Campaign --></label>
+        <name>Fundraiser_Campaign</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- ViewAllCampaignMembers --></label>
+        <name>ViewAllCampaignMembers</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewCampaignInfluenceReport --></label>
+        <name>ViewCampaignInfluenceReport</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Household_Mailing_List --></label>
+        <name>npo02__Household_Mailing_List</name>
+    </webLinks>
+</CustomObjectTranslation>
