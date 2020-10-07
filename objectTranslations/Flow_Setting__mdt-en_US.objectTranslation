@@ -12,6 +12,22 @@
         <label><!-- Flow API Name --></label>
         <name>Flow_API_Name__c</name>
     </fields>
+    <fields>
+        <label><!-- Input --></label>
+        <name>Input__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Active --></label>
+        <name>Is_Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Output --></label>
+        <name>Output__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tags --></label>
+        <name>Tags__c</name>
+    </fields>
     <layouts>
         <layout>Flow Setting Layout</layout>
         <sections>

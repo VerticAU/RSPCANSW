@@ -6,4 +6,23 @@
         <field>Flow_API_Name__c</field>
         <value xsi:type="xsd:string">PURL</value>
     </values>
+    <values>
+        <field>Input__c</field>
+        <value xsi:type="xsd:string">{
+  &quot;campaignId&quot; : &quot;dto.campaignId&quot;,
+  &quot;contactId&quot; : &quot;dto.contactId&quot;
+}</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Output__c</field>
+        <value xsi:type="xsd:string">contact,campaign</value>
+    </values>
+    <values>
+        <field>Tags__c</field>
+        <value xsi:nil="true"/>
+    </values>
 </CustomMetadata>

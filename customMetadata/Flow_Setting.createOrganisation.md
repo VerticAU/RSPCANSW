@@ -6,4 +6,20 @@
         <field>Flow_API_Name__c</field>
         <value xsi:type="xsd:string">CreateOrganisation</value>
     </values>
+    <values>
+        <field>Input__c</field>
+        <value xsi:type="xsd:string">{ }</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Output__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Tags__c</field>
+        <value xsi:nil="true"/>
+    </values>
 </CustomMetadata>

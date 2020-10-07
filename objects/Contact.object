@@ -664,26 +664,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Do_Not_Mail_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Do Not Mail Reason</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Reason 1</fullName>
-                    <default>false</default>
-                    <label>Reason 1</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Do_Not_Mail_To__c</fullName>
         <externalId>false</externalId>
         <label>Do Not Mail To</label>
@@ -794,6 +774,17 @@
         <fullName>HomePhone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Image__c</fullName>
+        <externalId>false</externalId>
+        <label>Image</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>IndividualId</fullName>
@@ -1099,6 +1090,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Secondary_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Secondary Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Skype__c</fullName>
         <externalId>false</externalId>
         <label>Skype</label>
@@ -1249,13 +1252,6 @@
             </values>
             <values>
                 <fullName>Donor Request</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Do_Not_Mail_Reason__c</picklist>
-            <values>
-                <fullName>Reason 1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1660,13 +1656,6 @@
             </values>
             <values>
                 <fullName>Donor Request</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Do_Not_Mail_Reason__c</picklist>
-            <values>
-                <fullName>Reason 1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

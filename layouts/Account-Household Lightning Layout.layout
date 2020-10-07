@@ -28,6 +28,14 @@
                 <behavior>Edit</behavior>
                 <field>npo02__Informal_Greeting__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Secondary_Owner__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Do_Not_Contact__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -99,7 +107,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Do_Not_Mail_Reason__c</field>
+                <field>Do_Not_Contact_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

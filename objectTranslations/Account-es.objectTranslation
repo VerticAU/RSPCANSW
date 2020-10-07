@@ -139,16 +139,20 @@
         <relationshipLabel><!-- Estates --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Do Not Mail From --></label>
-        <name>Do_Not_Mail_From__c</name>
-    </fields>
-    <fields>
-        <label><!-- Do Not Mail Reason --></label>
-        <name>Do_Not_Mail_Reason__c</name>
+        <label><!-- Do Not Contact Reason --></label>
+        <name>Do_Not_Contact_Reason__c</name>
         <picklistValues>
             <masterLabel>Reason 1</masterLabel>
             <translation><!-- Reason 1 --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Do Not Contact --></label>
+        <name>Do_Not_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Mail From --></label>
+        <name>Do_Not_Mail_From__c</name>
     </fields>
     <fields>
         <label><!-- Do Not Mail To --></label>
@@ -203,6 +207,11 @@
         <label><!-- Previous Level --></label>
         <name>Previous_Level__c</name>
         <relationshipLabel><!-- Households (Previous Level) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Secondary Owner --></label>
+        <name>Secondary_Owner__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Skype --></label>

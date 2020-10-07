@@ -155,10 +155,6 @@
                 <field>Do_Not_Mail_To__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Do_Not_Mail_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Days_To_Birthday__c</field>
             </layoutItems>
@@ -177,6 +173,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Opportunity_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Secondary_Owner__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

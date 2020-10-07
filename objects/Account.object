@@ -482,17 +482,9 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>Do_Not_Mail_From__c</fullName>
+        <fullName>Do_Not_Contact_Reason__c</fullName>
         <externalId>false</externalId>
-        <label>Do Not Mail From</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Do_Not_Mail_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Do Not Mail Reason</label>
+        <label>Do Not Contact Reason</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
@@ -507,6 +499,22 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Do Not Contact</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Mail_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Do Not Mail From</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Do_Not_Mail_To__c</fullName>
@@ -682,6 +690,17 @@
         <fullName>Rating</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Secondary Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
@@ -878,7 +897,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Do_Not_Mail_Reason__c</picklist>
+            <picklist>Do_Not_Contact_Reason__c</picklist>
             <values>
                 <fullName>Reason 1</fullName>
                 <default>false</default>
@@ -1304,7 +1323,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Do_Not_Mail_Reason__c</picklist>
+            <picklist>Do_Not_Contact_Reason__c</picklist>
             <values>
                 <fullName>Reason 1</fullName>
                 <default>false</default>
@@ -1651,7 +1670,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Do_Not_Mail_Reason__c</picklist>
+            <picklist>Do_Not_Contact_Reason__c</picklist>
             <values>
                 <fullName>Reason 1</fullName>
                 <default>false</default>

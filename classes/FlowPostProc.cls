@@ -1,4 +1,4 @@
-public class FlowPostProc extends vertic_AbstractProcessor {
+public without sharing class FlowPostProc extends vertic_AbstractProcessor {
 
     /**
      * ==============================================================================================================
@@ -24,16 +24,15 @@ public class FlowPostProc extends vertic_AbstractProcessor {
 
     private void doSubmit() {
 
-//        Boolean isSuccess = true;
-//        Map<String, Object> responseMap = new Map<String, Object>();
-
         try {
 
             Map<String, Object> requestMap;
             Map<String, Object> payloadMap;
 
-            String flowSetting = this.request.params.get('event');
-            vertic_Utils.objects.throwIfBlank(flowSetting, '"event" URL param is required!');
+            String event = this.request.params.get('event');
+
+            String flowSetting = vertic_Utils.objects.defaultIfNull(event, this.request.params.get('flow'));
+            vertic_Utils.objects.throwIfBlank(flowSetting, '"flow" URL param is required!');
             String payloadJSON = this.request.getJSON();
 
             System.debug('payloadJSON: ' + payloadJSON);

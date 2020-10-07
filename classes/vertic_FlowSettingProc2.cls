@@ -1,4 +1,4 @@
-public class vertic_FlowSettingProc extends vertic_FlowProc {
+public class vertic_FlowSettingProc2 extends vertic_FlowProc {
 
     /**
      * ==============================================================================================================
@@ -21,13 +21,14 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
      * ==============================================================================================================
      */
 
-    private Flow_Setting__mdt flowSetting;
+    private Flow_Setting__mdt csvFlowSetting;
+    private Map<Id, Flow_Input_Format__mdt> csvFlowInputFormatMap = new Map<Id, Flow_Input_Format__mdt>();
 
     private void doSubmit() {
 
         if(this.request.has('setting')){
-            this.flowSetting = new Flow_Setting__mdt();
-            this.request.getMapper().mapToSObject('setting', this.flowSetting);
+            this.csvFlowSetting = new Flow_Setting__mdt();
+            this.request.getMapper().mapToSObject('setting', this.csvFlowSetting);
         } else {
             this.retrieveCSVFlowSetting();
         }
@@ -35,7 +36,7 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
         this.mapInputs();
         this.mapOutputs();
 
-        this.request.put('flow', this.flowSetting.Flow_API_Name__c);
+        this.request.put('flow', this.csvFlowSetting.Flow_API_Name__c);
 
         Boolean isCheckOnly = this.request.getBoolean('checkOnly') == true;
         Savepoint checkOnlySavepoint = isCheckOnly ? Database.setSavepoint() : null;
@@ -60,20 +61,29 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
 
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(Flow_Setting__mdt.SObjectType);
         queryFactory.selectFields(new Set<SObjectField>{
-            Flow_Setting__mdt.Flow_API_Name__c,
-            Flow_Setting__mdt.Input__c,
-            Flow_Setting__mdt.Output__c
+            Flow_Setting__mdt.Flow_API_Name__c
         });
+        fflib_QueryFactory mappingsSubQuery = queryFactory.subselectQuery('Flow_Mappings__r');
+        mappingsSubQuery.selectFields(new Set<SObjectField>{
+            Flow_Mapping__mdt.Source_Path__c,
+            Flow_Mapping__mdt.Flow_Input_Name__c,
+            Flow_Mapping__mdt.Default__c,
+            Flow_Mapping__mdt.Flow_Input_Format__c,
+            Flow_Mapping__mdt.Flow_Variable_Type__c,
+            Flow_Mapping__mdt.Trim_Value__c,
+            Flow_Mapping__mdt.Disregard_Blank_Value__c
+        });
+        mappingsSubQuery.setCondition('Active__c = true');
 
         if (String.isNotBlank(CSVFlowSettingId)) {
             queryFactory.setCondition('Id = :CSVFlowSettingId');
-            this.flowSetting = (Flow_Setting__mdt) vertic_Utils.arrays.firstOrException(
+            this.csvFlowSetting = (Flow_Setting__mdt) vertic_Utils.arrays.firstOrException(
                 Database.query(queryFactory.toSOQL()),
                 'No Flow_Setting__mdt with Id: ' + CSVFlowSettingId
             );
         } else if (String.isNotBlank(FlowSettingName)) {
             queryFactory.setCondition('DeveloperName = :FlowSettingName');
-            this.flowSetting = (Flow_Setting__mdt) vertic_Utils.arrays.firstOrException(
+            this.csvFlowSetting = (Flow_Setting__mdt) vertic_Utils.arrays.firstOrException(
                 Database.query(queryFactory.toSOQL()),
                 'No Flow_Setting__mdt with API Name: ' + FlowSettingName
             );
@@ -81,16 +91,27 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
             throw new vertic_Structs.MissingDataException('No Flow Setting parameter. Please use the "settingId" or "setting" to setup the Flow_Setting__mdt for processing.');
         }
 
+        Set<Id> flowInputFormatIds = vertic_Utils.sObjects.getIdFieldValues(this.csvFlowSetting.Flow_Mappings__r, Flow_Mapping__mdt.Flow_Input_Format__c);
+        this.csvFlowInputFormatMap = new Map<Id, Flow_Input_Format__mdt>([
+            SELECT Id, DeveloperName, Type__c, Format__c, True_Values__c
+            FROM Flow_Input_Format__mdt
+            WHERE Id IN :flowInputFormatIds
+        ]);
+
     }
 
     private void mapInputs(){
         Map<String, Object> inputsMap = (Map<String, Object>) this.request.get('inputs');
-        Map<String, Object> flowSettingInputMap = (Map<String, Object>) JSON.deserializeUntyped(this.flowSetting.Input__c);
+        List<Flow_Mapping__mdt> csvFlowMappings = this.csvFlowSetting.Flow_Mappings__r;
+        if(csvFlowMappings == null){
+            csvFlowMappings = new List<Flow_Mapping__mdt>();
+        }
 
-        Map<String, Object> mappedInputs = mapFlowInputs(inputsMap, flowSettingInputMap);
+        Map<String, Object> mappedInputs = mapFlowInputs(inputsMap, csvFlowMappings, this.csvFlowInputFormatMap);
+
 
         System.debug('inputsMap: ' + inputsMap);
-        System.debug('csvFlowMappings: ' + flowSettingInputMap);
+        System.debug('csvFlowMappings: ' + csvFlowMappings);
         System.debug('mappedInputs: ' + mappedInputs);
 
 //        hey.Logger.debug('mappedInputs');
@@ -100,10 +121,16 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
     }
 
     private void mapOutputs(){
-        String outputStr = this.flowSetting.Output__c;
+        List<Flow_Mapping__mdt> csvFlowMappings = this.csvFlowSetting.Flow_Mappings__r;
+        if(csvFlowMappings == null){
+            csvFlowMappings = new List<Flow_Mapping__mdt>();
+        }
+
         List<String> outputVariables = new List<String>();
-        if(String.isNotBlank(outputStr)){
-            outputVariables.addAll(outputStr.split(','));
+        for (Flow_Mapping__mdt csvFlowMappingVar : csvFlowMappings) {
+            if('Output'.equalsIgnoreCase(csvFlowMappingVar.Flow_Variable_Type__c)){
+                outputVariables.add(csvFlowMappingVar.Flow_Input_Name__c);
+            }
         }
 
         System.debug('outputVariables');
@@ -113,84 +140,55 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
     }
 
     @TestVisible
-    //{a: 1, b:2}
-    //{a: inoutAVar, b: inputVarB}
-    //{inoutAVar: 1, inputVarB: 2}
-    private static Map<String, Object> mapFlowInputs(Map<String, Object> inputsMap, Map<String, Object> flowSettingInputMap){
+    private static Map<String, Object> mapFlowInputs(Map<String, Object> inputsMap, List<Flow_Mapping__mdt> csvFlowMappings, Map<Id, Flow_Input_Format__mdt> csvFlowInputFormatMap){
 
         vertic_DTO inputDTO = new vertic_DTO(inputsMap);
         Map<String, Object> mappedInputsMap = new Map<String, Object>();
 
-        for (String inputVarName : flowSettingInputMap.keySet()) {
-            String inputName = inputVarName;
+        for (Flow_Mapping__mdt csvFlowMappingVar : csvFlowMappings) {
+            String columnName = csvFlowMappingVar.Source_Path__c;
+            String inputName = csvFlowMappingVar.Flow_Input_Name__c;
+            Flow_Input_Format__mdt inputFormat = csvFlowInputFormatMap.get(csvFlowMappingVar.Flow_Input_Format__c);
 
-            String valuePath;
-
-            Object inputSetting = flowSettingInputMap.get(inputVarName);
-            vertic_DTO inputSettingDTO;
-            if(inputSetting instanceof String){
-                valuePath = (String)inputSetting;
-                inputSettingDTO = new vertic_DTO();
-            } else {
-                inputSettingDTO = new vertic_DTO((Map<String, Object>) inputSetting);
-                valuePath = inputSettingDTO.getRequiredString('path');
-            }
-
-            final Object inputDefault = inputSettingDTO.getString('default');
-            final Boolean isTrimValue = inputSettingDTO.has('trimValue') != true ? true : inputSettingDTO.getBoolean('trimValue') == true;
-            final Boolean disregardBlankValue = inputSettingDTO.has('disregardBlankValue') != true ? true : inputSettingDTO.getBoolean('disregardBlankValue') == true;
-            
-            final String inputType = inputSettingDTO.getString('type');
-
-            System.debug('valuePath: ' + valuePath);
-
-            Object value = inputDTO.get(valuePath);
+            Object value = inputDTO.get(columnName);
             //inputsMap.remove(columnName);
 
-            if(vertic_Utils.objects.isBlankValue(value) && inputDefault != null){
-                value = inputDefault;
+            if(vertic_Utils.objects.isBlankValue(value) && String.isNotBlank(csvFlowMappingVar.Default__c)){
+                value = csvFlowMappingVar.Default__c;
             }
 
-            if(value instanceof String && value != null && isTrimValue == true){
+            if(value instanceof String && value != null && csvFlowMappingVar.Trim_Value__c == true){
                 value = ((String)value).trim();
             }
 
-            if(disregardBlankValue == true && vertic_Utils.objects.isBlankValue(value)){
+            if(csvFlowMappingVar.Disregard_Blank_Value__c == true && vertic_Utils.objects.isBlankValue(value)){
                 continue;
             }
 
-            if (String.isNotBlank(inputType)) {
+            if (inputFormat != null) {
 
-                if ('Date'.equalsIgnoreCase(inputType)) {
+                if ('Date'.equalsIgnoreCase(inputFormat.Type__c)) {
                     String valueStr = value instanceof String ? (String) value : null;
-                    String dateFormat = inputSettingDTO.getString('format');
-                    if(String.isBlank(dateFormat) || 'ISO'.equalsIgnoreCase(dateFormat)){
-                        dateFormat = 'yyyy-MM-dd';
-                    }
                     Date dateVar = String.isBlank(valueStr) ? null :
-                        String.isBlank(dateFormat) ?
+                        String.isBlank(inputFormat.Format__c) ?
                             vertic_Utils.dates.parseDateAusFormat(valueStr) :
-                            vertic_Utils.dates.parseDateAnyFormat(valueStr, dateFormat);
+                            vertic_Utils.dates.parseDateAnyFormat(valueStr, inputFormat.Format__c);
 
                     value = dateVar == null ? null : vertic_Utils.dates.dateToDateTime(dateVar).format('YYYY-MM-dd');
-                } else if ('Datetime'.equalsIgnoreCase(inputType)) {
+                } else if ('Datetime'.equalsIgnoreCase(inputFormat.Type__c)) {
                     String valueStr = value instanceof String ? (String) value : null;
-                    String dateFormat = inputSettingDTO.getString('format');
-                    if(String.isBlank(dateFormat) || 'ISO'.equalsIgnoreCase(dateFormat)){
-                        dateFormat = 'yyyy-MM-dd';
-                    }
                     DateTime dateTimeVar = String.isBlank(valueStr) ? null :
-                        String.isBlank(dateFormat) ?
+                        String.isBlank(inputFormat.Format__c) ?
                             vertic_Utils.dates.parseDatetimeAusFormat(valueStr) :
-                            vertic_Utils.dates.parseDatetimeAnyFormat(valueStr, dateFormat);
+                            vertic_Utils.dates.parseDatetimeAnyFormat(valueStr, inputFormat.Format__c);
 
                     value = dateTimeVar == null ? null : dateTimeVar.format('YYYY-MM-dd');
-                } else if ('Boolean'.equalsIgnoreCase(inputType)){
+                } else if ('Boolean'.equalsIgnoreCase(inputFormat.Type__c)){
 
                     String valueStr = value instanceof String ? (String) value : null;
 
                     if(valueStr != null){
-                        String trueValuesStr = vertic_Utils.objects.defaultIfNull(inputSettingDTO.getString('trueValues'), 'true,yes,1');
+                        String trueValuesStr = vertic_Utils.objects.defaultIfNull(inputFormat.True_Values__c, 'true,yes,1');
                         List<String> trueValues = trueValuesStr.split(',');
                         Set<String> trueValuesFormatted = new Set<String>();
                         for (String val : trueValues) {
@@ -215,7 +213,7 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
      * ==============================================================================================================
      */
 
-    // Proposed Live Templates to override Super properties:
+    // Proposed Live Templates to override Super properties: 
     // vertic_request
     // vertic_response
 

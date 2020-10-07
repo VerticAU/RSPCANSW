@@ -118,14 +118,6 @@
         <name>Do_Not_Mail_From__c</name>
     </fields>
     <fields>
-        <label><!-- Do Not Mail Reason --></label>
-        <name>Do_Not_Mail_Reason__c</name>
-        <picklistValues>
-            <masterLabel>Reason 1</masterLabel>
-            <translation><!-- Reason 1 --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Do Not Mail To --></label>
         <name>Do_Not_Mail_To__c</name>
     </fields>
@@ -164,6 +156,10 @@
     <fields>
         <label><!-- Greeting --></label>
         <name>Greeting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Image --></label>
+        <name>Image__c</name>
     </fields>
     <fields>
         <label><!-- Instagram --></label>
@@ -299,6 +295,11 @@
     <fields>
         <label><!-- Previous Names --></label>
         <name>Previous_Names__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Owner --></label>
+        <name>Secondary_Owner__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Skype --></label>

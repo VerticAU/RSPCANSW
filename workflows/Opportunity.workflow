@@ -200,6 +200,31 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Membership Enrolled</fullName>
+        <actions>
+            <name>Send_HEA_Welcome_Pack</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Membership</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Membership_Type__c</field>
+            <operation>equals</operation>
+            <value>Home Ever After</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Enrolled</value>
+        </criteriaItems>
+        <description>When Home Ever After Membership is confirmed a task should be triggered for the Bequest Administration Team to send Welcome Pack to the contact</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>OppEstateAccountCreatedDateGreater_200</fullName>
         <active>false</active>
         <criteriaItems>
@@ -495,6 +520,18 @@
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Pending Bequest</subject>
+    </tasks>
+    <tasks>
+        <fullName>Send_HEA_Welcome_Pack</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send HEA Welcome Pack</subject>
     </tasks>
     <tasks>
         <fullName>Send_Proposal</fullName>

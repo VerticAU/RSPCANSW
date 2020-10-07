@@ -6,4 +6,22 @@
         <field>Flow_API_Name__c</field>
         <value xsi:type="xsd:string">Get_Member</value>
     </values>
+    <values>
+        <field>Input__c</field>
+        <value xsi:type="xsd:string">{
+  &quot;membershipId&quot; : &quot;dto.membershipId&quot;
+}</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Output__c</field>
+        <value xsi:type="xsd:string">contact</value>
+    </values>
+    <values>
+        <field>Tags__c</field>
+        <value xsi:nil="true"/>
+    </values>
 </CustomMetadata>

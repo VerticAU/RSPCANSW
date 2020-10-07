@@ -93,6 +93,10 @@
                 <behavior>Edit</behavior>
                 <field>Create_New_Task_For_Birthday_Card__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Secondary_Owner__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -274,10 +278,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Do_Not_Mail__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Do_Not_Mail_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

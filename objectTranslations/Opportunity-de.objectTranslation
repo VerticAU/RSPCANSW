@@ -1453,6 +1453,11 @@
         <subject><!-- Pending Bequest --></subject>
     </workflowTasks>
     <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_HEA_Welcome_Pack</name>
+        <subject><!-- Send HEA Welcome Pack --></subject>
+    </workflowTasks>
+    <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Corporate Relationships Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Send sponsorship proposal for upcoming campaign&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Send_Proposal</name>
         <subject><!-- Send Proposal --></subject>

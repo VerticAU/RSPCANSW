@@ -32,6 +32,14 @@
         <name>Delivery_Mode__c</name>
     </fields>
     <fields>
+        <label><!-- Preference From --></label>
+        <name>Preference_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preference To --></label>
+        <name>Preference_To__c</name>
+    </fields>
+    <fields>
         <label><!-- Reason Opted In --></label>
         <name>Reason_Opted_In__c</name>
     </fields>
