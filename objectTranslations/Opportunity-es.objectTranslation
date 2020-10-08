@@ -43,6 +43,10 @@
         <name>Bequest_Percentage__c</name>
     </fields>
     <fields>
+        <label><!-- Campaing Id (Include CCD) --></label>
+        <name>Campaing_Id_Include_CCD__c</name>
+    </fields>
+    <fields>
         <label><!-- Cheque Number --></label>
         <name>Cheque_Number__c</name>
     </fields>
@@ -1448,6 +1452,11 @@
         <subject><!-- Email Donor --></subject>
     </workflowTasks>
     <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Major Giving Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Donor has donated $1000 or more in a single transaction&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Major_Donor_Thank_you_Call</name>
+        <subject><!-- Major Donor Thank you Call --></subject>
+    </workflowTasks>
+    <workflowTasks>
         <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Estate Administration Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;A year since Bequestor marked deceased, please update the Bequest&quot;} --></description>
         <name>Pending_Bequest</name>
         <subject><!-- Pending Bequest --></subject>
@@ -1475,6 +1484,11 @@
     <workflowTasks>
         <name>Test</name>
         <subject><!-- Test --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Corporate Fundraising Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Donor has donated $200 or more to a CCD fundraiser &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Thank_CCD_Donor</name>
+        <subject><!-- Thank CCD Donor --></subject>
     </workflowTasks>
     <workflowTasks>
         <description><!-- {&quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Grant Awarded&quot;, &quot;Skip_WhoId__c&quot;: &quot;true&quot;} --></description>

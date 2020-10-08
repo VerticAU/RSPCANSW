@@ -91,6 +91,65 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Donation %3D %3E %24200 to a CCD fundraiser</fullName>
+        <actions>
+            <name>Thank_CCD_Donor</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Donation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Amount</field>
+            <operation>greaterOrEqual</operation>
+            <value>200</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Campaing_Id_Include_CCD__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Contact donates = &gt; $200 that is attributed to Fundraiser Campaign where ParentID contains Cupcake Day</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Amount %3E%3D%241000</fullName>
+        <actions>
+            <name>Major_Donor_Thank_you_Call</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3 AND 4 AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Email__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Phone__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Amount</field>
+            <operation>greaterOrEqual</operation>
+            <value>1000</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed Won</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Donation</value>
+        </criteriaItems>
+        <description>Donation with Amount &gt;=$1000</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>Donation Amount is greater than %24500 but less than %24999</fullName>
         <actions>
             <name>Call_Donor</name>
@@ -223,6 +282,16 @@
         </criteriaItems>
         <description>When Home Ever After Membership is confirmed a task should be triggered for the Bequest Administration Team to send Welcome Pack to the contact</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Membership Renewal</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Membership</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>OppEstateAccountCreatedDateGreater_200</fullName>
@@ -510,6 +579,18 @@
         <subject>Email Donor</subject>
     </tasks>
     <tasks>
+        <fullName>Major_Donor_Thank_you_Call</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;Major Giving Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Donor has donated $1000 or more in a single transaction&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Major Donor Thank you Call</subject>
+    </tasks>
+    <tasks>
         <fullName>Pending_Bequest</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
@@ -528,7 +609,7 @@
         <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>High</priority>
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Send HEA Welcome Pack</subject>
@@ -578,6 +659,18 @@
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Test</subject>
+    </tasks>
+    <tasks>
+        <fullName>Thank_CCD_Donor</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;Corporate Fundraising Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Donor has donated $200 or more to a CCD fundraiser &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Thank CCD Donor</subject>
     </tasks>
     <tasks>
         <fullName>Thank_you_Call</fullName>

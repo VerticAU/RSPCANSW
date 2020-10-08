@@ -3,8 +3,8 @@
     <assignments>
         <name>Donation_Assigment</name>
         <label>Donation Assigment</label>
-        <locationX>2422</locationX>
-        <locationY>1058</locationY>
+        <locationX>2623</locationX>
+        <locationY>1126</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -96,8 +96,8 @@
     <assignments>
         <name>Donation_Assigment_organisation_name_null</name>
         <label>Donation Assigment (organisation name null)</label>
-        <locationX>2378</locationX>
-        <locationY>1217</locationY>
+        <locationX>2614</locationX>
+        <locationY>1273</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -189,8 +189,8 @@
     <assignments>
         <name>Membership_Assignment</name>
         <label>Membership Assignment</label>
-        <locationX>1741</locationX>
-        <locationY>702</locationY>
+        <locationX>1744</locationX>
+        <locationY>698</locationY>
         <assignmentItems>
             <assignToReference>membership.Name</assignToReference>
             <operator>Assign</operator>
@@ -289,8 +289,8 @@
     <assignments>
         <name>Output_Assignment</name>
         <label>Output Assignment</label>
-        <locationX>2628</locationX>
-        <locationY>691</locationY>
+        <locationX>2751</locationX>
+        <locationY>698</locationY>
         <assignmentItems>
             <assignToReference>opportunityId</assignToReference>
             <operator>Assign</operator>
@@ -323,8 +323,8 @@
     <assignments>
         <name>Output_Assignment_0</name>
         <label>Output Assignment</label>
-        <locationX>2627</locationX>
-        <locationY>843</locationY>
+        <locationX>2752</locationX>
+        <locationY>872</locationY>
         <assignmentItems>
             <assignToReference>donationId</assignToReference>
             <operator>Assign</operator>
@@ -346,8 +346,8 @@
     <decisions>
         <name>Donation_Amount</name>
         <label>Donation Amount</label>
-        <locationX>2193</locationX>
-        <locationY>707</locationY>
+        <locationX>2404</locationX>
+        <locationY>700</locationY>
         <defaultConnector>
             <targetReference>Get_Donation_Record</targetReference>
         </defaultConnector>
@@ -378,8 +378,8 @@
     <decisions>
         <name>Organisation_Name_For_Donation</name>
         <label>Organisation Name For  Donation</label>
-        <locationX>2193</locationX>
-        <locationY>1027</locationY>
+        <locationX>2410</locationX>
+        <locationY>1066</locationY>
         <defaultConnector>
             <targetReference>Donation_Assigment</targetReference>
         </defaultConnector>
@@ -443,8 +443,8 @@
     <recordCreates>
         <name>Create_Donation</name>
         <label>Create Donation</label>
-        <locationX>2625</locationX>
-        <locationY>1209</locationY>
+        <locationX>2752</locationX>
+        <locationY>1217</locationY>
         <connector>
             <targetReference>Create_Payment</targetReference>
         </connector>
@@ -453,18 +453,18 @@
     <recordCreates>
         <name>Create_Membership</name>
         <label>Create Membership</label>
-        <locationX>1860</locationX>
-        <locationY>702</locationY>
+        <locationX>1886</locationX>
+        <locationY>698</locationY>
         <connector>
-            <targetReference>Get_All_Fields</targetReference>
+            <targetReference>Update_Contact</targetReference>
         </connector>
         <inputReference>membership</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_All_Fields</name>
         <label>Get All Fields</label>
-        <locationX>1990</locationX>
-        <locationY>702</locationY>
+        <locationX>2146</locationX>
+        <locationY>698</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Campaign</targetReference>
@@ -483,8 +483,8 @@
     <recordLookups>
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
-        <locationX>2092</locationX>
-        <locationY>704</locationY>
+        <locationX>2266</locationX>
+        <locationY>698</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Amount</targetReference>
@@ -503,8 +503,8 @@
     <recordLookups>
         <name>Get_contact_organisation</name>
         <label>Get contact organisation</label>
-        <locationX>2201</locationX>
-        <locationY>1217</locationY>
+        <locationX>2418</locationX>
+        <locationY>1273</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Assigment_organisation_name_null</targetReference>
@@ -523,8 +523,8 @@
     <recordLookups>
         <name>Get_Donation_Record</name>
         <label>Get Donation Record</label>
-        <locationX>2201</locationX>
-        <locationY>873</locationY>
+        <locationX>2416</locationX>
+        <locationY>880</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Organisation_Name_For_Donation</targetReference>
@@ -557,8 +557,8 @@
     <recordLookups>
         <name>Get_Record_Type</name>
         <label>Get Record Type</label>
-        <locationX>1616</locationX>
-        <locationY>702</locationY>
+        <locationX>1607</locationX>
+        <locationY>698</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Membership_Assignment</targetReference>
@@ -581,6 +581,35 @@
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Update_Contact</name>
+        <label>Update Contact</label>
+        <locationX>2019</locationX>
+        <locationY>699</locationY>
+        <connector>
+            <targetReference>Get_All_Fields</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Active_Membership__c</field>
+            <value>
+                <elementReference>membership.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Birthdate</field>
+            <value>
+                <elementReference>contactbirthday</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
     <start>
         <locationX>1247</locationX>
         <locationY>413</locationY>
@@ -588,7 +617,7 @@
             <targetReference>Organisation_Null</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
@@ -710,8 +739,8 @@
     <subflows>
         <name>Create_Payment</name>
         <label>Create Payment</label>
-        <locationX>2627</locationX>
-        <locationY>1006</locationY>
+        <locationX>2752</locationX>
+        <locationY>1034</locationY>
         <connector>
             <targetReference>Output_Assignment_0</targetReference>
         </connector>

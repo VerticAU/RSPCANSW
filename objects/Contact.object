@@ -366,6 +366,28 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Active_Membership__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Active Membership</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Opportunity.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Membership</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Contacts (Active membership)</relationshipLabel>
+        <relationshipName>Contacts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Active_Memberships_Count__c</fullName>
         <externalId>false</externalId>
         <label>Active Memberships Count</label>

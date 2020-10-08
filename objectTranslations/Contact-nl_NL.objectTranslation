@@ -13,6 +13,11 @@
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
     <fields>
+        <label><!-- Active Membership --></label>
+        <name>Active_Membership__c</name>
+        <relationshipLabel><!-- Contacts (Active membership) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Active Memberships Count --></label>
         <name>Active_Memberships_Count__c</name>
     </fields>

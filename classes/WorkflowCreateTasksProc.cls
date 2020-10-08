@@ -66,7 +66,9 @@ public class WorkflowCreateTasksProc extends vertic_AbstractProcessor implements
             }
 
             this.setWhatAndWhoIds(task, payload);
-            task.ActivityDate = WorkflowService.calcActivityDate(Integer.valueOf(task.Activity_Days__c));
+            System.debug('before - task.ActivityDate: ' + task.ActivityDate);
+            task.ActivityDate = task.Activity_Days__c == null ? task.ActivityDate : WorkflowService.calcActivityDate(Integer.valueOf(task.Activity_Days__c));
+            System.debug('after - task.ActivityDate: ' + task.ActivityDate);
 
             if (task.Group_Key__c == null && String.isNotBlank(task.Group_Name__c) && this.groupMemberMap.containsKey(task.Group_Name__c)) {
 

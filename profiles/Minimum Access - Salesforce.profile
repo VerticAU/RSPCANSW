@@ -1558,6 +1558,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.Active_Membership__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.Active_Memberships_Count__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3155,6 +3160,11 @@
         <editable>false</editable>
         <field>Opportunity.CampaignId</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Campaing_Id_Include_CCD__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
