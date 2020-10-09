@@ -98,8 +98,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Status__c</fields>
-        <fields>Contact.CNTC_FIRST_NAME</fields>
-        <fields>Contact.NAME</fields>
+        <fields>Contact__c</fields>
         <relatedList>Communication_List__c.Communication__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

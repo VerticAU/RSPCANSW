@@ -328,7 +328,7 @@
         <fullName>Membership</fullName>
         <isActive>true</isActive>
         <values>
-            <fullName>Cultivation</fullName>
+            <fullName>Closed Won</fullName>
             <default>false</default>
         </values>
         <values>
@@ -340,7 +340,19 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Withdrawn</fullName>
+            <fullName>Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pledged</fullName>
             <default>false</default>
         </values>
     </businessProcesses>
@@ -581,6 +593,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Animal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Animal</label>
+        <referenceTo>Animal__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Bequest_Conditions__c</fullName>
         <description>Indicates any specific conditions or items associated with the Bequest</description>
         <externalId>false</externalId>
@@ -746,6 +772,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>ExpectedRevenue</fullName>
@@ -1107,9 +1143,73 @@
         <type>AutoNumber</type>
     </fields>
     <fields>
-        <fullName>Membership_Source__c</fullName>
+        <fullName>Membership_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Membership Source</label>
+        <label>Membership Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RSPCA NSW Membership</fullName>
+                    <default>false</default>
+                    <label>RSPCA NSW Membership</label>
+                </value>
+                <value>
+                    <fullName>Home Ever After</fullName>
+                    <default>false</default>
+                    <label>Home Ever After</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Net_Profit_Loss__c</fullName>
+        <externalId>false</externalId>
+        <formula>Amount -  Transfer_Value__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Profit/Loss</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>NextStep</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Number_of_Tickets_Purchased__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Tickets Purchased</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Source</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1291,70 +1391,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Membership_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Membership Type</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>RSPCA NSW Membership</fullName>
-                    <default>false</default>
-                    <label>RSPCA NSW Membership</label>
-                </value>
-                <value>
-                    <fullName>Home Ever After</fullName>
-                    <default>false</default>
-                    <label>Home Ever After</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-    </fields>
-    <fields>
-        <fullName>Net_Profit_Loss__c</fullName>
-        <externalId>false</externalId>
-        <formula>Amount -  Transfer_Value__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Net Profit/Loss</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>NextStep</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-    </fields>
-    <fields>
-        <fullName>Number_of_Tickets_Purchased__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of Tickets Purchased</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -1585,6 +1621,16 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Sum_Bequest_Opp_Amount_Outstanding__c</fullName>
@@ -2025,7 +2071,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -2160,17 +2217,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2551,7 +2597,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -2686,17 +2743,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3005,7 +3051,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -3140,17 +3197,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3538,7 +3584,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -3673,17 +3730,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4095,7 +4141,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -4230,17 +4287,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4563,7 +4609,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -4698,17 +4755,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5120,7 +5166,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -5255,17 +5312,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5618,7 +5664,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -5753,17 +5810,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6086,7 +6132,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -6221,17 +6278,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6555,7 +6601,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -6690,17 +6747,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7017,7 +7063,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -7152,17 +7209,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7551,7 +7597,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -7686,17 +7743,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8085,7 +8131,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -8220,17 +8277,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8619,7 +8665,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -8754,17 +8811,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9153,7 +9199,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Membership_Source__c</picklist>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
             <values>
                 <fullName>Adoption pack</fullName>
                 <default>false</default>
@@ -9288,17 +9345,6 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Membership_Type__c</picklist>
-            <values>
-                <fullName>Home Ever After</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSPCA NSW Membership</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -865,64 +865,6 @@
         <name>npsp_plus__Years_of_Support__c</name>
     </fields>
     <layouts>
-        <layout>Animal Page Layout</layout>
-        <sections>
-            <label>פרטי איש קשר</label>
-            <section>Contact Details</section>
-        </sections>
-        <sections>
-            <label><!-- Contact Preferences --></label>
-            <section>Contact Preferences</section>
-        </sections>
-        <sections>
-            <label>כתובת משק הבית</label>
-            <section>Household Address</section>
-        </sections>
-        <sections>
-            <label>פרטי תרומת משק הבית</label>
-            <section>Household Donation Info</section>
-        </sections>
-        <sections>
-            <label>פרטי חברות</label>
-            <section>Membership Information</section>
-        </sections>
-        <sections>
-            <label><!-- Social Media --></label>
-            <section>Social Media</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Contact Lightning Layout</layout>
-        <sections>
-            <label>פרטי איש קשר</label>
-            <section>Contact Details</section>
-        </sections>
-        <sections>
-            <label>פרטי תרומה</label>
-            <section>Donation Information</section>
-        </sections>
-        <sections>
-            <label>סכומי תרומה כוללים</label>
-            <section>Donation Totals</section>
-        </sections>
-        <sections>
-            <label>כתובת משק הבית</label>
-            <section>Household Address</section>
-        </sections>
-        <sections>
-            <label>פרטי תרומת משק הבית</label>
-            <section>Household Donation Info</section>
-        </sections>
-        <sections>
-            <label>פרטי חברות</label>
-            <section>Membership Information</section>
-        </sections>
-        <sections>
-            <label><!-- Soft Credit Total --></label>
-            <section>Soft Credit Total</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Fundraising Contact Page Layout</layout>
         <sections>
             <label><!-- BPAY Details --></label>
@@ -1009,11 +951,6 @@
         <label><!-- Update Bequestor --></label>
         <name>Update_Bequestor</name>
     </quickActions>
-    <recordTypes>
-        <description><!-- Use this record type to capture animal details --></description>
-        <label><!-- Animal --></label>
-        <name>Animal</name>
-    </recordTypes>
     <recordTypes>
         <description><!-- Record Type used to capture details about a RSPCA supporter. --></description>
         <label><!-- Individual --></label>

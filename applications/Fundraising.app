@@ -1906,14 +1906,15 @@
     <tabs>standard-Contact</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>Animal__c</tabs>
     <tabs>standard-Campaign</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>npe03__Recurring_Donation__c</tabs>
     <tabs>npsp__Batch_Gift_Entry</tabs>
     <tabs>npsp_plus__Bulk_Receipting</tabs>
+    <tabs>Communication__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
-    <tabs>Communication__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Fundraising_UtilityBar</utilityBar>
 </CustomApplication>

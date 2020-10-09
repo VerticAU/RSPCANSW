@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Membership_Renewal_Notification</fullName>
+        <description>Membership Renewal Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>npsp__Primary_Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>npsp__NPSP_Email_Templates/npsp__NPSP_Opportunity_Acknowledgment</template>
+    </alerts>
+    <alerts>
         <fullName>npsp__Opportunity_Email_Acknowledgment</fullName>
         <description>Opportunity Email Acknowledgment</description>
         <protected>false</protected>
@@ -11,6 +22,33 @@
         <senderType>CurrentUser</senderType>
         <template>npsp__NPSP_Email_Templates/npsp__NPSP_Opportunity_Acknowledgment</template>
     </alerts>
+    <fieldUpdates>
+        <fullName>Membership_Stage_Enrolled</fullName>
+        <field>StageName</field>
+        <literalValue>Enrolled</literalValue>
+        <name>Membership Stage Enrolled</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Membership_Stage_Expired</fullName>
+        <field>StageName</field>
+        <literalValue>Expired</literalValue>
+        <name>Membership Stage Expired</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Membership_Stage_Pending_Renewal</fullName>
+        <field>StageName</field>
+        <literalValue>Pending Renewal</literalValue>
+        <name>Membership Stage Pending Renewal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>npsp__Opportunity_AcknowledgmentStatus_Update</fullName>
         <description>Sets the Acknowledgment Status to &quot;Acknowledged&quot;</description>
@@ -284,14 +322,80 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Membership Expired</fullName>
+        <active>true</active>
+        <formula>AND(
+    RecordType.DeveloperName = &apos;Membership&apos;,
+    npsp__Primary_Contact__r.Active_Membership__c = Id,
+    ISPICKVAL(StageName, &apos;Pending Renewal&apos;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Membership_Stage_Expired</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Opportunity.npe01__Membership_End_Date__c</offsetFromField>
+            <timeLength>28</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Membership Pending Renewal</fullName>
+        <active>true</active>
+        <formula>AND(
+    RecordType.DeveloperName = &apos;Membership&apos;,
+    npsp__Primary_Contact__r.Active_Membership__c = Id,
+    ISPICKVAL(StageName, &apos;Enrolled&apos;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Membership_Stage_Pending_Renewal</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Opportunity.npe01__Membership_End_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Membership Renewal</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Opportunity.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Membership</value>
-        </criteriaItems>
+        <active>true</active>
+        <formula>AND(
+    RecordType.DeveloperName = &apos;Membership&apos;,
+    ISPICKVAL( StageName , &apos;Pending&apos;) ,
+    npsp__Primary_Contact__r.Active_Membership__c &lt;&gt; Id 
+)</formula>
         <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Membership_Stage_Enrolled</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Opportunity.npe01__Membership_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Membership Renewal Email</fullName>
+        <active>true</active>
+        <formula>AND(
+    RecordType.DeveloperName = &apos;Membership&apos;,
+    npsp__Primary_Contact__r.Active_Membership__c = Id,
+    ISPICKVAL(StageName, &apos;Enrolled&apos;)
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Membership_Renewal_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity.npe01__Membership_End_Date__c</offsetFromField>
+            <timeLength>-7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>OppEstateAccountCreatedDateGreater_200</fullName>

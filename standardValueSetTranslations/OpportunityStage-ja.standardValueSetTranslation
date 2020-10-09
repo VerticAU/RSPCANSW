@@ -41,6 +41,10 @@
         <translation><!-- Enrolled --></translation>
     </valueTranslation>
     <valueTranslation>
+        <masterLabel>Expired</masterLabel>
+        <translation><!-- Expired --></translation>
+    </valueTranslation>
+    <valueTranslation>
         <masterLabel>Identification</masterLabel>
         <translation>特定</translation>
     </valueTranslation>
@@ -71,6 +75,14 @@
     <valueTranslation>
         <masterLabel>Negotiation/Review</masterLabel>
         <translation><!-- Negotiation/Review --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pending Renewal</masterLabel>
+        <translation><!-- Pending Renewal --></translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Pledged</masterLabel>

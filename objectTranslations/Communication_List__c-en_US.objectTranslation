@@ -32,6 +32,10 @@
         <name>Delivery_Mode__c</name>
     </fields>
     <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
         <label><!-- Preference From --></label>
         <name>Preference_From__c</name>
     </fields>
