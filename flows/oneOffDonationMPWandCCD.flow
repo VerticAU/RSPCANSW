@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignments>
-        <name>CCD</name>
-        <label>CCD</label>
-        <locationX>1939</locationX>
-        <locationY>976</locationY>
-        <assignmentItems>
-            <assignToReference>campaingId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Parent_Campaing_Cup_Cake.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Get_Donation_Record_Type</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Donation_Assigment</name>
         <label>Donation Assigment</label>
-        <locationX>2234</locationX>
-        <locationY>731</locationY>
+        <locationX>1976</locationX>
+        <locationY>722</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -74,7 +58,7 @@
             <assignToReference>donation.CampaignId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>campaingId</elementReference>
+                <elementReference>Get_Campaign.campaign.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -88,28 +72,35 @@
             <assignToReference>donation.UTM_Ad_Content__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>donationUTMLink</elementReference>
+                <elementReference>utmAdContent</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>donation.UTM_Source__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>donationUTMSource</elementReference>
+                <elementReference>utmSource</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>donation.UTM_Medium__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Campaign.npsp_plus__Channel__c</elementReference>
+                <elementReference>utmMedium</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>donation.UTM_Campaign__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Campaign.Name</elementReference>
+                <elementReference>utmCampaign</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.Test_Variant__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTestVariant</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -117,26 +108,23 @@
         </connector>
     </assignments>
     <assignments>
-        <name>MPW</name>
-        <label>MPW</label>
-        <locationX>1938</locationX>
-        <locationY>489</locationY>
+        <name>HandleFlowFaultMessage</name>
+        <label>HandleFlowFaultMessage</label>
+        <locationX>1201</locationX>
+        <locationY>988</locationY>
         <assignmentItems>
-            <assignToReference>campaingId</assignToReference>
+            <assignToReference>FlowFaultMessage</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Campaing_Parent_Million_Paws_Walk.Id</elementReference>
+                <elementReference>$Flow.FaultMessage</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Get_Donation_Record_Type</targetReference>
-        </connector>
     </assignments>
     <assignments>
         <name>Output</name>
         <label>Output Assigment</label>
-        <locationX>2535</locationX>
-        <locationY>732</locationY>
+        <locationX>2539</locationX>
+        <locationY>722</locationY>
         <assignmentItems>
             <assignToReference>donationId</assignToReference>
             <operator>Assign</operator>
@@ -165,9 +153,6 @@
                 <elementReference>donation.Receipt_Number__c</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Create_Payment</targetReference>
-        </connector>
     </assignments>
     <decisions>
         <name>Organisation_Null</name>
@@ -194,46 +179,6 @@
             <label>Organisation Name ( Null)</label>
         </rules>
     </decisions>
-    <decisions>
-        <name>Parent_Campaign</name>
-        <label>Parent Campaign</label>
-        <locationX>1471</locationX>
-        <locationY>735</locationY>
-        <defaultConnector>
-            <targetReference>Get_Donation_Record_Type</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Million_Paws_Walk</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>campaingParent</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>MPW</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Campaing_Parent_Million_Paws_Walk</targetReference>
-            </connector>
-            <label>Million Paws Walk</label>
-        </rules>
-        <rules>
-            <name>Cup_Cake_Day</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>campaingParent</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>CCD</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Parent_Campaing_Cup_Cake</targetReference>
-            </connector>
-            <label>Cup Cake Day</label>
-        </rules>
-    </decisions>
     <interviewLabel>One off donation (MPW and CCD) {!$Flow.CurrentDateTime}</interviewLabel>
     <label>One off donation (MPW and CCD)</label>
     <processMetadataValues>
@@ -252,62 +197,28 @@
     <recordCreates>
         <name>Create_Donation</name>
         <label>Create Donation</label>
-        <locationX>2385</locationX>
-        <locationY>733</locationY>
+        <locationX>2202</locationX>
+        <locationY>723</locationY>
         <connector>
-            <targetReference>Output</targetReference>
+            <targetReference>Create_Payment</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>HandleFlowFaultMessage</targetReference>
+        </faultConnector>
         <inputReference>donation</inputReference>
     </recordCreates>
     <recordLookups>
-        <name>Campaing_Parent_Million_Paws_Walk</name>
-        <label>Campaing Parent Million Paws Walk</label>
-        <locationX>1482</locationX>
-        <locationY>490</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>MPW</targetReference>
-        </connector>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Million Paws Walk</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Campaign</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Campaign</name>
-        <label>Get Campaign</label>
-        <locationX>2061</locationX>
-        <locationY>734</locationY>
+        <name>Get_Donation_Record_Type</name>
+        <label>Get Donation Record Type</label>
+        <locationX>1779</locationX>
+        <locationY>722</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Assigment</targetReference>
         </connector>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>campaingId</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Campaign</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Donation_Record_Type</name>
-        <label>Get Donation Record Type</label>
-        <locationX>1940</locationX>
-        <locationY>731</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_Campaign</targetReference>
-        </connector>
+        <faultConnector>
+            <targetReference>HandleFlowFaultMessage</targetReference>
+        </faultConnector>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -333,26 +244,6 @@
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordLookups>
-        <name>Parent_Campaing_Cup_Cake</name>
-        <label>Parent Campaing Cup Cake</label>
-        <locationX>1476</locationX>
-        <locationY>976</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>CCD</targetReference>
-        </connector>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Cup Cake Day 2021</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Campaign</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <start>
         <locationX>1011</locationX>
         <locationY>329</locationY>
@@ -364,10 +255,10 @@
     <subflows>
         <name>Create_contact_flow</name>
         <label>Create contact flow</label>
-        <locationX>1338</locationX>
-        <locationY>732</locationY>
+        <locationX>1339</locationX>
+        <locationY>723</locationY>
         <connector>
-            <targetReference>Parent_Campaign</targetReference>
+            <targetReference>Get_Campaign</targetReference>
         </connector>
         <flowName>Create_Contact</flowName>
         <inputAssignments>
@@ -432,8 +323,8 @@
     <subflows>
         <name>Create_Organisation</name>
         <label>Create Organisation</label>
-        <locationX>985</locationX>
-        <locationY>724</locationY>
+        <locationX>984</locationX>
+        <locationY>723</locationY>
         <connector>
             <targetReference>Create_contact_flow</targetReference>
         </connector>
@@ -482,19 +373,22 @@
     <subflows>
         <name>Create_Payment</name>
         <label>Create Payment</label>
-        <locationX>2663</locationX>
-        <locationY>731</locationY>
+        <locationX>2360</locationX>
+        <locationY>722</locationY>
+        <connector>
+            <targetReference>Output</targetReference>
+        </connector>
         <flowName>Create_Payment</flowName>
         <inputAssignments>
             <name>donationId</name>
             <value>
-                <elementReference>donationId</elementReference>
+                <elementReference>donation.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <name>emptyline</name>
+            <name>paymentFee</name>
             <value>
-                <elementReference>emptyline</elementReference>
+                <elementReference>paymentFee</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -510,6 +404,47 @@
             </value>
         </inputAssignments>
     </subflows>
+    <subflows>
+        <name>Get_Campaign</name>
+        <label>Get Campaign</label>
+        <locationX>1553</locationX>
+        <locationY>722</locationY>
+        <connector>
+            <targetReference>Get_Donation_Record_Type</targetReference>
+        </connector>
+        <flowName>Get_Campaign</flowName>
+        <inputAssignments>
+            <name>campaignCode</name>
+            <value>
+                <elementReference>campaignCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>contact</name>
+            <value>
+                <elementReference>contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>fundraiserId</name>
+            <value>
+                <elementReference>campaignFundraiserId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>fundraiserURL</name>
+            <value>
+                <elementReference>campaignFundraiserURL</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>parentCampaignCode</name>
+            <value>
+                <elementReference>parentCampaignCode</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
     <variables>
         <name>campaign</name>
         <dataType>SObject</dataType>
@@ -519,17 +454,24 @@
         <objectType>Campaign</objectType>
     </variables>
     <variables>
-        <name>campaingId</name>
+        <name>campaignCode</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <value>
-            <stringValue>7011y0000009Xt3AAE</stringValue>
+            <stringValue>DonationsOrganic</stringValue>
         </value>
     </variables>
     <variables>
-        <name>campaingParent</name>
+        <name>campaignFundraiserId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>campaignFundraiserURL</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
@@ -647,32 +589,18 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
-        <name>donationUTMLink</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>donationUtmName</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>donationUTMSource</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>emptyline</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>FlowFaultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>organisation</name>
@@ -732,12 +660,27 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>parentCampaignCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>payment</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>npe01__OppPayment__c</objectType>
+    </variables>
+    <variables>
+        <name>paymentFee</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
     </variables>
     <variables>
         <name>paymentMethod</name>
@@ -769,5 +712,40 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>utmAdContent</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmCampaign</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmMedium</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmSource</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmTestVariant</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>

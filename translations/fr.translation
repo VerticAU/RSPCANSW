@@ -66,6 +66,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Get_Campaign</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>membershipPayment</fullName>
     </flowDefinitions>
     <flowDefinitions>
@@ -87,10 +91,6 @@
     <flowDefinitions>
         <flows/>
         <fullName>Gift_Cards</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>oneOffDonation</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>

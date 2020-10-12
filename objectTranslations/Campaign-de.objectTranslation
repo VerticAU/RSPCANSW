@@ -5,6 +5,10 @@
         <name>Actual_Response__c</name>
     </fields>
     <fields>
+        <label><!-- Campaign Code --></label>
+        <name>Campaign_Code__c</name>
+    </fields>
+    <fields>
         <label><!-- Contact --></label>
         <name>Contact__c</name>
         <relationshipLabel><!-- Campaigns --></relationshipLabel>

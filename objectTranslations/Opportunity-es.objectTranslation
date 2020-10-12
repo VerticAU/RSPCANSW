@@ -523,6 +523,10 @@
         <name>Sum_Bequest_Opp_Payments_Made__c</name>
     </fields>
     <fields>
+        <label><!-- Test Variant --></label>
+        <name>Test_Variant__c</name>
+    </fields>
+    <fields>
         <label><!-- Ticket Location --></label>
         <name>Ticket_Location__c</name>
     </fields>

@@ -205,6 +205,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Campaign_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

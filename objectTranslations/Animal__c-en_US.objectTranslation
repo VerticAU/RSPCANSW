@@ -33,9 +33,21 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Birthdate --></label>
+        <name>Birthdate__c</name>
+    </fields>
+    <fields>
         <label><!-- Contact --></label>
         <name>Contact__c</name>
         <relationshipLabel><!-- Animals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deceased --></label>
+        <name>Deceased__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
     </fields>
     <fields>
         <label><!-- Relationship Type --></label>

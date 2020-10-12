@@ -20,11 +20,11 @@
     </values>
     <values>
         <field>Flow_Input_Name__c</field>
-        <value xsi:type="xsd:string">donationUTMSource</value>
+        <value xsi:type="xsd:string">utmSource</value>
     </values>
     <values>
         <field>Flow_Setting__c</field>
-        <value xsi:type="xsd:string">oneOffDonationMPWandCCD</value>
+        <value xsi:type="xsd:string">oneOffDonation</value>
     </values>
     <values>
         <field>Flow_Variable_Type__c</field>
@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>Source_Path__c</field>
-        <value xsi:type="xsd:string">dto.donation.source</value>
+        <value xsi:type="xsd:string">dto.utm.source</value>
     </values>
     <values>
         <field>Trim_Value__c</field>

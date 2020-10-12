@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>Flow_Setting__c</field>
-        <value xsi:type="xsd:string">oneOffDonationMPWandCCD</value>
+        <value xsi:type="xsd:string">oneOffDonation</value>
     </values>
     <values>
         <field>Flow_Variable_Type__c</field>

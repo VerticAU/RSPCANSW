@@ -26,6 +26,13 @@
                 <elementReference>paypalTransactionId</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>payment.npsp_plus__Payment_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>paymentFee</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_Records_Payment</targetReference>
         </connector>
@@ -54,6 +61,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>stripeTransactionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>payment.npsp_plus__Payment_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>paymentFee</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -169,19 +183,23 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>emptyline</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>payment</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>npe01__OppPayment__c</objectType>
+    </variables>
+    <variables>
+        <name>paymentFee</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>1.0</numberValue>
+        </value>
     </variables>
     <variables>
         <name>paypalTransactionId</name>

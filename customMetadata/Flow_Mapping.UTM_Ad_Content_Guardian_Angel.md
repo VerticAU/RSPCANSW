@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>Source_Path__c</field>
-        <value xsi:type="xsd:string">dto.donation.content</value>
+        <value xsi:type="xsd:string">dto.utm.adContent</value>
     </values>
     <values>
         <field>Trim_Value__c</field>
