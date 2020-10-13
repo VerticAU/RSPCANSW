@@ -3,8 +3,8 @@
     <assignments>
         <name>Output_Assigment</name>
         <label>Output Assigment</label>
-        <locationX>2132</locationX>
-        <locationY>711</locationY>
+        <locationX>2764</locationX>
+        <locationY>724</locationY>
         <assignmentItems>
             <assignToReference>contactId</assignToReference>
             <operator>Assign</operator>
@@ -26,15 +26,12 @@
                 <elementReference>donation.Receipt_Number__c</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Create_Payment</targetReference>
-        </connector>
     </assignments>
     <assignments>
         <name>Recurring_Donations_Assigment</name>
         <label>Recurring Donations Assigment</label>
-        <locationX>1390</locationX>
-        <locationY>714</locationY>
+        <locationX>1577</locationX>
+        <locationY>722</locationY>
         <assignmentItems>
             <assignToReference>recurringDonation.Name</assignToReference>
             <operator>Assign</operator>
@@ -119,8 +116,8 @@
     <assignments>
         <name>Task_Assignment</name>
         <label>Task Assignment</label>
-        <locationX>2373</locationX>
-        <locationY>716</locationY>
+        <locationX>2414</locationX>
+        <locationY>725</locationY>
         <assignmentItems>
             <assignToReference>task.Status</assignToReference>
             <operator>Assign</operator>
@@ -198,8 +195,8 @@
     <assignments>
         <name>Update_Stage</name>
         <label>Update Stage</label>
-        <locationX>1883</locationX>
-        <locationY>713</locationY>
+        <locationX>1960</locationX>
+        <locationY>719</locationY>
         <assignmentItems>
             <assignToReference>donation.StageName</assignToReference>
             <operator>Assign</operator>
@@ -225,28 +222,42 @@
             <assignToReference>donation.UTM_Ad_Content__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>donationUTMLink</elementReference>
+                <elementReference>utmAdContent</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>donation.UTM_Source__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>donationUTMSource</elementReference>
+                <elementReference>utmSource</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.CampaignId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Campaign.campaign.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>donation.UTM_Medium__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Campaign.npsp_plus__Channel__c</elementReference>
+                <elementReference>utmMedium</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>donation.UTM_Campaign__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Campaign.Name</elementReference>
+                <elementReference>utmCampaign</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.Test_Variant__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTestVariant</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -296,8 +307,8 @@
     <recordCreates>
         <name>Create_Regular_Donation</name>
         <label>Create Regular Donation</label>
-        <locationX>1530</locationX>
-        <locationY>713</locationY>
+        <locationX>1693</locationX>
+        <locationY>721</locationY>
         <connector>
             <targetReference>Donate_Type_Stage</targetReference>
         </connector>
@@ -306,18 +317,21 @@
     <recordCreates>
         <name>Create_Task</name>
         <label>Create Task</label>
-        <locationX>2488</locationX>
-        <locationY>714</locationY>
+        <locationX>2554</locationX>
+        <locationY>726</locationY>
+        <connector>
+            <targetReference>Output_Assigment</targetReference>
+        </connector>
         <inputReference>task</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Donate_Type_Stage</name>
         <label>Donate Type Stage</label>
-        <locationX>1665</locationX>
-        <locationY>715</locationY>
+        <locationX>1796</locationX>
+        <locationY>720</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Campaign</targetReference>
+            <targetReference>Update_Stage</targetReference>
         </connector>
         <filters>
             <field>ContactId</field>
@@ -337,33 +351,13 @@
         <object>Opportunity</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordLookups>
-        <name>Get_Campaign</name>
-        <label>Get Campaign</label>
-        <locationX>1756</locationX>
-        <locationY>716</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Update_Stage</targetReference>
-        </connector>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>donationUtmName</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Campaign</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <recordUpdates>
         <name>Update_donation</name>
         <label>Update donation</label>
-        <locationX>1993</locationX>
-        <locationY>713</locationY>
+        <locationX>2105</locationX>
+        <locationY>721</locationY>
         <connector>
-            <targetReference>Output_Assigment</targetReference>
+            <targetReference>Create_Payment</targetReference>
         </connector>
         <inputReference>donation</inputReference>
     </recordUpdates>
@@ -378,10 +372,10 @@
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
-        <locationX>1269</locationX>
-        <locationY>711</locationY>
+        <locationX>1270</locationX>
+        <locationY>724</locationY>
         <connector>
-            <targetReference>Recurring_Donations_Assigment</targetReference>
+            <targetReference>Get_Campaign</targetReference>
         </connector>
         <flowName>Create_Contact</flowName>
         <inputAssignments>
@@ -452,8 +446,8 @@
     <subflows>
         <name>Create_Organisation_Subflow</name>
         <label>Create Organisation Subflow</label>
-        <locationX>962</locationX>
-        <locationY>707</locationY>
+        <locationX>970</locationX>
+        <locationY>726</locationY>
         <connector>
             <targetReference>Create_Contact_Subflow</targetReference>
         </connector>
@@ -496,8 +490,8 @@
     <subflows>
         <name>Create_Payment</name>
         <label>Create Payment</label>
-        <locationX>2248</locationX>
-        <locationY>713</locationY>
+        <locationX>2226</locationX>
+        <locationY>726</locationY>
         <connector>
             <targetReference>Task_Assignment</targetReference>
         </connector>
@@ -505,7 +499,7 @@
         <inputAssignments>
             <name>donationId</name>
             <value>
-                <elementReference>donationId</elementReference>
+                <elementReference>donation.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -521,6 +515,68 @@
             </value>
         </inputAssignments>
     </subflows>
+    <subflows>
+        <name>Get_Campaign</name>
+        <label>Get Campaign</label>
+        <locationX>1417</locationX>
+        <locationY>722</locationY>
+        <connector>
+            <targetReference>Recurring_Donations_Assigment</targetReference>
+        </connector>
+        <flowName>Get_Campaign</flowName>
+        <inputAssignments>
+            <name>campaignCode</name>
+            <value>
+                <elementReference>campaignCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>contact</name>
+            <value>
+                <elementReference>contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>fundraiserId</name>
+            <value>
+                <elementReference>campaignFundraiserId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>fundraiserURL</name>
+            <value>
+                <elementReference>campaignFundraiserURL</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>parentCampaignCode</name>
+            <value>
+                <elementReference>parentCampaignCode</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <variables>
+        <name>campaignCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>campaignFundraiserId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>campaignFundraiserURL</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>campaignID</name>
         <dataType>String</dataType>
@@ -643,37 +699,6 @@
         </value>
     </variables>
     <variables>
-        <name>donationUTMLink</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>donationUtmName</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <stringValue>Donations Organic</stringValue>
-        </value>
-    </variables>
-    <variables>
-        <name>donationUTMSource</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>emptyline</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>organisation</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
@@ -711,6 +736,13 @@
     </variables>
     <variables>
         <name>organisationZIP</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>parentCampaignCode</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
@@ -845,5 +877,40 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Task</objectType>
+    </variables>
+    <variables>
+        <name>utmAdContent</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmCampaign</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmMedium</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmSource</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmTestVariant</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>
