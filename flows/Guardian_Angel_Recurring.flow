@@ -169,7 +169,7 @@
         <name>Output_Assigment</name>
         <label>Output Assigment</label>
         <locationX>2550</locationX>
-        <locationY>651</locationY>
+        <locationY>652</locationY>
         <assignmentItems>
             <assignToReference>contactId</assignToReference>
             <operator>Assign</operator>
@@ -210,10 +210,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Payment_Fee</name>
+        <label>Payment_Fee</label>
+        <locationX>3030</locationX>
+        <locationY>791</locationY>
+        <assignmentItems>
+            <assignToReference>payment.npsp_plus__Payment_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>paymentFee</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Records_Payment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Paypal_Assigment</name>
         <label>Paypal Assigment</label>
-        <locationX>3030</locationX>
-        <locationY>505</locationY>
+        <locationX>3031</locationX>
+        <locationY>509</locationY>
         <assignmentItems>
             <assignToReference>payment.npe01__Payment_Method__c</assignToReference>
             <operator>Assign</operator>
@@ -233,6 +249,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>paypalTransactionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>payment.npsp_plus__Payment_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>paymentFee</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -317,10 +340,10 @@
             <name>Gif_Card_Null</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>giftCard.Amount</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>giftAmount</leftValueReference>
+                <operator>IsNull</operator>
                 <rightValue>
-                    <elementReference>giftAmount</elementReference>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -357,24 +380,17 @@
     <decisions>
         <name>TransactionId</name>
         <label>TransactionId</label>
-        <locationX>2813</locationX>
-        <locationY>654</locationY>
+        <locationX>2814</locationX>
+        <locationY>656</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>PayPal_Transation_Id</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>payment.Stripe_Transaction_Id__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <operator>IsNull</operator>
                 <rightValue>
-                    <elementReference>stripepaymentId</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>paypalTransactionId</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue></stringValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -387,13 +403,13 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>payment.PayPal_Transation_Id__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <operator>IsNull</operator>
                 <rightValue>
-                    <elementReference>paypalTransactionId</elementReference>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Records_Payment</targetReference>
+                <targetReference>Payment_Fee</targetReference>
             </connector>
             <label>Stripe Transaction Id</label>
         </rules>
@@ -520,7 +536,7 @@
     <recordUpdates>
         <name>Update_Records_Payment</name>
         <label>Update Records Payment</label>
-        <locationX>3218</locationX>
+        <locationX>3215</locationX>
         <locationY>658</locationY>
         <inputReference>payment</inputReference>
     </recordUpdates>
@@ -994,6 +1010,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>npe01__OppPayment__c</objectType>
+    </variables>
+    <variables>
+        <name>paymentFee</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
     </variables>
     <variables>
         <name>paymentMethod</name>

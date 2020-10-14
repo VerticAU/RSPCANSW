@@ -9,6 +9,20 @@
     <values>
         <field>Input__c</field>
         <value xsi:type="xsd:string">{
+  &quot;contactEmail&quot; : &quot;dto.contact.email&quot;,
+  &quot;contactPostalCode&quot; : &quot;dto.contact.postalCode&quot;,
+  &quot;contactState&quot; : &quot;dto.contact.state&quot;,
+  &quot;contactFirstName&quot; : &quot;dto.contact.firstName&quot;,
+  &quot;contactCountry&quot; : &quot;dto.contact.country&quot;,
+  &quot;contactPhone&quot; : &quot;dto.contact.phone&quot;,
+  &quot;contactLastName&quot; : &quot;dto.contact.lastName&quot;,
+  &quot;contactCity&quot; : &quot;dto.contact.city&quot;,
+  &quot;contactStreet&quot; : &quot;dto.contact.street&quot;,
+
+
+  &quot;donationStage&quot; : &quot;dto.donation.stage&quot;,
+  &quot;donationAmount&quot; : &quot;dto.donation.amount&quot;,
+  &quot;donationReceiptNumber&quot; : &quot;dto.donation.raceiptNumber&quot;,
   &quot;donationCloseDate&quot; : {
     &quot;trueValues&quot; : null,
     &quot;format&quot; : &quot;yyyy-MM-dd&quot;,
@@ -17,27 +31,26 @@
     &quot;trimValue&quot; : true,
     &quot;path&quot; : &quot;dto.donation.date&quot;
   },
-  &quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;,
-  &quot;contactPostalCode&quot; : &quot;dto.contact.postalCode&quot;,
-  &quot;contactState&quot; : &quot;dto.contact.state&quot;,
-  &quot;campaignStatus&quot; : &quot;dto.campaign.status&quot;,
-  &quot;donationAmount&quot; : &quot;dto.donation.amount&quot;,
-  &quot;contactFirstName&quot; : &quot;dto.contact.firstName&quot;,
-  &quot;donationReceiptNumber&quot; : &quot;dto.donation.raceiptNumber&quot;,
-  &quot;contactCountry&quot; : &quot;dto.contact.country&quot;,
-  &quot;donationUTMLink&quot; : &quot;dto.donation.content&quot;,
-  &quot;contactEmail&quot; : &quot;dto.contact.email&quot;,
-  &quot;campaingParent&quot; : &quot;dto.campaign.parent&quot;,
+  
+
+
+
+
+&quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
+&quot;parentCampaignCode&quot;: &quot;dto.campaign.parentCode&quot;,
+&quot;campaignFundraiserId&quot;: &quot;dto.campaign.fundraiserId&quot;,
+&quot;campaignFundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;,
+
+&quot;utmCampaign&quot;: &quot;dto.utm.campaign&quot;,
+&quot;utmSource&quot;: &quot;dto.utm.source&quot;,
+&quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
+&quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
+&quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
+
+  &quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
   &quot;stripeTransactionId&quot; : &quot;dto.stripe.paymentId&quot;,
-  &quot;contactLastName&quot; : &quot;dto.contact.lastName&quot;,
-  &quot;donationUTMSource&quot; : &quot;dto.donation.source&quot;,
-  &quot;contactPhone&quot; : &quot;dto.contact.phone&quot;,
-  &quot;funraiserChannel&quot; : &quot;dto.campaign.channel&quot;,
-  &quot;donationStage&quot; : &quot;dto.donation.stage&quot;,
-  &quot;contactStreet&quot; : &quot;dto.contact.street&quot;,
-  &quot;campaignName&quot; : &quot;dto.campaign.name&quot;,
-  &quot;campaignId&quot; : &quot;dto.campaign.id&quot;,
-  &quot;contactCity&quot; : &quot;dto.contact.city&quot;
+  &quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;
+   
 }</value>
     </values>
     <values>

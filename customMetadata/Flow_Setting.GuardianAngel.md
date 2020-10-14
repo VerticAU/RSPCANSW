@@ -55,10 +55,10 @@
 
 
 
-
+&quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
   &quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;,
   &quot;paymentMethod&quot; : &quot;dto.payment.method&quot;,
-  &quot;paymentId&quot; : &quot;dto.stripe.paymentId&quot;,
+  &quot;stripePaymentId&quot; : &quot;dto.stripe.paymentId&quot;,
 
 
   &quot;giftMessage&quot; : &quot;dto.gift.message&quot;,

@@ -81,6 +81,14 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>BulkContributionManagementMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkContributionManagementSubmitProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CampaignGenerateCRNActionSubmitProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -5269,6 +5277,10 @@
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Animal__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Bulk_Donations</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

@@ -1,0 +1,30 @@
+<aura:component description="BulkContributionManagementTotals">
+
+    <!-- Attribute Overrides -->
+
+    <!-- Attributes -->
+    <aura:attribute name="contributions" type="List" default="[]"/>
+    <aura:attribute name="paymentMethods" type="List" default="[]"/>
+    <aura:attribute name="totals" type="List" default="[]" access="private"/>
+
+    <!-- Events -->
+
+    <!-- Handlers -->
+    <aura:handler name="change" value="{!v.contributions}" action="{!c.handleContributionsChange}"/>
+
+    <!-- Methods -->
+    <aura:method name="recalculate" action="{!c.handleContributionsChange}" />
+
+    <div class="slds-grid totals">
+        <aura:iteration items="{! v.totals }" var="totalVar">
+            <div class="slds-col">
+                {# totalVar.title }:
+                <lightning:formattedNumber value="{# totalVar.value }"
+                                           style="{# totalVar.type }"
+                                           currencyDisplayAs="symbol"
+                />
+            </div>
+        </aura:iteration>
+    </div>
+
+</aura:component>

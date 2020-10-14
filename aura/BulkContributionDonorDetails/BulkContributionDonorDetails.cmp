@@ -1,0 +1,68 @@
+<aura:component description="BulkContributionDonorDetails">
+    <aura:attribute name="meta" type="Map"  access="public"/>
+    <aura:attribute name="selectedRowIndex" type="Integer"  access="public"/>
+    <aura:attribute name="isEditFormVisible" type="Boolean"  access="public"/>
+    <aura:attribute name="contribution" type="Object" default="{}" access="private"/>
+
+    <aura:handler name="change" value="{!v.selectedRowIndex}" action="{!c.refreshContribution}" />
+
+    <aura:method name="refreshContribution" action="{!c.refreshContribution}">
+        <aura:attribute name="payload" type="Object"/>
+    </aura:method>
+
+    <c:DockedPanel isVisible="{!v.isEditFormVisible}">
+        <aura:set attribute="title"
+                  value="{!v.contribution.npsp__Primary_Contact__r != null ? v.contribution.npsp__Primary_Contact__r.Name : (v.contribution.Account != null ? v.contribution.Account.Name : 'No Donor Selected')}"
+        />
+        <aura:if isTrue="{!v.contribution != null}">
+            <aura:if isTrue="{!and(and(v.contribution.npsp__Primary_Contact__c != null, v.contribution.npsp__Primary_Contact__c != ''), v.contribution.RecordTypeId != v.meta.dto.organisationDonationRecordTypeId)}">
+                <lightning:input type="email" label="Email" name="email1" placeholder="Email" value="{!v.contribution.npsp__Primary_Contact__r.Email}"/>
+                <lightning:input type="tel" label="Mobile Phone" name="mobilePhone" placdeholder="Mobile Phone" value="{!v.contribution.npsp__Primary_Contact__r.MobilePhone}"/>
+                <lightning:input type="tel" label="Home Phone" name="homePhone" placdeholder="Home Phone" value="{!v.contribution.npsp__Primary_Contact__r.HomePhone}"/>
+                <lightning:inputAddress
+                        addressLabel="Address"
+                        streetLabel="Street"
+                        cityLabel="City"
+                        countryLabel="Country"
+                        provinceLabel="Province"
+                        postalCodeLabel="PostalCode"
+                        street="{!v.contribution.npsp__Primary_Contact__r.OtherStreet}"
+                        city="{!v.contribution.npsp__Primary_Contact__r.OtherCity}"
+                        country="{!v.contribution.npsp__Primary_Contact__r.OtherCountry}"
+                        province="{!v.contribution.npsp__Primary_Contact__r.OtherState}"
+                        postalCode="{!v.contribution.npsp__Primary_Contact__r.OtherPostalCode}"
+                        required="false"
+                />
+                <c:vertic_Select label="Receipt Preference"
+                                 value="{!v.contribution.npsp__Primary_Contact__r.Receipt_Preference__c}"
+                                 options="{!v.meta.selectOptions.receiptPreferenceOptions}"
+                />
+                <c:vertic_Select label="Receipt Frequency"
+                                 value="{!v.contribution.npsp__Primary_Contact__r.Receipt_Frequency__c}"
+                                 options="{!v.meta.selectOptions.receiptFrequencyOptions}"
+                />
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!and(and(v.contribution.AccountId != null, v.contribution.AccountId != ''), v.contribution.RecordTypeId == v.meta.dto.organisationDonationRecordTypeId)}">
+                        <lightning:input type="email" label="Email" name="email1" placeholder="Email" value="{!v.contribution.Account.Email__c}"/>
+                        <lightning:input type="tel" label="Home Phone" name="homePhone" placdeholder="Home Phone" value="{!v.contribution.Account.Phone}"/>
+                        <lightning:inputAddress
+                                addressLabel="Address"
+                                streetLabel="Street"
+                                cityLabel="City"
+                                countryLabel="Country"
+                                provinceLabel="Province"
+                                postalCodeLabel="PostalCode"
+                                street="{!v.contribution.Account.ShippingStreet}"
+                                city="{!v.contribution.Account.ShippingCity}"
+                                country="{!v.contribution.Account.ShippingCountry}"
+                                province="{!v.contribution.Account.ShippingState}"
+                                postalCode="{!v.contribution.Account.ShippingPostalCode}"
+                                required="false"
+                        />
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </aura:if>
+    </c:DockedPanel>
+
+</aura:component>

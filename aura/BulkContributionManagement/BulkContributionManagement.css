@@ -1,0 +1,34 @@
+.THIS .label-hidden.slds-form-element > label {
+    display: none;
+}
+
+.THIS lightning-calendar .slds-datepicker__month th, .THIS lightning-calendar .slds-datepicker__month td{
+    padding: 5px !important;
+    border: none !important;
+}
+
+.THIS .forcePageError{
+    background-color: white;
+    border-radius: 6px;
+}
+
+.THIS lightning-output-field.slds-show_inline .slds-form-element__control{
+    display: inline;
+}
+
+.THIS a.outputLookupLink lightning-output-field lightning-formatted-text{
+    color: rgb(0, 109, 204);
+}
+
+.THIS .error-background td{
+    background-color: #f5dede;
+}
+
+.THIS .contribution-completed td{
+    background-color: rgba(143, 188, 143, 0.31);
+}
+
+.THIS .slds-card__footer{
+    margin-top: 2px;
+    min-height: 32px
+}

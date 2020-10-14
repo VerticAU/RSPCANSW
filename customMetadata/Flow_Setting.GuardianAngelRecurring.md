@@ -68,7 +68,7 @@
   &quot;donationReceiptNumber&quot; : &quot;dto.donation.raceiptNumber&quot;,
   
 
-
+&quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
   &quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;,
   &quot;paymentSubscriptionId&quot; : &quot;dto.stripe.subscriptionId&quot;
 }</value>

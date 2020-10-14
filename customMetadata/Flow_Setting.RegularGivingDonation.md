@@ -57,6 +57,7 @@
 &quot;campaignFundraiserId&quot;: &quot;dto.campaign.fundraiserId&quot;,
 &quot;campaignFundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;,
 
+&quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
   &quot;stripepaymentId&quot; : &quot;dto.stripe.paymentId&quot;,
   &quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;,
   &quot;paymentSubscriptionId&quot; : &quot;dto.stripe.subscriptionId&quot;,
@@ -84,7 +85,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">contactId,raceiptNumber,donationId</value>
+        <value xsi:type="xsd:string">contactId,raceiptNumber,donationId,recurringId</value>
     </values>
     <values>
         <field>Tags__c</field>

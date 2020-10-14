@@ -52,7 +52,7 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
             }
 
         } catch (Exception e) {
-            this.response.dto.put('error', e.getMessage());
+            this.response.error = new vertic_Structs.ErrorDetails(e.getMessage());
             this.response.isValid = false;
         } finally {
             this.response.headers.put('Content-Type', 'application/json');

@@ -39,7 +39,7 @@
   },
   &quot;donationReceiptNumber&quot;: &quot;dto.donation.receiptNumber&quot;,
 
-  &quot;campaingCode&quot;: &quot;dto.campaign.code&quot;,
+&quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
   &quot;parentCampaignCode&quot;: &quot;dto.campaign.parentCode&quot;,
   &quot;campaignFundraiserId&quot;: &quot;dto.campaign.fundraiserId&quot;,
   &quot;campaignFundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;,

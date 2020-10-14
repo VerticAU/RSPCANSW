@@ -594,6 +594,9 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <value>
+            <stringValue>Closed Won</stringValue>
+        </value>
     </variables>
     <variables>
         <name>emptyline</name>

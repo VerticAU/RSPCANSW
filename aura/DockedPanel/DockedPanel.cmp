@@ -1,0 +1,49 @@
+<aura:component description="DockedPanel">
+
+    <!-- Attribute Overrides -->
+
+    <!-- Attributes -->
+    <aura:attribute name="isVisible" type="Boolean" default="{!true}"/>
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="class" type="String"/>
+    <aura:attribute name="items" type="Aura.Component[]"></aura:attribute>
+    <aura:attribute name="footer" type="Aura.Component[]"></aura:attribute>
+
+    <!-- Events -->
+
+    <!-- Handlers -->
+    <!--<aura:handler name="change" value="{!v.meta.dto.filter}" action="{!c.handleFilterChange}"/>-->
+
+    <!-- Methods -->
+    <aura:method name="show" action="{!c.handleShow}"/>
+    <aura:method name="hide" action="{!c.handleHide}"/>
+
+    <div class="{!'slds-panel slds-size_medium slds-panel_docked slds-panel_docked-right ' + v.class + ' ' + if(v.isVisible, 'slds-is-open', 'slds-hide')}"
+         aria-hidden="false">
+        <div class="slds-panel__header">
+            <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="{!v.title}">{!v.title}</h2>
+            <lightning:buttonIcon iconName="utility:forward"
+                                  alternativeText="Close"
+                                  onclick="{!c.handleHide}"
+            />
+        </div>
+        <div class="slds-panel__body">
+            <div class="slds-filters">
+                <div class="slds-filters__footer slds-shrink-none slds-text-align_right slds-p-right_none slds-p-top_none">
+                    {!v.footer}
+                </div>
+                <ol class="slds-list_vertical slds-list_vertical-space">
+                    {!v.body}
+                    <aura:iteration items="{!v.items}" var="item">
+                        <li class="slds-item slds-hint-parent">
+                            <div class="slds-filters__item slds-grid slds-grid_vertical-align-center">
+                                {!item}
+                            </div>
+                        </li>
+                    </aura:iteration>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</aura:component>

@@ -42,7 +42,6 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
 
         try {
             super.process(request);
-            System.debug('RESPONSE: ' + this.response);
         } catch (Exception ex) {
             throw ex;
         } finally {
@@ -89,13 +88,6 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
 
         Map<String, Object> mappedInputs = mapFlowInputs(inputsMap, flowSettingInputMap);
 
-        System.debug('inputsMap: ' + inputsMap);
-        System.debug('csvFlowMappings: ' + flowSettingInputMap);
-        System.debug('mappedInputs: ' + mappedInputs);
-
-//        hey.Logger.debug('mappedInputs');
-//        hey.Logger.debug(mappedInputs);
-
         this.request.put('inputs', mappedInputs);
     }
 
@@ -105,9 +97,6 @@ public class vertic_FlowSettingProc extends vertic_FlowProc {
         if(String.isNotBlank(outputStr)){
             outputVariables.addAll(outputStr.split(','));
         }
-
-        System.debug('outputVariables');
-        System.debug(outputVariables);
 
         this.request.put('outputFields', outputVariables);
     }

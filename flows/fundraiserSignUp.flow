@@ -16,7 +16,7 @@
             <assignToReference>campaign.Type</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Event</stringValue>
+                <elementReference>campaignType</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -253,8 +253,8 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>1577</locationX>
-        <locationY>191</locationY>
+        <locationX>1482</locationX>
+        <locationY>187</locationY>
         <connector>
             <targetReference>Create_Contact_Subflow</targetReference>
         </connector>
@@ -263,8 +263,8 @@
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
-        <locationX>1703</locationX>
-        <locationY>413</locationY>
+        <locationX>1613</locationX>
+        <locationY>431</locationY>
         <connector>
             <targetReference>Parent_Campaign</targetReference>
         </connector>

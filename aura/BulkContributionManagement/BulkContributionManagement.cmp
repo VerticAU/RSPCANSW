@@ -1,0 +1,191 @@
+<aura:component description="BulkContributionManagement" extends="c:vertic_Base" implements="force:appHostable">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="processor" value="BulkContributionManagementMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="batchId" type="String"/>
+    <aura:attribute name="selectedRowIndex" type="Integer"/>
+    <aura:attribute name="isEditFormVisible" type="Boolean"/>
+
+    <!-- Events -->
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+    <aura:handler name="change" value="{!v.batchId}" action="{!c.handleBatchChange}"/>
+
+
+    <lightning:notificationsLibrary aura:id="notificationLib"/>
+
+    <lightning:card variant="base" iconName="custom:custom41">
+        <aura:set attribute="title">
+            Bulk Donations
+            <aura:if isTrue="{!not(empty(v.batchId))}">
+                <lightning:recordViewForm recordId="{!v.batchId}"
+                                          objectApiName="Batch__c"
+                                          class="slds-show_inline forceOutputLookupWithPreview">
+                    - <a href="{!'/' + v.batchId}"
+                         target="_blank"
+                         class="textUnderline outputLookupLink slds-truncate forceOutputLookup">
+                        <lightning:outputField fieldName="Name"
+                                               variant="label-hidden"
+                                               class="slds-show_inline"
+                        />
+                    </a>
+                </lightning:recordViewForm>
+            </aura:if>
+        </aura:set>
+        <aura:set attribute="actions">
+            <div class="slds-text-align--right">
+                <lightning:button label="New"
+                                  onclick="{! c.handleNewContributionClick }"
+                                  variant="neutral"
+                                  iconName="utility:add"
+                                  disabled="{!v.isBusy}"
+                                  iconPosition="left">
+                </lightning:button>
+                <lightning:button label="Save"
+                                  onclick="{! c.handleSubmitClick }"
+                                  disabled="{!v.isBusy}"
+                                  variant="brand">
+                </lightning:button>
+                <aura:if isTrue="{!and(not(empty(v.batchId)), v.meta.dto.hasBatchApprovePermission == true)}">
+                    <lightning:button label="Approve"
+                                      onclick="{! c.handleApproveClick }"
+                                      disabled="{!v.isBusy}"
+                                      variant="destructive">
+                    </lightning:button>
+                </aura:if>
+            </div>
+        </aura:set>
+
+        <div class="slds-grid slds-wrap">
+            <div aura:id="bulkDonationTable" class="{!v.isEditFormVisible ? 'slds-col slds-size_10-of-12' : 'slds-col slds-size_12-of-12'}">
+                <div aura:id="form" class="1slds-text-align--center">
+
+                    <div class="slds-table--header-fixed_container" style="height:650px; padding-top: 0; background-color: white;">
+
+                        <div class="slds-scrollable_y" style="height:100%;">
+
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-no-row-hover" width="100%" style="margin-bottom: 200px;border: none;">
+                                <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col" width="1%">
+                                        <div class="slds-truncate" title="QR">
+                                            <!--#-->
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="15%">
+                                        <div class="slds-truncate" title="Donor Type">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Donor Type
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="20%">
+                                        <div class="slds-truncate" title="Contact">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Donor
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="20%">
+                                        <div class="slds-truncate" title="Campaign">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Campaign
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="14%">
+                                        <div class="slds-truncate" title="Amount">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Amount
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="14%">
+                                        <div class="slds-truncate" title="Date">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Date
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="14%">
+                                        <div class="slds-truncate" title="Payment Type">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Payment Method
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="1%">
+                                    </th>
+                                    <th scope="col" width="1%">
+                                    </th>
+                                </tr>
+                                </thead>
+                                <aura:iteration var="contribution" items="{! v.meta.dto.contributions }" indexVar="index">
+                                    <c:BulkContributionManagementItem aura:id="contributionItem"
+                                                                      contribution="{! contribution }"
+                                                                      meta="{! v.meta }"
+                                                                      index="{! index }"
+                                                                      isDeleteDisabled="{! or(v.isBusy, and(empty(contribution.Id), v.meta.dto.contributions.length == 1)) }"
+                                                                      selectedRowIndex="{!v.selectedRowIndex}"
+                                                                      isEditFormVisible="{!v.isEditFormVisible}"
+                                                                      isEditFormDisabled="{!v.isBusy}"
+                                                                      onContributionDelete="{!c.handleContributionDelete}"
+                                                                      onChange="{!c.handleContributionChange}"
+                                    />
+                                </aura:iteration>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div aura:id="contactDetails" class="{!v.selectedRowIndex != null ? 'slds-col slds-size_2-of-12' : 'slds-hide'}" style="min-height: 650px;">
+                <c:BulkContributionDonorDetails aura:id="contributionDetails"
+                                                meta="{!v.meta}"
+                                                selectedRowIndex="{!v.selectedRowIndex}"
+                                                isEditFormVisible="{!v.isEditFormVisible}"
+                />
+            </div>
+        </div>
+
+
+        <aura:set attribute="footer">
+
+            <div class="slds-grid">
+
+                <div class="slds-p-horizontal_small slds-size_1-of-1">
+                    <c:BulkContributionManagementTotals aura:id="totals"
+                                                        contributions="{!v.meta.dto.contributions}"
+                                                        paymentMethods="{!v.meta.selectOptions.paymentMethodOptions}"
+                    />
+                </div>
+
+                <!--<div class="slds-p-horizontal_x-small slds-size_3-of-12">-->
+                    <!--<div class="slds-text-align&#45;&#45;right">-->
+                        <!--<lightning:button label="New"-->
+                                          <!--onclick="{! c.handleNewContributionClick }"-->
+                                          <!--variant="neutral"-->
+                                          <!--iconName="utility:add"-->
+                                          <!--disabled="{!v.isBusy}"-->
+                                          <!--iconPosition="left">-->
+                        <!--</lightning:button>-->
+                        <!--<lightning:button label="Save"-->
+                                          <!--onclick="{! c.handleSubmitClick }"-->
+                                          <!--disabled="{!v.isBusy}"-->
+                                          <!--variant="brand">-->
+                        <!--</lightning:button>-->
+                        <!--<aura:if isTrue="{!and(not(empty(v.batchId)), v.meta.dto.hasBatchApprovePermission == true)}">-->
+                            <!--<lightning:button label="Approve"-->
+                                              <!--onclick="{! c.handleApproveClick }"-->
+                                              <!--disabled="{!v.isBusy}"-->
+                                              <!--variant="destructive">-->
+                            <!--</lightning:button>-->
+                        <!--</aura:if>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+        </aura:set>
+    </lightning:card>
+
+</aura:component>

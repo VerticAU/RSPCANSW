@@ -1,0 +1,304 @@
+<aura:component description="BulkContributionManagementItem" controller="vertic_CommonCtrl">
+
+    <!-- Attributes -->
+    <aura:attribute name="contribution" required="{!true}" type="Map" default="{}"/>
+    <aura:attribute name="paymentTransaction" type="Map" access="private"/>
+    <!--<aura:attribute name="creditCard" type="Map" access="private" default='{"cardNumber":"4444333322221111","expiryYear": "2020", "expiryMonth": "10"}'/>-->
+    <aura:attribute name="creditCard" type="Map" access="private" default="{}"/>
+    <aura:attribute name="meta" type="Map"/>
+    <aura:attribute name="index" required="{!true}" type="Integer"/>
+    <aura:attribute name="selectedRowIndex" type="Integer"/>
+    <aura:attribute name="isEditFormVisible" type="Boolean"/>
+    <aura:attribute name="isEditFormDisabled" type="Boolean"/>
+    <aura:attribute name="isDeleteDisabled" type="Boolean"/>
+    <aura:attribute name="errorMessage" type="String" access="private"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="onContributionDelete" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onChange" type="c:vertic_ComponentEvent"/>
+
+    <!-- Handlers -->
+    <aura:handler name="change" value="{!v.isEditFormVisible}" action="{!c.cleanUpSelectedRowIndex}"/>
+    <aura:handler name="change" value="{!v.contribution.Contact__c}" action="{!c.handleContactChange}"/>
+    <aura:handler name="change" value="{!v.contribution.Organisation__c}" action="{!c.handleOrganisationChange}"/>
+    <aura:handler name="change" value="{!v.contribution.Campaign__c}" action="{!c.handleCampaignChange}"/>
+    <aura:handler name="change" value="{!v.contribution}" action="{!c.handleContributionChange}"/>
+    <aura:handler name="onQRScanReady" event="c:vertic_ComponentEvent" action="{!c.handleQRScanReady}"/>
+
+
+    <c:vertic_Utils context="{!this}"/>
+    <c:vertic_ModalService aura:id="modalService"/>
+
+    <lightning:notificationsLibrary aura:id="notificationLib"/>
+
+    <aura:method name="submit" action="{!c.doSubmit}" access="public"/>
+
+    <tbody class="{!if(v.contribution.isCompleted, 'contribution-completed', if(v.errorMessage, 'error-background', ''))}">
+
+    <tr class="{!if(v.contribution.isCompleted, 'contribution-completed', '')}">
+        <td data-label="QR Code">
+            <span onclick="{!c.handleQRScan}"><lightning:icon iconName="action:add_photo_video" size="x-small"/></span>
+        </td>
+        <td data-label="Donor Type">
+            <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
+                <lightning:select label="Donor Type"
+                                  value="{! v.contribution.type }"
+                                  variant="label-hidden"
+                                  required="{!true}"
+                                  disabled="{!v.contribution.isCompleted}"
+                                  class="label-hidden">
+                    <option value="">--None--</option>
+                    <aura:iteration items="{! v.meta.selectOptions.donationTypeOptions }" var="option">
+                        <option label="{!option.label}" value="{!option.value}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </aura:if>
+        </td>
+        <td data-label="Donor">
+
+            <aura:if isTrue="{! v.contribution.type != 'Organisation' }">
+                <c:strike_lookup_clickable aura:id="donor"
+                                           label="Contact"
+                                           object="Contact"
+                                           valueLabel="Donor_Id__c"
+                                           searchField="Donor_Id__c,Email,Contact_Identifier__c"
+                                           subtitleField="Email"
+                                           placeholder="Select a Contact..."
+                                           iconName="standard:contact"
+                                           order="Donor_Id__c"
+                                           limit="8"
+                                           loadingMessage="Loading..."
+                                           errorMessage="Invalid input"
+                                           disabled="{!v.contribution.isCompleted}"
+                                           showRecentRecords="{!true}"
+                                           required="{!true}"
+                                           overrideNewEvent="{!true}"
+                                           allowNewRecords="{!true}"
+                                           class="label-hidden"
+                                           value="{! v.contribution.npsp__Primary_Contact__c }"
+                                           strike_evt_addNewRecord="{! c.handleLookupNewRecordContact }"
+                />
+            </aura:if>
+            <aura:if isTrue="{! v.contribution.type == 'Organisation' }">
+                <c:strike_lookup_clickable aura:id="donor"
+                                           label="Organisation"
+                                           object="Account"
+                                           valueLabel="Donor_Id__c"
+                                           searchField="Donor_Id__c,Account_Identifier__c"
+                                           placeholder="Select an Organisation..."
+                                           iconName="standard:account"
+                                           order="Donor_Id__c"
+                                           limit="8"
+                                           loadingMessage="Loading..."
+                                           errorMessage="Invalid input"
+                                           disabled="{!v.contribution.isCompleted}"
+                                           showRecentRecords="{!true}"
+                                           required="{!true}"
+                                           overrideNewEvent="{!true}"
+                                           allowNewRecords="{!true}"
+                                           class="label-hidden"
+                                           value="{! v.contribution.AccountId }"
+                                           strike_evt_addNewRecord="{! c.handleLookupNewRecordOrganisation }"
+                />
+            </aura:if>
+        </td>
+        <td data-label="Campaign">
+            <c:strike_lookup_clickable aura:id="campaign"
+                                       label="Campaign"
+                                       object="Campaign"
+                                       searchField="Name, Campaign_Description__c"
+                                       subtitleField="Description_For_Strike__c"
+                                       placeholder="Select a Campaign..."
+                                       iconName="standard:campaign"
+                                       order="Name"
+                                       filter="IsActive=true"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       disabled="{!v.contribution.isCompleted}"
+                                       showRecentRecords="{!true}"
+                                       required="{!true}"
+                                       class="label-hidden"
+                                       value="{! v.contribution.CampaignId }"
+            />
+        </td>
+        <td data-label="Amount">
+            <lightning:input type="number"
+                             name="amount"
+                             label="Amount"
+                             required="{!true}"
+                             variant="label-hidden"
+                             formatter="currency"
+                             step="0.01"
+                             min="0"
+                             value="{! v.contribution.Amount }"
+                             class="label-hidden"
+                             disabled="{!v.contribution.isCompleted}"
+            />
+        </td>
+        <td data-label="Date">
+            <lightning:input label="Date"
+                             type="date"
+                             required="{!true}"
+                             value="{! v.contribution.CloseDate }"
+                             variant="label-hidden"
+                             class="label-hidden"
+                             disabled="{!v.contribution.isCompleted}"
+            />
+        </td>
+
+        <td data-label="Payment Method">
+            <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
+                <lightning:select label="Payment Method"
+                                  value="{! v.contribution.paymentMethod }"
+                                  variant="label-hidden"
+                                  required="{!true}"
+                                  disabled="{!v.contribution.isCompleted}"
+                                  class="label-hidden">
+                    <option value="">--None--</option>
+                    <aura:iteration items="{! v.meta.selectOptions.paymentMethodOptions }" var="option">
+                        <option label="{!option.label}" value="{!option.value}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </aura:if>
+        </td>
+
+        <td>
+            <aura:if isTrue="{!and(v.errorMessage != null, v.errorMessage != '')}">
+                <lightning:helptext iconVariant="error"
+                                    class="slds-m-right_small"
+                                    content="{!v.errorMessage}"
+                />
+            </aura:if>
+            <lightning:buttonIconStateful iconName="utility:edit"
+                                          alternativeText="Edit Contact"
+                                          title="Edit Contact"
+                                          size="medium"
+                                          variant="border"
+                                          disabled="{!or(v.isEditFormDisabled, v.contribution.isCompleted)}"
+                                          selected="{!and(v.index == v.selectedRowIndex, v.isEditFormVisible)}"
+                                          onclick="{!c.handleEditClick}"
+            />
+        </td>
+        <td>
+            <lightning:buttonIcon iconName="utility:close"
+                                  alternativeText="Delete"
+                                  title="Delete"
+                                  size="medium"
+                                  variant="border"
+                                  onclick="{! c.handleContributionDeleteClick }"
+                                  disabled="{!or(v.isDeleteDisabled, v.contribution.isCompleted)}"
+            />
+        </td>
+    </tr>
+
+    <aura:if isTrue="{!v.contribution.Payment_Method__c == 'Cheque'}">
+        <tr aura:id="chequeDetails" class="no-top-border">
+            <td colspan="3"></td>
+            <td data-label="Bank Number">
+                <lightning:input label="Bank Number"
+                                 placeholder="Bank Number"
+                                 required="{!true}"
+                                 value="{! v.contribution.Bank_Number__c }"
+                                 variant="label-hidden"
+                                 class="label-hidden"
+                                 disabled="{!v.contribution.isCompleted}"
+                                 maxlength="2"
+                                 onchange="{!c.handleNumericOnly}"
+                />
+            </td>
+            <td data-label="Bank Branch">
+                <lightning:input label="Bank Branch"
+                                 placeholder="Bank Branch"
+                                 required="{!true}"
+                                 value="{! v.contribution.Bank_Branch__c }"
+                                 variant="label-hidden"
+                                 class="label-hidden"
+                                 disabled="{!v.contribution.isCompleted}"
+                                 maxlength="4"
+                                 onchange="{!c.handleNumericOnly}"
+                />
+            </td>
+            <td data-label="Bank Account Number" colspan="2">
+                <lightning:input label="Bank Account Number"
+                                 placeholder="Bank Account Number"
+                                 required="{!true}"
+                                 value="{! v.contribution.Bank_Account_Number__c }"
+                                 variant="label-hidden"
+                                 class="label-hidden"
+                                 disabled="{!v.contribution.isCompleted}"
+                                 maxlength="7"
+                                 onchange="{!c.handleNumericOnly}"
+                />
+            </td>
+            <td data-label="Date" colspan="2">
+                <lightning:input label="Cheque Drawer"
+                                 placeholder="Cheque Drawer"
+                                 required="{!true}"
+                                 value="{! v.contribution.Cheque_Drawer__c }"
+                                 variant="label-hidden"
+                                 class="label-hidden"
+                                 disabled="{!v.contribution.isCompleted}"
+                />
+            </td>
+            <td colspan="2"></td>
+        </tr>
+    </aura:if>
+
+    <aura:if isTrue="{! v.contribution.Payment_Method__c == 'Credit Card' }">
+        <tr aura:id="creditCardDetails" class="no-top-border">
+            <td colspan="3"></td>
+            <td data-label="Credit Card Number" class="no-top-border" colspan="2">
+                <lightning:input aura:id="creditCardNumber"
+                                 type="text"
+                                 label="Credit Card Number"
+                                 disabled="{!v.contribution.isCompleted}"
+                                 messageWhenPatternMismatch="Invalid Credit Card Number (13 to 16 digits)"
+                                 pattern="\b\d{13,16}\b"
+                                 name="input-name"
+                                 required="{!true}"
+                                 variant="label-hidden"
+                                 class="label-hidden"
+                                 placeholder="Credit Card Number"
+                                 value="{! v.creditCard.cardNumber }"
+                />
+            </td>
+            <td data-label="Expiry Month" class="no-top-border">
+                <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
+                    <lightning:select aura:id="expiryMonth"
+                                      value="{! v.creditCard.expiryMonth }"
+                                      disabled="{!v.contribution.isCompleted}"
+                                      required="{!true}"
+                                      label="Expiry Month"
+                                      variant="label-hidden"
+                                      class="label-hidden" validity="">
+                        <aura:iteration items="{! v.meta.selectOptions.monthsOptions }" var="option">
+                            <option value="{!option.value}">{!option.label}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+            </td>
+            <td data-label="Expiry Year" class="no-top-border">
+                <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
+                    <lightning:select aura:id="expiryYear"
+                                      value="{! v.creditCard.expiryYear }"
+                                      disabled="{!v.contribution.isCompleted}"
+                                      required="{!true}"
+                                      label="Expiry Year"
+                                      variant="label-hidden"
+                                      class="label-hidden">
+                        <aura:iteration items="{! v.meta.selectOptions.yearsOptions }" var="option">
+                            <option value="{!option.value}">{!option.label}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+            </td>
+            <td>
+            </td>
+            <td colspan="4"></td>
+        </tr>
+    </aura:if>
+
+    </tbody>
+
+</aura:component>

@@ -16,7 +16,7 @@
             <assignToReference>donation.CloseDate</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Flow.CurrentDate</elementReference>
+                <elementReference>donationDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -502,6 +502,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <name>paymentFee</name>
+            <value>
+                <elementReference>paymentFee</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <name>paypalTransactionId</name>
             <value>
                 <elementReference>paypalTransactionId</elementReference>
@@ -510,7 +516,7 @@
         <inputAssignments>
             <name>stripeTransactionId</name>
             <value>
-                <elementReference>stripepaymentId</elementReference>
+                <elementReference>stripePaymentId</elementReference>
             </value>
         </inputAssignments>
     </subflows>
@@ -681,6 +687,16 @@
         <scale>2</scale>
     </variables>
     <variables>
+        <name>donationDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDate</elementReference>
+        </value>
+    </variables>
+    <variables>
         <name>donationId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -846,6 +862,14 @@
         <objectType>npe01__OppPayment__c</objectType>
     </variables>
     <variables>
+        <name>paymentFee</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
         <name>paymentMethod</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -939,18 +963,11 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>stripepaymentId</name>
+        <name>stripePaymentId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>stripeTransactionId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>utmAdContent</name>

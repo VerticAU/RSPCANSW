@@ -35,9 +35,6 @@ public virtual class vertic_FlowProc extends vertic_AbstractProcessor implements
             this.inputs = new Map<String, Object>();
         }
 
-        System.debug('FLOW INPUTS');
-        System.debug(JSON.serializePretty(this.inputs));
-
         Flow.Interview flowToExecute = Flow.Interview.createInterview(this.flowName, this.inputs);
         flowToExecute.start();
 
