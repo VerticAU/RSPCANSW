@@ -143,6 +143,31 @@
             <label>Contact has id</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Gift_Contact_Id_Null</name>
+        <label>Gift Contact Id (Null)</label>
+        <locationX>1310</locationX>
+        <locationY>436</locationY>
+        <defaultConnector>
+            <targetReference>Get_Contact_Gift</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not null</defaultConnectorLabel>
+        <rules>
+            <name>Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>giftcontactId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contact_Assigment</targetReference>
+            </connector>
+            <label>Null</label>
+        </rules>
+    </decisions>
     <interviewLabel>Create Contact {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Contact</label>
     <processMetadataValues>
@@ -188,6 +213,23 @@
         <object>Contact</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Contact_Gift</name>
+        <label>Get Contact Gift</label>
+        <locationX>1600</locationX>
+        <locationY>436</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>giftcontactId</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputReference>contact</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Contact</name>
         <label>Update Contact</label>
@@ -199,10 +241,10 @@
         <inputReference>contact</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1190</locationX>
-        <locationY>380</locationY>
+        <locationX>1192</locationX>
+        <locationY>247</locationY>
         <connector>
-            <targetReference>Contact_Assigment</targetReference>
+            <targetReference>Gift_Contact_Id_Null</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -291,6 +333,13 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>giftcontactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>organisation</name>

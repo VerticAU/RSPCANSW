@@ -75,6 +75,28 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Donation_null</name>
+        <label>Donation null</label>
+        <locationX>203</locationX>
+        <locationY>266</locationY>
+        <defaultConnector>
+            <targetReference>Get_payment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>not null</defaultConnectorLabel>
+        <rules>
+            <name>null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>donationId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <label>null</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>TransactionId</name>
         <label>TransactionId</label>
         <locationX>336</locationX>
@@ -168,10 +190,10 @@
         <inputReference>payment</inputReference>
     </recordUpdates>
     <start>
-        <locationX>76</locationX>
-        <locationY>227</locationY>
+        <locationX>107</locationX>
+        <locationY>131</locationY>
         <connector>
-            <targetReference>Get_payment</targetReference>
+            <targetReference>Donation_null</targetReference>
         </connector>
     </start>
     <status>Active</status>

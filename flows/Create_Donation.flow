@@ -96,6 +96,13 @@
                 <elementReference>utmTestVariant</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.npsp__Acknowledgment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>acknowledgmentStatus</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Donation_Id</targetReference>
         </connector>
@@ -119,8 +126,8 @@
     <decisions>
         <name>Amount_Donation_Null</name>
         <label>Amount Donation (Null)</label>
-        <locationX>700</locationX>
-        <locationY>346</locationY>
+        <locationX>701</locationX>
+        <locationY>337</locationY>
         <defaultConnector>
             <targetReference>Get_Campaign</targetReference>
         </defaultConnector>
@@ -189,9 +196,14 @@
         </rules>
     </decisions>
     <formulas>
+        <name>acknowledgmentStatus</name>
+        <dataType>String</dataType>
+        <expression>IF ({!donationStage}=&quot;Closed Won&quot;, &quot;Email Acknowledgment Now&quot;, null)</expression>
+    </formulas>
+    <formulas>
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
-        <expression>BLANKVALUE({!Get_Campaign.campaign.Id}, {!campaign.Id})</expression>
+        <expression>IF({!Get_Campaign.campaign.Id}=null, {!campaign.Id}, {!Get_Campaign.campaign.Id})</expression>
     </formulas>
     <formulas>
         <name>getRecordType</name>
@@ -230,10 +242,24 @@
             <targetReference>Donation_Assigment</targetReference>
         </connector>
         <filters>
+            <field>CloseDate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
             <field>RecordTypeId</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Record_Type_Donation_Recurring.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pledged</stringValue>
             </value>
         </filters>
         <filters>
@@ -431,8 +457,8 @@
         <name>donation</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
         <objectType>Opportunity</objectType>
     </variables>
     <variables>

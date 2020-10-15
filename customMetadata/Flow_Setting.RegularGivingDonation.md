@@ -4,79 +4,81 @@
     <protected>false</protected>
     <values>
         <field>Flow_API_Name__c</field>
-        <value xsi:type="xsd:string">Regular_Giving_Donation</value>
+        <value xsi:type="xsd:string">websiteIntegration</value>
     </values>
     <values>
         <field>Input__c</field>
         <value xsi:type="xsd:string">{
-  &quot;contactLastName&quot; : &quot;dto.contact.lastName&quot;,
-  &quot;contactPhone&quot; : &quot;dto.contact.phone&quot;,
-  &quot;contactEmail&quot; : &quot;dto.contact.email&quot;,
-  &quot;contactFirstName&quot; : &quot;dto.contact.firstName&quot;,
-  &quot;contactState&quot; : &quot;dto.contact.state&quot;,
-  &quot;contactStreet&quot; : &quot;dto.contact.street&quot;,
-  &quot;contactPostalCode&quot; : &quot;dto.contact.postalCode&quot;,
-  &quot;contactCountry&quot; : &quot;dto.contact.country&quot;,   
-  &quot;contactCity&quot; : &quot;dto.contact.city&quot;,
-
- 
-  &quot;organisationPhone&quot; : &quot;dto.organisation.phone&quot;,
-  &quot;organisationCity&quot; : &quot;dto.organisation.city&quot;,
-  &quot;organisationStreet&quot; : &quot;dto.organisation.street&quot;,
-  &quot;organisationZIP&quot; : &quot;dto.organisation.postalCode&quot;,
-  &quot;organisationName&quot; : &quot;dto.organisation.name&quot;,
-  &quot;organisationWebsite&quot; : &quot;dto.organisation.website&quot;,
+&quot;contactFirstName&quot; : &quot;dto.contact.firstName&quot;,
+&quot;contactPostalCode&quot; : &quot;dto.contact.postalCode&quot;,
+&quot;contactCountry&quot; : &quot;dto.contact.country&quot;,
+&quot;contactCity&quot; : &quot;dto.contact.city&quot;,
+&quot;contactStreet&quot; : &quot;dto.contact.street&quot;,
+&quot;contactPhone&quot; : &quot;dto.contact.phone&quot;,
+&quot;contactState&quot; : &quot;dto.contact.state&quot;,
+&quot;contactLastName&quot; : &quot;dto.contact.lastName&quot;,
+&quot;contactEmail&quot; : &quot;dto.contact.email&quot;,
 
 
-  &quot;recurringDonationName&quot; : &quot;dto.recurring.name&quot;,
-  &quot;recurringType&quot; : &quot;dto.recurring.type&quot;,
-  &quot;recurringDonationAmount&quot; : &quot;dto.recurring.amount&quot;,
-  &quot;recurringDayOfMonth&quot; : &quot;dto.recurring.dayOfMonth&quot;,
-  &quot;recurringInstallmentFrequency&quot; : &quot;dto.recurring.installmentFrequency&quot;,
-  &quot;recurringInstallmentPeriod&quot; : &quot;dto.recurring.installmentPeriod&quot;,
-  &quot;recurringDateEstablished&quot; : {
-    &quot;trueValues&quot; : null,
-    &quot;format&quot; : &quot;yyyy-MM-dd&quot;,
-    &quot;type&quot; : &quot;Date&quot;,
-    &quot;disregardBlankValue&quot; : true,
-    &quot;trimValue&quot; : true,
-    &quot;path&quot; : &quot;dto.recurring.dateEstablished&quot;
-  },
-   &quot;recurringEffectiveDate&quot; : {
-    &quot;trueValues&quot; : null,
-    &quot;format&quot; : &quot;yyyy-MM-dd&quot;,
-    &quot;type&quot; : &quot;Date&quot;,
-    &quot;disregardBlankValue&quot; : true,
-    &quot;trimValue&quot; : true,
-    &quot;path&quot; : &quot;dto.recurring.dateEffective&quot;
-  },
-  
- 
-&quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
-&quot;parentCampaignCode&quot;: &quot;dto.campaign.parentCode&quot;,
-&quot;campaignFundraiserId&quot;: &quot;dto.campaign.fundraiserId&quot;,
-&quot;campaignFundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;,
+
+
+&quot;organisationPhone&quot; : &quot;dto.organisation.phone&quot;,
+&quot;organisationCity&quot; : &quot;dto.organisation.city&quot;,
+&quot;organisationStreet&quot; : &quot;dto.organisation.street&quot;,
+&quot;organisationZIP&quot; : &quot;dto.organisation.postalCode&quot;,
+&quot;organisationName&quot; : &quot;dto.organisation.name&quot;,
+&quot;organisationWebsite&quot; : &quot;dto.organisation.website&quot;,
+
+
+
+
+&quot;recurringDonationName&quot; : &quot;dto.recurring.name&quot;,
+&quot;recurringType&quot; : &quot;dto.recurring.type&quot;,
+&quot;recurringDonationAmount&quot; : &quot;dto.recurring.amount&quot;,
+&quot;recurringDayOfMonth&quot; : &quot;dto.recurring.dayOfMonth&quot;,
+&quot;recurringInstallmentFrequency&quot; : &quot;dto.recurring.installmentFrequency&quot;,
+&quot;recurringInstallmentPeriod&quot; : &quot;dto.recurring.installmentPeriod&quot;,
+&quot;recurringDateEstablished&quot; : {
+&quot;trueValues&quot; : null,
+&quot;format&quot; : &quot;yyyy-MM-dd&quot;,
+&quot;type&quot; : &quot;Date&quot;,
+&quot;disregardBlankValue&quot; : true,
+&quot;trimValue&quot; : true,
+&quot;path&quot; : &quot;dto.recurring.dateEstablished&quot;
+},
+&quot;recurringEffectiveDate&quot; : {
+&quot;trueValues&quot; : null,
+&quot;format&quot; : &quot;yyyy-MM-dd&quot;,
+&quot;type&quot; : &quot;Date&quot;,
+&quot;disregardBlankValue&quot; : true,
+&quot;trimValue&quot; : true,
+&quot;path&quot; : &quot;dto.recurring.dateEffective&quot;
+},
+&quot;recurringCampaignCode&quot;: &quot;dto.recurring.campaign.code&quot;,
+&quot;recurringParentCampaignCode&quot;: &quot;dto.recurring.campaign.parentCode&quot;,
+&quot;recurringCampaignFundraiserId&quot;: &quot;dto.recurring.campaign.fundraiserId&quot;,
+&quot;recurringCampaignFundraiserURL&quot;: &quot;dto.recurring.campaign.fundraiserURL&quot;,
+
 
 &quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
-  &quot;stripepaymentId&quot; : &quot;dto.stripe.paymentId&quot;,
-  &quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;,
-  &quot;paymentSubscriptionId&quot; : &quot;dto.stripe.subscriptionId&quot;,
-  &quot;paymentMethod&quot; : &quot;dto.payment.method&quot;,
-  
-    
+&quot;paymentTransactionId&quot; : &quot;dto.stripe.paymentId&quot;,
+&quot;paypalTransactionId&quot; : &quot;dto.paypal.transactionId&quot;,
+&quot;paymentSubscriptionId&quot; : &quot;dto.stripe.subscriptionId&quot;,
+&quot;paymentMethod&quot; : &quot;dto.payment.method&quot;,
 
-  &quot;utmCampaign&quot;: &quot;dto.utm.campaign&quot;,
-  &quot;utmSource&quot;: &quot;dto.utm.source&quot;,
-  &quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
-  &quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
-  &quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,	
+&quot;utmCampaign&quot;: &quot;dto.utm.campaign&quot;,
+&quot;utmSource&quot;: &quot;dto.utm.source&quot;,
+&quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
+&quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
+&quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
 
-	
-  &quot;donationReceiptNumber&quot; : &quot;dto.donation.raceiptNumber&quot;
- 
 
- 
-  
+
+&quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
+&quot;parentCampaignCode&quot;: &quot;dto.campaign.parentCode&quot;,
+&quot;fundraiserId&quot;: &quot;dto.campaign.fundraiserId&quot;,
+&quot;fundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;
+
 }</value>
     </values>
     <values>

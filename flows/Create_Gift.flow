@@ -4,7 +4,7 @@
         <name>Gift_Card_Assigment</name>
         <label>Gift Card Assigment</label>
         <locationX>868</locationX>
-        <locationY>934</locationY>
+        <locationY>932</locationY>
         <assignmentItems>
             <assignToReference>giftCard.npsp__Primary_Contact__c</assignToReference>
             <operator>Assign</operator>
@@ -58,7 +58,7 @@
             <assignToReference>giftCard.StageName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>giftStage</elementReference>
+                <elementReference>StageName</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -111,7 +111,12 @@
     <formulas>
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
-        <expression>BLANKVALUE({!Get_Campaign.campaign.Id}, {!campaign.Id})</expression>
+        <expression>IF({!Get_Campaign.campaign.Id}=null, {!campaign.Id}, {!Get_Campaign.campaign.Id})</expression>
+    </formulas>
+    <formulas>
+        <name>StageName</name>
+        <dataType>String</dataType>
+        <expression>IF({!giftStage}=&quot;&quot;,&quot;Closed Won&quot;,{!giftStage})</expression>
     </formulas>
     <interviewLabel>Create Gift {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Gift</label>
@@ -173,8 +178,8 @@
     <subflows>
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
-        <locationX>869</locationX>
-        <locationY>545</locationY>
+        <locationX>855</locationX>
+        <locationY>543</locationY>
         <connector>
             <targetReference>Get_Gift_Card_Record_Type</targetReference>
         </connector>

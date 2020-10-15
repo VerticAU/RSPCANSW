@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Flow_API_Name__c</field>
-        <value xsi:type="xsd:string">oneOffDonationMPWandCCD</value>
+        <value xsi:type="xsd:string">websiteIntegration</value>
     </values>
     <values>
         <field>Input__c</field>
@@ -38,6 +38,12 @@
     &quot;path&quot;: &quot;dto.donation.date&quot;
   },
   &quot;donationReceiptNumber&quot;: &quot;dto.donation.receiptNumber&quot;,
+&quot;donationCampaignCode&quot;: &quot;dto.donation.campaign.code&quot;,
+&quot;donationParentCampaignCode&quot;: &quot;dto.donation.campaign.parentCode&quot;,
+&quot;donationCampaignFundraiserId&quot;: &quot;dto.donation.campaign.fundraiserId&quot;,
+&quot;donationCampaignFundraiserURL&quot;: &quot;dto.donation.campaign.fundraiserURL&quot;,
+
+
 
 &quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
   &quot;parentCampaignCode&quot;: &quot;dto.campaign.parentCode&quot;,
@@ -53,7 +59,7 @@
   &quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
   &quot;paymentMethod&quot;: &quot;dto.payment.method&quot;,
   &quot;paypalTransactionId&quot;: &quot;dto.paypal.transactionId&quot;,
-  &quot;stripeTransactionId&quot;: &quot;dto.stripe.paymentId&quot;
+  &quot;paymentTransactionId&quot;: &quot;dto.stripe.paymentId&quot;
 
 }</value>
     </values>
@@ -63,7 +69,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">organisationId,raceiptNumber,donationId,contactId</value>
+        <value xsi:type="xsd:string">raceiptNumber,donationId,contactId</value>
     </values>
     <values>
         <field>Tags__c</field>

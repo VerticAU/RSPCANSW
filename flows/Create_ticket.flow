@@ -3,8 +3,8 @@
     <assignments>
         <name>Ticket_Assigment</name>
         <label>Ticket Assigment</label>
-        <locationX>863</locationX>
-        <locationY>936</locationY>
+        <locationX>862</locationX>
+        <locationY>940</locationY>
         <assignmentItems>
             <assignToReference>eventticket.Ticket_Location__c</assignToReference>
             <operator>Assign</operator>
@@ -86,7 +86,7 @@
             <assignToReference>eventticket.StageName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>ticketStage</elementReference>
+                <stringValue>Closed Won</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -139,7 +139,7 @@
     <formulas>
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
-        <expression>BLANKVALUE({!Get_Campaign.campaign.Id}, {!campaign.Id})</expression>
+        <expression>IF({!Get_Campaign.campaign.Id}=null, {!campaign.Id}, {!Get_Campaign.campaign.Id})</expression>
     </formulas>
     <interviewLabel>Create ti {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Ticket</label>
