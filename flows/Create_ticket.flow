@@ -86,7 +86,7 @@
             <assignToReference>eventticket.StageName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Closed Won</stringValue>
+                <elementReference>StageName</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -140,6 +140,11 @@
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
         <expression>IF({!Get_Campaign.campaign.Id}=null, {!campaign.Id}, {!Get_Campaign.campaign.Id})</expression>
+    </formulas>
+    <formulas>
+        <name>StageName</name>
+        <dataType>String</dataType>
+        <expression>IF({!ticketStage}=&quot;&quot;,&quot;Closed Won&quot;,{!ticketStage})</expression>
     </formulas>
     <interviewLabel>Create ti {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Ticket</label>

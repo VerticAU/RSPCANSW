@@ -587,6 +587,10 @@
         <name>UTM_Source__c</name>
     </fields>
     <fields>
+        <label><!-- UTM Term --></label>
+        <name>UTM_Term__c</name>
+    </fields>
+    <fields>
         <label><!-- Will Gap --></label>
         <name>Will_Gap__c</name>
     </fields>

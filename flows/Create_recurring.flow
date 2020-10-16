@@ -104,7 +104,7 @@
     <formulas>
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
-        <expression>BLANKVALUE({!Get_Campaign.campaign.Id}, {!campaign.Id})</expression>
+        <expression>IF({!Get_Campaign.campaign.Id}=null, {!campaign.Id}, {!Get_Campaign.campaign.Id})</expression>
     </formulas>
     <interviewLabel>Create rec {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Recurring</label>

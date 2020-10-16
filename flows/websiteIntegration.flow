@@ -20,7 +20,7 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>raceiptNumber</assignToReference>
+            <assignToReference>receiptNumber</assignToReference>
             <operator>Assign</operator>
             <value>
                 <numberValue>3228.0</numberValue>
@@ -320,6 +320,12 @@
             <name>utmSource</name>
             <value>
                 <elementReference>utmSource</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>utmTerm</name>
+            <value>
+                <elementReference>utmTerm</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1068,7 +1074,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>raceiptNumber</name>
+        <name>receiptNumber</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -1264,6 +1270,13 @@
     </variables>
     <variables>
         <name>utmSource</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmTerm</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

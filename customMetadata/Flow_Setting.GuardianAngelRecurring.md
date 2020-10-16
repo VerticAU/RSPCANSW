@@ -71,6 +71,7 @@
 &quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
 &quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
 &quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
+  &quot;utmTerm&quot;: &quot;dto.utm.term&quot;,
 
 &quot;giftCampaignCode&quot;: &quot;dto.gift.campaign.code&quot;,
 &quot;giftParentCampaignCode&quot;: &quot;dto.gift.campaign.parentCode&quot;,
@@ -98,7 +99,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">contactId,giftId,raceiptNumber,recurringId,donationId</value>
+        <value xsi:type="xsd:string">contactId,giftId,receiptNumber,recurringId,donationId</value>
     </values>
     <values>
         <field>Tags__c</field>

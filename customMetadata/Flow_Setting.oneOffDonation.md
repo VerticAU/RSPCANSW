@@ -55,6 +55,7 @@
   &quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
   &quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
   &quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
+  &quot;utmTerm&quot;: &quot;dto.utm.term&quot;,
 
   &quot;paymentFee&quot;: &quot;dto.payment.fee&quot;,
   &quot;paymentMethod&quot;: &quot;dto.payment.method&quot;,
@@ -69,7 +70,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">raceiptNumber,donationId,contactId</value>
+        <value xsi:type="xsd:string">receiptNumber,donationId,contactId</value>
     </values>
     <values>
         <field>Tags__c</field>

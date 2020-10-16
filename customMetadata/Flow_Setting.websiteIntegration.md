@@ -90,7 +90,7 @@
 &quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
 &quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
 &quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
- 
+&quot;utmTerm&quot;: &quot;dto.utm.term&quot;, 
 
 
 

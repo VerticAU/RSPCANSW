@@ -56,7 +56,7 @@
 &quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
 &quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
 &quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
-
+&quot;utmTerm&quot;: &quot;dto.utm.term&quot;,
 
 
 
@@ -90,7 +90,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">contactId,donationId,campaignId,raceiptNumber</value>
+        <value xsi:type="xsd:string">contactId,donationId,campaignId,receiptNumber,ticketId</value>
     </values>
     <values>
         <field>Tags__c</field>

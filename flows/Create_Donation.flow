@@ -103,6 +103,13 @@
                 <elementReference>acknowledgmentStatus</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Term__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTerm</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Donation_Id</targetReference>
         </connector>
@@ -560,6 +567,16 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmTerm</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>text</stringValue>
+        </value>
     </variables>
     <variables>
         <name>utmTestVariant</name>
