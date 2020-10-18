@@ -18,43 +18,19 @@
     </customTabs>
     <flowDefinitions>
         <flows/>
-        <fullName>Create_Task_Welcome_pack</fullName>
+        <fullName>Clever_Contacts</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>websiteIntegration</fullName>
+        <fullName>Corporate_Sponsorship_stage_Proposal_Review</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>Set_Next_Donation_Date</fullName>
+        <fullName>CreateOrganisation</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>Set_Last_Opportunity_Id_Contact</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>PURL</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Create_Payment</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Guardian_Angel</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Get_Campaign</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>membershipPayment</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>On_creation_RD_insert_DOM</fullName>
+        <fullName>Create_Contact</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
@@ -66,7 +42,11 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>millionPawsWalk</fullName>
+        <fullName>Create_Payment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Create_Task_Welcome_pack</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
@@ -74,15 +54,11 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>Million_Paws_Walk_Fundraiser_Donation</fullName>
+        <fullName>Create_ticket</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>fundraiserSignUp</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Set_Previous_Opportunity_Amount</fullName>
+        <fullName>Get_Campaign</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
@@ -90,31 +66,11 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>Corporate_Sponsorship_stage_Proposal_Review</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Task_Flow</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Create_Contact</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Set_Lapsed_Date_To_Contact</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Clever_Contacts</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
-        <fullName>Regular_Giving_Donation</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows/>
         <fullName>Gift_Cards</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Guardian_Angel</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
@@ -122,15 +78,59 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>CreateOrganisation</fullName>
+        <fullName>Million_Paws_Walk_Fundraiser_Donation</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
-        <fullName>Create_ticket</fullName>
+        <fullName>On_creation_RD_insert_DOM</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>PURL</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Regular_Giving_Donation</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Set_Lapsed_Date_To_Contact</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Set_Last_Opportunity_Id_Contact</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Set_Next_Donation_Date</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Set_Previous_Opportunity_Amount</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Task_Flow</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>fundraiserSignUp</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>membershipPayment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>millionPawsWalk</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
         <fullName>oneOffDonationMPWandCCD</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>websiteIntegration</fullName>
     </flowDefinitions>
     <quickActions>
         <label><!-- LogACall --></label>

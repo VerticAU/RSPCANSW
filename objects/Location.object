@@ -128,96 +128,101 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
-        <fullName>ActiveFromDate</fullName>
+        <fullName>CloseDate</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>ActiveToDate</fullName>
+        <fullName>ConstructionEndDate</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>AreaCode</fullName>
+        <fullName>ConstructionStartDate</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>BestTimeToContactEndTime</fullName>
+        <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>BestTimeToContactStartTime</fullName>
+        <fullName>DrivingDirections</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>BestTimeToContactTimezone</fullName>
+        <fullName>ExternalReference</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>ExtensionNumber</fullName>
+        <fullName>IsInventoryLocation</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>FormattedInternationalPhoneNumber</fullName>
+        <fullName>IsMobile</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>FormattedNationalPhoneNumber</fullName>
+        <fullName>Location</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>IsBusinessPhone</fullName>
+        <fullName>LocationLevel</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>IsFaxCapable</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsPersonalPhone</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsPrimary</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsSmsCapable</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>ParentId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>PhoneType</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>PreferenceRank</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TelephoneNumber</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>UsageType</fullName>
+        <fullName>LocationType</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>LogoId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OpenDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentLocationId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>PossessionDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>RemodelEndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>RemodelStartDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>RootLocationId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TimeZone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
     <searchLayouts>
-        <customTabListAdditionalFields>TelephoneNumber</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ActiveFromDate</customTabListAdditionalFields>
-        <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
-        <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Parent</customTabListAdditionalFields>
-        <searchResultsAdditionalFields>TelephoneNumber</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ActiveFromDate</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Parent</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>LocationType</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>LocationType</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LocationType</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>LocationType</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

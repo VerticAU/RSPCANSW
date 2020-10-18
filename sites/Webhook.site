@@ -22,7 +22,6 @@
     <masterLabel>Webhook</masterLabel>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
-    <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <siteAdmin>developer+rspcansw@vertic.com.au</siteAdmin>
     <siteGuestRecordDefaultOwner>developer+rspcansw@vertic.com.au</siteGuestRecordDefaultOwner>
     <siteTemplate>SiteTemplate</siteTemplate>
