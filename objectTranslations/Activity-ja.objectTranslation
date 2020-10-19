@@ -33,6 +33,10 @@
         <name>Group_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Next Workflow Name --></label>
+        <name>Next_Workflow_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Skip WhatId --></label>
         <name>Skip_WhatId__c</name>
     </fields>

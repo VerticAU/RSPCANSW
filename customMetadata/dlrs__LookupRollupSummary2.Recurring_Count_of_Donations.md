@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Campaign: Highest Donation Amount</label>
+    <label>Recurring Donation: Count of Donations</label>
     <protected>false</protected>
     <values>
         <field>dlrs__Active__c</field>
@@ -12,11 +12,11 @@
     </values>
     <values>
         <field>dlrs__AggregateOperation__c</field>
-        <value xsi:type="xsd:string">Max</value>
+        <value xsi:type="xsd:string">Count</value>
     </values>
     <values>
         <field>dlrs__AggregateResultField__c</field>
-        <value xsi:type="xsd:string">Highest_Donation_Amount__c</value>
+        <value xsi:type="xsd:string">Count_of_Donations__c</value>
     </values>
     <values>
         <field>dlrs__CalculationMode__c</field>
@@ -40,7 +40,7 @@
     </values>
     <values>
         <field>dlrs__FieldToAggregate__c</field>
-        <value xsi:type="xsd:string">Amount</value>
+        <value xsi:type="xsd:string">Id</value>
     </values>
     <values>
         <field>dlrs__FieldToOrderBy__c</field>
@@ -48,7 +48,7 @@
     </values>
     <values>
         <field>dlrs__ParentObject__c</field>
-        <value xsi:type="xsd:string">Campaign</value>
+        <value xsi:type="xsd:string">npe03__Recurring_Donation__c</value>
     </values>
     <values>
         <field>dlrs__RelationshipCriteriaFields__c</field>
@@ -56,11 +56,11 @@
     </values>
     <values>
         <field>dlrs__RelationshipCriteria__c</field>
-        <value xsi:type="xsd:string">RecordType.DeveloperName = &apos;Donation&apos;</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>dlrs__RelationshipField__c</field>
-        <value xsi:type="xsd:string">CampaignId</value>
+        <value xsi:type="xsd:string">npe03__Recurring_Donation__c</value>
     </values>
     <values>
         <field>dlrs__RowLimit__c</field>

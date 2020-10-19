@@ -46,6 +46,14 @@
 &quot;trimValue&quot; : true,
 &quot;path&quot; : &quot;dto.recurring.dateEstablished&quot;
 },
+&quot;recurringNextDate&quot; : {
+&quot;trueValues&quot; : null,
+&quot;format&quot; : &quot;yyyy-MM-dd&quot;,
+&quot;type&quot; : &quot;Date&quot;,
+&quot;disregardBlankValue&quot; : true,
+&quot;trimValue&quot; : true,
+&quot;path&quot; : &quot;dto.recurring.nextDate&quot;
+},
 &quot;recurringEffectiveDate&quot; : {
 &quot;trueValues&quot; : null,
 &quot;format&quot; : &quot;yyyy-MM-dd&quot;,

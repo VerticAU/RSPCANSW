@@ -66,6 +66,10 @@
                 <behavior>Readonly</behavior>
                 <field>Primary_Contact_2xLargest_Amount__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Created_By_Recurring_Donation__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

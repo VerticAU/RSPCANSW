@@ -2851,6 +2851,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Event.Next_Workflow_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Event.Skip_WhatId__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3362,6 +3367,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.ContractId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Created_By_Recurring_Donation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4597,6 +4607,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Group_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Next_Workflow_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

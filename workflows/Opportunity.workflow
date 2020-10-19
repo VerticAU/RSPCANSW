@@ -243,6 +243,20 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Donation Bequest Enquiry Step 1</fullName>
+        <actions>
+            <name>Call_Email_Bequestor</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <description>When a donor (contact) enquires about Bequests, the business process is to create a bequest opportunity in status = Enquiry which should trigger tasks to assist in moving the opportunity from Enquiry to Pledged.
+If contact has no email/phone number then</description>
+        <formula>AND( ISPICKVAL(StageName, &apos;Enquiry&apos;), OR(npsp__Primary_Contact__r.Email != &apos;&apos;,  npsp__Primary_Contact__r.Phone != &apos;&apos;,
+ RecordType.Name == &apos;Bequest&apos;
+))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>Donation amount is twice the largest gift</fullName>
         <actions>
             <name>Call_Donor_2</name>
@@ -291,29 +305,15 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>First donation for Contact</fullName>
+        <fullName>First Recurring Donation for Contact</fullName>
         <actions>
             <name>Send_Welcome_Pack</name>
             <type>Task</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Opportunity.Is_This_First_Donation__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Donation</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.StageName</field>
-            <operation>equals</operation>
-            <value>Closed Won</value>
-        </criteriaItems>
-        <description>For a contact when the first Opportunity of record type Donation is created and stage = Closed won</description>
-        <triggerType>onCreateOnly</triggerType>
+        <description>For a contact when the first Recurring Donation of record type Donation is created and stage = Closed won</description>
+        <formula>AND(RecordType.Name == &apos;Donation&apos;, ISPICKVAL(StageName, &apos;Closed Won&apos;),  npe03__Recurring_Donation__r.Count_of_Donations__c &lt;= 2, CloseDate ==  TODAY())</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Membership Enrolled</fullName>
@@ -660,6 +660,18 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Call Donor</subject>
+    </tasks>
+    <tasks>
+        <fullName>Call_Email_Bequestor</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest Enquiry Step 2&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Call/Email Bequestor</subject>
     </tasks>
     <tasks>
         <fullName>Check_Paperwork_Received_checkbox</fullName>

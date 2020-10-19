@@ -64,6 +64,10 @@
         <name>Contested__c</name>
     </fields>
     <fields>
+        <label><!-- Created By Recurring Donation --></label>
+        <name>Created_By_Recurring_Donation__c</name>
+    </fields>
+    <fields>
         <label><!-- Date Notified of Death --></label>
         <name>Date_Notified_of_Death__c</name>
     </fields>
@@ -1446,6 +1450,11 @@
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;One-Off donation amount double the largest gift amount&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Call_Donor_2</name>
         <subject><!-- Call Donor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest Enquiry Step 2&quot;} --></description>
+        <name>Call_Email_Bequestor</name>
+        <subject><!-- Call/Email Bequestor --></subject>
     </workflowTasks>
     <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;90 days since all payments received and Bequest closed please ensure all paperwork is received.&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>

@@ -58,6 +58,10 @@
                 <behavior>Readonly</behavior>
                 <field>Contact_Email__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Count_of_Donations__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

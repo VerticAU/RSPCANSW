@@ -698,6 +698,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Created_By_Recurring_Donation__c</fullName>
+        <externalId>false</externalId>
+        <formula>npe03__Recurring_Donation__c != null</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created By Recurring Donation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Date_Notified_of_Death__c</fullName>
         <externalId>false</externalId>
         <formula>npsp__Primary_Contact__r.Date_Notified_of_Death__c</formula>
@@ -1419,7 +1429,7 @@
     <fields>
         <fullName>Primary_Contact_2xLargest_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>Amount &gt;= npsp__Primary_Contact__r.npo02__LargestAmount__c * 2</formula>
+        <formula>AND(npsp__Primary_Contact__r.npo02__LargestAmount__c != 0, Amount &gt;= npsp__Primary_Contact__r.npo02__LargestAmount__c * 2)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Primary Contact 2xLargest Amount</label>
         <trackHistory>false</trackHistory>

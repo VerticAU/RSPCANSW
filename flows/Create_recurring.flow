@@ -75,6 +75,13 @@
                 <stringValue>Open</stringValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurringDonation.npsp__StartDate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringStartDate</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Recurring</targetReference>
         </connector>
@@ -112,6 +119,12 @@
         <name>BuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -260,5 +273,12 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <scale>2</scale>
+    </variables>
+    <variables>
+        <name>recurringStartDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>

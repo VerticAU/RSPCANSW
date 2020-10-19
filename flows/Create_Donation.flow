@@ -110,6 +110,13 @@
                 <elementReference>utmTerm</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.npe03__Recurring_Donation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringId</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Donation_Id</targetReference>
         </connector>
@@ -223,6 +230,12 @@
         <name>BuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>

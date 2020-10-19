@@ -88,6 +88,12 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -582,6 +588,12 @@
             <name>recurringDonationAmount</name>
             <value>
                 <elementReference>recurringDonationAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>recurringStartDate</name>
+            <value>
+                <elementReference>recurringNextDate</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1116,6 +1128,13 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>recurringNextDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>recurringParentCampaignCode</name>
