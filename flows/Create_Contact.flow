@@ -154,7 +154,7 @@
         <defaultConnectorLabel>Not null</defaultConnectorLabel>
         <rules>
             <name>Null</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>giftcontactId</leftValueReference>
                 <operator>EqualTo</operator>
@@ -162,10 +162,17 @@
                     <stringValue></stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>giftcontactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Contact_Assigment</targetReference>
             </connector>
-            <label>Null</label>
+            <label>Is Null</label>
         </rules>
     </decisions>
     <interviewLabel>Create Contact {!$Flow.CurrentDateTime}</interviewLabel>
@@ -174,6 +181,12 @@
         <name>BuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>

@@ -81,6 +81,7 @@ public class WorkflowUpdateTasksProc extends vertic_AbstractProcessor implements
             Task clonedTask = mapGroupKeyToMainTask.get(currentTask.Group_Key__c).clone(false, true);
             clonedTask.Id = currentTask.Id;
             clonedTask.OwnerId = currentTask.OwnerId;
+            clonedTask.Next_Workflow_Name__c = '';
             uow.registerUpsert(clonedTask);
         }
     }

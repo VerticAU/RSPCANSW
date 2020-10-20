@@ -32,6 +32,13 @@
             <section>Statistics</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Fundraising Recurring Donation Layout</layout>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Nom du don récurrent</nameFieldLabel>
     <startsWith><!-- Consonant --></startsWith>
 </CustomObjectTranslation>

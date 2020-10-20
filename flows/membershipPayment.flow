@@ -3,8 +3,8 @@
     <assignments>
         <name>Donation_Assigment</name>
         <label>Donation Assigment</label>
-        <locationX>2623</locationX>
-        <locationY>1126</locationY>
+        <locationX>2337</locationX>
+        <locationY>981</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -61,34 +61,6 @@
                 <elementReference>donationReceiptNumber</elementReference>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Ad_Content__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>donationUTMLink</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Source__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>donationUTMSource</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Medium__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Campaign.npsp_plus__Channel__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Campaign__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Campaign.Name</elementReference>
-            </value>
-        </assignmentItems>
         <connector>
             <targetReference>Create_Donation</targetReference>
         </connector>
@@ -96,8 +68,8 @@
     <assignments>
         <name>Donation_Assigment_organisation_name_null</name>
         <label>Donation Assigment (organisation name null)</label>
-        <locationX>2614</locationX>
-        <locationY>1273</locationY>
+        <locationX>2341</locationX>
+        <locationY>1164</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -151,35 +123,7 @@
             <assignToReference>donation.Receipt_Number__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>3228</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Ad_Content__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>donationUTMLink</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Source__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>donationUTMSource</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Medium__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Campaign.npsp_plus__Channel__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donation.UTM_Campaign__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Campaign.Name</elementReference>
+                <elementReference>donationReceiptNumber</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -189,8 +133,8 @@
     <assignments>
         <name>Membership_Assignment</name>
         <label>Membership Assignment</label>
-        <locationX>1744</locationX>
-        <locationY>698</locationY>
+        <locationX>1741</locationX>
+        <locationY>702</locationY>
         <assignmentItems>
             <assignToReference>membership.Name</assignToReference>
             <operator>Assign</operator>
@@ -289,8 +233,8 @@
     <assignments>
         <name>Output_Assignment</name>
         <label>Output Assignment</label>
-        <locationX>2751</locationX>
-        <locationY>698</locationY>
+        <locationX>2558</locationX>
+        <locationY>704</locationY>
         <assignmentItems>
             <assignToReference>opportunityId</assignToReference>
             <operator>Assign</operator>
@@ -316,15 +260,15 @@
             <assignToReference>membershipId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_All_Fields.Membership_ID__c</elementReference>
+                <elementReference>membership.Id</elementReference>
             </value>
         </assignmentItems>
     </assignments>
     <assignments>
         <name>Output_Assignment_0</name>
         <label>Output Assignment</label>
-        <locationX>2752</locationX>
-        <locationY>872</locationY>
+        <locationX>2558</locationX>
+        <locationY>853</locationY>
         <assignmentItems>
             <assignToReference>donationId</assignToReference>
             <operator>Assign</operator>
@@ -346,8 +290,8 @@
     <decisions>
         <name>Donation_Amount</name>
         <label>Donation Amount</label>
-        <locationX>2404</locationX>
-        <locationY>700</locationY>
+        <locationX>2124</locationX>
+        <locationY>705</locationY>
         <defaultConnector>
             <targetReference>Get_Donation_Record</targetReference>
         </defaultConnector>
@@ -378,8 +322,8 @@
     <decisions>
         <name>Organisation_Name_For_Donation</name>
         <label>Organisation Name For  Donation</label>
-        <locationX>2410</locationX>
-        <locationY>1066</locationY>
+        <locationX>2121</locationX>
+        <locationY>984</locationY>
         <defaultConnector>
             <targetReference>Donation_Assigment</targetReference>
         </defaultConnector>
@@ -434,6 +378,12 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -443,8 +393,8 @@
     <recordCreates>
         <name>Create_Donation</name>
         <label>Create Donation</label>
-        <locationX>2752</locationX>
-        <locationY>1217</locationY>
+        <locationX>2560</locationX>
+        <locationY>1156</locationY>
         <connector>
             <targetReference>Create_Payment</targetReference>
         </connector>
@@ -453,21 +403,21 @@
     <recordCreates>
         <name>Create_Membership</name>
         <label>Create Membership</label>
-        <locationX>1886</locationX>
-        <locationY>698</locationY>
+        <locationX>1860</locationX>
+        <locationY>702</locationY>
         <connector>
-            <targetReference>Update_Contact</targetReference>
+            <targetReference>Get_All_Fields</targetReference>
         </connector>
         <inputReference>membership</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_All_Fields</name>
         <label>Get All Fields</label>
-        <locationX>2146</locationX>
-        <locationY>698</locationY>
+        <locationX>1990</locationX>
+        <locationY>702</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Campaign</targetReference>
+            <targetReference>Donation_Amount</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -481,30 +431,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Campaign</name>
-        <label>Get Campaign</label>
-        <locationX>2266</locationX>
-        <locationY>698</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Donation_Amount</targetReference>
-        </connector>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>donationUtmName</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Campaign</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_contact_organisation</name>
         <label>Get contact organisation</label>
-        <locationX>2418</locationX>
-        <locationY>1273</locationY>
+        <locationX>2128</locationX>
+        <locationY>1164</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Assigment_organisation_name_null</targetReference>
@@ -523,8 +453,8 @@
     <recordLookups>
         <name>Get_Donation_Record</name>
         <label>Get Donation Record</label>
-        <locationX>2416</locationX>
-        <locationY>880</locationY>
+        <locationX>2131</locationX>
+        <locationY>841</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Organisation_Name_For_Donation</targetReference>
@@ -557,8 +487,8 @@
     <recordLookups>
         <name>Get_Record_Type</name>
         <label>Get Record Type</label>
-        <locationX>1607</locationX>
-        <locationY>698</locationY>
+        <locationX>1616</locationX>
+        <locationY>702</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Membership_Assignment</targetReference>
@@ -581,35 +511,6 @@
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordUpdates>
-        <name>Update_Contact</name>
-        <label>Update Contact</label>
-        <locationX>2019</locationX>
-        <locationY>699</locationY>
-        <connector>
-            <targetReference>Get_All_Fields</targetReference>
-        </connector>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>contact.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>Active_Membership__c</field>
-            <value>
-                <elementReference>membership.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Birthdate</field>
-            <value>
-                <elementReference>contactbirthday</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Contact</object>
-    </recordUpdates>
     <start>
         <locationX>1247</locationX>
         <locationY>413</locationY>
@@ -617,7 +518,7 @@
             <targetReference>Organisation_Null</targetReference>
         </connector>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
@@ -739,8 +640,8 @@
     <subflows>
         <name>Create_Payment</name>
         <label>Create Payment</label>
-        <locationX>2752</locationX>
-        <locationY>1034</locationY>
+        <locationX>2554</locationX>
+        <locationY>1003</locationY>
         <connector>
             <targetReference>Output_Assignment_0</targetReference>
         </connector>
@@ -749,12 +650,6 @@
             <name>donationId</name>
             <value>
                 <elementReference>donation.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>emptyline</name>
-            <value>
-                <elementReference>emptyline</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -910,37 +805,6 @@
         </value>
     </variables>
     <variables>
-        <name>donationUTMLink</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>donationUtmName</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <stringValue>Donations Organic</stringValue>
-        </value>
-    </variables>
-    <variables>
-        <name>donationUTMSource</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>emptyline</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>memberNumber</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -1017,6 +881,9 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <value>
+            <stringValue>Closed Won</stringValue>
+        </value>
     </variables>
     <variables>
         <name>membershipStartDate</name>
