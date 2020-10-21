@@ -1,4 +1,24 @@
 ({
+    handlePaymentMethodChange: function(cmp, event, helper){
+        console.log('->', cmp.get('v.contribution.Payment_Method__c'));
+        // if(cmp.get('v.contribution.Payment_Method__c') === 'Credit Card'){
+        //     cmp.find('modalService').show(
+        //         'c:BulkContributionManagementCCModal',
+        //         {
+        //             meta: cmp.get('v.meta')
+        //         },
+        //         {
+        //             header: 'One-Off Donation | Credit Card',
+        //             cssClass: 'slds-modal_small'
+        //         }
+        //     ).then($A.getCallback(function (response) {
+        //
+        //     }));
+        // }
+    },
+
+    //----------------------------------------------------------------------------
+
     handleContributionDeleteClick: function (cmp, event, helper) {
         var event = cmp.getEvent('onContributionDelete');
         event.setParams({

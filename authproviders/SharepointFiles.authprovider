@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
-    <authorizeUrl>https://login.microsoftonline.com/common/oauth2/authorize?resource=https%3A%2F%2Ftest.sharepoint.com&amp;prompt=login</authorizeUrl>
+    <authorizeUrl>https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize</authorizeUrl>
     <consumerKey>c469adf3-014f-49c0-af0e-2a150742e842</consumerKey>
     <consumerSecret>5rD9hwIJW+wllGXdyN3WvohWaefb1/J7wOoqm/bq8oNPYeuCyRiOuw==</consumerSecret>
+    <defaultScopes>files.readwrite offline_access</defaultScopes>
     <friendlyName>Sharepoint Files</friendlyName>
     <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
-    <providerType>OpenIdConnect</providerType>
-    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <providerType>MicrosoftACS</providerType>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
     <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
     <sendSecretInApis>true</sendSecretInApis>
-    <tokenUrl>https://login.microsoftonline.com/common/oauth2/token</tokenUrl>
+    <tokenUrl>https://login.microsoftonline.com/organizations/oauth2/v2.0/token</tokenUrl>
 </AuthProvider>

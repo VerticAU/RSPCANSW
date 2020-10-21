@@ -25,7 +25,6 @@
     <aura:handler name="change" value="{!v.contribution}" action="{!c.handleContributionChange}"/>
     <aura:handler name="onQRScanReady" event="c:vertic_ComponentEvent" action="{!c.handleQRScanReady}"/>
 
-
     <c:vertic_Utils context="{!this}"/>
     <c:vertic_ModalService aura:id="modalService"/>
 
@@ -150,11 +149,13 @@
         <td data-label="Payment Method">
             <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
                 <lightning:select label="Payment Method"
-                                  value="{! v.contribution.paymentMethod }"
+                                  value="{! v.contribution.Payment_Method__c }"
                                   variant="label-hidden"
                                   required="{!true}"
                                   disabled="{!v.contribution.isCompleted}"
-                                  class="label-hidden">
+                                  class="label-hidden"
+                                  onchange="{!c.handlePaymentMethodChange}"
+                >
                     <option value="">--None--</option>
                     <aura:iteration items="{! v.meta.selectOptions.paymentMethodOptions }" var="option">
                         <option label="{!option.label}" value="{!option.value}"/>
@@ -219,7 +220,7 @@
                                  onchange="{!c.handleNumericOnly}"
                 />
             </td>
-            <td data-label="Bank Account Number" colspan="2">
+            <td data-label="Bank Account Number" colspan="1">
                 <lightning:input label="Bank Account Number"
                                  placeholder="Bank Account Number"
                                  required="{!true}"
@@ -231,7 +232,7 @@
                                  onchange="{!c.handleNumericOnly}"
                 />
             </td>
-            <td data-label="Date" colspan="2">
+            <td data-label="Date" colspan="1">
                 <lightning:input label="Cheque Drawer"
                                  placeholder="Cheque Drawer"
                                  required="{!true}"
@@ -244,61 +245,11 @@
             <td colspan="2"></td>
         </tr>
     </aura:if>
-
-    <aura:if isTrue="{! v.contribution.Payment_Method__c == 'Credit Card' }">
-        <tr aura:id="creditCardDetails" class="no-top-border">
-            <td colspan="3"></td>
-            <td data-label="Credit Card Number" class="no-top-border" colspan="2">
-                <lightning:input aura:id="creditCardNumber"
-                                 type="text"
-                                 label="Credit Card Number"
-                                 disabled="{!v.contribution.isCompleted}"
-                                 messageWhenPatternMismatch="Invalid Credit Card Number (13 to 16 digits)"
-                                 pattern="\b\d{13,16}\b"
-                                 name="input-name"
-                                 required="{!true}"
-                                 variant="label-hidden"
-                                 class="label-hidden"
-                                 placeholder="Credit Card Number"
-                                 value="{! v.creditCard.cardNumber }"
-                />
-            </td>
-            <td data-label="Expiry Month" class="no-top-border">
-                <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
-                    <lightning:select aura:id="expiryMonth"
-                                      value="{! v.creditCard.expiryMonth }"
-                                      disabled="{!v.contribution.isCompleted}"
-                                      required="{!true}"
-                                      label="Expiry Month"
-                                      variant="label-hidden"
-                                      class="label-hidden" validity="">
-                        <aura:iteration items="{! v.meta.selectOptions.monthsOptions }" var="option">
-                            <option value="{!option.value}">{!option.label}</option>
-                        </aura:iteration>
-                    </lightning:select>
-                </aura:if>
-            </td>
-            <td data-label="Expiry Year" class="no-top-border">
-                <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
-                    <lightning:select aura:id="expiryYear"
-                                      value="{! v.creditCard.expiryYear }"
-                                      disabled="{!v.contribution.isCompleted}"
-                                      required="{!true}"
-                                      label="Expiry Year"
-                                      variant="label-hidden"
-                                      class="label-hidden">
-                        <aura:iteration items="{! v.meta.selectOptions.yearsOptions }" var="option">
-                            <option value="{!option.value}">{!option.label}</option>
-                        </aura:iteration>
-                    </lightning:select>
-                </aura:if>
-            </td>
-            <td>
-            </td>
-            <td colspan="4"></td>
-        </tr>
-    </aura:if>
-
     </tbody>
-
+    <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.meta.dto.stripeCustomerId}"
+                                         value="{!v.meta.dto.stripePaymentMethodId}"
+                                         disabled="{!v.isBusy}"
+                                         required="{!true}"
+                                         totalPaymentMethods="{!v.meta.totalPaymentMethods}"
+    />
 </aura:component>

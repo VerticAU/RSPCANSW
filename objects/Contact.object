@@ -545,6 +545,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Contact_ID__c</fullName>
+        <displayFormat>{0000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Contact ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
         <fullName>Count_Estate_Account_With_Deceased__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -1059,6 +1067,17 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>One_Drive_Folder_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>One Drive Folder Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>OtherAddress</fullName>

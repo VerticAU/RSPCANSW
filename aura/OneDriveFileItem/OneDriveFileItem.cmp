@@ -1,0 +1,61 @@
+<aura:component description="OneDriveFileItem" implements="force:lightningQuickAction">
+    <aura:attribute name="file" type="Map"/>
+    <aura:attribute name="isFullView" type="Boolean" access="global" default="true"/>
+    <aura:attribute name="isDeleteAvailable" type="Boolean" access="global" default="true"/>
+
+    <aura:registerEvent name="onDelete" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onDownload" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onSendEmail" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onFileView" type="c:vertic_ComponentEvent"/>
+
+
+    <aura:if isTrue="{! v.isFullView}">
+        <tr>
+            <td scope="row">
+                <a>
+                    <div class="slds-truncate" onclick="{!c.handleFileView}" title="{!v.file.name}" value="{!v.file}">{!v.file.name}</div>
+                </a>
+            </td>
+            <td>
+                <div class="slds-truncate" title="{!v.file.sizeFormatted}">{!v.file.sizeFormatted}</div>
+            </td>
+
+
+            <td data-label="Start Date">
+                <ui:outputDate format="dd/MM/yyyy" value="{!v.file.createdDateTime}"/>
+            </td>
+            <td data-label="Modified Date">
+                <ui:outputDate format="dd/MM/yyyy" value="{!v.file.lastModifiedDateTime}"/>
+            </td>
+            <td>
+
+                <lightning:buttonIcon class="slds-m-bottom_xxx-small" iconName="utility:page" variant="bare" value="{!v.file}" onclick="{!c.handleFileView}" alternativeText="Preview"/>
+
+                <!--<aura:if isTrue="{!v.file.isButtonEmail}">-->
+                    <!--<lightning:buttonIcon iconName="utility:email" variant="bare" onclick="{!c.handleFileSendToEmail}" value="{!v.file}" alternativeText="Email"/>-->
+                <!--</aura:if>-->
+
+                <lightning:buttonIcon class="slds-m-bottom_xxx-small" iconName="utility:download" variant="bare" onclick="{!c.handleFileDownload}" value="{!v.file}" alternativeText="Download"/>
+
+                <lightning:buttonIcon class="slds-m-bottom_xxx-small" iconName="utility:delete" variant="bare" onclick="{!c.handleFileDelete}" value="{!v.file}" alternativeText="Delete"/>
+
+            </td>
+        </tr>
+        <aura:set attribute="else">
+            <tr>
+                <td scope="row" width="{! if(v.isDeleteAvailable, '12%', '6%')}">
+                    <lightning:buttonIcon class="slds-m-bottom_xx-small" iconName="utility:download" variant="bare" onclick="{!c.handleFileDownload}" value="{!v.file}" alternativeText="Download"/>
+
+                    <aura:if isTrue="{! v.isDeleteAvailable}">
+                        <lightning:buttonIcon class="slds-m-bottom_xx-small" iconName="utility:delete" variant="bare" onclick="{!c.handleFileDelete}" value="{!v.file}" alternativeText="Delete"/>
+                    </aura:if>
+                </td>
+                <td scope="row">
+                    <a>
+                        <div class="slds-truncate" onclick="{!c.handleFileView}" title="{!v.file.name}" value="{!v.file}">{!v.file.name}</div>
+                    </a>
+                </td>
+            </tr>
+        </aura:set>
+    </aura:if>
+</aura:component>

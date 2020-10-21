@@ -398,13 +398,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>lead.Did_you_have_any_ideas__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>lead.Did_you_have_any_ideas__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>lead.Date_of_Corporate_Support_Day__c</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -486,13 +479,6 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>leadAnyPetsLivingAtHome</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>lead.Home_Description__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>lead.Home_Description__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -731,6 +717,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>leadHowWereYouThinkingOfCelebrating</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>lead.Company</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>RSPCA NSW</stringValue>
             </value>
         </assignmentItems>
         <connector>

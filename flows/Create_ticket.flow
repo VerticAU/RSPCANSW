@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignments>
+        <name>output_Error</name>
+        <label>OutputError</label>
+        <locationX>577</locationX>
+        <locationY>701</locationY>
+        <assignmentItems>
+            <assignToReference>FaultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>Ticket_Assigment</name>
         <label>Ticket Assigment</label>
         <locationX>862</locationX>
@@ -155,6 +168,12 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -164,19 +183,25 @@
     <recordCreates>
         <name>Create_ticket</name>
         <label>Create ticket</label>
-        <locationX>866</locationX>
-        <locationY>1104</locationY>
+        <locationX>862</locationX>
+        <locationY>1097</locationY>
+        <faultConnector>
+            <targetReference>output_Error</targetReference>
+        </faultConnector>
         <inputReference>eventticket</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_Record_Type</name>
         <label>Get Record Type</label>
-        <locationX>869</locationX>
-        <locationY>727</locationY>
+        <locationX>866</locationX>
+        <locationY>716</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Ticket_Assigment</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>output_Error</targetReference>
+        </faultConnector>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -305,6 +330,13 @@
         <isInput>false</isInput>
         <isOutput>true</isOutput>
         <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>FaultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>parentCampaignCode</name>

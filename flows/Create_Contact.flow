@@ -118,6 +118,19 @@
             <targetReference>Contact_Deduplicate</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Output_Error</name>
+        <label>Output Error</label>
+        <locationX>1837</locationX>
+        <locationY>1120</locationY>
+        <assignmentItems>
+            <assignToReference>FaultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
     <decisions>
         <name>Contact_Decision</name>
         <label>Contact Decision</label>
@@ -204,6 +217,9 @@
         <connector>
             <targetReference>Get_All_Fields</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
         <inputReference>contact</inputReference>
     </recordCreates>
     <recordLookups>
@@ -215,6 +231,9 @@
         <connector>
             <targetReference>Assign_Contact_Output</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -232,6 +251,9 @@
         <locationX>1600</locationX>
         <locationY>436</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -251,6 +273,9 @@
         <connector>
             <targetReference>Get_All_Fields</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
         <inputReference>contact</inputReference>
     </recordUpdates>
     <start>
@@ -346,6 +371,13 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>FaultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>giftcontactId</name>

@@ -63,6 +63,10 @@
             <label><!-- Statistics --></label>
             <section>Statistics</section>
         </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Fundraising Recurring Donation Layout</layout>

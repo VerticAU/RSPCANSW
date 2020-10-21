@@ -75,6 +75,10 @@
         <name>Care_Of__c</name>
     </fields>
     <fields>
+        <label><!-- Contact ID --></label>
+        <name>Contact_ID__c</name>
+    </fields>
+    <fields>
         <label><!-- Count Estate Account With Deceased --></label>
         <name>Count_Estate_Account_With_Deceased__c</name>
     </fields>
@@ -291,6 +295,10 @@
             <masterLabel>Sport and Recreation</masterLabel>
             <translation><!-- Sport and Recreation --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- One Drive Folder Name --></label>
+        <name>One_Drive_Folder_Name__c</name>
     </fields>
     <fields>
         <label><!-- Previous Level --></label>

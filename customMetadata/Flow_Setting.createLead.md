@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Create Lead</label>
+    <protected>false</protected>
+    <values>
+        <field>Flow_API_Name__c</field>
+        <value xsi:type="xsd:string">createLead</value>
+    </values>
+    <values>
+        <field>Input__c</field>
+        <value xsi:type="xsd:string">{
+&quot;AnimalID&quot;:&quot;dto.AnimalId&quot;,
+&quot;DateofBirth&quot;:&quot;dto.DateOfBirth&quot;,
+&quot;leadAdditionalInformation&quot;:&quot;dto.AdditionalInformation&quot;,
+&quot;leadAgeGroup&quot;:&quot;dto.AgeGroup&quot;,
+&quot;leadAgreeWithInformationAboutCSD&quot;:&quot;dto.AgreeWithInformationAboutCSD&quot;,
+&quot;leadAnimalAge&quot;:&quot;dto.AnimalAge&quot;,
+&quot;leadAnimalBreed&quot;:&quot;dto.AnimalBreed&quot;,
+&quot;leadAnimalCharacterDescription&quot;:&quot;dto.AnimalCharacterDescription&quot;,
+&quot;leadAnimalColour&quot;:&quot;dto.AnimalColour&quot;,
+&quot;leadAnimalDescription&quot;:&quot;dto.AnimalDescription&quot;,
+&quot;leadAnimalLocation&quot;:&quot;dto.AnimalLocation&quot;,
+&quot;leadAnimalRON&quot;:&quot;dto.AnimalRON&quot;,
+&quot;leadAnimalSex&quot;:&quot;dto.AnimalSex&quot;,
+&quot;leadAnimalShelterAddress1&quot;:&quot;dto.AnimalShelterAddress1&quot;,
+&quot;leadAnimalShelterAddress2&quot;:&quot;dto.AnimalShelterAddress2&quot;,
+&quot;leadAnimalShelterEmail&quot;:&quot;dto.AnimalShelterEmail&quot;,
+&quot;leadAnimalShelterName&quot;:&quot;dto.AnimalShelterName&quot;,
+&quot;leadAnimalShelterPhone&quot;:&quot;dto.AnimalShelterPhone&quot;,
+&quot;leadAnimalShelterPostcode&quot;:&quot;dto.AnimalShelterPostcode&quot;,
+&quot;leadAnimalShelterState&quot;:&quot;dto.AnimalShelterState&quot;,
+&quot;leadAnimalShelterSuburb&quot;:&quot;dto.AnimalShelterSuburb&quot;,
+&quot;leadAnimalSize&quot;:&quot;dto.AnimalSize&quot;,
+&quot;leadAnimalType&quot;:&quot;dto.AnimalType&quot;,
+&quot;leadAnyPetsLivingAtHome&quot;:&quot;dto.AnyPetsLivingAtHome&quot;,
+&quot;leadAnythingElseToKnow&quot;:&quot;dto.AnythingElseToKnow&quot;,
+&quot;leadAnythingElseToKnowAboutCSD&quot;:&quot;dto.AnythingElseToKnowAboutCSD&quot;,
+&quot;leadAnythingElseToShare&quot;:&quot;dto.AnythingElseToShare&quot;,
+&quot;leadBreedPrimary&quot;:&quot;dto.BreedPrimary&quot;,
+&quot;leadBreedSecondary&quot;:&quot;dto.BreedSecondary&quot;,
+&quot;leadChildrenUnder18LivingAtHome&quot;:&quot;dto.ChildrenUnder18LivingAtHome&quot;,
+&quot;leadCost&quot;:&quot;dto.Cost&quot;,
+&quot;leadDateofbirthutc&quot;:&quot;dto.Dateofbirthutc&quot;,
+&quot;leadDateofCorporateSupportDay&quot;:&quot;dto.DateofCorporateSupportDay&quot;,
+&quot;leadDesexing&quot;:&quot;dto.Desexing&quot;,
+&quot;leadDidyouhaveanyideas&quot;:&quot;dto.Didyouhaveanyideas&quot;,
+&quot;leadDoYouHaveAnyPets&quot;:&quot;dto.DoYouHaveAnyPets&quot;,
+&quot;leadEducationSession&quot;:&quot;dto.EducationSession&quot;,
+&quot;leadEmail&quot;:&quot;dto.Email&quot;,
+&quot;leadEmailMyInformationBooklet&quot;:&quot;dto.EmailMyInformationBooklet&quot;,
+&quot;leadEnjoyCSD&quot;:&quot;dto.EnjoyCSD&quot;,
+&quot;leadFacebook&quot;:&quot;dto.Facebook&quot;,
+&quot;leadFirstName&quot;:&quot;dto.FirstName&quot;,
+&quot;leadHasMIcrochip&quot;:&quot;dto.HasMIcrochip&quot;,
+&quot;leadHaveBeenBrandsAmbassador&quot;:&quot;dto.HaveBeenBrandsAmbassador&quot;,
+&quot;leadHowDidYouHearAboutEverAfterProgram&quot;:&quot;dto.HowDidYouHearAboutEverAfterProgram&quot;,
+&quot;leadHowFidYouHearAboutUs&quot;:&quot;dto.HowFidYouHearAboutUs&quot;,
+&quot;leadHowWereYouThinkingOfCelebrating&quot;:&quot;dto.HowWereYouThinkingOfCelebrating&quot;,
+&quot;leadImageSource&quot;:&quot;dto.ImageSource&quot;,
+&quot;leadImOfficiallyExcited&quot;:&quot;dto.ImOfficiallyExcited&quot;,
+&quot;leadInstagram&quot;:&quot;dto.Instagram&quot;,
+&quot;leadIsThereAnythingElseWeShouldKnow&quot;:&quot;dto.IsThereAnythingElseWeShouldKnow&quot;,
+&quot;leadIsVaccinated&quot;:&quot;dto.IsVaccinated&quot;,
+&quot;leadKnowHowToGetToShelter&quot;:&quot;dto.KnowHowToGetToShelter&quot;,
+&quot;leadLastName&quot;:&quot;dto.LastName&quot;,
+&quot;leadLifestyleDescription&quot;:&quot;dto.LifestyleDescription&quot;,
+&quot;leadLocation&quot;:&quot;dto.Location&quot;,
+&quot;leadLongTermPet&quot;:&quot;dto.LongTermPet&quot;,
+&quot;leadMaintenanceProject&quot;:&quot;dto.MaintenanceProject&quot;,
+&quot;leadMicrochipNo&quot;:&quot;dto.MicrochipNo&quot;,
+&quot;leadMostPassionateIssues&quot;:&quot;dto.MostPassionateIssues&quot;,
+&quot;leadNumberOfPeople&quot;:&quot;dto.NumberOfPeople&quot;,
+&quot;leadOpeningHours&quot;:&quot;dto.OpeningHours&quot;,
+&quot;leadOther&quot;:&quot;dto.Other&quot;,
+&quot;leadOtherRelevantInformation&quot;:&quot;dto.OtherRelevantInformation&quot;,
+&quot;leadPhone&quot;:&quot;dto.Phone&quot;,
+&quot;leadPleaseCallMe&quot;:&quot;dto.PleaseCallMe&quot;,
+&quot;leadPleaseTellUsAboutThem&quot;:&quot;dto.PleaseTellUsAboutThem&quot;,
+&quot;leadPleasetellusaboutyourpreviouspetexperience&quot;:&quot;dto.Pleasetellusaboutyourpreviouspetexperience&quot;,
+&quot;leadPostcode&quot;:&quot;dto.Postcode&quot;,
+&quot;leadPostMyInformationBooklet&quot;:&quot;dto.PostMyInformationBooklet&quot;,
+&quot;leadPreferedContactMethod&quot;:&quot;dto.PreferedContactMethod&quot;,
+&quot;leadPreferredDate&quot;:&quot;dto.PreferredDate&quot;,
+&quot;leadPreferredDate2&quot;:&quot;dto.PreferredDate2&quot;,
+&quot;leadPreferredDate3&quot;:&quot;dto.PreferredDate3&quot;,
+&quot;leadPreferredTime&quot;:&quot;dto.PreferredTime&quot;,
+&quot;leadPreviousPetExperience&quot;:&quot;dto.PreviousPetExperience&quot;,
+&quot;leadPrimaryColor&quot;:&quot;dto.PrimaryColor&quot;,
+&quot;leadRequestingAssistance&quot;:&quot;dto.RequestingAssistance&quot;,
+&quot;leadSecondaryColor&quot;:&quot;dto.SecondaryColor&quot;,
+&quot;leadShelterAndVeterinaryTour&quot;:&quot;dto.ShelterAndVeterinaryTour&quot;,
+&quot;leadShelterBeVisitingForCSD&quot;:&quot;dto.ShelterBeVisitingForCSD&quot;,
+&quot;leadSnapchat&quot;:&quot;dto.Snapchat&quot;,&quot;leadSource&quot;:&quot;dto.Source&quot;,
+&quot;leadSpecialNeeds&quot;:&quot;dto.SpecialNeeds&quot;,
+&quot;leadSpendingTimeWithAnimals&quot;:&quot;dto.SpendingTimeWithAnimals&quot;,
+&quot;leadStaffExperience&quot;:&quot;dto.StaffExperience&quot;,&quot;leadState&quot;:&quot;dto.State&quot;,
+&quot;leadStreetName&quot;:&quot;dto.StreetName&quot;,
+&quot;leadSuburb&quot;:&quot;dto.Suburb&quot;,
+&quot;leadTellUsAboutYourPets&quot;:&quot;dto.TellUsAboutYourPets&quot;,
+&quot;leadTellUsAboutYourself&quot;:&quot;dto.TellUsAboutYourself&quot;,
+&quot;leadTermsAndConditions&quot;:&quot;dto.TermsAndConditions&quot;,
+&quot;leadTopic&quot;:&quot;dto.Topic&quot;,
+&quot;leadTwitter&quot;:&quot;dto.Twitter&quot;,
+&quot;leadUnderstandParticipantExpectations&quot;:&quot;dto.UnderstandParticipantExpectations&quot;,
+&quot;leadUnderstandWhatToWear&quot;:&quot;dto.UnderstandWhatToWear&quot;,
+&quot;leadUnsertandAnimalHandlingGuidelines&quot;:&quot;dto.UnsertandAnimalHandlingGuidelines&quot;,
+&quot;leadUploadaPhotoOfYourPet&quot;:&quot;dto.UploadaPhotoOfYourPet&quot;,
+&quot;leadUploadaPhotoOfYourself&quot;:&quot;dto.UploadaPhotoOfYourself&quot;,
+&quot;leadWebsite&quot;:&quot;dto.Website&quot;,
+&quot;leadWhatStageBestAppliesToYourGroup&quot;:&quot;dto.WhatStageBestAppliesToYourGroup&quot;,
+&quot;leadWhereToFind&quot;:&quot;dto.WhereToFind&quot;,
+&quot;leadWhichBrandsAmbassadorFor&quot;:&quot;dto.WhichBrandsAmbassadorFor&quot;,
+&quot;leadYoutube&quot;:&quot;dto.Youtube&quot;,
+&quot;NumberOfAttendants&quot;:&quot;dto.NumberOfAttendants&quot;,
+&quot;PleaseListAnyMedicalConditions&quot;:&quot;dto.PleaseListAnyMedicalConditions&quot;
+
+}</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Output__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Tags__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

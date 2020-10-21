@@ -70,7 +70,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">receiptNumber,donationId,contactId</value>
+        <value xsi:type="xsd:string">receiptNumber,donationId,contactId,errorMessage</value>
     </values>
     <values>
         <field>Tags__c</field>

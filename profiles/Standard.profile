@@ -186,7 +186,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HttpRequestProcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MembershipService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MockHttpResponseGenerator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -199,10 +207,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>OpportunityDomain</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PayPalAPI</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -282,11 +286,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>vertic_FlowSettingProc2</apexClass>
+        <apexClass>vertic_FlowSettingProcTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>vertic_FlowSettingProcTest</apexClass>
+        <apexClass>vertic_HttpRequestProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1720,6 +1724,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.Contact_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.Count_Estate_Account_With_Deceased__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1906,6 +1915,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Occupation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.One_Drive_Folder_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2915,51 +2929,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Flow_Input_Format__mdt.Format__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Input_Format__mdt.True_Values__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Input_Format__mdt.Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Mapping__mdt.Active__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Mapping__mdt.Default__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Mapping__mdt.Disregard_Blank_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Mapping__mdt.Flow_Input_Format__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Mapping__mdt.Flow_Variable_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Flow_Mapping__mdt.Trim_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Flow_Setting__mdt.Input__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3794,6 +3763,16 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>OnedriveSetting__mdt.DriveName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OnedriveSetting__mdt.RecordApiName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.ASX_Code__c</field>
         <readable>true</readable>
@@ -3929,6 +3908,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Expected_Value_Bequest__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Expected_Value_P__c</field>
         <readable>true</readable>
@@ -3976,6 +3960,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.LeadSource</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Life_Tenancy__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5640,12 +5629,6 @@
         <layout>FeedItem-Feed Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Flow_Input_Format__mdt-Flow Input Format Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Flow_Mapping__mdt-Flow Mapping Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Flow_Setting__mdt-Flow Setting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -5662,6 +5645,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OnedriveSetting__mdt-OnedriveSetting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Bequest Layout</layout>
@@ -6188,10 +6174,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>TestPayPalCheckout</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

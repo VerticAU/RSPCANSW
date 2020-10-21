@@ -3,8 +3,8 @@
     <assignments>
         <name>Gift_Card_Assigment</name>
         <label>Gift Card Assigment</label>
-        <locationX>868</locationX>
-        <locationY>932</locationY>
+        <locationX>928</locationX>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>giftCard.npsp__Primary_Contact__c</assignToReference>
             <operator>Assign</operator>
@@ -86,11 +86,24 @@
             <targetReference>Create_Gift_Card</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Output_Error</name>
+        <label>Output Error</label>
+        <locationX>619</locationX>
+        <locationY>452</locationY>
+        <assignmentItems>
+            <assignToReference>FaultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
     <decisions>
         <name>Gif_Card_Null</name>
         <label>Gif Card (Null)</label>
-        <locationX>701</locationX>
-        <locationY>322</locationY>
+        <locationX>840</locationX>
+        <locationY>206</locationY>
         <defaultConnector>
             <targetReference>Get_Campaign</targetReference>
         </defaultConnector>
@@ -127,6 +140,12 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -136,19 +155,25 @@
     <recordCreates>
         <name>Create_Gift_Card</name>
         <label>Create Gift Card</label>
-        <locationX>877</locationX>
-        <locationY>1086</locationY>
+        <locationX>928</locationX>
+        <locationY>686</locationY>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
         <inputReference>giftCard</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_Gift_Card_Record_Type</name>
         <label>Get Gift Card Record Type</label>
-        <locationX>869</locationX>
-        <locationY>727</locationY>
+        <locationX>928</locationX>
+        <locationY>450</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Gift_Card_Assigment</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -168,8 +193,8 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>583</locationX>
-        <locationY>137</locationY>
+        <locationX>714</locationX>
+        <locationY>48</locationY>
         <connector>
             <targetReference>Gif_Card_Null</targetReference>
         </connector>
@@ -178,8 +203,8 @@
     <subflows>
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
-        <locationX>855</locationX>
-        <locationY>543</locationY>
+        <locationX>928</locationX>
+        <locationY>326</locationY>
         <connector>
             <targetReference>Get_Gift_Card_Record_Type</targetReference>
         </connector>
@@ -255,6 +280,13 @@
     </variables>
     <variables>
         <name>contactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>FaultMessage</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

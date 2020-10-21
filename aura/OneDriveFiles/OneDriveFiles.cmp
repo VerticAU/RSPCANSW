@@ -1,0 +1,159 @@
+<aura:component description="OneDriveFiles" extends="c:vertic_Base"
+                implements="force:appHostable,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName,flexipage:availableForRecordHome,flexipage:availableForAllPageTypes" access="global">
+
+
+    <aura:attribute name="recordError" type="String" description="The record"/>
+    <aura:attribute name="record" type="Object" description="The record"/>
+    <aura:attribute name="objectName" type="String" description="The record"/>
+    <aura:attribute name="sObjectName" type="String" description="The record"/>
+    <aura:attribute name="recordFields" type="Object" description="The record"/>
+    <aura:attribute name="fieldsSet" type="String" description="The record"/>
+    <aura:attribute name="isFirst" type="Boolean" description="The record" default="true"/>
+
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Id, One_Drive_Folder_Name__c"
+                      targetFields="{!v.recordFields }"
+                      targetError="{!v.recordError}"
+    />
+
+    <aura:if isTrue="{!v.recordFields}">
+        <c:OneDriveUtils aura:id="OneDriveUtils" onLoad="{!c.handleInit}"/>
+    </aura:if>
+
+    <aura:attribute name="recordName" type="String" access="global" default="{!v.recordFields.One_Drive_Folder_Name__c == null ? v.recordId : v.recordFields.One_Drive_Folder_Name__c }"/>
+    <aura:attribute name="isFullView" type="Boolean" access="global" default="true"/>
+    <aura:attribute name="isFiles" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="isRestore" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="isDeleteAvailable" type="Boolean" access="global" default="true"/>
+
+    <aura:method name="updateFolder" action="{!c.HandleOneDriveUpdateFolder}" description="A method which update folder name with created record Id">
+        <aura:attribute name="recordName" type="String"/>
+    </aura:method>
+
+    <lightning:quickActionAPI aura:id="quickActionAPI"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+
+    <c:vertic_ModalService aura:id="modalService"/>
+
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <aura:if isTrue="{! v.isFullView}">
+        {! v.recordFields.Name}
+        <lightning:card title="Files"
+                        iconName="standard:file"
+                        class="slds-card_boundary forceRelatedListCardDesktop slds-text-align--left">
+
+                <aura:set attribute="actions">
+                    <aura:if isTrue="{!v.isRestore}">
+                        <lightning:buttonIcon iconName="utility:recycle_bin_full" variant="border-filled" size="large" alternativeText="Empty bin" onclick="{!c.handleRestore}"/>
+                        <aura:set attribute="else">
+                            <lightning:buttonIcon iconName="utility:recycle_bin_empty" disabled="true" variant="border-filled" size="large" alternativeText="Empty bin" onclick="{!c.handleRestore}"/>
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            <aura:if isTrue="{!v.isFiles}">
+
+
+            <p class="slds-p-horizontal_small">
+                    <!-- HEADER -->
+                <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+                    <thead>
+                    <tr class="slds-text-heading_label">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">FILE NAME</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Size">FILE SIZE</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Created Date">CREATED DATE</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Modified Date">MODIFIED DATE</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate"></div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration var="file" items="{!v.meta.dto.files}">
+                        <c:IfContains value="{!file.name}" contains="DELETED_" not="true">
+                            <c:OneDriveFileItem file="{!file}"
+                                                isFullView="{! v.isFullView}"
+                                                onDelete="{!c.HandleOneDriveFileDelete}"
+                                                onDownload="{!c.HandleOneDriveDownloadAllFile}"
+                                                onSendEmail="{!c.HandleSendEmail}"
+                                                onFileView="{!c.HandleFileView}"/>
+                        </c:IfContains>
+
+                    </aura:iteration>
+                    </tbody>
+                </table>
+                </p>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.isFirst}">
+
+                        <hr />
+
+                        <aura:set attribute="else">
+                            <hr />
+                            <div class="slds-grid">
+                                <div class="slds-col slds-text-align_center slds-p-vertical--medium">
+                                    <div class="slds-text-longform">
+                                        <h3 class="slds-text-heading_medium">No files</h3>
+                                        <p class="slds-text-body_regular">There are no related files</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+
+            <aura:set attribute="footer">
+                <lightning:input label="Upload"
+                                 class="slds-size_2-of-2"
+                                 variant="label-hidden"
+                                 name="file1"
+                                 type="file"
+                                 multiple="{!true}"
+                                 accept="*"
+                                 onchange="{!c.handleFilesChange}"
+                />
+            </aura:set>
+        </lightning:card>
+        <aura:set attribute="else">
+            <aura:if isTrue="{! and(v.meta.dto.files != null, v.meta.dto.files.length > 0)}">
+                <table class="slds-table slds-table_fixed-layout">
+                    <tbody>
+                    <aura:iteration var="file" items="{!v.meta.dto.files}">
+                        <c:IfContains value="{!file.name}" contains="DELETED_" not="true">
+
+                            <c:OneDriveFileItem file="{!file}"
+                                                isFullView="{! v.isFullView}"
+                                                isDeleteAvailable="{! v.isDeleteAvailable}"
+                                                onDelete="{!c.HandleOneDriveFileDelete}"
+                                                onDownload="{!c.HandleOneDriveDownloadAllFile}"
+                                                onSendEmail="{!c.HandleSendEmail}"
+                                                onFileView="{!c.HandleFileView}"/>
+                        </c:IfContains>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-text-align_center slds-p-vertical--medium">
+                            <div class="slds-text-longform">
+                                <h3 class="slds-text-heading_medium">No files</h3>
+                                <p class="slds-text-body_regular">There are no related files</p>
+                            </div>
+                        </div>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

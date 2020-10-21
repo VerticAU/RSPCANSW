@@ -97,6 +97,10 @@
     </fields>
     <fields>
         <label><!-- Expected Value % --></label>
+        <name>Expected_Value_Bequest__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Value % --></label>
         <name>Expected_Value_P__c</name>
     </fields>
     <fields>
@@ -127,6 +131,10 @@
     <fields>
         <label><!-- Is This First Donation --></label>
         <name>Is_This_First_Donation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Life Tenancy --></label>
+        <name>Life_Tenancy__c</name>
     </fields>
     <fields>
         <label><!-- Linked Opportunity --></label>
