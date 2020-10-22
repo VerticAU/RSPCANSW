@@ -882,7 +882,7 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <value>
-            <stringValue>Closed Won</stringValue>
+            <stringValue>Pending</stringValue>
         </value>
     </variables>
     <variables>

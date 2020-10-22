@@ -27,7 +27,7 @@ trigger FlowEventTrigger on Flow_Event__e (after insert) {
                     'settingName' => eventVar.Flow_Setting__c,
                     'inputs' => payloadMap
                 };
-                response = new vertic_FlowSettingProc2().process(requestMap);
+                response = new vertic_FlowSettingProc().process(requestMap);
             } catch (Exception e) {
                 hey.Logger.exception(e);
                 exceptionVar = e;
@@ -35,7 +35,7 @@ trigger FlowEventTrigger on Flow_Event__e (after insert) {
                 if(response == null || response.isValid != true){
                     System.debug('save VAP');
                     failedProcesses.add(new Vertic_Async_Process__c(
-                        Processor__c = '' + vertic_FlowSettingProc2.class,
+                        Processor__c = '' + vertic_FlowSettingProc.class,
                         Payload__c = JSON.serialize(requestMap),
                         Details__c = exceptionVar != null ?
                             exceptionVar.getMessage() :

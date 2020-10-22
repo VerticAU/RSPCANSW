@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>DriveName__c</field>
-        <value xsi:type="xsd:string">Accounts</value>
+        <value xsi:type="xsd:string">Organisations</value>
     </values>
     <values>
         <field>RecordApiName__c</field>

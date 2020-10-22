@@ -46,7 +46,7 @@
                 payload.cmp,
                 'vertic_HttpRequestProc',
                 {
-                    endpoint: 'callout:OneDrive/sites/kuc.sharepoint.com:/sites/' + siteName + ':/drives',
+                    endpoint: 'callout:OneDrive/sites/rspcansw.sharepoint.com:/sites/' + siteName + ':/drives',
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'

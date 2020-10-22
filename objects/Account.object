@@ -277,6 +277,13 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Account_ID__c</fullName>
+        <displayFormat>{0000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Account ID</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
         <fullName>AnnualRevenue</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -645,6 +652,16 @@
     <fields>
         <fullName>NumberOfEmployees</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>One_Drive_Folder_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_ID__c + &apos;_dev&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>One Drive Folder Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Other_Phone__c</fullName>

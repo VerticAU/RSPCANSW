@@ -1,29 +1,27 @@
 ({
     getExistingStripeCustomer: function(cmp, event, helper){
 
-        var stripeCustomerId = cmp.get('v.meta.dto.stripeCustomerId');
-
         var request;
-        if(cmp.get('v.meta.dto.donationFromMode') === 'business'){
-            request = {
-                accountId: cmp.get('v.meta.dto.accountId')
-            }
-        } else {
-            request = {
-                contactId: cmp.get('v.meta.dto.recordId')
-            }
+
+        var contactId = cmp.get('v.contribution.npsp__Primary_Contact__c');
+        var accountId = cmp.get('v.contribution.AccountId');
+
+        if(!$A.util.isUndefinedOrNull(accountId)){
+            request = { accountId: accountId }
+        } else if(!$A.util.isUndefinedOrNull(contactId)) {
+            request = { contactId: contactId }
         }
 
-        if(!stripeCustomerId){
-            helper.execute(
-                cmp,
-                'GetExistingOrCreateStripeCustomerProc',
+        console.log('GetExistingOrCreateStripeCustomerProc -> request: ', request);
+
+        if(!cmp.get('v.contribution.stripeCustomerId')){
+            helper.execute(cmp, 'npsp_plus.GetExistingOrCreateStripeCustomerProc',
                 request,
                 function () {},
                 function () {}
             ).then(function (response) {
 
-                cmp.set('v.meta.dto.stripeCustomerId', response.dto.stripeCustomerId);
+                cmp.set('v.contribution.stripeCustomerId', response.dto.stripeCustomerId);
 
             }).catch(function (errors) {
                 var errorMessagesCmp = cmp.find('modal').find('errorMessages');

@@ -86,6 +86,10 @@
         <name>Narrative__c</name>
     </fields>
     <fields>
+        <label><!-- One Drive Folder Name --></label>
+        <name>One_Drive_Folder_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Website Fundraiser --></label>
         <name>Website_Fundraiser__c</name>
     </fields>

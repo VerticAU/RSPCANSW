@@ -404,8 +404,13 @@ If contact has no email/phone number then</description>
     RecordType.DeveloperName = &apos;Membership&apos;,
     ISPICKVAL(StageName , &apos;Pending&apos;) ,
     npsp__Primary_Contact__r.Active_Membership__c &lt;&gt; Id,
-    Start_Date__c &gt;= 
-npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c  
+    IF(       
+        ISNULL(
+npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
+    ), 
+    true, 
+    Start_Date__c &gt;= npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
+    )    
 )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>

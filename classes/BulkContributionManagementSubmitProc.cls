@@ -34,6 +34,8 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
 
     private void doSubmit() {
         List<ContributionWrapper> contributionWrappers = (List<ContributionWrapper>) this.request.get('contributions', List<ContributionWrapper>.class);
+        System.debug('wrap ' + this.request);
+        System.debug('wrap ' + this.request.get('contributions'));
 
         for (ContributionWrapper contributionWrapper : contributionWrappers) {
 
@@ -64,7 +66,7 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
     // Proposed Live Templates to override Super properties:
     // vertic_request
     // vertic_response
-
+    @TestVisible
     private class ContributionWrapper {
         public Opportunity contribution;
         public String paymentMethod;

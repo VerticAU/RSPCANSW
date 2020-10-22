@@ -1,17 +1,28 @@
 <aura:component description="BulkContributionManagementCCModal" extends="c:vertic_Modal">
 
     <!-- Attributes -->
-    <aura:attribute name="contactId" type="String"/>
-    <aura:attribute name="recordTypeId" type="String"/>
+
+    <aura:attribute name="contribution" type="Map"/>
 
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
-    <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.meta.dto.stripeCustomerId}"
-                                         value="{!v.meta.dto.stripePaymentMethodId}"
+    <div class="slds-scoped-notification slds-scoped-notification_light slds-m-vertical_small site" role="status">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <lightning:icon iconName="utility:info" size="small" alternativeText="Notification" variant="info"/>
+            </div>
+            <div class="slds-media__body">
+                <p>Add the Credit Card details below to process the Donation.</p>
+            </div>
+        </div>
+    </div>
+
+    <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.contribution.stripeCustomerId}"
+                                         value="{!v.contribution.stripePaymentMethodId}"
                                          disabled="{!v.isBusy}"
                                          required="{!true}"
-                                         totalPaymentMethods="{!v.meta.totalPaymentMethods}"
+                                         totalPaymentMethods="{!v.contribution.totalPaymentMethods}"
     />
 
     <aura:set attribute="footer">

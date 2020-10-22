@@ -272,6 +272,15 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>OneDriveFiles</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-af5af801-fec3-4425-9abf-dc31d9e63ea9</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>active</name>
                     <value>true</value>
@@ -322,6 +331,19 @@
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Files</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-af5af801-fec3-4425-9abf-dc31d9e63ea9</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Sharepoint Files</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>

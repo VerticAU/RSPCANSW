@@ -50,11 +50,17 @@ public without sharing class ContactMakeDeceasedActionCtrl {
                 break;
             }
 
-            Contact contactVar = (Contact) vertic_Utils.arrays.firstOrException([SELECT AccountId FROM Contact WHERE Id = :recordId], 'Contact not found');
+            List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>([SELECT npe5__Organization__c FROM npe5__Affiliation__c WHERE npe5__Contact__c = :recordId AND (npe5__Role__c = 'Executor' OR npe5__Role__c = 'Solicitor')]);
 
-            if (contactVar.AccountId != null) {
-                update new Account(Id = contactVar.AccountId, Deceased_Donor__c = recordId);
+//            Contact contactVar = (Contact) vertic_Utils.arrays.firstOrException([SELECT AccountId FROM Contact WHERE Id = :recordId AND Account.AccountContactRoles = 'npe5__Affiliation__c'], 'Contact not found');
+
+            For (npe5__Affiliation__c affiliation : affiliations) {
+                update new Account(Id = affiliation.npe5__Organization__c, Deceased_Donor__c = recordId);
             }
+
+//            if (contactVar.AccountId != null) {
+//                update new Account(Id = contactVar.AccountId, Deceased_Donor__c = recordId);
+//            }
 
             List<npe03__Recurring_Donation__c> recurringDonations = new List<npe03__Recurring_Donation__c>([
                 SELECT Id, npsp__Status__c, npsp__ClosedReason__c
