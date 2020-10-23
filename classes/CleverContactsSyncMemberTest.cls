@@ -6,6 +6,7 @@ private class CleverContactsSyncMemberTest {
  }
     @isTest
     static void test(){
+
         Account acc = new Account(Name='test');
         insert acc;
         Campaign cmp = new Campaign(Name='test');
@@ -20,8 +21,11 @@ private class CleverContactsSyncMemberTest {
         );
         insert cmpMember;
         Test.startTest();
-        CleverContactsSyncMemberBatch ccsmb = new CleverContactsSyncMemberBatch(cmp.Id);
-        Id batchId = Database.executeBatch(ccsmb);
+        new CleverContactsSyncMemberQASubmitProc().process(new vertic_Request(new Map<String,Object>{
+            'recordId' => cmp.Id
+        }));
+//        CleverContactsSyncMemberBatch ccsmb = new CleverContactsSyncMemberBatch(cmp.Id);
+//        Id batchId = Database.executeBatch(ccsmb);
         Test.stopTest();
     }
 }

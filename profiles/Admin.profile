@@ -198,6 +198,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GetExistingOrCreateStripeCustomerWrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>HttpRequestProcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>

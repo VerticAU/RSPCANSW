@@ -31,6 +31,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Membership_Stage_Enrolled</fullName>
@@ -40,6 +41,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Membership_Stage_Expired</fullName>
@@ -49,6 +51,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Membership_Stage_Pending_Renewal</fullName>
@@ -58,6 +61,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Membership_Start_Date_Offset</fullName>
@@ -67,6 +71,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>npsp__Opportunity_AcknowledgmentStatus_Update</fullName>
@@ -409,7 +414,7 @@ If contact has no email/phone number then</description>
 npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
     ), 
     true, 
-    Start_Date__c &gt;= npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
+    npe01__Membership_Start_Date__c &gt;= npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
     )    
 )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -433,12 +438,12 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
             <name>Membership_Start_Date_Offset</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(
     RecordType.DeveloperName = &apos;Membership&apos;,
     ISPICKVAL(StageName , &apos;Pending&apos;) ,
     npsp__Primary_Contact__r.Active_Membership__c &lt;&gt; Id,
-    Start_Date__c &lt; 
+    npe01__Membership_Start_Date__c  &lt; 
 npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c  
 )</formula>
         <triggerType>onCreateOnly</triggerType>
