@@ -9,7 +9,7 @@ public without sharing class GetExistingOrCreateStripeCustomerWrapper extends ve
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-//        new GetExistingOrCreateStripeCustomerProc().process(request);
+        new npsp_plus.GetExistingOrCreateStripeCustomerProc();
 
         return this.response;
     }

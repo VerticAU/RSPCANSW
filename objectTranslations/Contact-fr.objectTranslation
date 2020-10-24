@@ -34,6 +34,10 @@
         <name>Animal_Breed__c</name>
     </fields>
     <fields>
+        <label><!-- Animal Count --></label>
+        <name>Animal_Count__c</name>
+    </fields>
+    <fields>
         <label><!-- Animal Type --></label>
         <name>Animal_Type__c</name>
         <picklistValues>
@@ -301,6 +305,22 @@
         <name>One_Drive_Folder_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Opportunity Bequest Pledged Major Count --></label>
+        <name>Opportunity_Bequest_Pledged_Major_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Major Gift Closed Won Count --></label>
+        <name>Opportunity_Major_Gift_Closed_Won_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Member Active Raffle Count --></label>
+        <name>Opportunity_Member_Active_Raffle_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Raffle Ticket Deceased Count --></label>
+        <name>Opportunity_Raffle_Ticket_Deceased_Count__c</name>
+    </fields>
+    <fields>
         <label><!-- Previous Level --></label>
         <name>Previous_Level__c</name>
         <relationshipLabel><!-- Contacts (Previous Level) --></relationshipLabel>
@@ -308,6 +328,10 @@
     <fields>
         <label><!-- Previous Names --></label>
         <name>Previous_Names__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Donation Active Count --></label>
+        <name>Recurring_Donation_Active_Count__c</name>
     </fields>
     <fields>
         <label><!-- Secondary Owner --></label>

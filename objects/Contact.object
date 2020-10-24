@@ -431,6 +431,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Animal_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Animal_Type__c</fullName>
         <externalId>false</externalId>
         <label>Animal Type</label>
@@ -1080,6 +1092,54 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Opportunity_Bequest_Pledged_Major_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Bequest Pledged Major Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Major_Gift_Closed_Won_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Major Gift Closed Won Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Member_Active_Raffle_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Member Active Raffle Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Raffle_Ticket_Deceased_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Raffle Ticket Deceased Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>OtherAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1122,6 +1182,18 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recurring_Donation_Active_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Recurring Donation Active Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
