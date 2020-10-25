@@ -150,7 +150,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>EstateManagementQAMetaProcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EstateManagementQASubmitProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EstateManagementQASubmitProcTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -271,6 +279,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>dlrs_AccountTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_AnimalTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1765,6 +1777,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.Contact_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.Count_Estate_Account_With_Deceased__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1960,7 +1977,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Opportunity_Bequest_Pledged_Major_Count__c</field>
+        <field>Contact.Opportunity_Bequest_Pledged_Count__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1970,12 +1987,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Opportunity_Member_Active_Raffle_Count__c</field>
+        <field>Contact.Opportunity_Member_Active_Count__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Opportunity_Raffle_Ticket_Deceased_Count__c</field>
+        <field>Contact.Opportunity_Raffle_Ticket_Count__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6364,6 +6381,11 @@
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Organization</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.npsp_plus_dres__HH_Account</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

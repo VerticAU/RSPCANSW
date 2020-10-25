@@ -14,7 +14,8 @@ public class BulkContributionManagementTest {
                 new Map<String, Object>{
                     'contribution' => opp,
                     'paymentMethod' => 'Credit Card',
-                    'stripePaymentId' => 'test'
+                    '' +
+                            'stripePaymentId' => 'test'
                 }
             }
         }));

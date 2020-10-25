@@ -565,6 +565,29 @@
         <type>AutoNumber</type>
     </fields>
     <fields>
+        <fullName>Contact_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity_Bequest_Pledged_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom18_60.png&quot;, &quot;Pledged Bequestor&quot;, 40, 40),
+    IF(Opportunity_Major_Gift_Closed_Won_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/standard/custom17_60.png&quot;, &quot;Major&quot;, 40, 40),
+        IF(Animal_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom1_60.png&quot;, &quot;Adopter&quot;, 40, 40),
+            IF(Opportunity_Member_Active_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom15_60.png&quot;, &quot;Member&quot;, 40, 40),
+                IF(Opportunity_Raffle_Ticket_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom48_60.png&quot;, &quot;Raffle&quot;, 40, 40),
+                    IF(npsp__Deceased__c, IMAGE(&quot;/resource/Icons/standard/default_60.png&quot;, &quot;Badge&quot;, 40, 40),
+                        IF(Active_Membership__c != NULL, IMAGE(&quot;/resource/Icons/custom/custom73_60.png&quot;, &quot;Volunteer&quot;, 40, 40),&quot;&quot;)
+                    )
+                )
+            )
+        )
+    )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Count_Estate_Account_With_Deceased__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -1092,9 +1115,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Opportunity_Bequest_Pledged_Major_Count__c</fullName>
+        <fullName>Opportunity_Bequest_Pledged_Count__c</fullName>
         <externalId>false</externalId>
-        <label>Opportunity Bequest Pledged Major Count</label>
+        <label>Opportunity Bequest Pledged Count</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1116,9 +1139,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Opportunity_Member_Active_Raffle_Count__c</fullName>
+        <fullName>Opportunity_Member_Active_Count__c</fullName>
         <externalId>false</externalId>
-        <label>Opportunity Member Active Raffle Count</label>
+        <label>Opportunity Member Active Count</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1128,9 +1151,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Opportunity_Raffle_Ticket_Deceased_Count__c</fullName>
+        <fullName>Opportunity_Raffle_Ticket_Count__c</fullName>
         <externalId>false</externalId>
-        <label>Opportunity Raffle Ticket Deceased Count</label>
+        <label>Opportunity Raffle Ticket Count</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
