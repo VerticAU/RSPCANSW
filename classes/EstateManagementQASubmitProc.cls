@@ -41,7 +41,7 @@ public class EstateManagementQASubmitProc extends vertic_AbstractProcessor imple
 
     private void saveRecords() {
 
-        if (this.account != null && String.isNotBlank(this.account.Name)){
+        if (this.account != null && String.isNotBlank(this.account.Name)) {
             this.account.npe01__One2OneContact__c = this.contact.Id;
             this.account.Bequest_Opportunity__c = this.opportunity.Id;
             this.account.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Schema.Account.SObjectType, 'Estate');
@@ -59,6 +59,10 @@ public class EstateManagementQASubmitProc extends vertic_AbstractProcessor imple
             }
             this.opportunity.AccountId = this.account.Id;
             update this.opportunity;
+
+            AccountContactRelation accountContactRelation = new AccountContactRelation(AccountId = this.account.Id, ContactId = this.contact.Id);
+
+            insert accountContactRelation;
         }
     }
 

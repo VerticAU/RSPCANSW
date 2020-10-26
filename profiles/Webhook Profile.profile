@@ -186,15 +186,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>FlowEventGetProc</apexClass>
+        <apexClass>FlowPostProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>FlowEventHandlerCtrl</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>FlowPostProc</apexClass>
+        <apexClass>FlowPostProcTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -5820,10 +5816,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>FlowEventHandler</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

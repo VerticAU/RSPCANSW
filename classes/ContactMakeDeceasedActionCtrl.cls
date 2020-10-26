@@ -50,17 +50,18 @@ public without sharing class ContactMakeDeceasedActionCtrl {
                 break;
             }
 
-            List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>([SELECT npe5__Organization__c FROM npe5__Affiliation__c WHERE npe5__Contact__c = :recordId AND (npe5__Role__c = 'Executor' OR npe5__Role__c = 'Solicitor')]);
+            List<AccountContactRelation> accountContactRelations = new List<AccountContactRelation>([SELECT AccountId, Roles FROM AccountContactRelation WHERE ContactId = :recordId]);
+            List<Account> accounts = new List<Account>();
 
-//            Contact contactVar = (Contact) vertic_Utils.arrays.firstOrException([SELECT AccountId FROM Contact WHERE Id = :recordId AND Account.AccountContactRoles = 'npe5__Affiliation__c'], 'Contact not found');
-
-            For (npe5__Affiliation__c affiliation : affiliations) {
-                update new Account(Id = affiliation.npe5__Organization__c, Deceased_Donor__c = recordId);
+            for (AccountContactRelation accountContactRelation : accountContactRelations) {
+                if (accountContactRelation.Roles != null) {
+                    if (accountContactRelation.Roles.contains('Executor') || accountContactRelation.Roles.contains('Solicitor')) {
+                        accounts.add(new Account(Id = accountContactRelation.AccountId, Deceased_Donor__c = recordId));
+                    }
+                }
             }
+            update accounts;
 
-//            if (contactVar.AccountId != null) {
-//                update new Account(Id = contactVar.AccountId, Deceased_Donor__c = recordId);
-//            }
 
             List<npe03__Recurring_Donation__c> recurringDonations = new List<npe03__Recurring_Donation__c>([
                 SELECT Id, npsp__Status__c, npsp__ClosedReason__c

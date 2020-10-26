@@ -7,22 +7,34 @@ public with sharing class EstateManagementQASubmitProcTest {
     @isTest
     private static void test() {
         Account acc = new Account(Name = 'test');
-        insert acc;
-        Contact cnt = new Contact(LastName = 'test', Email = 'test@test.test', AccountId = acc.Id);
+
+        Contact cnt = new Contact(LastName = 'test', Email = 'test@test.test');
         insert cnt;
-        Opportunity opp = new Opportunity(
+
+        insert new Opportunity(
                 Name = 'test',
+                npsp__Primary_Contact__c = cnt.Id,
                 StageName = 'Enquiry',
-                CloseDate = Date.today());
-        insert opp;
+                CloseDate = Date.today()
+        );
+
+        Opportunity opp = [
+            SELECT Id,
+                npsp__Primary_Contact__r.Id,
+                StageName,
+                CloseDate
+            FROM Opportunity
+            LIMIT 1
+        ];
+
         List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>();
-        insert affiliations;
 
         new EstateManagementQASubmitProc().process(new vertic_Request(new Map<String,Object>{
-                'opportunity' => opp,
-                'account' => acc,
-                'opportunity.npsp__Primary_Contact__r' => cnt
+                'opportunity' => new vertic_AutoMapper().getSObjectAsMap(opp),
+                'account' => new vertic_AutoMapper().getSObjectAsMap(acc),
+                'affiliations'=> new vertic_AutoMapper().getSObjectsAsMaps(affiliations)
         }));
 
+        System.assertEquals(1, [SELECT COUNT() FROM AccountContactRelation]);
     }
 }

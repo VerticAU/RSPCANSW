@@ -32,6 +32,19 @@ public class EstateManagementQAMetaProc extends vertic_MetadataProcessor {
 
         String recordId = this.request.getString('recordId');
 
+        AccountContactRelation accountEstate = (AccountContactRelation) vertic_Utils.arrays.firstOrNull([
+            SELECT Id
+            FROM AccountContactRelation
+            WHERE ContactId = :recordId AND Account.RecordType.DeveloperName = 'Estate'
+            ORDER BY CreatedDate DESC
+        ]);
+
+        if (accountEstate == null) {
+            this.response.put('hasEstate', false);
+        } else {
+            this.response.put('hasEstate', true);
+        }
+
         Opportunity opportunity = (Opportunity) vertic_Utils.arrays.firstOrNull([
             SELECT Id, Name, npsp__Primary_Contact__c, npsp__Primary_Contact__r.Name, npsp__Primary_Contact__r.Id, StageName, Type,
                 Deceased_Date__c, Date_of_Will__c, npsp__Qualified_Date__c,
@@ -45,10 +58,10 @@ public class EstateManagementQAMetaProc extends vertic_MetadataProcessor {
 
 
         if (opportunity == null) {
-            this.response.put('hasBequest', 'no');
+            this.response.put('hasBequest', false);
             return;
         } else {
-            this.response.put('hasBequest', 'yes');
+            this.response.put('hasBequest', true);
         }
 
         List<OpportunityLineItem> opportunityLineItems = new List<OpportunityLineItem>([

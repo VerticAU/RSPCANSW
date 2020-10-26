@@ -9636,7 +9636,7 @@
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Closed_Won_Bequest</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 ISCHANGED(StageName),
 TEXT(StageName) = &apos;Closed Won&apos;,

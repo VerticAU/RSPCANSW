@@ -19,7 +19,7 @@
                                showCancel="{!false}"
                                minWidthRem="30">
 
-        <aura:if isTrue="{!not(empty(v.meta.dto.opportunity.Id))}">
+        <aura:if isTrue="{!and(v.meta.dto.hasBequest, v.meta.dto.hasEstate == false)}">
             <aura:if isTrue="{!v.step == 1}">
                 <c:EstateManagementAdminQA meta="{!v.meta}"/>
             </aura:if>
@@ -31,11 +31,22 @@
         </aura:if>
 
 
-        <aura:if isTrue="{!empty(v.meta.dto.opportunity.Id)}">
+
+        <aura:if isTrue="{!v.meta.dto.hasBequest == false}">
 
             <div aura:id="form" class="slds-form" role="list">
                 <div class=" slds-align_absolute-center slds-col slds-has-flexi-truncate slds-size_1-of-1" role="listitem">
                     Deceased donor has no related Bequest Opportunity. Please create a bequest for the deceased donor prior to creating an estate.
+                </div>
+            </div>
+        </aura:if>
+
+
+        <aura:if isTrue="{!v.meta.dto.hasEstate == true}">
+
+            <div aura:id="form" class="slds-form" role="list">
+                <div class=" slds-align_absolute-center slds-col slds-has-flexi-truncate slds-size_1-of-1" role="listitem">
+                    An estate already exists for this contact.
                 </div>
             </div>
         </aura:if>
