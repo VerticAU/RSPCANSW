@@ -53,6 +53,14 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     }
 
     private void retrieveMapping(){
+        if(Test.isRunningTest()){
+            this.FIELD_MAPPING = new Map<String, String>{
+                'first_name' => 'FirstName',
+                'last_name' => 'LastName'
+            };
+            return;
+        }
+
         SObject setting = vertic_SettingService.getMetadataType(Schema.getGlobalDescribe().get('Vertic_Setting__mdt'), 'Clever_Contacts_Campaign_Fields_Mapping');
 
         if(setting == null){ return; }

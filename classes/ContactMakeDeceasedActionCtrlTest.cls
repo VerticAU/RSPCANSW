@@ -1,19 +1,29 @@
 @isTest
 private class ContactMakeDeceasedActionCtrlTest {
     static testMethod void contactMakeDeceasedActionCtrlTest() {
-        Contact newContact = new Contact(
+        Contact contact = new Contact(
             LastName = 'Test Name',
             Email = 'test.name@email.com'
         );
-        insert newContact;
+        insert contact;
 
-        Test.startTest();
-        ContactMakeDeceasedActionCtrl.optOutEmailContact(newContact.Id);
-        ContactMakeDeceasedActionCtrl.makeDeceasedContact(newContact.Id);
+        Opportunity opp = new Opportunity(
+            Name = 'test',
+            StageName = 'Enquiry',
+            CloseDate = Date.today(),
+            npsp__Primary_Contact__c = contact.Id,
+            RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Opportunity.SObjectType, 'Bequest'));
+        insert opp;
+
+        ContactMakeDeceasedActionCtrl.optOutEmailContact(contact.Id);
+        ContactMakeDeceasedActionCtrl.makeDeceasedContact(contact.Id, Date.today(), Date.today());
+
         try {
-            ContactMakeDeceasedActionCtrl.makeDeceasedContact('123121');
-        } catch(Exception e) {}
+            ContactMakeDeceasedActionCtrl.makeDeceasedContact('123121', Date.today(), Date.today());
+        } catch(Exception e) {
+            System.assert(true);
+        }
 
-        Test.stopTest();
+        System.assertEquals(Date.today(), [SELECT Id, Deceased_Date__c FROM Contact LIMIT 1].Deceased_Date__c);
     }
 }

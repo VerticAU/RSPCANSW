@@ -12,10 +12,6 @@ public class EzidebitGetPaymentsBatch implements Database.Batchable<SObject>, Da
 
     public void finish(Database.BatchableContext context) {
         System.debug('EzidebitGetPaymentsBatch finished!');
-//
-//        vertic_SettingService.setValues(new Map<String, String>{
-//            'LAST_BPAY_SYNC_DATE' => Date.today().format()
-//        });
     }
 
 }

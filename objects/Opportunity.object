@@ -885,6 +885,18 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Instalment_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Instalment Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Invoice_Sent_Date__c</fullName>
         <externalId>false</externalId>
         <label>Invoice Sent Date</label>
@@ -1454,6 +1466,92 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Frequency__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Frequency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>One Off</fullName>
+                    <default>false</default>
+                    <label>One Off</label>
+                </value>
+                <value>
+                    <fullName>Annually</fullName>
+                    <default>false</default>
+                    <label>Annually</label>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                    <label>Quarterly</label>
+                </value>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                    <label>Monthly</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pledge_Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Pledge Plan</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Continuous</fullName>
+                    <default>false</default>
+                    <label>Continuous</label>
+                </value>
+                <value>
+                    <fullName>Fixed</fullName>
+                    <default>false</default>
+                    <label>Fixed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pledge_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Pledge Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single Payment</fullName>
+                    <default>false</default>
+                    <label>Single Payment</label>
+                </value>
+                <value>
+                    <fullName>Regular Payment</fullName>
+                    <default>false</default>
+                    <label>Regular Payment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Pricebook2Id</fullName>
@@ -2289,6 +2387,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -2815,6 +2954,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -3265,6 +3445,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3798,6 +4019,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4359,6 +4621,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -4823,6 +5126,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5384,6 +5728,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -5882,6 +6267,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -6346,6 +6772,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6819,6 +7286,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -7277,6 +7785,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7815,6 +8364,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -8345,6 +8935,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8883,6 +9514,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -9413,6 +10085,47 @@
             </values>
             <values>
                 <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

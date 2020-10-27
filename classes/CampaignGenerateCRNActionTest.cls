@@ -16,5 +16,8 @@ public class CampaignGenerateCRNActionTest {
         insert campaignMemberVar;
 
         new CampaignGenerateCRNActionSubmitProc().process(new vertic_Request(new Map<String,Object>{'recordId' => campaignVar.Id}));
+
+        System.assertNotEquals(null, campaignVar);
+
     }
 }

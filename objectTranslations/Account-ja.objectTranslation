@@ -134,6 +134,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Date Legacy Notified --></label>
+        <name>Date_Legacy_Notified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Will --></label>
+        <name>Date_of_Will__c</name>
+    </fields>
+    <fields>
         <label><!-- Days Since Account Created --></label>
         <name>Days_Since_Account_Created__c</name>
     </fields>
@@ -224,6 +232,10 @@
     <fields>
         <label><!-- Skype --></label>
         <name>Skype__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Estate Value --></label>
+        <name>Total_Estate_Value__c</name>
     </fields>
     <fields>
         <label><!-- Twitter --></label>
@@ -498,6 +510,14 @@
     </fields>
     <layouts>
         <layout>Estate Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
         <sections>
             <label><!-- Estate Details --></label>
             <section>Estate Details</section>

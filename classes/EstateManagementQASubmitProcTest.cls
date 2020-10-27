@@ -35,6 +35,7 @@ public with sharing class EstateManagementQASubmitProcTest {
                 'affiliations'=> new vertic_AutoMapper().getSObjectsAsMaps(affiliations)
         }));
 
-        System.assertEquals(1, [SELECT COUNT() FROM AccountContactRelation]);
+
+        System.assertNotEquals(0, [SELECT COUNT() FROM AccountContactRelation]);
     }
 }

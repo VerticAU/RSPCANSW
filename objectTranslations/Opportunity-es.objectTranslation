@@ -125,6 +125,10 @@
         <name>Gift_Value__c</name>
     </fields>
     <fields>
+        <label><!-- Instalment Value --></label>
+        <name>Instalment_Value__c</name>
+    </fields>
+    <fields>
         <label><!-- Invoice Sent Date --></label>
         <name>Invoice_Sent_Date__c</name>
     </fields>
@@ -445,6 +449,50 @@
         <help><!-- Indicates if all the supporting paperwork received has been received and attached. --></help>
         <label><!-- Paperwork Received --></label>
         <name>Paperwork_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Frequency --></label>
+        <name>Payment_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Off</masterLabel>
+            <translation><!-- One Off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pledge Plan --></label>
+        <name>Pledge_Plan__c</name>
+        <picklistValues>
+            <masterLabel>Continuous</masterLabel>
+            <translation><!-- Continuous --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed</masterLabel>
+            <translation><!-- Fixed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pledge Type --></label>
+        <name>Pledge_Type__c</name>
+        <picklistValues>
+            <masterLabel>Regular Payment</masterLabel>
+            <translation><!-- Regular Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Payment</masterLabel>
+            <translation><!-- Single Payment --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Primary Contact 2xLargest Amount --></label>
@@ -1026,6 +1074,10 @@
             <section>Hidden Section</section>
         </sections>
         <sections>
+            <label><!-- Payment Schedule --></label>
+            <section>Payment Schedule</section>
+        </sections>
+        <sections>
             <label><!-- UTM Information --></label>
             <section>UTM Information</section>
         </sections>
@@ -1464,7 +1516,7 @@
         <subject><!-- Call Donor --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest Enquiry Step 2&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;} --></description>
         <name>Call_Email_Bequestor</name>
         <subject><!-- Call/Email Bequestor --></subject>
     </workflowTasks>
@@ -1504,6 +1556,11 @@
         <subject><!-- Pending Bequest --></subject>
     </workflowTasks>
     <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Bequest_Information</name>
+        <subject><!-- Send Bequest Information --></subject>
+    </workflowTasks>
+    <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Send_HEA_Welcome_Pack</name>
         <subject><!-- Send HEA Welcome Pack --></subject>
@@ -1538,7 +1595,7 @@
         <subject><!-- Thank you Call --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;Depended_Task_Name__c&quot;: &quot;Send_Bequest_Welcome_Pack&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Send_Bequest_Welcome_Pack_Without&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Thank_you_Call_Email_to_Bequestor</name>
         <subject><!-- Thank you Call/Email to Bequestor --></subject>
     </workflowTasks>

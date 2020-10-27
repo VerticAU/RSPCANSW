@@ -248,7 +248,7 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Donation Bequest Enquiry Step 1</fullName>
+        <fullName>Donation Bequest Enquiry Step 1 - Call%2FEmail Bequestor</fullName>
         <actions>
             <name>Call_Email_Bequestor</name>
             <type>Task</type>
@@ -256,9 +256,25 @@
         <active>true</active>
         <description>When a donor (contact) enquires about Bequests, the business process is to create a bequest opportunity in status = Enquiry which should trigger tasks to assist in moving the opportunity from Enquiry to Pledged.
 If contact has no email/phone number then</description>
-        <formula>AND( ISPICKVAL(StageName, &apos;Enquiry&apos;), OR(npsp__Primary_Contact__r.Email != &apos;&apos;,  npsp__Primary_Contact__r.Phone != &apos;&apos;,
+        <formula>AND( ISPICKVAL(StageName, &apos;Enquiry&apos;), OR(NOT(ISBLANK(npsp__Primary_Contact__r.Email)),  
+   NOT(ISBLANK(npsp__Primary_Contact__r.Phone))),
  RecordType.Name == &apos;Bequest&apos;
-))</formula>
+)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Bequest Enquiry Step 2 - Send Bequest Information</fullName>
+        <actions>
+            <name>Send_Bequest_Information</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <description>Donor has no email/phone number then create task 2 to send information booklet</description>
+        <formula>AND(
+ISPICKVAL(StageName, &apos;Enquiry&apos;), ISBLANK(npsp__Primary_Contact__r.Email),  
+ISBLANK(npsp__Primary_Contact__r.Phone),
+ RecordType.Name == &apos;Bequest&apos;
+)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -527,7 +543,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
             <type>Task</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3 AND 4) OR 5</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Opportunity.RecordTypeId</field>
             <operation>equals</operation>
@@ -545,11 +561,6 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <criteriaItems>
             <field>Opportunity.Primary_Contact_Phone__c</field>
             <operation>equals</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Run_Workflow_Rule_With_Name__c</field>
-            <operation>equals</operation>
-            <value>Send_Bequest_Welcome_Pack_Without_Email</value>
         </criteriaItems>
         <description>When bequest is confirmed and the primary contact has either an email address or phone number then a Thank you call/email task should be created for the estate administration Queue. When this task status changes to Completed then a new task should be crea</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -675,7 +686,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Call_Email_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest Enquiry Step 2&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>Normal</priority>
@@ -770,6 +781,18 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <subject>Pending Bequest</subject>
     </tasks>
     <tasks>
+        <fullName>Send_Bequest_Information</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Bequest Information</subject>
+    </tasks>
+    <tasks>
         <fullName>Send_HEA_Welcome_Pack</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
@@ -854,7 +877,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Thank_you_Call_Email_to_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;Depended_Task_Name__c&quot;: &quot;Send_Bequest_Welcome_Pack&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Send_Bequest_Welcome_Pack_Without&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>

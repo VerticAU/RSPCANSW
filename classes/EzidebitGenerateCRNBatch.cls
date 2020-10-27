@@ -21,9 +21,8 @@ public class EzidebitGenerateCRNBatch implements Database.Batchable<SObject>, Da
                 'recordId' => scope[0].get('ContactId')
             }));
         } catch (Exception e){
-            hey.Logger.debug(scope[0].get('ContactId'));
-            hey.Logger.debug(e.getMessage());
-            hey.Logger.publish();
+            System.debug(scope[0].get('ContactId'));
+            System.debug(e.getMessage());
         }
 
     }

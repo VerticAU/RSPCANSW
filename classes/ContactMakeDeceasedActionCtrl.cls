@@ -44,7 +44,8 @@ public without sharing class ContactMakeDeceasedActionCtrl {
                     ActivityDate = activityDate,
                     WhoId = recordId,
                     OwnerId = user.Id,
-                    Status = 'Not started'
+                    Status = 'Not started',
+                    Description='{"Group_Name__c": "Estate Administration Team", "Activity_Days__c": "5", "Description": ""}'
                 );
                 insert task;
                 break;

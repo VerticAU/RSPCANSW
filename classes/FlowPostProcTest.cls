@@ -1,22 +1,19 @@
-/**
- * Created by Vladimir on 26/10/2020.
- */
 @isTest
 public with sharing class FlowPostProcTest {
+
     @isTest
-    private static void test() {
-
-        User user = [SELECT Name,Id FROM User LIMIT 1];
-        Event event = new Event(Subject = 'Call', OwnerId = user.Id, StartDateTime = Date.today(), EndDateTime = Date.today());
-
-
+    static void test() {
 
         vertic_RestService.Request request = new vertic_RestService.Request();
 
-        request.params.put('event', JSON.serialize(event));
-        request.params.put('flow','');
+        request.params.put('event', 'Logout Event');
+        request.params.put('flow','Create Lead');
 
-        new FlowPostProc().process(request);
+
+        String jSonString = JSON.serialize(new Map<String, Object>{});
+
+        System.assertNotEquals(null, new FlowPostProc().getRequestInstance(jSonString));
+        System.assertNotEquals(null, new FlowPostProc().process(request));
 
     }
 }

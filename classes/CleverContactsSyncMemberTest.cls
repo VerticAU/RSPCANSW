@@ -1,9 +1,6 @@
 @isTest
 private class CleverContactsSyncMemberTest {
- @testSetup
- static void setup(){
 
- }
     @isTest
     static void test(){
 
@@ -16,16 +13,27 @@ private class CleverContactsSyncMemberTest {
         CampaignMember cmpMember = new CampaignMember(
             ContactId=cnt.Id,
             CampaignId = cmp.Id,
-            Clever_Contacts_Sync_Status__c = 'Failed'
+            Clever_Contacts_Sync_Status__c = ''
 
         );
         insert cmpMember;
+
+        MockHttpResponseGenerator responseGenerator = new MockHttpResponseGenerator(
+            new Map<String, String>{
+                'callout:Clever_Contacts/' => '"Success"'
+            }, 'POST', 200
+        );
+
+        Test.setMock(HttpCalloutMock.class, responseGenerator);
+
         Test.startTest();
-        new CleverContactsSyncMemberQASubmitProc().process(new vertic_Request(new Map<String,Object>{
+
+        new CleverContactsSyncMemberQASubmitProc().process(new Map<String, Object>{
             'recordId' => cmp.Id
-        }));
-//        CleverContactsSyncMemberBatch ccsmb = new CleverContactsSyncMemberBatch(cmp.Id);
-//        Id batchId = Database.executeBatch(ccsmb);
+        });
+
         Test.stopTest();
+
+        System.assertEquals('Success', [SELECT Id, Clever_Contacts_Sync_Status__c FROM CampaignMember LIMIT 1].Clever_Contacts_Sync_Status__c);
     }
 }
