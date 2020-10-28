@@ -61,6 +61,48 @@
                 <elementReference>donationReceiptNumber</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Ad_Content__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmAdContent</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Source__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmSource</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Campaign__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmCampaign</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Medium__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmMedium</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.Test_Variant__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTestVariant</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Term__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTerm</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Donation</targetReference>
         </connector>
@@ -124,6 +166,48 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>donationReceiptNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Campaign__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmCampaign</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Ad_Content__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmAdContent</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Source__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmSource</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Term__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTerm</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.UTM_Medium__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmMedium</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.Test_Variant__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>utmTestVariant</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -413,7 +497,7 @@
     <recordLookups>
         <name>Get_All_Fields</name>
         <label>Get All Fields</label>
-        <locationX>1990</locationX>
+        <locationX>1991</locationX>
         <locationY>702</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -990,6 +1074,48 @@
     </variables>
     <variables>
         <name>stripeTransactionId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmAdContent</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmCampaign</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmMedium</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmSource</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmTerm</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>utmTestVariant</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

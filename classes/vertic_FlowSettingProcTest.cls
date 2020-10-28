@@ -1,9 +1,18 @@
-@IsTest(SeeAllData=true)
-private class vertic_FlowSettingProcTest {
-    static testMethod void testBehavior() {
-        vertic_Response response = new vertic_FlowSettingProc2().process(
-            new vertic_Request('{"settingName":"Task_Flow","inputs":{"dto":{"payload":{"test":1,"activityDate":"2020-07-10"}}}}')
-        );
-        System.assertEquals(true, response.isValid);
+@IsTest
+public class vertic_FlowSettingProcTest {
+    @isTest
+    private static void test() {
+        Test.startTest();
+        new vertic_FlowSettingProc().process(new Map<String,Object>{
+            'inputs' => new Map<String, String>{
+                'test' => 'test'
+            },
+            'setting' => new vertic_AutoMapper().getSObjectAsMap(new Flow_Setting__mdt(
+                DeveloperName = 'test',
+                Flow_API_Name__c = 'websiteIntegration',
+                Input__c = '{ "inputPayload" : "dto.test", "inputActivityDate" : { "trueValues" : null, "format" : "yyyy-MM-dd", "type" : "Date", "disregardBlankValue" : true, "trimValue" : true, "path" : "dto.donation.date" } }'
+            ))
+        });
+        Test.stopTest();
     }
 }

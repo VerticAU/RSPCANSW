@@ -31,6 +31,12 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -62,7 +68,6 @@
         <queriedFields>MailingState</queriedFields>
         <queriedFields>MailingPostalCode</queriedFields>
         <queriedFields>MailingCountry</queriedFields>
-        <queriedFields>Member_Number__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Membership</name>

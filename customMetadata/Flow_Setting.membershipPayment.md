@@ -45,6 +45,16 @@
     &quot;trimValue&quot; : true,
     &quot;path&quot; : &quot;dto.membership.endDate&quot;
   },
+
+
+&quot;utmCampaign&quot;: &quot;dto.utm.campaign&quot;,
+&quot;utmSource&quot;: &quot;dto.utm.source&quot;,
+&quot;utmAdContent&quot;: &quot;dto.utm.adContent&quot;,
+&quot;utmMedium&quot;: &quot;dto.utm.medium&quot;,
+&quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
+&quot;utmTerm&quot;: &quot;dto.utm.term&quot;,
+
+
   &quot;contactState&quot; : &quot;dto.contact.state&quot;,
   &quot;membershipName&quot; : &quot;dto.membership.name&quot;,
   &quot;contactCity&quot; : &quot;dto.contact.city&quot;,

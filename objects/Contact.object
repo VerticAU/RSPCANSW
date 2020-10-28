@@ -962,11 +962,14 @@
     </fields>
     <fields>
         <fullName>Member_Number__c</fullName>
-        <displayFormat>{0000000}</displayFormat>
-        <externalId>true</externalId>
+        <externalId>false</externalId>
         <label>Member Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
