@@ -35,13 +35,7 @@
     <aura:method name="submit" action="{!c.doSubmit}" access="public"/>
 
     <tbody class="{!if(v.contribution.isCompleted, 'contribution-completed', if(v.errorMessage, 'error-background', ''))}">
-        <tr style="display: none">
-            <td colspan="9" data-label="QR Code">
-                <aura:if isTrue="{! true }">
-                    <npsp_plus:StripePaymentMethodSelect/>
-                </aura:if>
-            </td>
-        </tr>
+
         <tr class="{!if(v.contribution.isCompleted, 'contribution-completed', '')}">
             <td data-label="QR Code">
                 <span onclick="{!c.handleQRScan}"><lightning:icon iconName="action:add_photo_video" size="x-small"/></span>

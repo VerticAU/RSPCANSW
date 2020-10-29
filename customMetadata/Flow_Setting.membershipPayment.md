@@ -54,7 +54,7 @@
 &quot;utmTestVariant&quot;: &quot;dto.utm.testVariant&quot;,
 &quot;utmTerm&quot;: &quot;dto.utm.term&quot;,
 
-
+&quot;contactMemberNumber&quot;: &quot;dto.contact.memberNumber&quot;,
   &quot;contactState&quot; : &quot;dto.contact.state&quot;,
   &quot;membershipName&quot; : &quot;dto.membership.name&quot;,
   &quot;contactCity&quot; : &quot;dto.contact.city&quot;,

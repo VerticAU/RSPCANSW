@@ -800,6 +800,11 @@
         <name>npsp__Ask_Date__c</name>
     </fields>
     <fields>
+        <help><!-- The batch that created this Opportunity. This field is automatically populated based on your Batch Number Settings in NPSP Settings. --></help>
+        <label><!-- Batch Number --></label>
+        <name>npsp__Batch_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Batch --></label>
         <name>npsp__Batch__c</name>
         <relationshipLabel><!-- Opportunities --></relationshipLabel>

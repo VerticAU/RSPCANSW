@@ -68,7 +68,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         Map<String, Object> valueMap = (Map<String, Object>) JSON.deserializeUntyped((String) setting.get('Value__c'));
         this.FIELD_MAPPING = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Name);
 
-        if(this.FIELD_MAPPING == null){ this.FIELD_MAPPING = (Map<String, String>) valueMap.get('default'); }
+        if(this.FIELD_MAPPING == null){ this.FIELD_MAPPING = (Map<String, Object>) valueMap.get('default'); }
     }
 
     private void sync() {

@@ -110,8 +110,8 @@
     <assignments>
         <name>Donation_Assigment_organisation_name_null</name>
         <label>Donation Assigment (organisation name null)</label>
-        <locationX>2341</locationX>
-        <locationY>1164</locationY>
+        <locationX>2367</locationX>
+        <locationY>1207</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -217,8 +217,8 @@
     <assignments>
         <name>Membership_Assignment</name>
         <label>Membership Assignment</label>
-        <locationX>1741</locationX>
-        <locationY>702</locationY>
+        <locationX>1680</locationX>
+        <locationY>715</locationY>
         <assignmentItems>
             <assignToReference>membership.Name</assignToReference>
             <operator>Assign</operator>
@@ -337,7 +337,7 @@
             <assignToReference>memberNumber</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>contact.Actual_Member_Number__c</elementReference>
+                <elementReference>contact.Member_Number__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -374,8 +374,8 @@
     <decisions>
         <name>Donation_Amount</name>
         <label>Donation Amount</label>
-        <locationX>2124</locationX>
-        <locationY>705</locationY>
+        <locationX>2174</locationX>
+        <locationY>697</locationY>
         <defaultConnector>
             <targetReference>Get_Donation_Record</targetReference>
         </defaultConnector>
@@ -404,10 +404,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Membership_Number</name>
+        <label>Membership Number</label>
+        <locationX>1262</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Organisation_Null</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>contact</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Record_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Organisation_Name_For_Donation</name>
         <label>Organisation Name For  Donation</label>
-        <locationX>2121</locationX>
-        <locationY>984</locationY>
+        <locationX>2174</locationX>
+        <locationY>1005</locationY>
         <defaultConnector>
             <targetReference>Donation_Assigment</targetReference>
         </defaultConnector>
@@ -431,8 +456,8 @@
     <decisions>
         <name>Organisation_Null</name>
         <label>Organisation Null</label>
-        <locationX>1365</locationX>
-        <locationY>567</locationY>
+        <locationX>1262</locationX>
+        <locationY>599</locationY>
         <defaultConnector>
             <targetReference>Create_Organisation_Subflow</targetReference>
         </defaultConnector>
@@ -487,8 +512,8 @@
     <recordCreates>
         <name>Create_Membership</name>
         <label>Create Membership</label>
-        <locationX>1860</locationX>
-        <locationY>702</locationY>
+        <locationX>1807</locationX>
+        <locationY>713</locationY>
         <connector>
             <targetReference>Get_All_Fields</targetReference>
         </connector>
@@ -497,8 +522,8 @@
     <recordLookups>
         <name>Get_All_Fields</name>
         <label>Get All Fields</label>
-        <locationX>1991</locationX>
-        <locationY>702</locationY>
+        <locationX>1944</locationX>
+        <locationY>711</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Amount</targetReference>
@@ -515,10 +540,31 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Contact_Member_Number</name>
+        <label>Get Contact Member Number</label>
+        <locationX>1271</locationX>
+        <locationY>201</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Membership_Number</targetReference>
+        </connector>
+        <filters>
+            <field>Member_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>contactMemberNumber</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputReference>contact</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Member_Number__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>Get_contact_organisation</name>
         <label>Get contact organisation</label>
-        <locationX>2128</locationX>
-        <locationY>1164</locationY>
+        <locationX>2180</locationX>
+        <locationY>1199</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Assigment_organisation_name_null</targetReference>
@@ -537,8 +583,8 @@
     <recordLookups>
         <name>Get_Donation_Record</name>
         <label>Get Donation Record</label>
-        <locationX>2131</locationX>
-        <locationY>841</locationY>
+        <locationX>2183</locationX>
+        <locationY>861</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Organisation_Name_For_Donation</targetReference>
@@ -571,8 +617,8 @@
     <recordLookups>
         <name>Get_Record_Type</name>
         <label>Get Record Type</label>
-        <locationX>1616</locationX>
-        <locationY>702</locationY>
+        <locationX>1538</locationX>
+        <locationY>715</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Membership_Assignment</targetReference>
@@ -596,18 +642,18 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>1247</locationX>
-        <locationY>413</locationY>
+        <locationX>1147</locationX>
+        <locationY>29</locationY>
         <connector>
-            <targetReference>Organisation_Null</targetReference>
+            <targetReference>Get_Contact_Member_Number</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
-        <locationX>1475</locationX>
-        <locationY>702</locationY>
+        <locationX>1419</locationX>
+        <locationY>724</locationY>
         <connector>
             <targetReference>Get_Record_Type</targetReference>
         </connector>
@@ -680,8 +726,8 @@
     <subflows>
         <name>Create_Organisation_Subflow</name>
         <label>Create Organisation Subflow</label>
-        <locationX>1278</locationX>
-        <locationY>702</locationY>
+        <locationX>1149</locationX>
+        <locationY>727</locationY>
         <connector>
             <targetReference>Create_Contact_Subflow</targetReference>
         </connector>
@@ -801,6 +847,13 @@
     </variables>
     <variables>
         <name>contactLastName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>contactMemberNumber</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
