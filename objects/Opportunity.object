@@ -681,6 +681,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Condition_Met__c</fullName>
+        <externalId>false</externalId>
+        <label>Condition Met</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Contested__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>

@@ -12,10 +12,8 @@
             request = { contactId: contactId }
         }
 
-        console.log('GetExistingOrCreateStripeCustomerProc -> request: ', request);
-
         if(!cmp.get('v.contribution.stripeCustomerId')){
-            helper.execute(cmp, 'npsp_plus.GetExistingOrCreateStripeCustomerProc',
+            helper.execute(cmp, 'GetExistingOrCreateStripeCustomerWrapper',
                 request,
                 function () {},
                 function () {}

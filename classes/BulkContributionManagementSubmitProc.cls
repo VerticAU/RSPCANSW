@@ -14,7 +14,6 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
         return this.response;
     }
 
-
     /**
      * ==============================================================================================================
      *                                             PRIVATE METHODS

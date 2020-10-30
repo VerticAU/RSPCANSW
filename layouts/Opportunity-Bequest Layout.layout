@@ -184,6 +184,10 @@
                 <behavior>Edit</behavior>
                 <field>Lost_Reason__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Condition_Met__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

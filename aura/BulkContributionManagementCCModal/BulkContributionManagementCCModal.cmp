@@ -1,7 +1,6 @@
 <aura:component description="BulkContributionManagementCCModal" extends="c:vertic_Modal">
 
     <!-- Attributes -->
-
     <aura:attribute name="contribution" type="Map"/>
 
     <!-- Handlers -->
@@ -18,12 +17,15 @@
         </div>
     </div>
 
-    <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.contribution.stripeCustomerId}"
-                                         value="{!v.contribution.stripePaymentMethodId}"
-                                         disabled="{!v.isBusy}"
-                                         required="{!true}"
-                                         totalPaymentMethods="{!v.contribution.totalPaymentMethods}"
-    />
+    <aura:if isTrue="{! not(empty(v.contribution.stripeCustomerId)) }">
+        <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.contribution.stripeCustomerId}"
+                                             value="{!v.contribution.stripePaymentMethodId}"
+                                             disabled="{!v.isBusy}"
+                                             required="{!true}"
+                                             totalPaymentMethods="{!v.contribution.totalPaymentMethods}"
+        />
+    </aura:if>
+
 
     <aura:set attribute="footer">
         <lightning:button label="Cancel" type="button" onclick="{!c.handleCancelClick}"/>

@@ -60,6 +60,10 @@
         <name>Company__c</name>
     </fields>
     <fields>
+        <label><!-- Condition Met --></label>
+        <name>Condition_Met__c</name>
+    </fields>
+    <fields>
         <label><!-- Contested --></label>
         <name>Contested__c</name>
     </fields>
