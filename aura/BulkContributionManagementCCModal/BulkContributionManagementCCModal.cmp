@@ -3,6 +3,10 @@
     <!-- Attributes -->
     <aura:attribute name="contribution" type="Map"/>
 
+    <aura:attribute name="stripeCustomerId" type="String"/>
+    <aura:attribute name="stripePaymentMethodId" type="String"/>
+    <aura:attribute name="totalPaymentMethods" type="String"/>
+
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
@@ -17,12 +21,12 @@
         </div>
     </div>
 
-    <aura:if isTrue="{! not(empty(v.contribution.stripeCustomerId)) }">
-        <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.contribution.stripeCustomerId}"
-                                             value="{!v.contribution.stripePaymentMethodId}"
+    <aura:if isTrue="{! not(empty(v.stripeCustomerId)) }">
+        <npsp_plus:StripePaymentMethodSelect stripeCustomerId="{!v.stripeCustomerId}"
+                                             value="{!v.stripePaymentMethodId}"
                                              disabled="{!v.isBusy}"
                                              required="{!true}"
-                                             totalPaymentMethods="{!v.contribution.totalPaymentMethods}"
+                                             totalPaymentMethods="{!v.totalPaymentMethods}"
         />
     </aura:if>
 

@@ -648,7 +648,7 @@
 
 (DATE(YEAR(TODAY()),MONTH(Birthdate),DAY(Birthdate))) - 12)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Date To Send Birthday Card</label>
+        <label>12 Days Before Birthday</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>

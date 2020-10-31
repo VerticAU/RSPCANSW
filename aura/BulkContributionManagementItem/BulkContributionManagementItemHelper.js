@@ -1,77 +1,64 @@
 ({
-    submit: function (cmp) {
-        var self = this;
-        return new Promise(function (resolve, reject) {
+    makePayment: function (cmp) {
+        return new Promise($A.getCallback(function (resolve, reject) {
 
-            var request = {
-                contributions: [cmp.get('v.contribution')],
-                ccNumber: cmp.get('v.creditCard.cardNumber')
-            };
+            var contribution = cmp.get('v.contribution');
 
-            if (cmp.get('v.contribution.isCompleted')) {
-                return resolve();
-            }
+            if (contribution.isCompleted) { return resolve(cmp); }
 
-            cmp.set('v.errorMessage', undefined);
+            console.log(JSON.stringify(contribution));
 
-            cmp.utils.execute(
-                cmp,
-                'BulkContributionManagementSubmitProc',
-                request,
-                function (response) {
-                    if (!response.error && response.errors.length === 0) {
-                        cmp.set('v.contribution', response.dto.contribution);
-                        return self.makePayment(cmp).then(resolve, reject);
+            cmp.utils.execute(cmp, 'BulkContributionManagementPaymentProc', {
+
+                'amount': contribution.Amount,
+                'stripeCustomerId': contribution.stripeCustomerId,
+                'stripePaymentMethodId': contribution.stripePaymentMethodId
+
+            }).then(
+                $A.getCallback(function (response) {
+                    if (!response.error && response.errors.length === 0 && response.isValid) {
+                        console.log('makePayment -> response: ', response);
+                        cmp.set('v.contribution.paymentIntentId', response.dto.paymentIntentId);
+                        return resolve(cmp);
                     } else {
                         cmp.set('v.errorMessage', response.errors[0].message);
                         return reject(response.errors);
                     }
-                },
-                function (errors) {
+                }),
+                $A.getCallback(function (errors) {
                     cmp.set('v.errorMessage', errors[0].message);
                     return reject(errors);
-                }
-            );
-        });
+                }));
+        }));
     },
 
-    makePayment: function (cmp) {
-        var self = this;
+    submitOpportunity: function (cmp) {
         return new Promise($A.getCallback(function (resolve, reject) {
-            // todo: add npsp payment logic
-            // var paymentTransactionId = cmp.get('v.paymentTransaction.Id');
-            // if (!paymentTransactionId) {
-            //     cmp.set('v.contribution.isCompleted', true);
-            //     return resolve(cmp);
-            // }
-            //
-            // var request = {
-            //     'paymentTransactionId': paymentTransactionId,
-            //     'creditCardData': cmp.get('v.creditCard') || {},
-            //     'action': 'processCCPayment',
-            //     'gatewayAccountNumber': 'bfoneoff'
-            // };
-            //
-            // cmp.utils.execute(
-            //     cmp,
-            //     'payment_CommonProcessor',
-            //     request,
-            //     function () {},
-            //     function () {}
-            // ).then($A.getCallback(function (response) {
-            //         if (response.isValid) {
-            //             cmp.set('v.contribution.isCompleted', true);
-            //             return resolve(cmp);
-            //         } else {
-            //             return reject(response);
-            //         }
-            //     }),
-            //     $A.getCallback(function (errors) {
-            //         cmp.set('v.errorMessage', errors[0].message);
-            //         return reject(errors);
-            //     }));
 
-            resolve(); //test line
+            var contribution = cmp.get('v.contribution');
+
+            if (contribution.isCompleted) { return resolve(cmp); }
+
+            cmp.utils.execute(cmp, 'BulkContributionManagementSubmitProc', {
+
+                'contribution': contribution,
+                'paymentIntentId': contribution.paymentIntentId
+
+            }).then(
+                $A.getCallback(function (response) {
+                    if (!response.error && response.errors.length === 0 && response.isValid) {
+                        console.log('submitOpportunity -> response: ', response);
+                        cmp.set('v.contribution.isCompleted', true);
+                        return resolve(cmp);
+                    } else {
+                        cmp.set('v.errorMessage', response.errors[0].message);
+                        return reject(response.errors);
+                    }
+                }),
+                $A.getCallback(function (errors) {
+                    cmp.set('v.errorMessage', errors[0].message);
+                    return reject(errors);
+                }));
         }));
     },
 

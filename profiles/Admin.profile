@@ -85,6 +85,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkContributionManagementPaymentProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkContributionManagementSubmitProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>

@@ -20,39 +20,45 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
      * ==============================================================================================================
      */
 
-    private vertic_UnitOfWork uow = new vertic_UnitOfWork(
-        new List<SObjectType>{
-//            Contact.SObjectType,
-//            Account.SObjectType,
-            Opportunity.SObjectType,
-            npe01__OppPayment__c.SObjectType
-        },
-        new vertic_UnitOfWork.DatabaseDMLIml()
-    );
-
 
     private void doSubmit() {
-        List<ContributionWrapper> contributionWrappers = (List<ContributionWrapper>) this.request.get('contributions', List<ContributionWrapper>.class);
-        System.debug('wrap ' + this.request);
-        System.debug('wrap ' + this.request.get('contributions'));
 
-        for (ContributionWrapper contributionWrapper : contributionWrappers) {
+        Opportunity opportunity = new Opportunity();
+        this.request.getMapper().mapToSObject('contribution', opportunity);
 
-            Opportunity contribution = contributionWrapper.contribution;
+        String paymentIntentId = this.request.getRequiredString('paymentIntentId');
 
-            Boolean isCreditCardPayment = 'Credit Card'.equalsIgnoreCase(contributionWrapper.paymentMethod);
+        opportunity.StageName = 'Closed Won';
 
-            contribution.StageName = isCreditCardPayment ? 'Pending' : 'Processed';
+        Savepoint sp = Database.setSavepoint();
+        try {
 
-            this.uow.registerUpsert(contribution, false);
+            insert opportunity;
 
-            if (isCreditCardPayment) {
+            npe01__OppPayment__c payment = (npe01__OppPayment__c) vertic_Utils.arrays.firstOrException([
+                SELECT Id FROM npe01__OppPayment__c
+                WHERE npe01__Opportunity__c =: opportunity.Id
+                ORDER BY CreatedDate LIMIT 1
+            ]);
 
-            }
+            npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = payment.Id);
+            oppPayment.npe01__Payment_Amount__c = opportunity.Amount;
+            oppPayment.npsp_plus__Gateway_Transaction_ID__c = paymentIntentId;
+            oppPayment.Stripe_Transaction_Id__c = paymentIntentId;
+            oppPayment.npe01__Payment_Method__c = 'Credit Card';
+            oppPayment.npe01__Payment_Date__c = Date.today();
+            oppPayment.npe01__Paid__c = true;
+            oppPayment.npe01__Written_Off__c = false;
+            update oppPayment;
 
-        }
+            this.response.put('opportunityId', opportunity.Id);
+            this.response.put('oppPaymentId', payment.Id);
 
-        uow.commitWork();
+        } catch (Exception e) {
+            Database.rollback(sp);
+            throw e;
+        } finally {}
+
     }
 
 
@@ -65,12 +71,5 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
     // Proposed Live Templates to override Super properties:
     // vertic_request
     // vertic_response
-    @TestVisible
-    private class ContributionWrapper {
-        public Opportunity contribution;
-        public String paymentMethod;
-        public String stripePaymentId;
-    }
-
 
 }

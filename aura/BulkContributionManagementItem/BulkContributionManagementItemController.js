@@ -11,7 +11,8 @@
                     header: 'One-Off Donation | Credit Card'
                 }
             ).then($A.getCallback(function (response) {
-
+                cmp.set('v.contribution.stripeCustomerId', response.stripeCustomerId);
+                cmp.set('v.contribution.stripePaymentMethodId', response.stripePaymentMethodId);
             }));
         }
     },
@@ -281,7 +282,13 @@
     },
 
     doSubmit: function (cmp, event, helper) {
-        return helper.submit(cmp);
+        return helper.makePayment(cmp)
+            .then(
+                function (cmp) {
+                    return helper.submitOpportunity(cmp)
+                },
+                function (reason) {}
+            );
     },
 
     handleNumericOnly: function (cmp, event, helper) {

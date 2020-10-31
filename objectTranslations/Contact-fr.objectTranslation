@@ -107,7 +107,7 @@
         <name>Date_Status_Lapsed__c</name>
     </fields>
     <fields>
-        <label><!-- Date To Send Birthday Card --></label>
+        <label><!-- 12 Days Before Birthday --></label>
         <name>Date_To_Send_Birthday_Card__c</name>
     </fields>
     <fields>
@@ -1052,6 +1052,11 @@
         <description><!-- { &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;WhatId_Field&quot;: &quot;Bequest_Pledged_Opportunity_Id__c&quot;, &quot;Description&quot;: &quot; &quot;} --></description>
         <name>Send_Birthday_Card8</name>
         <subject><!-- Send Birthday Card --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- { &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;} --></description>
+        <name>Send_Birthday_Card_Before_10_days</name>
+        <subject><!-- Send Birthday Card Before 10 days --></subject>
     </workflowTasks>
     <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Please send donor an anniversary email.&quot;, &quot;Skip_WhatId__c&quot;: &quot;true&quot;} --></description>

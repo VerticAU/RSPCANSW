@@ -248,6 +248,24 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Donation Bequest Enquiry 19 days after bequest information booklet is sent to the contact the bequest stage is still Enq</fullName>
+        <active>true</active>
+        <description>19 days after the bequest information booklet is sent to the contact the bequest stage is still Enquiry, create task for Bequest Administration Team</description>
+        <formula>AND(
+ISPICKVAL(StageName, &apos;Enquiry&apos;), 
+RecordType.Name == &apos;Bequest&apos;
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Follow_up_Bequestor</name>
+                <type>Task</type>
+            </actions>
+            <timeLength>19</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Donation Bequest Enquiry Step 1 - Call%2FEmail Bequestor</fullName>
         <actions>
             <name>Call_Email_Bequestor</name>
@@ -755,6 +773,18 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Email Donor</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_up_Bequestor</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Bequest Administration Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Bequest Information sent 14 days ago, follow up required&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Follow up Bequestor</subject>
     </tasks>
     <tasks>
         <fullName>Major_Donor_Thank_you_Call</fullName>

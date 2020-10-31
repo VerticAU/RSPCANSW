@@ -12,14 +12,15 @@
             request = { contactId: contactId }
         }
 
-        if(!cmp.get('v.contribution.stripeCustomerId')){
+        if(!cmp.get('v.stripeCustomerId')){
             helper.execute(cmp, 'GetExistingOrCreateStripeCustomerWrapper',
                 request,
                 function () {},
                 function () {}
             ).then(function (response) {
 
-                cmp.set('v.contribution.stripeCustomerId', response.dto.stripeCustomerId);
+                cmp.set('v.stripeCustomerId', response.dto.stripeCustomerId);
+
 
             }).catch(function (errors) {
                 var errorMessagesCmp = cmp.find('modal').find('errorMessages');

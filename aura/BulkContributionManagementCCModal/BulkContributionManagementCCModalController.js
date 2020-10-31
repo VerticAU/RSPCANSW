@@ -12,15 +12,13 @@
     },
 
     handleSaveClick: function (cmp, event, helper) {
-
-        var isValid = helper.validateForm(cmp, 'form');
-
-        if(isValid !== true){ return; }
-
-        // cmp.closeModal({});
+        cmp.closeModal({
+            stripeCustomerId: cmp.get('v.stripeCustomerId'),
+            stripePaymentMethodId: cmp.get('v.stripePaymentMethodId')
+        });
     },
 
     handleCancelClick: function(cmp, event, helper){
-        cmp.closeModal();
+        cmp.closeModal(null);
     }
 })

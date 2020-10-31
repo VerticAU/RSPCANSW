@@ -238,6 +238,71 @@ OtherPhone
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>10 Days Before Birthday Send Birthday Card To Contact</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.npsp__Deceased__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Birthdate</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Create_New_Task_For_Birthday_Card__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>When the TODAY() is 10 days before the contact date of birth, create task to send birthday card</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Create_New_Task_For_Birthday</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Send_Birthday_Card_Before_10_days</name>
+                <type>Task</type>
+            </actions>
+            <offsetFromField>Contact.Date_To_Send_Birthday_Card__c</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>14 Days Before Contact Birthday With Bequest Pledged Opportunity Send Card To Contact</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Bequest_Pledged_Opportunity_Id__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.npsp__Deceased__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Create_New_Task_For_Birthday_Card__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Create_New_Task_For_Birthday_Card</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Send_Birthday_Card</name>
+                <type>Task</type>
+            </actions>
+            <offsetFromField>Contact.Date_To_Send_Birthday_Card__c</offsetFromField>
+            <timeLength>-2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Bequest 365 days after contact deceased</fullName>
         <active>true</active>
         <criteriaItems>
@@ -361,38 +426,6 @@ IF RD status = Lapsed check months since lapsed if greater than 24 months
 Then create the task</description>
         <formula>AND(Date_Status_Lapsed__c  &gt;  (TODAY() - 730), Last_Opportunity_Id__c  &lt;&gt; &apos;&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Birthday Card To Contact</fullName>
-        <active>true</active>
-        <criteriaItems>
-            <field>Contact.Bequest_Pledged_Opportunity_Id__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Contact.npsp__Deceased__c</field>
-            <operation>notEqual</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Contact.Create_New_Task_For_Birthday_Card__c</field>
-            <operation>equals</operation>
-            <value>False</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Update_Create_New_Task_For_Birthday_Card</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <actions>
-                <name>Send_Birthday_Card</name>
-                <type>Task</type>
-            </actions>
-            <offsetFromField>Contact.Date_To_Send_Birthday_Card__c</offsetFromField>
-            <timeLength>-2</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>npe01__Contact%2EEmailChanged_Alternate</fullName>
@@ -631,6 +664,17 @@ Then create the task</description>
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Send Birthday Card</subject>
+    </tasks>
+    <tasks>
+        <fullName>Send_Birthday_Card_Before_10_days</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>{ &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Birthday Card Before 10 days</subject>
     </tasks>
     <tasks>
         <fullName>Send_Donor_Anniversary_Email</fullName>
