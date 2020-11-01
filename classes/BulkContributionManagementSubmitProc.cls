@@ -23,35 +23,37 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
 
     private void doSubmit() {
 
-        Opportunity opportunity = new Opportunity();
-        this.request.getMapper().mapToSObject('contribution', opportunity);
+        Opportunity opp = new Opportunity();
+        this.request.getMapper().mapToSObject('contribution', opp);
 
-        String paymentIntentId = this.request.getRequiredString('paymentIntentId');
+        String paymentIntentId = this.request.getRequiredString('contribution.paymentIntentId');
 
-        opportunity.StageName = 'Closed Won';
+        opp.Name = 'Donation';
+        opp.StageName = 'Closed Won';
+        opp.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Donation');
 
         Savepoint sp = Database.setSavepoint();
         try {
 
-            insert opportunity;
+            insert opp;
 
             npe01__OppPayment__c payment = (npe01__OppPayment__c) vertic_Utils.arrays.firstOrException([
                 SELECT Id FROM npe01__OppPayment__c
-                WHERE npe01__Opportunity__c =: opportunity.Id
+                WHERE npe01__Opportunity__c =: opp.Id
                 ORDER BY CreatedDate LIMIT 1
             ]);
 
             npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = payment.Id);
-            oppPayment.npe01__Payment_Amount__c = opportunity.Amount;
-            oppPayment.npsp_plus__Gateway_Transaction_ID__c = paymentIntentId;
-            oppPayment.Stripe_Transaction_Id__c = paymentIntentId;
-            oppPayment.npe01__Payment_Method__c = 'Credit Card';
+            oppPayment.npe01__Payment_Amount__c = opp.Amount;
+            oppPayment.npsp_plus__Gateway_Transaction_ID__c = this.request.getRequiredString('contribution.paymentIntentId');
+            oppPayment.Stripe_Transaction_Id__c = this.request.getRequiredString('contribution.paymentIntentId');
+            oppPayment.npe01__Payment_Method__c = opp.Payment_Method__c;
             oppPayment.npe01__Payment_Date__c = Date.today();
             oppPayment.npe01__Paid__c = true;
             oppPayment.npe01__Written_Off__c = false;
             update oppPayment;
 
-            this.response.put('opportunityId', opportunity.Id);
+            this.response.put('opportunityId', opp.Id);
             this.response.put('oppPaymentId', payment.Id);
 
         } catch (Exception e) {

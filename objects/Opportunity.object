@@ -607,6 +607,30 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Bank_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank Account Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Branch__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank Branch</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Bequest_Conditions__c</fullName>
         <description>Indicates any specific conditions or items associated with the Bequest</description>
         <externalId>false</externalId>
@@ -649,6 +673,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cheque_Drawer__c</fullName>
+        <externalId>false</externalId>
+        <label>Cheque Drawer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Cheque_Number__c</fullName>
@@ -1509,6 +1545,37 @@
                     <fullName>Monthly</fullName>
                     <default>false</default>
                     <label>Monthly</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Payment_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Cash</fullName>
+                    <default>false</default>
+                    <label>Cash</label>
+                </value>
+                <value>
+                    <fullName>Cheque</fullName>
+                    <default>false</default>
+                    <label>Cheque</label>
+                </value>
+                <value>
+                    <fullName>Credit Card</fullName>
+                    <default>false</default>
+                    <label>Credit Card</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2417,6 +2484,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -2984,6 +3066,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -3475,6 +3572,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4049,6 +4161,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4651,6 +4778,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -5156,6 +5298,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5758,6 +5915,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -6297,6 +6469,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -6802,6 +6989,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7316,6 +7518,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -7815,6 +8032,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8394,6 +8626,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -8965,6 +9212,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9544,6 +9806,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -10115,6 +10392,21 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

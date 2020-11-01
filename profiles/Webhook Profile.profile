@@ -3931,6 +3931,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Bank_Account_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Bank_Branch__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Bequest_Conditions__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3947,6 +3957,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Campaing_Id_Include_CCD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Cheque_Drawer__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4147,6 +4162,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Payment_Frequency__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Payment_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

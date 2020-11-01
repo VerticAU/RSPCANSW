@@ -41,8 +41,7 @@
 
             cmp.utils.execute(cmp, 'BulkContributionManagementSubmitProc', {
 
-                'contribution': contribution,
-                'paymentIntentId': contribution.paymentIntentId
+                'contribution': contribution
 
             }).then(
                 $A.getCallback(function (response) {

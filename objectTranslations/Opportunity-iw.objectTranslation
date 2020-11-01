@@ -38,6 +38,14 @@
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>Bank_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Branch --></label>
+        <name>Bank_Branch__c</name>
+    </fields>
+    <fields>
         <help><!-- Outline any specific items, i.e. property or shares, or conditions that are stated in the Will --></help>
         <label><!-- Bequest Conditions --></label>
         <name>Bequest_Conditions__c</name>
@@ -50,6 +58,10 @@
     <fields>
         <label><!-- Campaing Id (Include CCD) --></label>
         <name>Campaing_Id_Include_CCD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cheque Drawer --></label>
+        <name>Cheque_Drawer__c</name>
     </fields>
     <fields>
         <label><!-- Cheque Number --></label>
@@ -472,6 +484,22 @@
         <picklistValues>
             <masterLabel>Quarterly</masterLabel>
             <translation><!-- Quarterly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payment Method --></label>
+        <name>Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cheque</masterLabel>
+            <translation><!-- Cheque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
         </picklistValues>
     </fields>
     <fields>

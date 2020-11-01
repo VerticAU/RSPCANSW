@@ -52,8 +52,8 @@
                     'OtherStreet, ' +
                     'HomePhone, ' +
                     'MobilePhone, ' +
-                    'Receipt_Frequency__c, ' +
-                    'Receipt_Preference__c, ' +
+                    // 'Receipt_Frequency__c, ' +
+                    // 'Receipt_Preference__c, ' +
                     'Email ' +
                     'FROM Contact ' +
                     'WHERE Id = \'' + contribution.npsp__Primary_Contact__c + '\''

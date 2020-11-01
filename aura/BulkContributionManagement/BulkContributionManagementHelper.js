@@ -102,7 +102,7 @@
 
     newContribution: function (cmp, event, helper) {
         return {
-            Date__c: $A.localizationService.formatDate(new Date(), 'yyyy-MM-dd')
+            CloseDate: $A.localizationService.formatDate(new Date(), 'yyyy-MM-dd')
         };
     },
 
