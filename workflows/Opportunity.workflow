@@ -82,6 +82,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>npsp__Opportunity_Acknowledgment_Date_Update</fullName>
@@ -92,6 +93,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>npsp__Opportunity_Copy_FMV_to_Amount</fullName>
@@ -102,6 +104,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <rules>
         <fullName>Check Paperwork is received</fullName>
@@ -246,6 +249,64 @@
         </criteriaItems>
         <description>IF( AND( Amount &gt;= 500, Amount &lt;= 999 ) AND npsp__Primary_Contact__r.DoNotCall = FALSE OR npsp__Primary_Contact__r.Do_Not_Contact__c = FALSE</description>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Bequest - Send Bequest Welcome Pack Step 2</fullName>
+        <actions>
+            <name>Send_Welcome_Pack_2</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Bequest</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Pledged</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Email__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Phone__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>When bequest is confirmed and the primary contact has either an email address or phone number then a Thank you call/email task should be created for the estate administration Queue. When this task status changes to Completed then a new task should be crea</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Bequest - Thank you Call%2FEmail to Bequestor Step 1</fullName>
+        <actions>
+            <name>Thank_you_Call_Email_to_Bequestor</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Bequest</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Pledged</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Email__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Phone__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>When bequest is confirmed and the primary contact has either an email address or phone number then a Thank you call/email task should be created for the estate administration Queue. When this task status changes to Completed then a new task should be crea</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Donation Bequest Enquiry 19 days after bequest information booklet is sent to the contact the bequest stage is still Enq</fullName>
@@ -524,64 +585,6 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
             <timeLength>365</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Send Bequest Welcome Pack With Email</fullName>
-        <actions>
-            <name>Thank_you_Call_Email_to_Bequestor</name>
-            <type>Task</type>
-        </actions>
-        <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
-        <criteriaItems>
-            <field>Opportunity.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Bequest</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.StageName</field>
-            <operation>equals</operation>
-            <value>Pledged</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Primary_Contact_Email__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Primary_Contact_Phone__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <description>When bequest is confirmed and the primary contact has either an email address or phone number then a Thank you call/email task should be created for the estate administration Queue. When this task status changes to Completed then a new task should be crea</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Bequest Welcome Pack Without Email</fullName>
-        <actions>
-            <name>Send_Welcome_Pack_2</name>
-            <type>Task</type>
-        </actions>
-        <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
-        <criteriaItems>
-            <field>Opportunity.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Bequest</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.StageName</field>
-            <operation>equals</operation>
-            <value>Pledged</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Primary_Contact_Email__c</field>
-            <operation>equals</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Primary_Contact_Phone__c</field>
-            <operation>equals</operation>
-        </criteriaItems>
-        <description>When bequest is confirmed and the primary contact has either an email address or phone number then a Thank you call/email task should be created for the estate administration Queue. When this task status changes to Completed then a new task should be crea</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Thank you call for awarded Grant</fullName>
@@ -907,7 +910,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Thank_you_Call_Email_to_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Send_Bequest_Welcome_Pack_Without&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest - Send Bequest&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>

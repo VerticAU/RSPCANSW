@@ -1637,7 +1637,7 @@
         <subject><!-- Thank you Call --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Send_Bequest_Welcome_Pack_Without&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest - Send Bequest&quot;} --></description>
         <name>Thank_you_Call_Email_to_Bequestor</name>
         <subject><!-- Thank you Call/Email to Bequestor --></subject>
     </workflowTasks>

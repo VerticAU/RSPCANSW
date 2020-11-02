@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Campaign_Assignment</name>
         <label>Campaign Assignment</label>
@@ -532,6 +533,7 @@
         <connector>
             <targetReference>Campaign_Assignment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>ContactId</field>
             <operator>EqualTo</operator>
@@ -559,6 +561,7 @@
         <connector>
             <targetReference>Merchandise_Assignment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -586,6 +589,7 @@
         <connector>
             <targetReference>Payment_methoud</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>npe01__Opportunity__c</field>
             <operator>EqualTo</operator>
@@ -606,6 +610,7 @@
         <connector>
             <targetReference>Event_Ticket_Assignment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>

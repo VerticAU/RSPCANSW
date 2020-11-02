@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
     <interviewLabel>PURL {!$Flow.CurrentDateTime}</interviewLabel>
     <label>PURL</label>
     <processMetadataValues>
@@ -21,6 +22,7 @@
         <locationX>816</locationX>
         <locationY>292</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -51,6 +53,7 @@
         <connector>
             <targetReference>Get_Campaign</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>

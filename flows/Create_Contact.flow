@@ -26,6 +26,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Assign_Contact_Output</name>
         <label>Assign Contact Output</label>
@@ -234,6 +235,7 @@
         <faultConnector>
             <targetReference>Output_Error</targetReference>
         </faultConnector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -254,6 +256,7 @@
         <faultConnector>
             <targetReference>Output_Error</targetReference>
         </faultConnector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>

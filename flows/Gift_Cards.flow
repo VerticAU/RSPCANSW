@@ -26,6 +26,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Contact_Assignment</name>
         <label>Contact Assignment</label>
@@ -441,6 +442,7 @@
         <connector>
             <targetReference>Donation_Assigment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -475,6 +477,7 @@
         <connector>
             <targetReference>Gift_Card_Assigment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -502,6 +505,7 @@
         <connector>
             <targetReference>TransactionId</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>npe01__Opportunity__c</field>
             <operator>EqualTo</operator>

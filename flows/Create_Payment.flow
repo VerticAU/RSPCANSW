@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Output_Error</name>
         <label>Output Error</label>
@@ -196,6 +197,7 @@
         <faultConnector>
             <targetReference>Output_Error</targetReference>
         </faultConnector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>npe01__Opportunity__c</field>
             <operator>EqualTo</operator>

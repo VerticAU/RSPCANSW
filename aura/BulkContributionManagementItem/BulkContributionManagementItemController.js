@@ -41,6 +41,9 @@
             cmp.set('v.contribution.Payment_Method__c', null);
         }
 
+        contribution.AccountId = null;
+        contribution.Account = null;
+
         if (!$A.util.isUndefinedOrNull(contribution.npsp__Primary_Contact__c)) {
             var request = {
                 'SOQL': 'SELECT ' +
@@ -81,6 +84,10 @@
             return;
         }
         var contribution = cmp.get('v.contribution');
+
+        contribution.npsp__Primary_Contact__c = null;
+        contribution.npsp__Primary_Contact__r = null;
+
         if (!$A.util.isUndefinedOrNull(contribution.AccountId)) {
             var request = {
                 'SOQL': 'SELECT ' +

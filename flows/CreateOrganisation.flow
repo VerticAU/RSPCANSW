@@ -26,6 +26,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Organisation_Assigment</name>
         <label>Organisation Assigment</label>

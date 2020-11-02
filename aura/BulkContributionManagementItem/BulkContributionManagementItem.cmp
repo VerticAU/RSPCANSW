@@ -19,8 +19,8 @@
 
     <!-- Handlers -->
     <aura:handler name="change" value="{!v.isEditFormVisible}" action="{!c.cleanUpSelectedRowIndex}"/>
-    <!--<aura:handler name="change" value="{!v.contribution.npsp__Primary_Contact__c}" action="{!c.handleContactChange}"/>-->
-    <!--<aura:handler name="change" value="{!v.contribution.AccountId}" action="{!c.handleOrganisationChange}"/>-->
+    <aura:handler name="change" value="{!v.contribution.npsp__Primary_Contact__c}" action="{!c.handleContactChange}"/>
+    <aura:handler name="change" value="{!v.contribution.AccountId}" action="{!c.handleOrganisationChange}"/>
     <aura:handler name="change" value="{!v.contribution.CampaignId}" action="{!c.handleCampaignChange}"/>
     <aura:handler name="change" value="{!v.contribution}" action="{!c.handleContributionChange}"/>
     <aura:handler name="onQRScanReady" event="c:vertic_ComponentEvent" action="{!c.handleQRScanReady}"/>

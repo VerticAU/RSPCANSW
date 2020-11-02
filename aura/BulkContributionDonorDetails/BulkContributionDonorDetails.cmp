@@ -15,7 +15,7 @@
                   value="{!v.contribution.npsp__Primary_Contact__r != null ? v.contribution.npsp__Primary_Contact__r.Name : (v.contribution.Account != null ? v.contribution.Account.Name : 'No Donor Selected')}"
         />
         <aura:if isTrue="{!v.contribution != null}">
-            <aura:if isTrue="{!and(and(v.contribution.npsp__Primary_Contact__c != null, v.contribution.npsp__Primary_Contact__c != ''), v.contribution.RecordTypeId != v.meta.dto.organisationDonationRecordTypeId)}">
+            <aura:if isTrue="{!and(and(v.contribution.npsp__Primary_Contact__c != null, v.contribution.npsp__Primary_Contact__c != ''), v.contribution.type != 'Organisation')}">
                 <lightning:input type="email" label="Email" name="email1" placeholder="Email" value="{!v.contribution.npsp__Primary_Contact__r.Email}"/>
                 <lightning:input type="tel" label="Mobile Phone" name="mobilePhone" placdeholder="Mobile Phone" value="{!v.contribution.npsp__Primary_Contact__r.MobilePhone}"/>
                 <lightning:input type="tel" label="Home Phone" name="homePhone" placdeholder="Home Phone" value="{!v.contribution.npsp__Primary_Contact__r.HomePhone}"/>
@@ -33,16 +33,9 @@
                         postalCode="{!v.contribution.npsp__Primary_Contact__r.OtherPostalCode}"
                         required="false"
                 />
-                <c:vertic_Select label="Receipt Preference"
-                                 value="{!v.contribution.npsp__Primary_Contact__r.Receipt_Preference__c}"
-                                 options="{!v.meta.selectOptions.receiptPreferenceOptions}"
-                />
-                <c:vertic_Select label="Receipt Frequency"
-                                 value="{!v.contribution.npsp__Primary_Contact__r.Receipt_Frequency__c}"
-                                 options="{!v.meta.selectOptions.receiptFrequencyOptions}"
-                />
+             
                 <aura:set attribute="else">
-                    <aura:if isTrue="{!and(and(v.contribution.AccountId != null, v.contribution.AccountId != ''), v.contribution.RecordTypeId == v.meta.dto.organisationDonationRecordTypeId)}">
+                    <aura:if isTrue="{!and(and(v.contribution.AccountId != null, v.contribution.AccountId != ''), v.contribution.type == 'Organisation')}">
                         <lightning:input type="email" label="Email" name="email1" placeholder="Email" value="{!v.contribution.Account.Email__c}"/>
                         <lightning:input type="tel" label="Home Phone" name="homePhone" placdeholder="Home Phone" value="{!v.contribution.Account.Phone}"/>
                         <lightning:inputAddress

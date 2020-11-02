@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <rules>
+        <fullName>Donation Bequest - Send Bequest Welcome Pack Step 2 %28Dependent%29</fullName>
+        <actions>
+            <name>Send_Welcome_Pack_3</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Next_Workflow_Name__c</field>
+            <operation>equals</operation>
+            <value>Donation Bequest - Send Bequest</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.Status</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </criteriaItems>
+        <description>This is Dependent Task if Task - Donation Bequest - Thank you Call/Email to Bequestor Step 1 is completed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Donation Bequest Enquiry Step 2 - Send Bequest Information</fullName>
         <actions>
             <name>Send_Bequest_Information</name>
@@ -18,25 +38,6 @@
             <value>Enquiry Step 2 Send Bequest Information</value>
         </criteriaItems>
         <description>This is Dependent Task if Task - Donation Bequest Enquiry Step 1 - Call/Email Bequestor completed</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Bequest Welcome Pack Without Email</fullName>
-        <actions>
-            <name>Send_Welcome_Pack_3</name>
-            <type>Task</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Task.Status</field>
-            <operation>equals</operation>
-            <value>Completed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Task.Next_Workflow_Name__c</field>
-            <operation>equals</operation>
-            <value>Send_Bequest_Welcome_Pack_Without</value>
-        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <tasks>

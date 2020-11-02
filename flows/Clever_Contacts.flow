@@ -26,6 +26,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Contact_Assignment_To_Deduplicate</name>
         <label>Contact Assignment To Deduplicate</label>
@@ -408,6 +409,7 @@
         <connector>
             <targetReference>Contact_Assignment_To_Deduplicate</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Name</field>
             <operator>EqualTo</operator>
@@ -428,6 +430,7 @@
         <connector>
             <targetReference>Get_Payment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>ContactId</field>
             <operator>EqualTo</operator>
@@ -455,6 +458,7 @@
         <connector>
             <targetReference>Output_Assigment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>npe01__Opportunity__c</field>
             <operator>EqualTo</operator>
