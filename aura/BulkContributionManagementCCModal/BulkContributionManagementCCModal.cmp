@@ -7,6 +7,8 @@
     <aura:attribute name="stripePaymentMethodId" type="String"/>
     <aura:attribute name="totalPaymentMethods" type="String"/>
 
+    <lightning:notificationsLibrary aura:id="notificationLib"/>
+
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
@@ -33,7 +35,7 @@
 
     <aura:set attribute="footer">
         <lightning:button label="Cancel" type="button" onclick="{!c.handleCancelClick}"/>
-        <lightning:button label="Submit" variant="brand" onclick="{!c.handleSaveClick}"/>
+        <lightning:button label="Submit" variant="brand" onclick="{!c.handleSaveClick}" disabled="{! empty(v.stripePaymentMethodId) }"/>
     </aura:set>
 
 </aura:component>

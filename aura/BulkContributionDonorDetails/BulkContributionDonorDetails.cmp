@@ -26,14 +26,14 @@
                         countryLabel="Country"
                         provinceLabel="Province"
                         postalCodeLabel="PostalCode"
-                        street="{!v.contribution.npsp__Primary_Contact__r.OtherStreet}"
-                        city="{!v.contribution.npsp__Primary_Contact__r.OtherCity}"
-                        country="{!v.contribution.npsp__Primary_Contact__r.OtherCountry}"
-                        province="{!v.contribution.npsp__Primary_Contact__r.OtherState}"
-                        postalCode="{!v.contribution.npsp__Primary_Contact__r.OtherPostalCode}"
+                        street="{!v.contribution.npsp__Primary_Contact__r.MailingStreet}"
+                        city="{!v.contribution.npsp__Primary_Contact__r.MailingCity}"
+                        country="{!v.contribution.npsp__Primary_Contact__r.MailingCountry}"
+                        province="{!v.contribution.npsp__Primary_Contact__r.MailingState}"
+                        postalCode="{!v.contribution.npsp__Primary_Contact__r.MailingPostalCode}"
                         required="false"
                 />
-             
+
                 <aura:set attribute="else">
                     <aura:if isTrue="{!and(and(v.contribution.AccountId != null, v.contribution.AccountId != ''), v.contribution.type == 'Organisation')}">
                         <lightning:input type="email" label="Email" name="email1" placeholder="Email" value="{!v.contribution.Account.Email__c}"/>

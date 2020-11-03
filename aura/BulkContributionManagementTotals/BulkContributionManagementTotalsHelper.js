@@ -30,11 +30,9 @@
             if (paymentTypes) {
 
                 paymentTypes.forEach(function (paymentType, index) {
-
-                    // if (paymentType.value != contribution.Payment_Method__c) {
-                    //     return;
-                    // } todo Payment Method field
-
+                    if (paymentType.value !== contribution.Payment_Method__c) {
+                        return;
+                    }
                     totals[index].value += contributionAmount;
                 });
             }

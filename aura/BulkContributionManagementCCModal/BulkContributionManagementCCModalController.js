@@ -19,6 +19,6 @@
     },
 
     handleCancelClick: function(cmp, event, helper){
-        cmp.closeModal(null);
+        cmp.closeModal();
     }
 })

@@ -46,6 +46,10 @@
         <name>Bank_Branch__c</name>
     </fields>
     <fields>
+        <label><!-- Bank Number --></label>
+        <name>Bank_Number__c</name>
+    </fields>
+    <fields>
         <help><!-- Outline any specific items, i.e. property or shares, or conditions that are stated in the Will --></help>
         <label><!-- Bequest Conditions --></label>
         <name>Bequest_Conditions__c</name>

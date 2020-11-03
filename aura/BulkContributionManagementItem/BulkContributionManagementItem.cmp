@@ -64,11 +64,12 @@
                 <aura:if isTrue="{! v.contribution.type != 'Organisation' }">
                     <c:strike_lookup_clickable aura:id="donor"
                                                label="Contact"
+                                               subtitleField="Email"
                                                object="Contact"
-                                               searchField="Name,Email"
+                                               searchField="Name,Email,Contact_ID__c,External_ID__c"
                                                placeholder="Select a Contact..."
                                                iconName="standard:contact"
-                                               order="Name"
+                                               order="Contact_ID__c"
                                                limit="8"
                                                loadingMessage="Loading..."
                                                errorMessage="Invalid input"
@@ -80,6 +81,7 @@
                                                class="label-hidden"
                                                value="{! v.contribution.npsp__Primary_Contact__c }"
                                                strike_evt_addNewRecord="{! c.handleLookupNewRecordContact }"
+                                               filter="Contact_ID__c >'3000000'"
                     />
                 </aura:if>
                 <aura:if isTrue="{! v.contribution.type == 'Organisation' }">
@@ -107,8 +109,9 @@
             <td data-label="Campaign">
                 <c:strike_lookup_clickable aura:id="campaign"
                                            label="Campaign"
+                                           subtitleField="Campaign_Code__c"
                                            object="Campaign"
-                                           searchField="Name"
+                                           searchField="Name,Campaign_Code__c"
                                            placeholder="Select a Campaign..."
                                            iconName="standard:campaign"
                                            order="Name"

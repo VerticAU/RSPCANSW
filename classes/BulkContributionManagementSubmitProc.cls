@@ -26,7 +26,10 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
         Opportunity opp = new Opportunity();
         this.request.getMapper().mapToSObject('contribution', opp);
 
-        String paymentIntentId = this.request.getRequiredString('contribution.paymentIntentId');
+        String paymentIntentId;
+        if(opp.Payment_Method__c == 'Credit Card'){
+            paymentIntentId = this.request.getRequiredString('contribution.paymentIntentId');
+        }
 
         opp.Name = 'Donation';
         opp.StageName = 'Closed Won';
@@ -45,8 +48,7 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
 
             npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = payment.Id);
             oppPayment.npe01__Payment_Amount__c = opp.Amount;
-            oppPayment.npsp_plus__Gateway_Transaction_ID__c = this.request.getRequiredString('contribution.paymentIntentId');
-            oppPayment.Stripe_Transaction_Id__c = this.request.getRequiredString('contribution.paymentIntentId');
+            oppPayment.npsp_plus__Gateway_Transaction_ID__c = paymentIntentId;
             oppPayment.npe01__Payment_Method__c = opp.Payment_Method__c;
             oppPayment.npe01__Payment_Date__c = Date.today();
             oppPayment.npe01__Paid__c = true;

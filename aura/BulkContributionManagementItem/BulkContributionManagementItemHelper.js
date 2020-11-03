@@ -4,7 +4,7 @@
 
             var contribution = cmp.get('v.contribution');
 
-            if (contribution.isCompleted) { return resolve(cmp); }
+            if (contribution.isCompleted || contribution.Payment_Method__c !== 'Credit Card') { return resolve(cmp); }
 
             console.log(JSON.stringify(contribution));
 

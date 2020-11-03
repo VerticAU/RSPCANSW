@@ -11,8 +11,10 @@
                     header: 'One-Off Donation | Credit Card'
                 }
             ).then($A.getCallback(function (response) {
-                cmp.set('v.contribution.stripeCustomerId', response.stripeCustomerId);
-                cmp.set('v.contribution.stripePaymentMethodId', response.stripePaymentMethodId);
+                if(!$A.util.isUndefinedOrNull(response)){
+                    cmp.set('v.contribution.stripeCustomerId', response.stripeCustomerId);
+                    cmp.set('v.contribution.stripePaymentMethodId', response.stripePaymentMethodId);
+                }
             }));
         }
     },
@@ -48,11 +50,11 @@
             var request = {
                 'SOQL': 'SELECT ' +
                     'Name, ' +
-                    'OtherCity, ' +
-                    'OtherCountry, ' +
-                    'OtherPostalCode, ' +
-                    'OtherState, ' +
-                    'OtherStreet, ' +
+                    'MailingCity, ' +
+                    'MailingCountry, ' +
+                    'MailingPostalCode, ' +
+                    'MailingState, ' +
+                    'MailingStreet, ' +
                     'HomePhone, ' +
                     'MobilePhone, ' +
                     // 'Receipt_Frequency__c, ' +
@@ -98,6 +100,7 @@
                     'ShippingState, ' +
                     'ShippingStreet, ' +
                     'Phone, ' +
+                    'npe01__One2OneContact__c, ' +
                     'Email__c ' +
                     'FROM Account ' +
                     'WHERE Id = \'' + contribution.AccountId + '\''

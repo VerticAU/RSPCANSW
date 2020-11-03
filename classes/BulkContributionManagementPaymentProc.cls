@@ -40,17 +40,6 @@ public class BulkContributionManagementPaymentProc extends vertic_AbstractProces
 
         String paymentIntentId = paymentIntentResponse.getRequiredString('id');
 
-//        try{
-//            paymentIntentResponse = new npsp_plus.Stripe().paymentIntents.send(
-//                new Map<String, String>{
-//                    'payment_method' => paymentIntent.paymentMethod
-//                },
-//                'payment_intents/' + paymentIntentId + '/confirm', 'POST'
-//            );
-//        } catch (npsp_plus.Stripe.StripeException ex) {
-//            throw new vertic_Structs.ProcessException(ex.response.getRequiredString('error.message'));
-//        }
-
         this.response.put('paymentIntentId', paymentIntentId);
 
     }
