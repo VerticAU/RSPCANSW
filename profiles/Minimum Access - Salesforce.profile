@@ -1379,6 +1379,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Stripe_Account_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Type</field>
         <readable>false</readable>
@@ -4136,6 +4141,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Membership_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Narrative__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

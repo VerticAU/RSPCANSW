@@ -6,26 +6,24 @@
 
             if (contribution.isCompleted || contribution.Payment_Method__c !== 'Credit Card') { return resolve(cmp); }
 
-            console.log(JSON.stringify(contribution));
-
             cmp.utils.execute(cmp, 'BulkContributionManagementPaymentProc', {
 
                 'amount': contribution.Amount,
                 'stripeCustomerId': contribution.stripeCustomerId,
-                'stripePaymentMethodId': contribution.stripePaymentMethodId
+                'stripePaymentMethodId': contribution.stripePaymentMethodId,
+                'stripeAccountId': contribution.Campaign.Stripe_Account_Id__c
 
-            }).then(
-                $A.getCallback(function (response) {
+            }).then($A.getCallback(function (response) {
                     if (!response.error && response.errors.length === 0 && response.isValid) {
-                        console.log('makePayment -> response: ', response);
                         cmp.set('v.contribution.paymentIntentId', response.dto.paymentIntentId);
                         return resolve(cmp);
                     } else {
                         cmp.set('v.errorMessage', response.errors[0].message);
                         return reject(response.errors);
                     }
-                }),
-                $A.getCallback(function (errors) {
+                }))
+                .catch($A.getCallback(function (errors) {
+                    console.log('makePayment catch', errors[0].message);
                     cmp.set('v.errorMessage', errors[0].message);
                     return reject(errors);
                 }));
@@ -43,18 +41,17 @@
 
                 'contribution': contribution
 
-            }).then(
-                $A.getCallback(function (response) {
+            }).then($A.getCallback(function (response) {
                     if (!response.error && response.errors.length === 0 && response.isValid) {
-                        console.log('submitOpportunity -> response: ', response);
                         cmp.set('v.contribution.isCompleted', true);
                         return resolve(cmp);
                     } else {
                         cmp.set('v.errorMessage', response.errors[0].message);
                         return reject(response.errors);
                     }
-                }),
-                $A.getCallback(function (errors) {
+                }))
+                .catch($A.getCallback(function (errors) {
+                    console.log('submitOpportunity catch', errors[0].message);
                     cmp.set('v.errorMessage', errors[0].message);
                     return reject(errors);
                 }));

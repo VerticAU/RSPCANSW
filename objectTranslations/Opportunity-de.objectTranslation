@@ -314,6 +314,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Narrative --></label>
+        <name>Narrative__c</name>
+    </fields>
+    <fields>
         <label><!-- Net Profit/Loss --></label>
         <name>Net_Profit_Loss__c</name>
     </fields>

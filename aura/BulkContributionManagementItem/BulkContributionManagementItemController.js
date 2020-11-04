@@ -131,7 +131,7 @@
         if (!$A.util.isUndefinedOrNull(contribution.CampaignId)) {
             var request = {
                 'SOQL': 'SELECT ' +
-                    'Name ' +
+                    'Name, Stripe_Account_Id__c ' +
                     'FROM Campaign ' +
                     'WHERE Id = \'' + contribution.CampaignId + '\''
             };
@@ -169,14 +169,13 @@
                 }, {
                     title: 'Contact Information',
                     columns: [
-                        {fields: [{name: 'MobilePhone'}, {name: 'Phone'}, {name: 'HomePhone'}, {name: 'Additional_Phone__c'}]},
-                        {fields: [{name: 'Email'}, {name: 'Secondary_Email__c'}, {name: 'Preferred_Contact_Method__c'}, {name: 'Receipt_Preference__c'}]}
+                        {fields: [{name: 'npe01__PreferredPhone__c'}, {name: 'MobilePhone'}, {name: 'HomePhone'}, {name: 'npe01__WorkPhone__c'}, {name: 'OtherPhone'}]},
+                        {fields: [{name: 'npe01__Preferred_Email__c'}, {name: 'npe01__HomeEmail__c'}, {name: 'npe01__AlternateEmail__c'},  {name: 'npe01__WorkEmail__c'}]}
                     ]
                 }, {
                     title: 'Address Information',
                     columns: [
-                        {fields: [{name: 'MailingStreet'}, {name: 'MailingCity'}, {name: 'MailingState'}]},
-                        {fields: [{name: 'MailingPostalCode'}, {name: 'MailingCountry'}]},
+                        {fields: [{name: 'MailingAddress'}]}
                     ]
                 }]
             },
@@ -204,7 +203,7 @@
                     {
                         title: 'Organisation Information',
                         columns: [
-                            {fields: [{name: 'Name'}, {name: 'ABN__c'}], class: 'slds-size_1-of-2'},
+                            {fields: [{name: 'Name'}], class: 'slds-size_1-of-2'},
                             {fields: [{name: 'Type'}], class: 'slds-size_1-of-2'}
                         ]
                     },
@@ -292,13 +291,10 @@
     },
 
     doSubmit: function (cmp, event, helper) {
-        return helper.makePayment(cmp)
-            .then(
-                function (cmp) {
-                    return helper.submitOpportunity(cmp)
-                },
-                function (reason) {}
-            );
+        return helper.makePayment(cmp).then(
+            $A.getCallback(function (cmp) {
+                return helper.submitOpportunity(cmp)
+            }))
     },
 
     handleNumericOnly: function (cmp, event, helper) {

@@ -23,17 +23,21 @@ public class BulkContributionManagementPaymentProc extends vertic_AbstractProces
 
     private void doSubmit() {
 
-        npsp_plus.StripePaymentIntents.PaymentIntent paymentIntent = new npsp_plus.StripePaymentIntents.PaymentIntent(
-            this.request.getDecimal('amount'),
-            this.request.getRequiredString('stripeCustomerId'),
-            this.request.getRequiredString('stripePaymentMethodId')
-        );
+        Map<String, String> paymentIntentRequest =  new Map<String, String>{
+            'amount' => '' + npsp_plus.Stripe.formatAmount(this.request.getDecimal('amount')),
+            'currency' => 'aud',
+            'confirm' => String.valueOf(true),
+            'customer' => this.request.getRequiredString('stripeCustomerId'),
+            'payment_method' => this.request.getRequiredString('stripePaymentMethodId')
+        };
 
-        paymentIntent.setMOTO(true);
-
+        if(this.request.getString('stripeAccountId') != null){
+            paymentIntentRequest.put('on_behalf_of', this.request.getString('stripeAccountId'));
+        }
+        
         npsp_plus.vertic_DTO paymentIntentResponse;
         try{
-            paymentIntentResponse = new npsp_plus.Stripe().paymentIntents.create(paymentIntent);
+            paymentIntentResponse = new npsp_plus.Stripe().paymentIntents.create(paymentIntentRequest);
         } catch (npsp_plus.Stripe.StripeException ex) {
             throw new vertic_Structs.ProcessException(ex.response.getRequiredString('error.message'));
         }

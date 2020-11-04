@@ -33,7 +33,15 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
 
         opp.Name = 'Donation';
         opp.StageName = 'Closed Won';
-        opp.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Donation');
+
+        RecordType donationRecType = (RecordType) vertic_Utils.arrays.firstOrException([
+            SELECT Id
+            FROM RecordType
+            WHERE DeveloperName = 'Donation'
+            AND NamespacePrefix != 'npsp_plus_dres'
+        ]);
+
+        opp.RecordTypeId = donationRecType.Id;
 
         Savepoint sp = Database.setSavepoint();
         try {

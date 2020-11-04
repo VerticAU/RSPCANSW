@@ -3,7 +3,6 @@
     <!-- Attributes -->
     <aura:attribute name="contribution" required="{!true}" type="Map" default="{}"/>
     <aura:attribute name="paymentTransaction" type="Map" access="private"/>
-    <!--<aura:attribute name="creditCard" type="Map" access="private" default='{"cardNumber":"4444333322221111","expiryYear": "2020", "expiryMonth": "10"}'/>-->
     <aura:attribute name="creditCard" type="Map" access="private" default="{}"/>
     <aura:attribute name="meta" type="Map"/>
     <aura:attribute name="index" required="{!true}" type="Integer"/>
@@ -81,9 +80,9 @@
                                                class="label-hidden"
                                                value="{! v.contribution.npsp__Primary_Contact__c }"
                                                strike_evt_addNewRecord="{! c.handleLookupNewRecordContact }"
-                                               filter="Contact_ID__c >'3000000'"
                     />
                 </aura:if>
+                <!--filter="Contact_ID__c > '0000000'"-->
                 <aura:if isTrue="{! v.contribution.type == 'Organisation' }">
                     <c:strike_lookup_clickable aura:id="donor"
                                                label="Organisation"
@@ -167,6 +166,18 @@
                         </aura:iteration>
                     </lightning:select>
                 </aura:if>
+            </td>
+
+            <td data-label="Narrative">
+                <lightning:input label="Narrative"
+                                 placeholder="Narrative"
+                                 required="{!true}"
+                                 value="{! v.contribution.Narrative__c }"
+                                 variant="label-hidden"
+                                 class="label-hidden"
+                                 disabled="{!v.contribution.isCompleted}"
+                                 maxlength="255"
+                />
             </td>
 
             <td>

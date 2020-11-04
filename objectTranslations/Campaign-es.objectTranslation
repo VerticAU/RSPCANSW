@@ -90,6 +90,10 @@
         <name>One_Drive_Folder_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Stripe Account Id --></label>
+        <name>Stripe_Account_Id__c</name>
+    </fields>
+    <fields>
         <label><!-- Website Fundraiser --></label>
         <name>Website_Fundraiser__c</name>
     </fields>

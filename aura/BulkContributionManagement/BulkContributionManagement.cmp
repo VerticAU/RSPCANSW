@@ -76,19 +76,19 @@
                                             <!--#-->
                                         </div>
                                     </th>
-                                    <th scope="col" width="15%">
+                                    <th scope="col" width="14%">
                                         <div class="slds-truncate" title="Donor Type">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Donor Type
                                         </div>
                                     </th>
-                                    <th scope="col" width="20%">
+                                    <th scope="col" width="14%">
                                         <div class="slds-truncate" title="Contact">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Donor
                                         </div>
                                     </th>
-                                    <th scope="col" width="20%">
+                                    <th scope="col" width="14%">
                                         <div class="slds-truncate" title="Campaign">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Campaign
@@ -110,6 +110,12 @@
                                         <div class="slds-truncate" title="Payment Type">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Payment Method
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="13%">
+                                        <div class="slds-truncate" title="Narrative">
+                                            <abbr class="slds-required" title="required">*</abbr>
+                                            Narrative
                                         </div>
                                     </th>
                                     <th scope="col" width="1%">
