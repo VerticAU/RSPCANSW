@@ -34,7 +34,7 @@ public class BulkContributionManagementPaymentProc extends vertic_AbstractProces
         if(this.request.getString('stripeAccountId') != null){
             paymentIntentRequest.put('on_behalf_of', this.request.getString('stripeAccountId'));
         }
-        
+
         npsp_plus.vertic_DTO paymentIntentResponse;
         try{
             paymentIntentResponse = new npsp_plus.Stripe().paymentIntents.create(paymentIntentRequest);

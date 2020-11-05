@@ -52,11 +52,12 @@
     </values>
     <values>
         <field>dlrs__RelationshipCriteriaFields__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Record_Type__c
+StageName</value>
     </values>
     <values>
         <field>dlrs__RelationshipCriteria__c</field>
-        <value xsi:type="xsd:string">StageName = &apos;Pledged&apos; AND RecordType.Name = &apos;Bequest&apos;</value>
+        <value xsi:type="xsd:string">StageName = &apos;Pledged&apos; AND Record_Type__c = &apos;Bequest&apos;</value>
     </values>
     <values>
         <field>dlrs__RelationshipField__c</field>

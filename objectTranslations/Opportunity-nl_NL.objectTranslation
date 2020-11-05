@@ -575,6 +575,10 @@
         <name>Receipt_Number__c</name>
     </fields>
     <fields>
+        <label><!-- Record_Type --></label>
+        <name>Record_Type__c</name>
+    </fields>
+    <fields>
         <label><!-- Refund Information --></label>
         <name>Refund_Information__c</name>
     </fields>

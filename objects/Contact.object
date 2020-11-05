@@ -567,13 +567,13 @@
     <fields>
         <fullName>Contact_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Opportunity_Bequest_Pledged_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom18_60.png&quot;, &quot;Pledged Bequestor&quot;, 40, 40),
-    IF(Opportunity_Major_Gift_Closed_Won_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/standard/custom17_60.png&quot;, &quot;Major&quot;, 40, 40),
-        IF(Animal_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom1_60.png&quot;, &quot;Adopter&quot;, 40, 40),
-            IF(Opportunity_Member_Active_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom15_60.png&quot;, &quot;Member&quot;, 40, 40),
-                IF(Opportunity_Raffle_Ticket_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom48_60.png&quot;, &quot;Raffle&quot;, 40, 40),
-                    IF(npsp__Deceased__c, IMAGE(&quot;/resource/Icons/standard/default_60.png&quot;, &quot;Badge&quot;, 40, 40),
-                        IF(Active_Membership__c != NULL, IMAGE(&quot;/resource/Icons/custom/custom73_60.png&quot;, &quot;Volunteer&quot;, 40, 40),&quot;&quot;)
+        <formula>IF(Opportunity_Bequest_Pledged_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom18.png&quot;, &quot;Pledged Bequestor&quot;, 40, 40),
+    IF(Opportunity_Major_Gift_Closed_Won_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/standard/custom17.png&quot;, &quot;Major&quot;, 40, 40),
+        IF(Animal_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom1.png&quot;, &quot;Adopter&quot;, 40, 40),
+            IF(Opportunity_Member_Active_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom15.png&quot;, &quot;Member&quot;, 40, 40),
+                IF(Opportunity_Raffle_Ticket_Count__c &gt; 0, IMAGE(&quot;/resource/Icons/custom/custom48.png&quot;, &quot;Raffle&quot;, 40, 40),
+                    IF(npsp__Deceased__c, IMAGE(&quot;/resource/Icons/standard/default.png&quot;, &quot;Badge&quot;, 40, 40),
+                        IF(Active_Membership__c != NULL, IMAGE(&quot;/resource/Icons/custom/custom73.png&quot;, &quot;Volunteer&quot;, 40, 40),&quot;&quot;)
                     )
                 )
             )

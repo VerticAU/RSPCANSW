@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>dlrs__CalculationSharingMode__c</field>
-        <value xsi:type="xsd:string">User</value>
+        <value xsi:type="xsd:string">System</value>
     </values>
     <values>
         <field>dlrs__ChildObject__c</field>
@@ -52,11 +52,12 @@
     </values>
     <values>
         <field>dlrs__RelationshipCriteriaFields__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Record_Type__c
+StageName</value>
     </values>
     <values>
         <field>dlrs__RelationshipCriteria__c</field>
-        <value xsi:type="xsd:string">StageName = &apos;Enrolled&apos;</value>
+        <value xsi:type="xsd:string">Record_Type__c  = &apos;Membership&apos; AND StageName = &apos;Enrolled&apos;</value>
     </values>
     <values>
         <field>dlrs__RelationshipField__c</field>

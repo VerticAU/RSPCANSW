@@ -301,11 +301,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>dlrs_ContactTest</apexClass>
+        <apexClass>dlrs_OpportunityTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>dlrs_OpportunityTest</apexClass>
+        <apexClass>dlrs_npe03_Recurring_DonationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4241,6 +4241,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Receipt_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Record_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
