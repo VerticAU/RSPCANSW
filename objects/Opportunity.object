@@ -2150,7 +2150,7 @@
         <businessProcess>Bequest</businessProcess>
         <compactLayoutAssignment>Bequest_Compact</compactLayoutAssignment>
         <description>Record used to capture details about a bequest that has been pledged by a donor.</description>
-        <label>Bequest</label>
+        <label>Gifts In Wills</label>
         <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>

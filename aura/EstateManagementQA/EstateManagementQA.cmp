@@ -10,61 +10,63 @@
     <aura:set attribute="processor" value="EstateManagementQAMetaProc"/>
     <aura:handler name="init" action="{!c.baseHandleInit}" value="{!this}"/>
 
-    <c:vertic_QuickActionModal aura:id="modal"
-                               heightPX="580"
-                               title="{!v.title}"
-                               widthPercentage="90"
-                               maxWidthRem="48"
-                               refreshOnCancel="{!false}"
-                               showCancel="{!false}"
-                               minWidthRem="30">
+    <aura:if isTrue="{! not(empty(v.meta))}">
+        <c:vertic_QuickActionModal aura:id="modal"
+                                   heightPX="580"
+                                   title="{!v.title}"
+                                   widthPercentage="90"
+                                   maxWidthRem="48"
+                                   refreshOnCancel="{!false}"
+                                   showCancel="{!false}"
+                                   minWidthRem="30">
 
-        <aura:if isTrue="{!and(v.meta.dto.hasBequest, v.meta.dto.hasEstate == false)}">
-            <aura:if isTrue="{!v.step == 1}">
-                <c:EstateManagementAdminQA meta="{!v.meta}"/>
+            <aura:if isTrue="{!and(v.meta.dto.deceasedContact == true, and(v.meta.dto.hasBequest, v.meta.dto.hasEstate == false) )}">
+                <aura:if isTrue="{!v.step == 1}">
+                    <c:EstateManagementAdminQA meta="{!v.meta}"/>
+                </aura:if>
+
+
+                <aura:if isTrue="{!v.step == 2}">
+                    <c:EstateManagementDetailsQA meta="{!v.meta}" affiliations="{!v.affiliations}"/>
+                </aura:if>
             </aura:if>
 
+            <aura:if isTrue="{!v.meta.dto.hasEstate == true}">
 
-            <aura:if isTrue="{!v.step == 2}">
-                <c:EstateManagementDetailsQA meta="{!v.meta}" affiliations="{!v.affiliations}"/>
-            </aura:if>
-        </aura:if>
-
-
-
-        <aura:if isTrue="{!v.meta.dto.hasBequest == false}">
-
-            <div aura:id="form" class="slds-form" role="list">
-                <div class=" slds-align_absolute-center slds-col slds-has-flexi-truncate slds-size_1-of-1" role="listitem">
-                    Deceased donor has no related Bequest Opportunity. Please create a bequest for the deceased donor prior to creating an estate.
+                <div aura:id="form" class="slds-form" role="list">
+                    <div class=" slds-align_absolute-center slds-col slds-has-flexi-truncate slds-size_1-of-1" role="listitem">
+                        An estate already exists for this contact.
+                    </div>
                 </div>
-            </div>
-        </aura:if>
+            </aura:if>
 
+            <aura:if isTrue="{!v.meta.dto.deceasedContact == false}">
+                Cannot create an estimate or living donor
+            </aura:if>
 
-        <aura:if isTrue="{!v.meta.dto.hasEstate == true}">
-
-            <div aura:id="form" class="slds-form" role="list">
-                <div class=" slds-align_absolute-center slds-col slds-has-flexi-truncate slds-size_1-of-1" role="listitem">
-                    An estate already exists for this contact.
+            <aura:if isTrue="{!v.meta.dto.hasBequest == false}">
+                <div aura:id="form" class="slds-form" role="list">
+                    <div class=" slds-align_absolute-center slds-col slds-has-flexi-truncate slds-size_1-of-1" role="listitem">
+                        Deceased donor has no related Gifts In Wills Opportunity. Please create a Gifts In Wills for the deceased donor prior to creating an estate.
+                    </div>
                 </div>
-            </div>
-        </aura:if>
-
-        <aura:set attribute="footer">
-            <lightning:button label="Cancel" class="position-left" variant="neutral" onclick="{!c.handleExitClick}"/>
-
-            <aura:if isTrue="{!and(v.step == 1, v.isShowNext)}">
-                <lightning:button label="Next" variant="brand" onclick="{!c.handleNextClick}"/>
             </aura:if>
 
-            <aura:if isTrue="{!v.step == 2}">
-                <lightning:button label="Previous" variant="neutral" onclick="{!c.handlePreviousClick}"/>
-                <lightning:button label="Submit" variant="brand" type="submit" onclick="{!c.handleSubmit}"/>
-            </aura:if>
-        </aura:set>
 
-    </c:vertic_QuickActionModal>
+            <aura:set attribute="footer">
+                <lightning:button label="Cancel" class="position-left" variant="neutral" onclick="{!c.handleExitClick}"/>
 
+                <aura:if isTrue="{!and(v.step == 1, v.isShowNext)}">
+                    <lightning:button label="Next" variant="brand" onclick="{!c.handleNextClick}"/>
+                </aura:if>
+
+                <aura:if isTrue="{!v.step == 2}">
+                    <lightning:button label="Previous" variant="neutral" onclick="{!c.handlePreviousClick}"/>
+                    <lightning:button label="Submit" variant="brand" type="submit" onclick="{!c.handleSubmit}"/>
+                </aura:if>
+            </aura:set>
+
+        </c:vertic_QuickActionModal>
+    </aura:if>
 
 </aura:component>

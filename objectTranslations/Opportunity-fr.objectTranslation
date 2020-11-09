@@ -1436,7 +1436,7 @@
     </quickActions>
     <recordTypes>
         <description><!-- Record used to capture details about a bequest that has been pledged by a donor. --></description>
-        <label><!-- Bequest --></label>
+        <label><!-- Gifts In Wills --></label>
         <name>Bequest</name>
     </recordTypes>
     <recordTypes>

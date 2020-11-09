@@ -1,4 +1,4 @@
-public class EstateManagementQASubmitProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+public without sharing class EstateManagementQASubmitProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
 
     /**
      * ==============================================================================================================

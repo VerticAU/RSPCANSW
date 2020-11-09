@@ -38,10 +38,10 @@
                                 </div>
                                 <div class="slds-grid">
                                     <div class="slds-col slds-has-flexi-truncate" role="listitem">
-                                        <lightning:outputField fieldName="Expected_Value__c"/>
+                                        <lightning:outputField fieldName="Amount"/>
                                     </div>
                                     <div class="slds-col slds-has-flexi-truncate" role="listitem">
-                                        <lightning:outputField fieldName="Expected_Value_P__c"/>
+                                        <lightning:outputField fieldName="Expected_Value_Bequest__c"/>
                                     </div>
                                 </div>
                                 <div class="slds-grid">
@@ -51,27 +51,43 @@
                                             {!v.meta.dto.dateNotifiedOfDeath}
                                         </div>
                                     </div>
+                                    <!--<div class="slds-col slds-has-flexi-truncate" role="listitem">-->
+                                    <!--<lightning:outputField fieldName="Date_of_Will__c"/>-->
+                                    <!--</div>-->
+
                                     <div class="slds-col slds-has-flexi-truncate" role="listitem">
-                                        <lightning:outputField fieldName="Date_of_Will__c"/>
+                                        <lightning:outputField fieldName="Probability"/>
                                     </div>
                                 </div>
 
                                 <div class="slds-grid">
+
+                                    <!--<div class="slds-col slds-has-flexi-truncate" role="listitem">-->
+                                    <!--<lightning:outputField fieldName="Type"/>-->
+                                    <!--</div>-->
+
+
                                     <div class="slds-col slds-has-flexi-truncate" role="listitem">
-                                        <lightning:outputField fieldName="Probability"/>
+                                        <span class="slds-form-element__label custom_label">Opportunity Type</span>
+                                        <div class="slds-form-element__control custom_record_view">
+                                            {!v.meta.dto.oppRecordTypeName}
+                                        </div>
                                     </div>
-                                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
-                                        <lightning:outputField fieldName="Type"/>
-                                    </div>
-                                </div>
-                                <div class="slds-grid">
+
+
                                     <div class="slds-col slds-has-flexi-truncate" role="listitem">
                                         <lightning:outputField fieldName="StageName"/>
                                     </div>
+
+                                </div>
+
+                                <div class="slds-grid">
                                     <div class="slds-col slds-has-flexi-truncate" role="listitem">
                                         <lightning:outputField fieldName="npe01__Payments_Made__c"/>
                                     </div>
+
                                 </div>
+
                             </lightning:recordViewForm>
                         </div>
                     </lightning:card>
@@ -139,7 +155,6 @@
                                  onchange="{!c.handleIsShowNextEvent}"
                                  checked="{!v.meta.dto.createEstate}"/>
             </div>
-
             <aura:if isTrue="{!v.meta.dto.createEstate}">
                 <aura:if isTrue="{!v.meta.dto.opportunity.npsp__Primary_Contact__r.npsp__Deceased__c == true}">
 
@@ -167,9 +182,7 @@
 
 
                 </aura:if>
-                <aura:if isTrue="{!v.meta.dto.opportunity.npsp__Primary_Contact__r.npsp__Deceased__c == false}">
-                    Cannot create an estimate or living donor
-                </aura:if>
+
                 <br/>
                 <br/>
             </aura:if>
