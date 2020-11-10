@@ -32,10 +32,10 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
 
         String recordId = this.request.getString('recordId');
 
-        AccountContactRelation accountEstate = (AccountContactRelation) vertic_Utils.arrays.firstOrNull([
+        Account accountEstate = (Account) vertic_Utils.arrays.firstOrNull([
             SELECT Id
-            FROM AccountContactRelation
-            WHERE ContactId = :recordId AND Account.RecordType.DeveloperName = 'Estate'
+            FROM Account
+            WHERE npe01__One2OneContact__c = :recordId AND Account.RecordType.DeveloperName = 'Estate'
             ORDER BY CreatedDate DESC
         ]);
 
@@ -78,22 +78,11 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
             WHERE OpportunityId = :opportunity.Id
         ]);
 
-//        List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>([
-//            SELECT Id, npe5__Contact__r.Name, npe5__Role__c, npe5__Status__c, npe5__StartDate__c, npe5__EndDate__c FROM npe5__Affiliation__c WHERE npe5__Contact__c = :recordId
-//        ]);
-
 
         this.response.put('opportunity', opportunity);
-//        this.response.put('expectedValueDoll', opportunity.Expected_Value__c == null ? null : '$' + opportunity.Expected_Value__c.format());
-//        this.response.put('expectedValuePercent', opportunity.Expected_Value_P__c == null ? null : opportunity.Expected_Value_P__c.format() + '%');
-//        this.response.put('receivedToDate', opportunity.npe01__Payments_Made__c == null ? null : '$' + opportunity.npe01__Payments_Made__c.format());
         this.response.put('probability', opportunity.Probability == null ? null : opportunity.Probability.format() + '%');
-//        this.response.put('deceasedDate', opportunity.Deceased_Date__c == null ? null : opportunity.Deceased_Date__c.format());
-//        this.response.put('dateOfWill', opportunity.Date_of_Will__c == null ? null : opportunity.Date_of_Will__c.format());
         this.response.put('oppRecordTypeName', opportunity.RecordType.Name);
         this.response.put('opportunityLineItems', opportunityLineItems);
-//        this.response.put('affiliations', affiliations);
-
         this.response.put('dateNotifiedOfDeath', opportunity.npsp__Primary_Contact__r.Date_Notified_of_Death__c == null ? null : opportunity.npsp__Primary_Contact__r.Date_Notified_of_Death__c.format());
 
 

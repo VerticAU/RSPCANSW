@@ -1,0 +1,57 @@
+<aura:component description="EstateManagementAccountDetailsItem">
+    <aura:attribute name="partner" required="true" type="Object" default="{}"/>
+    <aura:attribute name="index" required="true" type="Integer"/>
+    <aura:attribute name="isDeleteDisabled" type="Boolean"/>
+    <aura:attribute name="meta" type="Object"/>
+
+    <aura:registerEvent name="deletePartnerEvent" type="c:EstateManagementPartners_event"/>
+
+    <tr>
+        <td>
+            <c:strike_lookup_clickable aura:id="account"
+                                       label=""
+                                       object="Account"
+                                       searchField="Name"
+                                       subtitleField=""
+                                       placeholder="Select a Account..."
+                                       iconName="standard:account"
+                                       order="Name"
+                                       class="label-hidden"
+                                       limit="5"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="true"
+                                       required="true"
+                                       overrideNewEvent="true"
+                                       value="{! v.partner.AccountFromId }"
+            />
+
+        </td>
+
+        <td>
+            <lightning:input type="text"
+                             aura:id="affiliationRole"
+                             name="role"
+                             variant="label-hidden"
+                             label=""
+                             required="true"
+                             value="{! v.partner.Role }"
+            />
+        </td>
+
+
+        <td class="">
+
+            <lightning:buttonIcon iconName="utility:delete"
+                                  alternativeText="Delete"
+                                  title="Delete"
+                                  size="medium"
+                                  variant="border"
+                                  onclick="{! c.handlePartnerDeleteClick }"
+            />
+
+        </td>
+    </tr>
+
+
+</aura:component>

@@ -1,0 +1,80 @@
+<aura:component description="EstateManagementContactDetailsItem">
+
+    <aura:attribute name="affiliation" required="true" type="Object" default="{}"/>
+    <aura:attribute name="index" required="true" type="Integer"/>
+    <aura:attribute name="isDeleteDisabled" type="Boolean"/>
+    <aura:attribute name="meta" type="Object"/>
+
+    <aura:registerEvent name="deleteAffiliationEvent" type="c:EstateManagementAffiliations_event"/>
+
+    <tr>
+        <td>
+            <c:strike_lookup_clickable aura:id="contact"
+                                       label=""
+                                       object="Contact"
+                                       searchField="Name"
+                                       subtitleField=""
+                                       placeholder="Select a Contact..."
+                                       iconName="standard:contact"
+                                       order="Name"
+                                       class="label-hidden"
+                                       limit="5"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="true"
+                                       required="true"
+                                       overrideNewEvent="true"
+                                       value="{! v.affiliation.npe5__Contact__c }"
+            />
+
+        </td>
+
+        <td>
+            <lightning:input type="text"
+                             aura:id="affiliationRole"
+                             name="role"
+                             variant="label-hidden"
+                             label=""
+                             required="true"
+                             value="{! v.affiliation.npe5__Role__c }"
+            />
+        </td>
+        <td>
+
+            <lightning:select label=""
+                              class="label-hidden"
+                              required="{!false}"
+                              value="{! v.affiliation.npe5__Status__c }">
+                <aura:iteration items="{! v.meta.selectOptions.npe5StatusOptions }" var="option">
+                    <option value="{#option.value}" label="{#option.label}">{#option.label}</option>
+                </aura:iteration>
+
+            </lightning:select>
+
+
+        </td>
+        <td>
+            <lightning:input label=""
+                             type="date"
+                             variant="label-hidden"
+                             name="npe5__StartDate__c"
+                             required="{!true}"
+                             value="{!v.affiliation.npe5__StartDate__c}"
+            />
+        </td>
+
+        <td class="">
+
+            <lightning:buttonIcon iconName="utility:delete"
+                                  alternativeText="Delete"
+                                  title="Delete"
+                                  size="medium"
+                                  variant="border"
+                                  onclick="{! c.handleAffiliationDeleteClick }"
+            />
+
+        </td>
+    </tr>
+
+
+</aura:component>

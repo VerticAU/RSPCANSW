@@ -1,0 +1,12 @@
+.THIS .slds-required {
+    display: none;
+}
+
+.THIS .label-hidden label {
+    display: none !important;
+}
+
+.THIS lightning-calendar .slds-datepicker__month th, .THIS lightning-calendar .slds-datepicker__month td{
+    padding: 5px !important;
+    border: none !important;
+}

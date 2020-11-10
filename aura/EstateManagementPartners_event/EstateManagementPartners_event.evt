@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="EstateManagementAffiliations_event">
+    <aura:attribute type="Object" name="payload" />
+</aura:event>

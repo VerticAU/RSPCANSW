@@ -1,0 +1,35 @@
+<aura:component description="EstateManagementAccountDetailsItems">
+
+    <aura:attribute name="partners" required="true" type="Object[]" default="[]" />
+    <aura:attribute name="meta" type="Object" />
+
+
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+        <tr class="slds-text-title_caps">
+            <th scope="col">
+                <div class="" title="Partner Account">Partner Account</div>
+            </th>
+            <th scope="col">
+                <div class="" title="Role">Role</div>
+            </th>
+            <th scope="col">
+                <div class="" title=""></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <aura:iteration var="partner" items="{!v.partners}" indexVar="index">
+            <c:EstateManagementAccountDetailsItem aura:id="partnerItem"
+                                           partner="{! partner }"
+                                           meta="{! v.meta }"
+                                           index="{! index }"
+                                           isDeleteDisabled="{! v.partners.length == 1 }"
+            />
+        </aura:iteration>
+        </tbody>
+    </table>
+
+
+</aura:component>

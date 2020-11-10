@@ -16,9 +16,12 @@
 
             <lightning:accordion
                     allowMultipleSectionsOpen="true"
-                    onsectiontoggle="{! c.handleSectionToggle }"
                     activeSectionName="{! v.activeSections }"
+
             >
+                <!--onsectiontoggle="{! c.handleSectionToggle }"-->
+
+
                 <lightning:accordionSection name="bequestDetails" label="Bequest Details">
 
 

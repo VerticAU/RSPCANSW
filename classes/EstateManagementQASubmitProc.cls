@@ -26,6 +26,7 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
     private Contact contact = new Contact();
     private Opportunity opportunity = new Opportunity();
     private List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>();
+    private List<Partner> partners = new List<Partner>();
 
 
     private void mapSObjects() {
@@ -36,6 +37,7 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
             .mapToSObject('opportunity.npsp__Primary_Contact__r', this.contact);
 
         this.affiliations = this.request.getMapper().mapToListSObjects('affiliations', npe5__Affiliation__c.SObjectType);
+        this.partners = this.request.getMapper().mapToListSObjects('partners', Partner.SObjectType);
     }
 
 
@@ -57,12 +59,21 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
             if (this.affiliations.size() > 0) {
                 insert this.affiliations;
             }
+
+            for (Partner partner : this.partners) {
+                partner.AccountToId = this.account.Id;
+            }
+            if (this.partners.size() > 0) {
+                insert this.partners;
+            }
+
+
             this.opportunity.AccountId = this.account.Id;
             update this.opportunity;
 
-            AccountContactRelation accountContactRelation = new AccountContactRelation(AccountId = this.account.Id, ContactId = this.contact.Id);
-
-            insert accountContactRelation;
+//            AccountContactRelation accountContactRelation = new AccountContactRelation(AccountId = this.account.Id, ContactId = this.contact.Id);
+//
+//            insert accountContactRelation;
         }
     }
 

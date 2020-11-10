@@ -38,6 +38,10 @@
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Attended --></label>
+        <name>Attended__c</name>
+    </fields>
+    <fields>
         <label><!-- Bank Account Number --></label>
         <name>Bank_Account_Number__c</name>
     </fields>
@@ -262,6 +266,34 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Blue Mountains</masterLabel>
+            <translation><!-- Blue Mountains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coffs Harbour</masterLabel>
+            <translation><!-- Coffs Harbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunter</masterLabel>
+            <translation><!-- Hunter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illawarra</masterLabel>
+            <translation><!-- Illawarra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yagoona</masterLabel>
+            <translation><!-- Yagoona --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Lost Reason --></label>
         <name>Lost_Reason__c</name>
         <picklistValues>
@@ -285,6 +317,10 @@
             <translation><!-- Estate Failed - RSPCA Aus/MS claimed --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Failure to pay</masterLabel>
+            <translation><!-- Failure to pay --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Legacy Pet Deceased</masterLabel>
             <translation><!-- Legacy Pet Deceased --></translation>
         </picklistValues>
@@ -295,6 +331,18 @@
         <picklistValues>
             <masterLabel>Not Interested</masterLabel>
             <translation><!-- Not Interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participant withdraw</masterLabel>
+            <translation><!-- Participant withdraw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA cancel</masterLabel>
+            <translation><!-- RSPCA cancel --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1171,6 +1219,37 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Corporate Support Day layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Corporate Support Day Information --></label>
+            <section>Corporate Support Day Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Hidden Section --></label>
+            <section>Hidden Section</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Event Ticket Layout</layout>
         <sections>
             <label><!-- Additional Information --></label>
@@ -1425,10 +1504,6 @@
             <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
-        <sections>
-            <label><!-- UTM Information --></label>
-            <section>UTM Information</section>
-        </sections>
     </layouts>
     <quickActions>
         <label><!-- New Deliverable --></label>
@@ -1438,6 +1513,11 @@
         <description><!-- Record used to capture details about a bequest that has been pledged by a donor. --></description>
         <label><!-- Gifts In Wills --></label>
         <name>Bequest</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Captures details about a corporate support day with RSPCA. --></description>
+        <label><!-- Corporate Support Day --></label>
+        <name>Corporate_Support_Day</name>
     </recordTypes>
     <recordTypes>
         <description>Donación recibida</description>

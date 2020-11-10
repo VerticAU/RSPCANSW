@@ -10,30 +10,15 @@
     margin-bottom: 0px !important;
 }
 
-/*.THIS .slds-input[readonly] {*/
-    /*border-width: 1px !important;*/
-    /*border-color: black !important;*/
-    /*padding-left: 10px !important;*/
-/*}*/
-
 .THIS th {
-    /*border-radius: 1px;*/
-    /*border-style: solid;*/
-    /*border-width: 1px;*/
-    /*background-color: #CCCCCC;*/
     padding: 5px;
+    text-align: left !important;
+
 }
 
-
-
-.THIS td, .THIS th {
+.THIS td{
     text-align: center !important;
 }
-
-/*.THIS td {*/
-    /*padding-top: 10px !important;*/
-/*}*/
-
 
 .THIS .slds-modal__content:last-child{
     width: 50rem !important;
@@ -49,7 +34,6 @@
     min-height: 422px;
 
 }
-
 
 .THIS .margin-top-20 {
     margin-top: 20px !important;
@@ -75,12 +59,11 @@
     float: left;
 }
 
-
 .THIS .slds-table_cell-buffer tr>th:first-child,
 .THIS .slds-table_cell-buffer tr>td:first-child,
 .THIS .slds-table--cell-buffer tr>th:first-child,
 .THIS .slds-table--cell-buffer tr>td:first-child {
-    padding-left: 0px !important;
+    padding-left: 10px !important;
 }
 
 .THIS .slds-table_cell-buffer tr>th:last-child,

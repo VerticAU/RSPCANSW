@@ -3940,6 +3940,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Attended__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.Bank_Account_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4126,6 +4131,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Local_Volunteer_Branch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Location__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5849,6 +5859,10 @@
         <recordType>Opportunity.Sponsorship</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-Corporate Support Day layout</layout>
+        <recordType>Opportunity.Corporate_Support_Day</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Opportunity-Event Ticket Layout</layout>
         <recordType>Opportunity.Event_Ticket</recordType>
     </layoutAssignments>
@@ -6514,6 +6528,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Opportunity.Bequest</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Corporate_Support_Day</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

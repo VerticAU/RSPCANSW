@@ -2,9 +2,11 @@
 
     handleSubmit: function (cmp, event, helper) {
 
-        var affiliations = cmp.get('v.affiliations') || []
+        var affiliations = cmp.get('v.affiliations') || [];
+        var partners = cmp.get('v.partners') || [];
 
         cmp.set('v.meta.dto.affiliations', affiliations);
+        cmp.set('v.meta.dto.partners', partners);
         var request = cmp.get('v.meta.dto') || {};
 
         helper.execute(
@@ -12,13 +14,6 @@
             'EstateManagementQASubmitProc',
             request,
             $A.getCallback(function (response) {
-
-                // var toastEvent = $A.get("e.force:showToast");
-                // toastEvent.setParams({
-                //     "message": '',
-                //     "type": "success"
-                // });
-                // toastEvent.fire();
 
                 $A.get("e.force:closeQuickAction").fire();
             }),

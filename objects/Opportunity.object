@@ -173,6 +173,34 @@
         </values>
     </businessProcesses>
     <businessProcesses>
+        <fullName>Corporate Support Day</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cultivating</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal%2FReview</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Donation</fullName>
         <isActive>true</isActive>
         <values>
@@ -605,6 +633,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Attended__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Attended</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Bank_Account_Number__c</fullName>
@@ -1148,6 +1186,51 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Blue Mountains</fullName>
+                    <default>false</default>
+                    <label>Blue Mountains</label>
+                </value>
+                <value>
+                    <fullName>Coffs Harbour</fullName>
+                    <default>false</default>
+                    <label>Coffs Harbour</label>
+                </value>
+                <value>
+                    <fullName>Hunter</fullName>
+                    <default>false</default>
+                    <label>Hunter</label>
+                </value>
+                <value>
+                    <fullName>Illawarra</fullName>
+                    <default>false</default>
+                    <label>Illawarra</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Yagoona</fullName>
+                    <default>false</default>
+                    <label>Yagoona</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Lost_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Lost Reason</label>
@@ -1200,6 +1283,26 @@
                     <fullName>Estate Failed - Lost Contestation</fullName>
                     <default>false</default>
                     <label>Estate Failed - Lost Contestation</label>
+                </value>
+                <value>
+                    <fullName>Participant withdraw</fullName>
+                    <default>false</default>
+                    <label>Participant withdraw</label>
+                </value>
+                <value>
+                    <fullName>RSPCA cancel</fullName>
+                    <default>false</default>
+                    <label>RSPCA cancel</label>
+                </value>
+                <value>
+                    <fullName>Failure to pay</fullName>
+                    <default>false</default>
+                    <label>Failure to pay</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -2313,6 +2416,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -2727,6 +2857,630 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
+        <fullName>Corporate_Support_Day</fullName>
+        <active>true</active>
+        <businessProcess>Corporate Support Day</businessProcess>
+        <description>Captures details about a corporate support day with RSPCA.</description>
+        <label>Corporate Support Day</label>
+        <picklistValues>
+            <picklist>ForecastCategoryName</picklist>
+            <values>
+                <fullName>Best Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Omitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipeline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Adoption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EzyVet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheltermate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Local_Volunteer_Branch__c</picklist>
+            <values>
+                <fullName>Albury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armidale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bathurst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broken Hill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central West</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cooma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eurobodalla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Glen Innes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goulburn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunnedah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inverell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mudgee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Port Macquarie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sapphire Coast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shoalhaven</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sydney</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tamworth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lost_Reason__c</picklist>
+            <values>
+                <fullName>Failure to pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participant withdraw</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA cancel</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Membership_Type__c</picklist>
+            <values>
+                <fullName>Home Ever After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW Membership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opportunity_Source__c</picklist>
+            <values>
+                <fullName>Adoption pack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Cat%2FDog Lovers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brochure_other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brochure_shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DRTV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Function</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW newsletter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Care worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Latte Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meals on Wheels</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Centre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NRMA magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSW Seniors Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newcastle Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Over 50s Lifestyle magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petbarn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW rep%2Fbrand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA NSW website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSPCA Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Search engine result</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior for Seniors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solicitor%2Fadvisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Senior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veterinarian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website_other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Off</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Plan__c</picklist>
+            <values>
+                <fullName>Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Regular Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Property_Type__c</picklist>
+            <values>
+                <fullName>Farm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Type__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Kind</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Discretionary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Funding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Funding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pecuniary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specific</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npe01__Member_Level__c</picklist>
+            <values>
+                <fullName>Annual Member %28Pension Card Holder%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Annual member %2818%2B yrs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junior Member %2817 yrs %26 under%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Life Member %2818%2B yrs%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npe01__Membership_Origin__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reacquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npo02__systemHouseholdContactRoleProcessor__c</picklist>
+            <values>
+                <fullName>All Opportunities</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>No Opportunities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npsp__Acknowledgment_Status__c</picklist>
+            <values>
+                <fullName>Acknowledged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Acknowledge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email Acknowledgment Not Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email Acknowledgment Now</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Be Acknowledged</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npsp__Gift_Strategy__c</picklist>
+            <values>
+                <fullName>New Donor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npsp__In_Kind_Type__c</picklist>
+            <values>
+                <fullName>Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npsp__Matching_Gift_Status__c</picklist>
+            <values>
+                <fullName>Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npsp__Notification_Preference__c</picklist>
+            <values>
+                <fullName>Do Not Notify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>npsp__Tribute_Type__c</picklist>
+            <values>
+                <fullName>Gift Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Honor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Memorial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Donation</fullName>
         <active>true</active>
         <businessProcess>Donation</businessProcess>
@@ -2891,6 +3645,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3401,6 +4182,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3990,6 +4798,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4607,6 +5442,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -5127,6 +5989,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5744,6 +6633,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -6298,6 +7214,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -6818,6 +7761,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7347,6 +8317,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -7861,6 +8858,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8455,6 +9479,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -9041,6 +10092,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9635,6 +10713,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Reason__c</picklist>
             <values>
                 <fullName>Bequest Revoked</fullName>
@@ -10221,6 +11326,33 @@
             </values>
             <values>
                 <fullName>Tenterfield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yagoona</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

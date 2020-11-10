@@ -4,6 +4,7 @@
     <aura:attribute name="step" type="Integer" default="1"/>
     <aura:attribute name="isShowNext" type="Boolean" default="false"/>
     <aura:attribute name="affiliations" type="Object[]" default="[]" access="private"/>
+    <aura:attribute name="partners" type="Object[]" default="[]" access="private"/>
     <aura:handler name="closeAffiliationEvent" event="c:EstateManagementAffiliations_event" action="{! c.handleIsShowNextEvent }"/>
     <aura:handler name="isShowNextEvent" event="c:EstateManagementAffiliations_event" action="{! c.handleIsShowNextEvent }"/>
 
@@ -27,7 +28,7 @@
 
 
                 <aura:if isTrue="{!v.step == 2}">
-                    <c:EstateManagementDetailsQA meta="{!v.meta}" affiliations="{!v.affiliations}"/>
+                    <c:EstateManagementDetailsQA meta="{!v.meta}" affiliations="{!v.affiliations}" partners="{!v.partners}"/>
                 </aura:if>
             </aura:if>
 
