@@ -343,6 +343,35 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Cash_Amount_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Cash Amount Received</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed Won</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Gift_In_Will_Type__c</field>
+            <operation>equals</operation>
+            <value>Cash</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Contested__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Contested</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Corporate_Type__c</fullName>
         <externalId>false</externalId>
         <label>Corporate Type</label>
@@ -589,7 +618,7 @@
     <fields>
         <fullName>Estate_Balance__c</fullName>
         <externalId>false</externalId>
-        <formula>Bequest_Opportunity__r.npe01__Amount_Outstanding__c</formula>
+        <formula>Total_Estate_Value__c - Total_Amount_Received__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Estate Balance</label>
         <precision>18</precision>
@@ -639,6 +668,20 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Gifts_In_Wills_Opportunties__c</fullName>
+        <externalId>false</externalId>
+        <label>Gifts In Wills Opportunties</label>
+        <summaryFilterItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Gifts In Wills</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Industry</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -673,6 +716,15 @@
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Life_Tenancy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Life Tenancy</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>LinkedIn__c</fullName>
@@ -762,6 +814,26 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Property_Amount_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Property Amount Received</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed Won</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Gift_In_Will_Type__c</field>
+            <operation>equals</operation>
+            <value>Property</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Rating</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -778,6 +850,26 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shares_Amount_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Shares Amount Received</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryFilterItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed Won</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Gift_In_Will_Type__c</field>
+            <operation>equals</operation>
+            <value>Shares</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
@@ -814,6 +906,18 @@
         <fullName>TickerSymbol</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Total_Amount_Received__c</fullName>
+        <externalId>false</externalId>
+        <formula>Property_Amount_Received__c + Cash_Amount_Received__c + Shares_Amount_Received__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Amount Received</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Total_Estate_Value__c</fullName>

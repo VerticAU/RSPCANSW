@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>npsp__Amount_Field__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Amount</value>
     </values>
     <values>
         <field>npsp__Amount_Object__c</field>

@@ -340,8 +340,8 @@
     <compactLayouts>
         <fullName>Individual_Compact_Layout</fullName>
         <fields>Name</fields>
+        <fields>Contact_Type__c</fields>
         <fields>AccountId</fields>
-        <fields>RecordTypeId</fields>
         <fields>npo02__TotalOppAmount__c</fields>
         <fields>npo02__NumberOfClosedOpps__c</fields>
         <fields>npo02__AverageAmount__c</fields>
@@ -678,6 +678,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deceased__c</fullName>
+        <description>Indicates the Contact is deceased. When selected, NPSP excludes this Contact from Household Naming (unless this Contact is the only one in the Household) and from standard email and phone lists.</description>
+        <externalId>false</externalId>
+        <formula>npsp__Deceased__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Indicates the Contact is deceased. When selected, NPSP excludes this Contact from Household Naming (unless this Contact is the only one in the Household) and from standard email and phone lists.</inlineHelpText>
+        <label>Deceased</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Department</fullName>

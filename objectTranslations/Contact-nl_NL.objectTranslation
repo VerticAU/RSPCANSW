@@ -119,6 +119,11 @@
         <name>Deceased_Date__c</name>
     </fields>
     <fields>
+        <help><!-- Indicates the Contact is deceased. When selected, NPSP excludes this Contact from Household Naming (unless this Contact is the only one in the Household) and from standard email and phone lists. --></help>
+        <label><!-- Deceased --></label>
+        <name>Deceased__c</name>
+    </fields>
+    <fields>
         <label><!-- Do Not Contact Reason --></label>
         <name>Do_Not_Contact_Reason__c</name>
         <picklistValues>
@@ -905,10 +910,6 @@
         <sections>
             <label><!-- BPAY Details --></label>
             <section>BPAY Details</section>
-        </sections>
-        <sections>
-            <label><!-- Bequest Summary --></label>
-            <section>Bequest Summary</section>
         </sections>
         <sections>
             <label>Contactpersoon Details</label>

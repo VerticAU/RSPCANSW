@@ -38,6 +38,14 @@
         <name>Bequest_Stage__c</name>
     </fields>
     <fields>
+        <label><!-- Cash Amount Received --></label>
+        <name>Cash_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contested --></label>
+        <name>Contested__c</name>
+    </fields>
+    <fields>
         <label><!-- Corporate Type --></label>
         <name>Corporate_Type__c</name>
         <picklistValues>
@@ -195,6 +203,10 @@
         <name>Facebook__c</name>
     </fields>
     <fields>
+        <label><!-- Gifts In Wills Opportunties --></label>
+        <name>Gifts_In_Wills_Opportunties__c</name>
+    </fields>
+    <fields>
         <label><!-- Instagram --></label>
         <name>Instagram__c</name>
     </fields>
@@ -202,6 +214,10 @@
         <label><!-- Level --></label>
         <name>Level__c</name>
         <relationshipLabel><!-- Households --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Life Tenancy --></label>
+        <name>Life_Tenancy__c</name>
     </fields>
     <fields>
         <label><!-- LinkedIn --></label>
@@ -225,13 +241,25 @@
         <relationshipLabel><!-- Households (Previous Level) --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Property Amount Received --></label>
+        <name>Property_Amount_Received__c</name>
+    </fields>
+    <fields>
         <label><!-- Secondary Owner --></label>
         <name>Secondary_Owner__c</name>
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Shares Amount Received --></label>
+        <name>Shares_Amount_Received__c</name>
+    </fields>
+    <fields>
         <label><!-- Skype --></label>
         <name>Skype__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Amount Received --></label>
+        <name>Total_Amount_Received__c</name>
     </fields>
     <fields>
         <label><!-- Total Estate Value --></label>
@@ -521,6 +549,10 @@
         <sections>
             <label><!-- Estate Details --></label>
             <section>Estate Details</section>
+        </sections>
+        <sections>
+            <label><!-- Estate Financial Summary --></label>
+            <section>Estate Financial Summary</section>
         </sections>
         <sections>
             <label>Campos</label>
