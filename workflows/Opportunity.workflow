@@ -261,7 +261,7 @@
         <criteriaItems>
             <field>Opportunity.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Bequest</value>
+            <value>Gifts In Wills</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.StageName</field>
@@ -280,6 +280,21 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Donation Bequest - Send Bequest Welcome Pack Step 2 %28Dependent%29</fullName>
+        <actions>
+            <name>Send_Welcome_Pack_2</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Run_Workflow_Rule_With_Name__c</field>
+            <operation>equals</operation>
+            <value>Donation Bequest - Send Bequest</value>
+        </criteriaItems>
+        <description>This is Dependent Task if Task - Donation Bequest - Thank you Call/Email to Bequestor Step 1 is completed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Donation Bequest - Thank you Call%2FEmail to Bequestor Step 1</fullName>
         <actions>
             <name>Thank_you_Call_Email_to_Bequestor</name>
@@ -290,7 +305,7 @@
         <criteriaItems>
             <field>Opportunity.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Bequest</value>
+            <value>Gifts In Wills</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.StageName</field>
@@ -355,6 +370,61 @@ ISBLANK(npsp__Primary_Contact__r.Phone),
  RecordType.Name == &apos;Bequest&apos;
 )</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Gift Of Will - Enquiry Response Step 1</fullName>
+        <actions>
+            <name>Phone_call_to_thank_and_discuss</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Gifts In Wills</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Enquiry</value>
+        </criteriaItems>
+        <description>When a contact’s Bequest Opportunity Stage = Enquiry</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Gift Of Will - Enquiry Response Step 2 %28dependent%29</fullName>
+        <actions>
+            <name>Posted_Email_info_pack_donor_preference</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Run_Workflow_Rule_With_Name__c</field>
+            <operation>equals</operation>
+            <value>Donation Gift Of Will - Enquiry Response Step 2 (dependent)</value>
+        </criteriaItems>
+        <description>This is Dependent Task if Task - Phone Call To Thank And Discuss is completed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Gift Of Will - Indending Response Step 1</fullName>
+        <actions>
+            <name>Phone_Call_To_thank_and_discuss2</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Gifts In Wills</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Intending</value>
+        </criteriaItems>
+        <description>When a contact’s Gif Of Will Opportunity Stage = Indending</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Donation amount is twice the largest gift</fullName>
@@ -814,6 +884,42 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <subject>Pending Bequest</subject>
     </tasks>
     <tasks>
+        <fullName>Phone_Call_To_thank_and_discuss2</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>3</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Phone Call To thank and discuss</subject>
+    </tasks>
+    <tasks>
+        <fullName>Phone_call_to_thank_and_discuss</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Gift Of Will - Enquiry Response Step 2 (dependent)&quot;}</description>
+        <dueDateOffset>3</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Phone Call To thank and discuss</subject>
+    </tasks>
+    <tasks>
+        <fullName>Posted_Email_info_pack_donor_preference</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Posted/Email info pack (donor preference)&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Posted/Email info pack (donor preference)</subject>
+    </tasks>
+    <tasks>
         <fullName>Send_Bequest_Information</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
@@ -865,8 +971,8 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Send_Welcome_Pack_2</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please send welcome pack&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
-        <dueDateOffset>5</dueDateOffset>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;7&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please send welcome pack&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>7</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
@@ -910,8 +1016,8 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Thank_you_Call_Email_to_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest - Send Bequest&quot;}</description>
-        <dueDateOffset>5</dueDateOffset>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;2&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest - Send Bequest&quot;}</description>
+        <dueDateOffset>2</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>

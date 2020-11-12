@@ -1,4 +1,4 @@
-public class WorkflowCreateTasksProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
 
     /**
      * ==============================================================================================================

@@ -1,4 +1,4 @@
-public class WorkflowUpdateTasksProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+public without sharing class WorkflowUpdateTasksProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
 
     /**
      * ==============================================================================================================
@@ -47,7 +47,7 @@ public class WorkflowUpdateTasksProc extends vertic_AbstractProcessor implements
 
             Boolean isUpdated = vertic_Utils.sObjects.isSomeFieldChanged(task, this.existingTasks.get(task.Id), new List<String>{
                 'Subject',
-                'Depended_Task_Name__c',
+                'Next_Workflow_Name__c',
                 'ActivityDate',
                 'Activity_Days__c',
                 'Description',
@@ -97,13 +97,13 @@ public class WorkflowUpdateTasksProc extends vertic_AbstractProcessor implements
                 'Status'
             });
 
-            if (isUpdated && 'Completed'.equals(task.Status) && String.isNotEmpty(task.Depended_Task_Name__c) && String.valueOf(task.WhatId.getSobjectType()).equals('Opportunity')) {
+            if (isUpdated && 'Completed'.equals(task.Status) && String.isNotEmpty(task.Next_Workflow_Name__c) && String.valueOf(task.WhatId.getSobjectType()).equals('Opportunity')) {
                 taskByOppId.put(task.WhatId, task);
             }
         }
 
         for (Opportunity opportunity : new List<Opportunity>([SELECT Id FROM Opportunity WHERE Id IN :taskByOppId.keySet()])) {
-            opportunity.Run_Workflow_Rule_With_Name__c = taskByOppId.get(opportunity.Id).Depended_Task_Name__c;
+            opportunity.Run_Workflow_Rule_With_Name__c = taskByOppId.get(opportunity.Id).Next_Workflow_Name__c;
             uow.registerUpsert(opportunity);
         }
     }

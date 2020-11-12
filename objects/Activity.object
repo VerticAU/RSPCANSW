@@ -146,15 +146,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Depended_Task_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Depended Task Name</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>External_ID__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>true</externalId>

@@ -1,4 +1,4 @@
-public class WorkflowService {
+public without sharing class WorkflowService {
 
     public static Map<String, List<String>> findUsersByGroups() {
 

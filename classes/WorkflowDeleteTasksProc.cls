@@ -1,4 +1,4 @@
-public class WorkflowDeleteTasksProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+public without sharing class WorkflowDeleteTasksProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
 
 
     /**

@@ -2995,11 +2995,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Depended_Task_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5321,11 +5316,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Category__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Depended_Task_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

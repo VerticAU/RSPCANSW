@@ -17,10 +17,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Depended Task Name --></label>
-        <name>Depended_Task_Name__c</name>
-    </fields>
-    <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
     </fields>
