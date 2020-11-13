@@ -1,0 +1,20 @@
+<aura:component description="Badges">
+
+    <aura:attribute name="badges" type="List[]" access="public"/>
+    <aura:attribute name="dynamicBadges" type="Aura.Component[]"></aura:attribute>
+
+    <div class="slds-grid">
+        <div class="slds-float--left">
+            <aura:iteration items="{!v.badges}" var="badge">
+                <lightning:icon iconName="{#badge.sldsIconName}"
+                                title="{#badge.title}"
+                                alternativeText="{#badge.title}"
+                />
+            </aura:iteration>
+        </div>
+        <aura:if isTrue="{!not(empty(v.dynamicBadges))}">
+            {!v.dynamicBadges}
+        </aura:if>
+    </div>
+
+</aura:component>

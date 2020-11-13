@@ -356,6 +356,10 @@
         <fullName>Membership</fullName>
         <isActive>true</isActive>
         <values>
+            <fullName>Active Raffle</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Closed Won</fullName>
             <default>false</default>
         </values>

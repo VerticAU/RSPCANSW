@@ -271,6 +271,18 @@
         <type>Url</type>
     </fields>
     <fields>
+        <fullName>Fundraiser__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Fundraiser</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Fundraising Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Giving_Strategy_Amount__c</fullName>
         <externalId>false</externalId>
         <formula>NULLVALUE(

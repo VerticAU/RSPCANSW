@@ -680,17 +680,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Deceased__c</fullName>
-        <description>Indicates the Contact is deceased. When selected, NPSP excludes this Contact from Household Naming (unless this Contact is the only one in the Household) and from standard email and phone lists.</description>
-        <externalId>false</externalId>
-        <formula>npsp__Deceased__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Indicates the Contact is deceased. When selected, NPSP excludes this Contact from Household Naming (unless this Contact is the only one in the Household) and from standard email and phone lists.</inlineHelpText>
-        <label>Deceased</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Department</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

@@ -15,4 +15,5 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
+    <tabs>Alert__c</tabs>
 </CustomApplication>

@@ -6,4 +6,5 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <tabs>standard-AppLauncher</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
+    <tabs>Alert__c</tabs>
 </CustomApplication>

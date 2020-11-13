@@ -1,0 +1,25 @@
+<aura:component description="ProfilePhoto" extends="c:vertic_Base" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+
+    <!-- ATTRIBUTE OVERRIDES -->
+    <aura:set attribute="processor" value="ProfilePhotoMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+    <aura:set attribute="class" value="{!'slds-is-relative ' + v.class}"/>
+    <aura:set attribute="spinner">
+        <lightning:spinner variant="brand" size="medium" alternativeText="Loading"/>
+    </aura:set>
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.baseHandleInit}"/>
+
+    <aura:if isTrue="{!not(empty(v.meta.dto.photoUrl))}">
+        <lightning:avatar class="profile-photo" src="{!v.meta.dto.photoUrl}" initials="{!v.meta.dto.initials}" fallbackIconName="standard:user" alternativeText="{!v.meta.dto.name}"/>
+        <aura:set attribute="else">
+            <lightning:avatar class="profile-photo" src="{!v.meta.dto.photoUrl_old}" initials="{!v.meta.dto.initials}" fallbackIconName="standard:user" alternativeText="{!v.meta.dto.name}"/>
+        </aura:set>
+    </aura:if>
+    <lightning:buttonIcon class="upload-photo-button" onclick="{!c.handlePhotoClick}" iconName="utility:photo" variant="bare" alternativeText="Upload Photo" title="Upload Photo" />
+    <input aura:id="file" type="file"
+           style="display: none"
+           accept=".jpg, .jpeg, .png, .gif"
+           onchange="{!c.handleFileChange}"/>
+</aura:component>

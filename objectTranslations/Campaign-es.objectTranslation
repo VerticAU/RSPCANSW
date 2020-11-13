@@ -26,6 +26,11 @@
         <name>Fundraiser_URL__c</name>
     </fields>
     <fields>
+        <label><!-- Fundraiser --></label>
+        <name>Fundraiser__c</name>
+        <relationshipLabel><!-- Fundraising Campaigns --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Giving Strategy Amount --></label>
         <name>Giving_Strategy_Amount__c</name>
     </fields>

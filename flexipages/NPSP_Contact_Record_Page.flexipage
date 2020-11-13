@@ -24,6 +24,11 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>ContactBadges</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>force:detailPanel</componentName>
             </componentInstance>
         </itemInstances>
