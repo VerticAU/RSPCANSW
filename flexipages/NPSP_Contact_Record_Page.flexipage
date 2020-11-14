@@ -476,6 +476,11 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>ProfilePhoto</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>tabs</name>
                     <value>Facet-b2e28f68-d392-43c7-8f13-62525bb81766</value>
