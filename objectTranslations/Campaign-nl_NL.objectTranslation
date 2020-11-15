@@ -175,6 +175,10 @@
         <name>npsp_plus__Donation_Receipt_Email_Template_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Stripe Account Id --></label>
+        <name>npsp_plus__Stripe_Account_Id__c</name>
+    </fields>
+    <fields>
         <label><!-- Campaign Monitor Id --></label>
         <name>wbsendit__Campaign_Monitor_Id__c</name>
     </fields>

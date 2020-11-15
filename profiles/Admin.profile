@@ -1513,6 +1513,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.npsp_plus__Stripe_Account_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.wbsendit__Campaign_Monitor_Id__c</field>
         <readable>true</readable>
