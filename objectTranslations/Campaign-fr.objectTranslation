@@ -253,6 +253,25 @@
         <name>wbsendit__World_View_Email_Tracking__c</name>
     </fields>
     <layouts>
+        <layout>Event Layout</layout>
+        <sections>
+            <label><!-- Campaign Expectations --></label>
+            <section>Campaign Expectations</section>
+        </sections>
+        <sections>
+            <label><!-- Campaign Hierarchy Information --></label>
+            <section>Campaign Hierarchy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Campaign Monitor Statistics --></label>
+            <section>Campaign Monitor Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Fundraiser Child Campaign Layout</layout>
         <sections>
             <label><!-- Campaign Expectations --></label>
@@ -309,6 +328,11 @@
     <recordTypes>
         <label><!-- Campaign --></label>
         <name>Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about an event. --></description>
+        <label><!-- Event --></label>
+        <name>Event</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Fundraiser Campaign --></label>

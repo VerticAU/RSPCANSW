@@ -5872,6 +5872,10 @@
         <recordType>Campaign.Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Fundraising Campaign Layout</layout>
+        <recordType>Campaign.Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CampaignMember-Campaign Member Page Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6153,6 +6157,11 @@
         <default>false</default>
         <recordType>Campaign.Campaign</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Event</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>

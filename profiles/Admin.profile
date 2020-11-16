@@ -5869,6 +5869,10 @@
         <layout>Badge__mdt-Badge Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Event Layout</layout>
+        <recordType>Campaign.Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Campaign-Fundraiser Child Campaign Layout</layout>
         <recordType>Campaign.Fundraiser_Campaign</recordType>
     </layoutAssignments>
@@ -6642,6 +6646,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Event</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

@@ -41,8 +41,6 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             populateAnimalRecordIcon();
             populateMembershipIcon();
             populateRaffleTicketDeceasedIcon();
-
-
             populateDeceasedIcon();
 
 
@@ -249,7 +247,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
             if (!opportunities.isEmpty()) {
                 this.response.badges.add(new Badge(
-                    'standard:default',
+                    'custom:custom48',
                     String.format(
                         'Raffle Ticket Deceased Count: {0} Total value: {1}',
                         new List<String>{
@@ -271,8 +269,8 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
             if (contacts.size() > 0 && contacts[0].npsp__Deceased__c == true) {
                 this.response.badges.add(new Badge(
-                    'custom:custom73',
-                    'Deceased icon'
+                    'standard:default',
+                    'Deceased donor'
                 ));
             }
 
