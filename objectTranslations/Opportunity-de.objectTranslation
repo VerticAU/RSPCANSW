@@ -1661,7 +1661,7 @@
         <subject><!-- Call Donor --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;} --></description>
         <name>Call_Email_Bequestor</name>
         <subject><!-- Call/Email Bequestor --></subject>
     </workflowTasks>
@@ -1691,7 +1691,7 @@
         <subject><!-- Email Donor --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Bequest Administration Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Bequest Information sent 14 days ago, follow up required&quot;} --></description>
+        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;GiW Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;} --></description>
         <name>Follow_up_Bequestor</name>
         <subject><!-- Follow up Bequestor --></subject>
     </workflowTasks>
@@ -1724,6 +1724,11 @@
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Send_Bequest_Information</name>
         <subject><!-- Send Bequest Information --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;GiW_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Gifts_In_Wills_Information</name>
+        <subject><!-- Send Gifts In Wills Information --></subject>
     </workflowTasks>
     <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>

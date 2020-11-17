@@ -74,6 +74,7 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
 
                 task.Group_Key__c = vertic_Utils.strings.newGuid();
 
+                task.Group_Name__c = task.Group_Name__c.replaceAll(' ','_');
                 List<String> userIds = this.groupMemberMap.get(task.Group_Name__c).clone();
 
                 if (userIds.size() > 0) {

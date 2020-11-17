@@ -43,38 +43,44 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
 
     private void saveRecords() {
 
-        if (this.account != null && String.isNotBlank(this.account.Name)) {
-            this.account.npe01__One2OneContact__c = this.contact.Id;
-            this.account.Bequest_Opportunity__c = this.opportunity.Id;
-            this.account.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Schema.Account.SObjectType, 'Estate');
-            insert this.account;
+        this.account.Deceased_Donor__c = this.contact.Id;
+//            this.account.npe01__One2OneContact__c = this.contact.Id;
+        this.account.Bequest_Opportunity__c = this.opportunity.Id;
+        this.account.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Schema.Account.SObjectType, 'Estate');
+        insert this.account;
 
-            this.contact.Date_Notified_of_Death__c = Date.today();
-            this.contact.npsp__Primary_Affiliation__c = this.account.Id;
-            update this.contact;
+        this.contact.Date_Notified_of_Death__c = Date.today();
+        this.contact.npsp__Primary_Affiliation__c = this.account.Id;
+        update this.contact;
 
-            for (npe5__Affiliation__c affiliation : this.affiliations) {
-                affiliation.npe5__Organization__c = this.account.Id;
+        for (npe5__Affiliation__c affiliation : this.affiliations) {
+            affiliation.npe5__Organization__c = this.account.Id;
+
+            if (affiliation.npe5__Role__c.equals('Solicitor') || affiliation.npe5__Role__c.equals('Executor')) {
+                this.account.npe01__One2OneContact__c = affiliation.npe5__Contact__c;
             }
-            if (this.affiliations.size() > 0) {
-                insert this.affiliations;
-            }
+        }
 
-            for (Partner partner : this.partners) {
-                partner.AccountToId = this.account.Id;
-            }
-            if (this.partners.size() > 0) {
-                insert this.partners;
-            }
+        update this.account;
+
+        if (this.affiliations.size() > 0) {
+            insert this.affiliations;
+        }
+
+        for (Partner partner : this.partners) {
+            partner.AccountToId = this.account.Id;
+        }
+        if (this.partners.size() > 0) {
+            insert this.partners;
+        }
 
 
-            this.opportunity.AccountId = this.account.Id;
-            update this.opportunity;
+        this.opportunity.AccountId = this.account.Id;
+        update this.opportunity;
 
 //            AccountContactRelation accountContactRelation = new AccountContactRelation(AccountId = this.account.Id, ContactId = this.contact.Id);
 //
 //            insert accountContactRelation;
-        }
     }
 
 

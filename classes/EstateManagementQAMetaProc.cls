@@ -10,7 +10,8 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
 
         this.request.fields = new Set<SObjectField>{
-            npe5__Affiliation__c.npe5__Status__c
+            npe5__Affiliation__c.npe5__Status__c,
+            AccountContactRelation.Roles
             // SObject Fields, e.g. Contact.Salutation
         };
 
@@ -35,7 +36,7 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
         Account accountEstate = (Account) vertic_Utils.arrays.firstOrNull([
             SELECT Id
             FROM Account
-            WHERE npe01__One2OneContact__c = :recordId AND Account.RecordType.DeveloperName = 'Estate'
+            WHERE Deceased_Donor__c =:recordId AND Account.RecordType.DeveloperName = 'Estate'
             ORDER BY CreatedDate DESC
         ]);
 

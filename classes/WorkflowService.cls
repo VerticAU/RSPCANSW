@@ -8,6 +8,7 @@ public without sharing class WorkflowService {
             SELECT
                 GroupId,
                 Group.Name,
+                Group.DeveloperName,
                 Id,
                 SystemModstamp,
                 UserOrGroupId
@@ -16,11 +17,11 @@ public without sharing class WorkflowService {
 
         for (GroupMember groupMember : groupMemberList) {
             List<String> userIds = new List<String>();
-            if (groupMemberMap.containsKey(groupMember.Group.Name)) {
-                userIds = groupMemberMap.get(groupMember.Group.Name);
+            if (groupMemberMap.containsKey(groupMember.Group.DeveloperName)) {
+                userIds = groupMemberMap.get(groupMember.Group.DeveloperName);
             }
             userIds.add(groupMember.UserOrGroupId);
-            groupMemberMap.put(groupMember.Group.Name, userIds);
+            groupMemberMap.put(groupMember.Group.DeveloperName, userIds);
         }
         return groupMemberMap;
     }

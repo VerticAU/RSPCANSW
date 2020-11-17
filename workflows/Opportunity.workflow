@@ -326,11 +326,17 @@
     <rules>
         <fullName>Donation Bequest Enquiry 19 days after bequest information booklet is sent to the contact the bequest stage is still Enq</fullName>
         <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Enquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Gifts In Wills</value>
+        </criteriaItems>
         <description>19 days after the bequest information booklet is sent to the contact the bequest stage is still Enquiry, create task for Bequest Administration Team</description>
-        <formula>AND(
-ISPICKVAL(StageName, &apos;Enquiry&apos;), 
-RecordType.Name == &apos;Bequest&apos;
-)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -340,36 +346,6 @@ RecordType.Name == &apos;Bequest&apos;
             <timeLength>19</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Donation Bequest Enquiry Step 1 - Call%2FEmail Bequestor</fullName>
-        <actions>
-            <name>Call_Email_Bequestor</name>
-            <type>Task</type>
-        </actions>
-        <active>true</active>
-        <description>When a donor (contact) enquires about Bequests, the business process is to create a bequest opportunity in status = Enquiry which should trigger tasks to assist in moving the opportunity from Enquiry to Pledged.
-If contact has no email/phone number then</description>
-        <formula>AND( ISPICKVAL(StageName, &apos;Enquiry&apos;), OR(NOT(ISBLANK(npsp__Primary_Contact__r.Email)),  
-   NOT(ISBLANK(npsp__Primary_Contact__r.Phone))),
- RecordType.Name == &apos;Bequest&apos;
-)</formula>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Donation Bequest Enquiry Step 2 - Send Bequest Information</fullName>
-        <actions>
-            <name>Send_Bequest_Information</name>
-            <type>Task</type>
-        </actions>
-        <active>true</active>
-        <description>Donor has no email/phone number then create task 2 to send information booklet</description>
-        <formula>AND(
-ISPICKVAL(StageName, &apos;Enquiry&apos;), ISBLANK(npsp__Primary_Contact__r.Email),  
-ISBLANK(npsp__Primary_Contact__r.Phone),
- RecordType.Name == &apos;Bequest&apos;
-)</formula>
-        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Donation Gift Of Will - Enquiry Response Step 1</fullName>
@@ -424,6 +400,64 @@ ISBLANK(npsp__Primary_Contact__r.Phone),
             <value>Intending</value>
         </criteriaItems>
         <description>When a contact’s Gif Of Will Opportunity Stage = Indending</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Gifts In Wills Enquiry Step 1 - Call%2FEmail Bequestor</fullName>
+        <actions>
+            <name>Call_Email_Bequestor</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <description>When a donor (contact) enquires about Bequests, the business process is to create a bequest opportunity in status = Enquiry which should trigger tasks to assist in moving the opportunity from Enquiry to Pledged.
+If contact has no email/phone number then</description>
+        <formula>AND( ISPICKVAL(StageName, &apos;Enquiry&apos;), OR(NOT(ISBLANK(npsp__Primary_Contact__r.Email)),  
+   NOT(ISBLANK(npsp__Primary_Contact__r.Phone))),
+ RecordType.Name == &apos;Gifts In Wills&apos;
+)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Gifts In Wills Enquiry Step 2 - Send Bequest Information</fullName>
+        <actions>
+            <name>Send_Bequest_Information</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Enquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Email__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Primary_Contact_Phone__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Gifts In Wills</value>
+        </criteriaItems>
+        <description>Donor has no email/phone number then create task 2 to send information booklet</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Donation Gifts In Wills Enquiry Step 2 - Send Gifts In Wills Information</fullName>
+        <actions>
+            <name>Send_Gifts_In_Wills_Information</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Run_Workflow_Rule_With_Name__c</field>
+            <operation>equals</operation>
+            <value>Enquiry Step 2 Send Bequest Information</value>
+        </criteriaItems>
+        <description>This is Dependent Workflow if Task - Donation Gift In Wills Enquiry Step 1 - Call/Email Bequestor completed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -777,7 +811,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Call_Email_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>Normal</priority>
@@ -851,7 +885,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Follow_up_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Bequest Administration Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Bequest Information sent 14 days ago, follow up required&quot;}</description>
+        <description>{&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;GiW Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
@@ -930,6 +964,18 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Send Bequest Information</subject>
+    </tasks>
+    <tasks>
+        <fullName>Send_Gifts_In_Wills_Information</fullName>
+        <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>{&quot;Group_Name__c&quot;: &quot;GiW_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <dueDateOffset>5</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Send Gifts In Wills Information</subject>
     </tasks>
     <tasks>
         <fullName>Send_HEA_Welcome_Pack</fullName>

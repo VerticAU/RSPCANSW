@@ -38,30 +38,29 @@ public without sharing class ContactMakeDeceasedActionCtrl {
 
             List<Opportunity> opportunities = new List<Opportunity>([SELECT Id, RecordType.Name, AccountId FROM Opportunity WHERE npsp__Primary_Contact__c = :recordId AND RecordType.DeveloperName = 'Bequest']);
 
-            for (Opportunity opportunity : opportunities) {
+            if (opportunities.size() > 0) {
                 Task task = new Task(
                     Subject = 'Bequestor Marked Deceased',
                     ActivityDate = activityDate,
                     WhoId = recordId,
                     OwnerId = user.Id,
                     Status = 'Not started',
-                    Description='{"Group_Name__c": "Estate Administration Team", "Activity_Days__c": "5", "Description": ""}'
+                    Description = '{"Group_Name__c": "Estate Administration Team", "Activity_Days__c": "5", "Description": ""}'
                 );
                 insert task;
-                break;
             }
 
-            List<AccountContactRelation> accountContactRelations = new List<AccountContactRelation>([SELECT AccountId, Roles FROM AccountContactRelation WHERE ContactId = :recordId]);
-            List<Account> accounts = new List<Account>();
-
-            for (AccountContactRelation accountContactRelation : accountContactRelations) {
-                if (accountContactRelation.Roles != null) {
-                    if (accountContactRelation.Roles.contains('Executor') || accountContactRelation.Roles.contains('Solicitor')) {
-                        accounts.add(new Account(Id = accountContactRelation.AccountId, Deceased_Donor__c = recordId));
-                    }
-                }
-            }
-            update accounts;
+//            List<AccountContactRelation> accountContactRelations = new List<AccountContactRelation>([SELECT AccountId, Roles FROM AccountContactRelation WHERE ContactId = :recordId]);
+//            List<Account> accounts = new List<Account>();
+//
+//            for (AccountContactRelation accountContactRelation : accountContactRelations) {
+//                if (accountContactRelation.Roles != null) {
+//                    if (accountContactRelation.Roles.contains('Executor') || accountContactRelation.Roles.contains('Solicitor')) {
+//                        accounts.add(new Account(Id = accountContactRelation.AccountId, Deceased_Donor__c = recordId));
+//                    }
+//                }
+//            }
+//            update accounts;
 
 
             List<npe03__Recurring_Donation__c> recurringDonations = new List<npe03__Recurring_Donation__c>([

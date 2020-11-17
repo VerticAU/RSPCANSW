@@ -30,14 +30,24 @@
         </td>
 
         <td>
-            <lightning:input type="text"
-                             aura:id="affiliationRole"
-                             name="role"
-                             variant="label-hidden"
-                             label=""
-                             required="true"
-                             value="{! v.affiliation.npe5__Role__c }"
-            />
+            <lightning:select label=""
+                              class="label-hidden"
+                              required="{!false}"
+                              value="{! v.affiliation.npe5__Role__c }">
+                <aura:iteration items="{! v.meta.selectOptions.rolesOptions }" var="option">
+                    <option value="{#option.value}" label="{#option.label}">{#option.label}</option>
+                </aura:iteration>
+
+            </lightning:select>
+
+            <!--<lightning:input type="text"-->
+                             <!--aura:id="affiliationRole"-->
+                             <!--name="role"-->
+                             <!--variant="label-hidden"-->
+                             <!--label=""-->
+                             <!--required="true"-->
+                             <!--value="{! v.affiliation.npe5__Role__c }"-->
+            <!--/>-->
         </td>
         <td>
 
