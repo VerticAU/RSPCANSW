@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>desktopDefault</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>RSPCA_New</logo>
@@ -1910,12 +1918,11 @@
     <tabs>standard-Campaign</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>npe03__Recurring_Donation__c</tabs>
-    <tabs>npsp__Batch_Gift_Entry</tabs>
+    <tabs>Bulk_Donations</tabs>
     <tabs>npsp_plus__Bulk_Receipting</tabs>
     <tabs>Communication__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
-    <tabs>Alert__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Fundraising_UtilityBar</utilityBar>
 </CustomApplication>

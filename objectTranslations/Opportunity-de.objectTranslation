@@ -1691,7 +1691,7 @@
         <subject><!-- Email Donor --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;GiW Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;} --></description>
+        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Bequest_Administration_Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;} --></description>
         <name>Follow_up_Bequestor</name>
         <subject><!-- Follow up Bequestor --></subject>
     </workflowTasks>
@@ -1706,17 +1706,17 @@
         <subject><!-- Pending Bequest --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Phone_Call_To_thank_and_discuss2</name>
         <subject><!-- Phone Call To thank and discuss --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Gift Of Will - Enquiry Response Step 2 (dependent)&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Gift Of Will - Enquiry Response Step 2 (dependent)&quot;} --></description>
         <name>Phone_call_to_thank_and_discuss</name>
         <subject><!-- Phone Call To thank and discuss --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Posted/Email info pack (donor preference)&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Posted/Email info pack (donor preference)&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Posted_Email_info_pack_donor_preference</name>
         <subject><!-- Posted/Email info pack (donor preference) --></subject>
     </workflowTasks>
@@ -1726,7 +1726,7 @@
         <subject><!-- Send Bequest Information --></subject>
     </workflowTasks>
     <workflowTasks>
-        <description><!-- {&quot;Group_Name__c&quot;: &quot;GiW_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
         <name>Send_Gifts_In_Wills_Information</name>
         <subject><!-- Send Gifts In Wills Information --></subject>
     </workflowTasks>

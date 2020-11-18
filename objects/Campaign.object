@@ -190,6 +190,17 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>Allocated__c</fullName>
+        <externalId>false</externalId>
+        <label>Allocated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AmountAllOpportunities</fullName>
     </fields>
     <fields>
@@ -243,6 +254,14 @@
     <fields>
         <fullName>EndDate</fullName>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>End_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Time</type>
     </fields>
     <fields>
         <fullName>ExpectedResponse</fullName>
@@ -463,6 +482,28 @@ IF(
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Maximum_Places__c</fullName>
+        <externalId>false</externalId>
+        <label>Maximum Places</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Minimum_Places__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimum Places</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Name</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -522,6 +563,14 @@ IF(
     <fields>
         <fullName>StartDate</fullName>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Time</type>
     </fields>
     <fields>
         <fullName>Status</fullName>

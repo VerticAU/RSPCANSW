@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
+        <label><!-- Finance --></label>
+        <name>Finance</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Fundraising --></label>
         <name>Fundraising</name>
     </customApplications>
     <customApplications>
+        <label><!-- Membership --></label>
+        <name>Membership</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Nonprofit Success Pack --></label>
         <name>Nonprofit_Success_Pack</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Philanthropy --></label>
+        <name>Philanthropy</name>
     </customApplications>
     <customTabs>
         <label><!-- Bulk Donations --></label>

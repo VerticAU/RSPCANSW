@@ -112,7 +112,7 @@
         <criteriaItems>
             <field>Opportunity.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Bequest</value>
+            <value>Gifts In Wills</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Paperwork_Received__c</field>
@@ -648,49 +648,6 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>OppEstateAccountCreatedDateGreater_200</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Opportunity.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Estate</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Sum_Bequest_Opp_Amount_Outstanding__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Update_on_distributions</name>
-                <type>Task</type>
-            </actions>
-            <offsetFromField>Opportunity.Account_Created_Date__c</offsetFromField>
-            <timeLength>200</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>OppEstateAccountCreatedDateGreater_365</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Opportunity.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Estate</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Sum_Bequest_Opp_Payments_Made__c</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-        <workflowTimeTriggers>
-            <timeLength>365</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
         <fullName>Thank you call for awarded Grant</fullName>
         <actions>
             <name>Thank_you_Call</name>
@@ -885,7 +842,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Follow_up_Bequestor</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;GiW Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;}</description>
+        <description>{&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Bequest_Administration_Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
@@ -921,7 +878,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Phone_Call_To_thank_and_discuss2</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
@@ -933,7 +890,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Phone_call_to_thank_and_discuss</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Gift Of Will - Enquiry Response Step 2 (dependent)&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Gift Of Will - Enquiry Response Step 2 (dependent)&quot;}</description>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
@@ -945,7 +902,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Posted_Email_info_pack_donor_preference</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;GiW Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Posted/Email info pack (donor preference)&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Posted/Email info pack (donor preference)&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
@@ -969,7 +926,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         <fullName>Send_Gifts_In_Wills_Information</fullName>
         <assignedTo>developer+rspcansw@vertic.com.au</assignedTo>
         <assignedToType>user</assignedToType>
-        <description>{&quot;Group_Name__c&quot;: &quot;GiW_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
+        <description>{&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;}</description>
         <dueDateOffset>5</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>

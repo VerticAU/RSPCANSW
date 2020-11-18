@@ -85,7 +85,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         });
 
         for(String key : this.FIELD_MAPPING.keySet()){
-            data.put(key, contactDTO.get((String) this.FIELD_MAPPING.get(key)));
+            data.put(key, contactDTO.get('contact.' + (String) this.FIELD_MAPPING.get(key)));
         }
 
         HttpResponse response = this.doRequest(ENDPOINT, POST, JSON.serialize(data));

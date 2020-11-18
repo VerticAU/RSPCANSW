@@ -23,8 +23,21 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
 
     private void doSubmit() {
 
+        System.debug('start');
+        npsp__Batch__c batch = new npsp__Batch__c();
+        batch.Id = this.response.getString('contribution.batchId');
+        if (batch.Id == null) {
+            batch.Name = 'Bulk Donation ' + System.now();
+            batch.npsp__Object_Name__c = 'Opportunity';
+                insert batch;
+        }
+
+        System.debug(batch);
+
         Opportunity opp = new Opportunity();
         this.request.getMapper().mapToSObject('contribution', opp);
+
+        opp.npsp__Batch__c = batch.Id;
 
         String paymentIntentId;
         if(opp.Payment_Method__c == 'Credit Card'){
@@ -65,7 +78,9 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
 
             this.response.put('opportunityId', opp.Id);
             this.response.put('oppPaymentId', payment.Id);
+            this.response.put('batchId', batch.Id);
 
+            System.debug(this.response);
         } catch (Exception e) {
             Database.rollback(sp);
             throw e;

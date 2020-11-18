@@ -28,6 +28,29 @@
     </actionCalls>
     <apiVersion>49.0</apiVersion>
     <assignments>
+        <name>Assignment_update_Reccuring</name>
+        <label>Assignment update Reccuring</label>
+        <locationX>2273</locationX>
+        <locationY>605</locationY>
+        <assignmentItems>
+            <assignToReference>recurring.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Reccuring_Donate.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpDate_Reccuring</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Contact_Assignment_To_Deduplicate</name>
         <label>Contact Assignment To Deduplicate</label>
         <locationX>1262</locationX>
@@ -123,7 +146,7 @@
     <assignments>
         <name>Output_Assigment</name>
         <label>Output Assigment</label>
-        <locationX>2574</locationX>
+        <locationX>2675</locationX>
         <locationY>713</locationY>
         <assignmentItems>
             <assignToReference>contactId</assignToReference>
@@ -157,8 +180,8 @@
     <assignments>
         <name>Recurring_Donation_Assigment</name>
         <label>Recurring Donation Assigment</label>
-        <locationX>2017</locationX>
-        <locationY>713</locationY>
+        <locationX>2144</locationX>
+        <locationY>820</locationY>
         <assignmentItems>
             <assignToReference>recurring.Name</assignToReference>
             <operator>Assign</operator>
@@ -365,12 +388,43 @@
             <label>Contact has Id</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>custom010_Yes_or_No</name>
+        <label>custom010 Yes or No</label>
+        <locationX>1982</locationX>
+        <locationY>714</locationY>
+        <defaultConnector>
+            <targetReference>Recurring_Donation_Assigment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>donationCustom010</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Reccuring_Donate</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
     <interviewLabel>Clever Contacts {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Clever Contacts</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -386,15 +440,15 @@
         <locationX>1852</locationX>
         <locationY>623</locationY>
         <connector>
-            <targetReference>Recurring_Donation_Assigment</targetReference>
+            <targetReference>custom010_Yes_or_No</targetReference>
         </connector>
         <inputReference>contact</inputReference>
     </recordCreates>
     <recordCreates>
         <name>Create_Recurring</name>
         <label>Create Recurring</label>
-        <locationX>2145</locationX>
-        <locationY>713</locationY>
+        <locationX>2299</locationX>
+        <locationY>820</locationY>
         <connector>
             <targetReference>Get_Donation</targetReference>
         </connector>
@@ -424,8 +478,8 @@
     <recordLookups>
         <name>Get_Donation</name>
         <label>Get Donation</label>
-        <locationX>2285</locationX>
-        <locationY>713</locationY>
+        <locationX>2409</locationX>
+        <locationY>711</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Payment</targetReference>
@@ -452,8 +506,8 @@
     <recordLookups>
         <name>Get_Payment</name>
         <label>Get Payment</label>
-        <locationX>2438</locationX>
-        <locationY>713</locationY>
+        <locationX>2537</locationX>
+        <locationY>712</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Output_Assigment</targetReference>
@@ -470,15 +524,55 @@
         <object>npe01__OppPayment__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Reccuring_Donate</name>
+        <label>Get Reccuring Donate</label>
+        <locationX>2128</locationX>
+        <locationY>610</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assignment_update_Reccuring</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>npe03__Contact__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>npsp__Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>npe03__Recurring_Donation__c</object>
+        <sortField>npsp__StartDate__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Contact</name>
         <label>Update Contact</label>
         <locationX>1852</locationX>
         <locationY>796</locationY>
         <connector>
-            <targetReference>Recurring_Donation_Assigment</targetReference>
+            <targetReference>custom010_Yes_or_No</targetReference>
         </connector>
         <inputReference>contact</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpDate_Reccuring</name>
+        <label>UpDate Reccuring</label>
+        <locationX>2410</locationX>
+        <locationY>606</locationY>
+        <connector>
+            <targetReference>Get_Donation</targetReference>
+        </connector>
+        <inputReference>recurring</inputReference>
     </recordUpdates>
     <start>
         <locationX>737</locationX>
@@ -758,6 +852,13 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>donationCustom010</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>donationDebitDate</name>

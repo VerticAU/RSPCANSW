@@ -4,6 +4,7 @@
     <aura:attribute name="contribution" required="{!true}" type="Map" default="{}"/>
     <aura:attribute name="paymentTransaction" type="Map" access="private"/>
     <aura:attribute name="creditCard" type="Map" access="private" default="{}"/>
+    <aura:attribute name="batchId" type="String"/>
     <aura:attribute name="meta" type="Map"/>
     <aura:attribute name="index" required="{!true}" type="Integer"/>
     <aura:attribute name="selectedRowIndex" type="Integer"/>
@@ -51,7 +52,7 @@
                                       required="{!true}"
                                       disabled="{!v.contribution.isCompleted}"
                                       class="label-hidden">
-                        <option value="">--None--</option>
+                        <!--<option value="">&#45;&#45;None&#45;&#45;</option>-->
                         <aura:iteration items="{! v.meta.selectOptions.donationTypeOptions }" var="option">
                             <option label="{!option.label}" value="{!option.value}"/>
                         </aura:iteration>
@@ -171,7 +172,7 @@
             <td data-label="Narrative">
                 <lightning:input label="Narrative"
                                  placeholder="Narrative"
-                                 required="{!true}"
+                                 required="{!false}"
                                  value="{! v.contribution.Narrative__c }"
                                  variant="label-hidden"
                                  class="label-hidden"
@@ -221,8 +222,9 @@
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted}"
                                      maxlength="2"
-                                     onchange="{!c.handleNumericOnly}"
                     />
+                    <!--onchange="{!c.handleNumericOnly}"-->
+
                 </td>
                 <td data-label="Bank Branch">
                     <lightning:input label="Bank Branch"
@@ -233,8 +235,9 @@
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted}"
                                      maxlength="4"
-                                     onchange="{!c.handleNumericOnly}"
                     />
+                    <!--onchange="{!c.handleNumericOnly}"-->
+
                 </td>
                 <td data-label="Bank Account Number" colspan="1">
                     <lightning:input label="Bank Account Number"
@@ -245,8 +248,9 @@
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted}"
                                      maxlength="7"
-                                     onchange="{!c.handleNumericOnly}"
                     />
+                    <!--onchange="{!c.handleNumericOnly}"-->
+
                 </td>
                 <td data-label="Date" colspan="1">
                     <lightning:input label="Cheque Drawer"

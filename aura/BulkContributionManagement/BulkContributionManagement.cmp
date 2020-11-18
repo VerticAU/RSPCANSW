@@ -114,7 +114,7 @@
                                     </th>
                                     <th scope="col" width="13%">
                                         <div class="slds-truncate" title="Narrative">
-                                            <abbr class="slds-required" title="required">*</abbr>
+                                            <!--<abbr class="slds-required" title="required">*</abbr>-->
                                             Narrative
                                         </div>
                                     </th>

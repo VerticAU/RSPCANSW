@@ -28,8 +28,56 @@
             <translation><!-- Cat --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Chicken</masterLabel>
+            <translation><!-- Chicken --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dog</masterLabel>
             <translation><!-- Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duck</masterLabel>
+            <translation><!-- Duck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fish</masterLabel>
+            <translation><!-- Fish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goat</masterLabel>
+            <translation><!-- Goat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goose</masterLabel>
+            <translation><!-- Goose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guinea Pig</masterLabel>
+            <translation><!-- Guinea Pig --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Horse</masterLabel>
+            <translation><!-- Horse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pig</masterLabel>
+            <translation><!-- Pig --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rabbit</masterLabel>
+            <translation><!-- Rabbit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reptile</masterLabel>
+            <translation><!-- Reptile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sheep</masterLabel>
+            <translation><!-- Sheep --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -48,6 +96,286 @@
     <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Albury</masterLabel>
+            <translation><!-- Albury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armidale</masterLabel>
+            <translation><!-- Armidale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Mountains</masterLabel>
+            <translation><!-- Blue Mountains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broken Hill</masterLabel>
+            <translation><!-- Broken Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cat legacy</masterLabel>
+            <translation><!-- Cat legacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Coast</masterLabel>
+            <translation><!-- Central Coast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cobar</masterLabel>
+            <translation><!-- Cobar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coffs Harbour</masterLabel>
+            <translation><!-- Coffs Harbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cooma</masterLabel>
+            <translation><!-- Cooma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eurobodalla</masterLabel>
+            <translation><!-- Eurobodalla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Glen Innes</masterLabel>
+            <translation><!-- Glen Innes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gunnedah</masterLabel>
+            <translation><!-- Gunnedah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hastings Impound</masterLabel>
+            <translation><!-- Hastings Impound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunter</masterLabel>
+            <translation><!-- Hunter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illawarra</masterLabel>
+            <translation><!-- Illawarra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inverell</masterLabel>
+            <translation><!-- Inverell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mudgee</masterLabel>
+            <translation><!-- Mudgee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Alexandria</masterLabel>
+            <translation><!-- Petbarn Alexandria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Bathurst</masterLabel>
+            <translation><!-- Petbarn Bathurst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Belrose</masterLabel>
+            <translation><!-- Petbarn Belrose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Blacktown</masterLabel>
+            <translation><!-- Petbarn Blacktown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Brookvale</masterLabel>
+            <translation><!-- Petbarn Brookvale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Cambelltown</masterLabel>
+            <translation><!-- Petbarn Cambelltown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Caringah</masterLabel>
+            <translation><!-- Petbarn Caringah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Castle Hill</masterLabel>
+            <translation><!-- Petbarn Castle Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Casula</masterLabel>
+            <translation><!-- Petbarn Casula --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Chatwswood</masterLabel>
+            <translation><!-- Petbarn Chatwswood --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Coffs Harbour</masterLabel>
+            <translation><!-- Petbarn Coffs Harbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Crows Nest</masterLabel>
+            <translation><!-- Petbarn Crows Nest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Double Bay</masterLabel>
+            <translation><!-- Petbarn Double Bay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Dubbo</masterLabel>
+            <translation><!-- Petbarn Dubbo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Gladesville</masterLabel>
+            <translation><!-- Petbarn Gladesville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Hoxton Park</masterLabel>
+            <translation><!-- Petbarn Hoxton Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Katoomba</masterLabel>
+            <translation><!-- Petbarn Katoomba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Marsden Park</masterLabel>
+            <translation><!-- Petbarn Marsden Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Menai</masterLabel>
+            <translation><!-- Petbarn Menai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Mittagong</masterLabel>
+            <translation><!-- Petbarn Mittagong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Narrabeen</masterLabel>
+            <translation><!-- Petbarn Narrabeen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Neutral Bay</masterLabel>
+            <translation><!-- Petbarn Neutral Bay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Newcastle West</masterLabel>
+            <translation><!-- Petbarn Newcastle West --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Nowra</masterLabel>
+            <translation><!-- Petbarn Nowra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Nth Parramatta</masterLabel>
+            <translation><!-- Petbarn Nth Parramatta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Orange</masterLabel>
+            <translation><!-- Petbarn Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Penrith</masterLabel>
+            <translation><!-- Petbarn Penrith --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Port Macquarie</masterLabel>
+            <translation><!-- Petbarn Port Macquarie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Punchbowl</masterLabel>
+            <translation><!-- Petbarn Punchbowl --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Rozelle</masterLabel>
+            <translation><!-- Petbarn Rozelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Rutherford</masterLabel>
+            <translation><!-- Petbarn Rutherford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Shellharbour</masterLabel>
+            <translation><!-- Petbarn Shellharbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Strathfield</masterLabel>
+            <translation><!-- Petbarn Strathfield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Tamworth</masterLabel>
+            <translation><!-- Petbarn Tamworth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn West Gosford</masterLabel>
+            <translation><!-- Petbarn West Gosford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn West Ryde</masterLabel>
+            <translation><!-- Petbarn West Ryde --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn Wetherill Park</masterLabel>
+            <translation><!-- Petbarn Wetherill Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port Macquarie</masterLabel>
+            <translation><!-- Port Macquarie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rouse Hill</masterLabel>
+            <translation><!-- Rouse Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sapphire Coast</masterLabel>
+            <translation><!-- Sapphire Coast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shoalhaven</masterLabel>
+            <translation><!-- Shoalhaven --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sydney</masterLabel>
+            <translation><!-- Sydney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tamworth</masterLabel>
+            <translation><!-- Tamworth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taree</masterLabel>
+            <translation><!-- Taree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tenterfield</masterLabel>
+            <translation><!-- Tenterfield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tighes Hill</masterLabel>
+            <translation><!-- Tighes Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuggerah</masterLabel>
+            <translation><!-- Tuggerah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ulladulla</masterLabel>
+            <translation><!-- Ulladulla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wagga Wagga</masterLabel>
+            <translation><!-- Wagga Wagga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yagoona</masterLabel>
+            <translation><!-- Yagoona --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Relationship Type --></label>

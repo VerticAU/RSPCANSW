@@ -5,6 +5,10 @@
         <name>Actual_Response__c</name>
     </fields>
     <fields>
+        <label><!-- Allocated --></label>
+        <name>Allocated__c</name>
+    </fields>
+    <fields>
         <label><!-- Campaign Code --></label>
         <name>Campaign_Code__c</name>
     </fields>
@@ -16,6 +20,10 @@
     <fields>
         <label><!-- Default Giving Strategy Amount --></label>
         <name>Default_Giving_Strategy_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time --></label>
+        <name>End_Time__c</name>
     </fields>
     <fields>
         <label><!-- Fundraiser ID --></label>
@@ -87,12 +95,24 @@
         <name>Last_Donation_Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Maximum Places --></label>
+        <name>Maximum_Places__c</name>
+    </fields>
+    <fields>
+        <label><!-- Minimum Places --></label>
+        <name>Minimum_Places__c</name>
+    </fields>
+    <fields>
         <label><!-- Narrative --></label>
         <name>Narrative__c</name>
     </fields>
     <fields>
         <label><!-- One Drive Folder Name --></label>
         <name>One_Drive_Folder_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Time --></label>
+        <name>Start_Time__c</name>
     </fields>
     <fields>
         <label><!-- Stripe Account Id --></label>
@@ -265,6 +285,14 @@
         <sections>
             <label><!-- Campaign Monitor Statistics --></label>
             <section>Campaign Monitor Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Event Attendance --></label>
+            <section>Event Attendance</section>
+        </sections>
+        <sections>
+            <label><!-- Event Date/Time --></label>
+            <section>Event Date/Time</section>
         </sections>
         <sections>
             <label><!-- New Section --></label>

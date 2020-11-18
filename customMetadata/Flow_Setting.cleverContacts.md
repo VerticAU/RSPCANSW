@@ -34,6 +34,7 @@
   &quot;contactEmail2&quot; : &quot;dto.contact.email2&quot;,
   &quot;contactPostcode&quot; : &quot;dto.contact.postcode&quot;,
   &quot;contactNewAddress2&quot; : &quot;dto.contact.newAddress2&quot;,
+&quot;donationCustom010&quot;: &quot;dto.donation.custom010&quot;,
   &quot;recurringStartDate&quot; : {
     &quot;trueValues&quot; : null,
     &quot;format&quot; : &quot;yyyy-MM-dd&quot;,

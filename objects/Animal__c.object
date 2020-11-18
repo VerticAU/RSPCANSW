@@ -183,7 +183,7 @@
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>Bird</fullName>
                     <default>false</default>
@@ -195,9 +195,69 @@
                     <label>Cat</label>
                 </value>
                 <value>
+                    <fullName>Chicken</fullName>
+                    <default>false</default>
+                    <label>Chicken</label>
+                </value>
+                <value>
                     <fullName>Dog</fullName>
                     <default>false</default>
                     <label>Dog</label>
+                </value>
+                <value>
+                    <fullName>Duck</fullName>
+                    <default>false</default>
+                    <label>Duck</label>
+                </value>
+                <value>
+                    <fullName>Fish</fullName>
+                    <default>false</default>
+                    <label>Fish</label>
+                </value>
+                <value>
+                    <fullName>Goat</fullName>
+                    <default>false</default>
+                    <label>Goat</label>
+                </value>
+                <value>
+                    <fullName>Goose</fullName>
+                    <default>false</default>
+                    <label>Goose</label>
+                </value>
+                <value>
+                    <fullName>Guinea Pig</fullName>
+                    <default>false</default>
+                    <label>Guinea Pig</label>
+                </value>
+                <value>
+                    <fullName>Horse</fullName>
+                    <default>false</default>
+                    <label>Horse</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Pig</fullName>
+                    <default>false</default>
+                    <label>Pig</label>
+                </value>
+                <value>
+                    <fullName>Rabbit</fullName>
+                    <default>false</default>
+                    <label>Rabbit</label>
+                </value>
+                <value>
+                    <fullName>Reptile</fullName>
+                    <default>false</default>
+                    <label>Reptile</label>
+                </value>
+                <value>
+                    <fullName>Sheep</fullName>
+                    <default>false</default>
+                    <label>Sheep</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -243,6 +303,371 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Albury</fullName>
+                    <default>false</default>
+                    <label>Albury</label>
+                </value>
+                <value>
+                    <fullName>Armidale</fullName>
+                    <default>false</default>
+                    <label>Armidale</label>
+                </value>
+                <value>
+                    <fullName>Blue Mountains</fullName>
+                    <default>false</default>
+                    <label>Blue Mountains</label>
+                </value>
+                <value>
+                    <fullName>Broken Hill</fullName>
+                    <default>false</default>
+                    <label>Broken Hill</label>
+                </value>
+                <value>
+                    <fullName>Cat legacy</fullName>
+                    <default>false</default>
+                    <label>Cat legacy</label>
+                </value>
+                <value>
+                    <fullName>Central Coast</fullName>
+                    <default>false</default>
+                    <label>Central Coast</label>
+                </value>
+                <value>
+                    <fullName>Cobar</fullName>
+                    <default>false</default>
+                    <label>Cobar</label>
+                </value>
+                <value>
+                    <fullName>Coffs Harbour</fullName>
+                    <default>false</default>
+                    <label>Coffs Harbour</label>
+                </value>
+                <value>
+                    <fullName>Cooma</fullName>
+                    <default>false</default>
+                    <label>Cooma</label>
+                </value>
+                <value>
+                    <fullName>Eurobodalla</fullName>
+                    <default>false</default>
+                    <label>Eurobodalla</label>
+                </value>
+                <value>
+                    <fullName>Glen Innes</fullName>
+                    <default>false</default>
+                    <label>Glen Innes</label>
+                </value>
+                <value>
+                    <fullName>Gunnedah</fullName>
+                    <default>false</default>
+                    <label>Gunnedah</label>
+                </value>
+                <value>
+                    <fullName>Hastings Impound</fullName>
+                    <default>false</default>
+                    <label>Hastings Impound</label>
+                </value>
+                <value>
+                    <fullName>Hunter</fullName>
+                    <default>false</default>
+                    <label>Hunter</label>
+                </value>
+                <value>
+                    <fullName>Illawarra</fullName>
+                    <default>false</default>
+                    <label>Illawarra</label>
+                </value>
+                <value>
+                    <fullName>Inverell</fullName>
+                    <default>false</default>
+                    <label>Inverell</label>
+                </value>
+                <value>
+                    <fullName>Mudgee</fullName>
+                    <default>false</default>
+                    <label>Mudgee</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Alexandria</fullName>
+                    <default>false</default>
+                    <label>Petbarn Alexandria</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Bathurst</fullName>
+                    <default>false</default>
+                    <label>Petbarn Bathurst</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Belrose</fullName>
+                    <default>false</default>
+                    <label>Petbarn Belrose</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Blacktown</fullName>
+                    <default>false</default>
+                    <label>Petbarn Blacktown</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Brookvale</fullName>
+                    <default>false</default>
+                    <label>Petbarn Brookvale</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Cambelltown</fullName>
+                    <default>false</default>
+                    <label>Petbarn Cambelltown</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Caringah</fullName>
+                    <default>false</default>
+                    <label>Petbarn Caringah</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Castle Hill</fullName>
+                    <default>false</default>
+                    <label>Petbarn Castle Hill</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Casula</fullName>
+                    <default>false</default>
+                    <label>Petbarn Casula</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Chatwswood</fullName>
+                    <default>false</default>
+                    <label>Petbarn Chatwswood</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Coffs Harbour</fullName>
+                    <default>false</default>
+                    <label>Petbarn Coffs Harbour</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Crows Nest</fullName>
+                    <default>false</default>
+                    <label>Petbarn Crows Nest</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Double Bay</fullName>
+                    <default>false</default>
+                    <label>Petbarn Double Bay</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Dubbo</fullName>
+                    <default>false</default>
+                    <label>Petbarn Dubbo</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Gladesville</fullName>
+                    <default>false</default>
+                    <label>Petbarn Gladesville</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Hoxton Park</fullName>
+                    <default>false</default>
+                    <label>Petbarn Hoxton Park</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Katoomba</fullName>
+                    <default>false</default>
+                    <label>Petbarn Katoomba</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Marsden Park</fullName>
+                    <default>false</default>
+                    <label>Petbarn Marsden Park</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Menai</fullName>
+                    <default>false</default>
+                    <label>Petbarn Menai</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Mittagong</fullName>
+                    <default>false</default>
+                    <label>Petbarn Mittagong</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Narrabeen</fullName>
+                    <default>false</default>
+                    <label>Petbarn Narrabeen</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Neutral Bay</fullName>
+                    <default>false</default>
+                    <label>Petbarn Neutral Bay</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Newcastle West</fullName>
+                    <default>false</default>
+                    <label>Petbarn Newcastle West</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Nowra</fullName>
+                    <default>false</default>
+                    <label>Petbarn Nowra</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Nth Parramatta</fullName>
+                    <default>false</default>
+                    <label>Petbarn Nth Parramatta</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Orange</fullName>
+                    <default>false</default>
+                    <label>Petbarn Orange</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Penrith</fullName>
+                    <default>false</default>
+                    <label>Petbarn Penrith</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Port Macquarie</fullName>
+                    <default>false</default>
+                    <label>Petbarn Port Macquarie</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Punchbowl</fullName>
+                    <default>false</default>
+                    <label>Petbarn Punchbowl</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Rozelle</fullName>
+                    <default>false</default>
+                    <label>Petbarn Rozelle</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Rutherford</fullName>
+                    <default>false</default>
+                    <label>Petbarn Rutherford</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Shellharbour</fullName>
+                    <default>false</default>
+                    <label>Petbarn Shellharbour</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Strathfield</fullName>
+                    <default>false</default>
+                    <label>Petbarn Strathfield</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Tamworth</fullName>
+                    <default>false</default>
+                    <label>Petbarn Tamworth</label>
+                </value>
+                <value>
+                    <fullName>Petbarn West Gosford</fullName>
+                    <default>false</default>
+                    <label>Petbarn West Gosford</label>
+                </value>
+                <value>
+                    <fullName>Petbarn West Ryde</fullName>
+                    <default>false</default>
+                    <label>Petbarn West Ryde</label>
+                </value>
+                <value>
+                    <fullName>Petbarn Wetherill Park</fullName>
+                    <default>false</default>
+                    <label>Petbarn Wetherill Park</label>
+                </value>
+                <value>
+                    <fullName>Port Macquarie</fullName>
+                    <default>false</default>
+                    <label>Port Macquarie</label>
+                </value>
+                <value>
+                    <fullName>Rouse Hill</fullName>
+                    <default>false</default>
+                    <label>Rouse Hill</label>
+                </value>
+                <value>
+                    <fullName>Sapphire Coast</fullName>
+                    <default>false</default>
+                    <label>Sapphire Coast</label>
+                </value>
+                <value>
+                    <fullName>Shoalhaven</fullName>
+                    <default>false</default>
+                    <label>Shoalhaven</label>
+                </value>
+                <value>
+                    <fullName>Sydney</fullName>
+                    <default>false</default>
+                    <label>Sydney</label>
+                </value>
+                <value>
+                    <fullName>Tamworth</fullName>
+                    <default>false</default>
+                    <label>Tamworth</label>
+                </value>
+                <value>
+                    <fullName>Taree</fullName>
+                    <default>false</default>
+                    <label>Taree</label>
+                </value>
+                <value>
+                    <fullName>Tenterfield</fullName>
+                    <default>false</default>
+                    <label>Tenterfield</label>
+                </value>
+                <value>
+                    <fullName>Tighes Hill</fullName>
+                    <default>false</default>
+                    <label>Tighes Hill</label>
+                </value>
+                <value>
+                    <fullName>Tuggerah</fullName>
+                    <default>false</default>
+                    <label>Tuggerah</label>
+                </value>
+                <value>
+                    <fullName>Ulladulla</fullName>
+                    <default>false</default>
+                    <label>Ulladulla</label>
+                </value>
+                <value>
+                    <fullName>Wagga Wagga</fullName>
+                    <default>false</default>
+                    <label>Wagga Wagga</label>
+                </value>
+                <value>
+                    <fullName>Yagoona</fullName>
+                    <default>false</default>
+                    <label>Yagoona</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Relationship_Type__c</fullName>
