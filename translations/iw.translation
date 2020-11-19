@@ -106,6 +106,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Recurring_Donation_Created_Acknowledgement</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Regular_Giving_Donation</fullName>
     </flowDefinitions>
     <flowDefinitions>

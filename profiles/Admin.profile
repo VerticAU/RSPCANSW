@@ -104,6 +104,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BatchApproveProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkContributionManagementMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1565,7 +1569,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.npsp_plus__Stripe_Account_Id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4450,6 +4454,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -33,8 +33,8 @@
     submitOpportunity: function (cmp) {
         return new Promise($A.getCallback(function (resolve, reject) {
 
-            debugger
-            cmp.set('v.contribution.batchId', cmp.get('v.batchId'));
+            // debugger
+            // cmp.set('v.contribution.batchId', cmp.get('v.batchId'));
             var contribution = cmp.get('v.contribution');
 
             if (contribution.isCompleted) { return resolve(cmp); }
@@ -45,7 +45,7 @@
 
             }).then($A.getCallback(function (response) {
                     if (!response.error && response.errors.length === 0 && response.isValid) {
-                        cmp.set('v.batchId', response.dto.batchId);
+                        // cmp.set('v.batchId', response.dto.batchId);
                         cmp.set('v.contribution.isCompleted', true);
                         return resolve(cmp);
                     } else {

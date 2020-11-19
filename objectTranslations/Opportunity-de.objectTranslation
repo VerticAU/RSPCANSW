@@ -683,6 +683,38 @@
         <name>Start_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Disputed</masterLabel>
+            <translation><!-- Disputed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hard Rejection</masterLabel>
+            <translation><!-- Hard Rejection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refunded</masterLabel>
+            <translation><!-- Refunded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retrying</masterLabel>
+            <translation><!-- Retrying --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soft Rejection</masterLabel>
+            <translation><!-- Soft Rejection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Sum Bequest Opp Amount Outstanding --></label>
         <name>Sum_Bequest_Opp_Amount_Outstanding__c</name>
     </fields>

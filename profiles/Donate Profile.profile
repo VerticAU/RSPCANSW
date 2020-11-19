@@ -104,6 +104,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BatchApproveProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkContributionManagementMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -4446,6 +4450,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Start_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

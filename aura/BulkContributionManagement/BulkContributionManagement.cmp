@@ -8,12 +8,14 @@
     <aura:attribute name="batchId" type="String"/>
     <aura:attribute name="selectedRowIndex" type="Integer"/>
     <aura:attribute name="isEditFormVisible" type="Boolean"/>
+    <aura:attribute name="pending" type="Boolean" default="false"/>
 
     <!-- Events -->
 
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
     <aura:handler name="change" value="{!v.batchId}" action="{!c.handleBatchChange}"/>
+    <c:vertic_ModalService aura:id="modalService"/>
 
 
     <lightning:notificationsLibrary aura:id="notificationLib"/>

@@ -2009,6 +2009,57 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Soft Rejection</fullName>
+                    <default>false</default>
+                    <label>Soft Rejection</label>
+                </value>
+                <value>
+                    <fullName>Hard Rejection</fullName>
+                    <default>false</default>
+                    <label>Hard Rejection</label>
+                </value>
+                <value>
+                    <fullName>Retrying</fullName>
+                    <default>false</default>
+                    <label>Retrying</label>
+                </value>
+                <value>
+                    <fullName>Refunded</fullName>
+                    <default>false</default>
+                    <label>Refunded</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Disputed</fullName>
+                    <default>false</default>
+                    <label>Disputed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Sum_Bequest_Opp_Amount_Outstanding__c</fullName>
         <externalId>false</externalId>
         <formula>npsp__Primary_Contact__r.Sum_Bequest_Opp_Amount_Outstanding__c</formula>
@@ -2737,6 +2788,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Discretionary</fullName>
@@ -3352,6 +3434,37 @@
             </values>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4000,6 +4113,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Existing Funding</fullName>
@@ -4548,6 +4692,37 @@
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5195,6 +5370,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Discretionary</fullName>
@@ -5838,6 +6044,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Existing Funding</fullName>
@@ -6412,6 +6649,37 @@
             </values>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7059,6 +7327,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Existing Funding</fullName>
@@ -7655,6 +7954,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Existing Funding</fullName>
@@ -8217,6 +8547,37 @@
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8788,6 +9149,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Existing Funding</fullName>
@@ -9344,6 +9736,37 @@
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9980,6 +10403,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Discretionary</fullName>
@@ -10612,6 +11066,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type</picklist>
             <values>
                 <fullName>Discretionary</fullName>
@@ -11240,6 +11725,37 @@
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11884,6 +12400,37 @@
             </values>
             <values>
                 <fullName>Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Disputed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hard Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrying</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -1,6 +1,20 @@
 ({
     handleInit: function (cmp, event, helper) {
-        helper.refresh(cmp, event, helper);
+        cmp.find('modalService').show(
+            'c:BulkContributionManagementBatchSelect', {},
+            {
+                header: 'Bulk Contribution Management',
+                cssClass: 'slds-modal_small',
+                showCloseButton: false
+            }
+        ).then($A.getCallback(function (response) {
+            if(response.batchId){
+                cmp.set('v.pending', true);
+                helper.setBatch(cmp, event, helper, response.batchId);
+            } else {
+                helper.refresh(cmp, event, helper);
+            }
+        }));
     },
 
     handleNewContributionClick: function (cmp, event, helper) {

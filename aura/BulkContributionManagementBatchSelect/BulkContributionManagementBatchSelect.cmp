@@ -1,0 +1,54 @@
+<aura:component description="BulkContributionManagementBatchSelect" extends="c:vertic_Modal">
+
+    <aura:attribute name="options" type="List" default="[
+        {'label': 'Create New Batch', 'value': 'new'},
+        {'label': 'Approve/Edit Pending Batch', 'value': 'edit'}
+    ]"/>
+
+    <aura:attribute name="value" type="String" default="new"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <div aura:id="form" class="slds-form" role="list" style="{! and(v.value == 'edit', empty(v.meta.dto.batchId)) ? 'min-height: 300px' : ''}">
+        <lightning:radioGroup name="batchSelectGroup"
+                              label="What would you like to do?"
+                              options="{! v.options }"
+                              value="{! v.value }"
+                              type="radio"
+                              onchange="{! c.handleSelect }"
+        />
+
+        <aura:if isTrue="{! v.value == 'edit'}">
+
+            <div class="slds-grid slds-gutters_small slds-p-horizontal__small slds-m-top_small">
+                <div class="slds-col slds-has-flexi-truncate" role="listitem">
+
+                    <c:strike_lookup_clickable label="Please select Batch:"
+                                               object="Batch__c"
+                                               searchField="Name,Import_File_Document_ID__c"
+                                               placeholder="Select a Batch..."
+                                               iconName="custom:custom42"
+                                               subtitleField="Import_File_Document_ID__c"
+                                               order="Name"
+                                               limit="4"
+                                               loadingMessage="Loading..."
+                                               errorMessage="Invalid input"
+                                               showRecentRecords="{!true}"
+                                               disabled="{!v.isBusy}"
+                                               value="{!v.meta.dto.batchId}"
+                                               filter="Status__c = 'Pending'"
+                    />
+                </div>
+
+                <div class="slds-col slds-has-flexi-truncate" role="listitem"></div>
+            </div>
+
+        </aura:if>
+    </div>
+
+    <aura:set attribute="footer">
+        <lightning:button label="Cancel" type="button" onclick="{!c.handleCancelClick}"/>
+        <lightning:button label="Next" type="button" variant="brand" disabled="{! and(v.value == 'edit', empty(v.meta.dto.batchId)) }" onclick="{!c.handleNextClick}"/>
+    </aura:set>
+
+</aura:component>
