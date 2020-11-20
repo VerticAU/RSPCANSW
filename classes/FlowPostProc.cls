@@ -24,10 +24,10 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
 
     private void doSubmit() {
 
-        try {
+        Map<String, Object> requestMap;
+        Map<String, Object> payloadMap;
 
-            Map<String, Object> requestMap;
-            Map<String, Object> payloadMap;
+        try {
 
             String event = this.request.params.get('event');
 
@@ -54,6 +54,15 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
         } catch (Exception e) {
             this.response.error = new vertic_Structs.ErrorDetails(e.getMessage());
             this.response.isValid = false;
+
+            Vertic_Async_Process__c asyncProcess = new Vertic_Async_Process__c(
+                Autorun__c = false,
+                Is_Queueable__c = true,
+                Processor__c = 'vertic_FlowSettingProc',
+                Payload__c = JSON.serialize(requestMap),
+                Details__c = e.getMessage()
+            );
+            insert asyncProcess;
         } finally {
             this.response.headers.put('Content-Type', 'application/json');
         }

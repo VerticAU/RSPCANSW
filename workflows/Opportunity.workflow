@@ -637,7 +637,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
             <name>Membership_Start_Date_Offset</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <formula>AND(
     RecordType.DeveloperName = &apos;Membership&apos;,
     ISPICKVAL(StageName , &apos;Pending&apos;) ,

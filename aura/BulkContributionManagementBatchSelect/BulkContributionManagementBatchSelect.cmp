@@ -24,11 +24,10 @@
                 <div class="slds-col slds-has-flexi-truncate" role="listitem">
 
                     <c:strike_lookup_clickable label="Please select Batch:"
-                                               object="Batch__c"
-                                               searchField="Name,Import_File_Document_ID__c"
+                                               object="npsp__Batch__c"
+                                               searchField="Name"
                                                placeholder="Select a Batch..."
                                                iconName="custom:custom42"
-                                               subtitleField="Import_File_Document_ID__c"
                                                order="Name"
                                                limit="4"
                                                loadingMessage="Loading..."
@@ -36,7 +35,7 @@
                                                showRecentRecords="{!true}"
                                                disabled="{!v.isBusy}"
                                                value="{!v.meta.dto.batchId}"
-                                               filter="Status__c = 'Pending'"
+                                               filter="npsp__Batch_Status__c = 'Pending'"
                     />
                 </div>
 

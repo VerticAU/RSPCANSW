@@ -36,7 +36,6 @@
                     resolve(response);
                 },
                 function(errors){
-                    // debugger
                     cmp.find('notificationLib').showToast({
                         variant: 'error',
                         message: errors[0].message
@@ -47,8 +46,10 @@
             );
 
         });
+    },
 
-        // return new Promise(function (resolve, reject) {
+
+    // return new Promise(function (resolve, reject) {
         //
         //     cmp.set('v.meta.hasSubmitErrors', false);
         //
@@ -111,7 +112,7 @@
         //
         // });
 
-    },
+    // },
 
 
     approve: function (cmp, event, helper, batchId) {
@@ -128,7 +129,6 @@
                     resolve(response);
                 },
                 function(errors){
-                    // debugger
                     cmp.find('notificationLib').showToast({
                         variant: 'error',
                         message: errors[0].message
@@ -206,7 +206,7 @@
         });
     },
 
-    
+
     refresh: function (cmp, event, helper) {
 
         return new Promise(function (resolve, reject) {

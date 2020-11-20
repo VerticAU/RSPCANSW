@@ -16,10 +16,14 @@
             request = { contactId: contactId }
         }
 
+        debugger
+
         if(!cmp.get('v.stripeCustomerId')){
             helper.execute(cmp, 'GetExistingOrCreateStripeCustomerWrapper',
                 request
             ).then(function (response) {
+                console.log('response.dto.stripeCustomerId ' + response.dto.stripeCustomerId);
+                debugger
                 cmp.set('v.stripeCustomerId', response.dto.stripeCustomerId);
             }).catch(function (errors) {
                 var errorMessagesCmp = cmp.find('modal').find('errorMessages');

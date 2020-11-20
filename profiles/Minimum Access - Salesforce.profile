@@ -4358,11 +4358,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Payment_Method__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Opportunity.Pledge_Plan__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6058,11 +6053,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Organization</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.npsp_plus_dres__HH_Account</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

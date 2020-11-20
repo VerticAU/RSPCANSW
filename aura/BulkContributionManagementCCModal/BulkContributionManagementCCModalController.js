@@ -12,6 +12,7 @@
     },
 
     handleSaveClick: function (cmp, event, helper) {
+        debugger
         cmp.closeModal({
             stripeCustomerId: cmp.get('v.stripeCustomerId'),
             stripePaymentMethodId: cmp.get('v.stripePaymentMethodId')

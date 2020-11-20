@@ -12,6 +12,7 @@
                 }
             ).then($A.getCallback(function (response) {
                 if(!$A.util.isUndefinedOrNull(response)){
+                    debugger
                     cmp.set('v.contribution.stripeCustomerId', response.stripeCustomerId);
                     cmp.set('v.contribution.stripePaymentMethodId', response.stripePaymentMethodId);
                 }

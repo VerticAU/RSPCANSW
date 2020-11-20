@@ -43,7 +43,6 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
             AND NamespacePrefix != 'npsp_plus_dres'
         ]);
 
-
         for (Opportunity opportunityVar : opportunitys) {
 
             opportunityVar.Name = 'Donation';

@@ -555,22 +555,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Payment Method --></label>
-        <name>Payment_Method__c</name>
-        <picklistValues>
-            <masterLabel>Cash</masterLabel>
-            <translation><!-- Cash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cheque</masterLabel>
-            <translation><!-- Cheque --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Credit Card</masterLabel>
-            <translation><!-- Credit Card --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Pledge Plan --></label>
         <name>Pledge_Plan__c</name>
         <picklistValues>

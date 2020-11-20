@@ -25,7 +25,7 @@
             Bulk Donations
             <aura:if isTrue="{!not(empty(v.batchId))}">
                 <lightning:recordViewForm recordId="{!v.batchId}"
-                                          objectApiName="Batch__c"
+                                          objectApiName="npsp__Batch__c"
                                           class="slds-show_inline forceOutputLookupWithPreview">
                     - <a href="{!'/' + v.batchId}"
                          target="_blank"
@@ -52,7 +52,8 @@
                                   disabled="{!v.isBusy}"
                                   variant="brand">
                 </lightning:button>
-                <aura:if isTrue="{!and(not(empty(v.batchId)), v.meta.dto.hasBatchApprovePermission == true)}">
+                <!--<aura:if isTrue="{!and(not(empty(v.batchId)), v.meta.dto.hasBatchApprovePermission == true)}">-->
+                <aura:if isTrue="{!and(not(empty(v.batchId)))}">
                     <lightning:button label="Approve"
                                       onclick="{! c.handleApproveClick }"
                                       disabled="{!v.isBusy}"
@@ -141,6 +142,9 @@
                                 </aura:iteration>
                             </table>
 
+                            <aura:if isTrue="{! and(v.pending, empty(v.meta.dto.contributions)) }">
+                                <p class="slds-text-align--center slds-text-body_regular slds-m-around--medium">No pending donations found.</p>
+                            </aura:if>
                         </div>
 
                     </div>
