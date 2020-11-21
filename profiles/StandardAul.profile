@@ -104,15 +104,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BatchApproveProc</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BulkContributionManagementMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BulkContributionManagementPaymentProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkContributionManagementSaveRecProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -157,6 +157,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactBadgesCtrl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactDomain</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4208,6 +4212,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Donor_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4358,6 +4367,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Payment_Method__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Pledge_Plan__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4454,6 +4468,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Stripe_Customer_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Stripe_Payment_Id__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4564,6 +4588,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Will_Gap__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.isCompleted__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

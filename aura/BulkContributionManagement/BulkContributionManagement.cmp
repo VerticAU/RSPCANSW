@@ -48,7 +48,7 @@
                                   iconPosition="left">
                 </lightning:button>
                 <lightning:button label="Save"
-                                  onclick="{! c.handleSubmitClick }"
+                                  onclick="{! c.handleSaveClick }"
                                   disabled="{!v.isBusy}"
                                   variant="brand">
                 </lightning:button>

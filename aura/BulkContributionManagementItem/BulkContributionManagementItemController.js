@@ -12,9 +12,8 @@
                 }
             ).then($A.getCallback(function (response) {
                 if(!$A.util.isUndefinedOrNull(response)){
-                    debugger
-                    cmp.set('v.contribution.stripeCustomerId', response.stripeCustomerId);
-                    cmp.set('v.contribution.stripePaymentMethodId', response.stripePaymentMethodId);
+                    cmp.set('v.contribution.Stripe_Customer_Id__c', response.stripeCustomerId);
+                    cmp.set('v.contribution.Stripe_Payment_Id__c', response.stripePaymentMethodId);
                 }
             }));
         }
@@ -294,7 +293,7 @@
     doSubmit: function (cmp, event, helper) {
         return helper.makePayment(cmp).then(
             $A.getCallback(function (cmp) {
-                return helper.submitOpportunity(cmp)
+                return helper.updateOrSubmitOpportunity(cmp)
             }))
     },
 

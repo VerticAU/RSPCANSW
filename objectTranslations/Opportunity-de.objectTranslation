@@ -112,6 +112,18 @@
         <name>Discount_Percentage__c</name>
     </fields>
     <fields>
+        <label><!-- Donor Type --></label>
+        <name>Donor_Type__c</name>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation><!-- Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organisation</masterLabel>
+            <translation><!-- Organisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- End Date --></label>
         <name>End_Date__c</name>
     </fields>
@@ -555,6 +567,38 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Payment Method --></label>
+        <name>Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Asset - Property Transfer</masterLabel>
+            <translation><!-- Asset - Property Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset - Securities</masterLabel>
+            <translation><!-- Asset - Securities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BPAY</masterLabel>
+            <translation><!-- BPAY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cheque</masterLabel>
+            <translation><!-- Cheque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PayPal</masterLabel>
+            <translation><!-- PayPal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Pledge Plan --></label>
         <name>Pledge_Plan__c</name>
         <picklistValues>
@@ -699,6 +743,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Stripe Customer Id --></label>
+        <name>Stripe_Customer_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stripe Payment Id --></label>
+        <name>Stripe_Payment_Id__c</name>
+    </fields>
+    <fields>
         <label><!-- Sum Bequest Opp Amount Outstanding --></label>
         <name>Sum_Bequest_Opp_Amount_Outstanding__c</name>
     </fields>
@@ -777,6 +829,10 @@
     <fields>
         <label><!-- Will Gap --></label>
         <name>Will_Gap__c</name>
+    </fields>
+    <fields>
+        <label><!-- isCompleted --></label>
+        <name>isCompleted__c</name>
     </fields>
     <fields>
         <help>Formel: Der Betrag dieser Opportunity minus des Betrags der Zahlungsabschreibung und des empfangenen Zahlungsbetrags</help>

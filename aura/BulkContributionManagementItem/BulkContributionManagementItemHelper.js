@@ -4,13 +4,13 @@
 
             var contribution = cmp.get('v.contribution');
 
-            if (contribution.isCompleted || contribution.Payment_Method__c !== 'Credit Card') { return resolve(cmp); }
+            if (contribution.isCompleted__c || contribution.Payment_Method__c !== 'Credit Card') { return resolve(cmp); }
 
             cmp.utils.execute(cmp, 'BulkContributionManagementPaymentProc', {
 
                 'amount': contribution.Amount,
-                'stripeCustomerId': contribution.stripeCustomerId,
-                'stripePaymentMethodId': contribution.stripePaymentMethodId,
+                'stripeCustomerId': contribution.Stripe_Customer_Id__c,
+                'stripePaymentMethodId': contribution.Stripe_Payment_Id__c,
                 'stripeAccountId': contribution.Campaign.Stripe_Account_Id__c
 
             }).then($A.getCallback(function (response) {
@@ -30,14 +30,12 @@
         }));
     },
 
-    submitOpportunity: function (cmp) {
+    updateOrSubmitOpportunity: function (cmp) {
         return new Promise($A.getCallback(function (resolve, reject) {
 
-            // debugger
-            // cmp.set('v.contribution.batchId', cmp.get('v.batchId'));
             var contribution = cmp.get('v.contribution');
 
-            if (contribution.isCompleted) { return resolve(cmp); }
+            if (contribution.isCompleted__c) { return resolve(cmp); }
 
             cmp.utils.execute(cmp, 'BulkContributionManagementSubmitProc', {
 
@@ -45,8 +43,7 @@
 
             }).then($A.getCallback(function (response) {
                     if (!response.error && response.errors.length === 0 && response.isValid) {
-                        // cmp.set('v.batchId', response.dto.batchId);
-                        cmp.set('v.contribution.isCompleted', true);
+                        cmp.set('v.contribution.isCompleted__c', true);
                         return resolve(cmp);
                     } else {
                         cmp.set('v.errorMessage', response.errors[0].message);

@@ -38,8 +38,8 @@
         }
     },
 
-    handleSubmitClick: function (cmp, event, helper) {
-        helper.submit(cmp, event, helper).then($A.getCallback(function (response) {
+    handleSaveClick: function (cmp, event, helper) {
+        helper.save(cmp, event, helper).then($A.getCallback(function (response) {
 
             helper.setBatch(cmp, event, helper, response.dto.batchId);
 
@@ -53,59 +53,32 @@
         }));
     },
 
-
-    // handleSubmitClick: function (cmp, event, helper) {
-    //
-    //     cmp.set('v.selectedRowIndex', null);
-    //     cmp.set('v.isEditFormVisible', false);
-    //     helper.submit(cmp, event, helper).then($A.getCallback(function (responses) {
-    //         cmp.find('notificationLib').showToast({
-    //             variant: 'success',
-    //             mode: 'pester',
-    //             message: responses.length == 1 ? 'The Donation has been successfully processed.' : 'The Donations have been successfully processed.',
-    //         });
-    //         cmp.set('v.meta.dto.contributions', [helper.newContribution(cmp, event, helper)]);
-    //     }), $A.getCallback(function (responses) {
-    //
-    //         var errors = responses.filter(function (response) {
-    //             return response.success !== true;
-    //         });
-    //
-    //         cmp.find('notificationLib').showNotice({
-    //             variant: 'warning',
-    //             title: 'Please review the rows highlighted in red.',
-    //             header: 'Save Failed',
-    //             message: '\nSave Summary:\nTotal Rows: ' + responses.length +
-    //                                      ' \nProcessed:  ' + (responses.length - errors.length) +
-    //                                      ' \nFailed:     ' + errors.length,
-    //             closeCallback: function () {
-    //             }
-    //         });
-    //
-    //     }));
-    // },
-
-
     handleApproveClick: function (cmp, event, helper) {
-        helper.submit(cmp, event, helper).then($A.getCallback(function (response) {
+        cmp.set('v.selectedRowIndex', null);
+        cmp.set('v.isEditFormVisible', false);
+        helper.approve(cmp, event, helper).then($A.getCallback(function (responses) {
+            cmp.find('notificationLib').showToast({
+                variant: 'success',
+                mode: 'pester',
+                message: responses.length == 1 ? 'The Donation has been successfully processed.' : 'The Donations have been successfully processed.',
+            });
+            cmp.set('v.meta.dto.contributions', [helper.newContribution(cmp, event, helper)]);
+        }), $A.getCallback(function (responses) {
 
-            helper.setBatch(cmp, event, helper, response.dto.batchId);
-            helper.refresh(cmp, event, helper);
+            var errors = responses.filter(function (response) {
+                return response.success !== true;
+            });
 
-            helper.approve(cmp, event, helper, response.dto.batchId).then($A.getCallback(function (response) {
-
-                helper.setBatch(cmp, event, helper, null);
-                helper.refresh(cmp, event, helper);
-
-                cmp.find('notificationLib').showToast({
-                    variant: 'success',
-                    message: '{0} has been Approved',
-                    messageData: [{
-                        label: 'Batch',
-                        url: '/' + response.dto.batchId
-                    }]
-                });
-            }));
+            cmp.find('notificationLib').showNotice({
+                variant: 'warning',
+                title: 'Please review the rows highlighted in red.',
+                header: 'Save Failed',
+                message: '\nSave Summary:\nTotal Rows: ' + responses.length +
+                    ' \nProcessed:  ' + (responses.length - errors.length) +
+                    ' \nFailed:     ' + errors.length,
+                closeCallback: function () {
+                }
+            });
 
         }));
     },

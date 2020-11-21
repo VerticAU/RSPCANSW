@@ -24,9 +24,7 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
 
     private void doSubmit() {
 
-        Map<String, Object> requestMap;
-        Map<String, Object> payloadMap;
-
+        String requestMapDump;
         try {
 
             String event = this.request.params.get('event');
@@ -37,12 +35,12 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
 
             System.debug('payloadJSON: ' + payloadJSON);
 
-            payloadMap = (Map<String, Object>) JSON.deserializeUntyped(payloadJSON);
-
-            requestMap = new Map<String, Object>{
+            Map<String, Object> requestMap = new Map<String, Object>{
                 'settingName' => flowSetting,
-                'inputs' => payloadMap
+                'inputs' => (Map<String, Object>) JSON.deserializeUntyped(payloadJSON)
             };
+
+            requestMapDump = JSON.serialize(requestMap);
 
             vertic_Response flowResponseVar = new vertic_FlowSettingProc().process(requestMap);
             if(flowResponseVar.isValid != true){
@@ -57,9 +55,10 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
 
             Vertic_Async_Process__c asyncProcess = new Vertic_Async_Process__c(
                 Autorun__c = false,
-                Is_Queueable__c = true,
+                Is_Queueable__c = false,
+                Status__c = 'Failed',
                 Processor__c = 'vertic_FlowSettingProc',
-                Payload__c = JSON.serialize(requestMap),
+                Payload__c = requestMapDump,
                 Details__c = e.getMessage()
             );
             insert asyncProcess;

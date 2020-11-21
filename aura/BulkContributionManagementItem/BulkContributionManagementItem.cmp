@@ -32,7 +32,7 @@
 
     <aura:method name="submit" action="{!c.doSubmit}" access="public"/>
 
-    <tbody class="{!if(v.contribution.isCompleted, 'contribution-completed', if(v.errorMessage, 'error-background', ''))}">
+    <tbody class="{!if(v.contribution.isCompleted__c, 'contribution-completed', if(v.errorMessage, 'error-background', ''))}">
         <tr style="display: none">
             <td colspan="9">
                 <aura:if isTrue="{! true }">
@@ -40,20 +40,20 @@
                 </aura:if>
             </td>
         </tr>
-        <tr class="{!if(v.contribution.isCompleted, 'contribution-completed', '')}">
+        <tr class="{!if(v.contribution.isCompleted__c, 'contribution-completed', '')}">
             <td data-label="QR Code">
                 <span onclick="{!c.handleQRScan}"><lightning:icon iconName="action:add_photo_video" size="x-small"/></span>
             </td>
             <td data-label="Donor Type">
                 <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
                     <lightning:select label="Donor Type"
-                                      value="{! v.contribution.type }"
+                                      value="{! v.contribution.Donor_Type__c }"
                                       variant="label-hidden"
                                       required="{!true}"
-                                      disabled="{!v.contribution.isCompleted}"
+                                      disabled="{!v.contribution.isCompleted__c}"
                                       class="label-hidden">
                         <!--<option value="">&#45;&#45;None&#45;&#45;</option>-->
-                        <aura:iteration items="{! v.meta.selectOptions.donationTypeOptions }" var="option">
+                        <aura:iteration items="{! v.meta.selectOptions.donorTypeOptions }" var="option">
                             <option label="{!option.label}" value="{!option.value}"/>
                         </aura:iteration>
                     </lightning:select>
@@ -61,7 +61,7 @@
             </td>
             <td data-label="Donor">
 
-                <aura:if isTrue="{! v.contribution.type != 'Organisation' }">
+                <aura:if isTrue="{! v.contribution.Donor_Type__c != 'Organisation' }">
                     <c:strike_lookup_clickable aura:id="donor"
                                                label="Contact"
                                                subtitleField="Email"
@@ -73,7 +73,7 @@
                                                limit="8"
                                                loadingMessage="Loading..."
                                                errorMessage="Invalid input"
-                                               disabled="{!v.contribution.isCompleted}"
+                                               disabled="{!v.contribution.isCompleted__c}"
                                                showRecentRecords="{!true}"
                                                required="{!true}"
                                                overrideNewEvent="{!true}"
@@ -84,7 +84,7 @@
                     />
                 </aura:if>
                 <!--filter="Contact_ID__c > '0000000'"-->
-                <aura:if isTrue="{! v.contribution.type == 'Organisation' }">
+                <aura:if isTrue="{! v.contribution.Donor_Type__c == 'Organisation' }">
                     <c:strike_lookup_clickable aura:id="donor"
                                                label="Organisation"
                                                object="Account"
@@ -95,7 +95,7 @@
                                                limit="8"
                                                loadingMessage="Loading..."
                                                errorMessage="Invalid input"
-                                               disabled="{!v.contribution.isCompleted}"
+                                               disabled="{!v.contribution.isCompleted__c}"
                                                showRecentRecords="{!true}"
                                                required="{!true}"
                                                overrideNewEvent="{!true}"
@@ -119,7 +119,7 @@
                                            limit="8"
                                            loadingMessage="Loading..."
                                            errorMessage="Invalid input"
-                                           disabled="{!v.contribution.isCompleted}"
+                                           disabled="{!v.contribution.isCompleted__c}"
                                            showRecentRecords="{!true}"
                                            required="{!true}"
                                            class="label-hidden"
@@ -137,7 +137,7 @@
                                  min="0"
                                  value="{! v.contribution.Amount }"
                                  class="label-hidden"
-                                 disabled="{!v.contribution.isCompleted}"
+                                 disabled="{!v.contribution.isCompleted__c}"
                 />
             </td>
             <td data-label="Date">
@@ -147,7 +147,7 @@
                                  value="{! v.contribution.CloseDate }"
                                  variant="label-hidden"
                                  class="label-hidden"
-                                 disabled="{!v.contribution.isCompleted}"
+                                 disabled="{!v.contribution.isCompleted__c}"
                 />
             </td>
 
@@ -157,7 +157,7 @@
                                       value="{! v.contribution.Payment_Method__c }"
                                       variant="label-hidden"
                                       required="{!true}"
-                                      disabled="{!or(v.contribution.isCompleted, not(or(v.contribution.npsp__Primary_Contact__c != null, v.contribution.AccountId != null))) }"
+                                      disabled="{!or(v.contribution.isCompleted__c, not(or(v.contribution.npsp__Primary_Contact__c != null, v.contribution.AccountId != null))) }"
                                       class="label-hidden"
                                       onchange="{!c.handlePaymentMethodChange}"
                     >
@@ -176,7 +176,7 @@
                                  value="{! v.contribution.Narrative__c }"
                                  variant="label-hidden"
                                  class="label-hidden"
-                                 disabled="{!v.contribution.isCompleted}"
+                                 disabled="{!v.contribution.isCompleted__c}"
                                  maxlength="255"
                 />
             </td>
@@ -193,7 +193,7 @@
                                               title="Edit Contact"
                                               size="medium"
                                               variant="border"
-                                              disabled="{!or(v.isEditFormDisabled, v.contribution.isCompleted)}"
+                                              disabled="{!or(v.isEditFormDisabled, v.contribution.isCompleted__c)}"
                                               selected="{!and(v.index == v.selectedRowIndex, v.isEditFormVisible)}"
                                               onclick="{!c.handleEditClick}"
                 />
@@ -205,7 +205,7 @@
                                       size="medium"
                                       variant="border"
                                       onclick="{! c.handleContributionDeleteClick }"
-                                      disabled="{!or(v.isDeleteDisabled, v.contribution.isCompleted)}"
+                                      disabled="{!or(v.isDeleteDisabled, v.contribution.isCompleted__c)}"
                 />
             </td>
         </tr>
@@ -220,7 +220,7 @@
                                      value="{! v.contribution.Bank_Number__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
-                                     disabled="{!v.contribution.isCompleted}"
+                                     disabled="{!v.contribution.isCompleted__c}"
                                      maxlength="2"
                     />
                     <!--onchange="{!c.handleNumericOnly}"-->
@@ -233,7 +233,7 @@
                                      value="{! v.contribution.Bank_Branch__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
-                                     disabled="{!v.contribution.isCompleted}"
+                                     disabled="{!v.contribution.isCompleted__c}"
                                      maxlength="4"
                     />
                     <!--onchange="{!c.handleNumericOnly}"-->
@@ -246,7 +246,7 @@
                                      value="{! v.contribution.Bank_Account_Number__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
-                                     disabled="{!v.contribution.isCompleted}"
+                                     disabled="{!v.contribution.isCompleted__c}"
                                      maxlength="7"
                     />
                     <!--onchange="{!c.handleNumericOnly}"-->
@@ -259,7 +259,7 @@
                                      value="{! v.contribution.Cheque_Drawer__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
-                                     disabled="{!v.contribution.isCompleted}"
+                                     disabled="{!v.contribution.isCompleted__c}"
                     />
                 </td>
                 <td colspan="2"></td>

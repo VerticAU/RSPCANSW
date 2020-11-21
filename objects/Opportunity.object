@@ -871,6 +871,32 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>Donor_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Donor Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contact</fullName>
+                    <default>false</default>
+                    <label>Contact</label>
+                </value>
+                <value>
+                    <fullName>Organisation</fullName>
+                    <default>false</default>
+                    <label>Organisation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>End_Date__c</fullName>
         <externalId>false</externalId>
         <label>End Date</label>
@@ -1695,6 +1721,57 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Payment_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cash</fullName>
+                    <default>false</default>
+                    <label>Cash</label>
+                </value>
+                <value>
+                    <fullName>Cheque</fullName>
+                    <default>false</default>
+                    <label>Cheque</label>
+                </value>
+                <value>
+                    <fullName>Credit Card</fullName>
+                    <default>false</default>
+                    <label>Credit Card</label>
+                </value>
+                <value>
+                    <fullName>BPAY</fullName>
+                    <default>false</default>
+                    <label>BPAY</label>
+                </value>
+                <value>
+                    <fullName>PayPal</fullName>
+                    <default>false</default>
+                    <label>PayPal</label>
+                </value>
+                <value>
+                    <fullName>Asset - Property Transfer</fullName>
+                    <default>false</default>
+                    <label>Asset - Property Transfer</label>
+                </value>
+                <value>
+                    <fullName>Asset - Securities</fullName>
+                    <default>false</default>
+                    <label>Asset - Securities</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Pledge_Plan__c</fullName>
         <externalId>false</externalId>
         <label>Pledge Plan</label>
@@ -2029,6 +2106,30 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Stripe_Customer_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Stripe Customer Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stripe_Payment_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Stripe Payment Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sum_Bequest_Opp_Amount_Outstanding__c</fullName>
         <externalId>false</externalId>
         <formula>npsp__Primary_Contact__r.Sum_Bequest_Opp_Amount_Outstanding__c</formula>
@@ -2285,6 +2386,16 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>isCompleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isCompleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -2294,6 +2405,17 @@
         <compactLayoutAssignment>Bequest_Compact</compactLayoutAssignment>
         <description>Record used to capture details about a bequest that has been pledged by a donor.</description>
         <label>Gifts In Wills</label>
+        <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
@@ -2702,6 +2824,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -2933,6 +3086,17 @@
         <businessProcess>Corporate Support Day</businessProcess>
         <description>Captures details about a corporate support day with RSPCA.</description>
         <label>Corporate Support Day</label>
+        <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
@@ -3325,6 +3489,37 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Pledge_Plan__c</picklist>
             <values>
                 <fullName>Continuous</fullName>
@@ -3590,6 +3785,17 @@
         <description>Record used to capture details about a one-off or recurring donation received.</description>
         <label>Donation</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -3993,6 +4199,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4158,6 +4395,17 @@
         <description>Record used to capture details about an event ticket sale.</description>
         <label>Event Ticket</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -4561,6 +4809,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4805,6 +5084,17 @@
         <description>Record used to capture details of a gift card.</description>
         <label>Gift Card</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -5208,6 +5498,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5476,6 +5797,17 @@
         <description>Records used to capture details about the grant prospecting process.</description>
         <label>Grant</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -5879,6 +6211,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6058,6 +6421,17 @@
         <description>Record used to capture details about a Home Ever After Opportunity.</description>
         <label>Home Ever After</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -6461,6 +6835,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6729,6 +7134,17 @@
         <description>Record used to capture details about goods or services received as in-kind.</description>
         <label>In-Kind Gift</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -7132,6 +7548,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7341,6 +7788,17 @@
         <description>Record used to capture details about a large donation from a major donor.</description>
         <label>Major Gift</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -7744,6 +8202,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7923,6 +8412,17 @@
         <description>Record used to capture a matching donation from an donor&apos;s employer or other organisation.</description>
         <label>Matching Gift</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -8326,6 +8826,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8506,6 +9037,17 @@
         <description>Record used to capture details about a membership.</description>
         <label>Membership</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -8909,6 +9451,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9082,6 +9655,17 @@
         <description>Record used to capture details about a merchandise sale.</description>
         <label>Merchandise</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -9485,6 +10069,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9730,6 +10345,17 @@
         <description>Record used to capture details about a property transfer.</description>
         <label>Property Transfer</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -10133,6 +10759,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10378,6 +11035,17 @@
         <description>Record used to capture details about a raffle ticket purchase.</description>
         <label>Raffle Ticket</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -10781,6 +11449,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11026,6 +11725,17 @@
         <description>Record used to capture details about securities.</description>
         <label>Securities</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -11429,6 +12139,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11674,6 +12415,17 @@
         <description>Record used to capture details about corporate sponsorship.</description>
         <label>Sponsorship</label>
         <picklistValues>
+            <picklist>Donor_Type__c</picklist>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
                 <fullName>Best Case</fullName>
@@ -12077,6 +12829,37 @@
             </values>
             <values>
                 <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Asset - Property Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset - Securities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BPAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PayPal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

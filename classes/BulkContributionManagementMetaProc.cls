@@ -9,7 +9,7 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
     public override vertic_Response process(vertic_Request request) {
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
         this.request.fields = new Set<SObjectField>{
-            
+            Opportunity.Donor_Type__c
         };
 
         super.process(this.request);
@@ -29,9 +29,9 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
      */
 
 
-    private void intSelectOptions(){
+    private void intSelectOptions() {
         this.response.selectOptions.put('paymentMethodOptions', vertic_Utils.arrays.stringsToSelectOptions(new List<String>{
-            'Cash', 'Cheque',  'Credit Card'
+            'Cash', 'Cheque', 'Credit Card'
         }));
 
         List<vertic_Structs.SelectOption> monthsOptions = new List<vertic_Structs.SelectOption>{
@@ -52,84 +52,48 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
         }
         this.response.selectOptions.put('yearsOptions', yearsOptions);
 
-        this.response.selectOptions.put('donationTypeOptions', new List<vertic_Structs.SelectOption>{
-            new vertic_Structs.SelectOption('Contact', 'Contact'),
-            new vertic_Structs.SelectOption('Organisation', 'Organisation')
+        this.response.getMapper().mapFromListSObjects('contributions', new List<Opportunity>{
         });
-
-        this.response.getMapper().mapFromListSObjects('contributions', new List<Opportunity>{});
     }
 
 
-
-    private void mapContributions(){
+    private void mapContributions() {
         String batchId = this.request.getString('batchId');
-        if(String.isBlank(batchId)){
+        if (String.isBlank(batchId)) {
             return;
         }
 
-        fflib_QueryFactory queryFactory = new fflib_QueryFactory(Opportunity.SObjectType);
-        queryFactory.selectFields(new Set<String>{
-            'Id',
-            'npsp__Primary_Contact__c',
-            'CampaignId',
-//            'npe01__OppPayment__c.Payment_Method__c',
-            'CloseDate',
-//            'Receipt_Type__c',
-            'npsp__Batch__c',
-//            'Receipt_Template__c',
-//            'Is_Exempt_From_Receipting__c',
-            'Amount'
-        });
+        List<Opportunity> contributions = new List<Opportunity>([
+            SELECT Id,
+                Amount,
+                AccountId,
+                CloseDate,
+                CampaignId,
+                Narrative__c,
+                Donor_Type__c,
+                isCompleted__c,
+                npsp__Batch__c,
+                Payment_Method__c,
+                Stripe_Payment_Id__c,
+                Stripe_Customer_Id__c,
+                npsp__Primary_Contact__c,
+                Campaign.npsp_plus__Stripe_Account_Id__c,
+                (SELECT npe01__Payment_Method__c,
+                    Stripe_Customer_Id__c,
+                    Stripe_Payment_Id__c,
+                    Stripe_Transaction_Id__c
+                FROM npe01__OppPayment__r
+                ORDER BY CreatedDate DESC LIMIT 1)
+            FROM Opportunity
+            WHERE npsp__Batch__c = :batchId
+        ]);
 
-        List<String> conditions = new List<String>{ 'npsp__Batch__c = :batchId' };
+        SET<Id> contributionIds = vertic_Utils.sObjects.getIdFieldValues(contributions, 'Id');
 
-        if(this.request.getString('condition') != null){
-            conditions.add(this.request.getString('condition'));
-        }
-
-        queryFactory.setCondition(String.join(conditions, ' AND '));
-
-        List<Opportunity> contributions = Database.query(queryFactory.toSOQL());
-
-        this.response.getMapper().mapFromListSObjects('contributions', contributions);
+        this.response.getMapper().mapFromListSObjects('contributions', contributions, new vertic_AutoMapper.BinderQueue(new OpportunityPaymentBinder(contributionIds)));
         this.response.getMapper().mapAnyValue('batchId', batchId);
     }
 
-//    final Set<String> BATCH_APPROVER_PROFILES = new Set<String>{
-//        'Manager',
-//        'System Administrator'
-//    };
-
-
-
-
-
-//    private void mapHasBatchApprovePermission(){
-//
-//        List<PermissionSetAssignment> permissionSetAssignments = [
-//            SELECT
-//                AssigneeId,
-//                Id,
-//                PermissionSetId,
-//                PermissionSet.Name,
-//                SystemModstamp
-//            FROM PermissionSetAssignment
-//            WHERE PermissionSet.Name = 'Batch_Approver' AND AssigneeId = :UserInfo.getUserId()
-//            LIMIT 1
-//        ];
-//
-//        Profile profileVar = (Profile)vertic_Utils.arrays.firstOrNull(
-//        [SELECT Id, Name FROM Profile WHERE Id = :UserInfo.getProfileId()]
-//        );
-//
-//        Boolean hasAccessByProfile = profileVar != null && BATCH_APPROVER_PROFILES.contains(profileVar.Name);
-//        Boolean hasAccessByPermissionSet = !permissionSetAssignments.isEmpty();
-//
-//        Boolean hasAccess = hasAccessByProfile || hasAccessByPermissionSet;
-//
-//        this.response.getMapper().mapAnyValue('hasBatchApprovePermission', hasAccess);
-//    }
 
     /**
      * ==============================================================================================================
@@ -137,8 +101,26 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
      * ==============================================================================================================
      */
 
-    // Proposed Live Templates to override Super properties:
-    // vertic_meta_request
-    // vertic_meta_response
+    public class OpportunityPaymentBinder implements vertic_AutoMapper.IBinder {
+
+        private SET<Id> opportunityIds;
+
+        opportunityPaymentBinder(SET<Id> opportunityIds){
+            this.opportunityIds = opportunityIds;
+        }
+
+        public void bind(SObject record, Map<String, Object> dataMap) {
+
+            vertic_AutoMapper mapper = new vertic_AutoMapper(dataMap);
+
+            Opportunity opportunity = (Opportunity) record;
+
+            npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = opportunity.npe01__OppPayment__r[0].Id);
+
+            mapper.mapAnyValue('contribution.type', opportunity.npsp__Primary_Contact__c == null ? 'Organisation' : 'Contact');
+            mapper.mapAnyValue('contribution.Stripe_Customer_Id__c', oppPayment.Stripe_Customer_Id__c);
+            mapper.mapAnyValue('contribution.Stripe_Payment_Id__c', oppPayment.Stripe_Payment_Id__c);
+        }
+    }
 
 }
