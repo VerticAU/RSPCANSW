@@ -111,7 +111,6 @@
 
                 cmp.set('v.isBusy', false);
                 return resolve(cmp);
-
             });
 
         });

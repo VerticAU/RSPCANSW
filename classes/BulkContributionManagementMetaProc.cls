@@ -76,8 +76,8 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 Payment_Method__c,
                 Stripe_Payment_Id__c,
                 Stripe_Customer_Id__c,
+                Campaign.Stripe_Account_Id__c,
                 npsp__Primary_Contact__c,
-                Campaign.npsp_plus__Stripe_Account_Id__c,
                 (SELECT npe01__Payment_Method__c,
                     Stripe_Customer_Id__c,
                     Stripe_Payment_Id__c,
@@ -117,7 +117,6 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
 
             npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = opportunity.npe01__OppPayment__r[0].Id);
 
-            mapper.mapAnyValue('contribution.type', opportunity.npsp__Primary_Contact__c == null ? 'Organisation' : 'Contact');
             mapper.mapAnyValue('contribution.Stripe_Customer_Id__c', oppPayment.Stripe_Customer_Id__c);
             mapper.mapAnyValue('contribution.Stripe_Payment_Id__c', oppPayment.Stripe_Payment_Id__c);
         }

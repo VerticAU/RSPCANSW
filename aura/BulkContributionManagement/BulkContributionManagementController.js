@@ -63,6 +63,9 @@
                 message: responses.length == 1 ? 'The Donation has been successfully processed.' : 'The Donations have been successfully processed.',
             });
             cmp.set('v.meta.dto.contributions', [helper.newContribution(cmp, event, helper)]);
+
+            $A.get('e.force:refreshView').fire();
+
         }), $A.getCallback(function (responses) {
 
             var errors = responses.filter(function (response) {

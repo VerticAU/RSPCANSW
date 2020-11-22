@@ -60,15 +60,16 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
                 LIMIT 1
             ], 'Payment is not found for Contribution: ' + opportunity.Id);
 
-            npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
-                Id = payment.Id,
-                npe01__Payment_Amount__c = opportunity.Amount,
-                npsp_plus__Gateway_Transaction_ID__c = paymentIntentId,
-                npe01__Payment_Method__c = opportunity.Payment_Method__c,
-                npe01__Payment_Date__c = Date.today(),
-                npe01__Paid__c = true,
-                npe01__Written_Off__c = false
-            );
+            npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = payment.Id);
+            oppPayment.npe01__Payment_Amount__c = opportunity.Amount;
+            oppPayment.npsp_plus__Gateway_Transaction_ID__c = paymentIntentId;
+            oppPayment.npe01__Payment_Date__c = Date.today();
+            oppPayment.npe01__Paid__c = true;
+            oppPayment.npe01__Written_Off__c = false;
+            oppPayment.npe01__Payment_Method__c = opportunity.Payment_Method__c;
+            oppPayment.Stripe_Payment_Id__c = opportunity.Payment_Method__c == 'Credit Card' ? opportunity.Stripe_Payment_Id__c : '';
+            oppPayment.Stripe_Customer_Id__c = opportunity.Payment_Method__c == 'Credit Card' ? opportunity.Stripe_Customer_Id__c : '';
+
             update oppPayment;
 
             Opportunity uncompletedOpp = (Opportunity) vertic_Utils.arrays.firstOrNull([
