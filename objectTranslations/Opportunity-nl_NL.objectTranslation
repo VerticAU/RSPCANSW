@@ -42,8 +42,16 @@
         <name>Attended__c</name>
     </fields>
     <fields>
+        <label><!-- BSB --></label>
+        <name>BSB__c</name>
+    </fields>
+    <fields>
         <label><!-- Bank Account Number --></label>
         <name>Bank_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account --></label>
+        <name>Bank_Account__c</name>
     </fields>
     <fields>
         <label><!-- Bank Branch --></label>
@@ -384,6 +392,10 @@
             <masterLabel>RSPCA NSW Membership</masterLabel>
             <translation><!-- RSPCA NSW Membership --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Name on Cheque --></label>
+        <name>Name_on_Cheque__c</name>
     </fields>
     <fields>
         <label><!-- Narrative --></label>

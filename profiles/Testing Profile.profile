@@ -96,10 +96,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>AccountBadgesCtrl</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BadgesBaseCtrl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -369,6 +365,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>strike_utilities</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>vertic_CSVFlowProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1258,6 +1258,46 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Badge__mdt.Title__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Input_Format__mdt.Format__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Input_Format__mdt.True_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Input_Format__mdt.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Mapping__mdt.Active__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Mapping__mdt.CSV_Flow_Input_Format__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Mapping__mdt.Default__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Mapping__mdt.Disregard_Blank_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CSV_Flow_Mapping__mdt.Trim_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4112,7 +4152,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.BSB__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.Bank_Account_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Bank_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4323,6 +4373,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Membership_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Name_on_Cheque__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5948,6 +6003,15 @@
         <layout>Badge__mdt-Badge Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CSV_Flow_Input_Format__mdt-CSV Flow Input Format Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CSV_Flow_Mapping__mdt-CSV Flow Mapping Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CSV_Flow_Setting__mdt-CSV Flow Setting Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Campaign-Event Layout</layout>
         <recordType>Campaign.Event</recordType>
     </layoutAssignments>
@@ -6830,6 +6894,10 @@
     <tabVisibilities>
         <tab>Bulk_Donations</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>CSV_Data_Import</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Communication__c</tab>

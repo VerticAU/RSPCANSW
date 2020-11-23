@@ -10,10 +10,10 @@
                 var response = JSON.parse(responseJSON);
                 console.log('badgesVM', response);
                 component.set('v.badgesVM', response);
-                var badges = component.get('v.badgesVM.badges') || [];
-                badges.forEach(function(badge){
-                    helper.showToast(component, badge.title, badge.type, badge.recordId);
-                });
+                // var badges = component.get('v.badgesVM.badges') || [];
+                // badges.forEach(function(badge){
+                //     helper.showToast(component, badge.title, badge.type, badge.recordId);
+                // });
             }
         )
 

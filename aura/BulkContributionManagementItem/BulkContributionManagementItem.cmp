@@ -213,50 +213,47 @@
         <aura:if isTrue="{!v.contribution.Payment_Method__c == 'Cheque'}">
             <tr aura:id="chequeDetails" class="no-top-border">
                 <td colspan="3"></td>
-                <td data-label="Bank Number">
-                    <lightning:input label="Bank Number"
-                                     placeholder="Bank Number"
+                <td data-label="Cheque Number">
+                    <lightning:input label="Cheque Number"
+                                     placeholder="Cheque Number"
                                      required="{!true}"
-                                     value="{! v.contribution.Bank_Number__c }"
+                                     value="{! v.contribution.Cheque_Number__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted__c}"
-                                     maxlength="2"
                     />
                     <!--onchange="{!c.handleNumericOnly}"-->
 
                 </td>
                 <td data-label="Bank Branch">
-                    <lightning:input label="Bank Branch"
-                                     placeholder="Bank Branch"
+                    <lightning:input label="BSB"
+                                     placeholder="BSB"
                                      required="{!true}"
-                                     value="{! v.contribution.Bank_Branch__c }"
+                                     value="{! v.contribution.BSB__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted__c}"
-                                     maxlength="4"
                     />
                     <!--onchange="{!c.handleNumericOnly}"-->
 
                 </td>
                 <td data-label="Bank Account Number" colspan="1">
-                    <lightning:input label="Bank Account Number"
-                                     placeholder="Bank Account Number"
+                    <lightning:input label="Bank Account"
+                                     placeholder="Bank Account"
                                      required="{!true}"
-                                     value="{! v.contribution.Bank_Account_Number__c }"
+                                     value="{! v.contribution.Bank_Account__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted__c}"
-                                     maxlength="7"
                     />
                     <!--onchange="{!c.handleNumericOnly}"-->
 
                 </td>
                 <td data-label="Date" colspan="1">
-                    <lightning:input label="Cheque Drawer"
-                                     placeholder="Cheque Drawer"
+                    <lightning:input label="Name on Cheque"
+                                     placeholder="Name on Cheque"
                                      required="{!true}"
-                                     value="{! v.contribution.Cheque_Drawer__c }"
+                                     value="{! v.contribution.Name_on_Cheque__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted__c}"

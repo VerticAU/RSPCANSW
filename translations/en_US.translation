@@ -25,6 +25,10 @@
         <name>Bulk_Donations</name>
     </customTabs>
     <customTabs>
+        <label><!-- CSV Data Import --></label>
+        <name>CSV_Data_Import</name>
+    </customTabs>
+    <customTabs>
         <label><!-- Platform Events Listener --></label>
         <name>Platform_Events_Listener</name>
     </customTabs>
