@@ -20,9 +20,17 @@
         <label><!-- Philanthropy --></label>
         <name>Philanthropy</name>
     </customApplications>
+    <customLabels>
+        <label><!-- Messages_Market_Required --></label>
+        <name>Messages_Market_Required</name>
+    </customLabels>
     <customTabs>
         <label><!-- Bulk Donations --></label>
         <name>Bulk_Donations</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Bulk Receipting (c) --></label>
+        <name>Bulk_Receipting</name>
     </customTabs>
     <customTabs>
         <label><!-- CSV Data Import --></label>
@@ -131,6 +139,14 @@
     <flowDefinitions>
         <flows/>
         <fullName>Set_Previous_Opportunity_Amount</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Sheltermate_Adoptions_Import</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Sheltermate_Donations_Import</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>

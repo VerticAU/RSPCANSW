@@ -1,10 +1,5 @@
 public class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
 
-    private static final String PAYMENT_TYPE = 'SUCCESSFUL';
-    private static final String PAYMENT_METHOD = 'ALL';
-    private static final String PAYMENT_SOURCE = 'BPAY';
-    private static final String DATE_FIELD = 'PAYMENT';
-
     /**
      * ==============================================================================================================
      *                                              PROCESS
@@ -35,16 +30,16 @@ public class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
     private void getPayments() {
         System.debug('EzidebitGetPaymentsProc -> doSync');
 
-        List<EzidebitStructs.Payment> payments = new EzidebitPaymentProcessor(PaymentGatewayCredentialsProvider.getGatewayCredentials(
-            PaymentGatewayCredentialsProvider.PAYMENT_TRANSACTION_PAYMENT_METHOD_EZIDEBIT
-        )).getPayments(
-            PAYMENT_TYPE,
-            PAYMENT_METHOD,
-            PAYMENT_SOURCE,
+        List<EzidebitStructs.Payment> payments = new EzidebitPaymentProcessor(
+            payment_ProcessorFactory.getGatewayCredentials('EziDebit')
+        ).getPayments(
+            'SUCCESSFUL',
+            'ALL',
+            'BPAY',
             this.contactVar.BPAY_CRN__c,
             this.lastPaymentDate == null ? null : String.valueOf(this.lastPaymentDate),
             String.valueOf(Date.today()),
-            DATE_FIELD,
+            'PAYMENT',
             null,
             null
         );

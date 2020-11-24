@@ -3,17 +3,6 @@ public class EzidebitTest {
     @isTest
     static void testCRNBatch() {
 
-        insert new Payment_Gateway_Credentials__c(
-            Name = 'EZIDEBIT_SANDBOX',
-            API_Key__c = 'test',
-            API_Password__c = 'test',
-            API_Signature__c = 'test',
-            API_Username__c = 'test',
-            Is_Active__c = true,
-            Is_Test__c = true,
-            URL__c = 'https://api.demo.ezidebit.com.au/v3-5/nonpci'
-        );
-
         EzidebitPaymentProcessor.GetBPayCRNResponse_element element = new EzidebitPaymentProcessor.GetBPayCRNResponse_element();
 
         element.GetBPayCRNResult = new EzidebitPaymentProcessor.EziResponseOfDataTHgMB7oL();
@@ -27,9 +16,7 @@ public class EzidebitTest {
 
         Test.startTest();
 
-        EzidebitStructs.BPayCRN bPayCRN = new EzidebitPaymentProcessor(PaymentGatewayCredentialsProvider.getGatewayCredentials(
-            PaymentGatewayCredentialsProvider.PAYMENT_TRANSACTION_PAYMENT_METHOD_EZIDEBIT
-        )).getCRN(
+        EzidebitStructs.BPayCRN bPayCRN = new EzidebitPaymentProcessor(payment_ProcessorFactory.getGatewayCredentials('EziDebit')).getCRN(
             'test', 'Vertic'
         );
 
@@ -40,17 +27,6 @@ public class EzidebitTest {
 
     @isTest
     static void testGetPayments() {
-
-        insert new Payment_Gateway_Credentials__c(
-            Name = 'EZIDEBIT_SANDBOX',
-            API_Key__c = 'test',
-            API_Password__c = 'test',
-            API_Signature__c = 'test',
-            API_Username__c = 'test',
-            Is_Active__c = true,
-            Is_Test__c = true,
-            URL__c = 'https://api.demo.ezidebit.com.au/v3-5/nonpci'
-        );
 
         EzidebitPaymentProcessor.GetPaymentsResponse_element element = new EzidebitPaymentProcessor.GetPaymentsResponse_element();
 
@@ -69,9 +45,7 @@ public class EzidebitTest {
 
         Test.startTest();
 
-        List<EzidebitStructs.Payment> payments = new EzidebitPaymentProcessor(PaymentGatewayCredentialsProvider.getGatewayCredentials(
-            PaymentGatewayCredentialsProvider.PAYMENT_TRANSACTION_PAYMENT_METHOD_EZIDEBIT
-        )).getPayments(
+        List<EzidebitStructs.Payment> payments = new EzidebitPaymentProcessor(payment_ProcessorFactory.getGatewayCredentials('EziDebit')).getPayments(
             'SUCCESSFUL',
             'ALL',
             'BPAY',
@@ -106,17 +80,6 @@ public class EzidebitTest {
             ContactId = contact.Id
         );
         insert campaignMember;
-
-        insert new Payment_Gateway_Credentials__c(
-            Name = 'EZIDEBIT_SANDBOX',
-            API_Key__c = 'test',
-            API_Password__c = 'test',
-            API_Signature__c = 'test',
-            API_Username__c = 'test',
-            Is_Active__c = true,
-            Is_Test__c = true,
-            URL__c = 'https://api.demo.ezidebit.com.au/v3-5/nonpci'
-        );
 
         EzidebitPaymentProcessor.GetBPayCRNResponse_element element = new EzidebitPaymentProcessor.GetBPayCRNResponse_element();
 
@@ -157,17 +120,6 @@ public class EzidebitTest {
             ContactId = contact.Id
         );
         insert campaignMember;
-
-        insert new Payment_Gateway_Credentials__c(
-            Name = 'EZIDEBIT_SANDBOX',
-            API_Key__c = 'test',
-            API_Password__c = 'test',
-            API_Signature__c = 'test',
-            API_Username__c = 'test',
-            Is_Active__c = true,
-            Is_Test__c = true,
-            URL__c = 'https://api.demo.ezidebit.com.au/v3-5/nonpci'
-        );
 
         EzidebitPaymentProcessor.GetPaymentsResponse_element element = new EzidebitPaymentProcessor.GetPaymentsResponse_element();
 

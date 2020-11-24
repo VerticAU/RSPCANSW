@@ -1,0 +1,57 @@
+<aura:component description="BulkReceiptingConfirm" extends="c:vertic_Modal">
+
+    <!-- Attribute Overrides -->
+
+    <!-- Attributes -->
+    <aura:attribute name="payload" type="Map"/>
+
+    <!-- Events -->
+    <!-- <aura:registerEvent name="onSuccess" type="c:vertic_ComponentEvent"/>-->
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <aura:if isTrue="{!v.meta.dto.showResults != true}">
+        <p>Please note, this action will send <strong>{!v.payload.emailIds.length} Email</strong> receipt(s)</p>
+        <br/>
+        <p>Please click confirm to continue.</p>
+    </aura:if>
+
+    <aura:if isTrue="{!v.meta.dto.showResults == true}">
+        <c:BatchProgress aura:id="batchProgress"
+                         title="Sending Emails..."
+                         onComplete="{! c.handleBatchProgressComplete }"/>
+
+        <aura:if isTrue="{! v.meta.dto.isEmailsSent == true }">
+            <p>
+                The Emails have been sent.
+            </p>
+        </aura:if>
+    </aura:if>
+
+    <aura:set attribute="footer">
+        <aura:if isTrue="{!v.meta.dto.showResults != true}">
+
+            <lightning:button label="Cancel"
+                              class="slds-float_left"
+                              variant="neutral"
+                              onclick="{!c.handleCancelClick}"
+            />
+
+            <lightning:button label="Confirm"
+                              variant="brand"
+                              type="submit"
+                              disabled="{!v.isBusy == true}"
+                              onclick="{!c.handleConfirmClick}"
+            />
+        </aura:if>
+
+        <aura:if isTrue="{!v.meta.dto.showResults == true}">
+            <lightning:button label="Close"
+                              variant="neutral"
+                              onclick="{!c.handleCancelClick}"
+            />
+        </aura:if>
+    </aura:set>
+
+</aura:component>

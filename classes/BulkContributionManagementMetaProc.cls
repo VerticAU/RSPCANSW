@@ -65,6 +65,7 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
 
         List<Opportunity> contributions = new List<Opportunity>([
             SELECT Id,
+                BSB__c,
                 Amount,
                 AccountId,
                 CloseDate,
@@ -73,6 +74,9 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 Donor_Type__c,
                 isCompleted__c,
                 npsp__Batch__c,
+                Bank_Account__c,
+                Cheque_Number__c,
+                Name_on_Cheque__c,
                 Payment_Method__c,
                 Stripe_Payment_Id__c,
                 Stripe_Customer_Id__c,

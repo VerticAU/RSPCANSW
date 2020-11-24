@@ -1,0 +1,182 @@
+<aura:component description="BulkDonationReceiptingTable" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+
+    <!-- Attributes -->
+    <aura:attribute name="allSelected" type="Boolean" default="false"/>
+    <aura:attribute name="items" type="List"/>
+    <aura:attribute name="hasMore" type="Boolean"/>
+    <aura:attribute name="limit" type="Integer"/>
+    <!--<aura:attribute name="limitMessage" type="String" default=""/>-->
+
+    <!-- Events -->
+    <!-- <aura:registerEvent name="onSuccess" type="c:vertic_ComponentEvent"/>-->
+
+    <!-- Handlers -->
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>-->
+
+    <aura:method name="selectAll" action="{!c.handleSelectAll}"/>
+    <aura:method name="resetSelection" action="{!c.handleResetSelection}"/>
+    <aura:method name="getSelected" action="{!c.handleGetSelected}"/>
+
+    <aura:if isTrue="{! not(empty(v.items)) }">
+
+        <aura:if isTrue="{!v.hasMore}">
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                <span class="slds-assistive-text">warning</span>
+                <h2>Results are limited to {!v.limit} records. Please refine your search to find other records.</h2>
+            </div>
+        </aura:if>
+
+        <div class="slds-table--header-fixed_container" style="height: 700px;">
+            <div class="slds-scrollable_y" style="height: 700px;">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table--fixed-layout slds-table--header-fixed">
+                    <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-cell-fixed">
+                                <lightning:input type="checkbox"
+                                                 label="Select"
+                                                 variant="label-hidden"
+                                                 checked="{!v.allSelected}"
+                                                 onchange="{! c.handleAllSelectedChange }"
+                                />
+                            </div>
+                        </th>
+                        <th scope="col" style="width: 50px;">
+                            <div class="slds-truncate slds-cell-fixed" title="#">#</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Donation">Donation</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Contact">Donor</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Email">Email</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Date">Date</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Amount">Amount</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Campaign">Campaign</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Acknowledgment Date">Acknowledgment Date</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration var="record" items="{! v.items }" indexVar="index">
+                        <tr>
+                            <td style="width: 50px;">
+                                <lightning:input type="checkbox"
+                                                 label="Select"
+                                                 variant="label-hidden"
+                                                 checked="{!record.selected}"
+                                                 onchange="{! c.handleSelectedChange }"
+                                                 disabled="{!or(not(record.hasEmail), record.isEmailBounced)}"
+                                />
+                            </td>
+                            <td style="width: 50px;">
+                                <div class="slds-truncate" title="{#(index + 1)}">
+                                    {#(index + 1)}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="{#record.Name}">
+                                    <a href="{# '/' + record.Id}" target="_blank">{#record.Name}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title="{#record.donorName}">
+                                    <lightning:icon iconName="{!'standard:' + if(record.isIndividual, 'contact', 'account')}"
+                                                    size="x-small"
+                                                    class="slds-m-right_x-small"
+                                    />
+                                    <a href="{# '/' + record.donorId}" target="_blank">{#record.donorName}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">
+                                    <aura:if isTrue="{!not(record.hasEmail)}">
+                                        <lightning:helptext iconName="utility:warning"
+                                                            iconVariant="warning"
+                                                            content="No Email"
+                                                            size="x-small"
+                                                            class="slds-m-right_x-small"
+                                        />
+                                    </aura:if>
+                                    <aura:if isTrue="{!record.isEmailBounced}">
+                                        <lightning:helptext iconName="utility:warning"
+                                                            iconVariant="warning"
+                                                            content="Email is Bounced"
+                                                            size="x-small"
+                                                            class="slds-m-right_x-small"
+                                        />
+                                    </aura:if>
+                                    <aura:if isTrue="{!record.hasEmail}">
+                                        <a href="{# 'mailto:' + record.email}" target="_blank">{#record.email}</a>
+                                    </aura:if>
+                                </div>
+                            </td>
+                            <td>
+                                <aura:if isTrue="{#not(empty(record.CloseDate))}">
+                                    <div class="slds-truncate" title="">
+                                        <lightning:formattedDateTime value="{#record.CloseDate}"
+                                                                     year="numeric"
+                                                                     month="short"
+                                                                     day="numeric"
+                                        />
+                                    </div>
+                                </aura:if>
+                            </td>
+                            <td>
+                                <aura:if isTrue="{#not(empty(record.Amount))}">
+                                    <div class="slds-truncate" title="">
+                                        <lightning:formattedNumber value="{#record.Amount}"
+                                                                   style="currency"
+                                        />
+                                    </div>
+                                </aura:if>
+                            </td>
+                            <td>
+                                <aura:if isTrue="{#not(empty(record.CampaignId))}">
+                                    <div class="slds-truncate" title="{#record.Campaign.Name}">
+                                        <a href="{# '/' + record.CampaignId}" target="_blank">
+                                            {#record.Campaign.Name}
+                                        </a>
+                                    </div>
+                                </aura:if>
+                            </td>
+                            <td>
+                                <aura:if isTrue="{#not(empty(record.npsp__Acknowledgment_Date__c))}">
+                                    <div class="slds-truncate" title="">
+                                        <lightning:formattedDateTime value="{#record.npsp__Acknowledgment_Date__c}"
+                                                                     year="numeric"
+                                                                     month="short"
+                                                                     day="numeric"
+                                        />
+                                    </div>
+                                </aura:if>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--</aura:if>-->
+
+    </aura:if>
+
+    <aura:if isTrue="{!and(not(v.isBusy), empty(v.items))}">
+        <p class="slds-gutters slds-m-around_medium slds-text-align_center">
+            No Donations
+        </p>
+    </aura:if>
+
+</aura:component>

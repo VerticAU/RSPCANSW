@@ -1,0 +1,57 @@
+<aura:component description="BulkDonationReceipting" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="isFilterVisible" type="Boolean" default="{!true}"/>
+
+    <!-- Events -->
+    <!-- <aura:registerEvent name="onSuccess" type="c:vertic_ComponentEvent"/>-->
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <c:vertic_ModalService aura:id="modalService"/>
+
+    <div class="slds-grid listViewContainer safari-workaround">
+        <div class="slds-col slds-no-space forceListViewManagerPrimaryDisplayManager">
+            <lightning:accordion aura:id="accordion" activeSectionName="Select">
+                <lightning:accordionSection name="table" label="Select Donations">
+                    <aura:set attribute="actions">
+
+                        <lightning:button label="Export CSV"
+                                          iconName="utility:file"
+                                          disabled="{!v.isBusy}"
+                                          class="slds-m-right_x-small"
+                                          onclick="{!c.handleExportClick}"
+                        />
+
+                        <lightning:button label="Email Receipts"
+                                          variant="brand"
+                                          disabled="{!v.isBusy}"
+                                          class="slds-m-right_x-small"
+                                          onclick="{!c.handleReceipt}"
+                        />
+
+                        <lightning:buttonIconStateful iconName="utility:filterList"
+                                                      selected="{! v.isFilterVisible }"
+                                                      alternativeText="Search"
+                                                      class="slds-m-right_x-small"
+                                                      onclick="{!c.handleToggleSearchClick}"
+                        />
+                    </aura:set>
+                    <c:BulkDonationReceiptingTable aura:id="table"/>
+                </lightning:accordionSection>
+            </lightning:accordion>
+        </div>
+        <c:BulkReceiptingFilter class="slds-grid slds-no-flex forceListViewManagerSecondaryDisplayManager1"
+                                meta="{!v.meta}"
+                                forceHiddenSpinner="{!true}"
+                                isBusy="{!v.isBusy}"
+                                onSearch="{!c.handleSearch}"
+                                isVisible="{!v.isFilterVisible}"
+        />
+    </div>
+
+</aura:component>

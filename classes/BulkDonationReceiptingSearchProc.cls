@@ -1,0 +1,181 @@
+public without sharing class BulkDonationReceiptingSearchProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+
+    /**
+     * ==============================================================================================================
+     *                                              PROCESS
+     * ==============================================================================================================
+     */
+
+    public override vertic_Response process(vertic_Request request) {
+        this.request = request;
+
+        this.doSubmit();
+
+        return this.response;
+    }
+
+
+    /**
+     * ==============================================================================================================
+     *                                             PRIVATE METHODS
+     * ==============================================================================================================
+     */
+
+    private List<Opportunity> contributions;
+    public static final Integer SEARCH_LIMIT = 1000;
+
+    private void doSubmit() {
+
+        this.retrieveRecords();
+        this.mapRecords();
+
+    }
+
+    private void retrieveRecords() {
+
+        Date startDate = this.request.getISODate('filter.startDate');
+        Date endDate = this.request.getISODate('filter.endDate');
+        String campaignId = this.request.getString('filter.campaignId');
+        String contactId = this.request.getString('filter.contactId');
+        String accountId = this.request.getString('filter.accountId');
+        Boolean isIndividualOnly = this.request.getBoolean('filter.isIndividualOnly');
+        Boolean isOrganisationOnly = this.request.getBoolean('filter.isOrganisationOnly');
+        String acknowledgmentStatus = this.request.getString('filter.acknowledgmentStatus');
+
+        fflib_QueryFactory queryFactory = new fflib_QueryFactory(Opportunity.SObjectType);
+        queryFactory.selectFields(new Set<String>{
+            'Id',
+            'Name',
+            'npsp__Primary_Contact__c',
+            'npsp__Primary_Contact__r.Name',
+            'npsp__Primary_Contact__r.Email',
+            'npsp__Primary_Contact__r.IsEmailBounced',
+            'AccountId',
+            'Account.Name',
+            'Account.npe01__One2OneContact__c',
+            'Account.npe01__One2OneContact__r.Email',
+            'Account.npe01__One2OneContact__r.IsEmailBounced',
+            'CloseDate',
+            'Amount',
+            'CampaignId',
+            'Campaign.Name',
+            'npsp__Acknowledgment_Date__c'
+        });
+
+        List<String> conditions = new List<String>{
+            'npe03__Recurring_Donation__c = null',
+            'IsWon = true',
+            'npsp__Acknowledgment_Status__c != \'Do Not Acknowledge\''
+        };
+
+        if (startDate != null) {
+            conditions.add('CloseDate >= :startDate');
+        }
+        if (startDate != null) {
+            conditions.add('CloseDate <= :endDate');
+        }
+        if (String.isNotBlank(campaignId)) {
+            conditions.add('CampaignId = :campaignId');
+        }
+
+        if (String.isNotBlank(contactId)) {
+            conditions.add('npsp__Primary_Contact__c = :contactId');
+        }
+
+        if (String.isNotBlank(accountId)) {
+            conditions.add('AccountId = :accountId');
+        }
+
+        if(isIndividualOnly == true){
+            conditions.add('npsp__Primary_Contact__c != null');
+        }
+
+        if(isOrganisationOnly == true){
+            conditions.add('AccountId != null');
+            conditions.add('npsp__Primary_Contact__c = null');
+        }
+
+        if ('receipted'.equalsIgnoreCase(acknowledgmentStatus)) {
+            conditions.add('npsp__Acknowledgment_Date__c != null');
+        }
+        if ('unreceipted'.equalsIgnoreCase(acknowledgmentStatus)) {
+            conditions.add('npsp__Acknowledgment_Date__c = null');
+        }
+
+        queryFactory.setCondition(String.join(conditions, ' AND '));
+
+        queryFactory.getOrderings().clear();
+        queryFactory.addOrdering(Opportunity.npsp__Acknowledgment_Date__c, fflib_QueryFactory.SortOrder.ASCENDING, false);
+        queryFactory.addOrdering(Opportunity.CloseDate, fflib_QueryFactory.SortOrder.ASCENDING, true);
+
+        queryFactory.setLimit(SEARCH_LIMIT + 1);
+
+        this.contributions = Database.query(queryFactory.toSOQL());
+    }
+
+    private void mapRecords() {
+        this.response.getMapper().mapFromListSObjects(
+            'contributions',
+            this.contributions,
+            new vertic_AutoMapper.BinderQueue(new DonationBinder()),
+            SEARCH_LIMIT
+        );
+    }
+
+    public class DonationBinder extends vertic_AutoMapper.AbstractBinder {
+
+        public void bind(SObject record, Map<String, Object> dataMap) {
+            Opportunity donationVar = (Opportunity) record;
+
+            Boolean isIndividual = donationVar.npsp__Primary_Contact__c != null;
+
+            String donorId;
+            String donorName;
+
+            String email;
+            Boolean hasEmail = false;
+            Boolean isEmailBounced = false;
+            Boolean isDisabled = false;
+
+            if(isIndividual == true){
+                donorId = donationVar.npsp__Primary_Contact__c;
+                donorName = donationVar.npsp__Primary_Contact__r.Name;
+                email = donationVar.npsp__Primary_Contact__r.Email;
+                isEmailBounced = donationVar.npsp__Primary_Contact__r.IsEmailBounced == true;
+            } else if (donationVar.AccountId != null){
+
+                donorId = donationVar.AccountId;
+                donorName = donationVar.Account.Name;
+
+                if(donationVar.Account.npe01__One2OneContact__c != null){
+                    email = donationVar.Account.npe01__One2OneContact__r.Email;
+                    isEmailBounced = donationVar.Account.npe01__One2OneContact__r.IsEmailBounced == true;
+                }
+            }
+
+            hasEmail = String.isNotBlank(email);
+            isEmailBounced = hasEmail && isEmailBounced;
+            isDisabled = hasEmail == false || isEmailBounced == true;
+
+            dataMap.put('donorId', donorId);
+            dataMap.put('donorName', donorName);
+            dataMap.put('isIndividual', isIndividual);
+            dataMap.put('email', email);
+            dataMap.put('hasEmail', hasEmail);
+            dataMap.put('isEmailBounced', isEmailBounced);
+            dataMap.put('isDisabled', isDisabled);
+        }
+    }
+
+    /**
+     * ==============================================================================================================
+     *                                               STRUCTURES
+     * ==============================================================================================================
+     */
+
+    // Proposed Live Templates to override Super properties:
+    // vertic_request
+    // vertic_response
+
+
+}

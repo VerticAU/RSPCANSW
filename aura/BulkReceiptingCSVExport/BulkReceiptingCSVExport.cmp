@@ -1,0 +1,123 @@
+<aura:component description="BulkReceiptingCSVExport"
+                extends="c:vertic_Modal"
+                implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="csv" type="String"/>
+    <aura:attribute name="financialYear" type="String" access="global"/>
+    <aura:attribute name="filter" type="Map" access="global"/>
+    <aura:attribute name="financialYearsMeta" type="Map"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="onProgress" type="c:vertic_ComponentEvent"/>
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleFYLoad}"/>
+    <aura:handler name="change" value="{!v.filter.marketId}" action="{!c.handleFYLoad}"/>
+
+    <aura:handler event="c:vertic_ComponentEvent" name="onProgress" action="{!c.handleProgress}"/>
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <c:vertic_Utils context="{!this}"/>
+    <c:vertic_CSVUtils aura:id="csvUtils"/>
+
+    <aura:if isTrue="{!v.csv}">
+
+        <p>
+            The file was generated.
+        </p>
+
+        <br/>
+
+        <aura:if isTrue="{!v.meta.documentId}">
+            <lightning:fileCard fileId="{!v.meta.documentId}"/>
+            <aura:set attribute="else">
+                <lightning:fileUpload label="You can attach the generated file to the Market"
+                                      multiple="{!false}"
+                                      accept=".csv"
+                                      recordId="{!v.filter.marketId}"
+                                      onuploadfinished="{!c.handleUploadFinish}"
+                />
+            </aura:set>
+        </aura:if>
+
+        <aura:set attribute="else">
+            <p class="slds-text-align_center">
+                Please confirm you want to generate the Recurring List CSV for the selected market and period:
+            </p>
+
+            <br/>
+
+            <div class="slds-grid slds-gutters_small slds-p-horizontal__small" size="margin-bottom: 100px;">
+                <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                    <c:strike_lookup_clickable label="Market"
+                                               object="Market__c"
+                                               searchField="Name"
+                                               placeholder="Select a Market..."
+                                               iconName="custom:custom78"
+                                               order="Name"
+                                               limit="8"
+                                               loadingMessage="Loading..."
+                                               errorMessage="Invalid input"
+                                               showRecentRecords="{!true}"
+                                               disabled="{!v.isBusy}"
+                                               value="{!v.filter.marketId}"
+                                               required="{!true}"
+                    />
+                </div>
+                <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                    <aura:if isTrue="{!not(empty(v.financialYearsMeta))}">
+                        <c:vertic_Select label="Tax Year"
+                                         options="{!v.financialYearsMeta.selectOptions.financialYearOptions}"
+                                         disabled="{!or(v.isBusy, not(v.filter.marketId))}"
+                                         required="{!true}"
+                                         value="{!v.filter.financialYear}"
+                        />
+                    </aura:if>
+                </div>
+            </div>
+
+            <br/>
+
+            <aura:if isTrue="{!v.meta.dto.progress}">
+                <lightning:progressBar value="{!v.meta.dto.progress}"
+                                       class="slds-m-around_large"
+                                       size="medium"
+                />
+            </aura:if>
+        </aura:set>
+    </aura:if>
+
+
+
+    <aura:set attribute="footer">
+
+        <lightning:button onclick="{!c.handleCancel}"
+                          class="slds-float_left"
+                          label="Cancel"
+        />
+
+        <aura:if isTrue="{!v.csv}">
+            <lightning:button iconName="utility:file"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleDownloadFile}"
+                              variant="brand"
+                              label="Download CSV"
+            />
+            <aura:set attribute="else">
+                <lightning:button label="Confirm"
+                                  variant="brand"
+                                  onclick="{!c.handleConfirmClick}"
+                                  disabled="{!v.isBusy}"
+                />
+
+            </aura:set>
+        </aura:if>
+    </aura:set>
+
+
+</aura:component>

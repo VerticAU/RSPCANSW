@@ -1,0 +1,118 @@
+<aura:component description="BulkReceiptingFilter" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="class" type="String"/>
+    <aura:attribute name="isVisible" type="Boolean" default="{!true}"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="onSearch" type="c:vertic_ComponentEvent"/>
+
+    <!-- Handlers -->
+    <!--<aura:handler name="change" value="{!v.meta.dto.filter}" action="{!c.handleFilterChange}"/>-->
+
+    <aura:method name="refresh" action="{!c.handleFilterChange}"/>
+
+    <c:DockedPanel class="{!v.class}"
+                   isVisible="{!v.isVisible}"
+                   title="Search">
+
+        <aura:set attribute="items">
+
+            <lightning:input label="Start Date"
+                             type="date"
+                             class="slds-size_1-of-1"
+                             disabled="{!v.isBusy}"
+                             value="{!v.meta.dto.filter.startDate}"
+                             required="{!true}"
+            />
+
+            <lightning:input label="End Date"
+                             type="date"
+                             class="slds-size_1-of-1"
+                             disabled="{!v.isBusy}"
+                             value="{!v.meta.dto.filter.endDate}"
+                             min="{!v.meta.dto.filter.startDate}"
+                             required="{!true}"
+            />
+
+            <c:strike_lookup_clickable label="Campaign"
+                                       object="Campaign"
+                                       searchField="Name"
+                                       placeholder="Select a Campaign..."
+                                       iconName="standard:campaign"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.campaignId}"
+            />
+
+            <lightning:input type="toggle"
+                             label="Individual Donations Only"
+                             checked="{!v.meta.dto.filter.isIndividualOnly}"
+                             disabled="{!or(v.isBusy, v.meta.dto.filter.isOrganisationOnly)}"
+                             messageToggleActive=""
+                             messageToggleInactive=""
+            />
+
+            <c:strike_lookup_clickable label="Contact"
+                                       object="Contact"
+                                       searchField="Name"
+                                       placeholder="Select a Contact..."
+                                       iconName="standard:contact"
+                                       subtitleField="Email"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!or(v.isBusy, v.meta.dto.filter.isOrganisationOnly)}"
+                                       value="{!v.meta.dto.filter.contactId}"
+            />
+
+            <lightning:input type="toggle"
+                             label="Organisation Donations Only"
+                             checked="{!v.meta.dto.filter.isOrganisationOnly}"
+                             messageToggleActive=""
+                             messageToggleInactive=""
+                             disabled="{!or(v.isBusy, v.meta.dto.filter.isIndividualOnly)}"
+            />
+
+            <c:strike_lookup_clickable label="Account (Organisation)"
+                                       object="Account"
+                                       searchField="Name"
+                                       placeholder="Select a Account..."
+                                       iconName="standard:account"
+                                       subtitleField="Website"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!or(v.isBusy, v.meta.dto.filter.isIndividualOnly)}"
+                                       value="{!v.meta.dto.filter.accountId}"
+            />
+
+            <c:vertic_Select label="Receipt Status"
+                             options="[{value:'unreceipted', label:'Show only unreceipted Donations'},{value:'receipted', label:'Show only receipted Donations'}]"
+                             noneLabel="Show All Donations"
+                             disabled="{!v.isBusy}"
+                             class="slds-size_1-of-1"
+                             value="{!v.meta.dto.filter.acknowledgmentStatus}"
+            />
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:button label="Search"
+                              iconName="utility:search"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleFilterChange}"
+            />
+        </aura:set>
+    </c:DockedPanel>
+
+</aura:component>

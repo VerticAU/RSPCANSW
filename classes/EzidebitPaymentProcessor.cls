@@ -3,21 +3,21 @@
 //https://api.ezidebit.com.au/v3-5/nonpci?wsdl
 
 public class EzidebitPaymentProcessor {
-    private final static String LIVE_ENDPOINT_URL = 'https://api.ezidebit.com.au/v3-5'; // "/nonpci" OR "/pci"
-    private final static String TEST_ENDPOINT_URL = 'https://api.demo.ezidebit.com.au/v3-5'; // "/nonpci" OR "/pci"
+//    private final static String LIVE_ENDPOINT_URL = 'https://api.ezidebit.com.au/v3-5'; // "/nonpci" OR "/pci"
+//    private final static String TEST_ENDPOINT_URL = 'https://api.demo.ezidebit.com.au/v3-5'; // "/nonpci" OR "/pci"
 
     private final static Integer SUCCESS_RESULT = 0;
 
     private final NonPCIService nonPCIService;
     private final String digitalKey;
 
-    public EzidebitPaymentProcessor(Payment_Gateway_Credentials__c paymentGatewayCredentials) {
-        this(paymentGatewayCredentials.API_Key__c, paymentGatewayCredentials.Is_Test__c);
+    public EzidebitPaymentProcessor(SObject gatewayCredentials) {
+        this((Payment_EziDebit_Settings__mdt) gatewayCredentials);
     }
 
-    public EzidebitPaymentProcessor(String digitalKey, Boolean isTest) {
-        this.nonPCIService = new NonPCIService(isTest);
-        this.digitalKey = digitalKey;
+    public EzidebitPaymentProcessor(Payment_EziDebit_Settings__mdt gatewayCredentials) {
+        this.nonPCIService = new NonPCIService(gatewayCredentials.Endpoint__c);
+        this.digitalKey = gatewayCredentials.Digital_Key__c;
     }
 
     public EzidebitStructs.BPayCRN getCRN(String payerNumber, String username) {
@@ -134,8 +134,8 @@ public class EzidebitPaymentProcessor {
         private Integer timeout_x;
         private String[] ns_map_type_info = new String[]{'https://px.ezidebit.com.au/', 'EzidebitPaymentProcessor'};
 
-        private NonPCIService(Boolean isTest) {
-            this.endpoint_x = (isTest ? TEST_ENDPOINT_URL : LIVE_ENDPOINT_URL) + '/nonpci';
+        private NonPCIService(String endpoint) {
+            this.endpoint_x = endpoint + '/nonpci';
             this.timeout_x = 120000;
         }
 

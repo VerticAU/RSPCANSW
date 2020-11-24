@@ -32,5 +32,12 @@
             <translation><!-- Datetime --></translation>
         </picklistValues>
     </fields>
+    <layouts>
+        <layout>CSV Flow Input Format Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

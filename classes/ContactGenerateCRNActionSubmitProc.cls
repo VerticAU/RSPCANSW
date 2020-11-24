@@ -35,9 +35,7 @@ public without sharing class ContactGenerateCRNActionSubmitProc extends vertic_A
             throw new vertic_Structs.ValidationException('BPAY Client Contract Reference is empty!');
         }
 
-        this.bPayCRN = new EzidebitPaymentProcessor(PaymentGatewayCredentialsProvider.getGatewayCredentials(
-                PaymentGatewayCredentialsProvider.PAYMENT_TRANSACTION_PAYMENT_METHOD_EZIDEBIT
-        )).getCRN(
+        this.bPayCRN = new EzidebitPaymentProcessor(payment_ProcessorFactory.getGatewayCredentials('EziDebit')).getCRN(
             this.contact.BPAY_Contract_Reference__c, 'Vertic'
         );
 

@@ -606,6 +606,10 @@
             <translation><!-- Credit Card --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Direct Debit</masterLabel>
+            <translation><!-- Direct Debit --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>PayPal</masterLabel>
             <translation><!-- PayPal --></translation>
         </picklistValues>

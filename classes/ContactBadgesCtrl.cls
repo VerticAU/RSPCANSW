@@ -8,7 +8,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             throw new AuraHandledException(ex.getMessage() + ' ' + ex.getStackTraceString());
         }
     }
-
+    
     public class BadgesProcessor {
 
         private Id recordId;

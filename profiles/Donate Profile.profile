@@ -100,6 +100,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BadgesBaseCtrlTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkAnnualReceiptingGenerateProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkContributionManagementMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -117,6 +125,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BulkContributionManagementTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkDonationReceiptingGenerateProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkDonationReceiptingSearchProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -200,6 +216,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>EzidebitGetDDPaymentsProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EzidebitGetDDPaymentsScheduledProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EzidebitGetPaymentsBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -276,10 +300,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PaymentGatewayCredentialsProvider</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ProfilePhotoMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -349,6 +369,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>dlrs_npe03_Recurring_DonationTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>payment_ProcessorFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -5107,6 +5131,16 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Payment_EziDebit_Settings__mdt.Password__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payment_EziDebit_Settings__mdt.Username__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Description</field>
         <readable>true</readable>
@@ -6111,6 +6145,9 @@
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Payment_EziDebit_Settings__mdt-Payment EziDebit Settings Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6358,11 +6395,6 @@
         <recordType>Opportunity.Sponsorship</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.npsp_plus_dres__Donation</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Alert__c</tab>
         <visibility>Hidden</visibility>
@@ -6373,6 +6405,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Bulk_Donations</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Bulk_Receipting</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

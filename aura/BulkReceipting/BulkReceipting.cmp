@@ -1,0 +1,31 @@
+<aura:component description="BulkReceipting" extends="c:vertic_Base" implements="force:appHostable">
+
+    <!-- Attribute Overrides -->
+    <!--<aura:set attribute="processor" value="BulkDonationManagementMetaProc"/>-->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+
+    <!-- Events -->
+
+    <!-- Handlers -->
+    <!--<aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>-->
+
+    <lightning:notificationsLibrary aura:id="notificationLib"/>
+
+    <lightning:card variant="base" iconName="standard:text_template">
+        <aura:set attribute="title">
+            Bulk Receipting
+        </aura:set>
+
+        <lightning:tabset variant="scoped" class="slds-p-horizontal_x-small">
+            <lightning:tab label="Donation Receipting">
+                <c:BulkDonationReceipting />
+            </lightning:tab>
+            <lightning:tab label="Recurring Donation Receipting" id="Annual Donation Receipting">
+                <!--<c:BulkAnnualReceipting />-->
+            </lightning:tab>
+        </lightning:tabset>
+    </lightning:card>
+
+</aura:component>

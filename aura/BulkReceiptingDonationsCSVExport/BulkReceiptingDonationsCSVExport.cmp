@@ -1,0 +1,55 @@
+<aura:component description="BulkReceiptingDonationsCSVExport"
+                extends="c:vertic_Modal"
+                implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="processor" value="BulkReceiptingDonationsCSVExportMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <!--    <aura:attribute name="reportId" type="String"/>-->
+
+    <!-- Events -->
+    <!--    <aura:registerEvent name="onProgress" type="c:vertic_ComponentEvent"/>-->
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.baseHandleInit}"/>
+
+
+    <p class="slds-text-align_center1">
+        Please select the report to export:
+    </p>
+
+    <br/>
+
+    <div class="slds-grid slds-gutters_small slds-p-horizontal__small" size="margin-bottom: 100px;">
+        <div class="slds-col slds-has-flexi-truncate" role="listitem">
+            <c:strike_lookup_clickable label="Report"
+                                       placeholder="Search for Report..."
+                                       iconName="standard:report"
+                                       object="Report"
+                                       subtitleField="Description"
+                                       searchField="Name"
+                                       required="{!true}"
+                                       value="{!v.meta.dto.reportId}"
+            />
+        </div>
+    </div>
+
+
+    <aura:set attribute="footer">
+
+        <lightning:button onclick="{!c.handleCancel}"
+                          class="slds-float_left"
+                          label="Cancel"
+        />
+
+        <a href="{!'/' + v.meta.dto.reportId + '?export=1&amp;enc=UTF-8&amp;xf=csv&amp;isdtp=p1'}"
+           onclick="{!c.handleConfirmClick}"
+           target="_blank"
+           class="slds-button slds-button_brand">Export</a>
+
+    </aura:set>
+
+
+</aura:component>

@@ -1804,6 +1804,11 @@
                     <default>false</default>
                     <label>Asset - Securities</label>
                 </value>
+                <value>
+                    <fullName>Direct Debit</fullName>
+                    <default>false</default>
+                    <label>Direct Debit</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -4262,6 +4267,10 @@
             </values>
             <values>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Debit</fullName>
                 <default>false</default>
             </values>
             <values>
