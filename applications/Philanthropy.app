@@ -26,6 +26,7 @@
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
+    <tabs>Batch__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Philanthropy_UtilityBar</utilityBar>
 </CustomApplication>

@@ -25,7 +25,7 @@
             Bulk Donations
             <aura:if isTrue="{!not(empty(v.batchId))}">
                 <lightning:recordViewForm recordId="{!v.batchId}"
-                                          objectApiName="npsp__Batch__c"
+                                          objectApiName="Batch__c"
                                           class="slds-show_inline forceOutputLookupWithPreview">
                     - <a href="{!'/' + v.batchId}"
                          target="_blank"

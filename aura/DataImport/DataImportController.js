@@ -5,7 +5,7 @@
             cmp,
             'vertic_SOQLProc',
             {
-                'SOQL': 'SELECT Id, Label, DeveloperName, Flow_API_Name__c FROM CSV_Flow_Setting__mdt'
+                'SOQL': 'SELECT Id, Label, DeveloperName, Flow_API_Name__c FROM Flow_Setting__mdt WHERE Type__c = \'Data Import\''
             },
             function (response) {
                 var options = response.dto.records.map(function (record) {

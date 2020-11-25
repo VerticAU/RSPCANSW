@@ -172,6 +172,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ContactBadgesCtrlTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactDomain</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -547,7 +551,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Estate_Conditions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Estate_Received_Till_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Estate_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -693,11 +707,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Total_Amount_Received__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Total_Estate_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1282,6 +1291,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Batch__c.Batch_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch__c.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch__c.Number_of_Items__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch__c.Object_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CSV_Flow_Input_Format__mdt.Format__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1358,6 +1387,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Contact__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Cost_Centre__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2128,6 +2162,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Do_Not_Mail__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Do_Not_SMS__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3297,6 +3336,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Flow_Setting__mdt.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Idea.Attachment</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4193,6 +4237,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Bank_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Batch__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6021,6 +6070,9 @@
         <layout>Badge__mdt-Badge Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Batch__c-Batch Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CSV_Flow_Input_Format__mdt-CSV Flow Input Format Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6409,6 +6461,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Animal__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Batch__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

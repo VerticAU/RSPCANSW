@@ -1,4 +1,4 @@
-<aura:component description="TelemarketingImportFileUpload" extends="c:vertic_WizardStep">
+<aura:component description="ImportFileUpload" extends="c:vertic_WizardStep">
 
     <!-- Attribute Overrides -->
     <aura:set attribute="title" value="Upload Import File"/>

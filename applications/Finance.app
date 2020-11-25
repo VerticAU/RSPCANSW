@@ -17,6 +17,7 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>npsp__Batch__c</tabs>
+    <tabs>Batch__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Finance_UtilityBar</utilityBar>
 </CustomApplication>

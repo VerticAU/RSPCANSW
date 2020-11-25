@@ -8,7 +8,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             throw new AuraHandledException(ex.getMessage() + ' ' + ex.getStackTraceString());
         }
     }
-    
+
     public class BadgesProcessor {
 
         private Id recordId;
@@ -106,7 +106,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             for (Opportunity opportunityVar : opportunities) {
                 total += opportunityVar.Amount == null ? 0 : opportunityVar.Amount;
             }
-
+    
             if (!opportunities.isEmpty()) {
                 this.response.badges.add(new Badge(
                     'custom:custom17',

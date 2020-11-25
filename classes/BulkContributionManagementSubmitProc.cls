@@ -75,11 +75,11 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
             Opportunity uncompletedOpp = (Opportunity) vertic_Utils.arrays.firstOrNull([
                 SELECT Id
                 FROM Opportunity
-                WHERE npsp__Batch__c = :opportunity.npsp__Batch__c AND
+                WHERE Batch__c = :opportunity.Batch__c AND
                 isCompleted__c = false
             ]);
             if (uncompletedOpp == null) {
-                update new npsp__Batch__c(Id = opportunity.npsp__Batch__c, npsp__Batch_Status__c = 'Complete');
+                update new Batch__c(Id = opportunity.Batch__c, Batch_Status__c = 'Complete');
             }
 
             this.response.put('opportunityId', opportunity.Id);

@@ -24,7 +24,7 @@
                 <div class="slds-col slds-has-flexi-truncate" role="listitem">
 
                     <c:strike_lookup_clickable label="Please select Batch:"
-                                               object="npsp__Batch__c"
+                                               object="Batch__c"
                                                searchField="Name"
                                                placeholder="Select a Batch..."
                                                iconName="custom:custom42"
@@ -35,7 +35,7 @@
                                                showRecentRecords="{!true}"
                                                disabled="{!v.isBusy}"
                                                value="{!v.meta.dto.batchId}"
-                                               filter="npsp__Batch_Status__c = 'Pending'"
+                                               filter="Batch_Status__c = 'Pending'"
                     />
                 </div>
 

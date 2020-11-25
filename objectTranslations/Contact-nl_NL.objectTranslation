@@ -143,6 +143,10 @@
         <name>Do_Not_Mail__c</name>
     </fields>
     <fields>
+        <label><!-- Do Not SMS --></label>
+        <name>Do_Not_SMS__c</name>
+    </fields>
+    <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
     </fields>

@@ -18,6 +18,10 @@
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Cost Centre --></label>
+        <name>Cost_Centre__c</name>
+    </fields>
+    <fields>
         <label><!-- Default Giving Strategy Amount --></label>
         <name>Default_Giving_Strategy_Amount__c</name>
     </fields>

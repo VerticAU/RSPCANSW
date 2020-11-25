@@ -191,8 +191,16 @@
         <name>Estate_Balance__c</name>
     </fields>
     <fields>
+        <label><!-- Estate Conditions --></label>
+        <name>Estate_Conditions__c</name>
+    </fields>
+    <fields>
         <label><!-- Estate Received Till Date --></label>
         <name>Estate_Received_Till_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estate Value --></label>
+        <name>Estate_Value__c</name>
     </fields>
     <fields>
         <label><!-- External ID --></label>
@@ -260,10 +268,6 @@
     <fields>
         <label><!-- Total Amount Received --></label>
         <name>Total_Amount_Received__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Estate Value --></label>
-        <name>Total_Estate_Value__c</name>
     </fields>
     <fields>
         <label><!-- Twitter --></label>
@@ -541,10 +545,6 @@
         <sections>
             <label><!-- Contact Information --></label>
             <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label><!-- Contact Preferences --></label>
-            <section>Contact Preferences</section>
         </sections>
         <sections>
             <label><!-- Estate Details --></label>

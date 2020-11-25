@@ -1,7 +1,8 @@
 public class ScheduleManager{
 
     public static final List<Type> SCHEDULERS = new List<Type>{
-        EzidebitGetPaymentsScheduleProc.class
+        EzidebitGetPaymentsScheduleProc.class,
+        EzidebitGetDDPaymentsScheduledProc.class
     };
 
     public static void restart() {

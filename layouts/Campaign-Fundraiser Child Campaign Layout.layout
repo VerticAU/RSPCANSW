@@ -48,6 +48,10 @@
                 <behavior>Edit</behavior>
                 <field>Stripe_Account_Id__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cost_Centre__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

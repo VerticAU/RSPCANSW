@@ -11,10 +11,14 @@
     <tabs>standard-CmsExperiences</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
+    <tabs>Batch__c</tabs>
     <uiType>Lightning</uiType>
     <workspaceConfig>
         <mappings>
             <tab>Alert__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Batch__c</tab>
         </mappings>
         <mappings>
             <tab>npsp__Trigger_Handler__c</tab>

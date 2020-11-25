@@ -77,11 +77,11 @@
                 csvParsedData.errors = csvParsedData.errors.sort(function(a, b){return a.row - b.row});
             }
             cmp.set('v.meta.dto.csvParsedData', csvParsedData);
-        }).catch(function (error) { 
+        }).catch(function (error) {
             helper.utils(cmp).showToast({
                 message: JSON.stringify(error),
                 type: 'error'
-            }); 
+            });
         }).finally(function () {
             cmp.set('v.isBusy', false);
         });

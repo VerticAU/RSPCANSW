@@ -22,13 +22,13 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
 
     private vertic_UnitOfWork uow = new vertic_UnitOfWork(
         new List<SObjectType>{
-            npsp__Batch__c.SObjectType,
+            Batch__c.SObjectType,
             Opportunity.SObjectType
         },
         new vertic_UnitOfWork.DatabaseDMLIml()
     );
 
-    private npsp__Batch__c batchVar;
+    private Batch__c batchVar;
 
     private void doSubmit() {
 
@@ -56,8 +56,8 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
 
             this.uow.registerUpsert(opportunityVar);
 
-            if (opportunityVar.npsp__Batch__c == null) {
-                this.uow.registerRelationship(opportunityVar, Opportunity.npsp__Batch__c, this.batchVar);
+            if (opportunityVar.Batch__c == null) {
+                this.uow.registerRelationship(opportunityVar, Opportunity.Batch__c, this.batchVar);
             }
         }
         uow.commitWork();
@@ -75,7 +75,7 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
                 LIMIT 1
             )
             FROM Opportunity
-            WHERE npsp__Batch__c = :batchVar.Id
+            WHERE Batch__c = :batchVar.Id
             FOR UPDATE
         ];
 
@@ -114,22 +114,22 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
 
         this.assertBatchIsPending(batchId);
 
-        this.batchVar = new npsp__Batch__c(
+        this.batchVar = new Batch__c(
             Id = batchId,
             Name = 'Bulk Donation ' + System.now(),
-            npsp__Object_Name__c = 'Opportunity',
-            npsp__Batch_Status__c = 'Pending'
+            Object_Name__c = 'Opportunity',
+            Batch_Status__c = 'Pending'
         );
         this.uow.registerUpsert(batchVar);
     }
 
     private void assertBatchIsPending(String batchId) {
         if (String.isNotBlank(batchId)) {
-            npsp__Batch__c batchVar = (npsp__Batch__c) vertic_Utils.arrays.firstOrException(
-            [SELECT Id, npsp__Batch_Status__c FROM npsp__Batch__c WHERE Id = :batchId],
+            Batch__c batchVar = (Batch__c) vertic_Utils.arrays.firstOrException(
+            [SELECT Id, Batch_Status__c FROM Batch__c WHERE Id = :batchId],
                 'No Batch with Id: ' + batchId
             );
-            if (!'Pending'.equalsIgnoreCase(batchVar.npsp__Batch_Status__c)) {
+            if (!'Pending'.equalsIgnoreCase(batchVar.Batch_Status__c)) {
                 throw new vertic_Structs.ValidationException('Only Pending Bath can be saved.');
             }
         }

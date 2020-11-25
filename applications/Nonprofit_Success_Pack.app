@@ -23,6 +23,7 @@
     <tabs>npsp__Level__c</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
+    <tabs>Batch__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Nonprofit_Success_Pack_UtilityBar</utilityBar>
 </CustomApplication>

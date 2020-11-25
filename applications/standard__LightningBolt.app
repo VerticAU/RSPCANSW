@@ -8,5 +8,6 @@
     <tabs>standard-LightningBoltHome</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
+    <tabs>Batch__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

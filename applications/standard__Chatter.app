@@ -11,4 +11,5 @@
     <tabs>standard-File</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
+    <tabs>Batch__c</tabs>
 </CustomApplication>

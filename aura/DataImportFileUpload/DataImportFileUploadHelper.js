@@ -30,7 +30,7 @@
                     csvRowData.JSONData = JSON.stringify(csvRowData);
                     helper.utils(cmp).execute(
                         cmp,
-                        'vertic_CSVFlowProc',
+                        'vertic_FlowSettingProc',
                         {
                             settingName: cmp.get('v.meta.dto.flowSetting'), //'Data_Import',
                             inputs: csvRowData,

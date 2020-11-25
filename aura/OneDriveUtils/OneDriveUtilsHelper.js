@@ -158,7 +158,7 @@
                         "name": payload.folder,
                         "folder": {},
                         "description": "testDescription",
-                        "@microsoft.graph.conflictBehavior": "rename"
+                        "@microsoft.graph.conflictBehavior": "replace"
                     })
                 };
 
@@ -202,7 +202,7 @@
                 },
                 body: JSON.stringify({
                     "item": {
-                        "@microsoft.graph.conflictBehavior": "rename"
+                        "@microsoft.graph.conflictBehavior": "replace"
                     }
                 })
             };

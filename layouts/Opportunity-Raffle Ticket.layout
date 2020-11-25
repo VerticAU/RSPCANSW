@@ -82,6 +82,10 @@
                 <behavior>Edit</behavior>
                 <field>Name_on_Cheque__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Batch__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

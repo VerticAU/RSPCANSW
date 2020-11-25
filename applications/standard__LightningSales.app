@@ -89,5 +89,6 @@
     <tabs>standard-Forecasting3</tabs>
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
+    <tabs>Batch__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

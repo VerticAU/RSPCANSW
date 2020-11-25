@@ -238,6 +238,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Cost_Centre__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost Centre</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Default_Giving_Strategy_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Default Giving Strategy Amount</label>

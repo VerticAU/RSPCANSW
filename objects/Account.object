@@ -346,7 +346,7 @@
         <fullName>Cash_Amount_Received__c</fullName>
         <externalId>false</externalId>
         <label>Cash Amount Received</label>
-        <summarizedField>Opportunity.Amount</summarizedField>
+        <summarizedField>Opportunity.npe01__Payments_Made__c</summarizedField>
         <summaryFilterItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -618,7 +618,7 @@
     <fields>
         <fullName>Estate_Balance__c</fullName>
         <externalId>false</externalId>
-        <formula>Total_Estate_Value__c - Total_Amount_Received__c</formula>
+        <formula>Estate_Value__c - Total_Amount_Received__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Estate Balance</label>
         <precision>18</precision>
@@ -626,6 +626,16 @@
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estate_Conditions__c</fullName>
+        <externalId>false</externalId>
+        <label>Estate Conditions</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>Estate_Received_Till_Date__c</fullName>
@@ -638,6 +648,16 @@
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estate_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Estate Value</label>
+        <summarizedField>Opportunity.Amount</summarizedField>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>External_ID__c</fullName>
@@ -817,7 +837,7 @@
         <fullName>Property_Amount_Received__c</fullName>
         <externalId>false</externalId>
         <label>Property Amount Received</label>
-        <summarizedField>Opportunity.Amount</summarizedField>
+        <summarizedField>Opportunity.npe01__Payments_Made__c</summarizedField>
         <summaryFilterItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -855,7 +875,7 @@
         <fullName>Shares_Amount_Received__c</fullName>
         <externalId>false</externalId>
         <label>Shares Amount Received</label>
-        <summarizedField>Opportunity.Amount</summarizedField>
+        <summarizedField>Opportunity.npe01__Payments_Made__c</summarizedField>
         <summaryFilterItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -916,17 +936,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Total_Estate_Value__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Estate Value</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>

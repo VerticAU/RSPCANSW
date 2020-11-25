@@ -28,6 +28,18 @@
         <label><!-- Tags --></label>
         <name>Tags__c</name>
     </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Data Import</masterLabel>
+            <translation><!-- Data Import --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REST</masterLabel>
+            <translation><!-- REST --></translation>
+        </picklistValues>
+    </fields>
     <layouts>
         <layout>Flow Setting Layout</layout>
         <sections>

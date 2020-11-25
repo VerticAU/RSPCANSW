@@ -705,6 +705,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Batch__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Batch</label>
+        <referenceTo>Batch__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Bequest_Conditions__c</fullName>
         <description>Indicates any specific conditions or items associated with the Bequest</description>
         <externalId>false</externalId>
@@ -1860,6 +1874,11 @@
                     <default>false</default>
                     <label>Regular Payment</label>
                 </value>
+                <value>
+                    <fullName>Irregular Payment</fullName>
+                    <default>false</default>
+                    <label>Irregular Payment</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -2908,6 +2927,10 @@
         </picklistValues>
         <picklistValues>
             <picklist>Pledge_Type__c</picklist>
+            <values>
+                <fullName>Irregular Payment</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Regular Payment</fullName>
                 <default>false</default>

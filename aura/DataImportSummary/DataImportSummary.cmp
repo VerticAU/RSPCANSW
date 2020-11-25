@@ -1,4 +1,4 @@
-<aura:component description="TelemarketingImportSummary" extends="c:vertic_WizardStep">
+<aura:component description="ImportSummary" extends="c:vertic_WizardStep">
 
     <!-- Attribute Overrides -->
     <aura:set attribute="title" value="Import Results Summary"/>

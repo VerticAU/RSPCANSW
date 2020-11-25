@@ -93,4 +93,8 @@
         <field>Tags__c</field>
         <value xsi:nil="true"/>
     </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">REST</value>
+    </values>
 </CustomMetadata>

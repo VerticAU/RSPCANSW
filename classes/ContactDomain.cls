@@ -63,12 +63,17 @@ public without sharing class ContactDomain extends fflib_SObjectDomain implement
     public String formatState(String suburb){
         if(suburb == null || String.isEmpty(suburb)){ return null; }
 
-        List<Integer> charArray = new List<Integer>();
-        for(Integer charNum :  this.capitalizeAllWords(suburb).getChars()){
-            if(charNum < 91 && charNum > 64){
-                charArray.add(charNum);
-            }
-        }
-        return String.fromCharArray(charArray);
+        Map<String, String> stateAbbr = new Map<String, String>{
+            'newsouthwales' => 'NSW',
+            'queensland' => 'QLD',
+            'northernterritory' => 'NT',
+            'southaustralia' => 'SA',
+            'westernaustralia' => 'WA',
+            'victoria' => 'VIC',
+            'tasmania' => 'TAS',
+            'australiancapitalterritory' => 'ACT'
+        };
+
+        return stateAbbr.get(suburb.toLowerCase().trim().deleteWhitespace());
     }
 }

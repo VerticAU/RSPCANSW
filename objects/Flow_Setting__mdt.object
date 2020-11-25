@@ -48,6 +48,31 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <defaultValue>&quot;REST&quot;</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>REST</fullName>
+                    <default>true</default>
+                    <label>REST</label>
+                </value>
+                <value>
+                    <fullName>Data Import</fullName>
+                    <default>false</default>
+                    <label>Data Import</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>Flow Setting</label>
     <pluralLabel>Flow Settings</pluralLabel>
     <visibility>Public</visibility>

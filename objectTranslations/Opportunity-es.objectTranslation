@@ -62,6 +62,11 @@
         <name>Bank_Number__c</name>
     </fields>
     <fields>
+        <label><!-- Batch --></label>
+        <name>Batch__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <help><!-- Outline any specific items, i.e. property or shares, or conditions that are stated in the Will --></help>
         <label><!-- Bequest Conditions --></label>
         <name>Bequest_Conditions__c</name>
@@ -629,6 +634,10 @@
     <fields>
         <label><!-- Pledge Type --></label>
         <name>Pledge_Type__c</name>
+        <picklistValues>
+            <masterLabel>Irregular Payment</masterLabel>
+            <translation><!-- Irregular Payment --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Regular Payment</masterLabel>
             <translation><!-- Regular Payment --></translation>

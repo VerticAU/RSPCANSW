@@ -73,7 +73,7 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 Narrative__c,
                 Donor_Type__c,
                 isCompleted__c,
-                npsp__Batch__c,
+                Batch__c,
                 Bank_Account__c,
                 Cheque_Number__c,
                 Name_on_Cheque__c,
@@ -89,7 +89,7 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 FROM npe01__OppPayment__r
                 ORDER BY CreatedDate DESC LIMIT 1)
             FROM Opportunity
-            WHERE npsp__Batch__c = :batchId
+            WHERE Batch__c = :batchId
         ]);
 
         SET<Id> contributionIds = vertic_Utils.sObjects.getIdFieldValues(contributions, 'Id');
