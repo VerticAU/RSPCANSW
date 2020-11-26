@@ -1,9 +1,15 @@
 @isTest
 private class ContactMakeDeceasedActionCtrlTest {
     static testMethod void contactMakeDeceasedActionCtrlTest() {
+        Account account = new Account(
+            Name = 'testName'
+        );
+        insert account;
+
         Contact contact = new Contact(
             LastName = 'Test Name',
-            Email = 'test.name@email.com'
+            Email = 'test.name@email.com',
+            AccountId = account.Id
         );
         insert contact;
 
@@ -12,9 +18,9 @@ private class ContactMakeDeceasedActionCtrlTest {
             StageName = 'Enquiry',
             CloseDate = Date.today(),
             npsp__Primary_Contact__c = contact.Id,
-            RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Opportunity.SObjectType, 'Bequest'));
+            RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Bequest'));
         insert opp;
-
+        
         ContactMakeDeceasedActionCtrl.optOutEmailContact(contact.Id);
         ContactMakeDeceasedActionCtrl.makeDeceasedContact(contact.Id, Date.today(), Date.today());
 

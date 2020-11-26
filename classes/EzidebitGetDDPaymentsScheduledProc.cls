@@ -29,7 +29,7 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
      */
 
     public Database.QueryLocator start(Database.BatchableContext context) {
-        return Database.getQueryLocator('SELECT Id FROM npe03__Recurring_Donation__c WHERE npsp__Status__c = \'Active\' AND npsp__PaymentMethod__c = \'Direct Debit\' AND EziDebit_Customer_ID__c != null');
+        return Database.getQueryLocator('SELECT Id FROM Direct_Debit_Schedule__c WHERE Status__c = \'Active\' AND EziDebit_Customer_ID__c != null');
     }
 
     public void execute(Database.BatchableContext context, List<SObject> scope) {

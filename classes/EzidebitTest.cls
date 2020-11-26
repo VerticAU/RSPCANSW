@@ -70,8 +70,14 @@ public class EzidebitTest {
         );
         insert campaign;
 
+        Account account = new Account(
+            Name = 'testName'
+        );
+        insert account;
+
         Contact contact = new Contact(
-            LastName = 'test'
+            LastName = 'test',
+            AccountId = account.Id
         );
         insert contact;
 
@@ -109,9 +115,15 @@ public class EzidebitTest {
         );
         insert campaign;
 
+        Account account = new Account(
+                Name = 'testName'
+        );
+        insert account;
+
         Contact contact = new Contact(
             LastName = 'test',
-            BPAY_CRN__c = 'test'
+            BPAY_CRN__c = 'test',
+            AccountId = account.Id
         );
         insert contact;
 

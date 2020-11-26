@@ -24,6 +24,8 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
 
     private void doSubmit() {
 
+        Savepoint sp = Database.setSavepoint();
+
         String requestMapDump;
         try {
 
@@ -50,6 +52,8 @@ public without sharing class FlowPostProc extends vertic_AbstractProcessor {
             }
 
         } catch (Exception e) {
+            if(sp != null){ Database.rollback(sp); }
+
             this.response.error = new vertic_Structs.ErrorDetails(e.getMessage());
             this.response.isValid = false;
 

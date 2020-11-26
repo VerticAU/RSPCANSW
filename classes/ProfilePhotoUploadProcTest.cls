@@ -2,8 +2,14 @@
 private class ProfilePhotoUploadProcTest {
     static testMethod void testBehavior() {
 
+        Account account = new Account(
+                Name = 'testName'
+        );
+        insert account;
+
         Contact contactVar = new Contact(
-            LastName = 'test'
+                LastName = 'test',
+                AccountId = account.id
         );
         insert contactVar;
 

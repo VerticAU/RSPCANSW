@@ -147,7 +147,7 @@
         <name>Output_Assigment</name>
         <label>Output Assigment</label>
         <locationX>2675</locationX>
-        <locationY>713</locationY>
+        <locationY>714</locationY>
         <assignmentItems>
             <assignToReference>contactId</assignToReference>
             <operator>Assign</operator>
@@ -183,7 +183,7 @@
         <locationX>2062</locationX>
         <locationY>1478</locationY>
         <assignmentItems>
-            <assignToReference>errorMessage</assignToReference>
+            <assignToReference>FlowFaultMessage</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>$Flow.FaultMessage</elementReference>
@@ -919,7 +919,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>errorMessage</name>
+        <name>FlowFaultMessage</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

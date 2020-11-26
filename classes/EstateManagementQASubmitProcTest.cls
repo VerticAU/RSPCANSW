@@ -8,7 +8,10 @@ public with sharing class EstateManagementQASubmitProcTest {
     private static void test() {
         Account acc = new Account(Name = 'test');
 
-        Contact cnt = new Contact(LastName = 'test', Email = 'test@test.test');
+        Account account = new Account(Name = 'testName');
+        insert account;
+        
+        Contact cnt = new Contact(LastName = 'test', Email = 'test@test.test', AccountId = account.id);
         insert cnt;
 
         insert new Opportunity(

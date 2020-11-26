@@ -42,6 +42,7 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
         opportunity.StageName = 'Closed Won';
         opportunity.isCompleted__c = true;
         opportunity.RecordTypeId = donationRecType.Id;
+        opportunity.CloseDate = Date.today();
 
         Savepoint sp = Database.setSavepoint();
         try {
@@ -75,11 +76,11 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
             Opportunity uncompletedOpp = (Opportunity) vertic_Utils.arrays.firstOrNull([
                 SELECT Id
                 FROM Opportunity
-                WHERE Batch__c = :opportunity.Batch__c AND
+                WHERE npsp__Batch__c = :opportunity.npsp__Batch__c AND
                 isCompleted__c = false
             ]);
             if (uncompletedOpp == null) {
-                update new Batch__c(Id = opportunity.Batch__c, Batch_Status__c = 'Complete');
+                update new npsp__Batch__c(Id = opportunity.npsp__Batch__c, npsp__Batch_Status__c = 'Complete');
             }
 
             this.response.put('opportunityId', opportunity.Id);

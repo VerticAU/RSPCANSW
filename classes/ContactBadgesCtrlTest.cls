@@ -5,7 +5,7 @@
 @IsTest
 private class ContactBadgesCtrlTest {
     @IsTest
-    static void testWithValidId() {
+    static void test() {
         Account account = new Account(Name = 'test');
         insert account;
 
@@ -36,16 +36,19 @@ private class ContactBadgesCtrlTest {
         );
         opportunities.add(opp1);
 
-        npe03__Recurring_Donation__c recurringDonation = new npe03__Recurring_Donation__c(npsp__Status__c = 'Active');
-        insert recurringDonation;
-        Opportunity opp2 = new Opportunity(
-                Name = 'test',
-                StageName = 'Closed Won',
-                CloseDate = Date.today(),
-                npsp__Primary_Contact__c = contact.Id,
-                npe03__Recurring_Donation__c = recurringDonation.Id
-        );
-        opportunities.add(opp2);
+//        npe03__Recurring_Donation__c recurringDonation = new npe03__Recurring_Donation__c(
+//                npsp__Status__c = 'Active',
+//                npe03__Contact__c = contact.Id);
+//        insert recurringDonation;
+//
+//        Opportunity opp2 = new Opportunity(
+//                Name = 'test',
+//                StageName = 'Closed Won',
+//                CloseDate = Date.today(),
+//                npsp__Primary_Contact__c = contact.Id,
+//                npe03__Recurring_Donation__c = recurringDonation.Id
+//        );
+//        opportunities.add(opp2);
 
         Opportunity opp3 = new Opportunity(
                 Name = 'test',

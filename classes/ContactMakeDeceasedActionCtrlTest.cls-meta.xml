@@ -3,7 +3,7 @@
     <apiVersion>44.0</apiVersion>
     <packageVersions>
         <majorNumber>3</majorNumber>
-        <minorNumber>186</minorNumber>
+        <minorNumber>188</minorNumber>
         <namespace>npsp</namespace>
     </packageVersions>
     <status>Active</status>

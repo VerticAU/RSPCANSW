@@ -3,8 +3,16 @@ public with sharing class MembershipServiceTest {
     @isTest
     private static void test() {
 
+        Account account = new Account(
+                Name = 'testName'
+        );
+        insert account;
 
-        Contact cnt = new Contact(LastName = 'test', Email = 'test@test.test');
+        Contact cnt = new Contact(
+                LastName = 'test',
+                Email = 'test@test.test',
+                AccountId = account.Id
+        );
         insert cnt;
 
         Id devRecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Membership').getRecordTypeId();

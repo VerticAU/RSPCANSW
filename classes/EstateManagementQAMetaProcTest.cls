@@ -5,14 +5,19 @@
 public with sharing class EstateManagementQAMetaProcTest {
     @isTest
     private static void test() {
-        Contact contact = new Contact (LastName = 'test');
+        Account account = new Account(
+            Name = 'testName'
+        );
+        insert account;
+
+        Contact contact = new Contact (LastName = 'test', AccountId = account.Id);
         insert contact;
         Opportunity opp = new Opportunity(
                 Name = 'test',
                 StageName = 'Enquiry',
                 CloseDate = Date.today(),
                 npsp__Primary_Contact__c = contact.Id,
-                RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Opportunity.SObjectType, 'Bequest'));
+                RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Bequest'));
         insert opp;
 
         vertic_Response response = new EstateManagementQAMetaProc().process(new Map<String, Object>{

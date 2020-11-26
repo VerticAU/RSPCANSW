@@ -118,6 +118,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Raffle_Donations_Import</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Recurring_Donation_Created_Acknowledgement</fullName>
     </flowDefinitions>
     <flowDefinitions>
@@ -155,6 +159,10 @@
     <flowDefinitions>
         <flows/>
         <fullName>Test</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>ThankQ_DD_Import</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
