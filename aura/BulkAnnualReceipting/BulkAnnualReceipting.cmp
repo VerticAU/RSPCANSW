@@ -1,0 +1,69 @@
+<aura:component description="BulkAnnualReceipting" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="isFilterVisible" type="Boolean" default="{!true}"/>
+
+    <!-- Events -->
+    <!-- <aura:registerEvent name="onSuccess" type="c:vertic_ComponentEvent"/>-->
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <c:vertic_ModalService aura:id="modalService"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+
+    <div class="slds-grid listViewContainer safari-workaround">
+        <div class="slds-col slds-no-space forceListViewManagerPrimaryDisplayManager">
+            <lightning:accordion aura:id="accordion" activeSectionName="Select">
+                <lightning:accordionSection name="table" label="Select Contacts">
+                    <aura:set attribute="actions">
+
+                        <lightning:button label="Export CSV"
+                                          iconName="utility:file"
+                                          disabled="{!v.isBusy}"
+                                          class="slds-m-right_x-small"
+                                          onclick="{!c.handleExportClick}"
+                        />
+
+                        <lightning:button label="Generate Receipts"
+                                          variant="brand"
+                                          disabled="{!v.isBusy}"
+                                          class="slds-m-right_x-small"
+                                          onclick="{!c.handleReceipt}"
+                        />
+
+                        <lightning:buttonIconStateful iconName="utility:filterList"
+                                                      selected="{! v.isFilterVisible }"
+                                                      alternativeText="Search"
+                                                      class="slds-m-right_x-small"
+                                                      onclick="{!c.handleToggleSearchClick}"
+                        />
+
+                        <lightning:buttonMenu iconName="utility:settings"
+                                              alternativeText="Show menu"
+                                              menuAlignment="right"
+                                              onselect="{! c.handleTableSettingSelect }">
+                            <lightning:menuItem value="Select Only Letter" label="Select Only Letter"/>
+                            <lightning:menuItem value="Select Only Email" label="Select Only Email"/>
+                            <lightning:menuItem value="Set Letter Channel" label="Set Letter Channel"/>
+                            <lightning:menuItem value="Set Email Channel" label="Set Email Channel"/>
+                        </lightning:buttonMenu>
+                    </aura:set>
+                    <c:BulkAnnualReceiptingTable aura:id="table"/>
+                </lightning:accordionSection>
+            </lightning:accordion>
+        </div>
+        <c:BulkAnnualReceiptingFilter class="slds-grid slds-no-flex forceListViewManagerSecondaryDisplayManager1"
+                                      meta="{!v.meta}"
+                                      forceHiddenSpinner="{!true}"
+                                      isBusy="{!v.isBusy}"
+                                      onSearch="{!c.handleSearch}"
+                                      isVisible="{!v.isFilterVisible}"
+        />
+    </div>
+
+</aura:component>

@@ -108,6 +108,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkAnnualReceiptingSearchProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkContributionManagementMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -133,6 +137,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BulkDonationReceiptingSearchProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkReceiptingDonationsCSVExportMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -180,6 +188,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ContactDomainTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactGenerateCRNActionSubmitProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -189,6 +201,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactMakeDeceasedActionCtrlTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DateCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -269,6 +285,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GetExistingOrCreateStripeCustomerWrapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetFinancialYearsMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3211,12 +3231,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.Account_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.Account_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.BSB__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Direct_Debit_Schedule__c.Day_Of_Month__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Direct_Debit_Schedule__c.Day_Of_Week__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3231,7 +3271,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.Pledge_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.Serial_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Direct_Debit_Schedule__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Direct_Debit_Schedule__c.Token__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6506,6 +6561,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Communication__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Direct_Debit_Schedule__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

@@ -1,0 +1,8 @@
+.THIS th:not(:first-child) .slds-cell-fixed{
+    padding-left: 10px;
+}
+
+.THIS .slds-cell-fixed{
+    vertical-align: middle;
+    line-height: 2rem;
+}

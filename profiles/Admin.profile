@@ -108,6 +108,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkAnnualReceiptingSearchProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkContributionManagementMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -133,6 +137,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BulkDonationReceiptingSearchProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkReceiptingDonationsCSVExportMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -180,6 +188,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ContactDomainTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactGenerateCRNActionSubmitProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -189,6 +201,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactMakeDeceasedActionCtrlTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DateCalculator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -269,6 +285,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GetExistingOrCreateStripeCustomerWrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetFinancialYearsMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -3215,6 +3235,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.Account_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.Account_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.BSB__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Direct_Debit_Schedule__c.Day_Of_Month__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3225,17 +3260,37 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Direct_Debit_Schedule__c.EziDebit_Customer_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Direct_Debit_Schedule__c.Last_Payment_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.Pledge_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.Serial_Number__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Direct_Debit_Schedule__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.Token__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7060,6 +7115,10 @@
     <tabVisibilities>
         <tab>Communication__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Direct_Debit_Schedule__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Platform_Events_Listener</tab>

@@ -1,0 +1,80 @@
+<aura:component description="BulkAnnualReceiptingFilter" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="class" type="String"/>
+    <aura:attribute name="isVisible" type="Boolean" default="{!true}"/>
+    <aura:attribute name="financialYearsMeta" type="Map"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="onSearch" type="c:vertic_ComponentEvent"/>
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleFYLoad}"/>
+    <aura:handler name="change" value="{!v.meta.dto.filter.marketId}" action="{!c.handleFYLoad}"/>
+
+    <aura:method name="refresh" action="{!c.handleFilterChange}"/>
+
+
+    <c:DockedPanel class="{!v.class}"
+                   isVisible="{!v.isVisible}"
+                   title="Search">
+
+        <aura:set attribute="items">
+
+            <div class="slds-size_1-of-1">
+                <aura:if isTrue="{!not(empty(v.financialYearsMeta))}">
+                    <c:vertic_Select label="Tax Year"
+                                     options="{!v.financialYearsMeta.selectOptions.financialYearOptions}"
+                                     disabled="{!or(v.isBusy, not(v.meta.dto.filter.marketId))}"
+                                     required="{!true}"
+                                     value="{!v.meta.dto.filter.financialYear}"
+                    />
+                </aura:if>
+            </div>
+
+            <c:strike_lookup_clickable label="Contact"
+                                       object="Contact"
+                                       searchField="Name"
+                                       placeholder="Select a Contact..."
+                                       iconName="standard:contact"
+                                       subtitleField="Email"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.contactId}"
+            />
+
+            <c:vertic_Select label="Channel"
+                             options="[{value:'Email', label:'Email'}, {value:'Letter', label:'Letter'}]"
+                             noneLabel="Email and Letter"
+                             disabled="{!v.isBusy}"
+                             class="slds-size_1-of-1"
+                             value="{!v.meta.dto.filter.channel}"
+            />
+
+            <c:vertic_Select label="Receipt Status"
+                             options="[{value:'unreceipted', label:'Show only unreceipted items'},{value:'receipted', label:'Show only receipted items'}]"
+                             noneLabel="Show All Items"
+                             disabled="{!v.isBusy}"
+                             class="slds-size_1-of-1"
+                             value="{!v.meta.dto.filter.acknowledgmentStatus}"
+            />
+
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:button label="Search"
+                              iconName="utility:search"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleFilterChange}"
+            />
+        </aura:set>
+    </c:DockedPanel>
+
+
+</aura:component>

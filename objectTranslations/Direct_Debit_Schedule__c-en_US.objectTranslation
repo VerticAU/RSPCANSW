@@ -9,8 +9,20 @@
         <value>Direct Debit Schedules</value>
     </caseValues>
     <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Number --></label>
+        <name>Account_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Amount --></label>
         <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- BSB --></label>
+        <name>BSB__c</name>
     </fields>
     <fields>
         <label><!-- Day Of Month --></label>
@@ -168,6 +180,10 @@ NB - A value must be provided for this parameter when the Period Type is in &apo
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- EziDebit Customer ID --></label>
         <name>EziDebit_Customer_ID__c</name>
     </fields>
@@ -214,6 +230,14 @@ The frequency is applied to the payment scheduled beginning from the date define
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Pledge ID --></label>
+        <name>Pledge_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Start Date --></label>
         <name>Start_Date__c</name>
     </fields>
@@ -225,6 +249,10 @@ The frequency is applied to the payment scheduled beginning from the date define
             <translation><!-- Active --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Pending</masterLabel>
             <translation><!-- Pending --></translation>
         </picklistValues>
@@ -232,6 +260,10 @@ The frequency is applied to the payment scheduled beginning from the date define
             <masterLabel>Under Review</masterLabel>
             <translation><!-- Under Review --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Token --></label>
+        <name>Token__c</name>
     </fields>
     <fields>
         <help><!-- If appropriate, specifies if debits will occur on the day of the week specified by Day Of Week in the 1/2/3/4 week of each month.

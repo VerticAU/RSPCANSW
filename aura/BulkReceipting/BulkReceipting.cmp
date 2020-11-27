@@ -23,7 +23,7 @@
                 <c:BulkDonationReceipting />
             </lightning:tab>
             <lightning:tab label="Recurring Donation Receipting" id="Annual Donation Receipting">
-                <!--<c:BulkAnnualReceipting />-->
+                <c:BulkAnnualReceipting />
             </lightning:tab>
         </lightning:tabset>
     </lightning:card>

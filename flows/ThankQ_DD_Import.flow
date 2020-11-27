@@ -1,6 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>Assign_Values</name>
+        <label>Assign Values</label>
+        <locationX>578</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Amount</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Start_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>StartDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.End_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EndDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Account_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AccountName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Account_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AccountNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.BSB__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BSB</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Token__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Token</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Pledge_ID__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>PledgeID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Serial_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SerialNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Period_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Frequency</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Frequency_CASE</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Day_Of_Week</name>
+        <label>Set Day Of Week</label>
+        <locationX>50</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Day_Of_Week__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DayOfWeek</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>DD_Record_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Day_Of_Week_0</name>
+        <label>Set Day Of Week</label>
+        <locationX>314</locationX>
+        <locationY>638</locationY>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Day_Of_Week__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DayOfWeek</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>DD_Record_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Day_Of_Week_0_0</name>
+        <label>Set Day Of Week</label>
+        <locationX>578</locationX>
+        <locationY>638</locationY>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Day_Of_Week__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DayOfWeek</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>DD_Record_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Day_Of_Week_0_0_0</name>
+        <label>Set Day Of Week</label>
+        <locationX>842</locationX>
+        <locationY>638</locationY>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Day_Of_Week__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DayOfWeek</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>DD_Record_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Week_Of_Month</name>
+        <label>Set Week Of Month</label>
+        <locationX>50</locationX>
+        <locationY>638</locationY>
+        <assignmentItems>
+            <assignToReference>DirectDebitSchedule.Week_Of_Month__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>First;Third</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Day_Of_Week</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>DD_Record_Found</name>
+        <label>DD Record Found?</label>
+        <locationX>578</locationX>
+        <locationY>974</locationY>
+        <defaultConnector>
+            <targetReference>Create_DD_Schedule</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DirectDebitSchedule.Id</leftValueReference>
+                <operator>WasSet</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>DirectDebitSchedule.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_DD_Schedule</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Frequency_CASE</name>
+        <label>Frequency CASE</label>
+        <locationX>578</locationX>
+        <locationY>518</locationY>
+        <defaultConnector>
+            <targetReference>DD_Record_Found</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>Bi_Monthly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DirectDebitSchedule.Period_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>N</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Week_Of_Month</targetReference>
+            </connector>
+            <label>Bi-Monthly</label>
+        </rules>
+        <rules>
+            <name>Monthly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DirectDebitSchedule.Period_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>M</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Day_Of_Week_0</targetReference>
+            </connector>
+            <label>Monthly</label>
+        </rules>
+        <rules>
+            <name>Fortnightly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DirectDebitSchedule.Period_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>F</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Day_Of_Week_0_0</targetReference>
+            </connector>
+            <label>Fortnightly</label>
+        </rules>
+        <rules>
+            <name>X4_Weekly</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DirectDebitSchedule.Period_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>4</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Day_Of_Week_0_0_0</targetReference>
+            </connector>
+            <label>4 Weekly</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_EziDebit</name>
+        <label>Is EziDebit?</label>
+        <locationX>930</locationX>
+        <locationY>158</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_EziDebit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TokenGateway</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EziDebit</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Existing_DD_Schedule</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>DayOfWeek</name>
+        <dataType>String</dataType>
+        <expression>CASE( MOD( {!DirectDebitSchedule.Start_Date__c} - DATE(1900, 1, 7), 7), 0, &quot;MON&quot;, 1, &quot;MON&quot;, 2, &quot;TUE&quot;, 3,
+&quot;WED&quot;, 4, &quot;THU&quot;, 5, &quot;FRI&quot;, 6, &quot;MON&quot;,&quot;MON&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Frequency</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+  {!PaymentFrequency},
+  &quot;Monthly&quot;, &quot;M&quot;,
+  &quot;Fortnightly&quot;, &quot;F&quot;,
+  &quot;Bi-Monthly&quot;, &quot;N&quot;,
+  &quot;Half Yearly&quot;, &quot;H&quot;,
+  &quot;Weekly&quot;, &quot;W&quot;,
+  &quot;Quarterly&quot;, &quot;Q&quot;,
+  &quot;Annually&quot;, &quot;Y&quot;,
+  &quot;M&quot;
+)</expression>
+    </formulas>
     <interviewLabel>ThankQ DD Import {!$Flow.CurrentDateTime}</interviewLabel>
     <label>ThankQ DD Import</label>
     <processMetadataValues>
@@ -23,20 +334,81 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
-        <name>Create_Schedule</name>
-        <label>Create Schedule</label>
-        <locationX>176</locationX>
-        <locationY>158</locationY>
+        <name>Create_DD_Schedule</name>
+        <label>Create DD Schedule</label>
+        <locationX>710</locationX>
+        <locationY>1094</locationY>
         <inputReference>DirectDebitSchedule</inputReference>
     </recordCreates>
+    <recordLookups>
+        <name>Get_Existing_DD_Schedule</name>
+        <label>Get Existing DD Schedule</label>
+        <locationX>578</locationX>
+        <locationY>278</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Pledge_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>PledgeID</elementReference>
+            </value>
+        </filters>
+        <object>Direct_Debit_Schedule__c</object>
+        <outputAssignments>
+            <assignToReference>DirectDebitSchedule.Id</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_DD_Schedule</name>
+        <label>Update DD Schedule</label>
+        <locationX>446</locationX>
+        <locationY>1094</locationY>
+        <inputReference>DirectDebitSchedule</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>804</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Create_Schedule</targetReference>
+            <targetReference>Is_EziDebit</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
+    <variables>
+        <name>AccountName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>AccountNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Amount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>BSB</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>DirectDebitSchedule</name>
         <dataType>SObject</dataType>
@@ -44,5 +416,61 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Direct_Debit_Schedule__c</objectType>
+    </variables>
+    <variables>
+        <name>EndDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>PaymentFrequency</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>PaymentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>PledgeID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SerialNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>StartDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Token</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>TokenGateway</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>
