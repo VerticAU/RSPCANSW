@@ -213,6 +213,134 @@
         <name>Know_How_To_Get_To_Shelter__c</name>
     </fields>
     <fields>
+        <label><!-- Lead Channel --></label>
+        <name>Lead_Channel__c</name>
+        <picklistValues>
+            <masterLabel>Adopt Form</masterLabel>
+            <translation><!-- Adopt Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ambassador Application Form</masterLabel>
+            <translation><!-- Ambassador Application Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Become an RSPCA NSW Fundraiser</masterLabel>
+            <translation><!-- Become an RSPCA NSW Fundraiser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CSD Feedback Form</masterLabel>
+            <translation><!-- CSD Feedback Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CSD Participant Form</masterLabel>
+            <translation><!-- CSD Participant Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid Safe</masterLabel>
+            <translation><!-- Covid Safe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Express your interest in becoming an RSPCA NSW exceptional owner</masterLabel>
+            <translation><!-- Express your interest in becoming an RSPCA NSW exceptional owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEA for business</masterLabel>
+            <translation><!-- HEA for business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have your details changed?</masterLabel>
+            <translation><!-- Have your details changed? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can we help (GIW)</masterLabel>
+            <translation><!-- How can we help (GIW) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can we help (HEA)</masterLabel>
+            <translation><!-- How can we help (HEA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in RSPCA education visit?</masterLabel>
+            <translation><!-- Interested in RSPCA education visit? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in a Corporate Visit</masterLabel>
+            <translation><!-- Interested in a Corporate Visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in a corporate support day?</masterLabel>
+            <translation><!-- Interested in a corporate support day? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in an RSPCA community group education visit?</masterLabel>
+            <translation><!-- Interested in an RSPCA community group education visit? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our Family Fun Day?</masterLabel>
+            <translation><!-- Interested in our Family Fun Day? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our Microchipping course?</masterLabel>
+            <translation><!-- Interested in our Microchipping course? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our School Holiday Program?</masterLabel>
+            <translation><!-- Interested in our School Holiday Program? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our animal first aid course?</masterLabel>
+            <translation><!-- Interested in our animal first aid course? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in workplace giving?</masterLabel>
+            <translation><!-- Interested in workplace giving? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Is your adoptaversary coming up?</masterLabel>
+            <translation><!-- Is your adoptaversary coming up? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Join Team RSPCA</masterLabel>
+            <translation><!-- Join Team RSPCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Join Team RSPCA at City2Surf</masterLabel>
+            <translation><!-- Join Team RSPCA at City2Surf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Join Team RSPCA at the Sydney Morning Herald Half Marathon</masterLabel>
+            <translation><!-- Join Team RSPCA at the Sydney Morning Herald Half Marathon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learn more about honouring a loved one</masterLabel>
+            <translation><!-- Learn more about honouring a loved one --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learn more about leaving a gift in your will</masterLabel>
+            <translation><!-- Learn more about leaving a gift in your will --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA at Blackmore&apos;s Running Festival</masterLabel>
+            <translation><!-- RSPCA at Blackmore&apos;s Running Festival --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Cruelty</masterLabel>
+            <translation><!-- Report Cruelty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support RSPCA at your wedding or event</masterLabel>
+            <translation><!-- Support RSPCA at your wedding or event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tell Us your Birthday</masterLabel>
+            <translation><!-- Tell Us your Birthday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual RSVP</masterLabel>
+            <translation><!-- Virtual RSVP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Lifestyle Description --></label>
         <name>Lifestyle_Description__c</name>
     </fields>

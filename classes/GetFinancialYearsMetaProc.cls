@@ -9,9 +9,7 @@ public class GetFinancialYearsMetaProc extends vertic_MetadataProcessor {
     public override vertic_Response process(vertic_Request request) {
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
 
-        this.request.fields = new Set<SObjectField>{
-            // SObject Fields, e.g. Contact.Salutation
-        };
+        this.request.fields = new Set<SObjectField>{};
 
         super.process(this.request);
 
@@ -29,16 +27,13 @@ public class GetFinancialYearsMetaProc extends vertic_MetadataProcessor {
 
     private void init() {
 
-//        Date startDate = this.request.has('startDate') ? this.request.getISODate('startDate') : null;
         Integer year = this.request.has('year') ? this.request.getInteger('year') : Date.today().year();
         Integer yearsBefore = this.request.has('yearsBefore') ? this.request.getInteger('yearsBefore') : 3;
-        Integer yearsAfter = this.request.has('yearsAfter') ? this.request.getInteger('yearsAfter') : 3;
+        Integer yearsAfter = this.request.has('yearsAfter') ? this.request.getInteger('yearsAfter') : 1;
 
         Integer FYStart = 1;
 
-        if (this.request.has('FYStart')) {
-            FYStart = this.request.getInteger('FYStart');
-        }
+        if (this.request.has('FYStart')) { FYStart = this.request.getInteger('FYStart'); }
 
         Integer startYear = year - yearsBefore;
         Integer endYear = year + yearsAfter;
@@ -50,17 +45,12 @@ public class GetFinancialYearsMetaProc extends vertic_MetadataProcessor {
         List<vertic_Structs.SelectOption> financialYearOptions = new List<vertic_Structs.SelectOption>();
 
         for (Integer currentYear = startYear; currentYear <= endYear; currentYear++) {
-            DateCalculator dateCalculatorVar = new DateCalculator(Date.newInstance(
-                currentYear,
-                1,
-                1
-            ), FYStart);
+            DateCalculator dateCalculatorVar = new DateCalculator(Date.newInstance(currentYear, 1, 1), FYStart);
 
             Date startDate = dateCalculatorVar.thisFinancialYearStartDate();
             Date endDate = dateCalculatorVar.thisFinancialYearEndDate();
 
-            financialYearOptions.add(new vertic_Structs.SelectOption(
-                '' + currentYear,
+            financialYearOptions.add(new vertic_Structs.SelectOption('' + currentYear,
                 String.format('{0} - {1}', new List<String>{
                     startDate.format(), endDate.format()
                 })

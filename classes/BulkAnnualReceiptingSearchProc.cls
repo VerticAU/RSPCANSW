@@ -33,56 +33,53 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
 
     private void retrieveContacts() {
 
-//        Integer financialYear = this.request.getInteger('filter.financialYear');
-        String contactId = this.request.getString('filter.contactId');
-        String marketId = this.request.getString('filter.marketId');
-        String channel = this.request.getString('filter.channel');
-        String acknowledgmentStatus = this.request.getString('filter.acknowledgmentStatus');
-
         Date startDate = this.request.getISODate('filter.startDate');
         Date endDate = this.request.getISODate('filter.endDate');
+        String campaignId = this.request.getString('filter.campaignId');
+        String contactId = this.request.getString('filter.contactId');
+        String accountId = this.request.getString('filter.accountId');
+        Boolean isIndividualOnly = this.request.getBoolean('filter.isIndividualOnly');
+        Boolean isOrganisationOnly = this.request.getBoolean('filter.isOrganisationOnly');
 
         Set<Id> contactIds = new Set<Id>();
 
         List<String> contributionConditions = new List<String>{
-            'Status__c = \'Processed\'',
-            'Amount__c >= 0',
-            'Date__c != null'
+            'npsp__Status__c = \'Processed\'',
+            'npe03__Amount__c >= 0',
+            'npe03__Date_Established__c != null'
         };
 
         if (startDate != null) {
-            contributionConditions.add('Date__c >= :startDate');
+            contributionConditions.add('npe03__Date_Established__c >= :startDate');
         }
 
         if (endDate != null) {
-            contributionConditions.add('Date__c <= :endDate');
+            contributionConditions.add('npe03__Date_Established__c <= :endDate');
+        }
+
+        if (String.isNotBlank(campaignId)) {
+            contributionConditions.add('CampaignId = :campaignId');
         }
 
         if (String.isNotBlank(contactId)) {
-            contributionConditions.add('Contact__c = :contactId');
+            contributionConditions.add('npe03__Contact__c = :contactId');
         }
 
-        if(String.isNotBlank(marketId)){
-            contributionConditions.add('Market__c = :marketId');
+        if (String.isNotBlank(accountId)) {
+            contributionConditions.add('AccountId = :accountId');
         }
 
-        if ('receipted'.equalsIgnoreCase(acknowledgmentStatus)) {
-            contributionConditions.add('Contact__r.Last_Receipt_Date__c != null');
-        }
-        if ('unreceipted'.equalsIgnoreCase(acknowledgmentStatus)) {
-            contributionConditions.add('Contact__r.Last_Receipt_Date__c = null');
+        if(isIndividualOnly == true){
+            contributionConditions.add('npe03__Contact__c != null');
         }
 
-        if ('Email'.equalsIgnoreCase(channel)) {
-            contributionConditions.add('(Contact__r.Email != null AND Contact__r.Receipt_Preference__c = \'Email\')');
-        }
-
-        if ('Letter'.equalsIgnoreCase(channel)) {
-            contributionConditions.add('((Contact__r.Receipt_Preference__c = \'Letter\') OR (Contact__c != null AND Contact__r.Receipt_Preference__c = null))');
+        if(isOrganisationOnly == true){
+            contributionConditions.add('AccountId != null');
+            contributionConditions.add('npe03__Contact__c = null');
         }
 
         String aggregateSOQL = String.format(
-            'SELECT Contact__c, COUNT(Id) FROM Donation__c WHERE {0} GROUP BY Contact__c LIMIT {1}',
+            'SELECT npe03__Contact__c, COUNT(Id) FROM npe03__Recurring_Donation__c WHERE {0} GROUP BY npe03__Contact__c LIMIT {1}',
             new List<String>{
                 String.join(contributionConditions, ' AND '),
                 String.valueOf(SEARCH_LIMIT + 1)
@@ -90,31 +87,24 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         );
 
         List<AggregateResult> aggregateResults = Database.query(aggregateSOQL);
-
         for (AggregateResult aggregateResultVar : aggregateResults) {
-            contactIds.add((Id) aggregateResultVar.get('Contact__c'));
+            contactIds.add((Id) aggregateResultVar.get('npe03__Contact__c'));
         }
-
 
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(Contact.SObjectType);
         queryFactory.selectFields(new Set<String>{
             'Id',
             'Name',
-            'Email',
-            'Receipt_Preference__c',
-            'Last_Receipt_Date__c'
+            'Email'
+//            'Last_Receipt_Date__c'
         });
 
-        List<String> conditions = new List<String>{
-            'Id IN :contactIds'
-        };
-
+        List<String> conditions = new List<String>{ 'Id IN :contactIds' };
         if (!conditions.isEmpty()) {
             queryFactory.setCondition(String.join(conditions, ' AND '));
         }
 
         queryFactory.getOrderings().clear();
-//        queryFactory.addOrdering(Contact.Last_Receipt_Date__c, fflib_QueryFactory.SortOrder.ASCENDING, false);
         queryFactory.addOrdering(Contact.Name, fflib_QueryFactory.SortOrder.ASCENDING);
         queryFactory.setLimit(SEARCH_LIMIT + 1);
 
@@ -131,28 +121,7 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
     }
 
     public class CommitmentChannelBinder extends vertic_AutoMapper.AbstractBinder {
-
         public void bind(SObject record, Map<String, Object> dataMap) {
-            Contact contactVar = (Contact) record;
-
-            Boolean hasEmail;
-            String channel = 'Letter';
-
-            hasEmail = String.isNotBlank(contactVar.Email);
-//            channel = vertic_Utils.objects.defaultIfNull(contactVar.Receipt_Preference__c, 'Letter');
-
-            List<String> channels = new List<String>{
-                'Letter'
-            };
-
-            if (hasEmail) {
-                channels.add('Email');
-            } else {
-                channel = 'Letter';
-            }
-
-            dataMap.put('channels', channels);
-            dataMap.put('channel', channel);
             dataMap.put('selected', true);
         }
     }

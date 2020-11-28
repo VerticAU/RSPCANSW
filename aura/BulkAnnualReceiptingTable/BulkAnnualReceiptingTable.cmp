@@ -48,12 +48,9 @@
                         <th scope="col">
                             <div class="slds-truncate slds-cell-fixed" title="contact">Donor</div>
                         </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Last Receipt Date">Last Receipt Date</div>
-                        </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Channel">Channel</div>
-                        </th>
+                        <!--<th scope="col">-->
+                            <!--<div class="slds-truncate slds-cell-fixed" title="Last Receipt Date">Last Receipt Date</div>-->
+                        <!--</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -79,32 +76,20 @@
                                     </a>
                                 </div>
                             </td>
-                            <td>
-                                <aura:if isTrue="{#not(empty(contact.Last_Receipt_Date__c))}">
-                                    <div class="slds-truncate" title="">
-                                        <lightning:formattedDateTime value="{#contact.Last_Receipt_Date__c}"
-                                                                     year="numeric"
-                                                                     month="numeric"
-                                                                     day="numeric"
-                                                                     hour="2-digit"
-                                                                     minute="2-digit"
-                                                                     hour12="true"
-                                        />
-                                    </div>
-                                </aura:if>
-                            </td>
-                            <td>
-                                <lightning:select label="Channel"
-                                                  class="label-hidden"
-                                                  value="{!contact.channel}"
-                                                  required="{!true}"
-                                                  variant="label-hidden">
-                                    <option value="" label="-- None --">-- None --</option>
-                                    <aura:iteration items="{!contact.channels}" var="option">
-                                        <option value="{#option}" label="{#option}">{#option}</option>
-                                    </aura:iteration>
-                                </lightning:select>
-                            </td>
+                            <!--<td>-->
+                                <!--<aura:if isTrue="{#not(empty(contact.Last_Receipt_Date__c))}">-->
+                                    <!--<div class="slds-truncate" title="">-->
+                                        <!--<lightning:formattedDateTime value="{#contact.Last_Receipt_Date__c}"-->
+                                                                     <!--year="numeric"-->
+                                                                     <!--month="numeric"-->
+                                                                     <!--day="numeric"-->
+                                                                     <!--hour="2-digit"-->
+                                                                     <!--minute="2-digit"-->
+                                                                     <!--hour12="true"-->
+                                        <!--/>-->
+                                    <!--</div>-->
+                                <!--</aura:if>-->
+                            <!--</td>-->
                         </tr>
                     </aura:iteration>
                     </tbody>

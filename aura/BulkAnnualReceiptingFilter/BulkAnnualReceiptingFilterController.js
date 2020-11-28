@@ -3,12 +3,7 @@
 
         cmp.set('v.meta.dto.filter.financialYear', null);
 
-        helper.execute(
-            cmp,
-            'GetFinancialYearsMetaProc',
-            {
-                marketId: cmp.get('v.meta.dto.filter.marketId')
-            },
+        helper.execute(cmp, 'GetFinancialYearsMetaProc', {},
             function (response) {
                 cmp.set('v.financialYearsMeta', response);
                 setTimeout(function () {
@@ -16,7 +11,6 @@
                 });
             }
         );
-
     },
 
     handleFilterChange: function(cmp, event, helper){
@@ -39,9 +33,7 @@
 
         var event = cmp.getEvent('onSearch');
         event.setParams({
-            payload: {
-                filter: filter
-            }
+            payload: { filter: filter }
         });
         event.fire();
     },

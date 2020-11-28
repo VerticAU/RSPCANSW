@@ -906,6 +906,175 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lead_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Channel</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Adopt Form</fullName>
+                    <default>false</default>
+                    <label>Adopt Form</label>
+                </value>
+                <value>
+                    <fullName>Ambassador Application Form</fullName>
+                    <default>false</default>
+                    <label>Ambassador Application Form</label>
+                </value>
+                <value>
+                    <fullName>Become an RSPCA NSW Fundraiser</fullName>
+                    <default>false</default>
+                    <label>Become an RSPCA NSW Fundraiser</label>
+                </value>
+                <value>
+                    <fullName>Covid Safe</fullName>
+                    <default>false</default>
+                    <label>Covid Safe</label>
+                </value>
+                <value>
+                    <fullName>CSD Feedback Form</fullName>
+                    <default>false</default>
+                    <label>CSD Feedback Form</label>
+                </value>
+                <value>
+                    <fullName>CSD Participant Form</fullName>
+                    <default>false</default>
+                    <label>CSD Participant Form</label>
+                </value>
+                <value>
+                    <fullName>Express your interest in becoming an RSPCA NSW exceptional owner</fullName>
+                    <default>false</default>
+                    <label>Express your interest in becoming an RSPCA NSW exceptional owner</label>
+                </value>
+                <value>
+                    <fullName>Have your details changed?</fullName>
+                    <default>false</default>
+                    <label>Have your details changed?</label>
+                </value>
+                <value>
+                    <fullName>HEA for business</fullName>
+                    <default>false</default>
+                    <label>HEA for business</label>
+                </value>
+                <value>
+                    <fullName>How can we help (GIW)</fullName>
+                    <default>false</default>
+                    <label>How can we help (GIW)</label>
+                </value>
+                <value>
+                    <fullName>How can we help (HEA)</fullName>
+                    <default>false</default>
+                    <label>How can we help (HEA)</label>
+                </value>
+                <value>
+                    <fullName>Interested in a corporate support day?</fullName>
+                    <default>false</default>
+                    <label>Interested in a corporate support day?</label>
+                </value>
+                <value>
+                    <fullName>Interested in a Corporate Visit</fullName>
+                    <default>false</default>
+                    <label>Interested in a Corporate Visit</label>
+                </value>
+                <value>
+                    <fullName>Interested in an RSPCA community group education visit?</fullName>
+                    <default>false</default>
+                    <label>Interested in an RSPCA community group education visit?</label>
+                </value>
+                <value>
+                    <fullName>Interested in our animal first aid course?</fullName>
+                    <default>false</default>
+                    <label>Interested in our animal first aid course?</label>
+                </value>
+                <value>
+                    <fullName>Interested in our Family Fun Day?</fullName>
+                    <default>false</default>
+                    <label>Interested in our Family Fun Day?</label>
+                </value>
+                <value>
+                    <fullName>Interested in our Microchipping course?</fullName>
+                    <default>false</default>
+                    <label>Interested in our Microchipping course?</label>
+                </value>
+                <value>
+                    <fullName>Interested in our School Holiday Program?</fullName>
+                    <default>false</default>
+                    <label>Interested in our School Holiday Program?</label>
+                </value>
+                <value>
+                    <fullName>Interested in RSPCA education visit?</fullName>
+                    <default>false</default>
+                    <label>Interested in RSPCA education visit?</label>
+                </value>
+                <value>
+                    <fullName>Interested in workplace giving?</fullName>
+                    <default>false</default>
+                    <label>Interested in workplace giving?</label>
+                </value>
+                <value>
+                    <fullName>Is your adoptaversary coming up?</fullName>
+                    <default>false</default>
+                    <label>Is your adoptaversary coming up?</label>
+                </value>
+                <value>
+                    <fullName>Join Team RSPCA</fullName>
+                    <default>false</default>
+                    <label>Join Team RSPCA</label>
+                </value>
+                <value>
+                    <fullName>Join Team RSPCA at City2Surf</fullName>
+                    <default>false</default>
+                    <label>Join Team RSPCA at City2Surf</label>
+                </value>
+                <value>
+                    <fullName>Join Team RSPCA at the Sydney Morning Herald Half Marathon</fullName>
+                    <default>false</default>
+                    <label>Join Team RSPCA at the Sydney Morning Herald Half Marathon</label>
+                </value>
+                <value>
+                    <fullName>Learn more about honouring a loved one</fullName>
+                    <default>false</default>
+                    <label>Learn more about honouring a loved one</label>
+                </value>
+                <value>
+                    <fullName>Learn more about leaving a gift in your will</fullName>
+                    <default>false</default>
+                    <label>Learn more about leaving a gift in your will</label>
+                </value>
+                <value>
+                    <fullName>Report Cruelty</fullName>
+                    <default>false</default>
+                    <label>Report Cruelty</label>
+                </value>
+                <value>
+                    <fullName>RSPCA at Blackmore&apos;s Running Festival</fullName>
+                    <default>false</default>
+                    <label>RSPCA at Blackmore&apos;s Running Festival</label>
+                </value>
+                <value>
+                    <fullName>Support RSPCA at your wedding or event</fullName>
+                    <default>false</default>
+                    <label>Support RSPCA at your wedding or event</label>
+                </value>
+                <value>
+                    <fullName>Tell Us your Birthday</fullName>
+                    <default>false</default>
+                    <label>Tell Us your Birthday</label>
+                </value>
+                <value>
+                    <fullName>Virtual RSVP</fullName>
+                    <default>false</default>
+                    <label>Virtual RSVP</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Lifestyle_Description__c</fullName>
         <externalId>false</externalId>
         <label>Lifestyle Description</label>

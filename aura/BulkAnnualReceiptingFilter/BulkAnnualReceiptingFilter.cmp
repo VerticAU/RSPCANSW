@@ -13,8 +13,6 @@
 
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.handleFYLoad}"/>
-    <aura:handler name="change" value="{!v.meta.dto.filter.marketId}" action="{!c.handleFYLoad}"/>
-
     <aura:method name="refresh" action="{!c.handleFilterChange}"/>
 
 
@@ -28,12 +26,34 @@
                 <aura:if isTrue="{!not(empty(v.financialYearsMeta))}">
                     <c:vertic_Select label="Tax Year"
                                      options="{!v.financialYearsMeta.selectOptions.financialYearOptions}"
-                                     disabled="{!or(v.isBusy, not(v.meta.dto.filter.marketId))}"
+                                     disabled="{!or(v.isBusy)}"
                                      required="{!true}"
                                      value="{!v.meta.dto.filter.financialYear}"
                     />
                 </aura:if>
             </div>
+
+            <c:strike_lookup_clickable label="Campaign"
+                                       object="Campaign"
+                                       searchField="Name"
+                                       placeholder="Select a Campaign..."
+                                       iconName="standard:campaign"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.campaignId}"
+            />
+
+            <lightning:input type="toggle"
+                             label="Individual Donations Only"
+                             checked="{!v.meta.dto.filter.isIndividualOnly}"
+                             disabled="{!or(v.isBusy, v.meta.dto.filter.isOrganisationOnly)}"
+                             messageToggleActive=""
+                             messageToggleInactive=""
+            />
 
             <c:strike_lookup_clickable label="Contact"
                                        object="Contact"
@@ -46,24 +66,31 @@
                                        loadingMessage="Loading..."
                                        errorMessage="Invalid input"
                                        showRecentRecords="{!true}"
-                                       disabled="{!v.isBusy}"
+                                       disabled="{!or(v.isBusy, v.meta.dto.filter.isOrganisationOnly)}"
                                        value="{!v.meta.dto.filter.contactId}"
             />
 
-            <c:vertic_Select label="Channel"
-                             options="[{value:'Email', label:'Email'}, {value:'Letter', label:'Letter'}]"
-                             noneLabel="Email and Letter"
-                             disabled="{!v.isBusy}"
-                             class="slds-size_1-of-1"
-                             value="{!v.meta.dto.filter.channel}"
+            <lightning:input type="toggle"
+                             label="Organisation Donations Only"
+                             checked="{!v.meta.dto.filter.isOrganisationOnly}"
+                             messageToggleActive=""
+                             messageToggleInactive=""
+                             disabled="{!or(v.isBusy, v.meta.dto.filter.isIndividualOnly)}"
             />
 
-            <c:vertic_Select label="Receipt Status"
-                             options="[{value:'unreceipted', label:'Show only unreceipted items'},{value:'receipted', label:'Show only receipted items'}]"
-                             noneLabel="Show All Items"
-                             disabled="{!v.isBusy}"
-                             class="slds-size_1-of-1"
-                             value="{!v.meta.dto.filter.acknowledgmentStatus}"
+            <c:strike_lookup_clickable label="Account (Organisation)"
+                                       object="Account"
+                                       searchField="Name"
+                                       placeholder="Select a Account..."
+                                       iconName="standard:account"
+                                       subtitleField="Website"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!or(v.isBusy, v.meta.dto.filter.isIndividualOnly)}"
+                                       value="{!v.meta.dto.filter.accountId}"
             />
 
         </aura:set>

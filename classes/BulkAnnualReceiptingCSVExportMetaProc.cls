@@ -1,4 +1,4 @@
-public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+public without sharing class BulkAnnualReceiptingCSVExportMetaProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
 
     /**
      * ==============================================================================================================
@@ -35,7 +35,6 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
     // Proposed Live Templates to override Super properties:
     // vertic_request
     // vertic_response
-
 
 
 }

@@ -3,7 +3,7 @@
                 implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable">
 
     <!-- Attribute Overrides -->
-    <aura:set attribute="processor" value="BulkReceiptingDonationsCSVExportMetaProc"/>
+    <aura:set attribute="processor" value="BulkDonationReceiptingCSVExportMetaProc"/>
     <aura:set attribute="hideContentOnBusy" value="{!false}"/>
 
     <!-- Attributes -->

@@ -41,36 +41,16 @@ public class DateCalculator {
 
         Integer thisYear = todayVar.year();
 
-        this.thisYearStartDate = Date.newInstance(
-            thisYear,
-            1,
-            1
-        );
-
-        this.thisYearEndDate = Date.newInstance(
-            thisYear,
-            12,
-            31
-        );
-
+        this.thisYearStartDate = Date.newInstance(thisYear, 1, 1);
+        this.thisYearEndDate = Date.newInstance(thisYear, 12, 31);
 
         // This FY.
         Integer thisFinancialYear = todayVar < Date.newInstance(thisYear, this.getFYStartMonth(), 1).addDays(-1) ?
             thisYear - 1 :
             thisYear;
 
-        this.thisFinancialYearStartDate = Date.newInstance(
-            thisFinancialYear,
-            this.getFYStartMonth(),
-            1
-        );
-
-        this.thisFinancialYearEndDate = Date.newInstance(
-            thisFinancialYear + 1,
-            this.getFYStartMonth(),
-            1
-        ).addDays(-1);
-
+        this.thisFinancialYearStartDate = Date.newInstance(thisFinancialYear, this.getFYStartMonth(), 1);
+        this.thisFinancialYearEndDate = Date.newInstance(thisFinancialYear + 1, this.getFYStartMonth(), 1).addDays(-1);
 
         // Last FY.
         this.lastFinancialYearStartDate = thisFinancialYearStartDate.addYears(-1);

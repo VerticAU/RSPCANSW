@@ -43,15 +43,6 @@
                                                       onclick="{!c.handleToggleSearchClick}"
                         />
 
-                        <lightning:buttonMenu iconName="utility:settings"
-                                              alternativeText="Show menu"
-                                              menuAlignment="right"
-                                              onselect="{! c.handleTableSettingSelect }">
-                            <lightning:menuItem value="Select Only Letter" label="Select Only Letter"/>
-                            <lightning:menuItem value="Select Only Email" label="Select Only Email"/>
-                            <lightning:menuItem value="Set Letter Channel" label="Set Letter Channel"/>
-                            <lightning:menuItem value="Set Email Channel" label="Set Email Channel"/>
-                        </lightning:buttonMenu>
                     </aura:set>
                     <c:BulkAnnualReceiptingTable aura:id="table"/>
                 </lightning:accordionSection>

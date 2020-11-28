@@ -38,6 +38,10 @@
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Application Submitted Date --></label>
+        <name>Application_Submitted_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Attended --></label>
         <name>Attended__c</name>
     </fields>
@@ -196,6 +200,10 @@
     <fields>
         <label><!-- Is This First Donation --></label>
         <name>Is_This_First_Donation__c</name>
+    </fields>
+    <fields>
+        <label><!-- LOI Submitted Date --></label>
+        <name>LOI_Submitted_Date__c</name>
     </fields>
     <fields>
         <label><!-- Life Tenancy --></label>
@@ -670,6 +678,14 @@
     <fields>
         <label><!-- Primary Contact Phone --></label>
         <name>Primary_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program Area --></label>
+        <name>Program_Area__c</name>
+        <picklistValues>
+            <masterLabel>Animal Shelter</masterLabel>
+            <translation><!-- Animal Shelter --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Property Type --></label>

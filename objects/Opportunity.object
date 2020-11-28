@@ -635,6 +635,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Application_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Submitted Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Attended__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1106,6 +1116,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LOI_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>LOI Submitted Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>LeadSource</fullName>
@@ -1956,6 +1976,26 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Program_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Area</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Animal Shelter</fullName>
+                    <default>false</default>
+                    <label>Animal Shelter</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Property_Type__c</fullName>
@@ -2941,6 +2981,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -3602,6 +3649,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4324,6 +4378,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -4930,6 +4991,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5619,6 +5687,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6336,6 +6411,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -6956,6 +7038,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7673,6 +7762,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -8327,6 +8423,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -8947,6 +9050,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9576,6 +9686,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -10190,6 +10307,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10884,6 +11008,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -11570,6 +11701,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12264,6 +12402,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Property_Type__c</picklist>
             <values>
                 <fullName>Farm</fullName>
@@ -12950,6 +13095,13 @@
             </values>
             <values>
                 <fullName>Single Payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program_Area__c</picklist>
+            <values>
+                <fullName>Animal Shelter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
