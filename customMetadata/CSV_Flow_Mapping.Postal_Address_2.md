@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>CSV_Column_Name__c</field>
-        <value xsi:type="xsd:string">Address 1</value>
+        <value xsi:type="xsd:string">Address 2</value>
     </values>
     <values>
         <field>CSV_Flow_Input_Format__c</field>
@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>Flow_Input_Name__c</field>
-        <value xsi:type="xsd:string">Postal_Address_Street_1</value>
+        <value xsi:type="xsd:string">Postal_Address_Street_2</value>
     </values>
     <values>
         <field>Trim_Value__c</field>

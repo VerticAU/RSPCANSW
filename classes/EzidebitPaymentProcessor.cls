@@ -43,6 +43,111 @@ public class EzidebitPaymentProcessor {
         return bPayCRN;
     }
 
+    public EzidebitStructs.CustomerDetails getCustomerDetails(String customerID) {
+        EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL response = this.nonPCIService.GetCustomerDetails(
+            this.digitalKey,
+            customerID,
+            ''
+        );
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+        if (response.Data == null) {
+            throw new vertic_Structs.InvalidDataException('Data is empty!');
+        }
+
+        System.debug('response ' + response);
+        System.debug('response.Data ' + response.Data);
+
+        return (EzidebitStructs.CustomerDetails) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.CustomerDetails.class);
+    }
+
+    public Boolean changeCustomerStatus(String customerID, String status) {
+        EzidebitPaymentProcessor.EziResponseOfstring response = this.nonPCIService.ChangeCustomerStatus(
+            this.digitalKey,
+            customerID,
+            '',
+            status,
+            UserInfo.getUserName()
+        );
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+
+        return response.Data != null && 'S'.equalsIgnoreCase(response.Data);
+    }
+
+    public Boolean createSchedule(String customerID, String yourReference, String startDate, String periodType, String dayOfWeek, Integer dayOfMonth, Boolean firstWeekOfMonth, Boolean secondWeekOfMonth, Boolean thirdWeekOfMonth, Boolean fourthWeekOfMonth, Decimal amount, Integer limitToNumberOfPayments, Decimal limitToTotalAmount, Boolean keepManualPayments) {
+        EzidebitPaymentProcessor.EziResponseOfstring response = this.nonPCIService.CreateSchedule(
+            this.digitalKey,
+            customerID,
+            yourReference,
+            startDate,
+            periodType,
+            dayOfWeek,
+            dayOfMonth,
+            firstWeekOfMonth == true ? 'YES' : 'NO',
+            secondWeekOfMonth == true ? 'YES' : 'NO',
+            thirdWeekOfMonth == true ? 'YES' : 'NO',
+            fourthWeekOfMonth == true ? 'YES' : 'NO',
+            amount == null ? 0 : Integer.valueOf(amount * 100),
+            limitToNumberOfPayments,
+            limitToTotalAmount == null ? 0 : Integer.valueOf(limitToTotalAmount * 100),
+            keepManualPayments ? 'YES' : 'NO',
+            UserInfo.getUserName()
+        );
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+
+        return response.Data != null && 'S'.equalsIgnoreCase(response.Data);
+    }
+
+    public Boolean clearSchedule(String customerID, String yourReference, Boolean keepManualPayments) {
+        EzidebitPaymentProcessor.EziResponseOfstring response = this.nonPCIService.ClearSchedule(
+            this.digitalKey,
+            customerID,
+            yourReference,
+            keepManualPayments ? 'YES' : 'NO',
+            UserInfo.getUserName()
+        );
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+
+        return response.Data != null && 'S'.equalsIgnoreCase(response.Data);
+    }
+
+    public Integer addCustomer(String yourSystemReference, String yourGeneralReference, String lastName, String firstName, String addressLine1, String addressLine2, String addressSuburb, String addressState, String addressPostCode, String emailAddress, String mobilePhoneNumber, Date contractStartDate, Boolean smsPaymentReminder, Boolean smsFailedNotification, Boolean smsExpiredCard) {
+        EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW response = this.nonPCIService.AddCustomer(
+            this.digitalKey,
+            yourSystemReference,
+            yourGeneralReference,
+            lastName,
+            firstName,
+            addressLine1,
+            addressLine2,
+            addressSuburb,
+            addressState,
+            addressPostCode,
+            emailAddress,
+            mobilePhoneNumber,
+            String.valueOf(contractStartDate),
+            smsPaymentReminder ? 'YES' : 'NO',
+            smsFailedNotification ? 'YES' : 'NO',
+            smsExpiredCard ? 'YES' : 'NO',
+            UserInfo.getUserName()
+        );
+        if (SUCCESS_RESULT != response.Error) {
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+        if (response.Data == null) {
+            throw new vertic_Structs.InvalidDataException('Data is empty!');
+        }
+
+        return response.Data.CustomerRef;
+    }
+
     public List<EzidebitStructs.Payment> getPayments(String paymentType, String paymentMethod, String paymentSource, String paymentReference, String dateFrom, String dateTo, String dateField, String eziDebitCustomerID, String yourSystemReference) {
         EzidebitPaymentProcessor.EziResponseOfArrayOfPaymentTHgMB7oL response = this.nonPCIService.GetPayments(
             this.digitalKey,
@@ -176,6 +281,32 @@ public class EzidebitPaymentProcessor {
             return response_x.CreateScheduleResult;
         }
 
+        private EzidebitPaymentProcessor.EziResponseOfstring ClearSchedule(String DigitalKey,String EziDebitCustomerID,String YourSystemReference,String KeepManualPayments,String Username) {
+            EzidebitPaymentProcessor.ClearSchedule_element request_x = new EzidebitPaymentProcessor.ClearSchedule_element();
+            request_x.DigitalKey = DigitalKey;
+            request_x.EziDebitCustomerID = EziDebitCustomerID;
+            request_x.YourSystemReference = YourSystemReference;
+            request_x.KeepManualPayments = KeepManualPayments;
+            request_x.Username = Username;
+            EzidebitPaymentProcessor.ClearScheduleResponse_element response_x;
+            Map<String, EzidebitPaymentProcessor.ClearScheduleResponse_element> response_map_x = new Map<String, EzidebitPaymentProcessor.ClearScheduleResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+                this,
+                request_x,
+                response_map_x,
+                new String[]{endpoint_x,
+                    'https://px.ezidebit.com.au/INonPCIService/ClearSchedule',
+                    'https://px.ezidebit.com.au/',
+                    'ClearSchedule',
+                    'https://px.ezidebit.com.au/',
+                    'ClearScheduleResponse',
+                    'EzidebitPaymentProcessor.ClearScheduleResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.ClearScheduleResult;
+        }
+
         private EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW AddCustomer(String DigitalKey,String YourSystemReference,String YourGeneralReference,String LastName,String FirstName,String AddressLine1,String AddressLine2,String AddressSuburb,String AddressState,String AddressPostCode,String EmailAddress,String MobilePhoneNumber,String ContractStartDate,String SmsPaymentReminder,String SmsFailedNotification,String SmsExpiredCard,String Username) {
             EzidebitPaymentProcessor.AddCustomer_element request_x = new EzidebitPaymentProcessor.AddCustomer_element();
             request_x.DigitalKey = DigitalKey;
@@ -212,6 +343,38 @@ public class EzidebitPaymentProcessor {
             );
             response_x = response_map_x.get('response_x');
             return response_x.AddCustomerResult;
+        }
+
+        /**
+         The new status to set the customer to:
+            'A’ (Active) - Is used to move your Customer to an active status to allow scheduled debits to be drawn from the Customer’s payment method.
+            'H’ (Hold) - Is used to move your Customer to a non-processing status in order to temporarily stop payments from being drawn from their payment method. You will typically use this if you intend to reactivate this Customer again in the future.
+            'C’ (Cancelled) - Is used to cancel the Customer record in the Ezidebit system. This is used when you have completed business with the Customer and no longer wish to manage their account. Moving a Customer to a cancelled status will delete any payments that may be scheduled, but not yet taken, from the Customer’s account.
+         */
+        private EzidebitPaymentProcessor.EziResponseOfstring ChangeCustomerStatus(String DigitalKey,String EziDebitCustomerID,String YourSystemReference,String NewStatus,String Username) {
+            EzidebitPaymentProcessor.ChangeCustomerStatus_element request_x = new EzidebitPaymentProcessor.ChangeCustomerStatus_element();
+            request_x.DigitalKey = DigitalKey;
+            request_x.EziDebitCustomerID = EziDebitCustomerID;
+            request_x.YourSystemReference = YourSystemReference;
+            request_x.NewStatus = NewStatus;
+            request_x.Username = Username;
+            EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element response_x;
+            Map<String, EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element> response_map_x = new Map<String, EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+                this,
+                request_x,
+                response_map_x,
+                new String[]{endpoint_x,
+                    'https://px.ezidebit.com.au/INonPCIService/ChangeCustomerStatus',
+                    'https://px.ezidebit.com.au/',
+                    'ChangeCustomerStatus',
+                    'https://px.ezidebit.com.au/',
+                    'ChangeCustomerStatusResponse',
+                    'EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.ChangeCustomerStatusResult;
         }
 
         private EzidebitPaymentProcessor.EziResponseOfDataTHgMB7oL GetBPayCRN(String DigitalKey,String YourPayerNumber,String Username) {
@@ -274,7 +437,33 @@ public class EzidebitPaymentProcessor {
 
             return response_x.GetPaymentsResult;
         }
+
+        private EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL GetCustomerDetails(String DigitalKey,String EziDebitCustomerID,String YourSystemReference) {
+            EzidebitPaymentProcessor.GetCustomerDetails_element request_x = new EzidebitPaymentProcessor.GetCustomerDetails_element();
+            request_x.DigitalKey = DigitalKey;
+            request_x.EziDebitCustomerID = EziDebitCustomerID;
+            request_x.YourSystemReference = YourSystemReference;
+            EzidebitPaymentProcessor.GetCustomerDetailsResponse_element response_x;
+            Map<String, EzidebitPaymentProcessor.GetCustomerDetailsResponse_element> response_map_x = new Map<String, EzidebitPaymentProcessor.GetCustomerDetailsResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+                this,
+                request_x,
+                response_map_x,
+                new String[]{endpoint_x,
+                    'https://px.ezidebit.com.au/INonPCIService/GetCustomerDetails',
+                    'https://px.ezidebit.com.au/',
+                    'GetCustomerDetails',
+                    'https://px.ezidebit.com.au/',
+                    'GetCustomerDetailsResponse',
+                    'EzidebitPaymentProcessor.GetCustomerDetailsResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.GetCustomerDetailsResult;
+        }
     }
+
+
 
     @TestVisible
     private class EziResponseOfArrayOfPaymentTHgMB7oL {
@@ -518,6 +707,144 @@ public class EzidebitPaymentProcessor {
         private String[] Username_type_info = new String[]{'Username','https://px.ezidebit.com.au/',null,'0','1','true'};
         private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
         private String[] field_order_type_info = new String[]{'DigitalKey','EziDebitCustomerID','YourSystemReference','ScheduleStartDate','SchedulePeriodType','DayOfWeek','DayOfMonth','FirstWeekOfMonth','SecondWeekOfMonth','ThirdWeekOfMonth','FourthWeekOfMonth','PaymentAmountInCents','LimitToNumberOfPayments','LimitToTotalAmountInCents','KeepManualPayments','Username'};
+    }
+
+    @TestVisible
+    private class EziResponseOfCustomerDetailsTHgMB7oL {
+        public EzidebitPaymentProcessor.CustomerDetails Data;
+        public Integer Error;
+        public String ErrorMessage;
+        private String[] Data_type_info = new String[]{'Data','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Error_type_info = new String[]{'Error','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] ErrorMessage_type_info = new String[]{'ErrorMessage','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'Data','Error','ErrorMessage'};
+    }
+
+    @TestVisible
+    private class CustomerDetails {
+        public String AddressLine1;
+        public String AddressLine2;
+        public String AddressPostCode;
+        public String AddressState;
+        public String AddressSuburb;
+        public DateTime ContractStartDate;
+        public String CustomerFirstName;
+        public String CustomerName;
+        public String Email;
+        public String EzidebitCustomerID;
+        public String MobilePhone;
+        public String PaymentMethod;
+        public String PaymentPeriod;
+        public String PaymentPeriodDayOfMonth;
+        public String PaymentPeriodDayOfWeek;
+        public String SmsExpiredCard;
+        public String SmsFailedNotification;
+        public String SmsPaymentReminder;
+        public String StatusCode;
+        public String StatusDescription;
+        public Integer TotalPaymentsFailed;
+        public Double TotalPaymentsFailedAmount;
+        public Integer TotalPaymentsSuccessful;
+        public Double TotalPaymentsSuccessfulAmount;
+        public String YourGeneralReference;
+        public String YourSystemReference;
+        private String[] AddressLine1_type_info = new String[]{'AddressLine1','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] AddressLine2_type_info = new String[]{'AddressLine2','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] AddressPostCode_type_info = new String[]{'AddressPostCode','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] AddressState_type_info = new String[]{'AddressState','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] AddressSuburb_type_info = new String[]{'AddressSuburb','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] ContractStartDate_type_info = new String[]{'ContractStartDate','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] CustomerFirstName_type_info = new String[]{'CustomerFirstName','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] CustomerName_type_info = new String[]{'CustomerName','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Email_type_info = new String[]{'Email','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] EzidebitCustomerID_type_info = new String[]{'EzidebitCustomerID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] MobilePhone_type_info = new String[]{'MobilePhone','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentMethod_type_info = new String[]{'PaymentMethod','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentPeriod_type_info = new String[]{'PaymentPeriod','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentPeriodDayOfMonth_type_info = new String[]{'PaymentPeriodDayOfMonth','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentPeriodDayOfWeek_type_info = new String[]{'PaymentPeriodDayOfWeek','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] SmsExpiredCard_type_info = new String[]{'SmsExpiredCard','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] SmsFailedNotification_type_info = new String[]{'SmsFailedNotification','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] SmsPaymentReminder_type_info = new String[]{'SmsPaymentReminder','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] StatusCode_type_info = new String[]{'StatusCode','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] StatusDescription_type_info = new String[]{'StatusDescription','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] TotalPaymentsFailed_type_info = new String[]{'TotalPaymentsFailed','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] TotalPaymentsFailedAmount_type_info = new String[]{'TotalPaymentsFailedAmount','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] TotalPaymentsSuccessful_type_info = new String[]{'TotalPaymentsSuccessful','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] TotalPaymentsSuccessfulAmount_type_info = new String[]{'TotalPaymentsSuccessfulAmount','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] YourGeneralReference_type_info = new String[]{'YourGeneralReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourSystemReference_type_info = new String[]{'YourSystemReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'AddressLine1','AddressLine2','AddressPostCode','AddressState','AddressSuburb','ContractStartDate','CustomerFirstName','CustomerName','Email','EzidebitCustomerID','MobilePhone','PaymentMethod','PaymentPeriod','PaymentPeriodDayOfMonth','PaymentPeriodDayOfWeek','SmsExpiredCard','SmsFailedNotification','SmsPaymentReminder','StatusCode','StatusDescription','TotalPaymentsFailed','TotalPaymentsFailedAmount','TotalPaymentsSuccessful','TotalPaymentsSuccessfulAmount','YourGeneralReference','YourSystemReference'};
+    }
+
+    @TestVisible
+    private class GetCustomerDetails_element {
+        public String DigitalKey;
+        public String EziDebitCustomerID;
+        public String YourSystemReference;
+        private String[] DigitalKey_type_info = new String[]{'DigitalKey','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] EziDebitCustomerID_type_info = new String[]{'EziDebitCustomerID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourSystemReference_type_info = new String[]{'YourSystemReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'DigitalKey','EziDebitCustomerID','YourSystemReference'};
+    }
+
+    @TestVisible
+    private class GetCustomerDetailsResponse_element {
+        public EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL GetCustomerDetailsResult;
+        private String[] GetCustomerDetailsResult_type_info = new String[]{'GetCustomerDetailsResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'GetCustomerDetailsResult'};
+    }
+
+    @TestVisible
+    private class ChangeCustomerStatus_element {
+        public String DigitalKey;
+        public String EziDebitCustomerID;
+        public String YourSystemReference;
+        public String NewStatus;
+        public String Username;
+        private String[] DigitalKey_type_info = new String[]{'DigitalKey','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] EziDebitCustomerID_type_info = new String[]{'EziDebitCustomerID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourSystemReference_type_info = new String[]{'YourSystemReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] NewStatus_type_info = new String[]{'NewStatus','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Username_type_info = new String[]{'Username','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'DigitalKey','EziDebitCustomerID','YourSystemReference','NewStatus','Username'};
+    }
+
+    @TestVisible
+    private class ChangeCustomerStatusResponse_element {
+        public EzidebitPaymentProcessor.EziResponseOfstring ChangeCustomerStatusResult;
+        private String[] ChangeCustomerStatusResult_type_info = new String[]{'ChangeCustomerStatusResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'ChangeCustomerStatusResult'};
+    }
+
+    @TestVisible
+    private class ClearSchedule_element {
+        public String DigitalKey;
+        public String EziDebitCustomerID;
+        public String YourSystemReference;
+        public String KeepManualPayments;
+        public String Username;
+        private String[] DigitalKey_type_info = new String[]{'DigitalKey','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] EziDebitCustomerID_type_info = new String[]{'EziDebitCustomerID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourSystemReference_type_info = new String[]{'YourSystemReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] KeepManualPayments_type_info = new String[]{'KeepManualPayments','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Username_type_info = new String[]{'Username','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'DigitalKey','EziDebitCustomerID','YourSystemReference','KeepManualPayments','Username'};
+    }
+
+    @TestVisible
+    private class ClearScheduleResponse_element {
+        public EzidebitPaymentProcessor.EziResponseOfstring ClearScheduleResult;
+        private String[] ClearScheduleResult_type_info = new String[]{'ClearScheduleResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'ClearScheduleResult'};
     }
 
 }

@@ -13,6 +13,14 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
         private Id recordId;
         private Contact contactVar;
+        private Contact contact;
+        private List<Animal__c> animals = new List<Animal__c>();
+        private List<Opportunity> oppGiWDonors = new List<Opportunity>();
+        private List<Opportunity> oppMajorGifDonors = new List<Opportunity>();
+        private List<Opportunity> oppRecurrings = new List<Opportunity>();
+        private List<Opportunity> oppMemberships = new List<Opportunity>();
+        private List<Opportunity> oppRaffleTickets = new List<Opportunity>();
+
         private BadgesResponse response = new BadgesResponse();
 
         public BadgesProcessor(Id recordId) {
@@ -35,6 +43,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
         }
 
         private void populateBadges() {
+            initMetaData();
             populateGiWDonorIcon();
             populateMajorGifDonorIcon();
             populateRecurringIcon();
@@ -42,78 +51,50 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             populateMembershipIcon();
             populateRaffleTicketDeceasedIcon();
             populateDeceasedIcon();
-
-
+            populateActiveMembershipIcon();
         }
 
-//        private void populateAlertIcons() {
-//
-//            List<Alert__c> alerts = [
-//                SELECT Id, Alert_Type__c, Alert_Detail__c
-//                FROM Alert__c
-//                WHERE Contact__c = :this.recordId
-//                AND Status__c = 'Active'
-//            ];
-//
-//            Map<String, Alert__c> alertsByTypes = new Map<String, Alert__c>();
-//            for (Alert__c alert : alerts) {
-//                alertsByTypes.put(
-//                    alert.Alert_Type__c,
-//                    alert
-//                );
-//            }
-//
-//            if (alertsByTypes.containsKey('Danger')) {
-//                this.response.badges.add(new Badge(
-//                    'custom:custom82',
-//                    alertsByTypes.get('Danger').Alert_Detail__c,
-//                    'error',
-//                    alertsByTypes.get('Danger').Id
-//                ));
-//            }
-//
-//            if (alertsByTypes.containsKey('Warning')) {
-//                this.response.badges.add(new Badge(
-//                    'custom:custom53',
-//                    alertsByTypes.get('Warning').Alert_Detail__c,
-//                    'warning',
-//                    alertsByTypes.get('Warning').Id
-//                ));
-//            }
-//
-//            if (alertsByTypes.containsKey('Info')) {
-//                this.response.badges.add(new Badge(
-//                    'custom:custom26',
-//                    alertsByTypes.get('Info').Alert_Detail__c,
-//                    'info',
-//                    alertsByTypes.get('Info').Id
-//                ));
-//            }
-//        }
+        private void initMetaData() {
+            this.contact = (Contact) vertic_Utils.arrays.firstOrNull([
+                SELECT Id, Active_Membership__c, npsp__Deceased__c
+                FROM Contact
+                WHERE Id = :this.recordId
+            ]);
 
-
-        private void populateGiWDonorIcon() {
-            List<Opportunity> opportunities = [
-                SELECT Amount
-                FROM Opportunity
-                WHERE npsp__Primary_Contact__c = :this.recordId
-                AND
-                RecordType.DeveloperName = 'Bequest'
-                AND StageName = 'Pledged'
+            this.animals = [
+                SELECT Id
+                FROM Animal__c
+                WHERE Contact__c = :this.recordId
             ];
 
-            Decimal total = 0;
-            for (Opportunity opportunityVar : opportunities) {
-                total += opportunityVar.Amount == null ? 0 : opportunityVar.Amount;
+            for (Opportunity opp : [SELECT Amount, StageName, RecordType.DeveloperName, npe03__Recurring_Donation__c, npe03__Recurring_Donation__r.npsp__Status__c FROM Opportunity WHERE npsp__Primary_Contact__c = :this.recordId]) {
+                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Bequest' && opp.StageName == 'Pledged') {
+                    this.oppGiWDonors.add(opp);
+                }
+                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'MajorGift' && opp.StageName == 'Closed Won') {
+                    this.oppMajorGifDonors.add(opp);
+                }
+                if (opp.npe03__Recurring_Donation__c != null && opp.npe03__Recurring_Donation__r.npsp__Status__c == 'Active') {
+                    this.oppRecurrings.add(opp);
+                }
+                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Membership' && opp.StageName == 'Enrolled') {
+                    this.oppMemberships.add(opp);
+                }
+                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Raffle_Ticket') {
+                    this.oppRaffleTickets.add(opp);
+                }
             }
-    
-            if (!opportunities.isEmpty()) {
+        }
+
+        private void populateGiWDonorIcon() {
+            Decimal total = calcTotal(this.oppGiWDonors);
+            if (this.oppGiWDonors.size() > 0) {
                 this.response.badges.add(new Badge(
-                    'custom:custom17',
+                    'custom:custom18',
                     String.format(
                         'Gift In Will Donation Count: {0} Total value: {1}',
                         new List<String>{
-                            String.valueOf(opportunities.size()),
+                            String.valueOf(this.oppGiWDonors.size()),
                             String.valueOf(total)
                         }
                     )
@@ -123,27 +104,14 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
 
         private void populateMajorGifDonorIcon() {
-            List<Opportunity> opportunities = [
-                SELECT Amount
-                FROM Opportunity
-                WHERE npsp__Primary_Contact__c = :this.recordId
-                AND
-                RecordType.DeveloperName = 'MajorGift'
-                AND StageName = 'Closed Won'
-            ];
-
-            Decimal total = 0;
-            for (Opportunity opportunityVar : opportunities) {
-                total += opportunityVar.Amount == null ? 0 : opportunityVar.Amount;
-            }
-
-            if (!opportunities.isEmpty()) {
+            Decimal total = calcTotal(this.oppMajorGifDonors);
+            if (this.oppMajorGifDonors.size() > 0) {
                 this.response.badges.add(new Badge(
-                    'standard:client',
+                    'custom:custom17',
                     String.format(
                         'Major Gift Donation Count: {0} Total value: {1}',
                         new List<String>{
-                            String.valueOf(opportunities.size()),
+                            String.valueOf(this.oppMajorGifDonors.size()),
                             String.valueOf(total)
                         }
                     )
@@ -152,25 +120,14 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
         }
 
         private void populateRecurringIcon() {
-            List<Opportunity> opportunities = [
-                SELECT Amount
-                FROM Opportunity
-                WHERE npsp__Primary_Contact__c = :this.recordId
-                AND npe03__Recurring_Donation__r.npsp__Status__c = 'Active'
-            ];
-
-            Decimal total = 0;
-            for (Opportunity opportunityVar : opportunities) {
-                total += opportunityVar.Amount == null ? 0 : opportunityVar.Amount;
-            }
-
-            if (!opportunities.isEmpty()) {
+            Decimal total = calcTotal(this.oppRecurrings);
+            if (this.oppRecurrings.size() > 0) {
                 this.response.badges.add(new Badge(
-                    'custom:custom1',
+                    'standard:client',
                     String.format(
                         'Recurring Donation Count: {0} Total value: {1}',
                         new List<String>{
-                            String.valueOf(opportunities.size()),
+                            String.valueOf(this.oppRecurrings.size()),
                             String.valueOf(total)
                         }
                     )
@@ -178,23 +135,14 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             }
         }
 
-
         private void populateAnimalRecordIcon() {
-
-            List<Animal__c> animals = [
-                SELECT Id
-                FROM Animal__c
-                WHERE Contact__c = :this.recordId
-            ];
-
-
-            if (!animals.isEmpty()) {
+            if (this.animals.size() > 0) {
                 this.response.badges.add(new Badge(
-                    'custom:custom15',
+                    'custom:custom1',
                     String.format(
                         'Animal Record Count: {0}',
                         new List<String>{
-                            String.valueOf(animals.size())
+                            String.valueOf(this.animals.size())
                         }
                     )
                 ));
@@ -202,27 +150,14 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
         }
 
         private void populateMembershipIcon() {
-            List<Opportunity> opportunities = [
-                SELECT Amount
-                FROM Opportunity
-                WHERE npsp__Primary_Contact__c = :this.recordId
-                AND
-                RecordType.DeveloperName = 'Membership'
-                AND StageName = 'Active Raffle'
-            ];
-
-            Decimal total = 0;
-            for (Opportunity opportunityVar : opportunities) {
-                total += opportunityVar.Amount == null ? 0 : opportunityVar.Amount;
-            }
-
-            if (!opportunities.isEmpty()) {
+            Decimal total = calcTotal(this.oppMemberships);
+            if (this.oppMemberships.size() > 0) {
                 this.response.badges.add(new Badge(
-                    'custom:custom48',
+                    'custom:custom15',
                     String.format(
-                        'Membership Active Raffle Count: {0} Total value: {1}',
+                        'Membership Active Count: {0} Total value: {1}',
                         new List<String>{
-                            String.valueOf(opportunities.size()),
+                            String.valueOf(this.oppMemberships.size()),
                             String.valueOf(total)
                         }
                     )
@@ -230,28 +165,16 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
             }
         }
 
-
         private void populateRaffleTicketDeceasedIcon() {
-            List<Opportunity> opportunities = [
-                SELECT Amount
-                FROM Opportunity
-                WHERE npsp__Primary_Contact__c = :this.recordId
-                AND
-                RecordType.DeveloperName = 'Raffle_Ticket'
-            ];
+            Decimal total = calcTotal(this.oppRaffleTickets);
 
-            Decimal total = 0;
-            for (Opportunity opportunityVar : opportunities) {
-                total += opportunityVar.Amount == null ? 0 : opportunityVar.Amount;
-            }
-
-            if (!opportunities.isEmpty()) {
+            if (this.oppRaffleTickets.size() > 0) {
                 this.response.badges.add(new Badge(
                     'custom:custom48',
                     String.format(
-                        'Raffle Ticket Deceased Count: {0} Total value: {1}',
+                        'Raffle Ticket Count: {0} Total value: {1}',
                         new List<String>{
-                            String.valueOf(opportunities.size()),
+                            String.valueOf(this.oppRaffleTickets.size()),
                             String.valueOf(total)
                         }
                     )
@@ -261,19 +184,29 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
 
         private void populateDeceasedIcon() {
-            List<Contact> contacts = [
-                SELECT Id, npsp__Deceased__c
-                FROM Contact
-                WHERE Id = :this.recordId
-            ];
-
-            if (contacts.size() > 0 && contacts[0].npsp__Deceased__c == true) {
+            if (this.contact != null && this.contact.npsp__Deceased__c == true) {
                 this.response.badges.add(new Badge(
                     'standard:default',
                     'Deceased donor'
                 ));
             }
+        }
 
+        private void populateActiveMembershipIcon() {
+            if (this.contact != null && this.contact.Active_Membership__c != null) {
+                this.response.badges.add(new Badge(
+                    'custom:custom73',
+                    'Active membership'
+                ));
+            }
+        }
+
+        private Decimal calcTotal(List<Opportunity> opportunities) {
+            Decimal total = 0;
+            for (Opportunity opp : opportunities) {
+                total += opp.Amount == null ? 0 : opp.Amount;
+            }
+            return total;
         }
     }
 }

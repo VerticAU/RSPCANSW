@@ -28,7 +28,8 @@
 
 
                 <aura:if isTrue="{!v.step == 2}">
-                    <c:EstateManagementDetailsQA meta="{!v.meta}" affiliations="{!v.affiliations}" partners="{!v.partners}"/>
+                    <!--<c:EstateManagementDetailsQA meta="{!v.meta}" affiliations="{!v.affiliations}" partners="{!v.partners}"/>-->
+                    <c:EstateManagementStep2 meta="{!v.meta}"/>
                 </aura:if>
             </aura:if>
 

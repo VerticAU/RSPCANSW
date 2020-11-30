@@ -40,6 +40,11 @@
         </rules>
     </decisions>
     <description>Flow for processing of Raffle Donation import file</description>
+    <formulas>
+        <name>Opportunity_Name</name>
+        <dataType>String</dataType>
+        <expression>&quot;First_Name&quot;+&quot; &quot;+&quot;Last_Name&quot;+&quot; &quot;+&quot;Donation_RecordType_Name&quot;+&quot; &quot;+&quot;Date_of_Gift&quot;+&quot; &quot;+&quot;GET_Campaign.Name&quot;</expression>
+    </formulas>
     <interviewLabel>Raffle Donations Import {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Raffle Donations Import</label>
     <processMetadataValues>
@@ -151,7 +156,7 @@
         <name>CREATE_Donation</name>
         <label>CREATE Donation</label>
         <locationX>323</locationX>
-        <locationY>836</locationY>
+        <locationY>1060</locationY>
         <assignRecordIdToReference>Donation_Id</assignRecordIdToReference>
         <connector>
             <targetReference>CREATE_Payment</targetReference>
@@ -167,6 +172,9 @@
         </inputAssignments>
         <inputAssignments>
             <field>CampaignId</field>
+            <value>
+                <elementReference>GET_Campaign.Id</elementReference>
+            </value>
         </inputAssignments>
         <inputAssignments>
             <field>CloseDate</field>
@@ -183,7 +191,7 @@
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>TEST</stringValue>
+                <elementReference>Opportunity_Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -204,13 +212,25 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Acknowledgment_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <stringValue>Acknowledged</stringValue>
+            </value>
+        </inputAssignments>
         <object>Opportunity</object>
     </recordCreates>
     <recordCreates>
         <name>CREATE_Payment</name>
         <label>CREATE Payment</label>
-        <locationX>322</locationX>
-        <locationY>989</locationY>
+        <locationX>323</locationX>
+        <locationY>1252</locationY>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
         </faultConnector>
@@ -247,6 +267,30 @@
         <object>npe01__OppPayment__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordLookups>
+        <name>GET_Campaign</name>
+        <label>GET Campaign</label>
+        <locationX>323</locationX>
+        <locationY>867</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CREATE_Donation</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Campaign_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Source_Code</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Campaign</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>GET_Contact</name>
         <label>GET Contact</label>
@@ -299,7 +343,7 @@
         <locationY>658</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>CREATE_Donation</targetReference>
+            <targetReference>GET_Campaign</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
@@ -323,6 +367,10 @@
         <outputAssignments>
             <assignToReference>Donation_RecordType_Id</assignToReference>
             <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>Donation_RecordType_Name</assignToReference>
+            <field>Name</field>
         </outputAssignments>
     </recordLookups>
     <start>
@@ -381,6 +429,13 @@
     </variables>
     <variables>
         <name>Donation_RecordType_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Donation_RecordType_Name</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -465,6 +520,13 @@
     </variables>
     <variables>
         <name>Region</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Source_Code</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

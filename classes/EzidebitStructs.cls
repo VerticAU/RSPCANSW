@@ -26,4 +26,33 @@ public class EzidebitStructs {
         public String BPayBillerCode;
         public String BPayCRN;
     }
+
+    public class CustomerDetails {
+        public String AddressLine1;
+        public String AddressLine2;
+        public String AddressPostCode;
+        public String AddressState;
+        public String AddressSuburb;
+        public DateTime ContractStartDate;
+        public String CustomerFirstName;
+        public String CustomerName;
+        public String Email;
+        public String EzidebitCustomerID;
+        public String MobilePhone;
+        public String PaymentMethod;
+        public String PaymentPeriod;
+        public String PaymentPeriodDayOfMonth;
+        public String PaymentPeriodDayOfWeek;
+        public String SmsExpiredCard;
+        public String SmsFailedNotification;
+        public String SmsPaymentReminder;
+        public String StatusCode;
+        public String StatusDescription;
+        public Integer TotalPaymentsFailed;
+        public Double TotalPaymentsFailedAmount;
+        public Integer TotalPaymentsSuccessful;
+        public Double TotalPaymentsSuccessfulAmount;
+        public String YourGeneralReference;
+        public String YourSystemReference;
+    }
 }

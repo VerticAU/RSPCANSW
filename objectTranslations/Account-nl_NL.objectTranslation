@@ -195,6 +195,11 @@
         <name>Estate_Conditions__c</name>
     </fields>
     <fields>
+        <label><!-- Estate Managed By --></label>
+        <name>Estate_Managed_By__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Estate Received Till Date --></label>
         <name>Estate_Received_Till_Date__c</name>
     </fields>

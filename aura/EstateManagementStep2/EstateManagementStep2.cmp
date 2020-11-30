@@ -1,0 +1,104 @@
+<aura:component description="EstateManagementStep2" extends="c:vertic_Base">
+
+    <aura:attribute name="meta" type="Map"/>
+
+    <aura:set attribute="body">
+        <div aura:id="form" class="slds-form" role="list">
+            <div class="slds-p-horizontal_small">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                        <c:strike_lookup_clickable aura:id="account"
+                                                   label="Estate Managed By"
+                                                   object="Account"
+                                                   searchField="Name"
+                                                   subtitleField=""
+                                                   placeholder="Select a Account..."
+                                                   iconName="standard:account"
+                                                   order="Name"
+                                                   class="label-hidden"
+                                                   limit="5"
+                                                   loadingMessage="Loading..."
+                                                   errorMessage="Invalid input"
+                                                   showRecentRecords="true"
+                                                   required="false"
+                                                   overrideNewEvent="true"
+                                                   value="{! v.meta.dto.account.Estate_Managed_By__c }"
+                        />
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                        <aura:if isTrue="{!v.meta.dto.account.Estate_Managed_By__c}">
+                            <lightning:card title="" variant="base" class="record-card">
+                                <div class="slds-p-horizontal_small">
+                                    <lightning:recordViewForm objectApiName="Account" recordId="{!v.meta.dto.account.Estate_Managed_By__c}" density="comfy">
+                                        <div class="slds-grid">
+                                            <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                                <lightning:outputField fieldName="npe01__One2OneContact__c"/>
+                                            </div>
+                                            <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                                <lightning:outputField fieldName="Phone"/>
+                                            </div>
+                                        </div>
+                                        <div class="slds-grid">
+                                            <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                                <lightning:outputField fieldName="BillingAddress"/>
+                                            </div>
+                                        </div>
+                                    </lightning:recordViewForm>
+                                </div>
+                            </lightning:card>
+                        </aura:if>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                        <c:strike_lookup_clickable aura:id="contact"
+                                                   label="Primary Contact"
+                                                   object="Contact"
+                                                   searchField="Name"
+                                                   subtitleField=""
+                                                   placeholder="Select a Contact..."
+                                                   iconName="standard:contact"
+                                                   order="Name"
+                                                   class="label-hidden"
+                                                   limit="5"
+                                                   loadingMessage="Loading..."
+                                                   errorMessage="Invalid input"
+                                                   showRecentRecords="true"
+                                                   required="false"
+                                                   overrideNewEvent="true"
+                                                   value="{! v.meta.dto.account.npe01__One2OneContact__c }"
+                        />
+                    </div>
+                </div>
+
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                        <aura:if isTrue="{!v.meta.dto.account.npe01__One2OneContact__c}">
+                            <lightning:card title="" variant="base" class="record-card">
+                                <div class="slds-p-horizontal_small">
+                                    <lightning:recordViewForm objectApiName="Contact" recordId="{!v.meta.dto.account.npe01__One2OneContact__c}" density="comfy">
+                                        <div class="slds-grid">
+                                            <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                                <lightning:outputField fieldName="AccountId"/>
+                                            </div>
+                                            <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                                <lightning:outputField fieldName="Email"/>
+                                            </div>
+                                        </div>
+                                        <div class="slds-grid">
+                                            <div class="slds-col slds-has-flexi-truncate" role="listitem">
+                                                <lightning:outputField fieldName="MobilePhone"/>
+                                            </div>
+                                        </div>
+                                    </lightning:recordViewForm>
+                                </div>
+                            </lightning:card>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aura:set>
+</aura:component>

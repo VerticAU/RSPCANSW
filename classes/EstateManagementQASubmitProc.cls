@@ -25,8 +25,8 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
     private Account account = new Account();
     private Contact contact = new Contact();
     private Opportunity opportunity = new Opportunity();
-    private List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>();
-    private List<Partner> partners = new List<Partner>();
+//    private List<npe5__Affiliation__c> affiliations = new List<npe5__Affiliation__c>();
+//    private List<Partner> partners = new List<Partner>();
 
 
     private void mapSObjects() {
@@ -36,8 +36,8 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
             .mapToSObject('account', this.account)
             .mapToSObject('opportunity.npsp__Primary_Contact__r', this.contact);
 
-        this.affiliations = this.request.getMapper().mapToListSObjects('affiliations', npe5__Affiliation__c.SObjectType);
-        this.partners = this.request.getMapper().mapToListSObjects('partners', Partner.SObjectType);
+//        this.affiliations = this.request.getMapper().mapToListSObjects('affiliations', npe5__Affiliation__c.SObjectType);
+//        this.partners = this.request.getMapper().mapToListSObjects('partners', Partner.SObjectType);
     }
 
 
@@ -53,26 +53,26 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
         this.contact.npsp__Primary_Affiliation__c = this.account.Id;
         update this.contact;
 
-        for (npe5__Affiliation__c affiliation : this.affiliations) {
-            affiliation.npe5__Organization__c = this.account.Id;
-
-            if (affiliation.npe5__Role__c.equals('Solicitor') || affiliation.npe5__Role__c.equals('Executor')) {
-                this.account.npe01__One2OneContact__c = affiliation.npe5__Contact__c;
-            }
-        }
+//        for (npe5__Affiliation__c affiliation : this.affiliations) {
+//            affiliation.npe5__Organization__c = this.account.Id;
+//
+//            if (affiliation.npe5__Role__c.equals('Solicitor') || affiliation.npe5__Role__c.equals('Executor')) {
+//                this.account.npe01__One2OneContact__c = affiliation.npe5__Contact__c;
+//            }
+//        }
 
         update this.account;
 
-        if (this.affiliations.size() > 0) {
-            insert this.affiliations;
-        }
+//        if (this.affiliations.size() > 0) {
+//            insert this.affiliations;
+//        }
 
-        for (Partner partner : this.partners) {
-            partner.AccountToId = this.account.Id;
-        }
-        if (this.partners.size() > 0) {
-            insert this.partners;
-        }
+//        for (Partner partner : this.partners) {
+//            partner.AccountToId = this.account.Id;
+//        }
+//        if (this.partners.size() > 0) {
+//            insert this.partners;
+//        }
 
 
         this.opportunity.AccountId = this.account.Id;

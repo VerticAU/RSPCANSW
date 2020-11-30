@@ -46,7 +46,7 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
             this.response.put('hasEstate', true);
         }
 
-        Opportunity opportunity = (Opportunity) vertic_Utils.arrays.firstOrNull([
+        Opportunity opportunityGiW = (Opportunity) vertic_Utils.arrays.firstOrNull([
             SELECT Id, Name, npsp__Primary_Contact__c, npsp__Primary_Contact__r.Name, npsp__Primary_Contact__r.Id, StageName, Type,
                 Deceased_Date__c, Date_of_Will__c, npsp__Qualified_Date__c,
                 Paperwork_Received__c,Bequest_Percentage__c, npe01__Payments_Made__c,
@@ -59,14 +59,14 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
         ]);
 
 
-        if (opportunity == null) {
+        if (opportunityGiW == null) {
             this.response.put('hasBequest', false);
             return;
         } else {
             this.response.put('hasBequest', true);
         }
 
-        if (opportunity.npsp__Primary_Contact__r.npsp__Deceased__c) {
+        if (opportunityGiW.npsp__Primary_Contact__r.npsp__Deceased__c) {
             this.response.put('deceasedContact', true);
         } else {
             this.response.put('deceasedContact', false);
@@ -76,15 +76,15 @@ public without sharing class EstateManagementQAMetaProc extends vertic_MetadataP
         List<OpportunityLineItem> opportunityLineItems = new List<OpportunityLineItem>([
             SELECT Id, Product2.Name, Quantity, UnitPrice, CreatedDate
             FROM OpportunityLineItem
-            WHERE OpportunityId = :opportunity.Id
+            WHERE OpportunityId = :opportunityGiW.Id
         ]);
 
 
-        this.response.put('opportunity', opportunity);
-        this.response.put('probability', opportunity.Probability == null ? null : opportunity.Probability.format() + '%');
-        this.response.put('oppRecordTypeName', opportunity.RecordType.Name);
+        this.response.put('opportunity', opportunityGiW);
+        this.response.put('probability', opportunityGiW.Probability == null ? null : opportunityGiW.Probability.format() + '%');
+        this.response.put('oppRecordTypeName', opportunityGiW.RecordType.Name);
         this.response.put('opportunityLineItems', opportunityLineItems);
-        this.response.put('dateNotifiedOfDeath', opportunity.npsp__Primary_Contact__r.Date_Notified_of_Death__c == null ? null : opportunity.npsp__Primary_Contact__r.Date_Notified_of_Death__c.format());
+        this.response.put('dateNotifiedOfDeath', opportunityGiW.npsp__Primary_Contact__r.Date_Notified_of_Death__c == null ? null : opportunityGiW.npsp__Primary_Contact__r.Date_Notified_of_Death__c.format());
 
 
     }

@@ -638,6 +638,19 @@
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>Estate_Managed_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Estate Managed By</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Estate_Received_Till_Date__c</fullName>
         <externalId>false</externalId>
         <formula>Bequest_Opportunity__r.npe01__Payments_Made__c</formula>

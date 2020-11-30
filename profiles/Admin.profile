@@ -236,6 +236,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>EzidebitCreateScheduleBatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EzidebitCreateScheduleProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EzidebitGenerateCRNBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -580,6 +588,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Estate_Conditions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Estate_Managed_By__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3254,6 +3267,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Direct_Debit_Schedule__c.Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Direct_Debit_Schedule__c.Day_Of_Month__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3290,11 +3308,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Direct_Debit_Schedule__c.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Direct_Debit_Schedule__c.Token__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
