@@ -236,23 +236,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>EzidebitCreateScheduleBatch</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>EzidebitCreateScheduleProc</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>EzidebitGenerateCRNBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>EzidebitGetDDPaymentsProc</apexClass>
+        <apexClass>EzidebitGetDDPaymentsScheduledProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>EzidebitGetDDPaymentsScheduledProc</apexClass>
+        <apexClass>EzidebitGetPaymentDetailsProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -329,6 +321,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MyProfilePageControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OppPaymentDomain</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4430,6 +4426,11 @@
         <editable>true</editable>
         <field>Opportunity.Description</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Direct_Debit_Schedule__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

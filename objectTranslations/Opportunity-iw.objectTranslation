@@ -121,6 +121,11 @@
         <name>Deceased_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Direct Debit Schedule --></label>
+        <name>Direct_Debit_Schedule__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Discount Code --></label>
         <name>Discount_Code__c</name>
     </fields>
@@ -619,8 +624,8 @@
             <translation><!-- Credit Card --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Direct Debit</masterLabel>
-            <translation><!-- Direct Debit --></translation>
+            <masterLabel>EziDebit</masterLabel>
+            <translation><!-- EziDebit --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PayPal</masterLabel>

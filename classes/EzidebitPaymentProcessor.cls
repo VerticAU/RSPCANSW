@@ -9,6 +9,7 @@ public class EzidebitPaymentProcessor {
     private final static Integer SUCCESS_RESULT = 0;
 
     private final NonPCIService nonPCIService;
+    private final PCIService pciService;
     private final String digitalKey;
 
     public EzidebitPaymentProcessor(SObject gatewayCredentials) {
@@ -17,6 +18,7 @@ public class EzidebitPaymentProcessor {
 
     public EzidebitPaymentProcessor(Payment_EziDebit_Settings__mdt gatewayCredentials) {
         this.nonPCIService = new NonPCIService(gatewayCredentials.Endpoint__c);
+        this.pciService = new PCIService(gatewayCredentials.Endpoint__c);
         this.digitalKey = gatewayCredentials.Digital_Key__c;
     }
 
@@ -60,6 +62,70 @@ public class EzidebitPaymentProcessor {
         System.debug('response.Data ' + response.Data);
 
         return (EzidebitStructs.CustomerDetails) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.CustomerDetails.class);
+    }
+
+    /**
+        This method retrieves details about the given payment.
+        It can only be used to retrieve information about payments where Ezidebit was provided with a PaymentReference.
+        Note that this method can only be used for scheduled direct debit payments.
+     */
+    public EzidebitStructs.Payment getPaymentDetail(String paymentReference) {
+        EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL response = this.nonPCIService.GetPaymentDetail(
+            this.digitalKey, // Digital Key
+            paymentReference // Payment Reference
+        );
+
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+
+        if (response.Data == null) {
+            throw new vertic_Structs.InvalidDataException('Empty Payment Details');
+        }
+
+        return (EzidebitStructs.Payment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.Payment.class);
+    }
+
+    /**
+        This method is designed to accept requests that include both Customer (Payer) and
+        Payment details in a single call.
+        It will create, update or maintain a Customer and schedule the payment to be debited from the account.
+        A system utilising this method will provide a unique Payer Reference
+        from the integrating system as well as a unique Payment Reference for each payment.
+     */
+    public String addBankDebit(String yourSystemReference, String yourGeneralReference, String lastName, String firstName, String emailAddress, String mobilePhoneNumber, String paymentReference, String accountName, String bsb, String accountNumber, Decimal amount){
+        EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW response = this.pciService.AddBankDebit(
+            this.digitalKey, // Digital Key
+            yourSystemReference, // Your System Reference
+            yourGeneralReference, // Your General Reference
+            String.isBlank(lastName) ? '?' : lastName, // Last Name
+            firstName, // First Name
+            emailAddress, // Email Address
+            mobilePhoneNumber, // Mobile Phone Number
+            paymentReference, // Payment Reference
+            accountName, // Bank Account Name
+            bsb, // Bank Account BSB
+            accountNumber, // Bank Account Number
+            // The amount to debit from your payer in cents. The system has a $2.00 minimum debit amount.
+            // If you would like to debit smaller amounts please amil partner@ezidebit.com.au. E.g. $20.00 = 2000
+            amount == null ? 0 : Integer.valueOf(amount * 100), // Payment Amount Cents
+            Datetime.now().format('yyyy-MM-dd'), // Debit Date
+            String.isNotBlank(mobilePhoneNumber) ? 'YES' : 'NO', // SMS Payment Reminder
+            String.isNotBlank(mobilePhoneNumber) ? 'YES' : 'NO', // SMS Failed Notification
+            'NO', // SMS Expired Card
+            UserInfo.getUserName() // User Name
+        );
+
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+
+        String ezidebitCustomerID = response.Data == null ? '' : String.valueOf(response.Data.CustomerRef);
+        if (String.isBlank(ezidebitCustomerID)){
+            throw new vertic_Structs.InvalidDataException('Empty EzidebitCustomerID');
+        }
+
+        return ezidebitCustomerID;
     }
 
     public Boolean changeCustomerStatus(String customerID, String status) {
@@ -188,7 +254,7 @@ public class EzidebitPaymentProcessor {
             payment.PaymentMethod = paymentData.PaymentMethod;
             payment.PaymentReference = paymentData.PaymentReference;
             payment.PaymentSource = paymentData.PaymentSource;
-            payment.PaymentStatus = paymentData.PaymentStatus;
+            payment.PaymentStatus = PAYMENT_STATUS_TO_PAYMENT_STATUS.get(paymentData.PaymentStatus);
             payment.ScheduledAmount = paymentData.ScheduledAmount;
             payment.SettlementDate = paymentData.SettlementDate;
             payment.TransactionFeeClient = paymentData.TransactionFeeClient;
@@ -242,6 +308,29 @@ public class EzidebitPaymentProcessor {
         private NonPCIService(String endpoint) {
             this.endpoint_x = endpoint + '/nonpci';
             this.timeout_x = 120000;
+        }
+
+        private EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL GetPaymentDetail(String DigitalKey,String PaymentReference) {
+            EzidebitPaymentProcessor.GetPaymentDetail_element request_x = new EzidebitPaymentProcessor.GetPaymentDetail_element();
+            request_x.DigitalKey = DigitalKey;
+            request_x.PaymentReference = PaymentReference;
+            EzidebitPaymentProcessor.GetPaymentDetailResponse_element response_x;
+            Map<String, EzidebitPaymentProcessor.GetPaymentDetailResponse_element> response_map_x = new Map<String, EzidebitPaymentProcessor.GetPaymentDetailResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+                this,
+                request_x,
+                response_map_x,
+                new String[]{endpoint_x,
+                    'https://px.ezidebit.com.au/INonPCIService/GetPaymentDetail',
+                    'https://px.ezidebit.com.au/',
+                    'GetPaymentDetail',
+                    'https://px.ezidebit.com.au/',
+                    'GetPaymentDetailResponse',
+                    'EzidebitPaymentProcessor.GetPaymentDetailResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.GetPaymentDetailResult;
         }
 
         private EzidebitPaymentProcessor.EziResponseOfstring CreateSchedule(String DigitalKey,String EziDebitCustomerID,String YourSystemReference,String ScheduleStartDate,String SchedulePeriodType,String DayOfWeek,Integer DayOfMonth,String FirstWeekOfMonth,String SecondWeekOfMonth,String ThirdWeekOfMonth,String FourthWeekOfMonth,Long PaymentAmountInCents,Integer LimitToNumberOfPayments,Long LimitToTotalAmountInCents,String KeepManualPayments,String Username) {
@@ -463,7 +552,63 @@ public class EzidebitPaymentProcessor {
         }
     }
 
+    /**
+     * PCI Service
+     */
+    private class PCIService {
+        private String endpoint_x;
+        private Map<String,String> inputHttpHeaders_x;
+        private Map<String,String> outputHttpHeaders_x;
+        private String clientCertName_x;
+        private String clientCert_x;
+        private String clientCertPasswd_x;
+        private Integer timeout_x;
+        private String[] ns_map_type_info = new String[]{'https://px.ezidebit.com.au/', 'EzidebitPaymentProcessor'};
 
+        private PCIService(String endpoint) {
+            this.endpoint_x = endpoint + '/pci';
+            this.timeout_x = 120000;
+        }
+
+        private EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW AddBankDebit(String DigitalKey,String YourSystemReference,String YourGeneralReference,String LastName,String FirstName,String EmailAddress,String MobilePhoneNumber,String PaymentReference,String BankAccountName,String BankAccountBSB,String BankAccountNumber,Long PaymentAmountInCents,String DebitDate,String SmsPaymentReminder,String SmsFailedNotification,String SmsExpiredCard,String Username) {
+            EzidebitPaymentProcessor.AddBankDebit_element request_x = new EzidebitPaymentProcessor.AddBankDebit_element();
+            request_x.DigitalKey = DigitalKey;
+            request_x.YourSystemReference = YourSystemReference;
+            request_x.YourGeneralReference = YourGeneralReference;
+            request_x.LastName = LastName;
+            request_x.FirstName = FirstName;
+            request_x.EmailAddress = EmailAddress;
+            request_x.MobilePhoneNumber = MobilePhoneNumber;
+            request_x.PaymentReference = PaymentReference;
+            request_x.BankAccountName = BankAccountName;
+            request_x.BankAccountBSB = BankAccountBSB;
+            request_x.BankAccountNumber = BankAccountNumber;
+            request_x.PaymentAmountInCents = PaymentAmountInCents;
+            request_x.DebitDate = DebitDate;
+            request_x.SmsPaymentReminder = SmsPaymentReminder;
+            request_x.SmsFailedNotification = SmsFailedNotification;
+            request_x.SmsExpiredCard = SmsExpiredCard;
+            request_x.Username = Username;
+            EzidebitPaymentProcessor.AddBankDebitResponse_element response_x;
+            Map<String, EzidebitPaymentProcessor.AddBankDebitResponse_element> response_map_x = new Map<String, EzidebitPaymentProcessor.AddBankDebitResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+                this,
+                request_x,
+                response_map_x,
+                new String[]{endpoint_x,
+                    'https://px.ezidebit.com.au/IPCIService/AddBankDebit',
+                    'https://px.ezidebit.com.au/',
+                    'AddBankDebit',
+                    'https://px.ezidebit.com.au/',
+                    'AddBankDebitResponse',
+                    'EzidebitPaymentProcessor.AddBankDebitResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.AddBankDebitResult;
+        }
+
+    }
 
     @TestVisible
     private class EziResponseOfArrayOfPaymentTHgMB7oL {
@@ -846,5 +991,127 @@ public class EzidebitPaymentProcessor {
         private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
         private String[] field_order_type_info = new String[]{'ClearScheduleResult'};
     }
+
+    @TestVisible
+    private class AddBankDebit_element {
+        public String DigitalKey;
+        public String YourSystemReference;
+        public String YourGeneralReference;
+        public String LastName;
+        public String FirstName;
+        public String EmailAddress;
+        public String MobilePhoneNumber;
+        public String PaymentReference;
+        public String BankAccountName;
+        public String BankAccountBSB;
+        public String BankAccountNumber;
+        public Long PaymentAmountInCents;
+        public String DebitDate;
+        public String SmsPaymentReminder;
+        public String SmsFailedNotification;
+        public String SmsExpiredCard;
+        public String Username;
+        private String[] DigitalKey_type_info = new String[]{'DigitalKey','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourSystemReference_type_info = new String[]{'YourSystemReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourGeneralReference_type_info = new String[]{'YourGeneralReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] LastName_type_info = new String[]{'LastName','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] FirstName_type_info = new String[]{'FirstName','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] EmailAddress_type_info = new String[]{'EmailAddress','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] MobilePhoneNumber_type_info = new String[]{'MobilePhoneNumber','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentReference_type_info = new String[]{'PaymentReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] BankAccountName_type_info = new String[]{'BankAccountName','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] BankAccountBSB_type_info = new String[]{'BankAccountBSB','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] BankAccountNumber_type_info = new String[]{'BankAccountNumber','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentAmountInCents_type_info = new String[]{'PaymentAmountInCents','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] DebitDate_type_info = new String[]{'DebitDate','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] SmsPaymentReminder_type_info = new String[]{'SmsPaymentReminder','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] SmsFailedNotification_type_info = new String[]{'SmsFailedNotification','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] SmsExpiredCard_type_info = new String[]{'SmsExpiredCard','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Username_type_info = new String[]{'Username','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'DigitalKey','YourSystemReference','YourGeneralReference','LastName','FirstName','EmailAddress','MobilePhoneNumber','PaymentReference','BankAccountName','BankAccountBSB','BankAccountNumber','PaymentAmountInCents','DebitDate','SmsPaymentReminder','SmsFailedNotification','SmsExpiredCard','Username'};
+    }
+
+    @TestVisible
+    private class AddBankDebitResponse_element {
+        public EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW AddBankDebitResult;
+        private String[] AddBankDebitResult_type_info = new String[]{'AddBankDebitResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'AddBankDebitResult'};
+    }
+
+    @TestVisible
+    private class EziResponseOfPaymentDetailTHgMB7oL {
+        public EzidebitPaymentProcessor.PaymentDetail Data;
+        public Integer Error;
+        public String ErrorMessage;
+        private String[] Data_type_info = new String[]{'Data','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Error_type_info = new String[]{'Error','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] ErrorMessage_type_info = new String[]{'ErrorMessage','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'Data','Error','ErrorMessage'};
+    }
+
+    @TestVisible
+    private class PaymentDetail {
+        public String BankFailedReason;
+        public String BankReturnCode;
+        public DateTime DebitDate;
+        public String InvoiceID;
+        public Double PaymentAmount;
+        public String PaymentID;
+        public String PaymentMethod;
+        public String PaymentReference;
+        public String PaymentStatus;
+        public Double ScheduledAmount;
+        public DateTime SettlementDate;
+        public Double TransactionFeeClient;
+        public Double TransactionFeeCustomer;
+        public String YourGeneralReference;
+        public String YourSystemReference;
+        private String[] BankFailedReason_type_info = new String[]{'BankFailedReason','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] BankReturnCode_type_info = new String[]{'BankReturnCode','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] DebitDate_type_info = new String[]{'DebitDate','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] InvoiceID_type_info = new String[]{'InvoiceID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentAmount_type_info = new String[]{'PaymentAmount','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] PaymentID_type_info = new String[]{'PaymentID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentMethod_type_info = new String[]{'PaymentMethod','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentReference_type_info = new String[]{'PaymentReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentStatus_type_info = new String[]{'PaymentStatus','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] ScheduledAmount_type_info = new String[]{'ScheduledAmount','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] SettlementDate_type_info = new String[]{'SettlementDate','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] TransactionFeeClient_type_info = new String[]{'TransactionFeeClient','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] TransactionFeeCustomer_type_info = new String[]{'TransactionFeeCustomer','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] YourGeneralReference_type_info = new String[]{'YourGeneralReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] YourSystemReference_type_info = new String[]{'YourSystemReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'BankFailedReason','BankReturnCode','DebitDate','InvoiceID','PaymentAmount','PaymentID','PaymentMethod','PaymentReference','PaymentStatus','ScheduledAmount','SettlementDate','TransactionFeeClient','TransactionFeeCustomer','YourGeneralReference','YourSystemReference'};
+    }
+
+    @TestVisible
+    private class GetPaymentDetail_element {
+        public String DigitalKey;
+        public String PaymentReference;
+        private String[] DigitalKey_type_info = new String[]{'DigitalKey','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentReference_type_info = new String[]{'PaymentReference','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'DigitalKey','PaymentReference'};
+    }
+
+    @TestVisible
+    private class GetPaymentDetailResponse_element {
+        public EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL GetPaymentDetailResult;
+        private String[] GetPaymentDetailResult_type_info = new String[]{'GetPaymentDetailResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'GetPaymentDetailResult'};
+    }
+
+    private static final Map<String, String> PAYMENT_STATUS_TO_PAYMENT_STATUS = new Map<String, String> {
+        'W' => 'Initialized',
+        'P' => 'Pending',
+        'S' => 'Processed',
+        'D' => 'Dishonoured',
+        'F' => 'Failed'
+    };
 
 }

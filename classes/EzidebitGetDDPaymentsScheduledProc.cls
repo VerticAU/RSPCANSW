@@ -29,17 +29,35 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
      */
 
     public Database.QueryLocator start(Database.BatchableContext context) {
-        return Database.getQueryLocator('SELECT Id FROM Direct_Debit_Schedule__c WHERE Status__c = \'Active\' AND EziDebit_Customer_ID__c != null');
+        fflib_QueryFactory queryFactory = new fflib_QueryFactory(npe01__OppPayment__c.SObjectType);
+        queryFactory.selectFields(npe01__OppPayment__c.SObjectType.getDescribe().fields.getMap().keySet().clone());
+        List<String> conditions = new List<String>{
+            'npe01__Payment_Method__c = \'EziDebit\'',
+            'npe01__Paid__c = FALSE',
+            'npsp_plus__Status__c = \'Pending\'',
+            'EziDebit_Transaction_ID__c != NULL'
+        };
+        queryFactory.setCondition(String.join(conditions, ' AND '));
+        return Database.getQueryLocator(queryFactory.toSOQL());
     }
 
     public void execute(Database.BatchableContext context, List<SObject> scope) {
-        new EzidebitGetDDPaymentsProc().process(new vertic_Request(new Map<String, Object>{
-            'recordId' => scope[0].Id
-        }));
+        vertic_AsyncProcess asyncProcess = new vertic_AsyncProcess();
+        for (SObject record : scope) {
+            Vertic_Async_Process__c vap = vertic_AsyncProcess.create(
+                EzidebitGetPaymentDetailsProc.class,
+                new Map<String, Object>{
+                    'recordId' => record.Id
+                }
+            );
+            vap.Description__c = 'Status Sync';
+            vap.Group_Key__c = 'EziDebit-' + record.Id;
+            asyncProcess.add(vap);
+        }
+        asyncProcess.enqueue();
     }
 
     public void finish(Database.BatchableContext context) {
-        System.debug('EzidebitGetScheduledPaymentsScheduleProc finished!');
     }
 
     /**
@@ -51,7 +69,7 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-        this.response.put('apexJobId', Database.executeBatch(this, 1));
+        this.response.put('apexJobId', Database.executeBatch(this));
 
         return this.response;
     }

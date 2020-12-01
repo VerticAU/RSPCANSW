@@ -8,7 +8,9 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     private static final String ACCEPT_HEADER = 'Accept';
     private static final String APP_JSON_TYPE = 'application/json';
 
-    private Map<String, Object> FIELD_MAPPING;
+    private Map<String, String> childRelationshipMapping;
+    private Map<String, String> parentRelationshipMapping;
+    private Map<String, Set<String>> childRelationshipFields;
 
     /**
      * ==============================================================================================================
@@ -37,38 +39,60 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         this.retrieveMapping();
 
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(Contact.SObjectType);
-        queryFactory.selectFields(getListObjectAsStrings(this.FIELD_MAPPING.values()));
+        queryFactory.selectFields(this.parentRelationshipMapping.values());
         queryFactory.setCondition('Id = \'' + this.campaignMember.ContactId + '\'');
         queryFactory.setLimit(1);
+
+        for(String childRelationship : this.childRelationshipFields.keySet()){
+            fflib_QueryFactory subselect = queryFactory.subselectQuery(childRelationship);
+            subselect.selectFields(this.childRelationshipFields.get(childRelationship));
+            subselect.setLimit(1);
+            subselect.setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true);
+        }
 
         this.contactVar = Database.query(queryFactory.toSOQL());
     }
 
-    private List<String> getListObjectAsStrings(List<Object> objects){
-        List<String> strings = new List<String>();
-        for(Object obj : objects){
-            strings.add(obj.toString());
-        }
-        return strings;
-    }
-
     private void retrieveMapping(){
+        Map<String, Object> fieldMapping;
+
         if(Test.isRunningTest()){
-            this.FIELD_MAPPING = new Map<String, String>{
+            fieldMapping = new Map<String, String>{
                 'first_name' => 'FirstName',
                 'last_name' => 'LastName'
             };
-            return;
+        } else {
+            SObject setting = vertic_SettingService.getMetadataType(Schema.getGlobalDescribe().get('Vertic_Setting__mdt'), 'Clever_Contacts_Campaign_Fields_Mapping');
+
+            if(setting == null){ return; }
+
+            Map<String, Object> valueMap = (Map<String, Object>) JSON.deserializeUntyped((String) setting.get('Value__c'));
+            fieldMapping = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Name);
+
+            if(fieldMapping == null){ fieldMapping = (Map<String, Object>) valueMap.get('default'); }
         }
 
-        SObject setting = vertic_SettingService.getMetadataType(Schema.getGlobalDescribe().get('Vertic_Setting__mdt'), 'Clever_Contacts_Campaign_Fields_Mapping');
+        this.childRelationshipFields = new Map<String, Set<String>>();
+        this.childRelationshipMapping = new Map<String, String>();
+        this.parentRelationshipMapping = new Map<String, String>();
 
-        if(setting == null){ return; }
+        for(String key : fieldMapping.keySet()){
+            String value = fieldMapping.get(key).toString();
+            if(value.contains('|')){
+                this.childRelationshipMapping.put(key, value);
 
-        Map<String, Object> valueMap = (Map<String, Object>) JSON.deserializeUntyped((String) setting.get('Value__c'));
-        this.FIELD_MAPPING = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Name);
+                String childRelationship = value.substringBefore('|');
+                String childField = value.substringAfter('|');
 
-        if(this.FIELD_MAPPING == null){ this.FIELD_MAPPING = (Map<String, Object>) valueMap.get('default'); }
+                if(this.childRelationshipFields.containsKey(childRelationship)){
+                    this.childRelationshipFields.get(childRelationship).add(childField);
+                } else {
+                    this.childRelationshipFields.put(childRelationship, new Set<String>{childField});
+                }
+            } else {
+                this.parentRelationshipMapping.put(key, value);
+            }
+        }
     }
 
     private void sync() {
@@ -84,8 +108,19 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             'contact' => new vertic_AutoMapper().getSObjectAsMap(this.contactVar)
         });
 
-        for(String key : this.FIELD_MAPPING.keySet()){
-            data.put(key, contactDTO.get('contact.' + (String) this.FIELD_MAPPING.get(key)));
+        for(String key : this.parentRelationshipMapping.keySet()){
+            data.put(key, contactDTO.get('contact.' + (String) this.parentRelationshipMapping.get(key)));
+        }
+
+        for(String key : this.childRelationshipMapping.keySet()){
+            String childRelationship = this.childRelationshipMapping.get(key).substringBefore('|');
+            String childField = this.childRelationshipMapping.get(key).substringAfter('|');
+
+            List<SObject> childSObjects = this.contactVar.getSObjects(childRelationship);
+
+            if(childSObjects != null && childSObjects.size() > 0){
+                data.put(key, childSObjects[0].get(childField));
+            }
         }
 
         HttpResponse response = this.doRequest(ENDPOINT, POST, JSON.serialize(data));

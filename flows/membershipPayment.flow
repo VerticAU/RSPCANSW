@@ -175,7 +175,7 @@
             <assignToReference>membership.CloseDate</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>membershipEndDate</elementReference>
+                <elementReference>membershipCloseDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -378,7 +378,7 @@
         </rules>
     </decisions>
     <formulas>
-        <name>membershipEndDate</name>
+        <name>yearAfterMembershipStartDate</name>
         <dataType>Date</dataType>
         <expression>{!membershipStartDate} + 365</expression>
     </formulas>
@@ -458,7 +458,7 @@
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
         <locationX>1509</locationX>
-        <locationY>692</locationY>
+        <locationY>690</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Does_Campaign_Exist</targetReference>
@@ -588,7 +588,7 @@
             <targetReference>Get_Contact_Member_Number</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
@@ -876,6 +876,16 @@
         <isOutput>false</isOutput>
         <value>
             <elementReference>$Flow.CurrentDate</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>membershipEndDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>yearAfterMembershipStartDate</elementReference>
         </value>
     </variables>
     <variables>
