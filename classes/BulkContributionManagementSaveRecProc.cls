@@ -95,9 +95,6 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
                 oppPayment.npe01__Written_Off__c = false;
                 oppPayment.npe01__Payment_Amount__c = opportunity.Amount;
                 oppPayment.npe01__Payment_Method__c = opportunity.Payment_Method__c;
-                oppPayment.Stripe_Payment_Id__c = opportunity.Payment_Method__c == 'Credit Card' ? opportunity.Stripe_Payment_Id__c : '';
-                oppPayment.Stripe_Customer_Id__c = opportunity.Payment_Method__c == 'Credit Card' ? opportunity.Stripe_Customer_Id__c : '';
-
 
                 oppPaymentsListToUpdate.add(oppPayment);
             }
@@ -117,7 +114,6 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
         this.batchVar = new Batch__c(
             Id = batchId,
             Name = 'Bulk Donation ' + System.now(),
-            Object_Name__c = 'Opportunity',
             Batch_Status__c = 'Pending'
         );
         this.uow.registerUpsert(batchVar);

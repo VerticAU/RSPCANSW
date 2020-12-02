@@ -83,7 +83,10 @@ public class EzidebitPaymentProcessor {
             throw new vertic_Structs.InvalidDataException('Empty Payment Details');
         }
 
-        return (EzidebitStructs.Payment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.Payment.class);
+        EzidebitStructs.Payment payment = (EzidebitStructs.Payment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.Payment.class);
+        payment.PaymentStatus = PAYMENT_STATUS_TO_PAYMENT_STATUS.get(response.Data.PaymentStatus);
+
+        return payment;
     }
 
     /**
@@ -93,7 +96,7 @@ public class EzidebitPaymentProcessor {
         A system utilising this method will provide a unique Payer Reference
         from the integrating system as well as a unique Payment Reference for each payment.
      */
-    public String addBankDebit(String yourSystemReference, String yourGeneralReference, String lastName, String firstName, String emailAddress, String mobilePhoneNumber, String paymentReference, String accountName, String bsb, String accountNumber, Decimal amount){
+    public String addBankDebit(String yourSystemReference, String yourGeneralReference, String lastName, String firstName, String emailAddress, String mobilePhoneNumber, String paymentReference, String accountName, String bsb, String accountNumber, Decimal amount, Date debitDate){
         EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW response = this.pciService.AddBankDebit(
             this.digitalKey, // Digital Key
             yourSystemReference, // Your System Reference
@@ -109,7 +112,7 @@ public class EzidebitPaymentProcessor {
             // The amount to debit from your payer in cents. The system has a $2.00 minimum debit amount.
             // If you would like to debit smaller amounts please amil partner@ezidebit.com.au. E.g. $20.00 = 2000
             amount == null ? 0 : Integer.valueOf(amount * 100), // Payment Amount Cents
-            Datetime.now().format('yyyy-MM-dd'), // Debit Date
+            (debitDate != null ? vertic_Utils.dates.dateToDateTime(debitDate) : Datetime.now()).format('yyyy-MM-dd'), // Debit Date
             String.isNotBlank(mobilePhoneNumber) ? 'YES' : 'NO', // SMS Payment Reminder
             String.isNotBlank(mobilePhoneNumber) ? 'YES' : 'NO', // SMS Failed Notification
             'NO', // SMS Expired Card
@@ -239,29 +242,10 @@ public class EzidebitPaymentProcessor {
 
         List<EzidebitStructs.Payment> payments = new List<EzidebitStructs.Payment>();
 
-        EzidebitStructs.Payment payment;
         for(EzidebitPaymentProcessor.Payment paymentData: response.Data.Payment) {
-            payment = new EzidebitStructs.Payment();
-            payment.BankFailedReason = paymentData.BankFailedReason;
-            payment.BankReceiptID = paymentData.BankReceiptID;
-            payment.BankReturnCode = paymentData.BankReturnCode;
-            payment.CustomerName = paymentData.CustomerName;
-            payment.DebitDate = paymentData.DebitDate;
-            payment.EzidebitCustomerID = paymentData.EzidebitCustomerID;
-            payment.InvoiceID = paymentData.InvoiceID;
-            payment.PaymentAmount = paymentData.PaymentAmount;
-            payment.PaymentID = paymentData.PaymentID;
-            payment.PaymentMethod = paymentData.PaymentMethod;
-            payment.PaymentReference = paymentData.PaymentReference;
-            payment.PaymentSource = paymentData.PaymentSource;
+            EzidebitStructs.Payment payment = (EzidebitStructs.Payment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.Payment.class);
             payment.PaymentStatus = PAYMENT_STATUS_TO_PAYMENT_STATUS.get(paymentData.PaymentStatus);
-            payment.ScheduledAmount = paymentData.ScheduledAmount;
-            payment.SettlementDate = paymentData.SettlementDate;
-            payment.TransactionFeeClient = paymentData.TransactionFeeClient;
-            payment.TransactionFeeCustomer = paymentData.TransactionFeeCustomer;
-            payment.TransactionTime = paymentData.TransactionTime;
-            payment.YourGeneralReference = paymentData.YourGeneralReference;
-            payment.YourSystemReference = paymentData.YourSystemReference;
+
             payments.add(payment);
         }
 
@@ -1107,7 +1091,7 @@ public class EzidebitPaymentProcessor {
     }
 
     private static final Map<String, String> PAYMENT_STATUS_TO_PAYMENT_STATUS = new Map<String, String> {
-        'W' => 'Initialized',
+        'W' => 'Pending',
         'P' => 'Pending',
         'S' => 'Processed',
         'D' => 'Dishonoured',

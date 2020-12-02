@@ -9,7 +9,16 @@
     <values>
         <field>Input__c</field>
         <value xsi:type="xsd:string">{
-  &quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
+  &quot;contactBirthdate&quot;: {
+    &quot;trueValues&quot;: null,
+    &quot;format&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;type&quot;: &quot;Date&quot;,
+    &quot;disregardBlankValue&quot;: true,
+    &quot;trimValue&quot;: true,
+    &quot;path&quot;: &quot;dto.contact.birthdate&quot;
+  },
+  &quot;membershipCampaignCode&quot;: &quot;dto.membership.campaignCode&quot;,
+  &quot;donationCampaignCode&quot;: &quot;dto.donation.campaignCode&quot;,
   &quot;contactStreet&quot;: &quot;dto.contact.street&quot;,
   &quot;membershipCloseDate&quot;: {
     &quot;trueValues&quot;: null,

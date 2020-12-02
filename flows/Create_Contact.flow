@@ -115,6 +115,13 @@
                 <elementReference>organisationId</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.Birthdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactBirthdate</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Contact_Deduplicate</targetReference>
         </connector>
@@ -296,6 +303,13 @@
         <isInput>false</isInput>
         <isOutput>true</isOutput>
         <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>contactBirthdate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>contactCity</name>

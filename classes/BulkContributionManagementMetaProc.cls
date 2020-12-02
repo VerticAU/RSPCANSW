@@ -74,27 +74,19 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 Donor_Type__c,
                 isCompleted__c,
                 Batch__c,
-                Bank_Account__c,
+                Bank_Account_Number__c,
                 Cheque_Number__c,
                 Name_on_Cheque__c,
                 Payment_Method__c,
                 Stripe_Payment_Id__c,
                 Stripe_Customer_Id__c,
                 Campaign.Stripe_Account_Id__c,
-                npsp__Primary_Contact__c,
-                (SELECT npe01__Payment_Method__c,
-                    Stripe_Customer_Id__c,
-                    Stripe_Payment_Id__c,
-                    Stripe_Transaction_Id__c
-                FROM npe01__OppPayment__r
-                ORDER BY CreatedDate DESC LIMIT 1)
+                npsp__Primary_Contact__c
             FROM Opportunity
             WHERE Batch__c = :batchId
         ]);
 
-        SET<Id> contributionIds = vertic_Utils.sObjects.getIdFieldValues(contributions, 'Id');
-
-        this.response.getMapper().mapFromListSObjects('contributions', contributions, new vertic_AutoMapper.BinderQueue(new OpportunityPaymentBinder(contributionIds)));
+        this.response.getMapper().mapFromListSObjects('contributions', contributions);
         this.response.getMapper().mapAnyValue('batchId', batchId);
     }
 
@@ -104,26 +96,4 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
      *                                         STRUCTURES AND OVERRIDES
      * ==============================================================================================================
      */
-
-    public class OpportunityPaymentBinder implements vertic_AutoMapper.IBinder {
-
-        private SET<Id> opportunityIds;
-
-        opportunityPaymentBinder(SET<Id> opportunityIds){
-            this.opportunityIds = opportunityIds;
-        }
-
-        public void bind(SObject record, Map<String, Object> dataMap) {
-
-            vertic_AutoMapper mapper = new vertic_AutoMapper(dataMap);
-
-            Opportunity opportunity = (Opportunity) record;
-
-            npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(Id = opportunity.npe01__OppPayment__r[0].Id);
-
-            mapper.mapAnyValue('contribution.Stripe_Customer_Id__c', oppPayment.Stripe_Customer_Id__c);
-            mapper.mapAnyValue('contribution.Stripe_Payment_Id__c', oppPayment.Stripe_Payment_Id__c);
-        }
-    }
-
 }

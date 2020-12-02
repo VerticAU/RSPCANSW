@@ -9,6 +9,11 @@
         <value>Batches (custom)</value>
     </caseValues>
     <fields>
+        <label><!-- Approved By --></label>
+        <name>Approved_By__c</name>
+        <relationshipLabel><!-- Batches (custom) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Batch Status --></label>
         <name>Batch_Status__c</name>
         <picklistValues>
@@ -31,10 +36,6 @@
     <fields>
         <label><!-- Number of Items --></label>
         <name>Number_of_Items__c</name>
-    </fields>
-    <fields>
-        <label><!-- Object Name --></label>
-        <name>Object_Name__c</name>
     </fields>
     <layouts>
         <layout>Batch Layout</layout>

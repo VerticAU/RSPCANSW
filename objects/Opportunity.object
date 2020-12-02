@@ -1122,6 +1122,16 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Is_Membership_Confirmed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Membership Confirmed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Is_This_First_Donation__c</fullName>
         <externalId>false</externalId>
         <formula>npsp__Primary_Contact__r.Count_of_Donations__c == 1</formula>

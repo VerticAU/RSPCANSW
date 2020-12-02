@@ -68,19 +68,17 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
             oppPayment.npe01__Paid__c = true;
             oppPayment.npe01__Written_Off__c = false;
             oppPayment.npe01__Payment_Method__c = opportunity.Payment_Method__c;
-            oppPayment.Stripe_Payment_Id__c = opportunity.Payment_Method__c == 'Credit Card' ? opportunity.Stripe_Payment_Id__c : '';
-            oppPayment.Stripe_Customer_Id__c = opportunity.Payment_Method__c == 'Credit Card' ? opportunity.Stripe_Customer_Id__c : '';
 
             update oppPayment;
 
             Opportunity uncompletedOpp = (Opportunity) vertic_Utils.arrays.firstOrNull([
                 SELECT Id
                 FROM Opportunity
-                WHERE npsp__Batch__c = :opportunity.npsp__Batch__c AND
+                WHERE Batch__c = :opportunity.Batch__c AND
                 isCompleted__c = false
             ]);
             if (uncompletedOpp == null) {
-                update new npsp__Batch__c(Id = opportunity.npsp__Batch__c, npsp__Batch_Status__c = 'Complete');
+                update new Batch__c(Id = opportunity.Batch__c, Approved_By__c = UserInfo.getUserId(), Batch_Status__c = 'Complete');
             }
 
             this.response.put('opportunityId', opportunity.Id);

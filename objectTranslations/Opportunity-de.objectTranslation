@@ -203,6 +203,10 @@
         <name>Invoice_Sent_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Is Membership Confirmed --></label>
+        <name>Is_Membership_Confirmed__c</name>
+    </fields>
+    <fields>
         <label><!-- Is This First Donation --></label>
         <name>Is_This_First_Donation__c</name>
     </fields>

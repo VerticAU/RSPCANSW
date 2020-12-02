@@ -239,9 +239,9 @@
                 </td>
                 <td data-label="Bank Account Number" colspan="1">
                     <lightning:input label="Bank Account"
-                                     placeholder="Bank Account"
+                                     placeholder="Bank Account Number"
                                      required="{!true}"
-                                     value="{! v.contribution.Bank_Account__c }"
+                                     value="{! v.contribution.Bank_Account_Number__c }"
                                      variant="label-hidden"
                                      class="label-hidden"
                                      disabled="{!v.contribution.isCompleted__c}"

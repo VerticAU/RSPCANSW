@@ -2,33 +2,10 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
-        <name>Assign_Campaign</name>
-        <label>Assign Campaign</label>
-        <locationX>1657</locationX>
-        <locationY>862</locationY>
-        <assignmentItems>
-            <assignToReference>campaign.Campaign_Code__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>campaignCode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>campaign.Name</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>campaignCode</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Insert_Campaign</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Donation_Assignment</name>
         <label>Donation Assignment</label>
-        <locationX>2251</locationX>
-        <locationY>998</locationY>
+        <locationX>2102</locationX>
+        <locationY>997</locationY>
         <assignmentItems>
             <assignToReference>donation.Amount</assignToReference>
             <operator>Assign</operator>
@@ -131,7 +108,7 @@
             <assignToReference>donation.CampaignId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>campaign.Id</elementReference>
+                <elementReference>donationCampaign.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -141,8 +118,8 @@
     <assignments>
         <name>Membership_Assignment</name>
         <label>Membership Assignment</label>
-        <locationX>1810</locationX>
-        <locationY>691</locationY>
+        <locationX>1661</locationX>
+        <locationY>690</locationY>
         <assignmentItems>
             <assignToReference>membership.Name</assignToReference>
             <operator>Assign</operator>
@@ -238,7 +215,7 @@
             <assignToReference>membership.CampaignId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>campaign.Id</elementReference>
+                <elementReference>membershipCampaign.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -248,8 +225,8 @@
     <assignments>
         <name>Output_Assignment</name>
         <label>Output Assignment</label>
-        <locationX>2543</locationX>
-        <locationY>692</locationY>
+        <locationX>2394</locationX>
+        <locationY>691</locationY>
         <assignmentItems>
             <assignToReference>contactId</assignToReference>
             <operator>Assign</operator>
@@ -275,8 +252,8 @@
     <assignments>
         <name>Output_Assignment_0</name>
         <label>Output Assignment</label>
-        <locationX>2543</locationX>
-        <locationY>839</locationY>
+        <locationX>2394</locationX>
+        <locationY>838</locationY>
         <assignmentItems>
             <assignToReference>donationId</assignToReference>
             <operator>Assign</operator>
@@ -296,35 +273,10 @@
         </connector>
     </assignments>
     <decisions>
-        <name>Does_Campaign_Exist</name>
-        <label>Does Campaign Exist</label>
-        <locationX>1649</locationX>
-        <locationY>694</locationY>
-        <defaultConnector>
-            <targetReference>Assign_Campaign</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Campaign_Exists</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>campaign</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Membership_Assignment</targetReference>
-            </connector>
-            <label>Campaign Exists</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Donation_Amount</name>
         <label>Donation Amount</label>
-        <locationX>2246</locationX>
-        <locationY>694</locationY>
+        <locationX>2097</locationX>
+        <locationY>693</locationY>
         <defaultConnector>
             <targetReference>Get_Donation_Record</targetReference>
         </defaultConnector>
@@ -353,8 +305,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Membership_Number</name>
-        <label>Membership Number</label>
+        <name>Member_Exists</name>
+        <label>Member Exists</label>
         <locationX>1164</locationX>
         <locationY>489</locationY>
         <defaultConnector>
@@ -406,8 +358,8 @@
     <recordCreates>
         <name>Create_Donation</name>
         <label>Create Donation</label>
-        <locationX>2399</locationX>
-        <locationY>998</locationY>
+        <locationX>2250</locationX>
+        <locationY>997</locationY>
         <connector>
             <targetReference>Create_Payment</targetReference>
         </connector>
@@ -416,28 +368,18 @@
     <recordCreates>
         <name>Create_Membership</name>
         <label>Create Membership</label>
-        <locationX>1947</locationX>
-        <locationY>691</locationY>
+        <locationX>1798</locationX>
+        <locationY>690</locationY>
         <connector>
             <targetReference>Get_All_Fields</targetReference>
         </connector>
         <inputReference>membership</inputReference>
     </recordCreates>
-    <recordCreates>
-        <name>Insert_Campaign</name>
-        <label>Insert Campaign</label>
-        <locationX>1810</locationX>
-        <locationY>862</locationY>
-        <connector>
-            <targetReference>Membership_Assignment</targetReference>
-        </connector>
-        <inputReference>campaign</inputReference>
-    </recordCreates>
     <recordLookups>
         <name>Get_All_Fields</name>
         <label>Get All Fields</label>
-        <locationX>2088</locationX>
-        <locationY>691</locationY>
+        <locationX>1939</locationX>
+        <locationY>690</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Amount</targetReference>
@@ -455,34 +397,13 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Campaign</name>
-        <label>Get Campaign</label>
-        <locationX>1509</locationX>
-        <locationY>690</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Does_Campaign_Exist</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Campaign_Code__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>campaignCode</elementReference>
-            </value>
-        </filters>
-        <object>Campaign</object>
-        <outputReference>campaign</outputReference>
-        <queriedFields>Id</queriedFields>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Contact_All_Fields</name>
         <label>Get Contact All Fields</label>
         <locationX>1370</locationX>
         <locationY>690</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Campaign</targetReference>
+            <targetReference>Get_Membership_Campaign</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -503,7 +424,7 @@
         <locationY>486</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Membership_Number</targetReference>
+            <targetReference>Member_Exists</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -519,13 +440,34 @@
         <queriedFields>Member_Number__c</queriedFields>
     </recordLookups>
     <recordLookups>
-        <name>Get_Donation_Record</name>
-        <label>Get Donation Record</label>
-        <locationX>2251</locationX>
-        <locationY>839</locationY>
+        <name>Get_Donation_Campaign</name>
+        <label>Get Donation Campaign</label>
+        <locationX>1962</locationX>
+        <locationY>917</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Donation_Assignment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Campaign_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>donationCampaignCode</elementReference>
+            </value>
+        </filters>
+        <object>Campaign</object>
+        <outputReference>donationCampaign</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Donation_Record</name>
+        <label>Get Donation Record</label>
+        <locationX>2102</locationX>
+        <locationY>838</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Donation_Campaign</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -552,6 +494,27 @@
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Membership_Campaign</name>
+        <label>Get Membership Campaign</label>
+        <locationX>1509</locationX>
+        <locationY>690</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Membership_Assignment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Campaign_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>membershipCampaignCode</elementReference>
+            </value>
+        </filters>
+        <object>Campaign</object>
+        <outputReference>membershipCampaign</outputReference>
+        <queriedFields>Id</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Record_Type</name>
@@ -598,6 +561,12 @@
             <targetReference>Get_Record_Type</targetReference>
         </connector>
         <flowName>Create_Contact</flowName>
+        <inputAssignments>
+            <name>contactBirthdate</name>
+            <value>
+                <elementReference>contactBirthdate</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <name>contactCity</name>
             <value>
@@ -666,8 +635,8 @@
     <subflows>
         <name>Create_Payment</name>
         <label>Create Payment</label>
-        <locationX>2543</locationX>
-        <locationY>998</locationY>
+        <locationX>2394</locationX>
+        <locationY>997</locationY>
         <connector>
             <targetReference>Output_Assignment_0</targetReference>
         </connector>
@@ -692,27 +661,19 @@
         </inputAssignments>
     </subflows>
     <variables>
-        <name>campaign</name>
-        <dataType>SObject</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <objectType>Campaign</objectType>
-    </variables>
-    <variables>
-        <name>campaignCode</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>contact</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>contactBirthdate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>contactCity</name>
@@ -808,6 +769,21 @@
         <scale>2</scale>
     </variables>
     <variables>
+        <name>donationCampaign</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Campaign</objectType>
+    </variables>
+    <variables>
+        <name>donationCampaignCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>donationDate</name>
         <dataType>Date</dataType>
         <isCollection>false</isCollection>
@@ -867,6 +843,21 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <scale>2</scale>
+    </variables>
+    <variables>
+        <name>membershipCampaign</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Campaign</objectType>
+    </variables>
+    <variables>
+        <name>membershipCampaignCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>membershipCloseDate</name>

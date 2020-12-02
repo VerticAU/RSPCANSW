@@ -606,14 +606,13 @@ If contact has no email/phone number then</description>
         <active>true</active>
         <formula>AND(
     RecordType.DeveloperName = &apos;Membership&apos;,
-    ISPICKVAL(StageName , &apos;Pending&apos;) ,
+    ISPICKVAL(StageName , &apos;Pending&apos;),
     npsp__Primary_Contact__r.Active_Membership__c &lt;&gt; Id,
+    Is_Membership_Confirmed__c, 
     IF(       
-        ISNULL(
-npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
-    ), 
-    true, 
-    npe01__Membership_Start_Date__c &gt;= npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
+        ISNULL(npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c), 
+        true, 
+        npe01__Membership_Start_Date__c &gt;= npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
     )    
 )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -639,6 +638,7 @@ npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c
         </actions>
         <active>true</active>
         <formula>AND(
+    Is_Membership_Confirmed__c,
     RecordType.DeveloperName = &apos;Membership&apos;,
     ISPICKVAL(StageName , &apos;Pending&apos;) ,
     npsp__Primary_Contact__r.Active_Membership__c &lt;&gt; Id,
