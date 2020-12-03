@@ -667,9 +667,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Bank_Account_Number__c</fullName>
+        <fullName>Bank_Account_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Bank Account Number</label>
+        <label>Bank Account Name</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -679,9 +679,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Bank_Account__c</fullName>
+        <fullName>Bank_Account_Number__c</fullName>
         <externalId>false</externalId>
-        <label>Bank Account</label>
+        <label>Bank Account Number</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -893,20 +893,6 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-    </fields>
-    <fields>
-        <fullName>Direct_Debit_Schedule__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Direct Debit Schedule</label>
-        <referenceTo>Direct_Debit_Schedule__c</referenceTo>
-        <relationshipLabel>Opportunities</relationshipLabel>
-        <relationshipName>Opportunities</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Discount_Code__c</fullName>

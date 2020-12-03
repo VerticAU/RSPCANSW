@@ -605,10 +605,10 @@ If contact has no email/phone number then</description>
         <fullName>Membership Renewal after End Date</fullName>
         <active>true</active>
         <formula>AND(
+    Is_Membership_Confirmed__c,
     RecordType.DeveloperName = &apos;Membership&apos;,
     ISPICKVAL(StageName , &apos;Pending&apos;),
     npsp__Primary_Contact__r.Active_Membership__c &lt;&gt; Id,
-    Is_Membership_Confirmed__c, 
     IF(       
         ISNULL(npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c), 
         true, 
@@ -645,7 +645,7 @@ If contact has no email/phone number then</description>
     npe01__Membership_Start_Date__c  &lt; 
 npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c  
 )</formula>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Thank you call for awarded Grant</fullName>

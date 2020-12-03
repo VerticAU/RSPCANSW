@@ -7,11 +7,11 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
      */
 
     public override String getScheduledJobName() {
-        return 'EziDebit Get Scheduled Payments - Every Day at 8 PM';
+        return 'EziDebit Get Scheduled Payments - Every Day at 9AM and 4PM';
     }
 
     public override String getScheduledCRON() {
-        return '0 0 20 1/1 * ? *'; // Every Day at 8 PM
+        return '0 0 9,16 * * ? *'; // Every Day at 9AM and 4PM
     }
 
     public override Type getScheduledProcType() {

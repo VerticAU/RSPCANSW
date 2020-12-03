@@ -2,6 +2,22 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
+        <name>Assign_Formulas</name>
+        <label>Assign Formulas</label>
+        <locationX>906</locationX>
+        <locationY>648</locationY>
+        <assignmentItems>
+            <assignToReference>membershipEndDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>yearAfterMembershipStartDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Contact_Member_Number</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Donation_Assignment</name>
         <label>Donation Assignment</label>
         <locationX>2102</locationX>
@@ -159,7 +175,7 @@
             <assignToReference>membership.StageName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>membershipStage</elementReference>
+                <stringValue>Pending</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -218,6 +234,13 @@
                 <elementReference>membershipCampaign.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>membership.Is_Membership_Confirmed__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>isMembershipConfirmed</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Membership</targetReference>
         </connector>
@@ -235,10 +258,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>memberNumber</assignToReference>
+            <assignToReference>contactMemberNumber</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>contact.Member_Number__c</elementReference>
+                <elementReference>Get_Contact_All_Fields.Member_Number__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -330,9 +353,14 @@
         </rules>
     </decisions>
     <formulas>
+        <name>isMembershipConfirmed</name>
+        <dataType>Boolean</dataType>
+        <expression>{!contactMemberNumber} != null</expression>
+    </formulas>
+    <formulas>
         <name>yearAfterMembershipStartDate</name>
         <dataType>Date</dataType>
-        <expression>{!membershipStartDate} + 365</expression>
+        <expression>DATE(YEAR({!membershipStartDate})+1, MONTH({!membershipStartDate}), DAY({!membershipStartDate}))</expression>
     </formulas>
     <interviewLabel>Membership Payment {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Membership Payment</label>
@@ -548,10 +576,10 @@
         <locationX>582</locationX>
         <locationY>469</locationY>
         <connector>
-            <targetReference>Get_Contact_Member_Number</targetReference>
+            <targetReference>Assign_Formulas</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
@@ -722,7 +750,7 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
-        <isOutput>false</isOutput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>contactPhone</name>
@@ -820,13 +848,6 @@
         <value>
             <stringValue>Closed Won</stringValue>
         </value>
-    </variables>
-    <variables>
-        <name>memberNumber</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>membership</name>

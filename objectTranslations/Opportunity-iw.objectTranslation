@@ -50,12 +50,12 @@
         <name>BSB__c</name>
     </fields>
     <fields>
-        <label><!-- Bank Account Number --></label>
-        <name>Bank_Account_Number__c</name>
+        <label><!-- Bank Account Name --></label>
+        <name>Bank_Account_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Bank Account --></label>
-        <name>Bank_Account__c</name>
+        <label><!-- Bank Account Number --></label>
+        <name>Bank_Account_Number__c</name>
     </fields>
     <fields>
         <label><!-- Bank Branch --></label>
@@ -119,11 +119,6 @@
     <fields>
         <label><!-- Deceased Date --></label>
         <name>Deceased_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Direct Debit Schedule --></label>
-        <name>Direct_Debit_Schedule__c</name>
-        <relationshipLabel><!-- Opportunities --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Discount Code --></label>

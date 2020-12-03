@@ -28,6 +28,14 @@
     &quot;trimValue&quot;: true,
     &quot;path&quot;: &quot;dto.membership.closeDate&quot;
   },
+  &quot;membershipEndDate&quot;: {
+    &quot;trueValues&quot;: null,
+    &quot;format&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;type&quot;: &quot;Date&quot;,
+    &quot;disregardBlankValue&quot;: true,
+    &quot;trimValue&quot;: true,
+    &quot;path&quot;: &quot;dto.membership.endDate&quot;
+  },
   &quot;paypalTransactionId&quot;: &quot;dto.paypal.transactionId&quot;,
   &quot;contactFirstName&quot;: &quot;dto.contact.firstName&quot;,
   &quot;contactLastName&quot;: &quot;dto.contact.lastName&quot;,
@@ -81,7 +89,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">contactId,memberNumber,membershipId,donationId,raceiptNumber</value>
+        <value xsi:type="xsd:string">contactId,contactMemberNumber,membershipId,donationId,raceiptNumber</value>
     </values>
     <values>
         <field>Tags__c</field>

@@ -22,6 +22,14 @@ public class EzidebitStructs {
         public String YourSystemReference;
     }
 
+    public class RefundPayment {
+        public Integer BankReceiptID;
+        public Integer RefundPaymentID;
+        public String RefundResult;
+        public String RefundResultCode;
+        public String RefundResultText;
+    }
+
     public class BPayCRN {
         public String BPayBillerCode;
         public String BPayCRN;

@@ -254,6 +254,31 @@ public class EzidebitPaymentProcessor {
         return payments;
     }
 
+    /**
+        This method allows you to process a refund for a real-time credit card payment or
+        a direct debit payment from a bank account/credit card.
+        Refunds can only be processed for successful payments and must reference the PaymentIDs of the original transaction.
+     */
+    private EzidebitStructs.RefundPayment processRefund(String paymentReference, Decimal amount) {
+        EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL response = this.nonPCIService.ProcessRefund(
+            this.digitalKey, // Digital Key
+            paymentReference, // Payment ID
+            '', // Bank Receipt ID
+            // E.g. $20.00 = 2000
+            amount == null ? 0 : Integer.valueOf(amount * 100) // Refund Amount Cents
+        );
+
+        if (SUCCESS_RESULT != response.Error){
+            throw new vertic_Structs.InvalidDataException(response.ErrorMessage);
+        }
+
+        if (response.Data == null) {
+            throw new vertic_Structs.InvalidDataException('Empty Refund Details');
+        }
+
+        return (EzidebitStructs.RefundPayment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.RefundPayment.class);
+    }
+
     // Common structures
     private class EziResponseOfstring {
         public String Data;
@@ -472,6 +497,31 @@ public class EzidebitPaymentProcessor {
             );
             response_x = response_map_x.get('response_x');
             return response_x.GetBPayCRNResult;
+        }
+
+        private EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL ProcessRefund(String DigitalKey,String PaymentID,String BankReceiptID,Long RefundAmountInCents) {
+            EzidebitPaymentProcessor.ProcessRefund_element request_x = new EzidebitPaymentProcessor.ProcessRefund_element();
+            request_x.DigitalKey = DigitalKey;
+            request_x.PaymentID = PaymentID;
+            request_x.BankReceiptID = BankReceiptID;
+            request_x.RefundAmountInCents = RefundAmountInCents;
+            EzidebitPaymentProcessor.ProcessRefundResponse_element response_x;
+            Map<String, EzidebitPaymentProcessor.ProcessRefundResponse_element> response_map_x = new Map<String, EzidebitPaymentProcessor.ProcessRefundResponse_element>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+                this,
+                request_x,
+                response_map_x,
+                new String[]{endpoint_x,
+                    'https://px.ezidebit.com.au/INonPCIService/ProcessRefund',
+                    'https://px.ezidebit.com.au/',
+                    'ProcessRefund',
+                    'https://px.ezidebit.com.au/',
+                    'ProcessRefundResponse',
+                    'EzidebitPaymentProcessor.ProcessRefundResponse_element'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.ProcessRefundResult;
         }
 
         private EzidebitPaymentProcessor.EziResponseOfArrayOfPaymentTHgMB7oL GetPayments(String DigitalKey,String PaymentType,String PaymentMethod,String PaymentSource,String PaymentReference,String DateFrom,String DateTo,String DateField,String EziDebitCustomerID,String YourSystemReference) {
@@ -1088,6 +1138,56 @@ public class EzidebitPaymentProcessor {
         private String[] GetPaymentDetailResult_type_info = new String[]{'GetPaymentDetailResult','https://px.ezidebit.com.au/',null,'0','1','true'};
         private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
         private String[] field_order_type_info = new String[]{'GetPaymentDetailResult'};
+    }
+
+    @TestVisible
+    private class EziResponseOfRefundPaymentTHgMB7oL {
+        public EzidebitPaymentProcessor.RefundPayment Data;
+        public Integer Error;
+        public String ErrorMessage;
+        private String[] Data_type_info = new String[]{'Data','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] Error_type_info = new String[]{'Error','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] ErrorMessage_type_info = new String[]{'ErrorMessage','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'Data','Error','ErrorMessage'};
+    }
+
+    @TestVisible
+    private class RefundPayment {
+        public Integer BankReceiptID;
+        public Integer RefundPaymentID;
+        public String RefundResult;
+        public String RefundResultCode;
+        public String RefundResultText;
+        private String[] BankReceiptID_type_info = new String[]{'BankReceiptID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] RefundPaymentID_type_info = new String[]{'RefundPaymentID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] RefundResult_type_info = new String[]{'RefundResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] RefundResultCode_type_info = new String[]{'RefundResultCode','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] RefundResultText_type_info = new String[]{'RefundResultText','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'BankReceiptID','RefundPaymentID','RefundResult','RefundResultCode','RefundResultText'};
+    }
+
+    @TestVisible
+    private class ProcessRefund_element {
+        public String DigitalKey;
+        public String PaymentID;
+        public String BankReceiptID;
+        public Long RefundAmountInCents;
+        private String[] DigitalKey_type_info = new String[]{'DigitalKey','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] PaymentID_type_info = new String[]{'PaymentID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] BankReceiptID_type_info = new String[]{'BankReceiptID','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] RefundAmountInCents_type_info = new String[]{'RefundAmountInCents','https://px.ezidebit.com.au/',null,'0','1','false'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'DigitalKey','PaymentID','BankReceiptID','RefundAmountInCents'};
+    }
+
+    @TestVisible
+    private class ProcessRefundResponse_element {
+        public EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL ProcessRefundResult;
+        private String[] ProcessRefundResult_type_info = new String[]{'ProcessRefundResult','https://px.ezidebit.com.au/',null,'0','1','true'};
+        private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
+        private String[] field_order_type_info = new String[]{'ProcessRefundResult'};
     }
 
     private static final Map<String, String> PAYMENT_STATUS_TO_PAYMENT_STATUS = new Map<String, String> {
