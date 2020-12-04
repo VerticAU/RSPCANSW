@@ -4,12 +4,36 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>actionNames</name>
+                    <valueList>
+                        <valueListItems>
+                            <value>npe01__OppPayment__c.EziDebitRefund</value>
+                            <visibilityRule>
+                                <criteria>
+                                    <leftValue>{!Record.npe01__Payment_Method__c}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>EziDebit</rightValue>
+                                </criteria>
+                            </visibilityRule>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Edit</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>FeedItem.TextPost</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Delete</value>
+                        </valueListItems>
+                    </valueList>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>collapsed</name>
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>enableActionsConfiguration</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>hideChatterActions</name>

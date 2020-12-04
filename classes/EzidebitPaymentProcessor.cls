@@ -259,10 +259,10 @@ public class EzidebitPaymentProcessor {
         a direct debit payment from a bank account/credit card.
         Refunds can only be processed for successful payments and must reference the PaymentIDs of the original transaction.
      */
-    private EzidebitStructs.RefundPayment processRefund(String paymentReference, Decimal amount) {
+    public EzidebitStructs.RefundPayment processRefund(String paymentId, Decimal amount) {
         EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL response = this.nonPCIService.ProcessRefund(
             this.digitalKey, // Digital Key
-            paymentReference, // Payment ID
+            paymentId, // Payment ID
             '', // Bank Receipt ID
             // E.g. $20.00 = 2000
             amount == null ? 0 : Integer.valueOf(amount * 100) // Refund Amount Cents
@@ -276,7 +276,10 @@ public class EzidebitPaymentProcessor {
             throw new vertic_Structs.InvalidDataException('Empty Refund Details');
         }
 
-        return (EzidebitStructs.RefundPayment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.RefundPayment.class);
+        EzidebitStructs.RefundPayment refundPayment = (EzidebitStructs.RefundPayment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.RefundPayment.class);
+        refundPayment.RefundResult = PAYMENT_STATUS_TO_PAYMENT_STATUS.get(refundPayment.RefundResult);
+
+        return refundPayment;
     }
 
     // Common structures
@@ -1194,7 +1197,9 @@ public class EzidebitPaymentProcessor {
         'W' => 'Pending',
         'P' => 'Pending',
         'S' => 'Processed',
+        'A' => 'Processed',
         'D' => 'Dishonoured',
+        'U' => 'Failed',
         'F' => 'Failed'
     };
 

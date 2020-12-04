@@ -163,4 +163,44 @@ public class EzidebitTest {
         System.assertEquals(EzidebitGetPaymentsScheduleProc.class, proc.getScheduledProcType());
         System.assertEquals(true, proc.isQueueable());
     }
+
+    @IsTest
+    static void testAddBankDebitProc(){
+
+        Account account = new Account(Name = 'test');
+        insert account;
+
+        Contact contact = new Contact(
+            LastName = 'test',
+            AccountId = account.Id
+        );
+        insert contact;
+
+        npe03__Recurring_Donation__c recurringDonation = new npe03__Recurring_Donation__c(
+            npsp__Status__c = 'Active',
+            npe03__Contact__c = contact.Id
+        );
+        insert recurringDonation;
+
+        Opportunity opp = new Opportunity(
+            Name = 'test',
+            CloseDate = Date.today(),
+            StageName = 'Pledged',
+            npe03__Recurring_Donation__c = recurringDonation.Id
+        );
+        insert opp;
+
+        npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
+            npe01__Opportunity__c = opp.Id,
+            npe01__Payment_Method__c = 'EziDebit'
+        );
+        insert oppPayment;
+
+        Map<String, Object> request = new Map<String, Object>{
+            'recordId' => oppPayment.Id
+        };
+
+        new EzidebitAddBankDebitProc().process(request);
+
+    }
 }

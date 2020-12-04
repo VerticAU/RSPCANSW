@@ -39,7 +39,6 @@ public without sharing class BulkContributionManagementSaveRecProc extends verti
 
         List<Opportunity> opportunities = this.request.getMapper().mapToListSObjects('contributions', Opportunity.SObjectType);
 
-
         RecordType donationRecType = (RecordType) vertic_Utils.arrays.firstOrException([
             SELECT Id
             FROM RecordType

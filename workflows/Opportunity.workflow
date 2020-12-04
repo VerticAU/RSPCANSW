@@ -25,8 +25,7 @@
     <fieldUpdates>
         <fullName>Membership_End_Date_Offset</fullName>
         <field>npe01__Membership_End_Date__c</field>
-        <formula>npe01__Membership_End_Date__c + 
-(npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c -  npe01__Membership_Start_Date__c)</formula>
+        <formula>ADDMONTHS(npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c,12)</formula>
         <name>Membership End Date Offset</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>

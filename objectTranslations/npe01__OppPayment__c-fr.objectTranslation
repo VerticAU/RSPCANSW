@@ -10,5 +10,9 @@
     </caseValues>
     <gender>Masculine</gender>
     <nameFieldLabel>Numéro de paiement</nameFieldLabel>
+    <quickActions>
+        <label><!-- Refund --></label>
+        <name>EziDebitRefund</name>
+    </quickActions>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

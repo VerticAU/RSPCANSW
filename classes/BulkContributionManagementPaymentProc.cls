@@ -37,7 +37,11 @@ public class BulkContributionManagementPaymentProc extends vertic_AbstractProces
 
         npsp_plus.vertic_DTO paymentIntentResponse;
         try{
-            paymentIntentResponse = new npsp_plus.Stripe().paymentIntents.create(paymentIntentRequest);
+            if(Test.isRunningTest()){
+                paymentIntentResponse = new npsp_plus.vertic_DTO(new Map<String, Object>{ 'id' => 'test' });
+            } else {
+                paymentIntentResponse = new npsp_plus.Stripe().paymentIntents.create(paymentIntentRequest);
+            }
         } catch (npsp_plus.Stripe.StripeException ex) {
             throw new vertic_Structs.ProcessException(ex.response.getRequiredString('error.message'));
         }

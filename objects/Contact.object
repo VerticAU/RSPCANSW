@@ -971,7 +971,7 @@
     <fields>
         <fullName>Member_Number__c</fullName>
         <displayFormat>{0000000}</displayFormat>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Member Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

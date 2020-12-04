@@ -236,6 +236,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>EziDebitAssessmentBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EziDebitRefundQAMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EziDebitRefundQASubmitProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EzidebitAddBankDebitProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>

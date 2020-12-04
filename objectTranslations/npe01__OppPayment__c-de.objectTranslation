@@ -42,4 +42,8 @@
     </caseValues>
     <gender>Feminine</gender>
     <nameFieldLabel>Zahlungsnummer</nameFieldLabel>
+    <quickActions>
+        <label><!-- Refund --></label>
+        <name>EziDebitRefund</name>
+    </quickActions>
 </CustomObjectTranslation>

@@ -2,6 +2,21 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
 
     /**
      * ==============================================================================================================
+     *                                              ATTRIBUTES
+     * ==============================================================================================================
+     */
+
+    private Set<Id> recordIds;
+
+    public EzidebitGetDDPaymentsScheduledProc() {
+
+    }
+    public EzidebitGetDDPaymentsScheduledProc(Set<Id> recordIds) {
+        this.recordIds = recordIds;
+    }
+
+    /**
+     * ==============================================================================================================
      *                                              SCHEDULED PROC OVERRIDES
      * ==============================================================================================================
      */
@@ -35,8 +50,12 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
             'npe01__Payment_Method__c = \'EziDebit\'',
             'npe01__Paid__c = FALSE',
             'npsp_plus__Status__c = \'Pending\'',
-            'EziDebit_Transaction_ID__c != NULL'
+            'EziDebit_Transaction_ID__c != NULL',
+            'npe01__Written_Off__c = FALSE'
         };
+        if (this.recordIds != null && this.recordIds.size() > 0) {
+            conditions = new List<String> {'Id IN :recordIds'};
+        }
         queryFactory.setCondition(String.join(conditions, ' AND '));
         return Database.getQueryLocator(queryFactory.toSOQL());
     }
