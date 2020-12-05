@@ -17,6 +17,10 @@
         <translation><!-- Fundraiser --></translation>
     </valueTranslation>
     <valueTranslation>
+        <masterLabel>Gatekeeper</masterLabel>
+        <translation><!-- Gatekeeper --></translation>
+    </valueTranslation>
+    <valueTranslation>
         <masterLabel>Honoree</masterLabel>
         <translation>Galardonado</translation>
     </valueTranslation>

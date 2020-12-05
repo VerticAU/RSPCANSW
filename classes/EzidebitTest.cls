@@ -167,7 +167,9 @@ public class EzidebitTest {
     @IsTest
     static void testAddBankDebitProc(){
 
-        Account account = new Account(Name = 'test');
+        Account account = new Account(
+            Name = 'test'
+        );
         insert account;
 
         Contact contact = new Contact(
@@ -177,22 +179,34 @@ public class EzidebitTest {
         insert contact;
 
         npe03__Recurring_Donation__c recurringDonation = new npe03__Recurring_Donation__c(
+            Name = 'test',
+            npsp__RecurringType__c = 'Open',
+            npe03__Amount__c = (Decimal) 5,
+            npe03__Installment_Period__c = 'Monthly',
+            npsp__InstallmentFrequency__c = 5,
+            npe03__Date_Established__c = Date.today(),
+            npsp__StartDate__c = Date.today(),
             npsp__Status__c = 'Active',
             npe03__Contact__c = contact.Id
         );
         insert recurringDonation;
 
+        System.debug(recurringDonation);
+
         Opportunity opp = new Opportunity(
             Name = 'test',
+            Amount = 123,
             CloseDate = Date.today(),
             StageName = 'Pledged',
             npe03__Recurring_Donation__c = recurringDonation.Id
         );
         insert opp;
 
+        System.debug(opp);
+
+
         npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
-            npe01__Opportunity__c = opp.Id,
-            npe01__Payment_Method__c = 'EziDebit'
+            npe01__Opportunity__c = opp.Id
         );
         insert oppPayment;
 

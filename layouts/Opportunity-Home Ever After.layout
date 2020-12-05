@@ -316,12 +316,29 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <fields>ContactName</fields>
+        <fields>Role</fields>
+        <fields>ContactTitle</fields>
+        <fields>IsPrimary</fields>
+        <fields>ContactPhone</fields>
+        <fields>ContactEmail</fields>
+        <fields>ContactAccountName</fields>
+        <relatedList>RelatedContactRoleList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>npe01__Payment_Amount__c</fields>
         <fields>Payment_Status__c</fields>
         <fields>npe01__Payment_Date__c</fields>
         <fields>npe01__Payment_Method__c</fields>
         <relatedList>npe01__OppPayment__c.npe01__Opportunity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>npsp__Engagement_Plan_Template__c</fields>
+        <fields>npsp__Status__c</fields>
+        <fields>npsp__Completed_Tasks__c</fields>
+        <relatedList>npsp__Engagement_Plan__c.npsp__Opportunity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>npsp__Manage_Allocations</customButtons>
@@ -355,34 +372,20 @@
         <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedOpportunityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>FULL_NAME</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>CONTACT.PHONE4</fields>
-        <fields>CONTACT.PHONE1</fields>
-        <fields>CONTACT.PHONE3</fields>
-        <fields>CONTACT.EMAIL</fields>
-        <fields>CONTACT.ADDRESS2_STREET</fields>
-        <fields>CONTACT.ADDRESS2_CITY</fields>
-        <fields>CONTACT.ADDRESS2_STATE</fields>
-        <relatedList>Contact.Last_Opportunity_Id__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>FULL_NAME</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>CONTACT.PHONE4</fields>
-        <fields>CONTACT.PHONE1</fields>
-        <fields>CONTACT.PHONE3</fields>
-        <fields>CONTACT.EMAIL</fields>
-        <fields>CONTACT.ADDRESS2_STREET</fields>
-        <fields>CONTACT.ADDRESS2_CITY</fields>
-        <fields>CONTACT.ADDRESS2_STATE</fields>
-        <relatedList>Contact.Active_Membership__c</relatedList>
+        <fields>NAME</fields>
+        <fields>Animal_Type__c</fields>
+        <fields>Animal_Breed__c</fields>
+        <fields>Sex__c</fields>
+        <relatedList>Animal__c.Opportunity__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

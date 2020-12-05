@@ -4,8 +4,8 @@
     <assignments>
         <name>Handle_Fault</name>
         <label>Handle Fault</label>
-        <locationX>1276</locationX>
-        <locationY>778</locationY>
+        <locationX>2080</locationX>
+        <locationY>532</locationY>
         <assignmentItems>
             <assignToReference>FlowFaultMessage</assignToReference>
             <operator>Assign</operator>
@@ -14,11 +14,74 @@
             </value>
         </assignmentItems>
     </assignments>
+    <assignments>
+        <name>Handle_Fault_0</name>
+        <label>Handle Fault</label>
+        <locationX>1050</locationX>
+        <locationY>1036</locationY>
+        <assignmentItems>
+            <assignToReference>FlowFaultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>This donation type is not recognised.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Confirm_Account</name>
+        <label>Confirm Account</label>
+        <locationX>338</locationX>
+        <locationY>229</locationY>
+        <defaultConnector>
+            <targetReference>GET_Account_by_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Account NOT Found</defaultConnectorLabel>
+        <rules>
+            <name>Account_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Account_Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GET_Contact</targetReference>
+            </connector>
+            <label>Account Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Confirm_Account_0</name>
+        <label>Confirm Account</label>
+        <locationX>844</locationX>
+        <locationY>221</locationY>
+        <defaultConnector>
+            <targetReference>GET_Organization_Record_Type_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Account NOT Found</defaultConnectorLabel>
+        <rules>
+            <name>Account_Found_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Account_Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GET_Contact</targetReference>
+            </connector>
+            <label>Account Found</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Contact_Exists</name>
         <label>Contact Exists?</label>
-        <locationX>168</locationX>
-        <locationY>414</locationY>
+        <locationX>591</locationX>
+        <locationY>822</locationY>
         <defaultConnector>
             <targetReference>CREATE_Contact</targetReference>
         </defaultConnector>
@@ -34,9 +97,49 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>GET_Raffle_Ticket_Record_Type</targetReference>
+                <targetReference>GET_Donation_Record_Type_ID</targetReference>
             </connector>
             <label>Contact DOES Exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Donation_Type_0</name>
+        <label>Donation Type?</label>
+        <locationX>1041</locationX>
+        <locationY>1258</locationY>
+        <defaultConnector>
+            <targetReference>Handle_Fault_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Donation Type Not Recognised</defaultConnectorLabel>
+        <rules>
+            <name>Donation_Type_Workplace_Giving</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Donation_Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Workplace Giving</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CREATE_Donation</targetReference>
+            </connector>
+            <label>Donation Type = Workplace Giving</label>
+        </rules>
+        <rules>
+            <name>Donation_Type_Employer_Matched</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Donation_Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Matched</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CREATE_Donation_0</targetReference>
+            </connector>
+            <label>Donation Type = Employer Matched</label>
         </rules>
     </decisions>
     <formulas>
@@ -66,13 +169,83 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <name>CREATE_Account</name>
+        <label>CREATE Account</label>
+        <locationX>1050</locationX>
+        <locationY>646</locationY>
+        <assignRecordIdToReference>Account_Id</assignRecordIdToReference>
+        <connector>
+            <targetReference>GET_Contact</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>External_ID__c</field>
+            <value>
+                <elementReference>Employer_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Employer_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>Organization_RecordType_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordCreates>
+    <recordCreates>
+        <name>CREATE_Account_Soft_Credit</name>
+        <label>CREATE Account Soft Credit</label>
+        <locationX>1175</locationX>
+        <locationY>1590</locationY>
+        <connector>
+            <targetReference>CREATE_Payment</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>npsp__Account__c</field>
+            <value>
+                <elementReference>Account_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Amount__c</field>
+            <value>
+                <elementReference>Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Opportunity__c</field>
+            <value>
+                <elementReference>Donation_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Role__c</field>
+            <value>
+                <stringValue>Donation Source</stringValue>
+            </value>
+        </inputAssignments>
+        <object>npsp__Account_Soft_Credit__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <name>CREATE_Contact</name>
         <label>CREATE Contact</label>
-        <locationX>450</locationX>
-        <locationY>414</locationY>
+        <locationX>911</locationX>
+        <locationY>818</locationY>
         <assignRecordIdToReference>Contact_Id</assignRecordIdToReference>
         <connector>
-            <targetReference>GET_Raffle_Ticket_Record_Type</targetReference>
+            <targetReference>GET_Donation_Record_Type_ID</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
@@ -154,11 +327,11 @@
     <recordCreates>
         <name>CREATE_Donation</name>
         <label>CREATE Donation</label>
-        <locationX>323</locationX>
-        <locationY>1060</locationY>
+        <locationX>1170</locationX>
+        <locationY>1436</locationY>
         <assignRecordIdToReference>Donation_Id</assignRecordIdToReference>
         <connector>
-            <targetReference>CREATE_Payment</targetReference>
+            <targetReference>CREATE_Account_Soft_Credit</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
@@ -226,10 +399,81 @@
         <object>Opportunity</object>
     </recordCreates>
     <recordCreates>
+        <name>CREATE_Donation_0</name>
+        <label>CREATE Donation</label>
+        <locationX>933</locationX>
+        <locationY>1432</locationY>
+        <assignRecordIdToReference>Donation_Id</assignRecordIdToReference>
+        <connector>
+            <targetReference>CREATE_Soft_Credit</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CampaignId</field>
+            <value>
+                <elementReference>GET_Campaign.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CloseDate</field>
+            <value>
+                <elementReference>Date_of_Gift</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>Contact_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Opportunity_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>Donation_RecordType_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npe01__Do_Not_Automatically_Create_Payment__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Acknowledgment_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <stringValue>Acknowledged</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordCreates>
+    <recordCreates>
         <name>CREATE_Payment</name>
         <label>CREATE Payment</label>
-        <locationX>323</locationX>
-        <locationY>1252</locationY>
+        <locationX>1045</locationX>
+        <locationY>1775</locationY>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
         </faultConnector>
@@ -266,14 +510,98 @@
         <object>npe01__OppPayment__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordCreates>
+        <name>CREATE_Soft_Credit</name>
+        <label>CREATE Soft Credit</label>
+        <locationX>933</locationX>
+        <locationY>1585</locationY>
+        <connector>
+            <targetReference>CREATE_Payment</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>npsp__Amount__c</field>
+            <value>
+                <elementReference>Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Contact__c</field>
+            <value>
+                <elementReference>Contact_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Opportunity__c</field>
+            <value>
+                <elementReference>Donation_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>npsp__Partial_Soft_Credit__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>GET_Account_by_External_ID</name>
+        <label>GET Account by External ID</label>
+        <locationX>176</locationX>
+        <locationY>235</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Confirm_Account</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>External_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Employer_Id</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>Account_Id</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>GET_Account_by_Name</name>
+        <label>GET Account by Name</label>
+        <locationX>624</locationX>
+        <locationY>227</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Confirm_Account_0</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Employer_Name</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>Account_Id</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
     <recordLookups>
         <name>GET_Campaign</name>
         <label>GET Campaign</label>
-        <locationX>323</locationX>
-        <locationY>867</locationY>
+        <locationX>761</locationX>
+        <locationY>1241</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>CREATE_Donation</targetReference>
+            <targetReference>Donation_Type_0</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
@@ -293,8 +621,8 @@
     <recordLookups>
         <name>GET_Contact</name>
         <label>GET Contact</label>
-        <locationX>176</locationX>
-        <locationY>254</locationY>
+        <locationX>594</locationX>
+        <locationY>638</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Contact_Exists</targetReference>
@@ -336,10 +664,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>GET_Raffle_Ticket_Record_Type</name>
-        <label>GET Raffle Ticket Record Type</label>
-        <locationX>323</locationX>
-        <locationY>658</locationY>
+        <name>GET_Donation_Record_Type_ID</name>
+        <label>GET Donation Record Type ID</label>
+        <locationX>761</locationX>
+        <locationY>1083</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GET_Campaign</targetReference>
@@ -359,7 +687,7 @@
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Raffle_Ticket</stringValue>
+                <stringValue>Donation</stringValue>
             </value>
         </filters>
         <object>RecordType</object>
@@ -372,14 +700,54 @@
             <field>Name</field>
         </outputAssignments>
     </recordLookups>
+    <recordLookups>
+        <name>GET_Organization_Record_Type_ID</name>
+        <label>GET Organization Record Type ID</label>
+        <locationX>1051</locationX>
+        <locationY>218</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CREATE_Account</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Organization</stringValue>
+            </value>
+        </filters>
+        <object>RecordType</object>
+        <outputAssignments>
+            <assignToReference>Organization_RecordType_Id</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
     <start>
         <locationX>50</locationX>
         <locationY>50</locationY>
         <connector>
-            <targetReference>GET_Contact</targetReference>
+            <targetReference>GET_Account_by_External_ID</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
+    <variables>
+        <name>Account_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>Amount</name>
         <dataType>Currency</dataType>
@@ -441,7 +809,28 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>Donation_Type</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>Email</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Employer_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Employer_Name</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
@@ -480,6 +869,13 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Organization_RecordType_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>

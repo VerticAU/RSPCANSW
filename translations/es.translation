@@ -134,6 +134,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Send_Membership_Receipt</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Set_Lapsed_Date_To_Contact</fullName>
     </flowDefinitions>
     <flowDefinitions>

@@ -9,7 +9,8 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
     public override vertic_Response process(vertic_Request request) {
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
         this.request.fields = new Set<SObjectField>{
-            Opportunity.Donor_Type__c
+            Opportunity.Donor_Type__c,
+            Opportunity.npsp__Acknowledgment_Status__c
         };
 
         super.process(this.request);
@@ -81,6 +82,7 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 Stripe_Payment_Id__c,
                 Stripe_Customer_Id__c,
                 Campaign.Stripe_Account_Id__c,
+                npsp__Acknowledgment_Status__c,
                 npsp__Primary_Contact__c
             FROM Opportunity
             WHERE Batch__c = :batchId

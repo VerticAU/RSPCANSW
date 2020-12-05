@@ -529,6 +529,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Conditions_Met__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Contested__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -690,6 +695,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Ownership</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Paperwork_Received__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1110,6 +1120,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Animal__c.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.Opportunity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

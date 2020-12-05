@@ -155,7 +155,8 @@
 
     newContribution: function (cmp, event, helper) {
         return {
-            CloseDate: $A.localizationService.formatDate(new Date(), 'yyyy-MM-dd')
+            CloseDate: $A.localizationService.formatDate(new Date(), 'yyyy-MM-dd'),
+            npsp__Acknowledgment_Status__c: 'To Be Acknowledged'
         };
     },
 

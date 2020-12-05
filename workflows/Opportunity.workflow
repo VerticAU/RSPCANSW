@@ -23,6 +23,16 @@
         <template>npsp__NPSP_Email_Templates/npsp__NPSP_Opportunity_Acknowledgment</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Membership_Acknowledgment_Status_Email</fullName>
+        <field>npsp__Acknowledgment_Status__c</field>
+        <literalValue>Email Acknowledgment Now</literalValue>
+        <name>Membership Acknowledgment Status Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Membership_End_Date_Offset</fullName>
         <field>npe01__Membership_End_Date__c</field>
         <formula>ADDMONTHS(npsp__Primary_Contact__r.Active_Membership__r.npe01__Membership_End_Date__c,12)</formula>
@@ -616,6 +626,10 @@ If contact has no email/phone number then</description>
 )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
+            <actions>
+                <name>Membership_Acknowledgment_Status_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
             <actions>
                 <name>Membership_Stage_Enrolled</name>
                 <type>FieldUpdate</type>

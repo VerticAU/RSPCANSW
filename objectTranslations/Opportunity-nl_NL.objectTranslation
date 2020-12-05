@@ -687,8 +687,52 @@
         <label><!-- Program Area --></label>
         <name>Program_Area__c</name>
         <picklistValues>
-            <masterLabel>Animal Shelter</masterLabel>
-            <translation><!-- Animal Shelter --></translation>
+            <masterLabel>Branch</masterLabel>
+            <translation><!-- Branch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capacity Building</masterLabel>
+            <translation><!-- Capacity Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital/Equipment</masterLabel>
+            <translation><!-- Capital/Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinics/Veterinary</masterLabel>
+            <translation><!-- Clinics/Veterinary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events/Fundraising</masterLabel>
+            <translation><!-- Events/Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation><!-- IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inspectorate</masterLabel>
+            <translation><!-- Inspectorate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outreach</masterLabel>
+            <translation><!-- Outreach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Programs</masterLabel>
+            <translation><!-- Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wildlife</masterLabel>
+            <translation><!-- Wildlife --></translation>
         </picklistValues>
     </fields>
     <fields>

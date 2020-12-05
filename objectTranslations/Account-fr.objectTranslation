@@ -42,6 +42,10 @@
         <name>Cash_Amount_Received__c</name>
     </fields>
     <fields>
+        <label><!-- Conditions Met --></label>
+        <name>Conditions_Met__c</name>
+    </fields>
+    <fields>
         <label><!-- Contested --></label>
         <name>Contested__c</name>
     </fields>
@@ -247,6 +251,10 @@
     <fields>
         <label><!-- Other Phone --></label>
         <name>Other_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Paperwork Received --></label>
+        <name>Paperwork_Received__c</name>
     </fields>
     <fields>
         <label><!-- Previous Level --></label>

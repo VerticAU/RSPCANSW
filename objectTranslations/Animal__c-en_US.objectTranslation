@@ -98,6 +98,11 @@
         <name>External_ID__c</name>
     </fields>
     <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Animals --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Other --></label>
         <name>Other__c</name>
     </fields>
