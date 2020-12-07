@@ -3,8 +3,8 @@ public class ScheduleManager{
     public static final List<Type> SCHEDULERS = new List<Type>{
         vertic_AsyncProcessBatch.class,             // Every Minute + Daily Re-runner at 11.55 PM
         EzidebitGetPaymentsScheduleProc.class,      // Every Day at 8 PM
-        EzidebitGetDDPaymentsScheduledProc.class,   // Every Day at 9 AM and 4 PM
-        EzidebitGetAdjustmentsScheduledProc.class    // Every Day at 9 AM
+        EzidebitGetDDPaymentsScheduledProc.class//,   // Every Day at 9 AM and 4 PM
+//        EzidebitGetAdjustmentsScheduledProc.class    // Every Day at 9 AM
     };
 
     public static void restart() {

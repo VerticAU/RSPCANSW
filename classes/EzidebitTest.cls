@@ -170,6 +170,7 @@ public class EzidebitTest {
         Account account = new Account(
             Name = 'test'
         );
+
         insert account;
 
         Contact contact = new Contact(
@@ -216,5 +217,87 @@ public class EzidebitTest {
 
         new EzidebitAddBankDebitProc().process(request);
 
+    }
+
+    @IsTest
+    static void testGetPaymentsScheduledProc(){
+        Opportunity opportunity = new Opportunity(
+            Name = 'test',
+            CloseDate = Date.today(),
+            StageName = 'Pledged'
+        );
+        insert opportunity;
+
+        npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
+            npe01__Payment_Method__c = 'EziDebit',
+            npe01__Paid__c = false,
+            npsp_plus__Status__c = 'Pending',
+            EziDebit_Transaction_ID__c = 'test',
+            npe01__Written_Off__c = false,
+            npe01__Opportunity__c = opportunity.Id
+        );
+        insert oppPayment;
+
+        EzidebitGetDDPaymentsScheduledProc scheduledProc = new EzidebitGetDDPaymentsScheduledProc(
+            new Set<Id>{
+                oppPayment.Id
+            }
+        );
+
+        Test.startTest();
+        vertic_Response response = scheduledProc.process(new Map<String, Object>{});
+        Test.stopTest();
+
+        System.assertEquals(false, response.get('apexJobId').equals(null));
+        System.assertEquals('EziDebit Get Scheduled Payments - Every Day at 9AM and 4PM', scheduledProc.getScheduledJobName());
+        System.assertEquals('0 0 9,16 * * ? *', scheduledProc.getScheduledCRON());
+        System.assertEquals(EzidebitGetDDPaymentsScheduledProc.class, scheduledProc.getScheduledProcType());
+        System.assertEquals(true, scheduledProc.isQueueable());
+    }
+
+    @IsTest
+    static void testEzidebitGetPaymentDetailsProc(){
+        Opportunity opportunity = new Opportunity(
+            Name = 'test',
+            CloseDate = Date.today(),
+            StageName = 'Pledged'
+        );
+        insert opportunity;
+
+        npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
+            npe01__Payment_Method__c = 'EziDebit',
+            npsp_plus__Status__c = 'Processed',
+            EziDebit_Transaction_ID__c = 'test',
+            npe01__Payment_Date__c = Date.today(),
+            npe01__Opportunity__c = opportunity.Id
+        );
+        insert oppPayment;
+
+        EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL element = new EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL();
+
+        EzidebitPaymentProcessor.PaymentDetail paymentDetail = new EzidebitPaymentProcessor.PaymentDetail();
+        paymentDetail.PaymentStatus ='asd';
+
+        element.Data = paymentDetail;
+        element.Error = 0;
+
+//        EzidebitPaymentProcessor.Payment payment = new EzidebitPaymentProcessor.Payment();
+//        payment.PaymentID = 'test';
+//        payment.PaymentAmount = 10;
+//        payment.SettlementDate = Datetime.now();
+//
+//        element.GetPaymentsResult.Data.Payment = new List<EzidebitPaymentProcessor.Payment>{payment};
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+
+        Test.setMock(WebServiceMock.class, generator);
+
+        Map<String, Object> request = new Map<String, Object>{
+            'recordId' => oppPayment.Id
+        };
+
+        Test.startTest();
+        new EzidebitGetPaymentDetailsProc().process(request);
+        Test.stopTest();
     }
 }

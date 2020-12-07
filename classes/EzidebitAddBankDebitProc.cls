@@ -42,6 +42,9 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
             'npe01__Opportunity__r.BSB__c',
             'npe01__Opportunity__r.Bank_Account_Number__c',
             'npe01__Opportunity__r.npe03__Recurring_Donation__r.Name',
+            'npe01__Opportunity__r.npe03__Recurring_Donation__r.Account_Name__c',
+            'npe01__Opportunity__r.npe03__Recurring_Donation__r.Account_Number__c',
+            'npe01__Opportunity__r.npe03__Recurring_Donation__r.BSB__c',
             'npe01__Opportunity__r.npsp__Primary_Contact__r.LastName',
             'npe01__Opportunity__r.npsp__Primary_Contact__r.FirstName',
             'npe01__Opportunity__r.npsp__Primary_Contact__r.Email',
@@ -60,6 +63,9 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
     }
 
     private void createPaymentRequest() {
+        String accountName = vertic_Utils.strings.defaultIfBlank(this.payment.npe01__Opportunity__r.Bank_Account_Name__c, this.payment.npe01__Opportunity__r.npe03__Recurring_Donation__r.Account_Name__c);
+        String accountNumber = vertic_Utils.strings.defaultIfBlank(this.payment.npe01__Opportunity__r.Bank_Account_Number__c, this.payment.npe01__Opportunity__r.npe03__Recurring_Donation__r.Account_Number__c);
+        String bsb = vertic_Utils.strings.defaultIfBlank(this.payment.npe01__Opportunity__r.BSB__c, this.payment.npe01__Opportunity__r.npe03__Recurring_Donation__r.BSB__c);
         String customerId = new EzidebitPaymentProcessor(
             payment_ProcessorFactory.getGatewayCredentials('EziDebit')
         ).addBankDebit(
@@ -70,9 +76,9 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
             this.payment.npe01__Opportunity__r.npsp__Primary_Contact__r.Email,
             this.payment.npe01__Opportunity__r.npsp__Primary_Contact__r.MobilePhone,
             this.payment.Id,
-            this.payment.npe01__Opportunity__r.Bank_Account_Name__c,
-            this.payment.npe01__Opportunity__r.BSB__c,
-            this.payment.npe01__Opportunity__r.Bank_Account_Number__c,
+            accountName,
+            bsb,
+            accountNumber,
             this.payment.npe01__Payment_Amount__c,
             this.payment.npe01__Scheduled_Date__c
         );
