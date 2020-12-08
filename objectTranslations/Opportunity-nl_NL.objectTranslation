@@ -395,6 +395,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Member Number --></label>
+        <name>Member_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Membership ID --></label>
         <name>Membership_ID__c</name>
     </fields>

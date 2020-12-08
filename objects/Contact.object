@@ -401,7 +401,7 @@
     <fields>
         <fullName>Actual_Member_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(npo02__NumberOfMembershipOpps__c &gt; 0, Member_Number__c, null)</formula>
+        <formula>IF(Active_Membership__c &lt;&gt; null, Member_Number__c, null)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Actual Member Number</label>
         <required>false</required>

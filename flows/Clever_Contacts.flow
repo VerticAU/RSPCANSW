@@ -3,12 +3,12 @@
     <actionCalls>
         <name>Contact_Deduplicate</name>
         <label>Contact Deduplicate</label>
-        <locationX>1398</locationX>
-        <locationY>713</locationY>
+        <locationX>1204</locationX>
+        <locationY>714</locationY>
         <actionName>DeduplicateInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Update_Contact_With_New_Values</targetReference>
+            <targetReference>Assign_Contact_With_New_Values</targetReference>
         </connector>
         <dataTypeMappings>
             <typeName>U__output</typeName>
@@ -28,259 +28,10 @@
     </actionCalls>
     <apiVersion>49.0</apiVersion>
     <assignments>
-        <name>Assignment_update_Reccuring</name>
-        <label>Assignment update Reccuring</label>
-        <locationX>2273</locationX>
-        <locationY>605</locationY>
-        <assignmentItems>
-            <assignToReference>recurring.Id</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Reccuring_Donate.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npe03__Amount__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringAmount</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>UpDate_Reccuring</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Contact_Assignment_To_Deduplicate</name>
-        <label>Contact Assignment To Deduplicate</label>
-        <locationX>1262</locationX>
-        <locationY>713</locationY>
-        <assignmentItems>
-            <assignToReference>contact.FirstName</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactFirstName</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.LastName</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactLastName</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.Email</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactEmail1</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MobilePhone</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactWorkPhone</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MailingStreet</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactAddress1</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MailingCity</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactSuburb</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MailingCountry</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactCountry</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MailingPostalCode</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactPostcode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MailingState</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactState</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.MiddleName</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactMiddleName</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.HomePhone</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactHomePhone</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>contact.Birthdate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contactBirthdate</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Contact_Deduplicate</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Output_Assigment</name>
-        <label>Output Assigment</label>
-        <locationX>2675</locationX>
+        <name>Assign_Contact_With_New_Values</name>
+        <label>Assign Contact With New Values</label>
+        <locationX>1327</locationX>
         <locationY>714</locationY>
-        <assignmentItems>
-            <assignToReference>contactId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>donationId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Donation.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurringId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurring.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>paymentId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Payment.Id</elementReference>
-            </value>
-        </assignmentItems>
-    </assignments>
-    <assignments>
-        <name>Output_Error</name>
-        <label>Output Error</label>
-        <locationX>2062</locationX>
-        <locationY>1478</locationY>
-        <assignmentItems>
-            <assignToReference>FlowFaultMessage</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Flow.FaultMessage</elementReference>
-            </value>
-        </assignmentItems>
-    </assignments>
-    <assignments>
-        <name>Recurring_Donation_Assigment</name>
-        <label>Recurring Donation Assigment</label>
-        <locationX>2144</locationX>
-        <locationY>820</locationY>
-        <assignmentItems>
-            <assignToReference>recurring.Name</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringName</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npe03__Amount__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringAmount</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npsp__InstallmentFrequency__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringFrequency</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npe03__Date_Established__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringDateEstablished</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npsp__StartDate__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringStartDate</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npe03__Contact__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npsp__RecurringType__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringType</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npe03__Installment_Period__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringDebitPeriod</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npe03__Recurring_Donation_Campaign__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Campaign.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npsp_plus__Stripe_Subscription__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>stripeSubscriptionId</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>recurring.npsp__Day_of_Month__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>recurringDayOfMonth</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Recurring</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Update_Contact_With_New_Values</name>
-        <label>Update Contact With New Values</label>
-        <locationX>1521</locationX>
-        <locationY>713</locationY>
         <assignmentItems>
             <assignToReference>contact.FirstName</assignToReference>
             <operator>Assign</operator>
@@ -376,11 +127,260 @@
             <targetReference>Contact_Decision</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Assignment_update_Reccuring</name>
+        <label>Assignment update Reccuring</label>
+        <locationX>2269</locationX>
+        <locationY>627</locationY>
+        <assignmentItems>
+            <assignToReference>recurring.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Reccuring_Donate.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpDate_Reccuring</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Contact_Assignment_To_Deduplicate</name>
+        <label>Contact Assignment To Deduplicate</label>
+        <locationX>1068</locationX>
+        <locationY>714</locationY>
+        <assignmentItems>
+            <assignToReference>contact.FirstName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactFirstName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.LastName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactLastName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.Email</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactEmail1</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MobilePhone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactWorkPhone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MailingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactAddress1</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MailingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactSuburb</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MailingCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MailingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactPostcode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MailingState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.MiddleName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactMiddleName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.HomePhone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactHomePhone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contact.Birthdate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contactBirthdate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Deduplicate</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Output_Assigment</name>
+        <label>Output Assigment</label>
+        <locationX>2836</locationX>
+        <locationY>711</locationY>
+        <assignmentItems>
+            <assignToReference>contactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donationId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Donation.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurringId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurring.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>paymentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Payment.Id</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Output_Error</name>
+        <label>Output Error</label>
+        <locationX>2062</locationX>
+        <locationY>1478</locationY>
+        <assignmentItems>
+            <assignToReference>FlowFaultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Recurring_Donation_Assigment</name>
+        <label>Recurring Donation Assigment</label>
+        <locationX>2203</locationX>
+        <locationY>783</locationY>
+        <assignmentItems>
+            <assignToReference>recurring.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npsp__InstallmentFrequency__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringFrequency</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Date_Established__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringDateEstablished</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npsp__StartDate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringStartDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npsp__RecurringType__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Installment_Period__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringDebitPeriod</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npe03__Recurring_Donation_Campaign__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Campaign.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npsp_plus__Stripe_Subscription__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>stripeSubscriptionId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurring.npsp__Day_of_Month__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recurringDayOfMonth</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Recurring</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Contact_Decision</name>
         <label>Contact Decision</label>
-        <locationX>1653</locationX>
-        <locationY>715</locationY>
+        <locationX>1459</locationX>
+        <locationY>717</locationY>
         <defaultConnector>
             <targetReference>Create_Contact</targetReference>
         </defaultConnector>
@@ -448,12 +448,56 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
-        <name>Create_Contact</name>
-        <label>Create Contact</label>
-        <locationX>1852</locationX>
-        <locationY>623</locationY>
+        <name>Create_Campaign_Member</name>
+        <label>Create Campaign Member</label>
+        <locationX>1796</locationX>
+        <locationY>634</locationY>
         <connector>
             <targetReference>custom010_Yes_or_No</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>CampaignId</field>
+            <value>
+                <elementReference>Get_Campaign.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>Create_Contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PRIMARY_Call_Status__c</field>
+            <value>
+                <stringValue>YS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone_DESCRIPTION_Call_Status__c</field>
+            <value>
+                <stringValue>RG CC Immediate</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone_SECONDARY_Call_Status__c</field>
+            <value>
+                <stringValue>CI</stringValue>
+            </value>
+        </inputAssignments>
+        <object>CampaignMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Contact</name>
+        <label>Create Contact</label>
+        <locationX>1666</locationX>
+        <locationY>634</locationY>
+        <connector>
+            <targetReference>Create_Campaign_Member</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Output_Error</targetReference>
@@ -463,8 +507,8 @@
     <recordCreates>
         <name>Create_Recurring</name>
         <label>Create Recurring</label>
-        <locationX>2299</locationX>
-        <locationY>820</locationY>
+        <locationX>2343</locationX>
+        <locationY>783</locationY>
         <connector>
             <targetReference>Get_Donation</targetReference>
         </connector>
@@ -476,8 +520,8 @@
     <recordLookups>
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
-        <locationX>1124</locationX>
-        <locationY>713</locationY>
+        <locationX>930</locationX>
+        <locationY>714</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Contact_Assignment_To_Deduplicate</targetReference>
@@ -500,7 +544,7 @@
     <recordLookups>
         <name>Get_Donation</name>
         <label>Get Donation</label>
-        <locationX>2409</locationX>
+        <locationX>2560</locationX>
         <locationY>711</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -531,8 +575,8 @@
     <recordLookups>
         <name>Get_Payment</name>
         <label>Get Payment</label>
-        <locationX>2537</locationX>
-        <locationY>712</locationY>
+        <locationX>2683</locationX>
+        <locationY>711</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Output_Assigment</targetReference>
@@ -555,8 +599,8 @@
     <recordLookups>
         <name>Get_Reccuring_Donate</name>
         <label>Get Reccuring Donate</label>
-        <locationX>2128</locationX>
-        <locationY>610</locationY>
+        <locationX>2138</locationX>
+        <locationY>627</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assignment_update_Reccuring</targetReference>
@@ -586,12 +630,58 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Update_Contact</name>
-        <label>Update Contact</label>
-        <locationX>1848</locationX>
-        <locationY>785</locationY>
+        <name>Update_Campaign_Member</name>
+        <label>Update Campaign Member</label>
+        <locationX>1797</locationX>
+        <locationY>791</locationY>
         <connector>
             <targetReference>custom010_Yes_or_No</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Output_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CampaignId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Campaign.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>PRIMARY_Call_Status__c</field>
+            <value>
+                <stringValue>YS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone_DESCRIPTION_Call_Status__c</field>
+            <value>
+                <stringValue>RG CC Immediate</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone_SECONDARY_Call_Status__c</field>
+            <value>
+                <stringValue>CI</stringValue>
+            </value>
+        </inputAssignments>
+        <object>CampaignMember</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Contact</name>
+        <label>Update Contact</label>
+        <locationX>1667</locationX>
+        <locationY>791</locationY>
+        <connector>
+            <targetReference>Update_Campaign_Member</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Output_Error</targetReference>
@@ -601,8 +691,8 @@
     <recordUpdates>
         <name>UpDate_Reccuring</name>
         <label>UpDate Reccuring</label>
-        <locationX>2408</locationX>
-        <locationY>604</locationY>
+        <locationX>2406</locationX>
+        <locationY>627</locationY>
         <connector>
             <targetReference>Get_Donation</targetReference>
         </connector>
@@ -612,13 +702,13 @@
         <inputReference>recurring</inputReference>
     </recordUpdates>
     <start>
-        <locationX>737</locationX>
-        <locationY>695</locationY>
+        <locationX>804</locationX>
+        <locationY>557</locationY>
         <connector>
             <targetReference>Get_Campaign</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>campaignID</name>
         <dataType>String</dataType>

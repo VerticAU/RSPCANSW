@@ -218,7 +218,34 @@
         <fullName>MobilePhone</fullName>
     </fields>
     <fields>
+        <fullName>PRIMARY_Call_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>PRIMARY Call Status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>Phone_DESCRIPTION_Call_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone DESCRIPTION Call Status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone_SECONDARY_Call_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone SECONDARY Call Status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>PostalCode</fullName>

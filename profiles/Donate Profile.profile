@@ -1824,6 +1824,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CampaignMember.PRIMARY_Call_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.Phone_DESCRIPTION_Call_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.Phone_SECONDARY_Call_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CampaignMember.wbsendit__Activity_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4520,6 +4535,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Lost_Reason__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Member_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

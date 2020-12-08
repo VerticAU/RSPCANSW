@@ -55,7 +55,7 @@
             </processMetadataValues>
             <name>emailName</name>
             <value>
-                <elementReference>formula_3_myRule_1_A1_9662785934</elementReference>
+                <elementReference>formula_3_myRule_1_A1_2005975227</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -97,7 +97,7 @@
             </processMetadataValues>
             <name>targetId</name>
             <value>
-                <elementReference>formula_4_myRule_1_A1_3137231113</elementReference>
+                <elementReference>formula_4_myRule_1_A1_7511242590</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -181,7 +181,7 @@
             </processMetadataValues>
             <name>fromEmailAddress</name>
             <value>
-                <elementReference>formula_5_myRule_1_A1_1412294130</elementReference>
+                <elementReference>formula_5_myRule_1_A1_4935856003</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -200,7 +200,7 @@
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
             <name>myRule_1</name>
-            <conditionLogic>(1 AND 2 AND 3 AND (4 OR 5) AND 6)</conditionLogic>
+            <conditionLogic>(1 AND 2 AND (3 OR 4) AND 5)</conditionLogic>
             <conditions>
                 <processMetadataValues>
                     <name>inputDataType</name>
@@ -230,37 +230,6 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Email Acknowledgment Now</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <processMetadataValues>
-                    <name>inputDataType</name>
-                    <value>
-                        <stringValue>Picklist</stringValue>
-                    </value>
-                </processMetadataValues>
-                <processMetadataValues>
-                    <name>leftHandSideType</name>
-                    <value>
-                        <stringValue>Picklist</stringValue>
-                    </value>
-                </processMetadataValues>
-                <processMetadataValues>
-                    <name>operatorDataType</name>
-                    <value>
-                        <stringValue>String</stringValue>
-                    </value>
-                </processMetadataValues>
-                <processMetadataValues>
-                    <name>rightHandSideType</name>
-                    <value>
-                        <stringValue>Picklist</stringValue>
-                    </value>
-                </processMetadataValues>
-                <leftValueReference>myVariable_current.StageName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Enrolled</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -372,31 +341,31 @@
                 <processMetadataValues>
                     <name>inputDataType</name>
                     <value>
-                        <stringValue>Boolean</stringValue>
+                        <stringValue>Picklist</stringValue>
                     </value>
                 </processMetadataValues>
                 <processMetadataValues>
                     <name>leftHandSideType</name>
                     <value>
-                        <stringValue>Boolean</stringValue>
+                        <stringValue>Picklist</stringValue>
                     </value>
                 </processMetadataValues>
                 <processMetadataValues>
                     <name>operatorDataType</name>
                     <value>
-                        <stringValue>Boolean</stringValue>
+                        <stringValue>String</stringValue>
                     </value>
                 </processMetadataValues>
                 <processMetadataValues>
                     <name>rightHandSideType</name>
                     <value>
-                        <stringValue>Boolean</stringValue>
+                        <stringValue>Picklist</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>myVariable_current.Is_Membership_Confirmed__c</leftValueReference>
+                <leftValueReference>myVariable_current.npe01__Membership_Origin__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <stringValue>New</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -412,7 +381,7 @@
                 <stringValue>TODAY()</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A2_7434258384</name>
+        <name>formula_2_myRule_1_A2_3139222323</name>
         <dataType>Date</dataType>
         <expression>TODAY()</expression>
     </formulas>
@@ -425,7 +394,7 @@
 )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_9662785934</name>
+        <name>formula_3_myRule_1_A1_2005975227</name>
         <dataType>String</dataType>
         <expression>IF(OR(ISBLANK({!myVariable_current.CampaignId}), ISBLANK({!myVariable_current.Campaign.npsp_plus__Donation_Receipt_Email_Template_Name__c})), {!$CustomMetadata.npsp_plus__Settings__mdt.npsp_plus__Settings.npsp_plus__Donation_Receipt_Email_Template_Name__c},
 {!myVariable_current.Campaign.npsp_plus__Donation_Receipt_Email_Template_Name__c}
@@ -440,7 +409,7 @@
 , [Opportunity].npsp__Primary_Contact__c) </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_4_myRule_1_A1_3137231113</name>
+        <name>formula_4_myRule_1_A1_7511242590</name>
         <dataType>String</dataType>
         <expression>IF(ISBLANK({!myVariable_current.npsp__Primary_Contact__c})
 , {!myVariable_current.Account.npe01__One2OneContact__c} 
@@ -453,11 +422,11 @@
                 <stringValue>$CustomMetadata.npsp_plus__Settings__mdt.npsp_plus__Settings.npsp_plus__Default_Org_Wide_Email__c</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_1_A1_1412294130</name>
+        <name>formula_5_myRule_1_A1_4935856003</name>
         <dataType>String</dataType>
         <expression>{!$CustomMetadata.npsp_plus__Settings__mdt.npsp_plus__Settings.npsp_plus__Default_Org_Wide_Email__c}</expression>
     </formulas>
-    <interviewLabel>Send_Membership_Receipt-2_InterviewLabel</interviewLabel>
+    <interviewLabel>Send_Membership_Receipt-4_InterviewLabel</interviewLabel>
     <label>Send Membership Receipt</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -560,7 +529,7 @@
             </processMetadataValues>
             <field>npsp__Acknowledgment_Date__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A2_7434258384</elementReference>
+                <elementReference>formula_2_myRule_1_A2_3139222323</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

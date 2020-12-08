@@ -180,7 +180,7 @@
             <assignToReference>membership.npe01__Membership_Origin__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>New</stringValue>
+                <elementReference>membershipOrigin</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -222,7 +222,14 @@
             <assignToReference>membership.Is_Membership_Confirmed__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>isMembershipConfirmed</elementReference>
+                <elementReference>isMembershipRenewalFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>membership.npsp__Acknowledgment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>acknowledgementStatusFormula</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -337,9 +344,19 @@
         </rules>
     </decisions>
     <formulas>
-        <name>isMembershipConfirmed</name>
+        <name>acknowledgementStatusFormula</name>
+        <dataType>String</dataType>
+        <expression>IF({!isMembershipRenewalFormula}, null, &apos;Email Acknowledgment Now&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>isMembershipRenewalFormula</name>
         <dataType>Boolean</dataType>
         <expression>{!contactMemberNumber} != null</expression>
+    </formulas>
+    <formulas>
+        <name>membershipOriginFormula</name>
+        <dataType>String</dataType>
+        <expression>IF({!isMembershipRenewalFormula}, &apos;Renewal&apos;, &apos;New&apos;)</expression>
     </formulas>
     <formulas>
         <name>yearAfterMembershipStartDate</name>
@@ -911,6 +928,9 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <value>
+            <elementReference>membershipOriginFormula</elementReference>
+        </value>
     </variables>
     <variables>
         <name>membershipStage</name>

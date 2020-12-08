@@ -243,7 +243,7 @@ public class EzidebitPaymentProcessor {
         List<EzidebitStructs.Payment> payments = new List<EzidebitStructs.Payment>();
 
         for(EzidebitPaymentProcessor.Payment paymentData: response.Data.Payment) {
-            EzidebitStructs.Payment payment = (EzidebitStructs.Payment) JSON.deserialize(JSON.serialize(response.Data), EzidebitStructs.Payment.class);
+            EzidebitStructs.Payment payment = (EzidebitStructs.Payment) JSON.deserialize(JSON.serialize(paymentData), EzidebitStructs.Payment.class);
             payment.PaymentStatus = PAYMENT_STATUS_TO_PAYMENT_STATUS.get(paymentData.PaymentStatus);
 
             payments.add(payment);
@@ -283,6 +283,7 @@ public class EzidebitPaymentProcessor {
     }
 
     // Common structures
+    @TestVisible
     private class EziResponseOfstring {
         public String Data;
         public Integer Error;
@@ -381,6 +382,7 @@ public class EzidebitPaymentProcessor {
             response_x = response_map_x.get('response_x');
             return response_x.CreateScheduleResult;
         }
+
 
         private EzidebitPaymentProcessor.EziResponseOfstring ClearSchedule(String DigitalKey,String EziDebitCustomerID,String YourSystemReference,String KeepManualPayments,String Username) {
             EzidebitPaymentProcessor.ClearSchedule_element request_x = new EzidebitPaymentProcessor.ClearSchedule_element();

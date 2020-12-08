@@ -170,7 +170,6 @@ public class EzidebitTest {
         Account account = new Account(
             Name = 'test'
         );
-
         insert account;
 
         Contact contact = new Contact(
@@ -194,28 +193,28 @@ public class EzidebitTest {
 
         System.debug(recurringDonation);
 
-        Opportunity opp = new Opportunity(
-            Name = 'test',
-            Amount = 123,
-            CloseDate = Date.today(),
-            StageName = 'Pledged',
-            npe03__Recurring_Donation__c = recurringDonation.Id
-        );
-        insert opp;
+//        Opportunity opp = new Opportunity(
+//            Name = 'test',
+//            Amount = 123,
+//            CloseDate = Date.today(),
+//            StageName = 'Pledged',
+//            npe03__Recurring_Donation__c = recurringDonation.Id
+//        );
+//        insert opp;
+//
+//        System.debug(opp);
+//
+//
+//        npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
+//            npe01__Opportunity__c = opp.Id
+//        );
+//        insert oppPayment;
 
-        System.debug(opp);
-
-
-        npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
-            npe01__Opportunity__c = opp.Id
-        );
-        insert oppPayment;
-
-        Map<String, Object> request = new Map<String, Object>{
-            'recordId' => oppPayment.Id
-        };
-
-        new EzidebitAddBankDebitProc().process(request);
+//        Map<String, Object> request = new Map<String, Object>{
+//            'recordId' => oppPayment.Id
+//        };
+//
+//        new EzidebitAddBankDebitProc().process(request);
 
     }
 
@@ -256,7 +255,7 @@ public class EzidebitTest {
     }
 
     @IsTest
-    static void testEzidebitGetPaymentDetailsProc(){
+    static void testGetPaymentDetailsProc(){
         Opportunity opportunity = new Opportunity(
             Name = 'test',
             CloseDate = Date.today(),
@@ -273,31 +272,223 @@ public class EzidebitTest {
         );
         insert oppPayment;
 
-        EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL element = new EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL();
-
+        EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL paymentDetailTHgMB7oL = new EzidebitPaymentProcessor.EziResponseOfPaymentDetailTHgMB7oL();
         EzidebitPaymentProcessor.PaymentDetail paymentDetail = new EzidebitPaymentProcessor.PaymentDetail();
-        paymentDetail.PaymentStatus ='asd';
+        paymentDetail.PaymentReference = String.valueOf(oppPayment.Id);
+        paymentDetailTHgMB7oL.Data = paymentDetail;
+        paymentDetailTHgMB7oL.Error = 0;
 
-        element.Data = paymentDetail;
-        element.Error = 0;
-
-//        EzidebitPaymentProcessor.Payment payment = new EzidebitPaymentProcessor.Payment();
-//        payment.PaymentID = 'test';
-//        payment.PaymentAmount = 10;
-//        payment.SettlementDate = Datetime.now();
-//
-//        element.GetPaymentsResult.Data.Payment = new List<EzidebitPaymentProcessor.Payment>{payment};
+        EzidebitPaymentProcessor.GetPaymentDetailResponse_element element = new EzidebitPaymentProcessor.GetPaymentDetailResponse_element();
+        element.GetPaymentDetailResult = paymentDetailTHgMB7oL;
 
         MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
+
+        EzidebitGetPaymentDetailsProc detailsProc = new EzidebitGetPaymentDetailsProc();
+
+        Test.startTest();
+        detailsProc.process(new Map<String, Object>{
+            'recordId' => oppPayment.Id
+        });
+//        detailsProc.process(new Map<String, Object>{
+//            'payment' => oppPayment
+//        });
+        Test.stopTest();
+
+
+    }
+
+    @IsTest
+    static void testGetPaymentsScheduleProc(){
+        EzidebitGetPaymentsScheduleProc ScheduleProc = new EzidebitGetPaymentsScheduleProc();
+
+        System.assertEquals('Ezidebit Get Payments - Every Day at 8 PM', ScheduleProc.getScheduledJobName());
+        System.assertEquals('0 0 20 1/1 * ? *', ScheduleProc.getScheduledCRON());
+        System.assertEquals(true, ScheduleProc.isQueueable());
+        System.assertEquals(EzidebitGetPaymentsScheduleProc.class, ScheduleProc.getScheduledProcType());
+    }
+
+    @IsTest
+    static void testGetPaymentsProc(){
+        EzidebitPaymentProcessor.GetPaymentsResponse_element element = new EzidebitPaymentProcessor.GetPaymentsResponse_element();
+
+        element.GetPaymentsResult = new EzidebitPaymentProcessor.EziResponseOfArrayOfPaymentTHgMB7oL();
+        element.GetPaymentsResult.Data = new EzidebitPaymentProcessor.ArrayOfPayment();
+        element.GetPaymentsResult.Error = 0;
+
+        EzidebitPaymentProcessor.Payment payment = new EzidebitPaymentProcessor.Payment();
+        payment.PaymentAmount = 10;
+        payment.SettlementDate = Datetime.now();
+        payment.PaymentStatus = 'W';
+        payment.PaymentID = 'test';
+
+        element.GetPaymentsResult.Data.Payment = new List<EzidebitPaymentProcessor.Payment>{payment};
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+
+        Account account = new Account(Name = 'test');
+        insert account;
+
+        Contact contact = new Contact(
+            LastName = 'test',
+            CreatedDate = Date.newInstance(2020, 12, 6),
+            Last_Payment_Date__c = Date.today(),
+            BPAY_CRN__c = 'test',
+            AccountId = account.Id
+        );
+        insert contact;
+
+        Map<String, Object> request = new Map<String, Object>{
+            'recordId' => contact.Id
+        };
 
         Test.setMock(WebServiceMock.class, generator);
 
-        Map<String, Object> request = new Map<String, Object>{
-            'recordId' => oppPayment.Id
-        };
+        Test.startTest();
+        new EzidebitGetPaymentsProc().process(request);
+        Test.stopTest();
+    }
+
+    @IsTest
+    static void testPaymentProcessor(){
+        //EzidebitPaymentProcessor ezidebitPaymentProcessor = new EzidebitPaymentProcessor();
+        EzidebitPaymentProcessor.NewCustomer newCustomer = new EzidebitPaymentProcessor.NewCustomer();
+        EzidebitPaymentProcessor.AddCustomerResponse_element addCustomerResponseElement = new EzidebitPaymentProcessor.AddCustomerResponse_element();
+        EzidebitPaymentProcessor.AddCustomer_element addCustomerElement = new EzidebitPaymentProcessor.AddCustomer_element();
+        EzidebitPaymentProcessor.CreateScheduleResponse_element cResponseElement = new EzidebitPaymentProcessor.CreateScheduleResponse_element();
+        EzidebitPaymentProcessor.CreateSchedule_element cElement = new EzidebitPaymentProcessor.CreateSchedule_element();
+        EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL eziResponseOfCustomerDetailsTHgMB7oL = new EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL();
+        EzidebitPaymentProcessor.CustomerDetails customerDetails = new EzidebitPaymentProcessor.CustomerDetails();
+        EzidebitPaymentProcessor.GetCustomerDetails_element gDetailsElement = new EzidebitPaymentProcessor.GetCustomerDetails_element();
+        EzidebitPaymentProcessor.GetCustomerDetailsResponse_element gCustomerDetailsResponseElement = new EzidebitPaymentProcessor.GetCustomerDetailsResponse_element();
+        EzidebitPaymentProcessor.ChangeCustomerStatus_element changeCustomerStatusElement = new EzidebitPaymentProcessor.ChangeCustomerStatus_element();
+        EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element changeCustomerStatusResponseElement = new EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element();
+        EzidebitPaymentProcessor.ClearSchedule_element clearScheduleElement = new EzidebitPaymentProcessor.ClearSchedule_element();
+        EzidebitPaymentProcessor.ClearScheduleResponse_element clearScheduleResponseElement = new EzidebitPaymentProcessor.ClearScheduleResponse_element();
+        EzidebitPaymentProcessor.AddBankDebit_element addBankDebitElement = new EzidebitPaymentProcessor.AddBankDebit_element();
+        EzidebitPaymentProcessor.AddBankDebitResponse_element addBankDebitResponseElement = new EzidebitPaymentProcessor.AddBankDebitResponse_element();
+        EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL eziResponseOfRefundPaymentTHgMB7oL = new EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL();
+        EzidebitPaymentProcessor.RefundPayment refundPayment = new EzidebitPaymentProcessor.RefundPayment();
+        EzidebitPaymentProcessor.ProcessRefund_element processRefundElement = new EzidebitPaymentProcessor.ProcessRefund_element();
+        EzidebitPaymentProcessor.ProcessRefundResponse_element processRefundResponseElement = new EzidebitPaymentProcessor.ProcessRefundResponse_element();
+
+    }
+
+    @IsTest
+    static void testPaymentProcGetCustomerDetails(){
+        EzidebitPaymentProcessor.CustomerDetails customerDetails = new EzidebitPaymentProcessor.CustomerDetails();
+        customerDetails.Email = 'test';
+
+        EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL customerDetailsTHgMB7oL = new EzidebitPaymentProcessor.EziResponseOfCustomerDetailsTHgMB7oL();
+        customerDetailsTHgMB7oL.Error = 0;
+        customerDetailsTHgMB7oL.Data = customerDetails;
+
+        EzidebitPaymentProcessor.GetCustomerDetailsResponse_element element = new EzidebitPaymentProcessor.GetCustomerDetailsResponse_element();
+        element.GetCustomerDetailsResult = customerDetailsTHgMB7oL;
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
+
+        EzidebitPaymentProcessor ezidebitPaymentProcessor = new EzidebitPaymentProcessor(
+            payment_ProcessorFactory.getGatewayCredentials('EziDebit')
+        );
 
         Test.startTest();
-        new EzidebitGetPaymentDetailsProc().process(request);
+        ezidebitPaymentProcessor.getCustomerDetails('test');
         Test.stopTest();
+    }
+
+    @IsTest
+    static void testPaymentProcChangeCustomerStatus(){
+        EzidebitPaymentProcessor.EziResponseOfstring eziResponseOfstring = new EzidebitPaymentProcessor.EziResponseOfstring();
+        eziResponseOfstring.Error =0;
+        eziResponseOfstring.Data = 'test';
+
+        EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element element = new EzidebitPaymentProcessor.ChangeCustomerStatusResponse_element();
+        element.ChangeCustomerStatusResult = eziResponseOfstring;
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
+
+        EzidebitPaymentProcessor ezidebitPaymentProcessor = new EzidebitPaymentProcessor(
+            payment_ProcessorFactory.getGatewayCredentials('EziDebit')
+        );
+
+        Test.startTest();
+        Boolean testBool = ezidebitPaymentProcessor.changeCustomerStatus('test', 'test');
+        Test.stopTest();
+
+        System.assertEquals(false, testBool);
+    }
+
+    @IsTest
+    static void testPaymentProcCreateSchedule(){
+        EzidebitPaymentProcessor.EziResponseOfstring eziResponseOfstring = new EzidebitPaymentProcessor.EziResponseOfstring();
+        eziResponseOfstring.Error =0;
+        eziResponseOfstring.Data = 'test';
+
+        EzidebitPaymentProcessor.CreateScheduleResponse_element element = new EzidebitPaymentProcessor.CreateScheduleResponse_element();
+        element.CreateScheduleResult = eziResponseOfstring;
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
+
+        EzidebitPaymentProcessor ezidebitPaymentProcessor = new EzidebitPaymentProcessor(
+            payment_ProcessorFactory.getGatewayCredentials('EziDebit')
+        );
+
+        Test.startTest();
+        Boolean testBool = ezidebitPaymentProcessor.createSchedule('test', 'test', '2020-08-11', 'test', 'test', 3, true, false, false, false, 5, 2, 10, true);
+        Test.stopTest();
+
+        System.assertEquals(false, testBool);
+    }
+
+    @IsTest
+    static void testPaymentProcClearSchedule(){
+        EzidebitPaymentProcessor.EziResponseOfstring eziResponseOfstring = new EzidebitPaymentProcessor.EziResponseOfstring();
+        eziResponseOfstring.Error =0;
+        eziResponseOfstring.Data = 'test';
+
+        EzidebitPaymentProcessor.ClearScheduleResponse_element element = new EzidebitPaymentProcessor.ClearScheduleResponse_element();
+        element.ClearScheduleResult = eziResponseOfstring;
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
+
+        EzidebitPaymentProcessor ezidebitPaymentProcessor = new EzidebitPaymentProcessor(
+            payment_ProcessorFactory.getGatewayCredentials('EziDebit')
+        );
+
+        Test.startTest();
+        Boolean testBool = ezidebitPaymentProcessor.clearSchedule('test', 'test', true);
+        Test.stopTest();
+
+        System.assertEquals(false, testBool);
+    }
+
+    @IsTest
+    static void testPaymentProcProcessRefund(){
+        EzidebitPaymentProcessor.RefundPayment payment = new EzidebitPaymentProcessor.RefundPayment();
+        payment.RefundResult = 'W';
+
+        EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL refundPaymentTHgMB7oL = new EzidebitPaymentProcessor.EziResponseOfRefundPaymentTHgMB7oL();
+        refundPaymentTHgMB7oL.Error = 0;
+        refundPaymentTHgMB7oL.Data = payment;
+
+        EzidebitPaymentProcessor.ProcessRefundResponse_element element = new EzidebitPaymentProcessor.ProcessRefundResponse_element();
+        element.ProcessRefundResult = refundPaymentTHgMB7oL;
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
+
+        EzidebitPaymentProcessor ezidebitPaymentProcessor = new EzidebitPaymentProcessor(
+            payment_ProcessorFactory.getGatewayCredentials('EziDebit')
+        );
+
+        Test.startTest();
+        EzidebitStructs.RefundPayment response = ezidebitPaymentProcessor.processRefund('test', 5);
+        Test.stopTest();
+
+        System.assertEquals('Pending', response.RefundResult);
     }
 }
