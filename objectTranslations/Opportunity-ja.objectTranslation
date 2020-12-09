@@ -1701,11 +1701,6 @@
         <name>Corporate_Support_Day</name>
     </recordTypes>
     <recordTypes>
-        <description>受領支援金</description>
-        <label>支援</label>
-        <name>Donation</name>
-    </recordTypes>
-    <recordTypes>
         <description><!-- Record used to capture details about an event ticket sale. --></description>
         <label><!-- Event Ticket --></label>
         <name>Event_Ticket</name>

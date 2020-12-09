@@ -294,6 +294,8 @@ public class EzidebitPaymentProcessor {
         private String[] apex_schema_type_info = new String[]{'https://px.ezidebit.com.au/','true','false'};
         private String[] field_order_type_info = new String[]{'Data','Error','ErrorMessage'};
     }
+    
+    @TestVisible
     private class EziResponseOfNewCustomerXcXH3liW {
         public NewCustomer Data;
         public Integer Error;

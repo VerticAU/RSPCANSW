@@ -53,7 +53,6 @@ public class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
         for(EzidebitStructs.Payment payment : payments){
             opp = new Opportunity(
                 Name = payment.PaymentID,
-                RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Donation'),
                 Amount = payment.PaymentAmount,
                 CloseDate = payment.SettlementDate.date(),
                 StageName = 'Closed Won',

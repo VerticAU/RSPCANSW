@@ -8,7 +8,9 @@ public without sharing class EzidebitGetPaymentsScheduleProc extends vertic_Sche
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-        Database.executeBatch(new EzidebitGetPaymentsBatch(), 1);
+        if (!'true'.equalsIgnoreCase(vertic_SettingService.getValue('EZIDEBIT_PROCESSING_DISABLED'))) {
+            Database.executeBatch(new EzidebitGetPaymentsBatch(), 1);
+        }
 
         return this.response;
     }

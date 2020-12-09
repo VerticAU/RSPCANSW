@@ -39,6 +39,6 @@
         <quickActionLayoutColumns/>
     </quickActionLayout>
     <targetObject>Opportunity</targetObject>
-    <targetRecordType>Opportunity.Donation</targetRecordType>
+    <targetRecordType>Opportunity.npsp_plus_dres__Donation</targetRecordType>
     <type>Create</type>
 </QuickAction>

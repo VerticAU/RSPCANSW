@@ -666,16 +666,6 @@
     <recordTypes>
         <description><!-- An Account representing a Household containing one or more individuals --></description>
         <label><!-- Household Account --></label>
-        <name>HH_Account</name>
-    </recordTypes>
-    <recordTypes>
-        <description><!-- An Account representing an organization --></description>
-        <label><!-- Organization --></label>
-        <name>Organization</name>
-    </recordTypes>
-    <recordTypes>
-        <description><!-- An Account representing a Household containing one or more individuals --></description>
-        <label><!-- Household Account --></label>
         <name>npsp_plus_dres__HH_Account</name>
     </recordTypes>
     <recordTypes>

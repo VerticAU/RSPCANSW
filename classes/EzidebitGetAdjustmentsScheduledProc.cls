@@ -31,6 +31,10 @@ public without sharing class EzidebitGetAdjustmentsScheduledProc extends vertic_
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
+        if ('true'.equalsIgnoreCase(vertic_SettingService.getValue('EZIDEBIT_PROCESSING_DISABLED'))) {
+            return this.response;
+        }
+
         List<EzidebitStructs.Payment> payments = new EzidebitPaymentProcessor(
             payment_ProcessorFactory.getGatewayCredentials('EziDebit')
         ).getPayments(

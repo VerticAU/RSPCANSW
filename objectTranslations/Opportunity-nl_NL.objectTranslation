@@ -1701,11 +1701,6 @@
         <name>Corporate_Support_Day</name>
     </recordTypes>
     <recordTypes>
-        <description>Donatie ontvangen</description>
-        <label>Donatie</label>
-        <name>Donation</name>
-    </recordTypes>
-    <recordTypes>
         <description><!-- Record used to capture details about an event ticket sale. --></description>
         <label><!-- Event Ticket --></label>
         <name>Event_Ticket</name>

@@ -71,9 +71,18 @@ public without sharing class ContactDomain extends fflib_SObjectDomain implement
             'westernaustralia' => 'WA',
             'victoria' => 'VIC',
             'tasmania' => 'TAS',
-            'australiancapitalterritory' => 'ACT'
+            'australiancapitalterritory' => 'ACT',
+            'nsw' => 'NSW',
+            'qld' => 'QLD',
+            'nt' => 'NT',
+            'sa' => 'SA',
+            'wa' => 'WA',
+            'vic' => 'VIC',
+            'tas' => 'TAS',
+            'act' => 'ACT'
         };
 
-        return stateAbbr.get(suburb.toLowerCase().trim().deleteWhitespace());
+        String formattedState = stateAbbr.get(suburb.toLowerCase().trim().deleteWhitespace());
+        return formattedState == null ? suburb : formattedState;
     }
 }

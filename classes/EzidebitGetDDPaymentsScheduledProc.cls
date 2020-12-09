@@ -88,7 +88,9 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-        this.response.put('apexJobId', Database.executeBatch(this));
+        if (!'true'.equalsIgnoreCase(vertic_SettingService.getValue('EZIDEBIT_PROCESSING_DISABLED'))) {
+            this.response.put('apexJobId', Database.executeBatch(this));
+        }
 
         return this.response;
     }

@@ -1701,11 +1701,6 @@
         <name>Corporate_Support_Day</name>
     </recordTypes>
     <recordTypes>
-        <description><!-- Record used to capture details about a one-off or recurring donation received. --></description>
-        <label><!-- Donation --></label>
-        <name>Donation</name>
-    </recordTypes>
-    <recordTypes>
         <description><!-- Record used to capture details about an event ticket sale. --></description>
         <label><!-- Event Ticket --></label>
         <name>Event_Ticket</name>

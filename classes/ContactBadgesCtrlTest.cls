@@ -71,7 +71,7 @@ private class ContactBadgesCtrlTest {
         insert opportunities;
 
         Animal__c animal = new Animal__c(
-                Name = 'test',
+//                Name = 'test',
                 Contact__c = contact.Id
         );
         insert animal;

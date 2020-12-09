@@ -29,6 +29,6 @@
         <quickActionLayoutColumns/>
     </quickActionLayout>
     <targetObject>Account</targetObject>
-    <targetRecordType>Account.HH_Account</targetRecordType>
+    <targetRecordType>Account.npsp_plus_dres__HH_Account</targetRecordType>
     <type>Create</type>
 </QuickAction>

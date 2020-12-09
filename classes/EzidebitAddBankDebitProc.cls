@@ -83,9 +83,11 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
             this.payment.npe01__Scheduled_Date__c
         );
 
-        new EzidebitGetPaymentDetailsProc().process(new Map<String, Object>{
-            'payment' => this.payment
-        });
+        if (!Test.isRunningTest()) {
+            new EzidebitGetPaymentDetailsProc().process(new Map<String, Object>{
+                'payment' => this.payment
+            });
+        }
 
         update new npe03__Recurring_Donation__c(Id = this.payment.npe01__Opportunity__r.npe03__Recurring_Donation__c, EziDebit_Customer_ID__c = customerId);
 
@@ -100,7 +102,7 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
      */
 
     public static Boolean shouldBeProcessed(npe01__OppPayment__c payment, Opportunity opportunityVar) {
-        if (payment != null && opportunityVar != null) {
+        if (payment != null && opportunityVar != null && !'true'.equalsIgnoreCase(vertic_SettingService.getValue('EZIDEBIT_PROCESSING_DISABLED'))) {
             Boolean isPaid = payment.npe01__Paid__c == true;
             Boolean isEziDebit = 'EziDebit'.equals(payment.npe01__Payment_Method__c);
             Boolean wasNotRequested = payment.EziDebit_Transaction_ID__c == null;

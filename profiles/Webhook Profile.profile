@@ -392,6 +392,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UpdateCampaignMemberStatusInvocable</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateCampaignMemberStatusInvocableTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WorkflowCreateTasksProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -6153,14 +6161,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Household Lightning Layout</layout>
-        <recordType>Account.HH_Account</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Organization Lightning Layout</layout>
-        <recordType>Account.Organization</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6465,13 +6465,13 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.HH_Account</recordType>
-        <visible>true</visible>
+        <recordType>Account.npsp_plus_dres__HH_Account</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
-        <recordType>Account.Organization</recordType>
+        <recordType>Account.npsp_plus_dres__Organization</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -6508,11 +6508,6 @@
         <default>false</default>
         <recordType>Opportunity.Corporate_Support_Day</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Opportunity.Donation</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -6578,6 +6573,12 @@
         <default>false</default>
         <recordType>Opportunity.Sponsorship</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Opportunity.npsp_plus_dres__Donation</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Alert__c</tab>

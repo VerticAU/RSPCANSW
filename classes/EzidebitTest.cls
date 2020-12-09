@@ -166,6 +166,18 @@ public class EzidebitTest {
 
     @IsTest
     static void testAddBankDebitProc(){
+        EzidebitPaymentProcessor.NewCustomer newCustomer = new EzidebitPaymentProcessor.NewCustomer();
+        newCustomer.CustomerRef = 1;
+
+        EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW newCustomerXcXH3liW = new EzidebitPaymentProcessor.EziResponseOfNewCustomerXcXH3liW();
+        newCustomerXcXH3liW.Error = 0;
+        newCustomerXcXH3liW.Data = newCustomer;
+
+        EzidebitPaymentProcessor.AddBankDebitResponse_element element = new EzidebitPaymentProcessor.AddBankDebitResponse_element();
+        element.AddBankDebitResult = newCustomerXcXH3liW;
+
+        MockWebServiceResponseGenerator generator = new MockWebServiceResponseGenerator(element);
+        Test.setMock(WebServiceMock.class, generator);
 
         Account account = new Account(
             Name = 'test'
@@ -191,31 +203,34 @@ public class EzidebitTest {
         );
         insert recurringDonation;
 
-        System.debug(recurringDonation);
+        Opportunity opportunity = (Opportunity)vertic_Utils.arrays.firstOrException(
+        [SELECT Id FROM Opportunity WHERE npe03__Recurring_Donation__c =:recurringDonation.Id]
+        );
+        opportunity.Name = 'test';
+        opportunity.Amount = 123;
+        opportunity.CloseDate = Date.today();
+        opportunity.StageName = 'Pledged';
 
-//        Opportunity opp = new Opportunity(
-//            Name = 'test',
-//            Amount = 123,
-//            CloseDate = Date.today(),
-//            StageName = 'Pledged',
-//            npe03__Recurring_Donation__c = recurringDonation.Id
-//        );
-//        insert opp;
-//
-//        System.debug(opp);
-//
-//
-//        npe01__OppPayment__c oppPayment = new npe01__OppPayment__c(
-//            npe01__Opportunity__c = opp.Id
-//        );
-//        insert oppPayment;
+        update opportunity;
 
-//        Map<String, Object> request = new Map<String, Object>{
-//            'recordId' => oppPayment.Id
-//        };
-//
-//        new EzidebitAddBankDebitProc().process(request);
+        npe01__OppPayment__c oppPayment = (npe01__OppPayment__c)vertic_Utils.arrays.firstOrException(
+        [SELECT Id FROM npe01__OppPayment__c WHERE npe01__Opportunity__c =:opportunity.Id]
+        );
+        oppPayment.npe01__Paid__c = false;
+        oppPayment.npe01__Payment_Method__c = 'EziDebit';
 
+        update oppPayment;
+        System.debug('oppPayment' + oppPayment);
+
+        Map<String, Object> request = new Map<String, Object>{
+            'recordId' => oppPayment.Id
+        };
+
+        Test.startTest();
+        vertic_Response response = new EzidebitAddBankDebitProc().process(request);
+        Test.stopTest();
+
+        System.assertEquals(true, response.get('EziDebitCustomerId')!=null);
     }
 
     @IsTest
@@ -287,15 +302,12 @@ public class EzidebitTest {
         EzidebitGetPaymentDetailsProc detailsProc = new EzidebitGetPaymentDetailsProc();
 
         Test.startTest();
-        detailsProc.process(new Map<String, Object>{
-            'recordId' => oppPayment.Id
-        });
-//        detailsProc.process(new Map<String, Object>{
-//            'payment' => oppPayment
-//        });
+        vertic_Response response = detailsProc.process(new Map<String, Object>{
+                'recordId' => oppPayment.Id
+            });
         Test.stopTest();
 
-
+        System.assertEquals(true, response.get('details')!=null);
     }
 
     @IsTest
@@ -346,6 +358,8 @@ public class EzidebitTest {
         Test.startTest();
         new EzidebitGetPaymentsProc().process(request);
         Test.stopTest();
+
+        System.assertEquals(Date.today(), [SELECT ID, Last_Payment_Date__c FROM Contact WHERE Id=:contact.Id].Last_Payment_Date__c);
     }
 
     @IsTest
@@ -393,8 +407,10 @@ public class EzidebitTest {
         );
 
         Test.startTest();
-        ezidebitPaymentProcessor.getCustomerDetails('test');
+        EzidebitStructs.CustomerDetails response = ezidebitPaymentProcessor.getCustomerDetails('test');
         Test.stopTest();
+
+        System.assertEquals(true, response!=null);
     }
 
     @IsTest
