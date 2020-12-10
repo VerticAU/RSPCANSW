@@ -328,6 +328,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MigrateContactIdBatchScript</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MigrateContactIdBatchScriptTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MockHttpResponseGenerator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2362,11 +2370,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Marital_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Member_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6027,6 +6030,51 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__Filter_Rule__mdt.npsp__Is_Deleted__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Extra_Info_Label__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Has_Link__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Image__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Link_Label__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Link_URL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Primary_Button_Label__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Primary_Button_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Secondary_Button_Label__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>npsp__GetStartedChecklistItem__mdt.npsp__Secondary_Button_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

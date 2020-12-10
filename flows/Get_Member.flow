@@ -70,7 +70,7 @@
         <queriedFields>MailingState</queriedFields>
         <queriedFields>MailingPostalCode</queriedFields>
         <queriedFields>MailingCountry</queriedFields>
-        <queriedFields>Member_Number__c</queriedFields>
+        <queriedFields>Contact_ID__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Membership</name>

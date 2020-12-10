@@ -6,7 +6,9 @@ public with sharing class vertic_FlowProcTest {
         Test.startTest();
         new vertic_FlowProc().process(new Map<String,Object>{
                 'flow' => 'websiteIntegration',
-                'inputs' => null,
+                'inputs' => new Map<String, Object>{
+                    'contactLastName' => 'test'
+                },
                 'outputFields' => new List<String>()
         });
         Test.stopTest();

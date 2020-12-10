@@ -2,6 +2,22 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
+        <name>Assign_Contact_Id</name>
+        <label>Assign Contact Id</label>
+        <locationX>1130</locationX>
+        <locationY>690</locationY>
+        <assignmentItems>
+            <assignToReference>contactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Record_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Donation_Assignment</name>
         <label>Donation Assignment</label>
         <locationX>2102</locationX>
@@ -242,17 +258,10 @@
         <locationX>2394</locationX>
         <locationY>691</locationY>
         <assignmentItems>
-            <assignToReference>contactId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>contact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>contactMemberNumber</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Contact_All_Fields.Member_Number__c</elementReference>
+                <elementReference>Get_Contact_All_Fields.Contact_ID__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -319,10 +328,42 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_Member_Number_Exists</name>
+        <label>Is Member Number Exists</label>
+        <locationX>829</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Create_Contact_Subflow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Is_Member_Number_Exists_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>contactMemberNumber</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>contactMemberNumber</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Contact_Member_Number</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Member_Exists</name>
         <label>Member Exists</label>
-        <locationX>1164</locationX>
-        <locationY>489</locationY>
+        <locationX>1131</locationX>
+        <locationY>488</locationY>
         <defaultConnector>
             <targetReference>Create_Contact_Subflow</targetReference>
         </defaultConnector>
@@ -331,10 +372,17 @@
             <name>Yes</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>contact</leftValueReference>
+                <leftValueReference>contactId</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>contactId</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -439,7 +487,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>contact.Id</elementReference>
+                <elementReference>contactId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -457,16 +505,17 @@
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Member_Number__c</field>
+            <field>Contact_ID__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>contactMemberNumber</elementReference>
             </value>
         </filters>
         <object>Contact</object>
-        <outputReference>contact</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>Member_Number__c</queriedFields>
+        <outputAssignments>
+            <assignToReference>contactId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
     </recordLookups>
     <recordLookups>
         <name>Get_Donation_Campaign</name>
@@ -548,7 +597,7 @@
     <recordLookups>
         <name>Get_Record_Type</name>
         <label>Get Record Type</label>
-        <locationX>1239</locationX>
+        <locationX>1241</locationX>
         <locationY>690</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -574,20 +623,20 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>582</locationX>
-        <locationY>469</locationY>
+        <locationX>430</locationX>
+        <locationY>568</locationY>
         <connector>
-            <targetReference>Get_Contact_Member_Number</targetReference>
+            <targetReference>Is_Member_Number_Exists</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
-        <locationX>1096</locationX>
+        <locationX>1017</locationX>
         <locationY>690</locationY>
         <connector>
-            <targetReference>Get_Record_Type</targetReference>
+            <targetReference>Assign_Contact_Id</targetReference>
         </connector>
         <flowName>Create_Contact</flowName>
         <inputAssignments>

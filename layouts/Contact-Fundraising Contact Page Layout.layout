@@ -590,10 +590,6 @@
                 <behavior>Readonly</behavior>
                 <field>npo02__TotalMembershipOppAmount__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Member_Number__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

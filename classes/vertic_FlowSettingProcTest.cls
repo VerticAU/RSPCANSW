@@ -5,7 +5,7 @@ public class vertic_FlowSettingProcTest {
         Test.startTest();
         new vertic_FlowSettingProc().process(new Map<String,Object>{
             'inputs' => new Map<String, String>{
-                'test' => 'test'
+                'contactLastName' => 'test'
             },
             'setting' => new vertic_AutoMapper().getSObjectAsMap(new Flow_Setting__mdt(
                 DeveloperName = 'test',

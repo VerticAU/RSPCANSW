@@ -1,7 +1,3 @@
-/**
- * Created by golub on 26.11.2020.
- */
-
 @IsTest
 private class ContactDomainTest {
     @IsTest
@@ -10,10 +6,11 @@ private class ContactDomainTest {
         insert account;
 
         Contact contact = new Contact(
-                LastName = 'test',
-                AccountId = account.Id,
-                MailingCity = 'test' ,
-                MailingState = 'victoria');
+            LastName = 'test',
+            AccountId = account.Id,
+            MailingCity = 'test' ,
+            MailingState = 'vic'
+        );
         insert contact;
 
         contact.MailingCity = 'testCity';

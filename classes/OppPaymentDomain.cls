@@ -60,6 +60,9 @@ public without sharing class OppPaymentDomain extends fflib_SObjectDomain implem
             );
             vap.Description__c = 'Payment Request';
             vap.Group_Key__c = 'EziDebit-' + payment.Id;
+            if (payment.npe01__Scheduled_Date__c != null && payment.npe01__Scheduled_Date__c > Date.today()) {
+                vap.Run_After__c = payment.npe01__Scheduled_Date__c;
+            }
             asyncProcess.add(vap);
         }
     }

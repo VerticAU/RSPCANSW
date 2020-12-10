@@ -31,17 +31,10 @@ public without sharing class BulkContributionManagementSubmitProc extends vertic
             paymentIntentId = this.request.getRequiredString('contribution.paymentIntentId');
         }
 
-        RecordType donationRecType = (RecordType) vertic_Utils.arrays.firstOrException([
-            SELECT Id
-            FROM RecordType
-            WHERE DeveloperName = 'Donation'
-            AND NamespacePrefix != 'npsp_plus_dres'
-        ]);
-
         opportunity.Name = 'Donation';
         opportunity.StageName = 'Closed Won';
         opportunity.isCompleted__c = true;
-        opportunity.RecordTypeId = donationRecType.Id;
+        opportunity.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.getSObjectType(), 'Donation');
         opportunity.CloseDate = Date.today();
 
         Savepoint sp = Database.setSavepoint();

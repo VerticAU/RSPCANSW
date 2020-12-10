@@ -213,10 +213,6 @@
         <name>Marital_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Member Number --></label>
-        <name>Member_Number__c</name>
-    </fields>
-    <fields>
         <label><!-- Occupation --></label>
         <name>Occupation__c</name>
         <picklistValues>
