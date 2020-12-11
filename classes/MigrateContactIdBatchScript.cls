@@ -6,7 +6,7 @@ global without sharing class MigrateContactIdBatchScript implements Database.Bat
 
     global void execute(Database.BatchableContext BC, List<Contact> scope) {
         for(Contact contact : scope){
-            contact.Contact_ID__c = contact.External_ID__c;
+//            contact.Contact_ID__c = contact.External_ID__c;
         }
         update scope;
     }
