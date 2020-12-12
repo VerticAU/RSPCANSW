@@ -6317,6 +6317,9 @@
         <layout>Payment_EziDebit_Settings__mdt-Payment EziDebit Settings Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ProcessException-Process Exception Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Vertic_Setting__mdt-Vertic Setting Layout</layout>
     </layoutAssignments>
     <pageAccesses>
@@ -6690,6 +6693,10 @@
     <tabVisibilities>
         <tab>standard-Pricebook2</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProcessException</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Product2</tab>
