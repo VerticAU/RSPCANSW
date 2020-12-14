@@ -127,6 +127,13 @@
                 <elementReference>donationCampaign.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>donation.Linked_Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_Membership</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Donation</targetReference>
         </connector>
@@ -669,7 +676,7 @@
             <targetReference>Is_Member_Number_Exists</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
