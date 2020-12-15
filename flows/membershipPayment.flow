@@ -131,7 +131,7 @@
             <assignToReference>donation.Linked_Opportunity__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Create_Membership</elementReference>
+                <elementReference>membership.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -261,13 +261,6 @@
                 <elementReference>isMembershipRenewalFormula</elementReference>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>membership.npsp__Acknowledgment_Status__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>acknowledgementStatusFormula</elementReference>
-            </value>
-        </assignmentItems>
         <connector>
             <targetReference>Create_Membership</targetReference>
         </connector>
@@ -275,8 +268,8 @@
     <assignments>
         <name>Output_Assignment</name>
         <label>Output Assignment</label>
-        <locationX>2393</locationX>
-        <locationY>693</locationY>
+        <locationX>2546</locationX>
+        <locationY>700</locationY>
         <assignmentItems>
             <assignToReference>memberNumber</assignToReference>
             <operator>Assign</operator>
@@ -312,7 +305,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Output_Assignment</targetReference>
+            <targetReference>Update_Acknowledgement_Status</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -342,7 +335,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Output_Assignment</targetReference>
+                <targetReference>Update_Acknowledgement_Status</targetReference>
             </connector>
             <label>Null</label>
         </rules>
@@ -414,7 +407,7 @@
     <formulas>
         <name>acknowledgementStatusFormula</name>
         <dataType>String</dataType>
-        <expression>IF({!isMembershipRenewalFormula}, null, &apos;Email Acknowledgment Now&apos;)</expression>
+        <expression>IF({!isMembershipRenewalFormula}, &apos;Acknowledged&apos;, &apos;Email Acknowledgment Now&apos;)</expression>
     </formulas>
     <formulas>
         <name>isMembershipRenewalFormula</name>
@@ -669,6 +662,33 @@
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Update_Acknowledgement_Status</name>
+        <label>Update Acknowledgement Status</label>
+        <locationX>2393</locationX>
+        <locationY>699</locationY>
+        <connector>
+            <targetReference>Output_Assignment</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>membership.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>npsp__Acknowledgment_Status__c</field>
+            <value>
+                <elementReference>acknowledgementStatusFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
     <start>
         <locationX>430</locationX>
         <locationY>568</locationY>
@@ -676,7 +696,7 @@
             <targetReference>Is_Member_Number_Exists</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Create_Contact_Subflow</name>
         <label>Create Contact Subflow</label>
