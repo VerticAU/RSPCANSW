@@ -51,6 +51,7 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
 
         this.contact.Date_Notified_of_Death__c = Date.today();
         this.contact.npsp__Primary_Affiliation__c = this.account.Id;
+        this.contact.AccountId = this.account.Id;
         update this.contact;
 
 //        for (npe5__Affiliation__c affiliation : this.affiliations) {

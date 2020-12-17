@@ -28,6 +28,31 @@
         </assignmentItems>
     </assignments>
     <decisions>
+        <name>Account_Contact_Relationship_Exists</name>
+        <label>Account Contact Relationship Exists?</label>
+        <locationX>200</locationX>
+        <locationY>968</locationY>
+        <defaultConnector>
+            <targetReference>CREATE_Account_Contact_Relationship</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Account Contact Relationship DOES NOT Exist</defaultConnectorLabel>
+        <rules>
+            <name>Account_Contact_Relationship_DOES_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GET_Account_Contact_Relationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GET_Donation_Record_Type_ID</targetReference>
+            </connector>
+            <label>Account Contact Relationship DOES Exist</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Confirm_Account</name>
         <label>Confirm Account</label>
         <locationX>338</locationX>
@@ -80,8 +105,8 @@
     <decisions>
         <name>Contact_Exists</name>
         <label>Contact Exists?</label>
-        <locationX>591</locationX>
-        <locationY>822</locationY>
+        <locationX>370</locationX>
+        <locationY>623</locationY>
         <defaultConnector>
             <targetReference>CREATE_Contact</targetReference>
         </defaultConnector>
@@ -97,7 +122,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>GET_Donation_Record_Type_ID</targetReference>
+                <targetReference>GET_Account_Contact_Relationship</targetReference>
             </connector>
             <label>Contact DOES Exist</label>
         </rules>
@@ -171,8 +196,8 @@
     <recordCreates>
         <name>CREATE_Account</name>
         <label>CREATE Account</label>
-        <locationX>1050</locationX>
-        <locationY>646</locationY>
+        <locationX>1051</locationX>
+        <locationY>618</locationY>
         <assignRecordIdToReference>Account_Id</assignRecordIdToReference>
         <connector>
             <targetReference>GET_Contact</targetReference>
@@ -199,6 +224,50 @@
             </value>
         </inputAssignments>
         <object>Account</object>
+    </recordCreates>
+    <recordCreates>
+        <name>CREATE_Account_Contact_Relationship</name>
+        <label>CREATE Account Contact Relationship</label>
+        <locationX>532</locationX>
+        <locationY>965</locationY>
+        <connector>
+            <targetReference>GET_Donation_Record_Type_ID</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>Account_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>Contact_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsActive</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Roles</field>
+            <value>
+                <stringValue>Employee</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StartDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>CREATE_Account_Soft_Credit</name>
@@ -241,11 +310,11 @@
     <recordCreates>
         <name>CREATE_Contact</name>
         <label>CREATE Contact</label>
-        <locationX>911</locationX>
-        <locationY>818</locationY>
+        <locationX>533</locationX>
+        <locationY>797</locationY>
         <assignRecordIdToReference>Contact_Id</assignRecordIdToReference>
         <connector>
-            <targetReference>GET_Donation_Record_Type_ID</targetReference>
+            <targetReference>CREATE_Account_Contact_Relationship</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Handle_Fault</targetReference>
@@ -539,6 +608,12 @@
                 <elementReference>Donation_Id</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>npsp__Role_Name__c</field>
+            <value>
+                <stringValue>Soft Credit</stringValue>
+            </value>
+        </inputAssignments>
         <object>npsp__Partial_Soft_Credit__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
@@ -556,7 +631,7 @@
         </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>External_ID__c</field>
+            <field>Account_ID__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Employer_Id</elementReference>
@@ -595,6 +670,37 @@
         </outputAssignments>
     </recordLookups>
     <recordLookups>
+        <name>GET_Account_Contact_Relationship</name>
+        <label>GET Account Contact Relationship</label>
+        <locationX>208</locationX>
+        <locationY>780</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Account_Contact_Relationship_Exists</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Handle_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Contact_Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Account_Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>GET_Campaign</name>
         <label>GET Campaign</label>
         <locationX>761</locationX>
@@ -622,7 +728,7 @@
         <name>GET_Contact</name>
         <label>GET Contact</label>
         <locationX>594</locationX>
-        <locationY>638</locationY>
+        <locationY>610</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Contact_Exists</targetReference>
@@ -666,8 +772,8 @@
     <recordLookups>
         <name>GET_Donation_Record_Type_ID</name>
         <label>GET Donation Record Type ID</label>
-        <locationX>761</locationX>
-        <locationY>1083</locationY>
+        <locationX>379</locationX>
+        <locationY>1233</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GET_Campaign</targetReference>
