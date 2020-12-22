@@ -266,7 +266,7 @@
         <inputAssignments>
             <field>npe01__Payment_Method__c</field>
             <value>
-                <elementReference>Payment_Method</elementReference>
+                <elementReference>Tender</elementReference>
             </value>
         </inputAssignments>
         <object>npe01__OppPayment__c</object>
@@ -489,13 +489,6 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>Payment_Method</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>Postal_Address_Street_1</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -539,6 +532,13 @@
     </variables>
     <variables>
         <name>Source_Code</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Tender</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

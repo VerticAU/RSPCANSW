@@ -261,7 +261,7 @@
         <inputAssignments>
             <field>npe01__Payment_Method__c</field>
             <value>
-                <elementReference>Payment_Method</elementReference>
+                <elementReference>Payment_Type</elementReference>
             </value>
         </inputAssignments>
         <object>npe01__OppPayment__c</object>
@@ -484,7 +484,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>Payment_Method</name>
+        <name>Payment_Type</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
