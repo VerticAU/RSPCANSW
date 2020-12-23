@@ -43,7 +43,7 @@
     <formulas>
         <name>Opportunity_Name</name>
         <dataType>String</dataType>
-        <expression>&quot;First_Name&quot;+&quot; &quot;+&quot;Last_Name&quot;+&quot; &quot;+&quot;Donation_RecordType_Name&quot;+&quot; &quot;+&quot;Date_of_Gift&quot;+&quot; &quot;+&quot;GET_Campaign.Name&quot;</expression>
+        <expression>{!First_Name}+&quot; &quot;+{!Last_Name}+&quot; &quot;+{!Donation_RecordType_Name}+&quot; &quot;+TEXT({!Date_of_Gift})+&quot; &quot;+{!GET_Campaign.Name}</expression>
     </formulas>
     <formulas>
         <name>Postal_Address_Street</name>

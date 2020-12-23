@@ -44,7 +44,6 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
     private void saveRecords() {
 
         this.account.Deceased_Donor__c = this.contact.Id;
-//            this.account.npe01__One2OneContact__c = this.contact.Id;
         this.account.Bequest_Opportunity__c = this.opportunity.Id;
         this.account.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByName(Schema.Account.SObjectType, 'Estate');
         insert this.account;
@@ -54,34 +53,19 @@ public without sharing class EstateManagementQASubmitProc extends vertic_Abstrac
         this.contact.AccountId = this.account.Id;
         update this.contact;
 
-//        for (npe5__Affiliation__c affiliation : this.affiliations) {
-//            affiliation.npe5__Organization__c = this.account.Id;
-//
-//            if (affiliation.npe5__Role__c.equals('Solicitor') || affiliation.npe5__Role__c.equals('Executor')) {
-//                this.account.npe01__One2OneContact__c = affiliation.npe5__Contact__c;
-//            }
-//        }
+        //2020 December 23 - https://verticconsulting.atlassian.net/browse/RNF-177
+        List<Opportunity> opportunitiesGiW = new List<Opportunity>([
+            SELECT AccountId
+            FROM Opportunity
+            WHERE npsp__Primary_Contact__c = :contact.Id
+            AND RecordType.DeveloperName = 'Bequest'
+        ]);
+        for (Opportunity opportunity : opportunitiesGiW) {
+            opportunity.AccountId = this.account.Id;
+        }
 
-        update this.account;
+        update opportunitiesGiW;
 
-//        if (this.affiliations.size() > 0) {
-//            insert this.affiliations;
-//        }
-
-//        for (Partner partner : this.partners) {
-//            partner.AccountToId = this.account.Id;
-//        }
-//        if (this.partners.size() > 0) {
-//            insert this.partners;
-//        }
-
-
-        this.opportunity.AccountId = this.account.Id;
-        update this.opportunity;
-
-//            AccountContactRelation accountContactRelation = new AccountContactRelation(AccountId = this.account.Id, ContactId = this.contact.Id);
-//
-//            insert accountContactRelation;
     }
 
 

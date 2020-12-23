@@ -168,9 +168,15 @@
         </rules>
     </decisions>
     <formulas>
+        <name>Amount_Currency</name>
+        <dataType>Currency</dataType>
+        <expression>VALUE({!Amount})</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
         <name>Opportunity_Name</name>
         <dataType>String</dataType>
-        <expression>&quot;First_Name&quot;+&quot; &quot;+&quot;Last_Name&quot;+&quot; &quot;+&quot;Donation_RecordType_Name&quot;+&quot; &quot;+&quot;Date_of_Gift&quot;+&quot; &quot;+&quot;GET_Campaign.Name&quot;</expression>
+        <expression>{!First_Name}+&quot; &quot;+{!Last_Name}+&quot; &quot;+{!Donation_RecordType_Name}+&quot; &quot;+TEXT({!Date_of_Gift})+&quot; &quot;+{!GET_Campaign.Name}</expression>
     </formulas>
     <interviewLabel>Good2Give Import {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Good2Give Import</label>
@@ -289,7 +295,7 @@
         <inputAssignments>
             <field>npsp__Amount__c</field>
             <value>
-                <elementReference>Amount</elementReference>
+                <elementReference>Amount_Currency</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -408,7 +414,7 @@
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <elementReference>Amount</elementReference>
+                <elementReference>Amount_Currency</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -479,7 +485,7 @@
         <inputAssignments>
             <field>Amount</field>
             <value>
-                <elementReference>Amount</elementReference>
+                <elementReference>Amount_Currency</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -561,7 +567,7 @@
         <inputAssignments>
             <field>npe01__Payment_Amount__c</field>
             <value>
-                <elementReference>Amount</elementReference>
+                <elementReference>Amount_Currency</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -593,7 +599,7 @@
         <inputAssignments>
             <field>npsp__Amount__c</field>
             <value>
-                <elementReference>Amount</elementReference>
+                <elementReference>Amount_Currency</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -856,7 +862,14 @@
     </variables>
     <variables>
         <name>Amount</name>
-        <dataType>Currency</dataType>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Amount_Number</name>
+        <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
