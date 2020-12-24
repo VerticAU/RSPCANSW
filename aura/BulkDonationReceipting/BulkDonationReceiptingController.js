@@ -23,9 +23,8 @@
     handleReceipt: function(cmp, event, helper){
 
         var table = cmp.find('table');
-        if(!table.validate()){
-            return;
-        }
+
+        if(!table.validate()){ return; }
 
         var selected = table.getSelected() || [];
         if(!selected.length){
@@ -36,9 +35,7 @@
             return;
         }
 
-        var emailIds = selected.map(function (item) {
-            return item.Id;
-        });;
+        var emailIds = selected.map(function (item) { return item.Id; });
 
         console.log('emailIds', emailIds);
 
@@ -56,39 +53,11 @@
                 header: 'Email Receipts',
                 cssClass: 'slds-modal-small'
             }
-        ).then($A.getCallback(function (closeResult) {
-            // cmp.find('filter').refresh();
-            // helper.getBaseCmp(cmp).utils.showToast(
-            //     {
-            //         message: 'User creation is in progress.',
-            //         type: 'success'
-            //     }
-            // );
-            // helper.refresh(cmp, event, helper);
-        }), function (error) {
-
-        });
+        ).then(function (closeResult) {}, function (error) {});
 
     },
 
     handleToggleSearchClick : function (cmp, event, helper) {
         event.getSource().set('v.selected', !event.getSource().get('v.selected'));
     },
-
-    handleExportClick: function(cmp, event, helper){
-
-        var modalService = cmp.find('modalService');
-        modalService.show(
-            'c:BulkReceiptingDonationsCSVExport',
-            {
-                filter: cmp.get('v.meta.dto.filter')
-            },
-            {
-                header: 'Donations Export',
-                cssClass: 'slds-modal-small'
-            }
-        ).then($A.getCallback(function (closeResult) {
-        }), function (error) {
-        });
-    }
 })

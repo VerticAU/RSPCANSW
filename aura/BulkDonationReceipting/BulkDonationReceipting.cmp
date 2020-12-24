@@ -20,13 +20,6 @@
                 <lightning:accordionSection name="table" label="Select Donations">
                     <aura:set attribute="actions">
 
-                        <lightning:button label="Export CSV"
-                                          iconName="utility:file"
-                                          disabled="{!v.isBusy}"
-                                          class="slds-m-right_x-small"
-                                          onclick="{!c.handleExportClick}"
-                        />
-
                         <lightning:button label="Email Receipts"
                                           variant="brand"
                                           disabled="{!v.isBusy}"

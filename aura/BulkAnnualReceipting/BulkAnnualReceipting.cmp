@@ -22,13 +22,6 @@
                 <lightning:accordionSection name="table" label="Select Contacts">
                     <aura:set attribute="actions">
 
-                        <lightning:button label="Export CSV"
-                                          iconName="utility:file"
-                                          disabled="{!v.isBusy}"
-                                          class="slds-m-right_x-small"
-                                          onclick="{!c.handleExportClick}"
-                        />
-
                         <lightning:button label="Generate Receipts"
                                           variant="brand"
                                           disabled="{!v.isBusy}"

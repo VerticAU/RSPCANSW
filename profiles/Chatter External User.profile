@@ -104,10 +104,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BulkAnnualReceiptingCSVExportMetaProc</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BulkAnnualReceiptingGenerateProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -133,10 +129,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BulkContributionManagementTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BulkDonationReceiptingCSVExportMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -205,6 +197,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactMakeDeceasedActionCtrlTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContributionService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -377,6 +373,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ScheduleManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SendAnnualReceiptEmailProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

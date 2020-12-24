@@ -62,22 +62,4 @@
     handleToggleSearchClick : function (cmp, event, helper) {
         event.getSource().set('v.selected', !event.getSource().get('v.selected'));
     },
-
-    handleExportClick: function(cmp, event, helper){
-
-        var modalService = cmp.find('modalService');
-        modalService.show(
-            'c:BulkAnnualReceiptingCSVExport',
-            {
-                filter: cmp.get('v.meta.dto.filter')
-            },
-            {
-                header: 'Recurring List Export',
-                cssClass: 'slds-modal-small'
-            }
-        ).then(
-            $A.getCallback(function (closeResult) {}),
-            $A.getCallback(function (error) {})
-        );
-    }
 })
