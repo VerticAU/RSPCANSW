@@ -54,7 +54,7 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
             Map<String, String> pageRefParams = pageRef.getParameters();
             pageRefParams.put('proc', 'AnnualReceipt');
             pageRefParams.put('ids', String.join((List<String>) mailIdsChunk, ','));
-            pageRefParams.put('afterProc', 'true'); // updates last receipt date and creates task
+            pageRefParams.put('afterProc', 'false'); // creates task
 
             for (String filterKey : filters.keySet()) {
                 pageRefParams.put(filterKey, '' + filters.get(filterKey));
@@ -82,9 +82,9 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
 
         vertic_AsyncProcess asyncProcess = new vertic_AsyncProcess();
 
-        for (String contactId : emailIds) {
+        for (String donorId : emailIds) {
             Map<String, Object> contentParams = new Map<String, Object>{
-                'ids' => contactId,
+                'donorIds' => donorId,
                 'renderAs' => 'html'
             };
 
@@ -93,11 +93,7 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
             vertic_SendEmailProc.EmailAsyncProcess emailAsyncProcess = new vertic_SendEmailProc.EmailAsyncProcess(
                 'AnnualReceipt',
                 contentParams
-            ).setSaveAsActivity(true)
-                .setPayloadParam('contactId', contactId);
-
-
-            emailAsyncProcess.setTargetId(contactId);
+            ).setSaveAsActivity(true).setPayloadParam('donorId', donorId);
 
             Vertic_Async_Process__c emailAsyncProcessVar = emailAsyncProcess.toAsyncProcess(SendAnnualReceiptEmailProc.class);
             emailAsyncProcessVar.Autorun__c = false;

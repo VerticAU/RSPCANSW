@@ -8,35 +8,47 @@
     handleSearch: function(cmp, event, helper){
         var filter = event.getParams().payload.filter;
 
+        console.log('filter: ', JSON.stringify(filter));
+
         helper.search(cmp, event, helper, filter).then(function (response) {
             var table = cmp.find('table');
-            table.set('v.items', response.dto.contacts.records);
-            table.set('v.hasMore', response.dto.contacts.hasMore);
-            table.set('v.limit', response.dto.contacts.limit);
+            table.set('v.items', response.dto.donors.records);
+            table.set('v.hasMore', response.dto.donors.hasMore);
+            table.set('v.limit', response.dto.donors.limit);
             table.selectAll();
-            //helper.calculateTotals(cmp, event, helper, response.dto.contacts.records);
-        }).then(function () {
-            //cmp.set('v.meta.dto.filter', filter);
+            helper.calculateTotals(cmp, event, helper, response.dto.donors.records);
         });
     },
 
     handleReceipt: function(cmp, event, helper){
 
         var table = cmp.find('table');
-        if(!table.validate()){ return; }
+        if(!table.validate()){
+            return;
+        }
 
         var selected = table.getSelected() || [];
         if(!selected.length){
             helper.utils(cmp).showToast({
                 type: 'warning',
-                message: 'No Selected Recurring Donations'
+                message: 'No Selected Donations'
             });
             return;
         }
 
-        var emailIds = selected.map(function (item) {
+        var emailIds = selected.filter(function (item) {
+            return item.channel === 'Email';
+        }).map(function (item) {
             return item.Id;
         });
+
+        var mailIds = selected.filter(function (item) {
+            return item.channel === 'Mail';
+        }).map(function (item) {
+            return item.Id;
+        });
+
+        console.log(emailIds, mailIds);
 
         var modalService = cmp.find('modalService');
         modalService.show(
@@ -45,21 +57,51 @@
                 processor: 'BulkAnnualReceiptingGenerateProc',
                 payload: {
                     emailIds: emailIds,
-                    filter: cmp.get('v.meta.dto.filter'),
+                    mailIds: mailIds,
+                    filter: cmp.get('v.meta.dto.filter')
                 }
             },
             {
                 header: 'Receipting',
                 cssClass: 'slds-modal-small'
             }
-        ).then(
-            $A.getCallback(function (closeResult) {}),
-            $A.getCallback(function (error) {})
-        );
+        ).then($A.getCallback(function (closeResult) {}), function (error) {});
 
     },
 
     handleToggleSearchClick : function (cmp, event, helper) {
         event.getSource().set('v.selected', !event.getSource().get('v.selected'));
     },
+
+    handleTableSettingSelect: function(cmp, event, helper){
+        var selectedMenuItemValue = event.getParam("value");
+
+        var table = cmp.find('table');
+        var items = table.get('v.items') || [];
+
+        if(selectedMenuItemValue === 'Select Only Email'){
+            items.forEach(function (item) {
+                item.selected = item.channel === 'Email';
+            });
+        } else if(selectedMenuItemValue === 'Select Only Mail'){
+            items.forEach(function (item) {
+                item.selected = item.channel === 'Mail';
+            });
+        } else if(selectedMenuItemValue === 'Set Mail Channel'){
+            items.forEach(function (item) {
+                if(item.channels && item.channels.indexOf('Mail') !== -1) {
+                    item.channel = 'Mail';
+                }
+            });
+        } else if(selectedMenuItemValue === 'Set Email Channel'){
+            items.forEach(function (item) {
+                if(item.channels && item.channels.indexOf('Email') !== -1){
+                    item.channel = 'Email';
+                }
+            });
+        }
+
+        table.set('v.items', items);
+    },
+
 })

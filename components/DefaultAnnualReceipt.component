@@ -1,0 +1,338 @@
+<apex:component id="DefaultAnnualReceipt" layout="none">
+
+	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+	<head>
+		<style type="text/css">
+			/* Framework */
+			#outlook a{
+				padding:0;
+			}
+			body{
+				width:100% !important;
+			}
+			.ReadMsgBody{
+				width:100%;
+			}
+			.ExternalClass{
+				width:100%;
+			}
+			body{
+				-webkit-text-size-adjust:none;
+			}
+			body{
+				margin:0;
+				padding:0;
+			}
+			body,#backgroundTable{
+				background-color:#ffffff;
+			}
+			img{
+				border:none;
+				height:auto;
+				line-height:100%;
+				margin:0;
+				outline:none;
+				padding:0;
+				text-decoration:none;
+			}
+			#backgroundTable{
+				margin:0;
+				padding:0;
+				width:100% !important;
+			}
+
+			/* Heading text formatting*/
+			h1,.h1{
+				color:#0099CC;
+				display:block;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:30px;
+				font-weight:bold;
+				line-height:39px;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				text-align:left;
+			}
+			h2,.h2{
+				color:#0099CC;
+				display:block;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:20px;
+				font-weight:bold;
+				line-height:26px;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				text-align:left;
+			}
+			h3,.h3{
+				color:#0099CC;
+				display:block;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:18px;
+				font-weight:bold;
+				line-height:23px;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				text-align:left;
+			}
+			h4,.h4{
+				color:#0099CC;
+				display:block;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:14px;
+				font-weight:bold;
+				line-height:18px;
+				margin-top:0;
+				margin-right:0;
+				margin-bottom:10px;
+				margin-left:0;
+				text-align:left;
+			}
+			.bodyContent h1 a:link,h1 a:visited{
+				text-decoration:none;
+			}
+			.bodyContent h2 a:link,h2 a:visited{
+				text-decoration:none;
+			}
+			.bodyContent h3 a:link,h3 a:visited{
+				text-decoration:none;
+			}
+			.bodyContent h4 a:link,h4 a:visited{
+				text-decoration:none;
+			}
+			/* Preheader content */
+			#templatePreheader{
+				background-color:#0099CC;
+			}
+			.preheaderContent{
+				color:#ffffff;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:10px;
+				line-height:12px;
+				text-align:left;
+			}
+			.preheaderContent a:link,.preheaderContent a:visited,.preheaderContent a .yshortcuts {
+				color:#ffffff;
+				font-weight:normal;
+				text-decoration:underline;
+			}
+			/* Header content */
+			#templateHeader{
+				background-color:#ffffff;
+				border-top:none;
+				border-bottom:none;
+			}
+			.headerContent{
+				color:#646569;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:13px;
+				font-weight:bold;
+				line-height:17px;
+				padding:0;
+				text-align:left;
+				vertical-align:middle;
+			}
+			.headerContent a:link,.headerContent a:visited,.headerContent a .yshortcuts {
+				color:#0099CC;
+				font-weight:bold;
+				text-decoration:none;
+			}
+			#templateBody{
+				background-color:#ffffff;
+				border-top:none;
+				border-bottom:none;
+			}
+			/* Body content */
+			.bodyContent{
+				color:#646569;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:16px;
+				line-height:21px;
+				text-align:left;
+			}
+			.bodyContent a:link,.bodyContent a:visited,.bodyContent a .yshortcuts {
+				color:#0099CC;
+				text-decoration:underline;
+			}
+			.bodyContent img{
+				display:inline;
+			}
+			.bodyContent .adoptapet{
+				background-color:#e5f7ff;
+			}
+			/* Footer content */
+			#templateFooter{
+				background-color:#efefef;
+			}
+			.footerContent{
+				color:#646569;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:11px;
+				line-height:14px;
+				text-align:left;
+			}
+			.footerContent a:link,.footerContent a:visited,.footerContent a .yshortcuts {
+				color:#3e3c38;
+				font-weight:normal;
+				text-decoration:underline;
+			}
+			.footerContent img{
+				display:inline;
+			}
+			.bodyContent1 {			color:#646569;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:16px;
+				line-height:21px;
+				text-align:left;
+			}
+		</style></head>
+	<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+	<center>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%" id="backgroundTable">
+			<tr>
+				<td align="center" valign="top">
+					<!-- // Begin Template Preheader \\ -->
+					<table border="0" cellpadding="0" cellspacing="15" width="100%" id="templatePreheader">
+						<tr>
+							<td align="center" valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" width="600">
+									<tr>
+										<td valign="middle" class="preheaderContent" style="padding-right:20px">&nbsp;</td>
+										<td valign="top" width="200" class="preheaderContent" style="text-align:center;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<!-- // End Template Preheader \\ -->
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateContainer">
+						<tr>
+							<td align="center" valign="top" id="templateHeader" style="padding-top:20px; padding-bottom:5px;">
+								<!-- // Begin Template Header \\ -->
+								<table border="0" cellpadding="0" cellspacing="20" width="600">
+									<tr>
+										<td width="200" class="headerContent"><a href="https://www.rspcansw.org.au" target="_blank">
+                                                <c:vertic_DocumentImage documentUniqueName="Default_Page_Logo" cssStyles="width: 100px;"/></a>
+                                        </td>
+										<td width="381" align="right" style="text-align:right; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px;">Is this email not displaying correctly?
+											<br />
+											Click <webversion><span style="color:#333333; text-decoration:underline; font-weight:bold;">here</span></webversion> to view it in your browser.
+                                        </td>
+									</tr>
+								</table>
+								<!-- // End Template Header \\ -->
+							</td>
+						</tr>
+						<tr>
+							<td align="center" valign="top">
+								<!-- // Begin Template Body \\ -->
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+									<tr>
+										<td align="center" valign="top" style="padding-bottom:20px;">
+											<table border="0" cellpadding="0" cellspacing="20" width="600" style="font-family:Arial, Helvetica, sans-serif; text-align:left; color:#646569; font-size:21px; line-height:28px;">
+												<tr>
+													<td colspan="2" valign="top" class="bodyContent" style="padding-top:6px; padding-bottom:6px;"><c:vertic_DocumentImage documentUniqueName="Default_Page_Header" cssStyles=" width: 560px; height: 240px;" alt="THANK YOU - Your 2018-2019 Donation Receipt"/></td>
+												</tr>
+												<tr>
+													<td width="284" rowspan="2" valign="top" class="bodyContent"><p><span style="margin-top:20px;">Hi [firstname,fallback=there],</span></p>
+														<p>This financial year, you did wonderful things for the  animals. Thank you!</p>
+														<p>You helped </p>
+														<p><strong>The animals needed YOU – and you were there for them. </strong></p>
+														<p style="margin-bottom:0;">We're so incredibly thankful for your support this year, as  well as the extraordinary commitment you've made by including the animals in  your Will. So super, extremely, monumentally thankful that you've chosen to  help so many animals get their happy ending.</p></td>
+													<td width="256" height="148" align="left" valign="middle" style="padding:20px; background-color:#f6f6f6; font-size:16px; line-height:20px; text-align:center;"><p style="font-weight:bold; color:#0099CC; font-size:22px; line-height:28px; margin-top:0; margin-bottom:0;">RSPCA NSW<br />
+															Annual Receipt</p>
+														<p style="font-size: 12px; line-height: 16px; margin-top:6px;">ABN 87 000 001 641<br/></p>
+														<p>
+															<span style="font-weight:bold; color:#0099CC;">Receipt number</span><br/>
+															[Receipt_1]</p>
+														<p>
+															<span style="font-weight:bold; color:#0099CC;">Monthly donations</span><br/>
+															1 July 2020 – 30 June 2021
+														</p>
+														<p>
+															<span style="font-weight:bold; color:#0099CC;">Received from<br/></span>
+															[TITLE] [FIRSTNAME] [SURNAME]
+														</p>
+														<p style="margin-bottom:0;">
+															<span style="font-weight:bold; color:#0099CC;">Amount</span><br/>
+															$[GRANDTOTAL]
+														</p>
+														<p style="font-weight:bold;">Print first page only<br/>
+															for tax return
+														</p>
+													</td>
+												</tr>
+												<tr>
+													<td>&nbsp;</td>
+												</tr>
+												<tr>
+													<td colspan="2" align="center" style="font-size:36px; font-weight:bold; color:#0099CC; font-family:Arial, Helvetica, sans-serif;"><a href="https://www.rspcansw.org.au/impact-report/?location=EDM1&utm_source=EDM1&utm_medium=email&utm_campaign=Impact+Report+2019&utm_content=Button1" target="_blank" style="color:#0099CC;"><c:vertic_DocumentImage documentUniqueName="Default_Page_Signature" cssStyles="width:360px; height:45px; margin:0 auto; border:none; outline:none;" alt="SEE YOUR IMPACT"/></a></td>
+												</tr>
+												<tr>
+													<td colspan="2" valign="top" class="bodyContent">
+
+														<p style="margin-top:0;"><a href="https://www.rspcansw.org.au/impact-report/?location=EDM1&utm_source=EDM1&utm_medium=email&utm_campaign=Impact+Report+2019&utm_content=Link1" style="color:#0099CC; text-decoration:underline;">Click  here</a> to see more about the remarkable difference you've made over the last  year!</p>
+														<p>Above, you can find the  tax receipt for your generous monthly donation. </p>
+
+														<p>If you have any questions, please don't hesitate to get in touch with our Supporter Care Team on (02) 9782 4400 or email <a href="mailto:supportercare@rspcansw.org.au" style="color:#0099CC; text-decoration:underline;">supportercare@rspcansw.org.au</a>. </p>
+														<p>I look forward to another successful year with you by our  side. </p>
+														<p>Yours sincerely,</p>
+														<p style="margin-bottom:20px;">Steve Coleman </p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								<!-- // End Template Body \\ -->
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" valign="top" id="templateFooter" style="padding-top:20px; padding-bottom:40px;">
+					<!-- // Begin Template Footer \\ -->
+					<table border="0" cellpadding="0" cellspacing="0" width="560">
+						<tr>
+							<td valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td align="left" valign="top" class="footerContent" style="padding-right:20px;"><p style="margin-top:0; padding-top:0; padding-right:40px;"><span style="margin-top:0; padding-top:0;">You have received this email because you have signed up to receive the RSPCA NSW eNewsletter, or have registered your interest at an RSPCA event, online fundraising activity, or through signing a petition or pledge. To unsubscribe, click the link below. Please do not reply to this email</span>.</p>
+											<p><strong>Our mailing address is:</strong><br />
+												RSPCA NSW<br />
+												PO Box 34<br />
+												Yagoona, NSW, 2199</p>
+											<!--<p><unsubscribe><span style="text-decoration:underline;">Unsubscribe from this list</span></unsubscribe></p></td>-->
+                                        </td>
+										<td valign="top" width="159" align="center" class="footerContent"><table width="159" border="0" cellspacing="0" cellpadding="0" style="width:159px; margin-top:0; padding-top:0; margin-bottom:10px;">
+												<tr>
+													<td width="41" align="left" style="text-align:left;"><a href="https://www.facebook.com/RSPCANewSouthWales" target="_blank" title="Like us on Facebook"><c:vertic_DocumentImage documentUniqueName="Default_Page_Facebook" cssStyles="width:35px; height:35px;"  alt="Like us on Facebook"/></a></td>
+													<td width="41" align="left" style="text-align:left;"><a href="https://twitter.com/RSPCANSW" target="_blank" title="Follow us on Twitter"><c:vertic_DocumentImage documentUniqueName="Default_Page_Twitter" cssStyles="width:35px; height:35px;"  alt="Like us on Twitter"/></a></td>
+													<td width="41" align="left" style="text-align:left;"><a href="http://www.youtube.com/RSPCANSWMedia" target="_blank" title="Subscribe to us on YouTube"><c:vertic_DocumentImage documentUniqueName="Default_Page_Instagram" cssStyles="width:35px; height:35px;"  alt="Like us on Instagram"/></a></td>
+													<td width="35" align="left" style="text-align:left;"><a href="http://instagram.com/RSPCANSW" target="_blank" title="Follow us on Instagram"><c:vertic_DocumentImage documentUniqueName="Default_Page_Youtube" cssStyles="width:35px; height:35px;"  alt="Like us on Youtube"/></a></td>
+												</tr>
+											</table>
+											<a href="http://www.rspcansw.org.au" target="_blank" style="font-size:18px; font-weight:bold; color:#8d8b8c; text-decoration:none; text-align:center;">rspcansw.org.au</a>
+                                        </td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" valign="bottom" class="footerContent" style="padding-top:20px;"><p>Your privacy is important to us. All personal information which  you provide to us will be subject to our Privacy Policy. Our Privacy Policy is  available on our website and details our commitment to protecting your personal  details and privacy: <a href="http://www.rspcansw.org.au/privacy-policy" target="_blank" style="color:#646569;">rspcansw.org.au/privacy-policy</a>.  Please direct all enquiries to our Privacy Officer (Tel: 1300 278 358, email: <a style="color:#646569;" href="mailto:privacy@rspcansw.org.au">privacy@rspcansw.org.au</a>). </p></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<!-- // End Template Footer \\ -->
+	</center>
+	</body>
+</apex:component>

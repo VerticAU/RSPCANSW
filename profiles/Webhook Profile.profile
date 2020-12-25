@@ -96,6 +96,14 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AnnualReceiptAfterProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AnnualReceiptMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BadgesBaseCtrl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -6499,6 +6507,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Test</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
