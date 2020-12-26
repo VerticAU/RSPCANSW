@@ -185,13 +185,15 @@
 			.footerContent img{
 				display:inline;
 			}
-			.bodyContent1 {			color:#646569;
+			.bodyContent1 {
+                color:#646569;
 				font-family:Arial, Helvetica, sans-serif;
 				font-size:16px;
 				line-height:21px;
 				text-align:left;
 			}
-		</style></head>
+		</style>
+    </head>
 	<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
 	<center>
 		<table border="0" cellpadding="0" cellspacing="0" width="100%" id="backgroundTable">
@@ -221,7 +223,7 @@
                                                 <c:vertic_DocumentImage documentUniqueName="Default_Page_Logo" cssStyles="width: 100px;"/></a>
                                         </td>
 										<td width="381" align="right" style="text-align:right; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px;">Is this email not displaying correctly?
-											<br />
+											<br/>
 											Click <webversion><span style="color:#333333; text-decoration:underline; font-weight:bold;">here</span></webversion> to view it in your browser.
                                         </td>
 									</tr>
@@ -240,30 +242,42 @@
 													<td colspan="2" valign="top" class="bodyContent" style="padding-top:6px; padding-bottom:6px;"><c:vertic_DocumentImage documentUniqueName="Default_Page_Header" cssStyles=" width: 560px; height: 240px;" alt="THANK YOU - Your 2018-2019 Donation Receipt"/></td>
 												</tr>
 												<tr>
-													<td width="284" rowspan="2" valign="top" class="bodyContent"><p><span style="margin-top:20px;">Hi [firstname,fallback=there],</span></p>
+													<td width="284" rowspan="2" valign="top" class="bodyContent">
+                                                        <p>
+                                                            <span style="margin-top:20px;">Hi {!dto['donor'].FirstName},</span>
+                                                        </p>
+                                                        <br/>
 														<p>This financial year, you did wonderful things for the  animals. Thank you!</p>
-														<p>You helped </p>
-														<p><strong>The animals needed YOU – and you were there for them. </strong></p>
-														<p style="margin-bottom:0;">We're so incredibly thankful for your support this year, as  well as the extraordinary commitment you've made by including the animals in  your Will. So super, extremely, monumentally thankful that you've chosen to  help so many animals get their happy ending.</p></td>
-													<td width="256" height="148" align="left" valign="middle" style="padding:20px; background-color:#f6f6f6; font-size:16px; line-height:20px; text-align:center;"><p style="font-weight:bold; color:#0099CC; font-size:22px; line-height:28px; margin-top:0; margin-bottom:0;">RSPCA NSW<br />
+														<p>You helped</p><br/>
+                                                        <p><strong>The animals needed YOU – and you were there for them.</strong></p><br/>
+                                                        <p style="margin-bottom:0;">We're so incredibly thankful for your support this year, as  well as the extraordinary commitment you've made by including the animals in  your Will. So super, extremely, monumentally thankful that you've chosen to  help so many animals get their happy ending.</p>
+                                                    </td>
+													<td width="256" height="148" align="left" valign="middle" style="padding:20px; background-color:#f6f6f6; font-size:16px; line-height:20px; text-align:center;">
+                                                        <p style="font-weight:bold; color:#0099CC; font-size:22px; line-height:28px; margin-top:0; margin-bottom:0;">
+                                                            RSPCA NSW<br/>
 															Annual Receipt</p>
-														<p style="font-size: 12px; line-height: 16px; margin-top:6px;">ABN 87 000 001 641<br/></p>
+														<p style="font-size: 12px; line-height: 16px; margin-top:6px;">
+                                                            ABN 87 000 001 641<br/>
+                                                        </p>
 														<p>
 															<span style="font-weight:bold; color:#0099CC;">Receipt number</span><br/>
-															[Receipt_1]</p>
+															[Receipt_1]
+                                                        </p>
 														<p>
 															<span style="font-weight:bold; color:#0099CC;">Monthly donations</span><br/>
-															1 July 2020 – 30 June 2021
+															{!dto['taxPeriod']}
 														</p>
 														<p>
 															<span style="font-weight:bold; color:#0099CC;">Received from<br/></span>
-															[TITLE] [FIRSTNAME] [SURNAME]
+															{!dto['donor'].Name}
 														</p>
 														<p style="margin-bottom:0;">
 															<span style="font-weight:bold; color:#0099CC;">Amount</span><br/>
-															$[GRANDTOTAL]
+															{! dto['donationAmount']}
 														</p>
-														<p style="font-weight:bold;">Print first page only<br/>
+                                                        <br/>
+														<p style="font-weight:bold;">
+                                                            Print first page only<br/>
 															for tax return
 														</p>
 													</td>
@@ -272,18 +286,25 @@
 													<td>&nbsp;</td>
 												</tr>
 												<tr>
-													<td colspan="2" align="center" style="font-size:36px; font-weight:bold; color:#0099CC; font-family:Arial, Helvetica, sans-serif;"><a href="https://www.rspcansw.org.au/impact-report/?location=EDM1&utm_source=EDM1&utm_medium=email&utm_campaign=Impact+Report+2019&utm_content=Button1" target="_blank" style="color:#0099CC;"><c:vertic_DocumentImage documentUniqueName="Default_Page_Signature" cssStyles="width:360px; height:45px; margin:0 auto; border:none; outline:none;" alt="SEE YOUR IMPACT"/></a></td>
+													<td colspan="2" align="center" style="font-size:36px; font-weight:bold; color:#0099CC; font-family:Arial, Helvetica, sans-serif;">
+                                                        <a href="https://www.rspcansw.org.au/impact-report/?location=EDM1&utm_source=EDM1&utm_medium=email&utm_campaign=Impact+Report+2019&utm_content=Button1" target="_blank" style="color:#0099CC;">
+                                                            <c:vertic_DocumentImage documentUniqueName="Default_Page_Signature" cssStyles="width:360px; height:45px; margin:0 auto; border:none; outline:none;" alt="SEE YOUR IMPACT"/>
+                                                        </a>
+                                                    </td>
 												</tr>
 												<tr>
 													<td colspan="2" valign="top" class="bodyContent">
-
-														<p style="margin-top:0;"><a href="https://www.rspcansw.org.au/impact-report/?location=EDM1&utm_source=EDM1&utm_medium=email&utm_campaign=Impact+Report+2019&utm_content=Link1" style="color:#0099CC; text-decoration:underline;">Click  here</a> to see more about the remarkable difference you've made over the last  year!</p>
-														<p>Above, you can find the  tax receipt for your generous monthly donation. </p>
-
-														<p>If you have any questions, please don't hesitate to get in touch with our Supporter Care Team on (02) 9782 4400 or email <a href="mailto:supportercare@rspcansw.org.au" style="color:#0099CC; text-decoration:underline;">supportercare@rspcansw.org.au</a>. </p>
-														<p>I look forward to another successful year with you by our  side. </p>
-														<p>Yours sincerely,</p>
-														<p style="margin-bottom:20px;">Steve Coleman </p>
+														<p style="margin-top:0;">
+                                                            <a href="https://www.rspcansw.org.au/impact-report/?location=EDM1&utm_source=EDM1&utm_medium=email&utm_campaign=Impact+Report+2019&utm_content=Link1" style="color:#0099CC; text-decoration:underline;">
+                                                                Click here</a> to see more about the remarkable difference you've made over the last  year!
+                                                        </p>
+                                                        <br/>
+                                                        <p>Above, you can find the tax receipt for your generous monthly donation.</p>
+														<p>If you have any questions, please don't hesitate to get in touch with our Supporter Care Team on (02) 9782 4400 or email <a href="mailto:supportercare@rspcansw.org.au" style="color:#0099CC; text-decoration:underline;">supportercare@rspcansw.org.au</a>.</p>
+														<p>I look forward to another successful year with you by our  side.</p>
+                                                        <br/>
+                                                        <p>Yours sincerely,</p>
+														<p style="margin-bottom:20px;">Steve Coleman</p>
 													</td>
 												</tr>
 											</table>
@@ -304,11 +325,16 @@
 							<td valign="top">
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 									<tr>
-										<td align="left" valign="top" class="footerContent" style="padding-right:20px;"><p style="margin-top:0; padding-top:0; padding-right:40px;"><span style="margin-top:0; padding-top:0;">You have received this email because you have signed up to receive the RSPCA NSW eNewsletter, or have registered your interest at an RSPCA event, online fundraising activity, or through signing a petition or pledge. To unsubscribe, click the link below. Please do not reply to this email</span>.</p>
-											<p><strong>Our mailing address is:</strong><br />
-												RSPCA NSW<br />
-												PO Box 34<br />
-												Yagoona, NSW, 2199</p>
+										<td align="left" valign="top" class="footerContent" style="padding-right:20px;">
+                                            <p style="margin-top:0; padding-top:0; padding-right:40px;">
+                                                <span style="margin-top:0; padding-top:0;">You have received this email because you have signed up to receive the RSPCA NSW eNewsletter, or have registered your interest at an RSPCA event, online fundraising activity, or through signing a petition or pledge. To unsubscribe, click the link below. Please do not reply to this email</span>.
+                                            </p>
+                                            <br/>
+                                            <p><strong>Our mailing address is:</strong><br/>
+												RSPCA NSW<br/>
+												PO Box 34<br/>
+												Yagoona, NSW, 2199
+                                            </p>
 											<!--<p><unsubscribe><span style="text-decoration:underline;">Unsubscribe from this list</span></unsubscribe></p></td>-->
                                         </td>
 										<td valign="top" width="159" align="center" class="footerContent"><table width="159" border="0" cellspacing="0" cellpadding="0" style="width:159px; margin-top:0; padding-top:0; margin-bottom:10px;">
@@ -326,7 +352,14 @@
 							</td>
 						</tr>
 						<tr>
-							<td align="left" valign="bottom" class="footerContent" style="padding-top:20px;"><p>Your privacy is important to us. All personal information which  you provide to us will be subject to our Privacy Policy. Our Privacy Policy is  available on our website and details our commitment to protecting your personal  details and privacy: <a href="http://www.rspcansw.org.au/privacy-policy" target="_blank" style="color:#646569;">rspcansw.org.au/privacy-policy</a>.  Please direct all enquiries to our Privacy Officer (Tel: 1300 278 358, email: <a style="color:#646569;" href="mailto:privacy@rspcansw.org.au">privacy@rspcansw.org.au</a>). </p></td>
+							<td align="left" valign="bottom" class="footerContent" style="padding-top:20px;">
+                                <p>
+                                    Your privacy is important to us. All personal information which  you provide to us will be subject to our Privacy Policy. Our Privacy Policy is  available on our website and details our commitment to protecting your personal  details and privacy:
+                                    <a href="http://www.rspcansw.org.au/privacy-policy" target="_blank" style="color:#646569;">rspcansw.org.au/privacy-policy</a>.
+                                    Please direct all enquiries to our Privacy Officer (Tel: 1300 278 358, email:
+                                    <a style="color:#646569;" href="mailto:privacy@rspcansw.org.au">privacy@rspcansw.org.au</a>).
+                                </p>
+                            </td>
 						</tr>
 					</table>
 				</td>

@@ -27,7 +27,6 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
      * ==============================================================================================================
      */
 
-    private Boolean isEmailLayout = false;
     private Map<String, List<SObject>> donationsByContactIdsMap;
     private Map<String, List<SObject>> donationsByAccountIdsMap;
     private Map<Id, Contact> contactMap;
@@ -44,7 +43,6 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
         this.endDate = this.request.getISODate('endDate');
 
         String renderAs = this.request.getString('renderAs');
-        this.isEmailLayout = 'html'.equalsIgnoreCase(renderAs);
 
         List<String> donorIds = donorIdsStr.split(',');
 
@@ -63,7 +61,7 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
         Decimal donationAmount;
         for (String donorId : donorIds) {
 
-            String donorIdentifier;
+            String donorFirstName;
             String donorName;
             String donorAddress;
 
@@ -74,8 +72,8 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
                 Contact contactVar = this.contactMap.get(donorId);
                 vertic_Utils.objects.throwIfBlank(contactVar, 'No Contact with Id: ' + donorId);
 
+                donorFirstName = contactVar.FirstName;
                 donorName = contactVar.Name;
-//                donorAddress = contactVar.Donor_Address__c; todo
 
                 donorDonations = this.donationsByContactIdsMap.get(donorId);
                 donorDonations = donorDonations == null ? new List<Opportunity>() : donorDonations;
@@ -83,8 +81,8 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
                 Account accountVar = this.accountMap.get(donorId);
                 vertic_Utils.objects.throwIfBlank(accountVar, 'No Organisation with Id: ' + donorId);
 
+                donorFirstName = accountVar.Name;
                 donorName = accountVar.Name;
-//                donorAddress = accountVar.Donor_Address__c; todo
 
                 donorDonations = this.donationsByAccountIdsMap.get(donorId);
                 donorDonations = donorDonations == null ? new List<Opportunity>() : donorDonations;
@@ -93,11 +91,8 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
             donationAmount = 0;
             for (Opportunity donation : donorDonations) {  donationAmount += donation.Amount; }
 
-            String content;
-            Boolean useDefaultContent = true;
-
-            Datetime startTaxDate = Datetime.newInstance(startDate, Time.newInstance(0,0,0,0));
-            Datetime endTaxDate = Datetime.newInstance(endDate, Time.newInstance(0,0,0,0));
+            Datetime startTaxDate = Datetime.newInstance(this.startDate, Time.newInstance(0,0,0,0));
+            Datetime endTaxDate = Datetime.newInstance(this.endDate, Time.newInstance(0,0,0,0));
 
             vertic_DTO dto = new vertic_DTO();
             new vertic_AutoMapper(dto)
@@ -106,18 +101,16 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
                 .setIsAllFields(true)
                 .setDefaultFieldValue(' ')
                 .getMapper()
-                .mapAnyValue('taxPeriod', startTaxDate.format('d MMMM YYYY') + ' and ' + endTaxDate.format('d MMMM YYYY'))
+                .mapAnyValue('taxPeriod', startTaxDate.format('d MMM YYYY') + ' - ' + endTaxDate.format('d MMM YYYY'))
                 .mapAnyValue('donationAmount', donationAmount)
                 .mapFromListSObjects('donations', donorDonations)
-                .mapAnyValue('donor.Identifier', donorIdentifier == null ? '' : donorIdentifier)
+                .mapAnyValue('donor.FirstName', donorFirstName)
                 .mapAnyValue('donor.Name', donorName)
                 .mapAnyValue('donor.Address', donorAddress)
-                .mapAnyValue('useDefaultContent', useDefaultContent)
-                .mapAnyValue('receiptContent', content)
                 .mapAnyValue('hasDonations', donorDonations.isEmpty() == false)
                 .mapAnyValue('isCopy', false);
 
-            if(this.isEmailLayout){
+            if('html'.equalsIgnoreCase(renderAs)){
 //                components.add(new Component.DefaultAnnualReceiptEmail(dto = dto.getMap())); todo
                 components.add(new Component.DefaultAnnualReceipt(dto = dto.getMap()));
             } else {
@@ -148,7 +141,7 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
             SELECT Id, npe03__Recurring_Donation__c, npsp__Primary_Contact__c,
                 Name, Amount, CloseDate, Payment_Method__c, AccountId
             FROM Opportunity
-            WHERE Status__c = 'Processed'
+            WHERE StageName = 'Closed Won'
             AND CloseDate >= :startDate
             AND CloseDate <= :endDate
             AND Amount >= 0
@@ -184,12 +177,7 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
 
         List<String> fields = new List<String>{
             'Name',
-            'BillingStreet',
-            'BillingCity',
-            'BillingState',
-            'BillingPostalCode',
             'Email__c'
-//            'Donor_Address__c'
         };
 
         fields.addAll(this.getFormulaFields(Account.SObjectType, null));
@@ -203,12 +191,7 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
             'FirstName',
             'LastName',
             'Name',
-            'Email',
-            'MailingStreet',
-            'MailingCity',
-            'MailingState',
-            'MailingPostalCode'
-//            'Donor_Address__c',
+            'Email'
         };
 
         fields.addAll(this.getFormulaFields(Contact.SObjectType, null));

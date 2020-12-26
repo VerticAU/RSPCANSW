@@ -93,6 +93,21 @@
                                        value="{!v.meta.dto.filter.accountId}"
             />
 
+            <c:vertic_Select label="Receipt Status"
+                             options="[{value:'unreceipted', label:'Show only unreceipted Donations'},{value:'receipted', label:'Show only receipted Donations'}]"
+                             noneLabel="Show All Donations"
+                             disabled="{!v.isBusy}"
+                             class="slds-size_1-of-1"
+                             value="{!v.meta.dto.filter.acknowledgmentStatus}"
+            />
+
+            <!--<c:vertic_Select label="Channel"-->
+                             <!--options="[{value:'Email', label:'Email'}, {value:'Mail', label:'Mail'}]"-->
+                             <!--noneLabel="Show All Donors"-->
+                             <!--disabled="{!v.isBusy}"-->
+                             <!--class="slds-size_1-of-1"-->
+                             <!--value="{!v.meta.dto.filter.channel}"-->
+            <!--/>-->
         </aura:set>
         <aura:set attribute="footer">
             <lightning:button label="Search"

@@ -29,12 +29,18 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
 
     private String contactId;
     private String accountId;
+    private String campaignId;
 
     public static final Integer SEARCH_LIMIT = 1000;
 
     private void doSubmit() {
         this.retrieveDonors();
         this.mapDonors();
+    }
+
+    private void addCampaignConditions(List<String> contributionConditions){
+        this.campaignId = this.request.getString('filter.campaignId');
+        if (!String.isBlank(this.campaignId)) { contributionConditions.add('CampaignId = :campaignId'); }
     }
 
     private void addDateConditions(List<String> contributionConditions){
@@ -45,23 +51,7 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         if (this.endDate != null) {  contributionConditions.add('CloseDate <= :endDate'); }
     }
 
-//    private void addContactChannelConditons(List<String> contributionConditions){
-//        String channel = this.request.getString('filter.channel');
-//        switch on channel {
-//            when 'Email' { contributionConditions.add('(Contact__r.Email != null AND Contact__r.Receipt_Preference__c = \'Email\')'); }
-//            when 'Mail' { contributionConditions.add('((Contact__r.Receipt_Preference__c = \'Mail\') OR (Contact__c != null AND Contact__r.Receipt_Preference__c = null))'); }
-//        }
-//    }
-//
-//    private void addAccountChannelConditons(List<String> contributionConditions){
-//        String channel = this.request.getString('filter.channel');
-//        switch on channel {
-//            when 'Email' { contributionConditions.add('(Organisation__r.Email__c != null AND Organisation__r.Receipt_Preference__c = \'Email\')'); }
-//            when 'Mail' { contributionConditions.add('((Organisation__r.Receipt_Preference__c = \'Mail\') OR (Organisation__c != null AND Organisation__r.Receipt_Preference__c = null))'); }
-//        }
-//    }
-
-    private void addAcknowledgmentStatusConditons(List<String> contributionConditions){
+    private void addAcknowledgmentStatusConditions(List<String> contributionConditions){
         String status= this.request.getString('filter.acknowledgmentStatus');
         switch on status {
             when 'receipted' { contributionConditions.add('npsp__Acknowledgment_Status__c != null'); }
@@ -73,19 +63,28 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         List<String> contributionConditions = new List<String>{
             'StageName = \'Closed Won\'',
             'Amount >= 0',
-            'CloseDate != null'
+            'CloseDate != null',
+            'npe03__Recurring_Donation__c != null'
         };
 
         this.addDateConditions(contributionConditions);
-        this.addAcknowledgmentStatusConditons(contributionConditions);
+        this.addAcknowledgmentStatusConditions(contributionConditions);
+        this.addCampaignConditions(contributionConditions);
 
         this.contactId = this.request.getString('filter.contactId');
         this.accountId = this.request.getString('filter.organisationId');
 
-        if(this.contactId != null && this.contactId != ''){
+        Boolean isIndividualOnly = this.request.getBoolean('filter.isIndividualOnly') == true;
+        Boolean isOrganisationOnly = this.request.getBoolean('filter.isOrganisationOnly') == true;
+
+        if(isIndividualOnly && String.isBlank(this.contactId)){
+            this.contacts = this.retrieveContacts(contributionConditions.clone());
+        } else if(isOrganisationOnly && String.isBlank(this.accountId)){
+            this.accounts = this.retrieveAccounts(contributionConditions.clone());
+        } else if(!String.isBlank(this.contactId)){
             contributionConditions.add('npsp__Primary_Contact__c = :contactId');
             this.contacts = this.retrieveContacts(contributionConditions);
-        } else if(this.accountId != null && this.accountId != '') {
+        } else if(!String.isBlank(this.accountId)) {
             contributionConditions.add('AccountId = :accountId');
             this.accounts = this.retrieveAccounts(contributionConditions);
         } else {
@@ -193,22 +192,15 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
             String channel;
 
             switch on String.valueOf(record.getSObjectType()) {
-                when 'Contact' {
-                    Contact contact = (Contact) record;
-                    hasEmail = String.isNotBlank(contact.Email);
-                    channel = 'Mail';
-                }
-                when 'Account' {
-                    Account account = (Account) record;
-                    hasEmail = String.isNotBlank(account.Email__c);
-                    channel = 'Mail';
-                }
+                when 'Contact' { hasEmail = String.isNotBlank(((Contact) record).Email); }
+                when 'Account' { hasEmail = String.isNotBlank(((Account) record).Email__c); }
             }
 
             List<String> channels = new List<String>{ 'Mail' };
 
             if (hasEmail) {
                 channels.add('Email');
+                channel = 'Email';
             } else {
                 channel = 'Mail';
             }
@@ -219,121 +211,10 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         }
     }
 
-
-
-//    private List<Contact> contacts;
-//    public static final Integer SEARCH_LIMIT = 300;
-//
-//    private void doSubmit() {
-//
-//        this.retrieveContacts();
-//        this.mapContacts();
-//
-//    }
-//
-//    private void retrieveContacts() {
-//
-//        Date startDate = this.request.getISODate('filter.startDate');
-//        Date endDate = this.request.getISODate('filter.endDate');
-//        String campaignId = this.request.getString('filter.campaignId');
-//        String contactId = this.request.getString('filter.contactId');
-//        String accountId = this.request.getString('filter.accountId');
-//        Boolean isIndividualOnly = this.request.getBoolean('filter.isIndividualOnly');
-//        Boolean isOrganisationOnly = this.request.getBoolean('filter.isOrganisationOnly');
-//
-//        Set<Id> contactIds = new Set<Id>();
-//
-//        List<String> contributionConditions = new List<String>{
-//            'StageName = \'Closed Won\'',
-//            'Amount >= 0',
-//            'CloseDate != null'
-//        };
-//
-//        if (startDate != null) {
-//            contributionConditions.add('CloseDate >= :startDate');
-//        }
-//
-//        if (endDate != null) {
-//            contributionConditions.add('CloseDate <= :endDate');
-//        }
-//
-//        if (String.isNotBlank(campaignId)) {
-//            contributionConditions.add('CampaignId = :campaignId');
-//        }
-//
-//        if (String.isNotBlank(contactId)) {
-//            contributionConditions.add('npsp__Primary_Contact__c = :contactId');
-//        }
-//
-//        if (String.isNotBlank(accountId)) {
-//            contributionConditions.add('AccountId = :accountId');
-//        }
-//
-//        if(isIndividualOnly == true){
-//            contributionConditions.add('npsp__Primary_Contact__c != null');
-//        }
-//
-//        if(isOrganisationOnly == true){
-//            contributionConditions.add('AccountId != null');
-//            contributionConditions.add('npsp__Primary_Contact__c = null');
-//        }
-//
-//        String aggregateSOQL = String.format(
-//            'SELECT npsp__Primary_Contact__c, COUNT(Id) FROM Opportunity WHERE {0} GROUP BY npsp__Primary_Contact__c LIMIT {1}',
-//            new List<String>{
-//                String.join(contributionConditions, ' AND '),
-//                String.valueOf(SEARCH_LIMIT + 1)
-//            }
-//        );
-//
-//        List<AggregateResult> aggregateResults = Database.query(aggregateSOQL);
-//        for (AggregateResult aggregateResultVar : aggregateResults) {
-//            contactIds.add((Id) aggregateResultVar.get('npsp__Primary_Contact__c'));
-//        }
-//
-//        fflib_QueryFactory queryFactory = new fflib_QueryFactory(Contact.SObjectType);
-//        queryFactory.selectFields(new Set<String>{
-//            'Id',
-//            'Name',
-//            'Email'
-//        });
-//
-//        List<String> conditions = new List<String>{ 'Id IN :contactIds' };
-//        if (!conditions.isEmpty()) {
-//            queryFactory.setCondition(String.join(conditions, ' AND '));
-//        }
-//
-//        queryFactory.getOrderings().clear();
-//        queryFactory.addOrdering(Contact.Name, fflib_QueryFactory.SortOrder.ASCENDING);
-//        queryFactory.setLimit(SEARCH_LIMIT + 1);
-//
-//        this.contacts = Database.query(queryFactory.toSOQL());
-//    }
-//
-//    private void mapContacts() {
-//        this.response.getMapper().mapFromListSObjects(
-//            'contacts',
-//            this.contacts,
-//            new vertic_AutoMapper.BinderQueue(new CommitmentChannelBinder()),
-//            SEARCH_LIMIT
-//        );
-//    }
-//
-//    public class CommitmentChannelBinder extends vertic_AutoMapper.AbstractBinder {
-//        public void bind(SObject record, Map<String, Object> dataMap) {
-//            dataMap.put('selected', true);
-//        }
-//    }
-
     /**
      * ==============================================================================================================
      *                                               STRUCTURES
      * ==============================================================================================================
      */
-
-    // Proposed Live Templates to override Super properties:
-    // vertic_request
-    // vertic_response
-
 
 }

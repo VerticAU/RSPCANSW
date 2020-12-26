@@ -53,7 +53,7 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
 
             Map<String, String> pageRefParams = pageRef.getParameters();
             pageRefParams.put('proc', 'AnnualReceipt');
-            pageRefParams.put('ids', String.join((List<String>) mailIdsChunk, ','));
+            pageRefParams.put('donorIds', String.join((List<String>) mailIdsChunk, ','));
             pageRefParams.put('afterProc', 'false'); // creates task
 
             for (String filterKey : filters.keySet()) {

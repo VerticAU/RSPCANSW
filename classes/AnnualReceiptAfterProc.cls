@@ -47,11 +47,6 @@ global class AnnualReceiptAfterProc extends vertic_AbstractProcessor implements 
         Datetime dateTimeVar = Datetime.now();
 
         for (String donorId : this.donorIds) {
-//            uow.registerUpsert(new Contact(
-//                Id = contactId,
-//                Last_Receipt_Date__c = dateTimeVar
-//            ));
-
             Task newTask = new Task(
                 Subject = 'Annual Receipt for ' + FY,
                 Description = String.format('The Annual Donation Receipt was generated for {0} on {1}', new List<String>{

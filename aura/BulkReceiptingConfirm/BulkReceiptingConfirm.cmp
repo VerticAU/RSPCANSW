@@ -12,7 +12,15 @@
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
     <aura:if isTrue="{!v.meta.dto.showResults != true}">
-        <p>Please note, this action will send <strong>{!v.payload.emailIds.length} Email</strong> receipt(s)</p>
+        <p>Please note, this action will generate the following:</p>
+        <ul class="slds-list_dotted">
+            <aura:if isTrue="{!not(empty(v.payload.emailIds))}">
+                <li><strong>{!v.payload.emailIds.length} Email</strong> receipt(s)</li>
+            </aura:if>
+            <aura:if isTrue="{!not(empty(v.payload.mailIds))}">
+                <li>A single PDF document containing <strong>{!v.payload.mailIds.length}</strong> Donation receipt(s)</li>
+            </aura:if>
+        </ul>
         <br/>
         <p>Please click confirm to continue.</p>
     </aura:if>
@@ -26,6 +34,23 @@
             <p>
                 The Emails have been sent.
             </p>
+        </aura:if>
+
+        <aura:if isTrue="{! not(empty(v.meta.dto.receiptLinks)) }">
+
+            <p class="slds-m-top_large">
+                The PDF can be downloaded from the link(s) below:
+            </p>
+
+            <ul class="{! if(v.meta.dto.receiptLinks.length == 1, '', 'slds-list_ordered') }">
+                <aura:iteration items="{! v.meta.dto.receiptLinks }" var="receiptLink" indexVar="index">
+                    <li>
+                        <a href="{# receiptLink.value }" target="_blank">
+                            {#receiptLink.label}
+                        </a>
+                    </li>
+                </aura:iteration>
+            </ul>
         </aura:if>
     </aura:if>
 
