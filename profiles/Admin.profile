@@ -228,6 +228,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DirectMailReceiptMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EstateManagementQAMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3327,7 +3331,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Direct_Mail_Receipt_Template__c.Envelope_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6077,47 +6081,47 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Extra_Info_Label__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Has_Link__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Image__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Link_Label__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Link_URL__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Primary_Button_Label__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Primary_Button_Value__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Secondary_Button_Label__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>npsp__GetStartedChecklistItem__mdt.npsp__Secondary_Button_Value__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

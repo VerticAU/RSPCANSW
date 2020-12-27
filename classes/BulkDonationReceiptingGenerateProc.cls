@@ -21,8 +21,37 @@ public without sharing class BulkDonationReceiptingGenerateProc extends vertic_A
      * ==============================================================================================================
      */
 
+    private static final Integer DEFAULT_RECEIPT_CHUNK_SIZE = 100;
+
     private void doSubmit() {
+        this.processMailIds();
         this.processEmailIds();
+    }
+
+    private void processMailIds() {
+        List<String> mailIds = this.request.getListAsStrings('mailIds');
+
+        if (mailIds == null || mailIds.isEmpty()) { return; }
+
+        List<vertic_Structs.SelectOption> links = new List<vertic_Structs.SelectOption>();
+        List<List<Object>> mailIdsChunks = vertic_Utils.arrays.split(
+            mailIds,
+            DEFAULT_RECEIPT_CHUNK_SIZE,
+            List<String>.class
+        );
+
+        for (List<Object> mailIdsChunk : mailIdsChunks) {
+            PageReference pageRef = Page.vertic_Content;
+
+            Map<String, String> pageRefParams = pageRef.getParameters();
+            pageRefParams.put('proc', 'DirectMailReceipt');
+            pageRefParams.put('ids', String.join((List<String>) mailIdsChunk, ','));
+            pageRefParams.put('afterProc', 'false');
+
+            links.add(new vertic_Structs.SelectOption(pageRef.getUrl(), ContributionService.formatReceiptFileName()));
+        }
+
+        this.response.put('receiptLinks', links);
     }
 
     private void processEmailIds() {

@@ -228,6 +228,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DirectMailReceiptMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EstateManagementQAMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
