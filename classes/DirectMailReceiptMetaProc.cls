@@ -38,6 +38,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
         this.donationsMap = new Map<Id, Opportunity>((List<Opportunity>) Database.query(queryFactory.toSOQL()));
         this.templateId = this.request.getString('templateId');
+        this.templateId = 'a1g1y0000005yHhAAI';
     }
 
     protected override void initMetadata(String componentId, vertic_DTO dto) {
@@ -57,7 +58,6 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             .mapFromSObject('recipient', donationVar.npsp__Primary_Contact__r)
             .mapFromSObject('donor', donationVar.npsp__Primary_Contact__r)
             .mapAnyValue('logo', 'greenpeace_white_logo');
-
     }
 
     protected override void afterProcess() {
@@ -66,7 +66,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             components.add(new Component.Apex.OutputText(value = 'No Donations'));
         }
         this.response.dto.put('components', components);
-        this.response.dto.put('head-component', new Component.DefaultAnnualReceiptStyles()); //todo
+        this.response.dto.put('head-component', new Component.DefaultAnnualReceiptStyles());
 
         this.setFileName(ContributionService.formatReceiptFileName());
 
@@ -79,25 +79,29 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
     protected override String getTemplate(String componentId, vertic_DTO dto) {
 
-        if(String.isNotBlank(this.templateId)){
-            Direct_Mail_Receipt_Template__c template = (Direct_Mail_Receipt_Template__c)vertic_Utils.arrays.firstOrNull([
-                SELECT Id,
-                    Envelope_Type__c,
-                    Header_Image__c,
-                    Receipt_Body_Text__c
-                FROM Direct_Mail_Receipt_Template__c
-                WHERE Id = :THIS.templateId
-            ]);
+        Opportunity donation = this.donationsMap.get(componentId);
 
-            if(template != null){ return template.Receipt_Body_Text__c; }
-        }
+        if(donation == null){ return null; }
 
-        return null;
+        Direct_Mail_Receipt_Template__c template = (Direct_Mail_Receipt_Template__c)vertic_Utils.arrays.firstOrNull([
+            SELECT Id,
+                Envelope_Type__c,
+                Header_Image__c,
+                Receipt_Body_Text__c
+            FROM Direct_Mail_Receipt_Template__c
+            WHERE Campaign__c =: donation.CampaignId
+            AND Minimum_Donation__c <: donation.Amount
+            AND Maximum_Donation__c >: donation.Amount
+        ]);
+
+        if(template == null){ return null; }
+
+        return template.Receipt_Body_Text__c;
     }
 
     private List<String> getFields(){
         List<String> fields = new List<String>{
-            'Name', 'Amount', 'ClosedDate', 'Payment_Method__c',
+            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId',
             'npsp__Primary_Contact__r.FirstName',
             'npsp__Primary_Contact__r.LastName',
             'npsp__Primary_Contact__r.Name',
@@ -109,7 +113,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             'npsp__Primary_Contact__r.MailingPostalCode'
         };
         fields.addAll(getFormulaFields(Opportunity.SObjectType, null));
-        fields.addAll(getFormulaFields(Contact.SObjectType, 'npsp__Primary_npsp__Primary_Contact__r.'));
+        fields.addAll(getFormulaFields(Contact.SObjectType, 'npsp__Primary_Contact__r.'));
 
         return fields;
     }

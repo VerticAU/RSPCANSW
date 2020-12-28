@@ -1,0 +1,62 @@
+<apex:component id="DirectMailReceipt" layout="none">
+
+	<apex:variable value="{! 'DirectMailReceipt' }" var="cmpName"/>
+	<apex:variable value="{! cmpName + 'Template' }" var="defaultTemplateName"/>
+	<apex:variable value="{! 'c-' + cmpName }" var="defaultClassName"/>
+
+	<style>
+
+		.{!defaultClassName} {
+			
+		}
+
+	</style>
+
+	<ang-script style="display: none;" type="text/ng-template" id="{!defaultTemplateName}">
+
+		<div class="{! defaultClassName }">
+
+			<!-- Template goes here -->
+
+		</div>
+
+	</ang-script>
+
+
+	<script>
+		(function(app){
+
+		    var elem = document.getElementById('{!defaultTemplateName}');
+			var templateHTML = elem.innerHTML;
+			elem.parentElement.removeChild(elem);
+
+			var controller = function($rootScope, $scope, remoteApi) {
+
+				var ctrl = this;
+				
+				ctrl.vm = $rootScope.ngPayload.vm || {};
+
+				ctrl.$onInit = function() {
+					console.log('INIT: {!cmpName}');
+				}
+
+			}
+
+			if (app) {
+			    var directiveName = '{!cmpName}';
+			    directiveName = directiveName.charAt(0).toLowerCase() + directiveName.slice(1);
+				app.component(
+						directiveName, {
+							template: templateHTML,
+							controller: controller,
+							bindings: {
+
+							}
+						}
+				)
+
+			}
+		})(window.app)
+	</script>
+
+</apex:component>

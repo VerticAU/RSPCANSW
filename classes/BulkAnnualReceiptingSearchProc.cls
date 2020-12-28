@@ -189,7 +189,6 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         public void bind(SObject record, Map<String, Object> dataMap) {
 
             Boolean hasEmail;
-            String channel;
 
             switch on String.valueOf(record.getSObjectType()) {
                 when 'Contact' { hasEmail = String.isNotBlank(((Contact) record).Email); }
@@ -200,14 +199,12 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
 
             if (hasEmail) {
                 channels.add('Email');
-                channel = 'Email';
+                dataMap.put('channel', 'Email');
             } else {
-                channel = 'Mail';
+                dataMap.put('channel', 'Mail');
             }
 
             dataMap.put('channels', channels);
-            dataMap.put('channel', channel);
-            dataMap.put('selected', true);
         }
     }
 

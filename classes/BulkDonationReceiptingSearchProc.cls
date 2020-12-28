@@ -164,6 +164,17 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             dataMap.put('hasEmail', hasEmail);
             dataMap.put('isEmailBounced', isEmailBounced);
             dataMap.put('isDisabled', isDisabled);
+
+            List<String> channels = new List<String>{ 'Mail' };
+
+            if (isDisabled) {
+                dataMap.put('channel', 'Mail');
+            } else {
+                dataMap.put('channel', 'Email');
+                channels.add('Email');
+            }
+
+            dataMap.put('channels', channels);
         }
     }
 

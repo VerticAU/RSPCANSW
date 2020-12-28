@@ -20,11 +20,13 @@
         });
     },
 
+
     handleReceipt: function(cmp, event, helper){
 
         var table = cmp.find('table');
-
-        if(!table.validate()){ return; }
+        if(!table.validate()){
+            return;
+        }
 
         var selected = table.getSelected() || [];
         if(!selected.length){
@@ -35,9 +37,19 @@
             return;
         }
 
-        var emailIds = selected.map(function (item) { return item.Id; });
+        var emailIds = selected.filter(function (item) {
+            return item.channel === 'Email';
+        }).map(function (item) {
+            return item.Id;
+        });
 
-        console.log('emailIds', emailIds);
+        var mailIds = selected.filter(function (item) {
+            return item.channel === 'Mail';
+        }).map(function (item) {
+            return item.Id;
+        });
+
+        console.log(emailIds, mailIds);
 
         var modalService = cmp.find('modalService');
         modalService.show(
@@ -46,18 +58,50 @@
                 processor: 'BulkDonationReceiptingGenerateProc',
                 payload: {
                     emailIds: emailIds,
+                    mailIds: mailIds,
                     filter: cmp.get('v.meta.dto.filter')
                 }
             },
             {
-                header: 'Email Receipts',
+                header: 'Receipting',
                 cssClass: 'slds-modal-small'
             }
-        ).then(function (closeResult) {}, function (error) {});
+        ).then($A.getCallback(function (closeResult) {}), function (error) {});
 
     },
 
     handleToggleSearchClick : function (cmp, event, helper) {
         event.getSource().set('v.selected', !event.getSource().get('v.selected'));
+    },
+
+    handleTableSettingSelect: function(cmp, event, helper){
+        var selectedMenuItemValue = event.getParam("value");
+
+        var table = cmp.find('table');
+        var items = table.get('v.items') || [];
+
+        if(selectedMenuItemValue === 'Select Only Email'){
+            items.forEach(function (item) {
+                item.selected = item.channel === 'Email';
+            });
+        } else if(selectedMenuItemValue === 'Select Only Mail'){
+            items.forEach(function (item) {
+                item.selected = item.channel === 'Mail';
+            });
+        } else if(selectedMenuItemValue === 'Set Mail Channel'){
+            items.forEach(function (item) {
+                if(item.channels && item.channels.indexOf('Mail') !== -1) {
+                    item.channel = 'Mail';
+                }
+            });
+        } else if(selectedMenuItemValue === 'Set Email Channel'){
+            items.forEach(function (item) {
+                if(item.channels && item.channels.indexOf('Email') !== -1){
+                    item.channel = 'Email';
+                }
+            });
+        }
+
+        table.set('v.items', items);
     },
 })

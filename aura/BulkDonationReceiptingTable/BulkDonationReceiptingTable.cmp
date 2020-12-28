@@ -67,6 +67,9 @@
                         <th scope="col">
                             <div class="slds-truncate slds-cell-fixed" title="Acknowledgment Date">Acknowledgment Date</div>
                         </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Channel">Channel</div>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -78,7 +81,6 @@
                                                  variant="label-hidden"
                                                  checked="{!record.selected}"
                                                  onchange="{! c.handleSelectedChange }"
-                                                 disabled="{!or(not(record.hasEmail), record.isEmailBounced)}"
                                 />
                             </td>
                             <td style="width: 50px;">
@@ -162,6 +164,18 @@
                                         />
                                     </div>
                                 </aura:if>
+                            </td>
+                            <td>
+                                <lightning:select label="Channel"
+                                                  class="label-hidden"
+                                                  value="{!record.channel}"
+                                                  required="{!true}"
+                                                  variant="label-hidden">
+                                    <option value="" label="-- None --">-- None --</option>
+                                    <aura:iteration items="{!record.channels}" var="option">
+                                        <option value="{#option}" label="{#option}">{#option}</option>
+                                    </aura:iteration>
+                                </lightning:select>
                             </td>
                         </tr>
                     </aura:iteration>

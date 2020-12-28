@@ -3,9 +3,7 @@
         cmp.set('v.allSelected', true);
         var items = cmp.get('v.items') || [];
         items.forEach(function (item) {
-            if (item.isDisabled !== true) {
-                item.selected = true;
-            }
+            item.selected = true;
         });
         cmp.set('v.items', items);
     },
