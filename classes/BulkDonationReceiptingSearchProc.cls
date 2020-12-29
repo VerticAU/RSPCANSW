@@ -133,9 +133,7 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             String donorName;
 
             String email;
-            Boolean hasEmail = false;
             Boolean isEmailBounced = false;
-            Boolean isDisabled = false;
 
             if(isIndividual == true){
                 donorId = donationVar.npsp__Primary_Contact__c;
@@ -153,9 +151,8 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
                 }
             }
 
-            hasEmail = String.isNotBlank(email);
+            Boolean hasEmail = String.isNotBlank(email);
             isEmailBounced = hasEmail && isEmailBounced;
-            isDisabled = hasEmail == false || isEmailBounced == true;
 
             dataMap.put('donorId', donorId);
             dataMap.put('donorName', donorName);
@@ -163,17 +160,24 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             dataMap.put('email', email);
             dataMap.put('hasEmail', hasEmail);
             dataMap.put('isEmailBounced', isEmailBounced);
-            dataMap.put('isDisabled', isDisabled);
 
-            List<String> channels = new List<String>{ 'Mail' };
+            List<String> channels = new List<String>{};
 
-            if (isDisabled) {
+            Boolean isDisabled = true;
+
+            if (isIndividual) {
+                channels.add('Mail');
                 dataMap.put('channel', 'Mail');
-            } else {
-                dataMap.put('channel', 'Email');
-                channels.add('Email');
+                isDisabled = false;
             }
 
+            if(hasEmail && !isEmailBounced){
+                channels.add('Email');
+                dataMap.put('channel', 'Email');
+                isDisabled = false;
+            }
+
+            dataMap.put('isDisabled', isDisabled);
             dataMap.put('channels', channels);
         }
     }

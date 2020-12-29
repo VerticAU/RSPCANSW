@@ -1,0 +1,7 @@
+<apex:component id="DirectMailReceiptImage" layout="none">
+
+	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+
+    <img src="{!dto['imageUrl']}" style="width: 100%;"/>
+
+</apex:component>

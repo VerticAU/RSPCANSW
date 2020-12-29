@@ -81,6 +81,8 @@
                                                  variant="label-hidden"
                                                  checked="{!record.selected}"
                                                  onchange="{! c.handleSelectedChange }"
+                                                 disabled="{!record.isDisabled}"
+
                                 />
                             </td>
                             <td style="width: 50px;">
@@ -169,7 +171,6 @@
                                 <lightning:select label="Channel"
                                                   class="label-hidden"
                                                   value="{!record.channel}"
-                                                  required="{!true}"
                                                   variant="label-hidden">
                                     <option value="" label="-- None --">-- None --</option>
                                     <aura:iteration items="{!record.channels}" var="option">
