@@ -1059,6 +1059,10 @@
             <translation>Enviar Acuse de recibo del correo electrónico ahora</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Email Renewal Now</masterLabel>
+            <translation><!-- Email Renewal Now --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>To Be Acknowledged</masterLabel>
             <translation>A enviar</translation>
         </picklistValues>

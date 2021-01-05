@@ -73,6 +73,16 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Opp_Acknowledgement_Status_Renewal</fullName>
+        <field>npsp__Acknowledgment_Status__c</field>
+        <literalValue>Email Renewal Now</literalValue>
+        <name>Opp: Acknowledgement Status Renewal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>npsp__Opportunity_AcknowledgmentStatus_Update</fullName>
         <description>Sets the Acknowledgment Status to &quot;Acknowledged&quot;</description>
         <field>npsp__Acknowledgment_Status__c</field>
@@ -592,8 +602,8 @@ If contact has no email/phone number then</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Membership_Renewal_Notification</name>
-                <type>Alert</type>
+                <name>Opp_Acknowledgement_Status_Renewal</name>
+                <type>FieldUpdate</type>
             </actions>
             <offsetFromField>Opportunity.npe01__Membership_End_Date__c</offsetFromField>
             <timeLength>-7</timeLength>

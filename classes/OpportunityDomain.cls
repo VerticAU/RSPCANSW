@@ -11,15 +11,15 @@ public without sharing class OpportunityDomain extends fflib_SObjectDomain {
         }
     }
 
-
     public override void onBeforeInsert() {}
-
     public override void onAfterInsert() {}
-
 
     public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
         MembershipService.sendMembershipReceipts(
             MembershipService.filterAcknowledgementNowMemberships(this.Records)
+        );
+        MembershipService.sendMembershipRenewalReceipts(
+            MembershipService.filterRenewalNowMemberships(this.Records, (Map<Id, Opportunity>) existingRecords)
         );
     }
 
@@ -30,6 +30,5 @@ public without sharing class OpportunityDomain extends fflib_SObjectDomain {
     }
 
     public override void onBeforeDelete() {}
-
     public override void onAfterDelete() {}
 }

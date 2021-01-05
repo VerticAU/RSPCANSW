@@ -44,26 +44,20 @@ public without sharing class MembershipService {
         return memberships;
     }
 
-    public static void sendMembershipReceipts(List<Opportunity> memberships){
-        System.debug('memberships ' + memberships);
+    // Acknowledgement Emails --------------------------------------------------------------------------------------------------------------
 
+    public static void sendMembershipReceipts(List<Opportunity> memberships){
         if(memberships == null || memberships.isEmpty()){ return; }
 
         Set<Id> membershipIds = (Set<Id>) vertic_Utils.sObjects.getIdFieldValues(memberships, 'Id');
         List<Opportunity> donations = [ SELECT Id, Linked_Opportunity__c, npsp__Primary_Contact__c, npsp__Acknowledgment_Status__c, npsp__Acknowledgment_Date__c FROM Opportunity WHERE Linked_Opportunity__c IN :membershipIds ];
-
-        System.debug('donations ' + donations);
 
         Map<String, SObject> opportunityIdDonationMap = vertic_Utils.sObjects.getSObjectsByAnyFieldMap(donations, Opportunity.Linked_Opportunity__c);
 
         String receiptWithDonationName = getReceiptWithDonationName();
         String receiptWithoutDonationName = getReceiptWithoutDonationName();
 
-        System.debug('receiptName ' + receiptWithDonationName);
-        System.debug('receiptName ' + receiptWithoutDonationName);
-
         String fromEmailAddress = getFromEmail();
-        System.debug('fromEmailAddress ' + fromEmailAddress);
 
         if(fromEmailAddress == null){ return; }
 
@@ -96,8 +90,6 @@ public without sharing class MembershipService {
         }
 
         npsp_plus.SendEmailTemplateInvocable.sendEmail(emailRequests);
-
-//        update donations;
     }
 
     private static String getFromEmail(){
@@ -131,6 +123,57 @@ public without sharing class MembershipService {
         String membershipRecordType = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Membership');
         for(Opportunity opportunity : opportunities){
             if(opportunity.RecordTypeId == membershipRecordType && opportunity.npsp__Acknowledgment_Status__c == 'Email Acknowledgment Now'){
+                memberships.add(opportunity);
+            }
+        }
+        return memberships;
+    }
+
+    // Renewal Emails --------------------------------------------------------------------------------------------------------------
+
+    public static void sendMembershipRenewalReceipts(List<Opportunity> memberships){
+        if(memberships == null || memberships.isEmpty()){ return; }
+
+        String renewalReceipt = getRenewalReceiptName();
+        String fromEmailAddress = getFromEmail();
+
+        if(fromEmailAddress == null || renewalReceipt == null){ return; }
+
+        List<npsp_plus.SendEmailTemplateInvocable.EmailRequest> emailRequests = new List<npsp_plus.SendEmailTemplateInvocable.EmailRequest>();
+        for(Opportunity membership : memberships){
+            npsp_plus.SendEmailTemplateInvocable.EmailRequest emailRequest = new npsp_plus.SendEmailTemplateInvocable.EmailRequest();
+            emailRequest.fromEmailAddress = fromEmailAddress;
+            emailRequest.whatId = membership.Id;
+            emailRequest.targetId = membership.npsp__Primary_Contact__c;
+            emailRequest.emailName = renewalReceipt;
+            emailRequests.add(emailRequest);
+
+            membership.npsp__Acknowledgment_Status__c = 'Acknowledged';
+            membership.npsp__Acknowledgment_Date__c = Date.today();
+        }
+
+        npsp_plus.SendEmailTemplateInvocable.sendEmail(emailRequests);
+    }
+
+    private static String getRenewalReceiptName(){
+        EmailTemplate emailTemplate = (EmailTemplate) vertic_Utils.arrays.firstOrNull([
+            SELECT Id, Name, DeveloperName FROM EmailTemplate WHERE Name = 'Membership Renewal'
+        ]);
+
+        return emailTemplate == null ? null : emailTemplate.DeveloperName;
+    }
+
+    public static List<Opportunity> filterRenewalNowMemberships(List<Opportunity> opportunities, Map<Id, Opportunity> oldOpportunityMap){
+        List<Opportunity> memberships = new List<Opportunity>();
+
+        String membershipRecordType = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Membership');
+
+        for(Opportunity opportunity : opportunities){
+            Opportunity oldOpportunity = oldOpportunityMap.get(opportunity.Id);
+            if(opportunity.RecordTypeId == membershipRecordType
+                && opportunity.npsp__Acknowledgment_Status__c == 'Email Renewal Now'
+                && oldOpportunity.npsp__Acknowledgment_Status__c != 'Email Renewal Now'){
+
                 memberships.add(opportunity);
             }
         }

@@ -1059,6 +1059,10 @@
             <translation>今すぐメール受領確認</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Email Renewal Now</masterLabel>
+            <translation><!-- Email Renewal Now --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>To Be Acknowledged</masterLabel>
             <translation>承認予定</translation>
         </picklistValues>

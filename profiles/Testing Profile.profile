@@ -96,6 +96,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AnnualDirectMailReceiptMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AnnualReceiptAfterProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>

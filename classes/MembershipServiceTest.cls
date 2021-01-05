@@ -84,5 +84,8 @@ public with sharing class MembershipServiceTest {
 
         opp.npsp__Acknowledgment_Status__c = 'Email Acknowledgment Now';
         update opp;
+
+        opp.npsp__Acknowledgment_Status__c = 'Email Renewal Now';
+        update opp;
     }
 }
