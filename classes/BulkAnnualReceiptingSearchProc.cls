@@ -188,22 +188,28 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
 
         public void bind(SObject record, Map<String, Object> dataMap) {
 
-            Boolean hasEmail;
-
+            List<String> channels = new List<String>{};
             switch on String.valueOf(record.getSObjectType()) {
-                when 'Contact' { hasEmail = String.isNotBlank(((Contact) record).Email); }
-                when 'Account' { hasEmail = String.isNotBlank(((Account) record).Email__c); }
+                when 'Contact' {
+                    channels.add('Mail');
+                    dataMap.put('channel', 'Mail');
+                    dataMap.put('isDisabled', false);
+
+                    if(String.isNotBlank(((Contact) record).Email)){
+                        channels.add('Email');
+                        dataMap.put('channel', 'Email');
+                    }
+                }
+                when 'Account' {
+                    if(String.isNotBlank(((Account) record).Email__c)){
+                        channels.add('Email');
+                        dataMap.put('channel', 'Email');
+                        dataMap.put('isDisabled', false);
+                    } else {
+                        dataMap.put('isDisabled', true);
+                    }
+                }
             }
-
-            List<String> channels = new List<String>{ 'Mail' };
-
-            if (hasEmail) {
-                channels.add('Email');
-                dataMap.put('channel', 'Email');
-            } else {
-                dataMap.put('channel', 'Mail');
-            }
-
             dataMap.put('channels', channels);
         }
     }

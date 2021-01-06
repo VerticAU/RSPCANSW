@@ -30,7 +30,7 @@
     handleGetSelected: function (cmp, event, helper) {
         var items = cmp.get('v.items') || [];
         return items.filter(function (item) {
-            return item.selected == true;
+            return item.selected === true;
         })
     },
 

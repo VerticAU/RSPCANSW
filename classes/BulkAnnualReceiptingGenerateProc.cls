@@ -35,9 +35,7 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
         Date startDate = this.request.getISODate('filter.startDate');
         Date endDate = this.request.getISODate('filter.endDate');
 
-        if (mailIds == null || mailIds.isEmpty()) {
-            return;
-        }
+        if (mailIds == null || mailIds.isEmpty()) { return; }
 
         List<vertic_Structs.SelectOption> links = new List<vertic_Structs.SelectOption>();
         List<List<Object>> mailIdsChunks = vertic_Utils.arrays.split(
@@ -52,17 +50,15 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
             PageReference pageRef = Page.vertic_Content;
 
             Map<String, String> pageRefParams = pageRef.getParameters();
-            pageRefParams.put('proc', 'AnnualReceipt');
-            pageRefParams.put('donorIds', String.join((List<String>) mailIdsChunk, ','));
+            pageRefParams.put('proc', 'AnnualDirectMailReceipt');
+            pageRefParams.put('ids', String.join((List<String>) mailIdsChunk, ','));
             pageRefParams.put('afterProc', 'false'); // creates task
 
             for (String filterKey : filters.keySet()) {
                 pageRefParams.put(filterKey, '' + filters.get(filterKey));
             }
-
             links.add(new vertic_Structs.SelectOption(pageRef.getUrl(), formattedFY));
         }
-
         this.response.put('receiptLinks', links);
     }
 

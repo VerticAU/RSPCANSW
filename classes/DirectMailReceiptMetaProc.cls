@@ -42,6 +42,9 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
         Opportunity donationVar = this.donationsMap.get(componentId);
         vertic_Utils.objects.throwIfBlank(donationVar, 'No Donation with Id: ' + componentId);
 
+        List<String> args = new String[]{'0','number','###,###,##0.00'};
+        String formattedAmount = String.format(donationVar.Amount.format(), args);
+
         new vertic_AutoMapper(dto)
             .getOptions()
             .setIsVisualforce(true)
@@ -55,6 +58,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             .mapFromSObject('organisation', donationVar.npsp__Primary_Contact__r.Account != null ? donationVar.npsp__Primary_Contact__r.Account : new Account())
             .mapFromListSObjects('donations', new List<Opportunity>{donationVar})
             .mapAnyValue('totalAmount', donationVar.Amount)
+            .mapAnyValue('totalAmountFormatted', formattedAmount)
             .mapAnyValue('hasDonations', true);
     }
 
@@ -87,15 +91,18 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             return new Component.DirectMailReceiptTable(dto = dto.getMap());
         } else if ('DirectMailReceiptImage'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptImage(dto = dto.getMap());
+        } else if ('DirectMailReceiptAddressDLX'.equalsIgnoreCase(name)) {
+            return new Component.DirectMailReceiptAddressDLX(dto = dto.getMap());
         }
         return null;
     }
 
     private List<String> getFields(){
         List<String> fields = new List<String>{
-            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId',
+            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId', 'Campaign.Name',
             'npsp__Primary_Contact__r.Greeting__c',
             'npsp__Primary_Contact__r.Letter_Salutation__c',
+            'npsp__Primary_Contact__r.Contact_Id__c',
             'npsp__Primary_Contact__r.FirstName',
             'npsp__Primary_Contact__r.LastName',
             'npsp__Primary_Contact__r.Name',

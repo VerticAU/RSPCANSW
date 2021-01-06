@@ -24,8 +24,8 @@
 			<apex:repeat value="{!dto['donations']}" var="donation">
 				<tr>
 					<td style="border: 1px solid; padding: 10px;">{!donation['CloseDate']}</td>
-					<td style="border: 1px solid; padding: 10px;">{!donation['npsp__Primary_Contact__r'].Name}</td>
-					<td style="border: 1px solid; padding: 10px;">{!donation['Payment_Method__c']}</td>
+					<td style="border: 1px solid; padding: 10px;">{!dto['recipient'].Name}</td>
+					<td style="border: 1px solid; padding: 10px;">{!donation['Campaign'].Name}</td>
                     <td style="border: 1px solid; padding: 10px;">${!donation['Amount']}</td>
 				</tr>
 			</apex:repeat>

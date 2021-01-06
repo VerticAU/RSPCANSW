@@ -1,0 +1,14 @@
+<apex:component id="DirectMailReceiptAddressDLX" layout="none">
+
+	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+
+	<div style="margin-left: 32mm; margin-top: 76mm; width: 95mm; height: 28mm; padding-bottom: 32mm; font-size: small;">
+		Donor Member Number: «MAILINGDETAILSERIALNUMBER»<br/>
+		{!dto['recipient'].Letter_Salutation__c}<br/>
+		{!dto['recipient'].Title}<br/>
+		{!dto['organisation'].Name}<br/>
+		{!dto['recipient'].MailingStreet} {!dto['recipient'].MailingCity}<br/>
+		{!dto['recipient'].MailingState} {!dto['recipient'].MailingCountry} {!dto['recipient'].MailingPostalCode}<br/>
+	</div>
+
+</apex:component>
