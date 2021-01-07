@@ -2454,6 +2454,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.Receipt_Preference__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.Recurring_Donation_Active_Count__c</field>
         <readable>true</readable>
     </fieldPermissions>

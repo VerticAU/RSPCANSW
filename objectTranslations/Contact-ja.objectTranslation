@@ -334,6 +334,22 @@
         <name>Previous_Names__c</name>
     </fields>
     <fields>
+        <label><!-- Receipt Preference --></label>
+        <name>Receipt_Preference__c</name>
+        <picklistValues>
+            <masterLabel>Email Receipt</masterLabel>
+            <translation><!-- Email Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Receipt</masterLabel>
+            <translation><!-- No Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postal Receipt</masterLabel>
+            <translation><!-- Postal Receipt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Recurring Donation Active Count --></label>
         <name>Recurring_Donation_Active_Count__c</name>
     </fields>

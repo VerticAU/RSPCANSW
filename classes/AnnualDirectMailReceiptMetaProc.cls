@@ -186,6 +186,7 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
             'Greeting__c',
             'Letter_Salutation__c',
             'Contact_Id__c',
+            'Care_Of__c',
             'FirstName',
             'LastName',
             'Name',

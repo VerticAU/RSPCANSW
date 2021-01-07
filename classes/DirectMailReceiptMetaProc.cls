@@ -82,17 +82,21 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
         if(template == null){ return null; }
 
         dto.put('imageUrl', template.Header_Image__c);
+        dto.put('envelopeType', template.Envelope_Type__c);
 
         return template.Receipt_Body_Text__c;
     }
 
     protected override ApexPages.Component getComponentInstance(String name, vertic_DTO dto) {
+        String envelopeType = vertic_Utils.strings.defaultIfBlank(dto.getString('envelopeType'), 'DLX');
         if ('DirectMailReceiptTable'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptTable(dto = dto.getMap());
         } else if ('DirectMailReceiptImage'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptImage(dto = dto.getMap());
-        } else if ('DirectMailReceiptAddressDLX'.equalsIgnoreCase(name)) {
+        } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'DLX') {
             return new Component.DirectMailReceiptAddressDLX(dto = dto.getMap());
+        } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'C5') {
+            return new Component.DirectMailReceiptAddressC5(dto = dto.getMap());
         }
         return null;
     }
@@ -103,6 +107,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             'npsp__Primary_Contact__r.Greeting__c',
             'npsp__Primary_Contact__r.Letter_Salutation__c',
             'npsp__Primary_Contact__r.Contact_Id__c',
+            'npsp__Primary_Contact__r.Care_Of__c',
             'npsp__Primary_Contact__r.FirstName',
             'npsp__Primary_Contact__r.LastName',
             'npsp__Primary_Contact__r.Name',
