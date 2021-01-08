@@ -94,9 +94,6 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
     }
 
     private List<Contact> retrieveContacts(List<String> contributionConditions){
-//        this.addContactChannelConditons(contributionConditions);
-//        contributionConditions.add('npsp__Primary_Contact__r.Receipt_Frequency__c = \'Annually\'');
-
         String aggregateSOQL = this.formattQueryForContact(contributionConditions);
         System.debug('aggregateSOQL: ' + aggregateSOQL);
         List<AggregateResult> aggregateResults = Database.query(aggregateSOQL);
@@ -126,9 +123,6 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
     }
 
     private List<Account> retrieveAccounts(List<String> contributionConditions){
-//        this.addAccountChannelConditons(contributionConditions);
-//        contributionConditions.add('Organisation__r.Receipt_Frequency__c = \'Annually\'');
-
         String aggregateSOQL = this.formattQueryForAccount(contributionConditions);
         List<AggregateResult> aggregateResults = Database.query(aggregateSOQL);
 

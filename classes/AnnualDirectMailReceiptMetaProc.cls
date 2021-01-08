@@ -155,10 +155,15 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
     }
 
     protected override ApexPages.Component getComponentInstance(String name, vertic_DTO dto) {
+        String envelopeType = vertic_Utils.strings.defaultIfBlank(dto.getString('envelopeType'), 'DLX');
         if ('DirectMailReceiptTable'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptTable(dto = dto.getMap());
         } else if ('DirectMailReceiptImage'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptImage(dto = dto.getMap());
+        } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'DLX') {
+            return new Component.DirectMailReceiptAddressDLX(dto = dto.getMap());
+        } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'C5') {
+            return new Component.DirectMailReceiptAddressC5(dto = dto.getMap());
         }
         return null;
     }

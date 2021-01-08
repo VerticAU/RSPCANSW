@@ -50,11 +50,13 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             'npsp__Primary_Contact__r.Name',
             'npsp__Primary_Contact__r.Email',
             'npsp__Primary_Contact__r.IsEmailBounced',
+            'npsp__Primary_Contact__r.Receipt_Preference__c',
             'AccountId',
             'Account.Name',
             'Account.npe01__One2OneContact__c',
             'Account.npe01__One2OneContact__r.Email',
             'Account.npe01__One2OneContact__r.IsEmailBounced',
+            'Account.npe01__One2OneContact__r.Receipt_Preference__c',
             'CloseDate',
             'Amount',
             'CampaignId',
@@ -68,39 +70,21 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             'npsp__Acknowledgment_Status__c != \'Do Not Acknowledge\''
         };
 
-        if (startDate != null) {
-            conditions.add('CloseDate >= :startDate');
-        }
-        if (startDate != null) {
-            conditions.add('CloseDate <= :endDate');
-        }
-        if (String.isNotBlank(campaignId)) {
-            conditions.add('CampaignId = :campaignId');
-        }
+        if (startDate != null) { conditions.add('CloseDate >= :startDate'); }
+        if (endDate != null) { conditions.add('CloseDate <= :endDate'); }
 
-        if (String.isNotBlank(contactId)) {
-            conditions.add('npsp__Primary_Contact__c = :contactId');
-        }
+        if (String.isNotBlank(campaignId)) { conditions.add('CampaignId = :campaignId'); }
+        if (String.isNotBlank(contactId)) { conditions.add('npsp__Primary_Contact__c = :contactId'); }
+        if (String.isNotBlank(accountId)) { conditions.add('AccountId = :accountId'); }
 
-        if (String.isNotBlank(accountId)) {
-            conditions.add('AccountId = :accountId');
-        }
-
-        if(isIndividualOnly == true){
-            conditions.add('npsp__Primary_Contact__c != null');
-        }
-
+        if(isIndividualOnly == true){ conditions.add('npsp__Primary_Contact__c != null'); }
         if(isOrganisationOnly == true){
             conditions.add('AccountId != null');
             conditions.add('npsp__Primary_Contact__c = null');
         }
 
-        if ('receipted'.equalsIgnoreCase(acknowledgmentStatus)) {
-            conditions.add('npsp__Acknowledgment_Date__c != null');
-        }
-        if ('unreceipted'.equalsIgnoreCase(acknowledgmentStatus)) {
-            conditions.add('npsp__Acknowledgment_Date__c = null');
-        }
+        if ('receipted'.equalsIgnoreCase(acknowledgmentStatus)) { conditions.add('npsp__Acknowledgment_Date__c != null'); }
+        if ('unreceipted'.equalsIgnoreCase(acknowledgmentStatus)) { conditions.add('npsp__Acknowledgment_Date__c = null'); }
 
         queryFactory.setCondition(String.join(conditions, ' AND '));
 
@@ -127,57 +111,81 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
         public void bind(SObject record, Map<String, Object> dataMap) {
             Opportunity donationVar = (Opportunity) record;
 
+            String email;
+            String receiptPreference;
+            Boolean isEmailBounced;
+            Boolean hasEmail;
+
             Boolean isIndividual = donationVar.npsp__Primary_Contact__c != null;
 
-            String donorId;
-            String donorName;
+            List<String> channels = new List<String>();
+            if(isIndividual){
+                dataMap.put('donorId', donationVar.npsp__Primary_Contact__c);
+                dataMap.put('donorName', donationVar.npsp__Primary_Contact__r.Name);
 
-            String email;
-            Boolean isEmailBounced = false;
-
-            if(isIndividual == true){
-                donorId = donationVar.npsp__Primary_Contact__c;
-                donorName = donationVar.npsp__Primary_Contact__r.Name;
                 email = donationVar.npsp__Primary_Contact__r.Email;
                 isEmailBounced = donationVar.npsp__Primary_Contact__r.IsEmailBounced == true;
-            } else if (donationVar.AccountId != null){
+                receiptPreference = donationVar.npsp__Primary_Contact__r.Receipt_Preference__c;
 
-                donorId = donationVar.AccountId;
-                donorName = donationVar.Account.Name;
+                hasEmail = String.isNotBlank(email);
+
+                channels.add('Mail');
+                dataMap.put('isDisabled', false);
+                if(hasEmail && !isEmailBounced){
+                    channels.add('Email');
+                }
+
+                switch on receiptPreference {
+                    when 'Email Receipt' {
+                        if(hasEmail && !isEmailBounced){
+                            dataMap.put('channel', 'Email');
+                        } else {
+                            dataMap.put('channel', 'Mail');
+                        }
+                    }
+                    when 'Postal Receipt' {
+                        dataMap.put('channel', 'Mail');
+                    }
+                }
+            } else if (donationVar.AccountId != null){
+                dataMap.put('donorId', donationVar.AccountId);
+                dataMap.put('donorName', donationVar.Account.Name);
 
                 if(donationVar.Account.npe01__One2OneContact__c != null){
                     email = donationVar.Account.npe01__One2OneContact__r.Email;
                     isEmailBounced = donationVar.Account.npe01__One2OneContact__r.IsEmailBounced == true;
+                    receiptPreference = donationVar.Account.npe01__One2OneContact__r.Receipt_Preference__c;
+
+                    hasEmail = String.isNotBlank(email);
+
+                    channels.add('Mail');
+                    dataMap.put('isDisabled', false);
+                    if(hasEmail && !isEmailBounced){
+                        channels.add('Email');
+                    }
+
+                    switch on receiptPreference {
+                        when 'Email Receipt' {
+                            if(hasEmail && !isEmailBounced){
+                                channels.add('Email');
+                                dataMap.put('channel', 'Email');
+                            } else {
+                                dataMap.put('channel', 'Mail');
+                            }
+                        }
+                        when 'Postal Receipt' {
+                            dataMap.put('channel', 'Mail');
+                        }
+                    }
+                } else {
+                    dataMap.put('isDisabled', true);
                 }
             }
 
-            Boolean hasEmail = String.isNotBlank(email);
-            isEmailBounced = hasEmail && isEmailBounced;
-
-            dataMap.put('donorId', donorId);
-            dataMap.put('donorName', donorName);
             dataMap.put('isIndividual', isIndividual);
             dataMap.put('email', email);
             dataMap.put('hasEmail', hasEmail);
             dataMap.put('isEmailBounced', isEmailBounced);
-
-            List<String> channels = new List<String>{};
-
-            Boolean isDisabled = true;
-
-            if (isIndividual) {
-                channels.add('Mail');
-                dataMap.put('channel', 'Mail');
-                isDisabled = false;
-            }
-
-            if(hasEmail && !isEmailBounced){
-                channels.add('Email');
-                dataMap.put('channel', 'Email');
-                isDisabled = false;
-            }
-
-            dataMap.put('isDisabled', isDisabled);
             dataMap.put('channels', channels);
         }
     }

@@ -40,6 +40,19 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
     protected override void initMetadata(String componentId, vertic_DTO dto) {
 
         Opportunity donationVar = this.donationsMap.get(componentId);
+
+        Boolean isIndividual = donationVar.npsp__Primary_Contact__c != null;
+
+        Contact recipient;
+        Account organisation;
+        if(isIndividual){
+            recipient = donationVar.npsp__Primary_Contact__r;
+            organisation = recipient.Account;
+        } else {
+            recipient = donationVar.Account.npe01__One2OneContact__r;
+            organisation = donationVar.Account;
+        }
+
         vertic_Utils.objects.throwIfBlank(donationVar, 'No Donation with Id: ' + componentId);
 
         List<String> args = new String[]{'0','number','###,###,##0.00'};
@@ -54,8 +67,8 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             .mapAnyValue('currentYear', Date.today().year())
             .mapAnyValue('today', Date.today().format())
             .mapFromSObject('donation', donationVar)
-            .mapFromSObject('recipient', donationVar.npsp__Primary_Contact__r)
-            .mapFromSObject('organisation', donationVar.npsp__Primary_Contact__r.Account != null ? donationVar.npsp__Primary_Contact__r.Account : new Account())
+            .mapFromSObject('recipient', recipient)
+            .mapFromSObject('organisation', organisation)
             .mapFromListSObjects('donations', new List<Opportunity>{donationVar})
             .mapAnyValue('totalAmount', donationVar.Amount)
             .mapAnyValue('totalAmountFormatted', formattedAmount)
@@ -119,7 +132,24 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             'npsp__Primary_Contact__r.MailingState',
             'npsp__Primary_Contact__r.MailingCountry',
             'npsp__Primary_Contact__r.MailingPostalCode',
-            'npsp__Primary_Contact__r.Account.Name'
+            'npsp__Primary_Contact__r.Account.Name',
+
+            'Account.Name',
+            'Account.npe01__One2OneContact__r.Greeting__c',
+            'Account.npe01__One2OneContact__r.Letter_Salutation__c',
+            'Account.npe01__One2OneContact__r.Contact_Id__c',
+            'Account.npe01__One2OneContact__r.Care_Of__c',
+            'Account.npe01__One2OneContact__r.FirstName',
+            'Account.npe01__One2OneContact__r.LastName',
+            'Account.npe01__One2OneContact__r.Name',
+            'Account.npe01__One2OneContact__r.Salutation',
+            'Account.npe01__One2OneContact__r.Title',
+            'Account.npe01__One2OneContact__r.Email',
+            'Account.npe01__One2OneContact__r.MailingStreet',
+            'Account.npe01__One2OneContact__r.MailingCity',
+            'Account.npe01__One2OneContact__r.MailingState',
+            'Account.npe01__One2OneContact__r.MailingCountry',
+            'Account.npe01__One2OneContact__r.MailingPostalCode'
         };
         fields.addAll(getFormulaFields(Opportunity.SObjectType, null));
         fields.addAll(getFormulaFields(Contact.SObjectType, 'npsp__Primary_Contact__r.'));

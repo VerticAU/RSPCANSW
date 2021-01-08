@@ -6134,6 +6134,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>npsp__GetStartedChecklistSection__mdt.npsp__Page_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>npsp__Opportunity_Stage_To_State_Mapping__mdt.npsp__Opportunity_Stage__c</field>
         <readable>false</readable>
     </fieldPermissions>
