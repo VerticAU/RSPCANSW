@@ -78,6 +78,10 @@
                 <behavior>Edit</behavior>
                 <field>Name_on_Cheque__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Receipt_Preference__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

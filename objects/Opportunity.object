@@ -2112,6 +2112,37 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Receipt_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>Receipt Preference</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email Receipt</fullName>
+                    <default>false</default>
+                    <label>Email Receipt</label>
+                </value>
+                <value>
+                    <fullName>Postal Receipt</fullName>
+                    <default>false</default>
+                    <label>Postal Receipt</label>
+                </value>
+                <value>
+                    <fullName>No Receipt</fullName>
+                    <default>false</default>
+                    <label>No Receipt</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Record_Type__c</fullName>
         <externalId>false</externalId>
         <formula>RecordType.DeveloperName</formula>
@@ -3119,6 +3150,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -3831,6 +3877,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4600,6 +4661,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -5336,6 +5412,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6104,6 +6195,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -6775,6 +6881,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7543,6 +7664,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -8248,6 +8384,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -8919,6 +9070,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9599,6 +9765,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -10268,6 +10449,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11013,6 +11209,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -11750,6 +11961,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12495,6 +12721,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sponsorship_Type__c</picklist>
             <values>
                 <fullName>Sponsorship</fullName>
@@ -13232,6 +13473,21 @@
             </values>
             <values>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receipt_Preference__c</picklist>
+            <values>
+                <fullName>Email Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Receipt</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

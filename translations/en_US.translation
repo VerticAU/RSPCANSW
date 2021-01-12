@@ -20,6 +20,10 @@
         <label><!-- Philanthropy --></label>
         <name>Philanthropy</name>
     </customApplications>
+    <customApplications>
+        <label><!-- Programs --></label>
+        <name>Programs</name>
+    </customApplications>
     <customLabels>
         <label><!-- Messages_Market_Required --></label>
         <name>Messages_Market_Required</name>
