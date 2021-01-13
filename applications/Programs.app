@@ -19,6 +19,7 @@
     <tabs>Shelter__c</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-report</tabs>
+    <tabs>Invoice__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Programs_UtilityBar</utilityBar>
 </CustomApplication>

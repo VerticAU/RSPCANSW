@@ -2988,6 +2988,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.pmdm__IsClient__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>ContactPointAddress.ActiveFromDate</field>
         <readable>false</readable>
@@ -3651,6 +3656,11 @@
         <editable>false</editable>
         <field>Individual.Website</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Invoice__c.Case__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6388,6 +6398,9 @@
         <layout>EngagementChannelType-Engagement Channel Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Invoice__c-Invoice Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OnedriveSetting__mdt-OnedriveSetting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6671,6 +6684,10 @@
     <tabVisibilities>
         <tab>Direct_Mail_Receipt_Template__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Invoice__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Platform_Events_Listener</tab>

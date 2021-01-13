@@ -916,6 +916,10 @@
         <label><!-- Years of Support --></label>
         <name>npsp_plus__Years_of_Support__c</name>
     </fields>
+    <fields>
+        <label><!-- Client --></label>
+        <name>pmdm__IsClient__c</name>
+    </fields>
     <layouts>
         <layout>Fundraising Contact Page Layout</layout>
         <sections>

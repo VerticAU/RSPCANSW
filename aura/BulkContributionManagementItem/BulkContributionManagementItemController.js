@@ -230,7 +230,6 @@
             var recordId = response.id;
             sourceCmp.set('v.value', recordId);
         }));
-
     },
 
     handleContributionChange: function (cmp, event, helper) {
@@ -242,6 +241,28 @@
             }
         });
         event.fire();
+    },
+
+    handleReceiptPreferenceChange: function (cmp, event, helper) {
+        let contribution = cmp.get('v.contribution');
+        if(contribution.Receipt_Preference__c === 'Postal Receipt'){
+            contribution.npsp__Acknowledgment_Status__c = 'To Be Acknowledged';
+        }
+        if(contribution.Receipt_Preference__c === 'No Receipt'){
+            contribution.npsp__Acknowledgment_Status__c = 'Do Not Acknowledge';
+        }
+        cmp.set('v.contribution', contribution);
+    },
+
+    handleAcknowledgmentStatusChange: function (cmp, event, helper) {
+        let contribution = cmp.get('v.contribution');
+        if(contribution.npsp__Acknowledgment_Status__c === 'Email Acknowledgment Now'){
+            contribution.Receipt_Preference__c = 'Email Receipt';
+        }
+        if(contribution.npsp__Acknowledgment_Status__c === 'Do Not Acknowledge'){
+            contribution.Receipt_Preference__c = 'No Receipt';
+        }
+        cmp.set('v.contribution', contribution);
     },
 
     handleQRScan: function (cmp, event, helper) {

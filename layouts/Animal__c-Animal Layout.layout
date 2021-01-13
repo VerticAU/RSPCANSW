@@ -128,6 +128,10 @@
         <fields>CASES.PRIORITY</fields>
         <relatedList>Case.Animal__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>pmdm__ProgramEngagement__c.Animal__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

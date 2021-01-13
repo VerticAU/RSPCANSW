@@ -177,8 +177,25 @@
                                       required="{!true}"
                                       disabled="{!or(v.contribution.isCompleted__c, not(or(v.contribution.npsp__Primary_Contact__c != null, v.contribution.AccountId != null))) }"
                                       class="label-hidden"
+                                      onchange="{!c.handleAcknowledgmentStatusChange}"
                     >
                         <aura:iteration items="{! v.meta.selectOptions.npspAcknowledgmentStatusOptions }" var="option">
+                            <option label="{!option.label}" value="{!option.value}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+            </td>
+            <td data-label="Receipt Preference">
+                <aura:if isTrue="{! and(v.meta, v.meta.selectOptions) }">
+                    <lightning:select label="Payment Method"
+                                      value="{! v.contribution.Receipt_Preference__c }"
+                                      variant="label-hidden"
+                                      required="{!true}"
+                                      disabled="{!or(v.contribution.isCompleted__c, not(or(v.contribution.npsp__Primary_Contact__c != null, v.contribution.AccountId != null))) }"
+                                      class="label-hidden"
+                                      onchange="{!c.handleReceiptPreferenceChange}"
+                    >
+                        <aura:iteration items="{! v.meta.selectOptions.receiptPreferenceOptions }" var="option">
                             <option label="{!option.label}" value="{!option.value}"/>
                         </aura:iteration>
                     </lightning:select>

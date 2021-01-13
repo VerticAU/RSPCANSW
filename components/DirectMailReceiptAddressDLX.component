@@ -6,7 +6,7 @@
 		<p style="font-size: x-small;">Donor Member Number: «MAILINGDETAILSERIALNUMBER»</p>
 		<p style="font-size: x-small;">{!dto['recipient'].Letter_Salutation__c}</p>
 		<p style="font-size: x-small;">{!dto['recipient'].Title}</p>
-		<p style="font-size: x-small;">{!dto['organisation'].Name}</p>
+<!--		<p style="font-size: x-small;">{!dto['organisation'].Name}</p>-->
 		<p style="font-size: x-small;">{!dto['recipient'].MailingStreet} {!dto['recipient'].MailingCity}</p>
 		<p style="font-size: x-small;">{!dto['recipient'].MailingState} {!dto['recipient'].MailingCountry} {!dto['recipient'].MailingPostalCode}</p>
 	</div>

@@ -111,33 +111,47 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
         public void bind(SObject record, Map<String, Object> dataMap) {
             Opportunity donationVar = (Opportunity) record;
 
+            dataMap.put('isDisabled', false);
+
             String email;
-            String receiptPreference;
             Boolean isEmailBounced;
             Boolean hasEmail;
 
-            Boolean isIndividual = donationVar.npsp__Primary_Contact__c != null;
-
             List<String> channels = new List<String>();
+
+            Boolean isIndividual = donationVar.npsp__Primary_Contact__c != null;
+            Boolean isDisabled = false;
+
             if(isIndividual){
                 dataMap.put('donorId', donationVar.npsp__Primary_Contact__c);
                 dataMap.put('donorName', donationVar.npsp__Primary_Contact__r.Name);
 
                 email = donationVar.npsp__Primary_Contact__r.Email;
                 isEmailBounced = donationVar.npsp__Primary_Contact__r.IsEmailBounced == true;
-                receiptPreference = donationVar.npsp__Primary_Contact__r.Receipt_Preference__c;
+            } else if (donationVar.AccountId != null){
+                dataMap.put('donorId', donationVar.AccountId);
+                dataMap.put('donorName', donationVar.Account.Name);
 
-                hasEmail = String.isNotBlank(email);
+                if(donationVar.Account.npe01__One2OneContact__c != null){
+                    email = donationVar.Account.npe01__One2OneContact__r.Email;
+                    isEmailBounced = donationVar.Account.npe01__One2OneContact__r.IsEmailBounced == true;
+                } else {
+                    isDisabled = true;
+                }
+            }
 
+            hasEmail = String.isNotBlank(email);
+
+            if(!isDisabled) {
                 channels.add('Mail');
-                dataMap.put('isDisabled', false);
-                if(hasEmail && !isEmailBounced){
+                if (hasEmail && !isEmailBounced) {
                     channels.add('Email');
                 }
 
-                switch on receiptPreference {
+                switch on donationVar.Receipt_Preference__c {
                     when 'Email Receipt' {
-                        if(hasEmail && !isEmailBounced){
+                        if (hasEmail && !isEmailBounced) {
+                            channels.add('Email');
                             dataMap.put('channel', 'Email');
                         } else {
                             dataMap.put('channel', 'Mail');
@@ -147,39 +161,6 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
                         dataMap.put('channel', 'Mail');
                     }
                 }
-            } else if (donationVar.AccountId != null){
-                dataMap.put('donorId', donationVar.AccountId);
-                dataMap.put('donorName', donationVar.Account.Name);
-
-                if(donationVar.Account.npe01__One2OneContact__c != null){
-                    email = donationVar.Account.npe01__One2OneContact__r.Email;
-                    isEmailBounced = donationVar.Account.npe01__One2OneContact__r.IsEmailBounced == true;
-                    receiptPreference = donationVar.Account.npe01__One2OneContact__r.Receipt_Preference__c;
-
-                    hasEmail = String.isNotBlank(email);
-
-                    channels.add('Mail');
-                    dataMap.put('isDisabled', false);
-                    if(hasEmail && !isEmailBounced){
-                        channels.add('Email');
-                    }
-
-                    switch on receiptPreference {
-                        when 'Email Receipt' {
-                            if(hasEmail && !isEmailBounced){
-                                channels.add('Email');
-                                dataMap.put('channel', 'Email');
-                            } else {
-                                dataMap.put('channel', 'Mail');
-                            }
-                        }
-                        when 'Postal Receipt' {
-                            dataMap.put('channel', 'Mail');
-                        }
-                    }
-                } else {
-                    dataMap.put('isDisabled', true);
-                }
             }
 
             dataMap.put('isIndividual', isIndividual);
@@ -187,6 +168,7 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             dataMap.put('hasEmail', hasEmail);
             dataMap.put('isEmailBounced', isEmailBounced);
             dataMap.put('channels', channels);
+            dataMap.put('isDisabled', isDisabled);
         }
     }
 

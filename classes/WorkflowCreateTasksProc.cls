@@ -38,9 +38,13 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
         System.debug('this.records:  ' + this.records);
         this.groupMemberMap = WorkflowService.findUsersByGroups();
         System.debug('this.groupMemberMap ' + this.groupMemberMap);
+        System.debug('before err');
 
         Set<Id> whoAndWhatIds = vertic_Utils.sObjects.getIdFieldValues(this.records, Task.WhatId);
+        System.debug('before err1');
+
         whoAndWhatIds.addAll(vertic_Utils.sObjects.getIdFieldValues(this.records, Task.WhoId));
+        System.debug('before err2');
 
         this.whatAndWhoIdsBySObjectMap = this.findWhoId(whoAndWhatIds);
 
@@ -48,9 +52,12 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
 
 
             try {
+                System.debug('before err3');
                 payload = new vertic_DTO(task.Description);
                 System.debug('1 payload ' + payload);
+                System.debug('payload.getMap(): ' + payload.getMap());
                 vertic_AutoMapper autoMapper = new vertic_AutoMapper(payload.getMap());
+                System.debug('autoMapper ' + autoMapper);
                 autoMapper.mapToSObject(task);
             } catch (Exception ex) {
                 System.debug('can\'t parse: err');
@@ -70,11 +77,12 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
             task.ActivityDate = task.Activity_Days__c == null ? task.ActivityDate : WorkflowService.calcActivityDate(Integer.valueOf(task.Activity_Days__c));
             System.debug('after - task.ActivityDate: ' + task.ActivityDate);
 
+
+            task.Group_Name__c = task.Group_Name__c.replaceAll(' ','_');
             if (task.Group_Key__c == null && String.isNotBlank(task.Group_Name__c) && this.groupMemberMap.containsKey(task.Group_Name__c)) {
 
                 task.Group_Key__c = vertic_Utils.strings.newGuid();
 
-                task.Group_Name__c = task.Group_Name__c.replaceAll(' ','_');
                 List<String> userIds = this.groupMemberMap.get(task.Group_Name__c).clone();
 
                 if (userIds.size() > 0) {
@@ -98,7 +106,18 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
 
             fflib_QueryFactory queryFactory;
             queryFactory = new fflib_QueryFactory(idVar.getSobjectType());
-            queryFactory.selectFields(idVar.getSobjectType().getDescribe().fields.getMap().keySet());
+//            queryFactory.selectFields(idVar.getSobjectType().getDescribe().fields.getMap().keySet());
+            Set<String> objectFields = new Set<String>(idVar.getSobjectType().getDescribe().fields.getMap().keySet());
+            System.debug('All fields size: ' + objectFields.size());
+
+            for (String field : objectFields) {
+                try {
+                    queryFactory.selectField(field);
+                } catch (Exception e) {}
+            }
+
+            System.debug('Available field size: ' + queryFactory.getSelectedFields().size());
+
             queryFactory.setCondition('Id = :idVar');
             System.debug('2 queryFactory= ' + queryFactory);
 

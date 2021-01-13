@@ -94,7 +94,7 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
     }
 
     private List<Contact> retrieveContacts(List<String> contributionConditions){
-        String aggregateSOQL = this.formattQueryForContact(contributionConditions);
+        String aggregateSOQL = this.formatQueryForContact(contributionConditions);
         System.debug('aggregateSOQL: ' + aggregateSOQL);
         List<AggregateResult> aggregateResults = Database.query(aggregateSOQL);
 
@@ -107,7 +107,9 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         queryFactory.selectFields(new Set<String>{
             'Id',
             'Name',
-            'Email'
+            'Email',
+            'IsEmailBounced',
+            'Receipt_Preference__c'
         });
 
         List<String> conditions = new List<String>{ 'Id IN :contactIds' };
@@ -123,7 +125,7 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
     }
 
     private List<Account> retrieveAccounts(List<String> contributionConditions){
-        String aggregateSOQL = this.formattQueryForAccount(contributionConditions);
+        String aggregateSOQL = this.formatQueryForAccount(contributionConditions);
         List<AggregateResult> aggregateResults = Database.query(aggregateSOQL);
 
         Set<Id> accountIds = new Set<Id>();
@@ -135,7 +137,10 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         queryFactory.selectFields(new Set<String>{
             'Id',
             'Name',
-            'Email__c'
+            'Email__c',
+            'npe01__One2OneContact__r.Email',
+            'npe01__One2OneContact__r.IsEmailBounced',
+            'npe01__One2OneContact__r.Receipt_Preference__c'
         });
 
         List<String> conditions = new List<String>{ 'Id IN :accountIds' };
@@ -149,7 +154,7 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         return Database.query(queryFactory.toSOQL());
     }
 
-    private String formattQueryForContact(List<String> contributionConditions){
+    private String formatQueryForContact(List<String> contributionConditions){
         return String.format(
             'SELECT npsp__Primary_Contact__c, COUNT(Id) FROM Opportunity WHERE {0} GROUP BY npsp__Primary_Contact__c LIMIT {1}',
             new List<String>{
@@ -159,7 +164,7 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
         );
     }
 
-    private String formattQueryForAccount(List<String> contributionConditions){
+    private String formatQueryForAccount(List<String> contributionConditions){
         return String.format(
             'SELECT AccountId, COUNT(Id) FROM Opportunity WHERE {0} GROUP BY AccountId LIMIT {1}',
             new List<String>{
@@ -182,29 +187,64 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
 
         public void bind(SObject record, Map<String, Object> dataMap) {
 
+            String email;
+            String receiptPreference;
+            Boolean isEmailBounced;
+            Boolean hasEmail;
+
+            Boolean isDisabled = false;
+
             List<String> channels = new List<String>{};
             switch on String.valueOf(record.getSObjectType()) {
                 when 'Contact' {
-                    channels.add('Mail');
-                    dataMap.put('channel', 'Mail');
-                    dataMap.put('isDisabled', false);
+                    Contact contact = (Contact) record;
+                    dataMap.put('isIndividual', true);
 
-                    if(String.isNotBlank(((Contact) record).Email)){
-                        channels.add('Email');
-                        dataMap.put('channel', 'Email');
-                    }
+                    email = contact.Email;
+                    isEmailBounced = contact.IsEmailBounced == true;
+                    receiptPreference = contact.Receipt_Preference__c;
                 }
                 when 'Account' {
-                    if(String.isNotBlank(((Account) record).Email__c)){
-                        channels.add('Email');
-                        dataMap.put('channel', 'Email');
-                        dataMap.put('isDisabled', false);
+                    Account account = (Account) record;
+                    dataMap.put('isIndividual', false);
+
+                    if(account.npe01__One2OneContact__c != null){
+                        email = account.npe01__One2OneContact__r.Email;
+                        isEmailBounced = account.npe01__One2OneContact__r.IsEmailBounced == true;
+                        receiptPreference = account.npe01__One2OneContact__r.Receipt_Preference__c;
                     } else {
-                        dataMap.put('isDisabled', true);
+                        isDisabled = true;
                     }
                 }
             }
+
+            hasEmail = String.isNotBlank(email);
+
+            if(!isDisabled){
+                channels.add('Mail');
+                if(hasEmail && !isEmailBounced){
+                    channels.add('Email');
+                }
+
+                switch on receiptPreference {
+                    when 'Email Receipt' {
+                        if(hasEmail && !isEmailBounced){
+                            dataMap.put('channel', 'Email');
+                        } else {
+                            dataMap.put('channel', 'Mail');
+                        }
+                    }
+                    when 'Postal Receipt' {
+                        dataMap.put('channel', 'Mail');
+                    }
+                }
+            }
+
+            dataMap.put('email', email);
+            dataMap.put('hasEmail', hasEmail);
+            dataMap.put('isEmailBounced', isEmailBounced);
             dataMap.put('channels', channels);
+            dataMap.put('isDisabled', isDisabled);
         }
     }
 

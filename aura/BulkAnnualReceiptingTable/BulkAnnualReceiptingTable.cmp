@@ -83,7 +83,7 @@
                                                   class="label-hidden"
                                                   value="{!donor.channel}"
                                                   variant="label-hidden">
-                                    <option value="" label="-- None --">-- None --</option>
+                                    <option value="" label="No Receipt">-- None --</option>
                                     <aura:iteration items="{!donor.channels}" var="option">
                                         <option value="{#option}" label="{#option}">{#option}</option>
                                     </aura:iteration>

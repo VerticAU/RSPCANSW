@@ -10,7 +10,8 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
         this.request.fields = new Set<SObjectField>{
             Opportunity.Donor_Type__c,
-            Opportunity.npsp__Acknowledgment_Status__c
+            Opportunity.npsp__Acknowledgment_Status__c,
+            Opportunity.Receipt_Preference__c
         };
 
         super.process(this.request);

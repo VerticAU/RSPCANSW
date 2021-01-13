@@ -17,8 +17,8 @@ public class SendAnnualReceiptEmailProc extends vertic_SendEmailProc {
             this.request.getMapper().mapAnyValue('email.targetId', contact.Id);
             this.donorName = contact.Name;
         } else if (sType == Account.SObjectType){
-            Account account = (Account) vertic_Utils.arrays.firstOrException([SELECT Id, Name, Email__c FROM Account WHERE Id = :THIS.donorId ], 'No Account with Id: ' + this.donorId);
-            this.request.getMapper().mapAnyValue('email.toAddresses', new List<String>{account.Email__c});
+            Account account = (Account) vertic_Utils.arrays.firstOrException([SELECT Id, Name, Email__c, npe01__One2OneContact__c FROM Account WHERE Id = :THIS.donorId ], 'No Account with Id: ' + this.donorId);
+            this.request.getMapper().mapAnyValue('email.targetId', account.npe01__One2OneContact__c);
             this.donorName = account.Name;
         }
 

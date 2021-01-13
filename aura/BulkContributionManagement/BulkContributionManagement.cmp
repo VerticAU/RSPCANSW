@@ -79,7 +79,7 @@
                                             <!--#-->
                                         </div>
                                     </th>
-                                    <th scope="col" width="10%">
+                                    <th scope="col" width="9%">
                                         <div class="slds-truncate" title="Donor Type">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Donor Type
@@ -91,39 +91,42 @@
                                             Donor
                                         </div>
                                     </th>
-                                    <th scope="col" width="13%">
+                                    <th scope="col" width="14%">
                                         <div class="slds-truncate" title="Campaign">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Campaign
                                         </div>
                                     </th>
-                                    <th scope="col" width="12%">
+                                    <th scope="col" width="10%">
                                         <div class="slds-truncate" title="Amount">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Amount
                                         </div>
                                     </th>
-                                    <th scope="col" width="14%">
+                                    <th scope="col" width="10%">
                                         <div class="slds-truncate" title="Date">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Date
                                         </div>
                                     </th>
-                                    <th scope="col" width="12%">
+                                    <th scope="col" width="10%">
                                         <div class="slds-truncate" title="Payment Type">
                                             <abbr class="slds-required" title="required">*</abbr>
                                             Payment Method
                                         </div>
                                     </th>
-                                    <th scope="col" width="11%">
-                                        <div class="slds-truncate" title="Narrative">
-                                            <!--<abbr class="slds-required" title="required">*</abbr>-->
+                                    <th scope="col" width="10%">
+                                        <div class="slds-truncate" title="Acknowledgement Status">
                                             Acknowledgement Status
                                         </div>
                                     </th>
-                                    <th scope="col" width="11%">
+                                    <th scope="col" width="10%">
+                                        <div class="slds-truncate" title="Receipt Preference">
+                                            Receipt Preference
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="10%">
                                         <div class="slds-truncate" title="Narrative">
-                                            <!--<abbr class="slds-required" title="required">*</abbr>-->
                                             Narrative
                                         </div>
                                     </th>

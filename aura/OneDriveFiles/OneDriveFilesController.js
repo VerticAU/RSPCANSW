@@ -14,26 +14,29 @@
             cmp.set('v.isFiles', false);
 
             if (files.length > 0) {
-                cmp.set('v.meta.dto.files', files);
 
-                files.map(function (file) {
+                files.sort(function (a, b) {
+                    return new Date(b.createdDateTime) - new Date(a.createdDateTime);
+                }).map(function (file) {
 
                     if (file.name.includes('DELETED_')) {
                         cmp.set('v.isRestore', true);
                     }
                     if (!file.name.includes('DELETED_')) {
                         cmp.set('v.isFiles', true);
-
                     }
                 });
+
+                cmp.set('v.meta.dto.files', files);
+
             }
 
 
         }).catch(function (reason) {
 
         }).finally(function () {
-            cmp.set('v.isBusy', false)
-            cmp.set('v.isFirst', false)
+            cmp.set('v.isBusy', false);
+            cmp.set('v.isFirst', false);
         });
 
 
@@ -51,9 +54,11 @@
         oneDriveUtils.upload(files, sObjectName, recordName).then(function (value) {
             oneDriveUtils.driveItems(sObjectName, recordName, null)
                 .then(function (response) {
-                    cmp.set('v.meta.dto.files', response);
 
-                    response.map(function (file) {
+
+                    response.sort(function (a, b) {
+                        return new Date(b.createdDateTime) - new Date(a.createdDateTime);
+                    }).map(function (file) {
                         if (file.name.includes('DELETED_')) {
                             cmp.set('v.isRestore', true);
                         }
@@ -66,6 +71,7 @@
                         }
                     });
 
+                    cmp.set('v.meta.dto.files', response);
                     cmp.set('v.isBusy', false);
                 });
         })
@@ -123,7 +129,10 @@
         }).then(function (value) {
             debugger
             cmp.set('v.isFiles', false);
-            newList.map(function (item) {
+
+            newList.sort(function (a, b) {
+                return new Date(b.createdDateTime) - new Date(a.createdDateTime);
+            }).map(function (item) {
 
                 if (!file.name.includes('DELETED_')) {
                     cmp.set('v.isFiles', true);
@@ -165,9 +174,11 @@
 
                     var oneDriveUtils = cmp.find("OneDriveUtils");
                     oneDriveUtils.driveItems(sObjectName, recordName, null).then(function (files) {
-                        cmp.set('v.meta.dto.files', files);
                         cmp.set('v.isRestore', false);
-                        files.map(function (file) {
+
+                        files.sort(function (a, b) {
+                            return new Date(b.createdDateTime) - new Date(a.createdDateTime);
+                        }).map(function (file) {
                             if (file.name.includes('DELETED_')) {
                                 cmp.set('v.isRestore', true);
                             }
@@ -180,6 +191,7 @@
                             }
                         });
 
+                        cmp.set('v.meta.dto.files', files);
                         cmp.set('v.isBusy', false);
 
                     });

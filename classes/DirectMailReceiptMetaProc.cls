@@ -49,7 +49,9 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             recipient = donationVar.npsp__Primary_Contact__r;
             organisation = recipient.Account;
         } else {
-            recipient = donationVar.Account.npe01__One2OneContact__r;
+            if(donationVar.Account.npe01__One2OneContact__c != null){
+                recipient = donationVar.Account.npe01__One2OneContact__r;
+            }
             organisation = donationVar.Account;
         }
 
@@ -58,7 +60,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
         List<String> args = new String[]{'0','number','###,###,##0.00'};
         String formattedAmount = String.format(donationVar.Amount.format(), args);
 
-        new vertic_AutoMapper(dto)
+        vertic_AutoMapper autoMapper = new vertic_AutoMapper(dto)
             .getOptions()
             .setIsVisualforce(true)
             .setIsAllFields(true)
@@ -67,12 +69,13 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             .mapAnyValue('currentYear', Date.today().year())
             .mapAnyValue('today', Date.today().format())
             .mapFromSObject('donation', donationVar)
-            .mapFromSObject('recipient', recipient)
-            .mapFromSObject('organisation', organisation)
             .mapFromListSObjects('donations', new List<Opportunity>{donationVar})
             .mapAnyValue('totalAmount', donationVar.Amount)
             .mapAnyValue('totalAmountFormatted', formattedAmount)
             .mapAnyValue('hasDonations', true);
+
+        if(recipient != null){ autoMapper.mapFromSObject('recipient', recipient); }
+        if(organisation != null){ autoMapper.mapFromSObject('organisation', organisation); }
     }
 
     protected override String getTemplate(String componentId, vertic_DTO dto) {
