@@ -61,7 +61,8 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             'Amount',
             'CampaignId',
             'Campaign.Name',
-            'npsp__Acknowledgment_Date__c'
+            'npsp__Acknowledgment_Date__c',
+            'Receipt_Preference__c'
         });
 
         List<String> conditions = new List<String>{
