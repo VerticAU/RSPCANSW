@@ -144,22 +144,21 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
             hasEmail = String.isNotBlank(email);
 
             if(!isDisabled) {
-                channels.add('Mail');
+                channels.add('Postal Receipt');
                 if (hasEmail && !isEmailBounced) {
-                    channels.add('Email');
+                    channels.add('Email Receipt');
                 }
 
                 switch on donationVar.Receipt_Preference__c {
                     when 'Email Receipt' {
                         if (hasEmail && !isEmailBounced) {
-                            channels.add('Email');
-                            dataMap.put('channel', 'Email');
+                            dataMap.put('channel', 'Email Receipt');
                         } else {
-                            dataMap.put('channel', 'Mail');
+                            dataMap.put('channel', 'Postal Receipt');
                         }
                     }
                     when 'Postal Receipt' {
-                        dataMap.put('channel', 'Mail');
+                        dataMap.put('channel', 'Postal Receipt');
                     }
                 }
             }

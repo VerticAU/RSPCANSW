@@ -221,21 +221,21 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
             hasEmail = String.isNotBlank(email);
 
             if(!isDisabled){
-                channels.add('Mail');
+                channels.add('Postal Receipt');
                 if(hasEmail && !isEmailBounced){
-                    channels.add('Email');
+                    channels.add('Email Receipt');
                 }
 
                 switch on receiptPreference {
                     when 'Email Receipt' {
                         if(hasEmail && !isEmailBounced){
-                            dataMap.put('channel', 'Email');
+                            dataMap.put('channel', 'Email Receipt');
                         } else {
-                            dataMap.put('channel', 'Mail');
+                            dataMap.put('channel', 'Postal Receipt');
                         }
                     }
                     when 'Postal Receipt' {
-                        dataMap.put('channel', 'Mail');
+                        dataMap.put('channel', 'Postal Receipt');
                     }
                 }
             }

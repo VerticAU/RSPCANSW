@@ -37,12 +37,9 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
 
         if (mailIds == null || mailIds.isEmpty()) { return; }
 
-        Set<String> contactIds = getContactIds(mailIds);
-        contactIds.addAll(getOneToOneContactIds(mailIds));
-
         List<vertic_Structs.SelectOption> links = new List<vertic_Structs.SelectOption>();
         List<List<Object>> mailIdsChunks = vertic_Utils.arrays.split(
-            new List<String>(contactIds),
+            new List<String>(mailIds),
             DEFAULT_RECEIPT_CHUNK_SIZE,
             List<String>.class
         );
@@ -63,33 +60,6 @@ public without sharing class BulkAnnualReceiptingGenerateProc extends vertic_Abs
             links.add(new vertic_Structs.SelectOption(pageRef.getUrl(), formattedFY));
         }
         this.response.put('receiptLinks', links);
-    }
-
-    private Set<String> getOneToOneContactIds(List<String> mailIds){
-
-        Set<String> accountIds = new Set<String>();
-        for(String mailId : mailIds){
-            if(Id.valueOf(mailId).getSobjectType() == Account.SObjectType){
-                accountIds.add(mailId);
-            }
-        }
-        List<Account> accounts = [SELECT Id, npe01__One2OneContact__c FROM Account WHERE Id IN :accountIds];
-
-        Set<String> contactIds = new Set<String>();
-        for(Account account : accounts){
-            contactIds.add(account.npe01__One2OneContact__c);
-        }
-        return contactIds;
-    }
-
-    private Set<String> getContactIds(List<String> mailIds){
-        Set<String> contactIds = new Set<String>();
-        for(String mailId : mailIds){
-            if(Id.valueOf(mailId).getSobjectType() == Contact.SObjectType){
-                contactIds.add(mailId);
-            }
-        }
-        return contactIds;
     }
 
     private void processEmailIds() {

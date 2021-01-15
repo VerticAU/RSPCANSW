@@ -102,7 +102,7 @@
             />
 
             <!--<c:vertic_Select label="Channel"-->
-                             <!--options="[{value:'Email', label:'Email'}, {value:'Mail', label:'Mail'}]"-->
+                             <!--options="[{value:'Email Receipt', label:'Email Receipt'}, {value:'Postal Receipt', label:'Postal Receipt'}]"-->
                              <!--noneLabel="Show All Donors"-->
                              <!--disabled="{!v.isBusy}"-->
                              <!--class="slds-size_1-of-1"-->

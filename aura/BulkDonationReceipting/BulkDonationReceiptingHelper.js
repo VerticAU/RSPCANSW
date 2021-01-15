@@ -24,7 +24,7 @@
         };
 
         contributions.map(function (contribution) {
-            if(contribution.channel == 'Mail'){
+            if(contribution.channel == 'Postal Receipt'){
                 totals.totalMail++;
             } else if (contribution.channel == 'Letter'){
                 totals.totalEmail++;

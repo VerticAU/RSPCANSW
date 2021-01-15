@@ -49,6 +49,9 @@
                             <div class="slds-truncate slds-cell-fixed" title="contact">Donor</div>
                         </th>
                         <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Email">Email</div>
+                        </th>
+                        <th scope="col">
                             <div class="slds-truncate slds-cell-fixed" title="Channel">Channel</div>
                         </th>
                     </tr>
@@ -73,9 +76,36 @@
                             </td>
                             <td>
                                 <div class="slds-truncate" title="{#donor.Name}">
+                                    <lightning:icon iconName="{!'standard:' + if(donor.isIndividual, 'contact', 'account')}"
+                                                    size="x-small"
+                                                    class="slds-m-right_x-small"
+                                    />
                                     <a href="{# '/' + donor.Id}" target="_blank">
                                         {#donor.Name}
                                     </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">
+                                    <aura:if isTrue="{!not(donor.hasEmail)}">
+                                        <lightning:helptext iconName="utility:warning"
+                                                            iconVariant="warning"
+                                                            content="No Email"
+                                                            size="x-small"
+                                                            class="slds-m-right_x-small"
+                                        />
+                                    </aura:if>
+                                    <aura:if isTrue="{!donor.isEmailBounced}">
+                                        <lightning:helptext iconName="utility:warning"
+                                                            iconVariant="warning"
+                                                            content="Email is Bounced"
+                                                            size="x-small"
+                                                            class="slds-m-right_x-small"
+                                        />
+                                    </aura:if>
+                                    <aura:if isTrue="{!donor.hasEmail}">
+                                        <a href="{# 'mailto:' + donor.email}" target="_blank">{#donor.email}</a>
+                                    </aura:if>
                                 </div>
                             </td>
                             <td>

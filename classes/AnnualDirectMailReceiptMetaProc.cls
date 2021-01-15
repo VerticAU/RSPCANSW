@@ -8,7 +8,9 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
 
     private Map<String, List<SObject>> donationsByContactIdsMap;
     private Map<String, Decimal> totalAmountByContactIdsMap;
+
     private Map<Id, Contact> contactsMap;
+    private Map<String, String> accountIdOneToOneContactIdMap;
 
     private Date startDate;
     private Date endDate;
@@ -33,19 +35,33 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
      */
 
     protected override void beforeProcess() {
-        List<String> recordIds = this.getIds();
-
         this.startDate = this.request.getISODate('startDate');
         this.endDate = this.request.getISODate('endDate');
 
         if(this.startDate == null){ this.startDate = Date.today(); }
         if(this.endDate == null){ this.endDate = Date.today(); }
 
+        List<String> recordIds = this.getIds();
+
         this.contactsMap = new Map<Id, Contact>(this.retrieveContacts(recordIds));
 
-        List<Opportunity> donations = this.retrieveDonations(recordIds, this.startDate, this.endDate);
-        this.donationsByContactIdsMap = vertic_Utils.sObjects.getSObjectsListByAnyFieldMap(donations, Opportunity.npsp__Primary_Contact__c);
+        List<Opportunity> contactDonations = this.retrieveContactDonations(recordIds, this.startDate, this.endDate);
+        List<Opportunity> accountDonations = this.retrieveAccountDonations(recordIds, this.startDate, this.endDate);
 
+        this.donationsByContactIdsMap = vertic_Utils.sObjects.getSObjectsListByAnyFieldMap(contactDonations, Opportunity.npsp__Primary_Contact__c);
+
+        // add Organisation donations and map to one-to-one Contacts
+        this.accountIdOneToOneContactIdMap = new Map<String, String>();
+        for(Opportunity donation : accountDonations){
+            String oneToOneContactId = donation.Account.npe01__One2OneContact__c;
+            this.accountIdOneToOneContactIdMap.put(donation.AccountId, donation.Account.npe01__One2OneContact__c);
+            if(this.donationsByContactIdsMap.containsKey(oneToOneContactId)){
+                this.donationsByContactIdsMap.get(oneToOneContactId).add(donation);
+            } else {
+                this.donationsByContactIdsMap.put(oneToOneContactId, new List<Opportunity>{ donation });
+            }
+        }
+        this.contactsMap.putAll(new Map<Id, Contact>(this.retrieveContacts(this.accountIdOneToOneContactIdMap.values())));
         this.totalAmountByContactIdsMap = new Map<String, Decimal>();
     }
 
@@ -56,10 +72,15 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
         return (List<Contact>) Database.query(queryFactory.toSOQL());
     }
 
-    private List<Opportunity> retrieveDonations(List<String> recordIds, Date startDate, Date endDate){
+    private List<Opportunity> retrieveContactDonations(List<String> recordIds, Date startDate, Date endDate){
         return [
-            SELECT Id, npe03__Recurring_Donation__c, npsp__Primary_Contact__c,
-                Name, Amount, CloseDate, Payment_Method__c, CampaignId, Campaign.Name
+            SELECT Id,
+                npe03__Recurring_Donation__c,
+                npsp__Primary_Contact__c,
+                Name, Amount, CloseDate,
+                Payment_Method__c,
+                CampaignId,
+                Campaign.Name
             FROM Opportunity
             WHERE npsp__Primary_Contact__c IN :recordIds
             AND CloseDate >= :startDate
@@ -70,19 +91,48 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
         ];
     }
 
+    private List<Opportunity> retrieveAccountDonations(List<String> recordIds, Date startDate, Date endDate){
+        return [
+            SELECT Id,
+                npe03__Recurring_Donation__c,
+                Account.npe01__One2OneContact__c,
+                Name, Amount, CloseDate,
+                Payment_Method__c,
+                CampaignId,
+                Campaign.Name
+            FROM Opportunity
+            WHERE AccountId IN :recordIds
+            AND CloseDate >= :startDate
+            AND CloseDate <= :endDate
+            AND StageName = 'Closed Won'
+            AND Amount >= 0
+            AND Account.npe01__One2OneContact__c != NULL
+            ORDER BY Name, CloseDate ASC
+        ];
+    }
+
+    private Contact getContactByComponentId(String componentId){
+        if(Id.valueOf(componentId).getSobjectType() == Account.SObjectType){
+            return this.contactsMap.get(this.accountIdOneToOneContactIdMap.get(componentId));
+        } else {
+            return this.contactsMap.get(componentId);
+        }
+    }
+
     protected override void initMetadata(String componentId, vertic_DTO dto) {
 
-        Contact contactVar = this.contactsMap.get(componentId);
-        vertic_Utils.objects.throwIfBlank(contactVar, 'No Contact with Id: ' + componentId);
+        Contact contactVar = getContactByComponentId(componentId);
+        vertic_Utils.objects.throwIfBlank(contactVar, 'No Contact for componentId: ' + componentId);
 
-        List<Opportunity> contactDonations = donationsByContactIdsMap.get(contactVar.Id);
+        List<Opportunity> contactDonations = this.donationsByContactIdsMap.get(contactVar.Id);
         contactDonations = contactDonations == null ? new List<Opportunity>() : contactDonations;
+
         Decimal totalAmount = 0;
         for (Opportunity donationVar : contactDonations) {
             totalAmount += vertic_Utils.objects.defaultIfNull(donationVar.Amount, 0);
         }
 
-        this.totalAmountByContactIdsMap.put(componentId, totalAmount);
+        this.totalAmountByContactIdsMap.put(contactVar.Id, totalAmount);
 
         List<String> args = new String[]{'0','number','###,###,##0.00'};
         String formattedAmount = String.format(totalAmount.format(), args);
@@ -122,19 +172,16 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
 
     protected override String getTemplate(String componentId, vertic_DTO dto) {
 
-        Contact contactVar = this.contactsMap.get(componentId);
-        if(contactVar == null) { return null; }
+        Contact contactVar = getContactByComponentId(componentId);
+        if(contactVar == null) { return '<p>Contact is not found.<\\p><p>Component Id: ' + componentId + '<\\p>'; }
 
-        System.debug('componentId ' + componentId);
-        System.debug('donationsByContactIdsMap ' + this.donationsByContactIdsMap);
-
-        List<Opportunity> donations = this.donationsByContactIdsMap.get(componentId);
-        if(donations == null || donations.size() == 0){ return null; }
+        List<Opportunity> donations = this.donationsByContactIdsMap.get(contactVar.Id);
+        if(donations == null || donations.size() == 0){ return '<p>Donations are not found.<\\p><p>Contact: ' + contactVar.Id + '<\\p>'; }
 
         Opportunity donation = (Opportunity) donations[0];
-        if(donation == null){ return null; }
+        if(donation == null){ return '<p>Donations are not found.<\\p><p>Contact: ' + contactVar.Id + '<\\p>'; }
 
-        Decimal totalAmount = this.totalAmountByContactIdsMap.get(componentId);
+        Decimal totalAmount = this.totalAmountByContactIdsMap.get(contactVar.Id);
 
         Direct_Mail_Receipt_Template__c template = (Direct_Mail_Receipt_Template__c)vertic_Utils.arrays.firstOrNull([
             SELECT Id,
@@ -147,8 +194,12 @@ public class AnnualDirectMailReceiptMetaProc extends vertic_TemplateMetaProc {
             AND Maximum_Donation__c >: totalAmount
         ]);
 
-        if(template == null){ return null; }
-
+        if(template == null){
+            return '<p>Template is no found.<\\p>' +
+            '<p>Contact: ' + contactVar.Id + '<\\p>' +
+            '<p>Campaign: ' + donation.CampaignId + '<\\p>' +
+            '<p>Total Amount: $' + totalAmount + '<\\p>';
+        }
         dto.put('imageUrl', template.Header_Image__c);
 
         return template.Receipt_Body_Text__c;

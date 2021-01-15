@@ -84,7 +84,8 @@ public without sharing class BulkContributionManagementMetaProc extends vertic_M
                 Stripe_Customer_Id__c,
                 Campaign.Stripe_Account_Id__c,
                 npsp__Acknowledgment_Status__c,
-                npsp__Primary_Contact__c
+                npsp__Primary_Contact__c,
+                Receipt_Preference__c
             FROM Opportunity
             WHERE Batch__c = :batchId
         ]);

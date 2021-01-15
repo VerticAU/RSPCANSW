@@ -82,7 +82,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
         Opportunity donation = this.donationsMap.get(componentId);
 
-        if(donation == null){ return null; }
+        if(donation == null){ return '<p>Donation is not found.<\\p><p>Donation: ' + componentId + '<\\p>'; }
 
         Direct_Mail_Receipt_Template__c template = (Direct_Mail_Receipt_Template__c)vertic_Utils.arrays.firstOrNull([
             SELECT Id,
@@ -95,7 +95,12 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             AND Maximum_Donation__c >: donation.Amount
         ]);
 
-        if(template == null){ return null; }
+        if(template == null){
+            return '<p>Template is no found.<\\p>' +
+            '<p>Donation: ' + donation.Id + '<\\p>' +
+            '<p>Campaign: ' + donation.CampaignId + '<\\p>' +
+            '<p>Amount: $' + donation.Amount + '<\\p>';
+        }
 
         dto.put('imageUrl', template.Header_Image__c);
         dto.put('envelopeType', template.Envelope_Type__c);

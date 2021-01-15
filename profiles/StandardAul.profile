@@ -157,6 +157,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkDonationReceiptingSearchProcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CampaignGenerateCRNActionSubmitProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>

@@ -2136,7 +2136,7 @@
                 </value>
                 <value>
                     <fullName>No Receipt</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>No Receipt</label>
                 </value>
             </valueSetDefinition>

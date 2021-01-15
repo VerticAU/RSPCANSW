@@ -37,13 +37,13 @@
         }
 
         var emailIds = selected.filter(function (item) {
-            return item.channel === 'Email';
+            return item.channel === 'Email Receipt';
         }).map(function (item) {
             return item.Id;
         });
 
         var mailIds = selected.filter(function (item) {
-            return item.channel === 'Mail';
+            return item.channel === 'Postal Receipt';
         }).map(function (item) {
             return item.Id;
         });
@@ -81,22 +81,22 @@
 
         if(selectedMenuItemValue === 'Select Only Email'){
             items.forEach(function (item) {
-                item.selected = item.channel === 'Email';
+                item.selected = item.channel === 'Email Receipt';
             });
-        } else if(selectedMenuItemValue === 'Select Only Mail'){
+        } else if(selectedMenuItemValue === 'Select Only Postal'){
             items.forEach(function (item) {
-                item.selected = item.channel === 'Mail';
+                item.selected = item.channel === 'Postal Receipt';
             });
-        } else if(selectedMenuItemValue === 'Set Mail Channel'){
+        } else if(selectedMenuItemValue === 'Set Postal Channel'){
             items.forEach(function (item) {
-                if(item.channels && item.channels.indexOf('Mail') !== -1) {
-                    item.channel = 'Mail';
+                if(item.channels && item.channels.indexOf('Postal Receipt') !== -1) {
+                    item.channel = 'Postal Receipt';
                 }
             });
         } else if(selectedMenuItemValue === 'Set Email Channel'){
             items.forEach(function (item) {
-                if(item.channels && item.channels.indexOf('Email') !== -1){
-                    item.channel = 'Email';
+                if(item.channels && item.channels.indexOf('Email Receipt') !== -1){
+                    item.channel = 'Email Receipt';
                 }
             });
         }

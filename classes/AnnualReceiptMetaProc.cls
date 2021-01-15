@@ -28,9 +28,8 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
      */
 
     private Map<String, List<SObject>> donationsByContactIdsMap;
-    private Map<String, List<SObject>> donationsByAccountIdsMap;
-    private Map<Id, Contact> contactMap;
-    private Map<Id, Account> accountMap;
+    private Map<String, String> accountIdOneToOneContactIdMap;
+    private Map<Id, Contact> contactsMap;
 
     private Date startDate;
     private Date endDate;
@@ -47,49 +46,45 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
         List<String> donorIds = donorIdsStr.split(',');
 
         List<Contact> contacts = this.retrieveContacts(donorIds);
-        this.contactMap = new Map<Id, Contact>(contacts);
+        this.contactsMap = new Map<Id, Contact>(contacts);
 
-        List<Account> accounts = this.retrieveAccounts(donorIds);
-        this.accountMap = new Map<Id, Account>(accounts);
+        List<Opportunity> contactDonations = this.retrieveContactDonations(donorIds, this.startDate, this.endDate);
+        List<Opportunity> accountDonations = this.retrieveAccountDonations(donorIds, this.startDate, this.endDate);
+        this.donationsByContactIdsMap = vertic_Utils.sObjects.getSObjectsListByAnyFieldMap(contactDonations, Opportunity.npsp__Primary_Contact__c);
 
-        List<Opportunity> donations = this.retrieveDonations(donorIds, startDate, endDate);
-        this.donationsByContactIdsMap = vertic_Utils.sObjects.getSObjectsListByAnyFieldMap(donations, Opportunity.npsp__Primary_Contact__c);
-        this.donationsByAccountIdsMap = vertic_Utils.sObjects.getSObjectsListByAnyFieldMap(donations, Opportunity.AccountId);
+        // add Organisation donations and map to one-to-one Contacts
+        this.accountIdOneToOneContactIdMap = new Map<String, String>();
+        for(Opportunity donation : accountDonations){
+            String oneToOneContactId = donation.Account.npe01__One2OneContact__c;
+            this.accountIdOneToOneContactIdMap.put(donation.AccountId, donation.Account.npe01__One2OneContact__c);
+            if(this.donationsByContactIdsMap.containsKey(oneToOneContactId)){
+                this.donationsByContactIdsMap.get(oneToOneContactId).add(donation);
+            } else {
+                this.donationsByContactIdsMap.put(oneToOneContactId, new List<Opportunity>{ donation });
+            }
+        }
+        this.contactsMap.putAll(new Map<Id, Contact>(this.retrieveContacts(this.accountIdOneToOneContactIdMap.values())));
 
         List<Object> components = new List<Object>();
 
-        Decimal donationAmount;
         for (String donorId : donorIds) {
-
-            String donorFirstName;
-            String donorName;
-            String donorAddress;
-
-            SObjectType sType = Id.valueOf(donorId).getSobjectType();
-
+            Contact contactVar;
             List<Opportunity> donorDonations;
-            if(sType == Contact.SObjectType){
-                Contact contactVar = this.contactMap.get(donorId);
+            if(Id.valueOf(donorId).getSobjectType() == Account.SObjectType){
+                contactVar = this.contactsMap.get(this.accountIdOneToOneContactIdMap.get(donorId));
+                vertic_Utils.objects.throwIfBlank(contactVar, 'No Contact for Account Id: ' + donorId);
+            } else {
+                contactVar = this.contactsMap.get(donorId);
                 vertic_Utils.objects.throwIfBlank(contactVar, 'No Contact with Id: ' + donorId);
-
-                donorFirstName = contactVar.FirstName;
-                donorName = contactVar.Name;
-
-                donorDonations = this.donationsByContactIdsMap.get(donorId);
-                donorDonations = donorDonations == null ? new List<Opportunity>() : donorDonations;
-            } else if(sType == Account.SObjectType){
-                Account accountVar = this.accountMap.get(donorId);
-                vertic_Utils.objects.throwIfBlank(accountVar, 'No Organisation with Id: ' + donorId);
-
-                donorFirstName = accountVar.Name;
-                donorName = accountVar.Name;
-
-                donorDonations = this.donationsByAccountIdsMap.get(donorId);
-                donorDonations = donorDonations == null ? new List<Opportunity>() : donorDonations;
             }
 
-            donationAmount = 0;
-            for (Opportunity donation : donorDonations) {  donationAmount += donation.Amount; }
+            donorDonations = this.donationsByContactIdsMap.get(contactVar.Id);
+            donorDonations = donorDonations == null ? new List<Opportunity>() : donorDonations;
+
+            Decimal totalAmount = 0;
+            for (Opportunity donationVar : donorDonations) {
+                totalAmount += vertic_Utils.objects.defaultIfNull(donationVar.Amount, 0);
+            }
 
             Datetime startTaxDate = Datetime.newInstance(this.startDate, Time.newInstance(0,0,0,0));
             Datetime endTaxDate = Datetime.newInstance(this.endDate, Time.newInstance(0,0,0,0));
@@ -102,18 +97,14 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
                 .setDefaultFieldValue(' ')
                 .getMapper()
                 .mapAnyValue('taxPeriod', startTaxDate.format('d MMM YYYY') + ' - ' + endTaxDate.format('d MMM YYYY'))
-                .mapAnyValue('donationAmount', donationAmount)
+                .mapAnyValue('donationAmount', totalAmount)
                 .mapFromListSObjects('donations', donorDonations)
-                .mapAnyValue('donor.FirstName', donorFirstName)
-                .mapAnyValue('donor.Name', donorName)
-                .mapAnyValue('donor.Address', donorAddress)
+                .mapAnyValue('donor.FirstName', contactVar.FirstName)
+                .mapAnyValue('donor.Name', contactVar.Name)
                 .mapAnyValue('hasDonations', donorDonations.isEmpty() == false)
                 .mapAnyValue('isCopy', false);
 
             if('html'.equalsIgnoreCase(renderAs)){
-//                components.add(new Component.DefaultAnnualReceiptEmail(dto = dto.getMap())); todo
-                components.add(new Component.DefaultAnnualReceipt(dto = dto.getMap()));
-            } else {
                 components.add(new Component.DefaultAnnualReceipt(dto = dto.getMap()));
             }
         }
@@ -136,33 +127,45 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
         }
     }
 
-    private List<Opportunity> retrieveDonations(List<String> recordIds, Date startDate, Date endDate){
+    private List<Opportunity> retrieveContactDonations(List<String> recordIds, Date startDate, Date endDate){
         return [
-            SELECT Id, npe03__Recurring_Donation__c, npsp__Primary_Contact__c,
-                Name, Amount, CloseDate, Payment_Method__c, AccountId
+            SELECT Id,
+                npe03__Recurring_Donation__c,
+                npsp__Primary_Contact__c,
+                Name, Amount, CloseDate,
+                Payment_Method__c,
+                CampaignId,
+                Campaign.Name
             FROM Opportunity
-            WHERE StageName = 'Closed Won'
+            WHERE npsp__Primary_Contact__c IN :recordIds
             AND CloseDate >= :startDate
             AND CloseDate <= :endDate
+            AND StageName = 'Closed Won'
             AND Amount >= 0
-            AND (
-                npsp__Primary_Contact__c IN :recordIds
-                OR AccountId IN :recordIds
-            )
             ORDER BY Name, CloseDate ASC
         ];
     }
 
-    private List<Account> retrieveAccounts(List<String> recordIds){
-        fflib_QueryFactory queryFactory = new fflib_QueryFactory(Account.SObjectType);
-        queryFactory.selectFields(this.getAccountFields());
-
-        queryFactory.setCondition('Id IN :recordIds');
-        List<Account> accounts = (List<Account>) Database.query(queryFactory.toSOQL());
-
-        return accounts;
+    private List<Opportunity> retrieveAccountDonations(List<String> recordIds, Date startDate, Date endDate){
+        return [
+            SELECT Id,
+                npe03__Recurring_Donation__c,
+                Account.npe01__One2OneContact__c,
+                Account.npe01__One2OneContact__r.Name,
+                Name, Amount, CloseDate,
+                Payment_Method__c,
+                CampaignId,
+                Campaign.Name
+            FROM Opportunity
+            WHERE AccountId IN :recordIds
+            AND CloseDate >= :startDate
+            AND CloseDate <= :endDate
+            AND StageName = 'Closed Won'
+            AND Amount >= 0
+            AND Account.npe01__One2OneContact__c != NULL
+            ORDER BY Name, CloseDate ASC
+        ];
     }
-
     private List<Contact> retrieveContacts(List<String> recordIds){
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(Contact.SObjectType);
         queryFactory.selectFields(this.getContactFields());
@@ -171,17 +174,6 @@ public class AnnualReceiptMetaProc extends vertic_MetadataProcessor {
         List<Contact> contacts = (List<Contact>) Database.query(queryFactory.toSOQL());
 
         return contacts;
-    }
-
-    private List<String> getAccountFields(){
-
-        List<String> fields = new List<String>{
-            'Name',
-            'Email__c'
-        };
-
-        fields.addAll(this.getFormulaFields(Account.SObjectType, null));
-        return fields;
     }
 
     private List<String> getContactFields(){

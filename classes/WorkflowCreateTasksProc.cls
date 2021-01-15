@@ -78,7 +78,7 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
             System.debug('after - task.ActivityDate: ' + task.ActivityDate);
 
 
-            task.Group_Name__c = task.Group_Name__c.replaceAll(' ','_');
+            task.Group_Name__c = task.Group_Name__c != null ? task.Group_Name__c.replaceAll(' ','_') : '';
             if (task.Group_Key__c == null && String.isNotBlank(task.Group_Name__c) && this.groupMemberMap.containsKey(task.Group_Name__c)) {
 
                 task.Group_Key__c = vertic_Utils.strings.newGuid();

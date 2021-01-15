@@ -37,9 +37,9 @@
                                               alternativeText="Show menu"
                                               menuAlignment="right"
                                               onselect="{! c.handleTableSettingSelect }">
-                            <lightning:menuItem value="Select Only Mail" label="Select Only Mail"/>
+                            <lightning:menuItem value="Select Only Postal" label="Select Only Postal"/>
                             <lightning:menuItem value="Select Only Email" label="Select Only Email"/>
-                            <lightning:menuItem value="Set Mail Channel" label="Set Mail Channel"/>
+                            <lightning:menuItem value="Set Postal Channel" label="Set Postal Channel"/>
                             <lightning:menuItem value="Set Email Channel" label="Set Email Channel"/>
                         </lightning:buttonMenu>
                     </aura:set>
