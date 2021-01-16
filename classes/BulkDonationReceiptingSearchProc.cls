@@ -99,6 +99,8 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
     }
 
     private void mapRecords() {
+        System.debug(this.contributions);
+
         this.response.getMapper().mapFromListSObjects(
             'contributions',
             this.contributions,

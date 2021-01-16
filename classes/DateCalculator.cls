@@ -10,27 +10,11 @@ public class DateCalculator {
 
     private Date lastFinancialYearStartDate;
     private Date lastFinancialYearEndDate;
-
-    public DateCalculator() {
-        this(Date.today());
-    }
-
-    public DateCalculator(Date dateVar) {
-        this(dateVar, 1);
-    }
-
+    
     public DateCalculator(Date dateVar, Integer fyStartMonth) {
         this.todayVar = dateVar;
         this.fyStartMonth = fyStartMonth;
         initDates();
-    }
-
-    public DateCalculator(Integer year, Integer fyStartMonth) {
-        this.fyStartMonth = fyStartMonth;
-    }
-
-    public DateCalculator(Integer year) {
-        this(Date.newInstance(year, 1, 1), 1);
     }
 
     public Integer getFYStartMonth(){
@@ -67,16 +51,8 @@ public class DateCalculator {
 
     }
 
-    public Boolean isThisYear(Date dateVar) {
-        return dateVar >= this.thisYearStartDate && dateVar <= this.thisYearEndDate;
-    }
-
     public Boolean isThisFinancialYear(Date dateVar) {
         return dateVar >= this.thisFinancialYearStartDate && dateVar <= this.thisFinancialYearEndDate;
-    }
-
-    public Boolean isLastFinancialYear(Date dateVar) {
-        return dateVar >= this.lastFinancialYearStartDate && dateVar <= this.lastFinancialYearEndDate;
     }
 
     public Date thisFinancialYearStartDate(){

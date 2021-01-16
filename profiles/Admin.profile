@@ -105,11 +105,19 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AnnualDirectMailReceiptMetaProcTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AnnualReceiptAfterProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AnnualReceiptMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AnnualReceiptMetaProcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -125,7 +133,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkAnnualReceiptingGenerateProcTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BulkAnnualReceiptingSearchProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkAnnualReceiptingSearchProcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -150,6 +166,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BulkDonationReceiptingGenerateProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkDonationReceiptingGenerateProcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -242,6 +262,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DirectMailReceiptMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DirectMailReceiptMetaProcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -338,6 +362,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GetFinancialYearsMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetFinancialYearsMetaProcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

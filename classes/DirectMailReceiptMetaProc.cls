@@ -40,7 +40,6 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
     protected override void initMetadata(String componentId, vertic_DTO dto) {
 
         Opportunity donationVar = this.donationsMap.get(componentId);
-
         Boolean isIndividual = donationVar.npsp__Primary_Contact__c != null;
 
         Contact recipient;

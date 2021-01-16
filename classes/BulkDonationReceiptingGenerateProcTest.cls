@@ -1,5 +1,5 @@
 @IsTest
-public class BulkDonationReceiptingSearchProcTest {
+public class BulkDonationReceiptingGenerateProcTest {
     @IsTest static void test(){
         Account account = new Account(
             Name = 'testName'
@@ -30,22 +30,13 @@ public class BulkDonationReceiptingSearchProcTest {
         );
         insert opp;
 
-        Opportunity opp2 = new Opportunity(
-            Name = 'test',
-            Amount = 123,
-            StageName = 'Closed Won',
-            CloseDate = Date.today(),
-            RecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Donation').getRecordTypeId(),
-            AccountId = account.Id,
-            CampaignId = campaign.Id,
-            npsp__Acknowledgment_Status__c = 'To Be Acknowledged'
-        );
-        insert opp2;
-
-        vertic_Response response = new BulkDonationReceiptingSearchProc().process(new Map<String, Object>{
-            'filter' => new Map<String, Object>{}
+        Test.startTest();
+        new BulkDonationReceiptingGenerateProc().process(new Map<String, Object>{
+            'emailIds' => new List<String>{opp.Id},
+            'mailIds' => new List<String>{opp.Id}
         });
+        Test.stopTest();
 
-        System.assertEquals(2, response.getListAsMap('contributions.records').size());
+        System.assertEquals(1, [SELECT COUNT() FROM Vertic_Async_Process__c]);
     }
 }
