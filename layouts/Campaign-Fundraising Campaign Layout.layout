@@ -342,16 +342,6 @@
             <sortOrder>0</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Clone</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>5</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Delete</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>6</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Campaign.npsp_plus__Set_Receipt_Template</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
@@ -370,6 +360,16 @@
             <actionName>Campaign.Generate_CRN</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>4</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Clone</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>5</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Delete</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>6</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>FeedItem.TextPost</actionName>
@@ -451,6 +451,14 @@
         <fields>npe03__Installments__c</fields>
         <fields>npe03__Total__c</fields>
         <relatedList>npe03__Recurring_Donation__c.npe03__Recurring_Donation_Campaign__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Envelope_Type__c</fields>
+        <fields>CREATED_DATE</fields>
+        <relatedList>Direct_Mail_Receipt_Template__c.Campaign__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
