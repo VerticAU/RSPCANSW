@@ -44,6 +44,10 @@
                 <behavior>Edit</behavior>
                 <field>Cost_Centre__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Program__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

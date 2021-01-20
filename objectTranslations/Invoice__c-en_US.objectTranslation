@@ -9,8 +9,17 @@
         <value>Invoices</value>
     </caseValues>
     <fields>
+        <label><!-- Amount --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
         <label><!-- Case --></label>
         <name>Case__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Program Engagement --></label>
+        <name>Program_Engagement__c</name>
         <relationshipLabel><!-- Invoices --></relationshipLabel>
     </fields>
     <startsWith>Consonant</startsWith>

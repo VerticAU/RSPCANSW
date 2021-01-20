@@ -8,6 +8,29 @@
         <plural>true</plural>
         <value>Program Engagements</value>
     </caseValues>
+    <layouts>
+        <layout>Healthy Pet Day</layout>
+        <sections>
+            <label>Additional Details</label>
+            <section>Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Client Information --></label>
+            <section>Client Information</section>
+        </sections>
+        <sections>
+            <label>Custom Links</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Program Engagement Name</nameFieldLabel>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

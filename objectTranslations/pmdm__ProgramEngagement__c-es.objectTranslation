@@ -9,5 +9,28 @@
         <value>Participaciones en programa</value>
     </caseValues>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Healthy Pet Day</layout>
+        <sections>
+            <label>Detalles adicionales</label>
+            <section>Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Client Information --></label>
+            <section>Client Information</section>
+        </sections>
+        <sections>
+            <label>Vínculos personalizados</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Nombre de Participación en programa</nameFieldLabel>
 </CustomObjectTranslation>

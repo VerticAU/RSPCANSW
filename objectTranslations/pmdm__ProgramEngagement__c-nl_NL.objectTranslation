@@ -9,5 +9,28 @@
         <value>Programmabetrokkenheden</value>
     </caseValues>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Healthy Pet Day</layout>
+        <sections>
+            <label>Aanvullende gegevens</label>
+            <section>Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Client Information --></label>
+            <section>Client Information</section>
+        </sections>
+        <sections>
+            <label>Aangepaste koppelingen</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Naam van programmabetrokkenheid</nameFieldLabel>
 </CustomObjectTranslation>

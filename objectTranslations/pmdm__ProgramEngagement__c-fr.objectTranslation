@@ -9,6 +9,29 @@
         <value>Engagements dans le programme</value>
     </caseValues>
     <gender>Masculine</gender>
+    <layouts>
+        <layout>Healthy Pet Day</layout>
+        <sections>
+            <label>Détails supplémentaires</label>
+            <section>Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Client Information --></label>
+            <section>Client Information</section>
+        </sections>
+        <sections>
+            <label>Liens personnalisés</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Nom de l&apos;engagement dans le programme</nameFieldLabel>
     <startsWith>Vowel</startsWith>
 </CustomObjectTranslation>
