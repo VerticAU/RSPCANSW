@@ -20,6 +20,7 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-report</tabs>
     <tabs>Invoice__c</tabs>
+    <tabs>Branch__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Programs_UtilityBar</utilityBar>
 </CustomApplication>

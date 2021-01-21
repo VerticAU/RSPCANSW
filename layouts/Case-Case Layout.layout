@@ -86,6 +86,10 @@
                 <behavior>Edit</behavior>
                 <field>Shelter__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Branch__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
