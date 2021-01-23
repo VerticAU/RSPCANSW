@@ -36,6 +36,7 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
         Date startDate = this.request.getISODate('filter.startDate');
         Date endDate = this.request.getISODate('filter.endDate');
         String campaignId = this.request.getString('filter.campaignId');
+        String batchId = this.request.getString('filter.batchId');
         String contactId = this.request.getString('filter.contactId');
         String accountId = this.request.getString('filter.accountId');
         Boolean isIndividualOnly = this.request.getBoolean('filter.isIndividualOnly');
@@ -75,6 +76,7 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
         if (endDate != null) { conditions.add('CloseDate <= :endDate'); }
 
         if (String.isNotBlank(campaignId)) { conditions.add('CampaignId = :campaignId'); }
+        if (String.isNotBlank(batchId)) { conditions.add('Batch__C = :batchId'); }
         if (String.isNotBlank(contactId)) { conditions.add('npsp__Primary_Contact__c = :contactId'); }
         if (String.isNotBlank(accountId)) { conditions.add('AccountId = :accountId'); }
 
@@ -161,6 +163,16 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
                     }
                     when 'Postal Receipt' {
                         dataMap.put('channel', 'Postal Receipt');
+                    }
+                    when 'No Receipt' {
+                        dataMap.put('channel', 'No Receipt');
+                    }
+                    when else {
+                        if(hasEmail && !isEmailBounced){
+                            dataMap.put('channel', 'Email Receipt');
+                        } else {
+                            dataMap.put('channel', 'Postal Receipt');
+                        }
                     }
                 }
             }

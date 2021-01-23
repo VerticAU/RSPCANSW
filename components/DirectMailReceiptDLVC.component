@@ -1,0 +1,37 @@
+<apex:component id="DirectMailReceiptDLVC" layout="none">
+
+	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+
+	<apex:outputPanel layout="none" rendered="{!dto['hasDonations'] == true}">
+		<p style="width: 80%; text-align: right"><b style="font-size: 9pt;">Receipt# {!dto['donations'][0].Receipt_Number__c}</b></p><br/>
+		<table style="width: 80%">
+			<tr>
+				<th style="font-size: 9pt; border: 1px solid; border-bottom: none; padding: 10px;">DATE</th>
+				<th style="font-size: 9pt; border: 1px solid; border-bottom: none; padding: 10px;">RECEIVED FROM</th>
+				<th style="font-size: 9pt; border: 1px solid; border-bottom: none; padding: 10px;">PARTICULARS</th>
+				<th style="font-size: 9pt; border: 1px solid; border-bottom: none; padding: 10px;">AMOUNT</th>
+			</tr>
+			<tr>
+				<td style="font-size: 9pt; border: 1px solid; border-top: none; padding: 10px; vertical-align: top">{!dto['donations'][0].CloseDate}</td>
+				<td style="font-size: 9pt; border: 1px solid; border-top: none; padding: 10px;">
+					<p style="font-size: 9pt;">{!dto['recipient'].Name}</p>
+					<p style="font-size: 9pt;">{!dto['recipient'].MailingStreet}</p>
+					<p style="font-size: 9pt;">{!dto['recipient'].MailingCity}</p>
+					<p style="font-size: 9pt;">{!dto['recipient'].MailingState}</p>
+					<p style="font-size: 9pt;">{!dto['recipient'].MailingCountry}</p>
+					<p style="font-size: 9pt;">{!dto['recipient'].MailingPostalCode}</p>
+				</td>
+				<td style="font-size: 9pt; border: 1px solid; border-top: none; padding: 10px; vertical-align: top">{!dto['donations'][0]['Campaign'].Name}</td>
+				<td style="font-size: 9pt; border: 1px solid; border-top: none; padding: 10px; vertical-align: top">${!dto['donations'][0].Amount}</td>
+			</tr>
+		</table>
+		<p style="width: 80%; text-align: right"><b style="font-size: 9pt;">Total Payment Received: ${!dto['totalAmount']}</b></p><br/>
+	</apex:outputPanel>
+
+	<apex:outputPanel layout="none" rendered="{!dto['hasDonations'] == false}">
+		<hr/><br/>
+		<p style="font-size: 9pt; padding-left: 10px">No Donations</p>
+		<br/><hr/>
+	</apex:outputPanel>
+
+</apex:component>

@@ -10,7 +10,7 @@ public class DateCalculator {
 
     private Date lastFinancialYearStartDate;
     private Date lastFinancialYearEndDate;
-    
+
     public DateCalculator(Date dateVar, Integer fyStartMonth) {
         this.todayVar = dateVar;
         this.fyStartMonth = fyStartMonth;

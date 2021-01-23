@@ -237,6 +237,16 @@ public without sharing class BulkAnnualReceiptingSearchProc extends vertic_Abstr
                     when 'Postal Receipt' {
                         dataMap.put('channel', 'Postal Receipt');
                     }
+                    when 'No Receipt' {
+                        dataMap.put('channel', 'No Receipt');
+                    }
+                    when else {
+                        if(hasEmail && !isEmailBounced){
+                            dataMap.put('channel', 'Email Receipt');
+                        } else {
+                            dataMap.put('channel', 'Postal Receipt');
+                        }
+                    }
                 }
             }
 

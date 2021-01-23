@@ -113,6 +113,8 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             return new Component.DirectMailReceiptTable(dto = dto.getMap());
         } else if ('DirectMailReceiptImage'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptImage(dto = dto.getMap());
+        } else if ('DirectMailReceiptDLVC'.equalsIgnoreCase(name)) {
+            return new Component.DirectMailReceiptDLVC(dto = dto.getMap());
         } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'DLX') {
             return new Component.DirectMailReceiptAddressDLX(dto = dto.getMap());
         } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'C5') {
@@ -123,7 +125,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
     private List<String> getFields(){
         List<String> fields = new List<String>{
-            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId', 'Campaign.Name',
+            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId', 'Campaign.Name', 'Receipt_Number__c',
             'npsp__Primary_Contact__r.Greeting__c',
             'npsp__Primary_Contact__r.Letter_Salutation__c',
             'npsp__Primary_Contact__r.Contact_Id__c',

@@ -9,7 +9,7 @@
 		}
 
 		* {
-			font-family: sans-serif !important;
+			font-family: serif !important;
 			font-size: 15px;
 			line-height: 1.4;
 		}

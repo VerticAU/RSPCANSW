@@ -3,13 +3,13 @@
 	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
 
 	<div style="margin-left: 12mm; margin-top: 50mm; width: 95mm; height: 38mm; padding-bottom: 64mm; ">
-		<p style="font-size: x-small;">Donor Member Number: «{!dto['recipient'].Contact_ID__c}»</p>
-		<p style="font-size: x-small;">{!dto['recipient'].Letter_Salutation__c}</p>
-		<p style="font-size: x-small;">{!dto['recipient'].Title}</p>
-		<p style="font-size: x-small;">{!dto['recipient'].Care_Of__c}</p>
-<!--		<p style="font-size: x-small;">{!dto['organisation'].Name}</p>-->
-		<p style="font-size: x-small;">{!dto['recipient'].MailingStreet} {!dto['recipient'].MailingCity}</p>
-		<p style="font-size: x-small;">{!dto['recipient'].MailingState} {!dto['recipient'].MailingCountry} {!dto['recipient'].MailingPostalCode}</p>
+		<p style="font-size: 9pt;">Donor Member Number: {!dto['recipient'].Contact_ID__c}</p>
+		<p style="font-size: 9pt;">{!dto['recipient'].Letter_Salutation__c}</p>
+		<p style="font-size: 9pt;">{!dto['recipient'].Title} {!dto['recipient'].FirstName} {!dto['recipient'].LastName}</p>
+		<p style="font-size: 9pt;">{!dto['recipient'].Care_Of__c}</p>
+<!--		<p style="font-size: 9pt;">{!dto['organisation'].Name}</p>-->
+		<p style="font-size: 9pt;">{!dto['recipient'].MailingStreet} {!dto['recipient'].MailingCity}</p>
+		<p style="font-size: 9pt;">{!dto['recipient'].MailingState} {!dto['recipient'].MailingCountry} {!dto['recipient'].MailingPostalCode}</p>
 	</div>
 
 </apex:component>

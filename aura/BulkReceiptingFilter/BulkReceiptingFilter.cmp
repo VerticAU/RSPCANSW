@@ -52,6 +52,21 @@
                                        value="{!v.meta.dto.filter.campaignId}"
             />
 
+            <c:strike_lookup_clickable label="Batch"
+                                       object="Batch__c"
+                                       searchField="Name"
+                                       placeholder="Select a Batch..."
+                                       iconName="custom:custom42"
+                                       order="Name"
+                                       limit="4"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.batchId}"
+                                       filter="Batch_Status__c = 'Pending'"
+            />
+
             <lightning:input type="toggle"
                              label="Individual Donations Only"
                              checked="{!v.meta.dto.filter.isIndividualOnly}"
