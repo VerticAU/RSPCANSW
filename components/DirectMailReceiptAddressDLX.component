@@ -2,7 +2,7 @@
 
 	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
 
-	<div style="margin-left: 22mm; margin-top: 66mm; width: 95mm; height: 28mm; padding-bottom: 16mm;">
+	<div style="margin-left: 22mm; width: 95mm; height: 28mm; padding-bottom: 16mm;">
 		<p style="font-size: 9pt;">Donor Member Number: {!dto['recipient'].Contact_ID__c}</p>
 		<p style="font-size: 9pt;">{!dto['recipient'].Letter_Salutation__c}</p>
 		<p style="font-size: 9pt;">{!dto['recipient'].Title} {!dto['recipient'].FirstName} {!dto['recipient'].LastName}</p>
