@@ -18,6 +18,11 @@
         <relationshipLabel><!-- Invoices --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Payment --></label>
+        <name>Payment__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Program Engagement --></label>
         <name>Program_Engagement__c</name>
         <relationshipLabel><!-- Invoices --></relationshipLabel>

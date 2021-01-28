@@ -3746,6 +3746,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Invoice__c.Payment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Invoice__c.Program_Engagement__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4867,6 +4872,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Program_Area__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Program_Engagement__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

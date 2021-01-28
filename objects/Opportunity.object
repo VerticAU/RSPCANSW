@@ -2088,6 +2088,20 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Program_Engagement__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Engagement</label>
+        <referenceTo>pmdm__ProgramEngagement__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Property_Type__c</fullName>
         <externalId>false</externalId>
         <label>Property Type</label>
