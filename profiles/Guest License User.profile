@@ -101,6 +101,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AddPaymentWizardMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AnnualDirectMailReceiptMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -542,6 +546,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>vertic_ScheduledProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>vertic_UpdateRecordsBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>vertic_UpdateRecordsBatchTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>false</custom>
@@ -6461,7 +6473,15 @@
         <layout>Badge__mdt-Badge Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Batch__c-Batch Layout</layout>
+        <layout>Batch__c-Opportunities Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Batch__c-Opportunities Layout</layout>
+        <recordType>Batch__c.Opportunities_Batch</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Batch__c-Opportunities Layout</layout>
+        <recordType>Batch__c.Payments_Batch</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Branch__c-Branch Layout</layout>
@@ -6762,6 +6782,16 @@
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.npsp_plus_dres__Organization</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Batch__c.Opportunities_Batch</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Batch__c.Payments_Batch</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

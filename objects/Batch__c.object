@@ -223,6 +223,47 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Batches (custom)</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Opportunities_Batch</fullName>
+        <active>true</active>
+        <label>Opportunities Batch</label>
+        <picklistValues>
+            <picklist>Batch_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Payments_Batch</fullName>
+        <active>true</active>
+        <label>Payments Batch</label>
+        <picklistValues>
+            <picklist>Batch_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

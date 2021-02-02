@@ -1,0 +1,3 @@
+<aura:component description="AddPaymentWizardQA" implements="force:lightningQuickActionWithoutHeader,force:appHostable,force:hasRecordId">
+    <c:AddPaymentWizard isModal="true" recordId="{! v.recordId }"/>
+</aura:component>

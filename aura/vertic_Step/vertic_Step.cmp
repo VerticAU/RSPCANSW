@@ -1,0 +1,46 @@
+<aura:component extends="c:vertic_BaseQuickActionModal"
+                extensible="true"
+                implements="force:appHostable"
+                access="global">
+
+    <!-- ATTRIBUTE OVERRIDES -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="name" type="String" required="{!true}"/>
+    <aura:attribute name="nextStepButtonLabel" type="String" default="Next" access="global"/>
+
+    <aura:attribute name="cancelButton" type="Aura.Component[]">
+        <lightning:button variant="neutral" tabindex="-1" label="Cancel" onclick="{!c.handleCancel}"/>
+    </aura:attribute>
+
+    <aura:attribute name="previousButton" type="Aura.Component[]">
+        <lightning:button variant="neutral" tabindex="-1" label="Previous" onclick="{!c.handlePreviousClick}"/>
+    </aura:attribute>
+
+    <aura:attribute name="nextStepButton" type="Aura.Component[]">
+        <lightning:button type="button"
+                          disabled="{!v.isBusy}"
+                          label="{!or(v.nextStepButtonLabel, 'Next')}"
+                          variant="brand"
+                          onclick="{!c.handleNextClick}">
+        </lightning:button>
+    </aura:attribute>
+
+    <!-- EVENTS -->
+    <aura:registerEvent name="onNext" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onPrevious" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onNavigate" type="c:vertic_ComponentEvent"/>
+    <aura:registerEvent name="onInit" type="c:vertic_ComponentEvent"/>
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <!--  METHODS -->
+    <aura:method name="next" action="{!c.handleNext}"></aura:method>
+    <aura:method name="previous" action="{!c.handlePrevious}"></aura:method>
+    <aura:method name="navigate" action="{!c.handleNavigate}">
+        <aura:attribute name="target" type="String"/>
+    </aura:method>
+
+</aura:component>

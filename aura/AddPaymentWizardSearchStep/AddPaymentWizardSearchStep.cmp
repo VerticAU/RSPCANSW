@@ -1,0 +1,82 @@
+<aura:component description="AddPaymentWizardSearchStep" extends="c:vertic_Step">
+
+    <!-- ATTRIBUTE OVERRIDES -->
+    <aura:set attribute="name" value="search"/>
+    <aura:set attribute="showCancelButton" value="{!false}"/>
+    <aura:set attribute="heightPX" value="150"/>
+
+    <aura:set attribute="content">
+        <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Opportunity Search</h2>
+        <div class="slds-text-heading--x-small slds-text-align--center slds-m-bottom--small">Please choose Opportunity to process Payments:</div>
+
+        <c:strike_lookup_clickable label="Account (Organisation)"
+                                   object="Account"
+                                   searchField="Name"
+                                   placeholder="Select a Account..."
+                                   iconName="standard:account"
+                                   subtitleField="Website"
+                                   order="Name"
+                                   limit="8"
+                                   loadingMessage="Loading..."
+                                   errorMessage="Invalid input"
+                                   showRecentRecords="{!true}"
+                                   disabled="{!v.isBusy}"
+                                   value="{!v.meta.dto.filter.accountId}"
+        />
+
+        <c:strike_lookup_clickable label="Opportunity Deceased Contact"
+                                   object="Contact"
+                                   searchField="Name"
+                                   placeholder="Select a Contact..."
+                                   iconName="standard:contact"
+                                   subtitleField="Email"
+                                   order="Name"
+                                   limit="8"
+                                   loadingMessage="Loading..."
+                                   errorMessage="Invalid input"
+                                   showRecentRecords="{!true}"
+                                   disabled="{!v.isBusy}"
+                                   value="{!v.meta.dto.filter.oppContactId}"
+        />
+
+        <c:strike_lookup_clickable label="Account Primary Contact"
+                                   object="Contact"
+                                   searchField="Name"
+                                   placeholder="Select a Contact..."
+                                   iconName="standard:contact"
+                                   subtitleField="Email"
+                                   order="Name"
+                                   limit="8"
+                                   loadingMessage="Loading..."
+                                   errorMessage="Invalid input"
+                                   showRecentRecords="{!true}"
+                                   disabled="{!v.isBusy}"
+                                   value="{!v.meta.dto.filter.accContactId}"
+        />
+
+        <div style="width: 100%" class="slds-text-align_right">
+            <lightning:button label="Search"
+                              class="slds-m-top_small"
+                              iconName="utility:search"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleFilterChange}"
+            />
+        </div>
+
+
+    </aura:set>
+
+    <aura:set attribute="customButtons">
+        <div class="slds-grid">
+            <div class="slds-col slds-text-align_left slds-size_1-of-5">
+                {!v.cancelButton}
+            </div>
+            <div class="slds-col slds-size_3-of-5">
+                <c:AddPaymentWizardNavigation currentStep="{!v.name}"/>
+            </div>
+            <div class="slds-col slds-text-align_right slds-size_1-of-5">
+                {!v.nextStepButton}
+            </div>
+        </div>
+    </aura:set>
+</aura:component>

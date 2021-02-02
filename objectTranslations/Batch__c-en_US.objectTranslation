@@ -38,11 +38,30 @@
         <name>Number_of_Items__c</name>
     </fields>
     <layouts>
-        <layout>Batch Layout</layout>
+        <layout>Opportunities Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Payments Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Add Payment --></label>
+        <name>Add_Payment</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Opportunities Batch --></label>
+        <name>Opportunities_Batch</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Payments Batch --></label>
+        <name>Payments_Batch</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

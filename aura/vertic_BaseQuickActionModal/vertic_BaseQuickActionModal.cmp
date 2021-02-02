@@ -1,0 +1,73 @@
+<aura:component description="vertic_BaseQuickActionModal" extends="c:vertic_Modal" extensible="true">
+
+    <!-- QUICK ACTION ATTRIBUTE -->
+    <aura:attribute name="quickActionTitle" type="String" default="Title" access="public"/>
+    <aura:attribute name="quickActionCustomHeader" type="Aura.Component[]" access="public"/>
+    <aura:attribute name="quickActionShowCancel" type="Boolean" default="true" access="public"/>
+    <aura:attribute name="quickActionCancelLabel" type="String" default="Cancel" access="public"/>
+    <aura:attribute name="quickActionRefreshOnCancel" type="Boolean" default="{!false}" access="public"/>
+    <aura:attribute name="quickActionHeightPX" type="Integer" default="200" access="public"/>
+
+    <aura:attribute name="quickActionWidthPercentage" type="Integer" default="50" access="public"/>
+    <aura:attribute name="quickActionMaxWidthRem" type="Integer" default="40" access="public"/>
+    <aura:attribute name="quickActionMinWidthRem" type="Integer" default="20" access="public"/>
+
+    <aura:attribute name="quickActionContentHeightPX" type="Integer" default="{!v.quickActionHeightPX - 120}" access="public"/>
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="isModal" type="Boolean" default="{!false}" access="public"/>
+    <aura:attribute name="showCancelButton" type="Boolean" default="{!true}" access="public"/>
+    <aura:attribute name="content" type="Aura.Component[]" access="public"/>
+    <aura:attribute name="customButtons" type="Aura.Component[]" access="public"/>
+
+    <aura:attribute name="screen" type="Aura.Component[]" access="public"/>
+
+    <aura:attribute name="quickActionScreen" type="Aura.Component[]" access="public">
+        <c:vertic_QuickActionModal aura:id="modal"
+                                   title="{!v.quickActionTitle}"
+                                   showCancel="{!v.quickActionShowCancel}"
+                                   cancelLabel="{!v.quickActionCancelLabel}"
+                                   refreshOnCancel="{!v.quickActionRefreshOnCancel}"
+                                   heightPX="{!v.quickActionHeightPX}"
+                                   widthPercentage="{!v.quickActionWidthPercentage}"
+                                   maxWidthRem="{!v.quickActionMaxWidthRem}"
+                                   minWidthRem="{!v.quickActionMinWidthRem}"
+                                   contentHeightPX="{!v.quickActionContentHeightPX}"
+                                   isBusy="{!v.isBusy}">
+
+            <aura:set attribute="customHeader">
+                {!v.quickActionCustomHeader}
+            </aura:set>
+
+            {!v.content}
+
+            <aura:set attribute="footer">
+                {!v.customButtons}
+            </aura:set>
+
+        </c:vertic_QuickActionModal>
+    </aura:attribute>
+
+    <aura:attribute name="modalScreen" type="Aura.Component[]" access="public">
+        {!v.content}
+    </aura:attribute>
+
+    {!v.screen}
+
+    <aura:set attribute="footer">
+        <aura:if isTrue="{!v.isModal}">
+            <aura:if isTrue="{!v.showCancelButton}">
+                <lightning:button onclick="{!c.handleCancel}"
+                                  class="slds-float_left"
+                                  label="Cancel"
+                />
+            </aura:if>
+
+            {!v.customButtons}
+        </aura:if>
+    </aura:set>
+
+</aura:component>

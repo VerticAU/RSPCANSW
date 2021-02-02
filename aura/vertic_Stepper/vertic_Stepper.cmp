@@ -1,0 +1,19 @@
+<aura:component extends="c:vertic_Modal"
+                extensible="true"
+                implements="force:appHostable"
+                access="global">
+
+    <!-- ATTRIBUTE OVERRIDES -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="isModal" type="Boolean" default="{!false}"/>
+    <aura:attribute name="step" type="Aura.Component[]" access="public">
+    </aura:attribute>
+
+    <!-- METHODS -->
+    <aura:method name="getStepComponent" action="{!c.handleGetStepComponentClick}"></aura:method>
+
+    {!v.step}
+
+</aura:component>

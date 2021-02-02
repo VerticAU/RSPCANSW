@@ -1,0 +1,14 @@
+<aura:component description="AddPaymentWizardNavigation">
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="currentStep" type="String" access="global" required="{!true}" default="type"/>
+
+    <div class="progress-container">
+        <lightning:progressIndicator currentStep="{!v.currentStep}" type="base" variant="base">
+            <lightning:progressStep label="Search Opportunity" value="search"/>
+            <lightning:progressStep label="Select Payment" value="select"/>
+            <lightning:progressStep label="Confirm" value="confirm"/>
+        </lightning:progressIndicator>
+    </div>
+
+</aura:component>
