@@ -1,4 +1,4 @@
-<aura:component description="AddPaymentWizard" extends="c:vertic_Stepper">
+<aura:component description="AddPaymentWizard" extends="c:vertic_Stepper" implements="force:lightningQuickActionWithoutHeader,force:appHostable,force:hasRecordId">
     <!-- ATTRIBUTE OVERRIDES -->
     <aura:set attribute="processor" value="AddPaymentWizardMetaProc"/>
     <aura:set attribute="hideContentOnBusy" value="{!false}"/>

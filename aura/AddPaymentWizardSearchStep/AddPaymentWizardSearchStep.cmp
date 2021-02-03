@@ -3,67 +3,93 @@
     <!-- ATTRIBUTE OVERRIDES -->
     <aura:set attribute="name" value="search"/>
     <aura:set attribute="showCancelButton" value="{!false}"/>
-    <aura:set attribute="heightPX" value="150"/>
+    <aura:set attribute="quickActionHeightPX" value="600"/>
+    <aura:set attribute="quickActionWidthPercentage" value="70"/>
+
+    <aura:attribute type="Map" name="columns"/>
+    <aura:attribute type="String" name="condition"/>
 
     <aura:set attribute="content">
         <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Opportunity Search</h2>
         <div class="slds-text-heading--x-small slds-text-align--center slds-m-bottom--small">Please choose Opportunity to process Payments:</div>
 
-        <c:strike_lookup_clickable label="Account (Organisation)"
-                                   object="Account"
-                                   searchField="Name"
-                                   placeholder="Select a Account..."
-                                   iconName="standard:account"
-                                   subtitleField="Website"
-                                   order="Name"
-                                   limit="8"
-                                   loadingMessage="Loading..."
-                                   errorMessage="Invalid input"
-                                   showRecentRecords="{!true}"
-                                   disabled="{!v.isBusy}"
-                                   value="{!v.meta.dto.filter.accountId}"
-        />
+        <div class="slds-grid">
+            <div class="slds-col slds-size_2-of-5">
 
-        <c:strike_lookup_clickable label="Opportunity Deceased Contact"
-                                   object="Contact"
-                                   searchField="Name"
-                                   placeholder="Select a Contact..."
-                                   iconName="standard:contact"
-                                   subtitleField="Email"
-                                   order="Name"
-                                   limit="8"
-                                   loadingMessage="Loading..."
-                                   errorMessage="Invalid input"
-                                   showRecentRecords="{!true}"
-                                   disabled="{!v.isBusy}"
-                                   value="{!v.meta.dto.filter.oppContactId}"
-        />
+                <c:strike_lookup_clickable label="Account"
+                                           object="Account"
+                                           searchField="Name"
+                                           placeholder="Select a Account..."
+                                           iconName="standard:account"
+                                           subtitleField="Website"
+                                           order="Name"
+                                           limit="8"
+                                           loadingMessage="Loading..."
+                                           errorMessage="Invalid input"
+                                           showRecentRecords="{!true}"
+                                           disabled="{!v.isBusy}"
+                                           value="{!v.meta.dto.filter.accountId}"
+                />
 
-        <c:strike_lookup_clickable label="Account Primary Contact"
-                                   object="Contact"
-                                   searchField="Name"
-                                   placeholder="Select a Contact..."
-                                   iconName="standard:contact"
-                                   subtitleField="Email"
-                                   order="Name"
-                                   limit="8"
-                                   loadingMessage="Loading..."
-                                   errorMessage="Invalid input"
-                                   showRecentRecords="{!true}"
-                                   disabled="{!v.isBusy}"
-                                   value="{!v.meta.dto.filter.accContactId}"
-        />
+                <c:strike_lookup_clickable label="Account Deceased Contact"
+                                           object="Contact"
+                                           searchField="Name"
+                                           placeholder="Select a Contact..."
+                                           iconName="standard:contact"
+                                           subtitleField="Email"
+                                           order="Name"
+                                           limit="8"
+                                           loadingMessage="Loading..."
+                                           errorMessage="Invalid input"
+                                           showRecentRecords="{!true}"
+                                           disabled="{!v.isBusy}"
+                                           value="{!v.meta.dto.filter.deceasedContactId}"
+                />
 
-        <div style="width: 100%" class="slds-text-align_right">
-            <lightning:button label="Search"
-                              class="slds-m-top_small"
-                              iconName="utility:search"
-                              disabled="{!v.isBusy}"
-                              onclick="{!c.handleFilterChange}"
-            />
+                <c:strike_lookup_clickable label="Account Primary Contact"
+                                           object="Contact"
+                                           searchField="Name"
+                                           placeholder="Select a Contact..."
+                                           iconName="standard:contact"
+                                           subtitleField="Email"
+                                           order="Name"
+                                           limit="8"
+                                           loadingMessage="Loading..."
+                                           errorMessage="Invalid input"
+                                           showRecentRecords="{!true}"
+                                           disabled="{!v.isBusy}"
+                                           value="{!v.meta.dto.filter.primaryContactId}"
+                />
+
+                <div style="width: 100%" class="slds-text-align_center">
+                    <lightning:button label="Search"
+                                      class="slds-m-top_small"
+                                      iconName="utility:search"
+                                      disabled="{!v.isBusy}"
+                                      onclick="{!c.handleFilterChange}"
+                    />
+                </div>
+            </div>
+            <div class="slds-col slds-size_3-of-5">
+                <aura:if isTrue="{! not(empty(v.condition)) }">
+                    <div class="slds-box--border">
+                        <div class="slds-scrollable" style="max-height: 205px">
+                            <c:vertic_SOQLDatatable aura:id="contact-data-table"
+                                                    sObjectType="Opportunity"
+                                                    condition="{! v.condition }"
+                                                    fields="{! 'Id' }"
+                                                    overrideColumns="{! v.columns }"
+                                                    limit="100" orderBy="name"/>
+                        </div>
+                    </div>
+                    <aura:set attribute="else">
+                        <div style="height: 100%" class="slds-align_absolute-center slds-text-align_center">
+                            No Opportunities found
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </div>
         </div>
-
-
     </aura:set>
 
     <aura:set attribute="customButtons">
