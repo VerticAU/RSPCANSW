@@ -2,16 +2,46 @@
     <!-- ATTRIBUTE OVERRIDES -->
     <aura:set attribute="name" value="select"/>
     <aura:set attribute="showCancelButton" value="{!false}"/>
-    <aura:set attribute="heightPX" value="150"/>
+    <aura:set attribute="quickActionHeightPX" value="600"/>
+    <aura:set attribute="quickActionMaxWidthRem" value="70"/>
+
+    <aura:attribute type="Map" name="payColumns"/>
+    <aura:attribute type="String" name="payCondition"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
     <aura:set attribute="content">
-        <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small"></h2>
+        <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Process Payment for {! v.meta.dto.opportunity.Name }</h2>
         <div class="slds-text-heading--x-small slds-text-align--center slds-m-bottom--small">
-
+            Here you can update existing Payment or create a new one.
         </div>
 
+        <aura:if isTrue="{! not(empty(v.payCondition)) }">
+            <div class="slds-box--border slds-m-around_medium">
+                <div class="slds-scrollable" style="max-height: 145px">
+                    <c:vertic_SOQLDatatable aura:id="pay-data-table"
+                                            sObjectType="npe01__OppPayment__c"
+                                            condition="{! v.payCondition }"
+                                            fields="{! 'Id, npe01__Payment_Method__c, npe01__Payment_Date__c, npe01__Scheduled_Date__c, npe01__Payment_Amount__c' }"
+                                            overrideColumns="{! v.payColumns }"
+                                            limit="100" orderBy="name"/>
+                </div>
+            </div>
+        </aura:if>
 
+        <aura:if isTrue="{! not(empty(v.meta.dto.payment.Id))}">
+            <div class="slds-m-around_medium slds-p-around_medium slds-text-body_regular slds-text-color_weak slds-text-align_center" style="background: rgba(200, 213, 230, 1) linear-gradient(45deg, rgba(0, 0, 0, 0.025) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.025) 50%, rgba(0, 0, 0, 0.025) 75%, transparent 75%, transparent); background-size: 64px 64px;">
+                Selected Payment: <span style="font-weight: bold">{! v.meta.dto.payment.Name }</span>
+            </div>
+        </aura:if>
 
+        <aura:if isTrue="{! not(empty(v.meta.dto.payment))}">
+            <div class="slds-m-around_medium">
+                <lightning:input name="paymentMethod" label="Payment Method" value="{! v.meta.dto.payment.npe01__Payment_Method__c }"/>
+                <lightning:input name="paymentDate" label="Payment Date" value="{! v.meta.dto.payment.npe01__Payment_Date__c }"/>
+                <lightning:input name="paymentAmount" label="Payment Amount" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }"/>
+            </div>
+        </aura:if>
     </aura:set>
 
     <aura:set attribute="customButtons">

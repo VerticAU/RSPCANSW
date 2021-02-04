@@ -105,6 +105,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddPaymentWizardSearchStepMetaProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AnnualDirectMailReceiptMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>

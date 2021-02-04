@@ -1,13 +1,23 @@
 <aura:component description="AddPaymentWizardConfirmStep" extends="c:vertic_Step">
     <!-- ATTRIBUTE OVERRIDES -->
     <aura:set attribute="name" value="confirm"/>
-    <aura:set attribute="nextStepButtonLabel" value="Save"/>
+    <aura:set attribute="nextStepButtonLabel" value="Confirm"/>
     <aura:set attribute="showCancelButton" value="{!false}"/>
-    <aura:set attribute="heightPX" value="150"/>
+    <aura:set attribute="quickActionHeightPX" value="600"/>
+    <aura:set attribute="quickActionMaxWidthRem" value="70"/>
 
     <aura:set attribute="content">
-        <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Confirm</h2>
-        <div class="slds-text-heading--x-small slds-text-align--center slds-m-bottom--small"></div>
+        <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Confirm Payment</h2>
+        <div class="slds-text-heading--x-small slds-text-align--center slds-m-bottom--small">Payment below will be created or updated</div>
+
+        <div class="slds-m-around_x-large">
+            <lightning:input name="opportunityName" label="Opportunity Name" readonly="true" value="{! v.meta.dto.opportunity.Name }"/>
+            <lightning:input name="paymentName" label="Payment Name" readonly="true" value="{! v.meta.dto.payment.Name }"/>
+            <lightning:input name="paymentMethod" label="Payment Method" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Method__c }"/>
+            <lightning:input name="scheduledDate" label="Scheduled Date" readonly="true" value="{! v.meta.dto.payment.npe01__Scheduled_Date__c }"/>
+            <lightning:input name="paymentDate" label="Payment Date" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Date__c }"/>
+            <lightning:input name="paymentAmount" label="Payment Amount" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }"/>
+        </div>
     </aura:set>
 
     <aura:set attribute="customButtons">

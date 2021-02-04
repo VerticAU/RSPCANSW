@@ -1,21 +1,19 @@
 ({
     handleInit: function(cmp, event, helper){
-        cmp.set('v.oppColumns', [
+        cmp.set('v.payColumns', [
             {
                 changeAction: 'add', label: '', type: 'button-icon', initialWidth: 50, firstPosition: true,
                 typeAttributes: {
                     name: 'Add', iconName: 'utility:add',
                     doAction: function (row) {
-                        helper.handleOpportunityAction(cmp, helper, row);
+                        helper.handlePaymentAction(cmp, helper, row);
                     }
                 }
             }
         ]);
 
-        helper.filterChange(cmp, helper);
-    },
+        helper.updatePaymentTableCondition(cmp);
+        cmp.find('pay-data-table').refresh();
 
-    handleFilterChange: function(cmp, event, helper){
-        helper.filterChange(cmp, helper);
     },
 });
