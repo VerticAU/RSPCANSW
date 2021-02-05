@@ -29,19 +29,47 @@
             </div>
         </aura:if>
 
-        <aura:if isTrue="{! not(empty(v.meta.dto.payment.Id))}">
+        <aura:if isTrue="{! not(empty(v.meta.dto.payment))}">
             <div class="slds-m-around_medium slds-p-around_medium slds-text-body_regular slds-text-color_weak slds-text-align_center" style="background: rgba(200, 213, 230, 1) linear-gradient(45deg, rgba(0, 0, 0, 0.025) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.025) 50%, rgba(0, 0, 0, 0.025) 75%, transparent 75%, transparent); background-size: 64px 64px;">
-                Selected Payment: <span style="font-weight: bold">{! v.meta.dto.payment.Name }</span>
+                <aura:if isTrue="{! not(empty(v.meta.dto.payment.Id))}">
+                    Selected Payment: <span style="font-weight: bold">{! v.meta.dto.payment.Name }</span>
+                    <aura:set attribute="else">
+                        <span style="font-weight: bold">New Payment</span>
+                    </aura:set>
+                </aura:if>
             </div>
         </aura:if>
 
         <aura:if isTrue="{! not(empty(v.meta.dto.payment))}">
             <div class="slds-m-around_medium">
-                <lightning:input name="paymentMethod" label="Payment Method" value="{! v.meta.dto.payment.npe01__Payment_Method__c }"/>
-                <lightning:input name="paymentDate" label="Payment Date" value="{! v.meta.dto.payment.npe01__Payment_Date__c }"/>
-                <lightning:input name="paymentAmount" label="Payment Amount" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }"/>
+                <lightning:select label="Payment Method"
+                                  value="{! v.meta.dto.payment.npe01__Payment_Method__c }"
+                                  required="{!true}">
+                    <option value="">--None--</option>
+                    <aura:iteration items="{! v.meta.selectOptions.paymentMethodOptions }" var="option">
+                        <option label="{!option.label}" value="{!option.value}"/>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:input label="Payment Date"
+                                 type="date"
+                                 required="{!true}"
+                                 value="{! v.meta.dto.payment.npe01__Payment_Date__c }"
+                />
+                <lightning:input label="Scheduled Date"
+                                 type="date"
+                                 value="{! v.meta.dto.payment.npe01__Scheduled_Date__c }"
+                />
+                <lightning:input name="paymentAmount" type="number" label="Payment Amount" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }" required="true"/>
             </div>
         </aura:if>
+
+        <div class="slds-m-around_medium slds-text-align_right">
+            <lightning:button label="New Payment"
+                              iconName="utility:add"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleNewPayment}"
+            />
+        </div>
     </aura:set>
 
     <aura:set attribute="customButtons">

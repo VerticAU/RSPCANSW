@@ -7,6 +7,10 @@
             Id: opp.id,
             Name: opp.name
         });
+
+        cmp.set('v.meta.dto.batch', {
+            Id: cmp.get('v.batchId')
+        });
     },
 
     filterChange: function(cmp, helper){

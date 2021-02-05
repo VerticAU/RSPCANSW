@@ -9,12 +9,20 @@
         var nextCMP;
 
         if (payload.step === 'search') {
-            nextCMP = 'c:AddPaymentWizardSelectStep';
+            if(payload.meta.dto.opportunity){
+                nextCMP = 'c:AddPaymentWizardSelectStep';
+            } else {
+                helper.utils(cmp).showToast({
+                    title: "Error!",
+                    message: 'Please select Opportunity to continue!',
+                    type: 'error'
+                });
+            }
         } else if (payload.step === 'select') {
             nextCMP = 'c:AddPaymentWizardConfirmStep';
         } else if (payload.step === 'confirm') {
             cmp.set('v.meta', payload.meta);
-            helper.submit(cmp);
+            helper.submit(cmp, helper);
             return;
         }
         helper.renderStep(cmp, event, helper, nextCMP, {meta: payload.meta});

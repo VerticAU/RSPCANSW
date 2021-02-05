@@ -12,9 +12,13 @@
 
         <div class="slds-m-around_x-large">
             <lightning:input name="opportunityName" label="Opportunity Name" readonly="true" value="{! v.meta.dto.opportunity.Name }"/>
-            <lightning:input name="paymentName" label="Payment Name" readonly="true" value="{! v.meta.dto.payment.Name }"/>
+            <aura:if isTrue="{! v.meta.dto.payment.Name}">
+                <lightning:input name="paymentName" label="Payment Name" readonly="true" value="{! v.meta.dto.payment.Name }"/>
+            </aura:if>
             <lightning:input name="paymentMethod" label="Payment Method" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Method__c }"/>
-            <lightning:input name="scheduledDate" label="Scheduled Date" readonly="true" value="{! v.meta.dto.payment.npe01__Scheduled_Date__c }"/>
+            <aura:if isTrue="{! v.meta.dto.payment.npe01__Scheduled_Date__c}">
+                <lightning:input name="scheduledDate" label="Scheduled Date" readonly="true" value="{! v.meta.dto.payment.npe01__Scheduled_Date__c }"/>
+            </aura:if>
             <lightning:input name="paymentDate" label="Payment Date" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Date__c }"/>
             <lightning:input name="paymentAmount" label="Payment Amount" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }"/>
         </div>

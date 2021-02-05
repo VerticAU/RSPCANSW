@@ -26,7 +26,6 @@
                              class="slds-size_1-of-1"
                              disabled="{!v.isBusy}"
                              value="{!v.meta.dto.filter.startDate}"
-                             required="{!true}"
             />
 
             <lightning:input label="End Date"
@@ -35,7 +34,6 @@
                              disabled="{!v.isBusy}"
                              value="{!v.meta.dto.filter.endDate}"
                              min="{!v.meta.dto.filter.startDate}"
-                             required="{!true}"
             />
 
             <c:strike_lookup_clickable label="Campaign"

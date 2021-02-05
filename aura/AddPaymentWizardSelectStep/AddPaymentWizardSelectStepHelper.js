@@ -7,10 +7,11 @@
 
     handlePaymentAction: function (cmp, helper, payment) {
         if($A.util.isUndefinedOrNull(payment)){ return; }
-
         cmp.set('v.meta.dto.payment', {
             Id: payment.id,
             Name: payment.name,
+            npe01__Opportunity__c: cmp.get('v.meta.dto.opportunity.Id'),
+            Batch__c: cmp.get('v.meta.dto.batch.Id'),
             npe01__Scheduled_Date__c: payment.npe01__scheduled_date__c,
             npe01__Payment_Date__c: payment.npe01__payment_date__c,
             npe01__Payment_Amount__c: payment.npe01__payment_amount__c,

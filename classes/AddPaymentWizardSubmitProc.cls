@@ -1,4 +1,4 @@
-public class AddPaymentWizardMetaProc extends vertic_MetadataProcessor {
+public class AddPaymentWizardSubmitProc extends vertic_AbstractProcessor {
 
     /**
      * ==============================================================================================================
@@ -7,15 +7,9 @@ public class AddPaymentWizardMetaProc extends vertic_MetadataProcessor {
      */
 
     public override vertic_Response process(vertic_Request request) {
-        this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
+        this.request = request;
 
-        this.request.fields = new Set<SObjectField>{
-            Opportunity.Payment_Method__c
-        };
-
-        super.process(this.request);
-
-        this.init();
+        this.upsertPayment();
 
         return this.response;
     }
@@ -26,8 +20,13 @@ public class AddPaymentWizardMetaProc extends vertic_MetadataProcessor {
      * ==============================================================================================================
      */
 
-    private void init() {
+    private void upsertPayment() {
+        npe01__OppPayment__c payment = new npe01__OppPayment__c();
+        this.request.getMapper().mapToSObject('payment', payment);
 
+        upsert payment;
+
+        this.response.getMapper().mapFromSObject('payment', payment);
     }
 
     /**

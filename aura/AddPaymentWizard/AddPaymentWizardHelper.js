@@ -1,18 +1,15 @@
 ({
-    submit: function(cmp) {
-        var helper = this;
-
+    submit: function(cmp, helper) {
         helper.execute(cmp, 'AddPaymentWizardSubmitProc',
             {
-
+                payment: cmp.get('v.meta.dto.payment')
             },
             function(response) {
                 helper.utils(cmp).showToast({
                     type: 'success',
-                    message: 'Payment successfully added.'
+                    message: 'Payment successfully processed.'
                 });
-
-                cmp.closeModal(response);
+                // cmp.closeModal(response);
             },
             function(errors) {
                 helper.utils(cmp).showToast({

@@ -55,6 +55,10 @@
         <label><!-- Add Payment --></label>
         <name>Add_Payment</name>
     </quickActions>
+    <quickActions>
+        <label><!-- Approve --></label>
+        <name>Approve</name>
+    </quickActions>
     <recordTypes>
         <label><!-- Opportunities Batch --></label>
         <name>Opportunities_Batch</name>

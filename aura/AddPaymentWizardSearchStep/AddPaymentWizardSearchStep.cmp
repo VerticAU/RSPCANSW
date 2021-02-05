@@ -1,6 +1,8 @@
 <aura:component description="AddPaymentWizardSearchStep" extends="c:vertic_Step">
 
     <!-- ATTRIBUTE OVERRIDES -->
+    <aura:attribute name="batchId" type="String"/>
+
     <aura:set attribute="name" value="search"/>
     <aura:set attribute="showCancelButton" value="{!false}"/>
     <aura:set attribute="quickActionHeightPX" value="600"/>
@@ -50,7 +52,7 @@
                     />
                 </div>
                 <div class="slds-col slds-p-around_xx-small" style="width: -webkit-fill-available">
-                    <c:strike_lookup_clickable label="Account Primary Contact"
+                    <c:strike_lookup_clickable label="Contact"
                                                object="Contact"
                                                searchField="Name"
                                                placeholder="Select a Contact..."
@@ -62,7 +64,7 @@
                                                errorMessage="Invalid input"
                                                showRecentRecords="{!true}"
                                                disabled="{!v.isBusy}"
-                                               value="{!v.meta.dto.filter.primaryContactId}"
+                                               value="{!v.meta.dto.filter.contactId}"
                     />
                 </div>
                 <div class="slds-col slds-p-around_xx-small slds-align-bottom slds-text-align_right">
@@ -76,7 +78,7 @@
 
             <aura:if isTrue="{! not(empty(v.oppCondition)) }">
                 <div class="slds-box--border slds-m-around--xx-small">
-                    <div class="slds-scrollable" style="max-height: 180px">
+                    <div class="slds-scrollable" style="max-height: 235px">
                         <c:vertic_SOQLDatatable aura:id="opp-data-table"
                                                 sObjectType="Opportunity"
                                                 condition="{! v.oppCondition }"
