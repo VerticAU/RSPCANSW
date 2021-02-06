@@ -2,6 +2,6 @@
 
 	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
 
-    <img src="{!dto['imageUrl']}" style="width: 100%;"/>
+    <img src="{!dto['imageUrl']}" style="height: 45mm"/>
 
 </apex:component>

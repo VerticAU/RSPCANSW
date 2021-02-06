@@ -83,16 +83,16 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
         if(donation == null){ return '<p>Donation is not found.<\\p><p>Donation: ' + componentId + '<\\p>'; }
 
-        Direct_Mail_Receipt_Template__c template = (Direct_Mail_Receipt_Template__c)vertic_Utils.arrays.firstOrNull([
-            SELECT Id,
-                Envelope_Type__c,
-                Header_Image__c,
-                Receipt_Body_Text__c
-            FROM Direct_Mail_Receipt_Template__c
-            WHERE Campaign__c =: donation.CampaignId
-            AND Minimum_Donation__c <: donation.Amount
-            AND Maximum_Donation__c >: donation.Amount
-        ]);
+        Direct_Mail_Receipt_Template__c template;
+        String campaignId = donation.CampaignId;
+
+        while (template == null){
+            if(Limits.getLimitQueries() < 10 || campaignId == null){
+                break;
+            }
+            template = queryTemplate(donation, campaignId);
+            campaignId = getParentCampaignId(campaignId);
+        }
 
         if(template == null){
             return '<p>Template is no found.<\\p>' +
@@ -105,6 +105,29 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
         dto.put('envelopeType', template.Envelope_Type__c);
 
         return template.Receipt_Body_Text__c;
+    }
+
+    private Direct_Mail_Receipt_Template__c queryTemplate(Opportunity donation, String campaignId){
+        return (Direct_Mail_Receipt_Template__c) vertic_Utils.arrays.firstOrNull([
+            SELECT Id,
+                Envelope_Type__c,
+                Header_Image__c,
+                Receipt_Body_Text__c,
+                Campaign__c
+            FROM Direct_Mail_Receipt_Template__c
+            WHERE Campaign__c =: campaignId
+            AND Minimum_Donation__c <: donation.Amount
+            AND Maximum_Donation__c >: donation.Amount
+        ]);
+    }
+
+    private String getParentCampaignId(String campaignId){
+        Campaign campaign = (Campaign) vertic_Utils.arrays.firstOrNull([
+            SELECT Id, ParentId
+            FROM Campaign
+            WHERE Id =: campaignId
+        ]);
+        return campaign.ParentId;
     }
 
     protected override ApexPages.Component getComponentInstance(String name, vertic_DTO dto) {
