@@ -148,7 +148,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
     private List<String> getFields(){
         List<String> fields = new List<String>{
-            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId', 'Campaign.Name', 'Receipt_Number__c',
+            'Name', 'Amount', 'CloseDate', 'Payment_Method__c', 'CampaignId', 'Campaign.Name', 'Receipt_Number__c', 'Receipt_Number_Formula__c',
             'npsp__Primary_Contact__r.Greeting__c',
             'npsp__Primary_Contact__r.Letter_Salutation__c',
             'npsp__Primary_Contact__r.Contact_Id__c',

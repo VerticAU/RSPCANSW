@@ -9,13 +9,10 @@
         console.log('getExistingStripeCustomer', cmp.get('v.contribution'));
 
         if(!$A.util.isUndefinedOrNull(accountId)){
-
             request = { accountId: accountId }
-
         } else if(!$A.util.isUndefinedOrNull(contactId)) {
             request = { contactId: contactId }
         }
-
 
         if(!cmp.get('v.stripeCustomerId')){
             helper.execute(cmp, 'GetExistingOrCreateStripeCustomerWrapper',

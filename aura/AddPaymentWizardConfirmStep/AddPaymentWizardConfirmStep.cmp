@@ -21,6 +21,12 @@
             </aura:if>
             <lightning:input name="paymentDate" label="Payment Date" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Date__c }"/>
             <lightning:input name="paymentAmount" label="Payment Amount" readonly="true" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }"/>
+            <aura:if isTrue="{! v.meta.dto.payment.npe01__Payment_Method__c == 'Credit Card'}">
+                <div class="slds-has-divider_top">
+                    <lightning:input name="stripeCustomerId" label="Stripe Customer Id" readonly="true" value="{! v.meta.dto.payment.Stripe_Customer_Id__c }"/>
+                    <lightning:input name="stripePaymentId" label="Stripe Payment Id" readonly="true" value="{! v.meta.dto.payment.Stripe_Payment_Id__c }"/>
+                </div>
+            </aura:if>
         </div>
     </aura:set>
 

@@ -39,15 +39,15 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         this.retrieveMapping();
 
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(Contact.SObjectType);
-        queryFactory.selectFields(this.parentRelationshipMapping.values());
-        queryFactory.setCondition('Id = \'' + this.campaignMember.ContactId + '\'');
-        queryFactory.setLimit(1);
+        queryFactory
+            .selectFields(this.parentRelationshipMapping.values())
+            .setCondition('Id = \'' + this.campaignMember.ContactId + '\'')
+            .setLimit(1);
 
         for(String childRelationship : this.childRelationshipFields.keySet()){
-            fflib_QueryFactory subselect = queryFactory.subselectQuery(childRelationship);
-            subselect.selectFields(this.childRelationshipFields.get(childRelationship));
-            subselect.setLimit(1);
-            subselect.setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true);
+            queryFactory.subselectQuery(childRelationship).setLimit(1)
+                .selectFields(this.childRelationshipFields.get(childRelationship))
+                .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true);
         }
 
         this.contactVar = Database.query(queryFactory.toSOQL());
@@ -109,7 +109,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         });
 
         for(String key : this.parentRelationshipMapping.keySet()){
-            data.put(key, contactDTO.get('contact.' + (String) this.parentRelationshipMapping.get(key)));
+            setValue(data, key, contactDTO.get('contact.' + (String) this.parentRelationshipMapping.get(key)));
         }
 
         for(String key : this.childRelationshipMapping.keySet()){
@@ -119,7 +119,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             List<SObject> childSObjects = this.contactVar.getSObjects(childRelationship);
 
             if(childSObjects != null && childSObjects.size() > 0){
-                data.put(key, childSObjects[0].get(childField));
+                setValue(data, key, childSObjects[0].get(childField));
             }
         }
 
@@ -139,6 +139,14 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         update this.campaignMember;
 
         this.response.put('campaignMember', this.campaignMember);
+    }
+
+    private void setValue(Map<String, Object> data, String key, Object fieldValue){
+        if(fieldValue != null){
+            data.put(key, String.valueOf(fieldValue));
+        } else {
+            data.put(key, 'null');
+        }
     }
 
     private HttpResponse doRequest(String path, String method, String body){

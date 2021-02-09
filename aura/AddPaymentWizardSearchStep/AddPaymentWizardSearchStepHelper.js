@@ -5,7 +5,9 @@
         cmp.set('v.meta.dto.payment', null);
         cmp.set('v.meta.dto.opportunity', {
             Id: opp.id,
-            Name: opp.name
+            Name: opp.name,
+            AccountId: opp.accountid,
+            npsp__Primary_Contact__c: opp.npsp__primary_contact__c,
         });
 
         cmp.set('v.meta.dto.batch', {

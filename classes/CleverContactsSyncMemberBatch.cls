@@ -8,8 +8,7 @@ public class CleverContactsSyncMemberBatch implements Database.Batchable<SObject
 
     public Database.QueryLocator start(Database.BatchableContext context) {
         return Database.getQueryLocator('SELECT Id, ContactId, Clever_Contacts_Sync_Status__c, Clever_Contacts_Sync_Details__c FROM CampaignMember' +
-                                        ' WHERE CampaignId = \'' + this.campaignId + '\'' +
-                                        ' AND Clever_Contacts_Sync_Status__c != \'Success\'');
+                                        ' WHERE CampaignId = \'' + this.campaignId + '\'');
     }
 
     public void execute(Database.BatchableContext context, List<SObject> scope) {

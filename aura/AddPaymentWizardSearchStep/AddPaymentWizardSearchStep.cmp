@@ -82,7 +82,7 @@
                         <c:vertic_SOQLDatatable aura:id="opp-data-table"
                                                 sObjectType="Opportunity"
                                                 condition="{! v.oppCondition }"
-                                                fields="{! 'Id' }"
+                                                fields="{! 'Id, AccountId, npsp__Primary_Contact__c' }"
                                                 overrideColumns="{! v.oppColumns }"
                                                 limit="100" orderBy="name"/>
                     </div>

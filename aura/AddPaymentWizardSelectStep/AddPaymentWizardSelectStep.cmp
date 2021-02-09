@@ -10,6 +10,8 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
+    <c:vertic_ModalService aura:id="modalService"/>
+
     <aura:set attribute="content">
         <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Process Payment for {! v.meta.dto.opportunity.Name }</h2>
         <div class="slds-text-heading--x-small slds-text-align--center slds-m-bottom--small">
@@ -44,6 +46,7 @@
             <div class="slds-m-around_medium">
                 <lightning:select label="Payment Method"
                                   value="{! v.meta.dto.payment.npe01__Payment_Method__c }"
+                                  onchange="{! c.handlePaymentMethodChange }"
                                   required="{!true}">
                     <option value="">--None--</option>
                     <aura:iteration items="{! v.meta.selectOptions.paymentMethodOptions }" var="option">

@@ -26,4 +26,26 @@
             npe01__Payment_Date__c: new Date().toISOString()
         });
     },
+
+    handlePaymentMethodChange: function(cmp, event, helper){
+        if(cmp.get('v.meta.dto.payment.npe01__Payment_Method__c') === 'Credit Card'){
+            cmp.find('modalService').show(
+                'c:BulkContributionManagementCCModal',
+                {
+                    contribution: cmp.get('v.meta.dto.opportunity')
+                },
+                {
+                    header: 'Credit Card Payment'
+                }
+            ).then($A.getCallback(function (response) {
+                if(!$A.util.isUndefinedOrNull(response)){
+                    cmp.set('v.meta.dto.payment.Stripe_Customer_Id__c', response.stripeCustomerId);
+                    cmp.set('v.meta.dto.payment.Stripe_Payment_Id__c', response.stripePaymentMethodId);
+                }
+            }));
+        } else {
+            cmp.set('v.meta.dto.payment.Stripe_Customer_Id__c', null);
+            cmp.set('v.meta.dto.payment.Stripe_Payment_Id__c', null);
+        }
+    },
 });

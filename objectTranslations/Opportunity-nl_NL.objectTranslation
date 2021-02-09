@@ -762,7 +762,15 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Receipt Auto Number --></label>
+        <name>Receipt_Auto_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Receipt Number --></label>
+        <name>Receipt_Number_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manual Receipt Number --></label>
         <name>Receipt_Number__c</name>
     </fields>
     <fields>
