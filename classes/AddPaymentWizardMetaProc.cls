@@ -10,7 +10,8 @@ public class AddPaymentWizardMetaProc extends vertic_MetadataProcessor {
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
 
         this.request.fields = new Set<SObjectField>{
-            Opportunity.Payment_Method__c
+            Opportunity.Payment_Method__c,
+            npe01__OppPayment__c.npsp__Payment_Acknowledgment_Status__c
         };
 
         super.process(this.request);

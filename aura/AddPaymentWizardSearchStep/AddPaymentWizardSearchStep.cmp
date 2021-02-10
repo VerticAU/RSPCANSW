@@ -36,22 +36,6 @@
                     />
                 </div>
                 <div class="slds-col slds-p-around_xx-small" style="width: -webkit-fill-available">
-                    <c:strike_lookup_clickable label="Account Deceased Contact"
-                                               object="Contact"
-                                               searchField="Name"
-                                               placeholder="Select a Contact..."
-                                               iconName="standard:contact"
-                                               subtitleField="Email"
-                                               order="Name"
-                                               limit="8"
-                                               loadingMessage="Loading..."
-                                               errorMessage="Invalid input"
-                                               showRecentRecords="{!true}"
-                                               disabled="{!v.isBusy}"
-                                               value="{!v.meta.dto.filter.deceasedContactId}"
-                    />
-                </div>
-                <div class="slds-col slds-p-around_xx-small" style="width: -webkit-fill-available">
                     <c:strike_lookup_clickable label="Contact"
                                                object="Contact"
                                                searchField="Name"
@@ -82,7 +66,7 @@
                         <c:vertic_SOQLDatatable aura:id="opp-data-table"
                                                 sObjectType="Opportunity"
                                                 condition="{! v.oppCondition }"
-                                                fields="{! 'Id, AccountId, npsp__Primary_Contact__c' }"
+                                                fields="{! 'Id, RecordTypeId, AccountId, npsp__Primary_Contact__c, CloseDate' }"
                                                 overrideColumns="{! v.oppColumns }"
                                                 limit="100" orderBy="name"/>
                     </div>

@@ -27,6 +27,14 @@
                     <lightning:input name="stripePaymentId" label="Stripe Payment Id" readonly="true" value="{! v.meta.dto.payment.Stripe_Payment_Id__c }"/>
                 </div>
             </aura:if>
+            <aura:if isTrue="{! v.meta.dto.payment.npe01__Payment_Method__c == 'Cheque'}">
+                <div class="slds-has-divider_top">
+                    <lightning:input name="chequeNumber" label="Cheque Number" readonly="true" value="{! v.meta.dto.payment.Cheque_Number__c }"/>
+                    <lightning:input name="BSB" label="BSB" readonly="true" value="{! v.meta.dto.payment.BSB__c }"/>
+                    <lightning:input name="bankAccountNumber" label="Bank Account Number" readonly="true" value="{! v.meta.dto.payment.Bank_Account_Number__c }"/>
+                    <lightning:input name="nameOnCheque" label="Name on Cheque" readonly="true" value="{! v.meta.dto.payment.Name_on_Cheque__c }"/>
+                </div>
+            </aura:if>
         </div>
     </aura:set>
 

@@ -25,7 +25,7 @@
         ).then(function (response) {
             if (response.isValid) {
                 if(response.dto.ids && response.dto.ids.length > 0){
-                    cmp.set('v.oppCondition', 'Id IN (\'' + response.dto.ids.join('\',\'') + '\')');
+                    cmp.set('v.oppCondition', 'IsClosed = FALSE AND Id IN (\'' + response.dto.ids.join('\',\'') + '\')');
                 } else {
                     cmp.set('v.oppCondition', null);
                 }

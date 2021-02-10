@@ -23,7 +23,8 @@
         cmp.set('v.meta.dto.payment', {
             npe01__Opportunity__c: cmp.get('v.meta.dto.opportunity.Id'),
             Batch__c: cmp.get('v.meta.dto.batch.Id'),
-            npe01__Payment_Date__c: new Date().toISOString()
+            npe01__Payment_Date__c: new Date().toISOString(),
+            npsp__Payment_Acknowledgment_Status__c: 'Do Not Acknowledge'
         });
     },
 
@@ -46,6 +47,13 @@
         } else {
             cmp.set('v.meta.dto.payment.Stripe_Customer_Id__c', null);
             cmp.set('v.meta.dto.payment.Stripe_Payment_Id__c', null);
+        }
+
+        if(cmp.get('v.meta.dto.payment.npe01__Payment_Method__c') !== 'Cheque'){
+            cmp.set('v.meta.dto.payment.Cheque_Number__c', null);
+            cmp.set('v.meta.dto.payment.BSB__c', null);
+            cmp.set('v.meta.dto.payment.Bank_Account_Number__c', null);
+            cmp.set('v.meta.dto.payment.Name_on_Cheque__c', null);
         }
     },
 });

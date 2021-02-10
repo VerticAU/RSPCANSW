@@ -142,6 +142,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Send_Payment_Receipt</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Set_Lapsed_Date_To_Contact</fullName>
     </flowDefinitions>
     <flowDefinitions>

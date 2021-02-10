@@ -59,6 +59,10 @@
         <label><!-- Approve --></label>
         <name>Approve</name>
     </quickActions>
+    <quickActions>
+        <label><!-- Process --></label>
+        <name>Process</name>
+    </quickActions>
     <recordTypes>
         <label><!-- Opportunities Batch --></label>
         <name>Opportunities_Batch</name>

@@ -53,6 +53,29 @@
                         <option label="{!option.label}" value="{!option.value}"/>
                     </aura:iteration>
                 </lightning:select>
+
+                <aura:if isTrue="{!v.meta.dto.payment.npe01__Payment_Method__c == 'Cheque'}">
+                    <div class="slds-m-around_x-small slds-page-header">
+                        <lightning:input label="Cheque Number"
+                                         required="{!true}"
+                                         value="{! v.meta.dto.payment.Cheque_Number__c }"
+                        />
+                        <lightning:input label="BSB"
+                                         required="{!true}"
+                                         value="{! v.meta.dto.payment.BSB__c }"
+                        />
+
+                        <lightning:input label="Bank Account"
+                                         required="{!true}"
+                                         value="{! v.meta.dto.payment.Bank_Account_Number__c }"
+                        />
+                        <lightning:input label="Name on Cheque"
+                                         required="{!true}"
+                                         value="{! v.meta.dto.payment.Name_on_Cheque__c }"
+                        />
+                    </div>
+                </aura:if>
+
                 <lightning:input label="Payment Date"
                                  type="date"
                                  required="{!true}"
@@ -63,6 +86,15 @@
                                  value="{! v.meta.dto.payment.npe01__Scheduled_Date__c }"
                 />
                 <lightning:input name="paymentAmount" type="number" label="Payment Amount" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }" required="true"/>
+
+                <lightning:select label="Acknowledgement Status"
+                                  value="{! v.meta.dto.payment.npsp__Payment_Acknowledgment_Status__c }"
+                                  required="{!true}">
+                    <option value="">--None--</option>
+                    <aura:iteration items="{! v.meta.selectOptions.npspPaymentAcknowledgmentStatusOptions }" var="option">
+                        <option label="{!option.label}" value="{!option.value}"/>
+                    </aura:iteration>
+                </lightning:select>
             </div>
         </aura:if>
 
