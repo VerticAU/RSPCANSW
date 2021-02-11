@@ -44,12 +44,26 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             .setCondition('Id = \'' + this.campaignMember.ContactId + '\'')
             .setLimit(1);
 
-        for(String childRelationship : this.childRelationshipFields.keySet()){
-            queryFactory.subselectQuery(childRelationship).setLimit(1)
-                .selectFields(this.childRelationshipFields.get(childRelationship))
-                .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true);
+        for(String childRelationshipKey : this.childRelationshipFields.keySet()){
+
+            String condition;
+            String childRelationship = childRelationshipKey;
+            if(childRelationshipKey.contains('(') && childRelationshipKey.contains(')')){
+                condition = childRelationshipKey.substringBetween('(',')');
+                childRelationship = childRelationshipKey.substringBefore('(') + childRelationshipKey.substringAfter(')');
+            }
+
+            System.debug('childRelationship: ' + childRelationship);
+            fflib_QueryFactory subQueryFactory = queryFactory.subselectQuery(childRelationship);
+            subQueryFactory
+                .selectFields(this.childRelationshipFields.get(childRelationshipKey))
+                .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true)
+                .setLimit(1);
+
+            if(condition != null){ subQueryFactory.setCondition(condition); }
         }
 
+        System.debug(queryFactory.toSOQL());
         this.contactVar = Database.query(queryFactory.toSOQL());
     }
 
@@ -113,8 +127,13 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         }
 
         for(String key : this.childRelationshipMapping.keySet()){
-            String childRelationship = this.childRelationshipMapping.get(key).substringBefore('|');
+
             String childField = this.childRelationshipMapping.get(key).substringAfter('|');
+            String childRelationship = this.childRelationshipMapping.get(key).substringBefore('|');
+
+            if(childRelationship.contains('(') && childRelationship.contains(')')){
+                childRelationship = childRelationship.substringBefore('(') + childRelationship.substringAfter(')');
+            } // removing (condition) from childRelationship
 
             List<SObject> childSObjects = this.contactVar.getSObjects(childRelationship);
 

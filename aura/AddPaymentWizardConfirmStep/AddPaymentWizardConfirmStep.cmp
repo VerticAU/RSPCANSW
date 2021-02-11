@@ -1,7 +1,7 @@
 <aura:component description="AddPaymentWizardConfirmStep" extends="c:vertic_Step">
     <!-- ATTRIBUTE OVERRIDES -->
     <aura:set attribute="name" value="confirm"/>
-    <aura:set attribute="nextStepButtonLabel" value="Confirm"/>
+    <aura:set attribute="nextStepButtonLabel" value="Save"/>
     <aura:set attribute="showCancelButton" value="{!false}"/>
     <aura:set attribute="quickActionHeightPX" value="600"/>
     <aura:set attribute="quickActionMaxWidthRem" value="70"/>
@@ -35,6 +35,10 @@
                     <lightning:input name="nameOnCheque" label="Name on Cheque" readonly="true" value="{! v.meta.dto.payment.Name_on_Cheque__c }"/>
                 </div>
             </aura:if>
+
+            <div class="slds-text-align_right">
+                <lightning:button type="button" label="Confirm &amp; New" disabled="{!v.isBusy}" onclick="{! c.handleConfirmAndNew }"/>
+            </div>
         </div>
     </aura:set>
 
