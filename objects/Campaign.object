@@ -226,6 +226,105 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Clever_Contacts_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Clever Contacts Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Adoption Conversion</fullName>
+                    <default>false</default>
+                    <label>Adoption Conversion</label>
+                </value>
+                <value>
+                    <fullName>New Donor Conversion</fullName>
+                    <default>false</default>
+                    <label>New Donor Conversion</label>
+                </value>
+                <value>
+                    <fullName>Raffle Conversion</fullName>
+                    <default>false</default>
+                    <label>Raffle Conversion</label>
+                </value>
+                <value>
+                    <fullName>Upgrades</fullName>
+                    <default>false</default>
+                    <label>Upgrades</label>
+                </value>
+                <value>
+                    <fullName>Re-Activation</fullName>
+                    <default>false</default>
+                    <label>Re-Activation</label>
+                </value>
+                <value>
+                    <fullName>Cat Behaviour Guide</fullName>
+                    <default>false</default>
+                    <label>Cat Behaviour Guide</label>
+                </value>
+                <value>
+                    <fullName>Happy Dog Guide</fullName>
+                    <default>false</default>
+                    <label>Happy Dog Guide</label>
+                </value>
+                <value>
+                    <fullName>MPW Conversion</fullName>
+                    <default>false</default>
+                    <label>MPW Conversion</label>
+                </value>
+                <value>
+                    <fullName>CCD Conversion</fullName>
+                    <default>false</default>
+                    <label>CCD Conversion</label>
+                </value>
+                <value>
+                    <fullName>GTGTH Conversion</fullName>
+                    <default>false</default>
+                    <label>GTGTH Conversion</label>
+                </value>
+                <value>
+                    <fullName>Adopt Lead Gen</fullName>
+                    <default>false</default>
+                    <label>Adopt Lead Gen</label>
+                </value>
+                <value>
+                    <fullName>AEF</fullName>
+                    <default>false</default>
+                    <label>AEF</label>
+                </value>
+                <value>
+                    <fullName>Competible</fullName>
+                    <default>false</default>
+                    <label>Competible</label>
+                </value>
+                <value>
+                    <fullName>MPW Welcome Calls</fullName>
+                    <default>false</default>
+                    <label>MPW Welcome Calls</label>
+                </value>
+                <value>
+                    <fullName>MPW Re-Activation Calls</fullName>
+                    <default>false</default>
+                    <label>MPW Re-Activation Calls</label>
+                </value>
+                <value>
+                    <fullName>GiW Conversion Campaign</fullName>
+                    <default>false</default>
+                    <label>GiW Conversion Campaign</label>
+                </value>
+                <value>
+                    <fullName>GiW Thank you/Check In Calls</fullName>
+                    <default>false</default>
+                    <label>GiW Thank you/Check In Calls</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -628,6 +727,77 @@ IF(
         <active>true</active>
         <label>Campaign</label>
         <picklistValues>
+            <picklist>Clever_Contacts_Type__c</picklist>
+            <values>
+                <fullName>AEF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adopt Lead Gen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adoption Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCD Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cat Behaviour Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competible</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GTGTH Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW Conversion Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW Thank you%2FCheck In Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Happy Dog Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Re-Activation Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Welcome Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Donor Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Raffle Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Activation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upgrades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Giving_Strategy__c</picklist>
             <values>
                 <fullName>Highest Donation Amount</fullName>
@@ -782,6 +952,77 @@ IF(
         <description>Record used to capture details about an event.</description>
         <label>Event</label>
         <picklistValues>
+            <picklist>Clever_Contacts_Type__c</picklist>
+            <values>
+                <fullName>AEF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adopt Lead Gen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adoption Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCD Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cat Behaviour Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competible</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GTGTH Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW Conversion Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW Thank you%2FCheck In Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Happy Dog Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Re-Activation Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Welcome Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Donor Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Raffle Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Activation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upgrades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Giving_Strategy__c</picklist>
             <values>
                 <fullName>Highest Donation Amount</fullName>
@@ -934,6 +1175,77 @@ IF(
         <fullName>Fundraiser_Campaign</fullName>
         <active>true</active>
         <label>Fundraiser Campaign</label>
+        <picklistValues>
+            <picklist>Clever_Contacts_Type__c</picklist>
+            <values>
+                <fullName>AEF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adopt Lead Gen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adoption Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCD Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cat Behaviour Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competible</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GTGTH Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW Conversion Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GiW Thank you%2FCheck In Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Happy Dog Guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Re-Activation Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPW Welcome Calls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Donor Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Raffle Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Activation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Upgrades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Giving_Strategy__c</picklist>
             <values>

@@ -22,5 +22,11 @@
                 }
             );
         }));
-    }
+    },
+
+    closeModal: function(cmp){
+        $A.get('e.force:refreshView').fire();
+        var closeAction = $A.get("e.force:closeQuickAction");
+        if(closeAction) { closeAction.fire(); }
+    },
 });

@@ -22,8 +22,9 @@
             nextCMP = 'c:AddPaymentWizardConfirmStep';
         } else if (payload.step === 'confirm') {
             cmp.set('v.meta', payload.meta);
-            helper.submit(cmp, helper);
-            cmp.closeModal();
+            helper.submit(cmp, helper).then(function (response) {
+                helper.closeModal();
+            })
             return;
         }
         helper.renderStep(cmp, event, helper, nextCMP, {meta: payload.meta});
@@ -38,12 +39,10 @@
         } else if (payload.step === 'confirm') {
             prevCMP = 'c:AddPaymentWizardSelectStep';
         } else if (payload.step === 'confirm&new') {
-            prevCMP = 'c:AddPaymentWizardSelectStep';
+            prevCMP = 'c:AddPaymentWizardSearchStep';
             cmp.set('v.meta', payload.meta);
-            helper.submit(cmp, helper).then(function (response) {
-                helper.renderStep(cmp, event, helper, prevCMP, {meta: payload.meta});
-            })
-            return;
+            helper.submit(cmp, helper);
+            cmp.set('v.meta.dto', {});
         }
         helper.renderStep(cmp, event, helper, prevCMP, {meta: payload.meta});
     },

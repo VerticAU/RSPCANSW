@@ -1,5 +1,6 @@
 ({
     handleInit: function(cmp, event, helper){
+        console.log(JSON.stringify(cmp.get('v.meta')));
         cmp.set('v.oppColumns', [
             {
                 changeAction: 'add', label: '', type: 'button-icon', initialWidth: 50, firstPosition: true,

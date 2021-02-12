@@ -30,19 +30,26 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     private void init() {
         this.campaignMember = (CampaignMember) vertic_Utils.arrays.firstOrException([
             SELECT Id,
+                Campaign.Clever_Contacts_Type__c,
                 Campaign.Name,
-                ContactId
+                ContactId,
+                LeadId
             FROM CampaignMember
             WHERE Id =: THIS.request.getRequiredString('recordId')
         ]);
 
         this.retrieveMapping();
 
-        fflib_QueryFactory queryFactory = new fflib_QueryFactory(Contact.SObjectType);
+        fflib_QueryFactory queryFactory = new fflib_QueryFactory(this.parentSObjectType);
         queryFactory
             .selectFields(this.parentRelationshipMapping.values())
-            .setCondition('Id = \'' + this.campaignMember.ContactId + '\'')
             .setLimit(1);
+
+        if(this.parentSObjectType == Contact.SObjectType){
+            queryFactory.setCondition('Id = \'' + this.campaignMember.ContactId + '\'');
+        } else if(this.parentSObjectType == Lead.SObjectType){
+            queryFactory.setCondition('Id = \'' + this.campaignMember.LeadId + '\'');
+        }
 
         for(String childRelationshipKey : this.childRelationshipFields.keySet()){
 
@@ -64,16 +71,20 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         }
 
         System.debug(queryFactory.toSOQL());
-        this.contactVar = Database.query(queryFactory.toSOQL());
+        this.parentSObject = Database.query(queryFactory.toSOQL());
     }
 
     private void retrieveMapping(){
+        Map<String, Object> mapping;
         Map<String, Object> fieldMapping;
 
         if(Test.isRunningTest()){
-            fieldMapping = new Map<String, String>{
-                'first_name' => 'FirstName',
-                'last_name' => 'LastName'
+            mapping = new Map<String, Object>{
+                'object' => 'Contact',
+                'mapping' => new Map<String, String>{
+                    'first_name' => 'FirstName',
+                    'last_name' => 'LastName'
+                }
             };
         } else {
             SObject setting = vertic_SettingService.getMetadataType(Schema.getGlobalDescribe().get('Vertic_Setting__mdt'), 'Clever_Contacts_Campaign_Fields_Mapping');
@@ -81,10 +92,13 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             if(setting == null){ return; }
 
             Map<String, Object> valueMap = (Map<String, Object>) JSON.deserializeUntyped((String) setting.get('Value__c'));
-            fieldMapping = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Name);
+            mapping = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Clever_Contacts_Type__c);
 
-            if(fieldMapping == null){ fieldMapping = (Map<String, Object>) valueMap.get('default'); }
+            if(mapping == null){ mapping = (Map<String, Object>) valueMap.get('default'); }
         }
+
+        this.parentSObjectType = Schema.getGlobalDescribe().get(mapping.get('object').toString());
+        fieldMapping = (Map<String, Object>) mapping.get('mapping');
 
         this.childRelationshipFields = new Map<String, Set<String>>();
         this.childRelationshipMapping = new Map<String, String>();
@@ -118,12 +132,12 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             'api_source' => 'salesforce'
         };
 
-        vertic_DTO contactDTO = new vertic_DTO(new Map<String, Object> {
-            'contact' => new vertic_AutoMapper().getSObjectAsMap(this.contactVar)
+        vertic_DTO objectDTO = new vertic_DTO(new Map<String, Object> {
+            'object' => new vertic_AutoMapper().getSObjectAsMap(this.parentSObject)
         });
 
         for(String key : this.parentRelationshipMapping.keySet()){
-            setValue(data, key, contactDTO.get('contact.' + (String) this.parentRelationshipMapping.get(key)));
+            setValue(data, key, objectDTO.get('object.' + (String) this.parentRelationshipMapping.get(key)));
         }
 
         for(String key : this.childRelationshipMapping.keySet()){
@@ -132,13 +146,20 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             String childRelationship = this.childRelationshipMapping.get(key).substringBefore('|');
 
             if(childRelationship.contains('(') && childRelationship.contains(')')){
-                childRelationship = childRelationship.substringBefore('(') + childRelationship.substringAfter(')');
-            } // removing (condition) from childRelationship
+                childRelationship = childRelationship.substringBefore('(') + childRelationship.substringAfter(')'); // removing (condition) from childRelationship
+            }
 
-            List<SObject> childSObjects = this.contactVar.getSObjects(childRelationship);
+            List<SObject> childSObjects;
+            if(this.parentSObjectType == Contact.SObjectType){
+                childSObjects = ((Contact) this.parentSObject).getSObjects(childRelationship);
+            } else if(this.parentSObjectType == Lead.SObjectType){
+                childSObjects = ((Lead) this.parentSObject).getSObjects(childRelationship);
+            }
 
             if(childSObjects != null && childSObjects.size() > 0){
                 setValue(data, key, childSObjects[0].get(childField));
+            } else {
+                setValue(data, key, 'null');
             }
         }
 
@@ -185,7 +206,6 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
 
         return new Http().send(req);
     }
-
     /**
      * ==============================================================================================================
      *                                             PRIVATE METHODS
@@ -193,7 +213,8 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
      */
 
 
-    private Contact contactVar;
+    private SObject parentSObject;
+    private SObjectType parentSObjectType;
     private CampaignMember campaignMember;
 
 

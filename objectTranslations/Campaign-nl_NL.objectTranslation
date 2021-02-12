@@ -13,6 +13,78 @@
         <name>Campaign_Code__c</name>
     </fields>
     <fields>
+        <label><!-- Clever Contacts Type --></label>
+        <name>Clever_Contacts_Type__c</name>
+        <picklistValues>
+            <masterLabel>AEF</masterLabel>
+            <translation><!-- AEF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adopt Lead Gen</masterLabel>
+            <translation><!-- Adopt Lead Gen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adoption Conversion</masterLabel>
+            <translation><!-- Adoption Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CCD Conversion</masterLabel>
+            <translation><!-- CCD Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cat Behaviour Guide</masterLabel>
+            <translation><!-- Cat Behaviour Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competible</masterLabel>
+            <translation><!-- Competible --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GTGTH Conversion</masterLabel>
+            <translation><!-- GTGTH Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GiW Conversion Campaign</masterLabel>
+            <translation><!-- GiW Conversion Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GiW Thank you/Check In Calls</masterLabel>
+            <translation><!-- GiW Thank you/Check In Calls --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Happy Dog Guide</masterLabel>
+            <translation><!-- Happy Dog Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPW Conversion</masterLabel>
+            <translation><!-- MPW Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPW Re-Activation Calls</masterLabel>
+            <translation><!-- MPW Re-Activation Calls --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPW Welcome Calls</masterLabel>
+            <translation><!-- MPW Welcome Calls --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Donor Conversion</masterLabel>
+            <translation><!-- New Donor Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Raffle Conversion</masterLabel>
+            <translation><!-- Raffle Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Activation</masterLabel>
+            <translation><!-- Re-Activation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrades</masterLabel>
+            <translation><!-- Upgrades --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Contact --></label>
         <name>Contact__c</name>
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
