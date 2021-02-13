@@ -28,7 +28,6 @@ public class AddPaymentWizardSearchStepMetaProc extends vertic_MetadataProcessor
 
     private void retrieveRecords() {
         String accountId = this.request.getString('filter.accountId');
-        String deceasedContactId = this.request.getString('filter.deceasedContactId');
         String contactId = this.request.getString('filter.contactId');
 
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(Opportunity.SObjectType);
@@ -36,7 +35,6 @@ public class AddPaymentWizardSearchStepMetaProc extends vertic_MetadataProcessor
 
         List<String> conditions = new List<String>{};
         if (String.isNotBlank(accountId)) { conditions.add('AccountId = :accountId');  }
-        if (String.isNotBlank(deceasedContactId)) { conditions.add('Account.Deceased_Donor__c = :deceasedContactId'); }
         if (String.isNotBlank(contactId)) { conditions.add('npsp__Primary_Contact__c = :contactId'); }
         queryFactory.setCondition(String.join(conditions, ' OR '));
 

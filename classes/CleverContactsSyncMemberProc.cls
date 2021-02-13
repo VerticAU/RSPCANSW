@@ -8,9 +8,10 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     private static final String ACCEPT_HEADER = 'Accept';
     private static final String APP_JSON_TYPE = 'application/json';
 
-    private Map<String, String> childRelationshipMapping;
-    private Map<String, String> parentRelationshipMapping;
-    private Map<String, Set<String>> childRelationshipFields;
+    private Map<String, String> ccKeyToChildRelationshipMapping = new Map<String, String>();
+    private Map<String, String> ccKeyToParentFieldMapping = new Map<String, String>();
+    private Map<String, Set<String>> childRelationshipToFields = new Map<String, Set<String>>();
+    private Map<String, Object> data = new Map<String, Object>();
 
     /**
      * ==============================================================================================================
@@ -21,13 +22,18 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-        this.init();
+        this.retrieveCampaignMember();
+        this.retrieveCMDTMapping();
+        this.parseCMDTMappingAndRetrieveParentObject();
+        this.populateRequestMapWithAuthInfo();
+        this.populateRequestMapFromParentObject();
+
         this.sync();
 
         return this.response;
     }
 
-    private void init() {
+    private void retrieveCampaignMember(){
         this.campaignMember = (CampaignMember) vertic_Utils.arrays.firstOrException([
             SELECT Id,
                 Campaign.Clever_Contacts_Type__c,
@@ -37,33 +43,42 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             FROM CampaignMember
             WHERE Id =: THIS.request.getRequiredString('recordId')
         ]);
+    }
 
-        this.retrieveMapping();
+    private String getParentObjectId(){
+        if(this.parentSObjectType == Contact.SObjectType){
+            return this.campaignMember.ContactId;
+        } else if(this.parentSObjectType == Lead.SObjectType){
+            return this.campaignMember.LeadId;
+        }
+        return null;
+    }
 
+    private void parseCMDTMappingAndRetrieveParentObject() {
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(this.parentSObjectType);
         queryFactory
-            .selectFields(this.parentRelationshipMapping.values())
+            .selectFields(this.ccKeyToParentFieldMapping.values())
+            .setCondition('Id = \'' + getParentObjectId() + '\'')
             .setLimit(1);
 
-        if(this.parentSObjectType == Contact.SObjectType){
-            queryFactory.setCondition('Id = \'' + this.campaignMember.ContactId + '\'');
-        } else if(this.parentSObjectType == Lead.SObjectType){
-            queryFactory.setCondition('Id = \'' + this.campaignMember.LeadId + '\'');
-        }
+        for(String childRelationshipKey : this.childRelationshipToFields.keySet()){
 
-        for(String childRelationshipKey : this.childRelationshipFields.keySet()){
-
-            String condition;
-            String childRelationship = childRelationshipKey;
-            if(childRelationshipKey.contains('(') && childRelationshipKey.contains(')')){
-                condition = childRelationshipKey.substringBetween('(',')');
-                childRelationship = childRelationshipKey.substringBefore('(') + childRelationshipKey.substringAfter(')');
+            if(childRelationshipKey.contains('*')){
+                populateRequestMapFromSpecificChildObject(childRelationshipKey);
+                continue;
             }
 
-            System.debug('childRelationship: ' + childRelationship);
-            fflib_QueryFactory subQueryFactory = queryFactory.subselectQuery(childRelationship);
+            String condition;
+            String childRelationshipName = childRelationshipKey;
+            if(childRelationshipKey.contains('(') && childRelationshipKey.contains(')')){
+                condition = childRelationshipKey.substringBetween('(',')');
+                childRelationshipName = childRelationshipKey.substringBefore('(') + childRelationshipKey.substringAfter(')');
+            }
+
+//            System.debug('childRelationship: ' + childRelationshipName);
+            fflib_QueryFactory subQueryFactory = queryFactory.subselectQuery(childRelationshipName);
             subQueryFactory
-                .selectFields(this.childRelationshipFields.get(childRelationshipKey))
+                .selectFields(this.childRelationshipToFields.get(childRelationshipKey))
                 .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true)
                 .setLimit(1);
 
@@ -74,95 +89,150 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         this.parentSObject = Database.query(queryFactory.toSOQL());
     }
 
-    private void retrieveMapping(){
-        Map<String, Object> mapping;
-        Map<String, Object> fieldMapping;
+    private void populateRequestMapFromSpecificChildObject(String childRelationshipKey){ // requirement is to retrieve 2 related Opportunity with different condtion which is not possible in subqure
+        String condition;
+        String childRelationshipName = childRelationshipKey;
+        if(childRelationshipKey.contains('(') && childRelationshipKey.contains(')')){
+            condition = childRelationshipKey.substringBetween('(',')');
+            childRelationshipName = childRelationshipKey.substringBefore('(') + childRelationshipKey.substringAfter(')');
+        }
+        childRelationshipName = childRelationshipName.remove('*');
+
+        Schema.ChildRelationship childRelationship = getChildRelationship(childRelationshipName);
+
+        fflib_QueryFactory queryFactory = new fflib_QueryFactory(childRelationship.getChildSObject());
+        queryFactory
+            .selectFields(this.childRelationshipToFields.get(childRelationshipKey))
+            .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true)
+            .setLimit(1);
+
+        if(condition != null){
+            queryFactory.setCondition(condition + ' AND ' + childRelationship.getField() + ' = \'' + getParentObjectId() + '\'');
+        } else {
+            queryFactory.setCondition(childRelationship.getField() + ' = \'' + getParentObjectId() + '\'');
+        }
+
+        System.debug('queryFactory.toSOQL(): ' + queryFactory.toSOQL());
+        List<SObject> childSObjects = Database.query(queryFactory.toSOQL());
+        System.debug('chilfSObject: ' + childSObjects);
+
+        if(childSObjects.size() == 0){ return; }
+
+        for(String ccKey : this.ccKeyToChildRelationshipMapping.keySet()){
+
+            if(childRelationshipKey != this.ccKeyToChildRelationshipMapping.get(ccKey).substringBefore('|')){
+                continue; //skip ccKeys of other child objects
+            }
+            String childField = this.ccKeyToChildRelationshipMapping.get(ccKey).substringAfter('|');
+
+            if(childSObjects[0].get(childField) != null){
+                setValue(data, ccKey, childSObjects[0].get(childField));
+            } else {
+                setValue(data, ccKey, 'null');
+            }
+        }
+    }
+
+    private void populateRequestMapWithAuthInfo(){
+        this.data.putAll(new Map<String, Object>{
+            'APIUser' => vertic_SettingService.getValue('Clever_Contacts_API_User'),
+            'APIKey' => vertic_SettingService.getValue('Clever_Contacts_API_Key'),
+            'campaign_id' => this.campaignMember.Campaign.Name,
+            'api_source' => 'salesforce'
+        });
+    }
+
+    private void populateRequestMapFromParentObject(){
+        vertic_DTO objectDTO = new vertic_DTO(new Map<String, Object> {
+            'object' => new vertic_AutoMapper().getSObjectAsMap(this.parentSObject)
+        });
+
+        for(String ccKey : this.ccKeyToParentFieldMapping.keySet()){
+            setValue(data, ccKey, objectDTO.get('object.' + (String) this.ccKeyToParentFieldMapping.get(ccKey)));
+        }
+
+        for(String ccKey : this.ccKeyToChildRelationshipMapping.keySet()){
+
+            String childField = this.ccKeyToChildRelationshipMapping.get(ccKey).substringAfter('|');
+            String childRelationshipKey = this.ccKeyToChildRelationshipMapping.get(ccKey).substringBefore('|');
+
+            if(childRelationshipKey.contains('*')){ continue; }
+
+            String childRelationshipName = childRelationshipKey;
+            if(childRelationshipKey.contains('(') && childRelationshipKey.contains(')')){
+                childRelationshipName = childRelationshipKey.substringBefore('(') + childRelationshipKey.substringAfter(')'); // removing (condition) from childRelationship
+            }
+
+            List<SObject> childSObjects;
+            if(this.parentSObjectType == Contact.SObjectType){
+                childSObjects = ((Contact) this.parentSObject).getSObjects(childRelationshipName);
+            } else if(this.parentSObjectType == Lead.SObjectType){
+                childSObjects = ((Lead) this.parentSObject).getSObjects(childRelationshipName);
+            }
+
+            if(childSObjects != null && childSObjects.size() > 0){
+                setValue(data, ccKey, childSObjects[0].get(childField));
+            } else {
+                setValue(data, ccKey, 'null');
+            }
+        }
+    }
+
+    private void retrieveCMDTMapping(){
+        Map<String, Object> mapping = retrieveMapping();
+
+        if(mapping == null) { return; }
+
+        this.parentSObjectType = Schema.getGlobalDescribe().get(mapping.get('object').toString());
+        Map<String, Object> fieldMapping = (Map<String, Object>) mapping.get('mapping');
+
+        for(String key : fieldMapping.keySet()){
+            String value = fieldMapping.get(key).toString();
+            if(value.contains('|')){
+                this.ccKeyToChildRelationshipMapping.put(key, value);
+
+                String childRelationship = value.substringBefore('|');
+                String childField = value.substringAfter('|');
+
+                if(this.childRelationshipToFields.containsKey(childRelationship)){
+                    this.childRelationshipToFields.get(childRelationship).add(childField);
+                } else {
+                    this.childRelationshipToFields.put(childRelationship, new Set<String>{childField});
+                }
+            } else {
+                this.ccKeyToParentFieldMapping.put(key, value);
+            }
+        }
+    }
+
+    private Map<String, Object> retrieveMapping(){
 
         if(Test.isRunningTest()){
-            mapping = new Map<String, Object>{
+            return new Map<String, Object>{
                 'object' => 'Contact',
                 'mapping' => new Map<String, String>{
-                    'first_name' => 'FirstName',
-                    'last_name' => 'LastName'
+                    'custom_001' => 'FirstName',
+                    'custom_002' => 'LastName',
+                    'custom_003' => 'Animals__r|Name',
+                    'custom_004' => '*npsp__Opportunities__r(RecordType.DeveloperName = \'Bequest\')|StageName',
+                    'custom_005' => '*npsp__Opportunities__r(RecordType.DeveloperName = \'Home_Ever_After\')|StageName'
                 }
             };
         } else {
             SObject setting = vertic_SettingService.getMetadataType(Schema.getGlobalDescribe().get('Vertic_Setting__mdt'), 'Clever_Contacts_Campaign_Fields_Mapping');
 
-            if(setting == null){ return; }
+            if(setting == null){ return null; }
 
             Map<String, Object> valueMap = (Map<String, Object>) JSON.deserializeUntyped((String) setting.get('Value__c'));
-            mapping = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Clever_Contacts_Type__c);
+            Map<String, Object> mapping = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Clever_Contacts_Type__c);
 
             if(mapping == null){ mapping = (Map<String, Object>) valueMap.get('default'); }
-        }
 
-        this.parentSObjectType = Schema.getGlobalDescribe().get(mapping.get('object').toString());
-        fieldMapping = (Map<String, Object>) mapping.get('mapping');
-
-        this.childRelationshipFields = new Map<String, Set<String>>();
-        this.childRelationshipMapping = new Map<String, String>();
-        this.parentRelationshipMapping = new Map<String, String>();
-
-        for(String key : fieldMapping.keySet()){
-            String value = fieldMapping.get(key).toString();
-            if(value.contains('|')){
-                this.childRelationshipMapping.put(key, value);
-
-                String childRelationship = value.substringBefore('|');
-                String childField = value.substringAfter('|');
-
-                if(this.childRelationshipFields.containsKey(childRelationship)){
-                    this.childRelationshipFields.get(childRelationship).add(childField);
-                } else {
-                    this.childRelationshipFields.put(childRelationship, new Set<String>{childField});
-                }
-            } else {
-                this.parentRelationshipMapping.put(key, value);
-            }
+            return mapping;
         }
     }
 
     private void sync() {
-
-        Map<String, Object> data = new Map<String, Object>{
-            'APIUser' => vertic_SettingService.getValue('Clever_Contacts_API_User'),
-            'APIKey' => vertic_SettingService.getValue('Clever_Contacts_API_Key'),
-            'campaign_id' => this.campaignMember.Campaign.Name,
-            'api_source' => 'salesforce'
-        };
-
-        vertic_DTO objectDTO = new vertic_DTO(new Map<String, Object> {
-            'object' => new vertic_AutoMapper().getSObjectAsMap(this.parentSObject)
-        });
-
-        for(String key : this.parentRelationshipMapping.keySet()){
-            setValue(data, key, objectDTO.get('object.' + (String) this.parentRelationshipMapping.get(key)));
-        }
-
-        for(String key : this.childRelationshipMapping.keySet()){
-
-            String childField = this.childRelationshipMapping.get(key).substringAfter('|');
-            String childRelationship = this.childRelationshipMapping.get(key).substringBefore('|');
-
-            if(childRelationship.contains('(') && childRelationship.contains(')')){
-                childRelationship = childRelationship.substringBefore('(') + childRelationship.substringAfter(')'); // removing (condition) from childRelationship
-            }
-
-            List<SObject> childSObjects;
-            if(this.parentSObjectType == Contact.SObjectType){
-                childSObjects = ((Contact) this.parentSObject).getSObjects(childRelationship);
-            } else if(this.parentSObjectType == Lead.SObjectType){
-                childSObjects = ((Lead) this.parentSObject).getSObjects(childRelationship);
-            }
-
-            if(childSObjects != null && childSObjects.size() > 0){
-                setValue(data, key, childSObjects[0].get(childField));
-            } else {
-                setValue(data, key, 'null');
-            }
-        }
-
         HttpResponse response = this.doRequest(ENDPOINT, POST, JSON.serialize(data));
 
         Integer code = response.getStatusCode();
@@ -206,6 +276,15 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
 
         return new Http().send(req);
     }
+
+    private Schema.ChildRelationship getChildRelationship(String childRelationshipName){
+        for(Schema.ChildRelationship relationship : Contact.SObjectType.getDescribe().getChildRelationships()){
+            if(childRelationshipName == relationship.getRelationshipName()){
+                return relationship;
+            }
+        }
+        return null;
+    }
     /**
      * ==============================================================================================================
      *                                             PRIVATE METHODS
@@ -216,8 +295,6 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     private SObject parentSObject;
     private SObjectType parentSObjectType;
     private CampaignMember campaignMember;
-
-
 
     /**
      * ==============================================================================================================

@@ -38,7 +38,8 @@
       &quot;custom_004&quot;: &quot;Animals__r|Adoption_Date__c&quot;,
       &quot;custom_005&quot;: &quot;Animals__r|Birthdate__c&quot;,
       &quot;custom_006&quot;: &quot;Animals__r|Region__c&quot;,
-      &quot;custom_007&quot;: &quot;npsp__Opportunities__r(RecordType.DeveloperName = &apos;Donation&apos;)|StageName&quot;
+      &quot;custom_007&quot;: &quot;*npsp__Opportunities__r(RecordType.DeveloperName = &apos;Bequest&apos;)|StageName&quot;,
+      &quot;custom_008&quot;: &quot;*npsp__Opportunities__r(RecordType.DeveloperName = &apos;Home_Ever_After&apos;)|StageName&quot;
     }
   }
 }</value>

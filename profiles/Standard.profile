@@ -105,11 +105,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddPaymentWizardMetaProcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AddPaymentWizardSearchStepMetaProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddPaymentWizardSearchStepMetaProcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AddPaymentWizardSubmitProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddPaymentWizardSubmitProcTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -426,6 +438,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ProcessBatchActionSubmitProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProcessBatchActionSubmitProcTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
