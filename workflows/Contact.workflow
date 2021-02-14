@@ -52,6 +52,38 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>caseman__Clear_Watch_List_Date</fullName>
+        <field>caseman__WatchListDate__c</field>
+        <name>Clear Watch List Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>caseman__Set_Watch_List_Date</fullName>
+        <field>caseman__WatchListDate__c</field>
+        <formula>TODAY()</formula>
+        <name>Set Watch List Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>caseman__Update_Preferred_Phone_Number</fullName>
+        <field>caseman__PreferredPhoneNumber__c</field>
+        <formula>IF( ISPICKVAL(caseman__PreferredPhoneField__c, &apos;Home Phone&apos;),  HomePhone,
+IF( ISPICKVAL(caseman__PreferredPhoneField__c, &apos;Phone&apos;),    Phone,
+IF( ISPICKVAL(caseman__PreferredPhoneField__c, &apos;Mobile Phone&apos;),    MobilePhone,
+IF( ISPICKVAL(caseman__PreferredPhoneField__c, &apos;Other Phone&apos;),  OtherPhone , caseman__PreferredPhoneNumber__c))))</formula>
+        <name>Update Preferred Phone Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>npe01__ContactAlternateEmailUpdate</fullName>
         <field>npe01__AlternateEmail__c</field>
         <formula>Email</formula>
@@ -439,6 +471,44 @@ IF RD status = Lapsed check months since lapsed if greater than 24 months
 
 Then create the task</description>
         <formula>AND(Date_Status_Lapsed__c  &gt;  (TODAY() - 730), Last_Opportunity_Id__c  &lt;&gt; &apos;&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>caseman__Contact Phone Changed</fullName>
+        <actions>
+            <name>caseman__Update_Preferred_Phone_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>OR( ISCHANGED( caseman__PreferredPhoneField__c ), ISCHANGED( caseman__PreferredPhoneNumber__c ), ISCHANGED( Phone ), ISCHANGED(  HomePhone  ), ISCHANGED(  MobilePhone  ), ISCHANGED(  OtherPhone  ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>caseman__Watch List Checked</fullName>
+        <actions>
+            <name>caseman__Set_Watch_List_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.caseman__WatchList__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>caseman__Watch List Unchecked</fullName>
+        <actions>
+            <name>caseman__Clear_Watch_List_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.caseman__WatchList__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

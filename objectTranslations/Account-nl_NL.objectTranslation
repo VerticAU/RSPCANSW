@@ -287,6 +287,11 @@
         <name>Twitter__c</name>
     </fields>
     <fields>
+        <help>De maximale client-bedieningscapaciteit van een organisatie, locatie of partnerorganisatie.</help>
+        <label><!-- Maximum Clients Served At Any Time --></label>
+        <name>caseman__MaximumClientsServed__c</name>
+    </fields>
+    <fields>
         <label><!-- Primary Contact --></label>
         <name>npe01__One2OneContact__c</name>
         <relationshipLabel><!-- Account --></relationshipLabel>
@@ -662,6 +667,11 @@
         <description><!-- Use this record type when creating an estate for a deceased donor with a bequest --></description>
         <label><!-- Estate --></label>
         <name>Estate</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- An Account representing a branch of your organization --></description>
+        <label><!-- Branch --></label>
+        <name>caseman__Branch</name>
     </recordTypes>
     <recordTypes>
         <description><!-- An Account representing a Household containing one or more individuals --></description>

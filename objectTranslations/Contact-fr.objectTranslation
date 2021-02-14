@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
+        <label><!-- Client Card --></label>
+        <name>caseman__ClientCard</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Role Badges --></label>
+        <name>caseman__RoleBadges</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- BDE Entry FS --></label>
         <name>npsp__BDE_Entry_FS</name>
     </fieldSets>
@@ -425,6 +433,131 @@
     <fields>
         <label><!-- Twitter --></label>
         <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age Category --></label>
+        <name>caseman__AgeCategory__c</name>
+        <picklistValues>
+            <masterLabel>Adult</masterLabel>
+            <translation>Adulte</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation>Enfant</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior</masterLabel>
+            <translation>Senior</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth</masterLabel>
+            <translation>Adolescent</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>caseman__Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID --></label>
+        <name>caseman__ClientID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Phone --></label>
+        <name>caseman__EmergencyContactPhone__c</name>
+    </fields>
+    <fields>
+        <help>La relation entre le contact et son contact à prévenir en cas d&apos;urgence.</help>
+        <label><!-- Emergency Contact Role --></label>
+        <name>caseman__EmergencyContactRole__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact --></label>
+        <name>caseman__EmergencyContact__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Le nom légal du contact. Utilisez ce champ si vous devez suivre le nom légal pour des raisons administratives ou pour aider le contact à réaliser des formalités administratives.</help>
+        <label><!-- Legal Name --></label>
+        <name>caseman__LegalName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Photo File ID --></label>
+        <name>caseman__PhotoFileID__c</name>
+    </fields>
+    <fields>
+        <help>Le mode de communication préféré du contact. Les valeurs sont déterminées par votre administrateur.</help>
+        <label><!-- Preferred Communication Method --></label>
+        <name>caseman__PreferredCommunicationMethod__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation>Appel téléphonique</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>E-mail</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Text</masterLabel>
+            <translation>SMS</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Le champ du numéro de téléphone préféré du contact met à jour le champ Numéro de téléphone préféré.</help>
+        <label><!-- Preferred Phone Field --></label>
+        <name>caseman__PreferredPhoneField__c</name>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation>Téléphone domicile</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Phone</masterLabel>
+            <translation>Téléphone mobile</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Phone</masterLabel>
+            <translation>Autre téléphone</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation>Téléphone</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Ce champ est contrôlé par la liste de sélection Champ du téléphone préféré.</help>
+        <label><!-- Preferred Phone Number --></label>
+        <name>caseman__PreferredPhoneNumber__c</name>
+    </fields>
+    <fields>
+        <help>Ensemble de pronoms utilisé par le client pour se référer à lui-même.</help>
+        <label><!-- Pronouns --></label>
+        <name>caseman__Pronouns__c</name>
+        <picklistValues>
+            <masterLabel>he/him/his</masterLabel>
+            <translation>il/lui/son/sa/ses</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>other/ask me</masterLabel>
+            <translation>autre/me demander</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>she/her/hers</masterLabel>
+            <translation>elle/son/sa/ses</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>they/them/theirs</masterLabel>
+            <translation>ils/eux/leur/leurs</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>La date à laquelle vous avez ajouté le client à la liste de surveillance.</help>
+        <label><!-- Watch List Date --></label>
+        <name>caseman__WatchListDate__c</name>
+    </fields>
+    <fields>
+        <help>Cochez cette case si le client nécessite une attention accrue par le personnel.</help>
+        <label><!-- Watch List --></label>
+        <name>caseman__WatchList__c</name>
     </fields>
     <fields>
         <help>L’e-mail secondaire est un quatrième e-mail optionnel : en plus du personnel, préféré ou professionnel.</help>

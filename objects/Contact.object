@@ -1710,6 +1710,78 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>caseman__AgeCategory__c</picklist>
+            <values>
+                <fullName>Adult</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>caseman__PreferredCommunicationMethod__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Text</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>caseman__PreferredPhoneField__c</picklist>
+            <values>
+                <fullName>Home Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>caseman__Pronouns__c</picklist>
+            <values>
+                <fullName>he%2Fhim%2Fhis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>other%2Fask me</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>she%2Fher%2Fhers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>they%2Fthem%2Ftheirs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>npe01__PreferredPhone__c</picklist>
             <values>
                 <fullName>Home</fullName>

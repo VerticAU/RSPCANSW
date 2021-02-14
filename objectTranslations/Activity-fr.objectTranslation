@@ -41,6 +41,10 @@
         <name>Skip_WhoId__c</name>
     </fields>
     <fields>
+        <label><!-- Completed Date --></label>
+        <name>caseman__CompletedDate__c</name>
+    </fields>
+    <fields>
         <label><!-- Engagement Plan Task --></label>
         <name>npsp__Engagement_Plan_Task__c</name>
         <relationshipLabel><!-- Tasks --></relationshipLabel>

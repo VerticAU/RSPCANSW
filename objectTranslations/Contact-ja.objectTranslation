@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
+        <label><!-- Client Card --></label>
+        <name>caseman__ClientCard</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Role Badges --></label>
+        <name>caseman__RoleBadges</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- BDE Entry FS --></label>
         <name>npsp__BDE_Entry_FS</name>
     </fieldSets>
@@ -425,6 +433,131 @@
     <fields>
         <label><!-- Twitter --></label>
         <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age Category --></label>
+        <name>caseman__AgeCategory__c</name>
+        <picklistValues>
+            <masterLabel>Adult</masterLabel>
+            <translation>大人</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation>子供</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior</masterLabel>
+            <translation>高齢者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth</masterLabel>
+            <translation>青年</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>caseman__Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID --></label>
+        <name>caseman__ClientID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Phone --></label>
+        <name>caseman__EmergencyContactPhone__c</name>
+    </fields>
+    <fields>
+        <help>取引先責任者と緊急連絡先間のリレーション。</help>
+        <label><!-- Emergency Contact Role --></label>
+        <name>caseman__EmergencyContactRole__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact --></label>
+        <name>caseman__EmergencyContact__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>取引先責任者の正式名。管理上の理由で正式名を追跡する必要がある場合や、公式書類で取引先責任者を支援する必要がある場合にこの項目を使用します。</help>
+        <label><!-- Legal Name --></label>
+        <name>caseman__LegalName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Photo File ID --></label>
+        <name>caseman__PhotoFileID__c</name>
+    </fields>
+    <fields>
+        <help>取引先責任者の優先連絡方法。値はシステム管理者が決定します。</help>
+        <label><!-- Preferred Communication Method --></label>
+        <name>caseman__PreferredCommunicationMethod__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation>電話</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>メール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Text</masterLabel>
+            <translation>テキスト</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>[優先電話番号] 項目は、取引先責任者の優先電話番号項目で更新されます。</help>
+        <label><!-- Preferred Phone Field --></label>
+        <name>caseman__PreferredPhoneField__c</name>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation>自宅電話</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Phone</masterLabel>
+            <translation>携帯電話</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Phone</masterLabel>
+            <translation>その他の電話</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation>電話</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>この項目は、[優先電話項目] 選択リストで制御されます。</help>
+        <label><!-- Preferred Phone Number --></label>
+        <name>caseman__PreferredPhoneNumber__c</name>
+    </fields>
+    <fields>
+        <help>クライアントが自身を表すのに使用する代名詞のセット。</help>
+        <label><!-- Pronouns --></label>
+        <name>caseman__Pronouns__c</name>
+        <picklistValues>
+            <masterLabel>he/him/his</masterLabel>
+            <translation>he/him/his</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>other/ask me</masterLabel>
+            <translation>その他/要確認</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>she/her/hers</masterLabel>
+            <translation>she/her/hers</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>they/them/theirs</masterLabel>
+            <translation>they/them/theirs</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>クライアントを監視リストに追加した日付。</help>
+        <label><!-- Watch List Date --></label>
+        <name>caseman__WatchListDate__c</name>
+    </fields>
+    <fields>
+        <help>このクライアントにスタッフが特に注意する必要がある場合、このチェックボックスをオンにします。</help>
+        <label><!-- Watch List --></label>
+        <name>caseman__WatchList__c</name>
     </fields>
     <fields>
         <help>[その他のメール] は、個人メール、メール連絡先、勤務先メールに続く 4 番目の任意のメールです。</help>

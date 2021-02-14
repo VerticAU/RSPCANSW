@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
+        <label><!-- Client Card --></label>
+        <name>caseman__ClientCard</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Role Badges --></label>
+        <name>caseman__RoleBadges</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- BDE Entry FS --></label>
         <name>npsp__BDE_Entry_FS</name>
     </fieldSets>
@@ -425,6 +433,131 @@
     <fields>
         <label><!-- Twitter --></label>
         <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age Category --></label>
+        <name>caseman__AgeCategory__c</name>
+        <picklistValues>
+            <masterLabel>Adult</masterLabel>
+            <translation>Volwassene</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation>Kind</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior</masterLabel>
+            <translation>Senior</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth</masterLabel>
+            <translation>Jongere</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>caseman__Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID --></label>
+        <name>caseman__ClientID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Phone --></label>
+        <name>caseman__EmergencyContactPhone__c</name>
+    </fields>
+    <fields>
+        <help>De relatie tussen het contact en hun noodcontact.</help>
+        <label><!-- Emergency Contact Role --></label>
+        <name>caseman__EmergencyContactRole__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact --></label>
+        <name>caseman__EmergencyContact__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>De wettelijke naam van het contact. Gebruik dit veld als u de wettelijke naam wilt bijhouden om administratieve redenen of het contact wilt assisteren met officiële papieren.</help>
+        <label><!-- Legal Name --></label>
+        <name>caseman__LegalName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Photo File ID --></label>
+        <name>caseman__PhotoFileID__c</name>
+    </fields>
+    <fields>
+        <help>De communicatiemethode waar het contact de voorkeur aan geeft. Waarden worden bepaald door uw beheerder.</help>
+        <label><!-- Preferred Communication Method --></label>
+        <name>caseman__PreferredCommunicationMethod__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation>Telefoongesprek</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>E-mail</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Text</masterLabel>
+            <translation>Sms</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Het voorkeurveld voor telefoon van de contactpersoon; werkt het veld Voorkeur telefoonnummer bij.</help>
+        <label><!-- Preferred Phone Field --></label>
+        <name>caseman__PreferredPhoneField__c</name>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation>Telefoon privé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Phone</masterLabel>
+            <translation>Mobiele telefoon</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Phone</masterLabel>
+            <translation>Overige telefoon</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation>Telefoon</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Dit veld wordt aangestuurd door de keuzelijst Voorkeurveld telefoon.</help>
+        <label><!-- Preferred Phone Number --></label>
+        <name>caseman__PreferredPhoneNumber__c</name>
+    </fields>
+    <fields>
+        <help>De voornaamwoordset die door de client wordt gebruikt om naar zichzelf te verwijzen.</help>
+        <label><!-- Pronouns --></label>
+        <name>caseman__Pronouns__c</name>
+        <picklistValues>
+            <masterLabel>he/him/his</masterLabel>
+            <translation>hij/zijn/van hem</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>other/ask me</masterLabel>
+            <translation>overig/mij vragen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>she/her/hers</masterLabel>
+            <translation>zij/haar/van haar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>they/them/theirs</masterLabel>
+            <translation>zij/hun/van hen</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>De datum waarop u de client aan de gegevenslijst hebt toegevoegd.</help>
+        <label><!-- Watch List Date --></label>
+        <name>caseman__WatchListDate__c</name>
+    </fields>
+    <fields>
+        <help>Vink dit selectievakje aan als deze client verhoogde aandacht van de staf vereist.</help>
+        <label><!-- Watch List --></label>
+        <name>caseman__WatchList__c</name>
     </fields>
     <fields>
         <help>Alternatieve E-mail is een optionele vierde E-mail: Niet persoonlijk, voorkeur, of werk E-mail</help>

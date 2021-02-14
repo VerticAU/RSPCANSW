@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Inbound Referrals Related List --></label>
+        <name>caseman__InboundReferralsRelatedList</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Incident Detail --></label>
+        <name>caseman__IncidentDetail</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Outbound Referrals Related List --></label>
+        <name>caseman__OutboundReferralsRelatedList</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Adoption Date --></label>
+        <name>Adoption_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Breed --></label>
+        <name>Animal_Breed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Type --></label>
+        <name>Animal_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal --></label>
+        <name>Animal__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch --></label>
+        <name>Branch__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Referred By --></label>
+        <name>Referred_By__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sex --></label>
+        <name>Sex__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shelter --></label>
+        <name>Shelter__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch --></label>
+        <name>caseman__Branch__c</name>
+        <relationshipLabel><!-- Incidents --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Incident Date and Time --></label>
+        <name>caseman__IncidentDateTime__c</name>
+    </fields>
+    <fields>
+        <help>インシデントの種別。値は管理者が決定します。</help>
+        <label><!-- Incident Type --></label>
+        <name>caseman__IncidentType__c</name>
+        <picklistValues>
+            <masterLabel>Attempted or actual physical assault</masterLabel>
+            <translation>暴行未遂または身体的暴行</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attempted or actual self-harm</masterLabel>
+            <translation>自傷未遂または自傷</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Property Damage</masterLabel>
+            <translation>物的損害</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verbal threat/abuse</masterLabel>
+            <translation>言葉による脅迫/虐待</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Intake --></label>
+        <name>caseman__Intake__c</name>
+        <relationshipLabel><!-- Referrals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Location Notes --></label>
+        <name>caseman__LocationNotes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>caseman__Program__c</name>
+        <relationshipLabel><!-- Referrals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Referral Organization Contact --></label>
+        <name>caseman__ReferralOrganizationContact__c</name>
+        <relationshipLabel><!-- Contact Referrals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Referral Organization --></label>
+        <name>caseman__ReferralOrganization__c</name>
+        <relationshipLabel><!-- Organization Referrals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Referral Result --></label>
+        <name>caseman__ReferralResult__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation>受諾</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Declined Services</masterLabel>
+            <translation>クライアントがサービスを却下</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation>却下</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation>不明</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waitlisted</masterLabel>
+            <translation>待機リスト</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Severity --></label>
+        <name>caseman__Severity__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation>高</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation>低</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation>中</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Watch List --></label>
+        <name>caseman__WatchList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Origin --></label>
+        <name>npsp_plus__Origin__c</name>
+    </fields>
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RSPCA Case Layout</layout>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Default --></label>
+        <name>Default</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Inbound Referral --></label>
+        <name>caseman__InboundReferral</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Incident --></label>
+        <name>caseman__Incident</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Outbound Referral --></label>
+        <name>caseman__OutboundReferral</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- CreateIntake --></label>
+        <name>caseman__CreateIntake</name>
+    </webLinks>
+</CustomObjectTranslation>
