@@ -85,6 +85,10 @@
         <name>Birthdate__c</name>
     </fields>
     <fields>
+        <label><!-- Contact Name --></label>
+        <name>Contact_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Contact --></label>
         <name>Contact__c</name>
         <relationshipLabel><!-- Animals --></relationshipLabel>

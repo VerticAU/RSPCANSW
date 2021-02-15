@@ -29,7 +29,7 @@ public without sharing class OppPaymentDomain extends fflib_SObjectDomain implem
             SELECT
                 StageName,
                 npsp__Primary_Contact__c,
-                npe03__Recurring_Donation__c
+                npe03__Recurring_Donation__r.npsp__Status__c
             FROM Opportunity
             WHERE Id IN :opportunityIds
         ]);

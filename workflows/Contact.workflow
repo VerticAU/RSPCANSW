@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>GW_Volunteers__Volunteer_Signup_Notification_Email_Alert_Contact</fullName>
+        <description>Volunteer Signup Notification Email Alert - Contact</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>GW_Volunteers__Volunteers_Email_Templates/GW_Volunteers__Volunteer_Signup_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>GW_Volunteers__Volunteer_Signup_Thank_You_Email_Alert_Contact</fullName>
+        <description>Volunteer Signup Thank You Email Alert - Contact</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>GW_Volunteers__Volunteers_Email_Templates/GW_Volunteers__Volunteer_Signup_Thank_You</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Update_Create_New2Task_For_Birthday_Card</fullName>
         <field>Create_New_Task_For_Birthday_Card__c</field>
@@ -459,6 +480,25 @@ OtherPhone
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>GW_Volunteers__Volunteer Signup - Contact</fullName>
+        <actions>
+            <name>GW_Volunteers__Volunteer_Signup_Notification_Email_Alert_Contact</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>GW_Volunteers__Volunteer_Signup_Thank_You_Email_Alert_Contact</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Contact</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <description>When a contact is updated or created from VolunteersSignup(FS) or VolunteersJobListing(FS), thank them and notify the volunteer manager.  Note if you are not using VolunteersSignup(FS), you can de-activate this rule to avoid multiple emails being sent.</description>
+        <formula>GW_Volunteers__Volunteer_Last_Web_Signup_Date__c =  TODAY()</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Recurring Donation Status marked Lapsed 2years ago and makes a new donation</fullName>
         <actions>
             <name>Thank_youCall</name>
@@ -701,6 +741,17 @@ Then create the task</description>
         <protected>false</protected>
         <status>Not Started</status>
         <subject>Donor Anniversary Mail</subject>
+    </tasks>
+    <tasks>
+        <fullName>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Contact</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>An automatic thank you email has been sent to the contact for signing up to be a volunteer.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>Volunteer Signup Thank You Sent - Contact</subject>
     </tasks>
     <tasks>
         <fullName>Pending_Bequest</fullName>

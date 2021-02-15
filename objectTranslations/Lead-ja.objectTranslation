@@ -129,6 +129,10 @@
         <name>Cost__c</name>
     </fields>
     <fields>
+        <label><!-- Created By Name --></label>
+        <name>Created_By_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Date of Corporate Support Day --></label>
         <name>Date_of_Corporate_Support_Day__c</name>
     </fields>
@@ -163,6 +167,71 @@
     <fields>
         <label><!-- Facebook --></label>
         <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Availability --></label>
+        <name>GW_Volunteers__Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation>午後</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation>午前</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekdays</masterLabel>
+            <translation>平日</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekends</masterLabel>
+            <translation>週末</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation>毎週</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Notes --></label>
+        <name>GW_Volunteers__Volunteer_Notes__c</name>
+    </fields>
+    <fields>
+        <help>ボランティアの仕事を見つけるために使用される、この個人のスキルを選択します。</help>
+        <label><!-- Volunteer Skills --></label>
+        <name>GW_Volunteers__Volunteer_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Computer usage</masterLabel>
+            <translation>コンピュータの利用状況</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning</masterLabel>
+            <translation>イベント企画</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation>活動資金集め</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation>景観設計</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual labor</masterLabel>
+            <translation>肉体労働</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation>マーケティング</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Status --></label>
+        <name>GW_Volunteers__Volunteer_Status__c</name>
+        <picklistValues>
+            <masterLabel>New Sign Up</masterLabel>
+            <translation>新規サインアップ</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Has MIcrochip --></label>
@@ -617,4 +686,8 @@
         <label><!-- Add_Emails_to_List --></label>
         <name>wbsendit__Add_Emails_to_List</name>
     </webLinks>
+    <workflowTasks>
+        <description>ボランティアにサインアップしたリードに自動お礼メールが送信されました。</description>
+        <name>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Lead</name>
+    </workflowTasks>
 </CustomObjectTranslation>

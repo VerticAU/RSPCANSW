@@ -59,6 +59,9 @@ public without sharing class EzidebitGetPaymentDetailsProc extends vertic_Abstra
 
         this.payment.npsp_plus__Status__c = payment.PaymentStatus;
         this.payment.npe01__Paid__c = 'Processed'.equals(payment.PaymentStatus);
+        if (this.payment.npe01__Paid__c) {
+            this.payment.npe01__Written_Off__c = false;
+        }
         this.payment.EziDebit_Transaction_ID__c = payment.PaymentID;
         this.payment.npe01__Payment_Date__c = payment.SettlementDate == null ? null : payment.SettlementDate.date();
 

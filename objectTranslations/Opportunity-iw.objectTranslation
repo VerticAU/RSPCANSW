@@ -624,6 +624,10 @@
             <translation><!-- Cash --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>CentrePay</masterLabel>
+            <translation><!-- CentrePay --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Cheque</masterLabel>
             <translation><!-- Cheque --></translation>
         </picklistValues>
@@ -1724,6 +1728,29 @@
             <section>System Information</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Service Layout</layout>
+        <sections>
+            <label><!-- Acknowledgement Information --></label>
+            <section>Acknowledgement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Cheque Information --></label>
+            <section>Cheque Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label>פרטי תרומה</label>
+            <section>Donation Information</section>
+        </sections>
+    </layouts>
     <quickActions>
         <label><!-- New Deliverable --></label>
         <name>New_Deliverable</name>
@@ -1797,6 +1824,10 @@
         <description><!-- Record used to capture details about securities. --></description>
         <label><!-- Securities --></label>
         <name>Securities</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Service --></label>
+        <name>Service</name>
     </recordTypes>
     <recordTypes>
         <description><!-- Record used to capture details about corporate sponsorship. --></description>

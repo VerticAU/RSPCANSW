@@ -129,6 +129,10 @@
         <name>Cost__c</name>
     </fields>
     <fields>
+        <label><!-- Created By Name --></label>
+        <name>Created_By_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Date of Corporate Support Day --></label>
         <name>Date_of_Corporate_Support_Day__c</name>
     </fields>
@@ -163,6 +167,71 @@
     <fields>
         <label><!-- Facebook --></label>
         <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Availability --></label>
+        <name>GW_Volunteers__Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation>Tarde</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation>Mañana</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekdays</masterLabel>
+            <translation>Laborables</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekends</masterLabel>
+            <translation>Fin de Semana</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation>Semanal</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Notes --></label>
+        <name>GW_Volunteers__Volunteer_Notes__c</name>
+    </fields>
+    <fields>
+        <help>Seleciona la(s) habilidad(es) que tiene esta persona para encontrar un trabajo voluntario</help>
+        <label><!-- Volunteer Skills --></label>
+        <name>GW_Volunteers__Volunteer_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Computer usage</masterLabel>
+            <translation>Conocimientos en Informatica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning</masterLabel>
+            <translation>Planificación de Eventos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation>Desarrollo de Fondos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation>Paisajismo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual labor</masterLabel>
+            <translation>Trabajo Manual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Status --></label>
+        <name>GW_Volunteers__Volunteer_Status__c</name>
+        <picklistValues>
+            <masterLabel>New Sign Up</masterLabel>
+            <translation>Nuevo Registro</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Has MIcrochip --></label>
@@ -617,4 +686,8 @@
         <label><!-- Add_Emails_to_List --></label>
         <name>wbsendit__Add_Emails_to_List</name>
     </webLinks>
+    <workflowTasks>
+        <description>Se ha enviado al candidato un correo electrónico automático de agradecimiento por registrarse como voluntario</description>
+        <name>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Lead</name>
+    </workflowTasks>
 </CustomObjectTranslation>

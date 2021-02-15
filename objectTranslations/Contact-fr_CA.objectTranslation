@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
+        <label><!-- PersonalSiteContactInfoExtraFS --></label>
+        <name>GW_Volunteers__PersonalSiteContactInfoExtraFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- PersonalSiteContactInfoPanel1FS --></label>
+        <name>GW_Volunteers__PersonalSiteContactInfoPanel1FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- PersonalSiteContactInfoPanel2FS --></label>
+        <name>GW_Volunteers__PersonalSiteContactInfoPanel2FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersFindCriteriaFS --></label>
+        <name>GW_Volunteers__VolunteersFindCriteriaFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersFindFS --></label>
+        <name>GW_Volunteers__VolunteersFindFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersJobListingFS --></label>
+        <name>GW_Volunteers__VolunteersJobListingFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersReportHoursFS --></label>
+        <name>GW_Volunteers__VolunteersReportHoursFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersSignupFS --></label>
+        <name>GW_Volunteers__VolunteersSignupFS</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- Client Card --></label>
         <name>caseman__ClientCard</name>
     </fieldSets>
@@ -161,6 +193,123 @@
     <fields>
         <label><!-- Facebook --></label>
         <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date of the first Volunteer Hours record for this Contact with a status of Completed (read only). --></help>
+        <label><!-- First Volunteer Date --></label>
+        <name>GW_Volunteers__First_Volunteer_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date of the most recent Volunteer Hours record for this Contact with a status of Completed (read only). --></help>
+        <label><!-- Last Volunteer Date --></label>
+        <name>GW_Volunteers__Last_Volunteer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Unique Count --></label>
+        <name>GW_Volunteers__Unique_Volunteer_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- If selected, this Contact will not receive automatic reminder emails about their upcoming Volunteer Shifts. --></help>
+        <label><!-- Volunteer Auto-Reminder Email Opt Out --></label>
+        <name>GW_Volunteers__Volunteer_Auto_Reminder_Email_Opt_Out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Availability --></label>
+        <name>GW_Volunteers__Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation><!-- Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation><!-- Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekdays</masterLabel>
+            <translation><!-- Weekdays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekends</masterLabel>
+            <translation><!-- Weekends --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Total number of Volunteer Hours with a Status of Completed. Hours with other status values aren&apos;t included. --></help>
+        <label><!-- Volunteer Hours --></label>
+        <name>GW_Volunteers__Volunteer_Hours__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date of this Contact&apos;s most recent online volunteer signup. This field is automatically populated from the web signup form. Used to trigger workflow for notification and thank you emails. --></help>
+        <label><!-- Volunteer Last Web Signup Date --></label>
+        <name>GW_Volunteers__Volunteer_Last_Web_Signup_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Internal notes about the volunteer from your organizational staff. --></help>
+        <label><!-- Volunteer Manager Notes --></label>
+        <name>GW_Volunteers__Volunteer_Manager_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notes from the volunteer. If the volunteer included comments in the web signup form, those comments will be appended here. --></help>
+        <label><!-- Volunteer Notes --></label>
+        <name>GW_Volunteers__Volunteer_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- The organization, company, or group the Contact is volunteering on behalf of. --></help>
+        <label><!-- Volunteer Organization --></label>
+        <name>GW_Volunteers__Volunteer_Organization__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates which skills this Contact has. You can filter on skills when you look for volunteers for particular Jobs. --></help>
+        <label><!-- Volunteer Skills --></label>
+        <name>GW_Volunteers__Volunteer_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Computer usage</masterLabel>
+            <translation><!-- Computer usage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning</masterLabel>
+            <translation><!-- Event Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation><!-- Landscaping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual labor</masterLabel>
+            <translation><!-- Manual labor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Status --></label>
+        <name>GW_Volunteers__Volunteer_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Sign Up</masterLabel>
+            <translation><!-- New Sign Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospective</masterLabel>
+            <translation><!-- Prospective --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Gender --></label>
@@ -331,6 +480,10 @@
     <fields>
         <label><!-- Opportunity Raffle Ticket Count --></label>
         <name>Opportunity_Raffle_Ticket_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Name --></label>
+        <name>Owner_Name__c</name>
     </fields>
     <fields>
         <label><!-- Previous Level --></label>
@@ -1100,6 +1253,45 @@
             <section>Soft Credit Total</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Volunteers Contact Layout</layout>
+        <sections>
+            <label><!-- Contact Details --></label>
+            <section>Contact Details</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Totals --></label>
+            <section>Donation Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Household Address --></label>
+            <section>Household Address</section>
+        </sections>
+        <sections>
+            <label><!-- Household Donation Info --></label>
+            <section>Household Donation Info</section>
+        </sections>
+        <sections>
+            <label><!-- Membership Information --></label>
+            <section>Membership Information</section>
+        </sections>
+        <sections>
+            <label><!-- Misc --></label>
+            <section>Misc</section>
+        </sections>
+        <sections>
+            <label><!-- Soft Credit Total --></label>
+            <section>Soft Credit Total</section>
+        </sections>
+        <sections>
+            <label><!-- Volunteer Information --></label>
+            <section>Volunteer Information</section>
+        </sections>
+    </layouts>
     <quickActions>
         <label><!-- Create Estate --></label>
         <name>Create_Estate</name>
@@ -1181,6 +1373,11 @@
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Contact has no email address post donor anniversary letter.&quot;, &quot;Skip_WhatId__c&quot;: &quot;true&quot;} --></description>
         <name>Donor_Anniversary_Mail</name>
         <subject><!-- Donor Anniversary Mail --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- An automatic thank you email has been sent to the contact for signing up to be a volunteer. --></description>
+        <name>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Contact</name>
+        <subject><!-- Volunteer Signup Thank You Sent - Contact --></subject>
     </workflowTasks>
     <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;A year since Bequestor marked deceased, please update the Bequest&quot;, &quot;WhoId_Field&quot;: &quot;Bequest_Pledged_Opportunity_Id__c&quot;} --></description>

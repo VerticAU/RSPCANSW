@@ -45,6 +45,7 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
             'npe01__Opportunity__r.npe03__Recurring_Donation__r.Account_Name__c',
             'npe01__Opportunity__r.npe03__Recurring_Donation__r.Account_Number__c',
             'npe01__Opportunity__r.npe03__Recurring_Donation__r.BSB__c',
+            'npe01__Opportunity__r.npe03__Recurring_Donation__r.npsp__Status__c',
             'npe01__Opportunity__r.npsp__Primary_Contact__r.LastName',
             'npe01__Opportunity__r.npsp__Primary_Contact__r.FirstName',
             'npe01__Opportunity__r.npsp__Primary_Contact__r.Email',
@@ -108,8 +109,9 @@ public without sharing class EzidebitAddBankDebitProc extends vertic_AbstractPro
             Boolean wasNotRequested = payment.EziDebit_Transaction_ID__c == null;
             Boolean isPledged = 'Pledged'.equals(opportunityVar.StageName);
             Boolean isRecurringDonation = opportunityVar.npe03__Recurring_Donation__c != null;
+            Boolean isRecurringActive = isRecurringDonation && 'Active'.equals(opportunityVar.npe03__Recurring_Donation__r.npsp__Status__c);
 
-            return !isPaid && isEziDebit && wasNotRequested && isPledged && isRecurringDonation;
+            return !isPaid && isEziDebit && wasNotRequested && isPledged && isRecurringDonation && isRecurringActive;
         }
         return false;
     }

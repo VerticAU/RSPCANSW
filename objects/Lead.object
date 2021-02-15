@@ -619,6 +619,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Created_By_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.FirstName + &apos; &apos; + CreatedBy.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created By Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Date_of_Corporate_Support_Day__c</fullName>
         <externalId>false</externalId>
         <label>Date of Corporate Support Day</label>

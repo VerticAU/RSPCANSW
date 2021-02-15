@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
+        <label><!-- PersonalSiteContactInfoExtraFS --></label>
+        <name>GW_Volunteers__PersonalSiteContactInfoExtraFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- PersonalSiteContactInfoPanel1FS --></label>
+        <name>GW_Volunteers__PersonalSiteContactInfoPanel1FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- PersonalSiteContactInfoPanel2FS --></label>
+        <name>GW_Volunteers__PersonalSiteContactInfoPanel2FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersFindCriteriaFS --></label>
+        <name>GW_Volunteers__VolunteersFindCriteriaFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersFindFS --></label>
+        <name>GW_Volunteers__VolunteersFindFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersJobListingFS --></label>
+        <name>GW_Volunteers__VolunteersJobListingFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersReportHoursFS --></label>
+        <name>GW_Volunteers__VolunteersReportHoursFS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- VolunteersSignupFS --></label>
+        <name>GW_Volunteers__VolunteersSignupFS</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- Client Card --></label>
         <name>caseman__ClientCard</name>
     </fieldSets>
@@ -161,6 +193,123 @@
     <fields>
         <label><!-- Facebook --></label>
         <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <help>Fecha de Inicio de las Primeras Horas Voluntarias</help>
+        <label><!-- First Volunteer Date --></label>
+        <name>GW_Volunteers__First_Volunteer_Date__c</name>
+    </fields>
+    <fields>
+        <help>Fecha de Fin de las últimas horas voluntarias</help>
+        <label><!-- Last Volunteer Date --></label>
+        <name>GW_Volunteers__Last_Volunteer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Unique Count --></label>
+        <name>GW_Volunteers__Unique_Volunteer_Count__c</name>
+    </fields>
+    <fields>
+        <help>Verifique si este contacto no desea recibir correos electrónicos  automáticos sobre sus próximos turnos. Se utiliza en la regla de flujo de trabajo del Email recordatorio de horas de trabajo voluntario</help>
+        <label><!-- Volunteer Auto-Reminder Email Opt Out --></label>
+        <name>GW_Volunteers__Volunteer_Auto_Reminder_Email_Opt_Out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Availability --></label>
+        <name>GW_Volunteers__Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation>Tarde</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation>Mañana</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekdays</masterLabel>
+            <translation>Laborables</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekends</masterLabel>
+            <translation>Fin de Semana</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation>Semanal</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Número total de horas completas. No se incluyen las horas con otros valores de estado.</help>
+        <label><!-- Volunteer Hours --></label>
+        <name>GW_Volunteers__Volunteer_Hours__c</name>
+    </fields>
+    <fields>
+        <help>Fecha del más reciente registro del voluntario en la web. Se utiliza para activar el flujo de trabajo para las notificaciones y correos electrónicos de agradecimiento.</help>
+        <label><!-- Volunteer Last Web Signup Date --></label>
+        <name>GW_Volunteers__Volunteer_Last_Web_Signup_Date__c</name>
+    </fields>
+    <fields>
+        <help>Notas sobre el voluntario que el encargado de voluntario o personal de la organización desee guardar en sus registros.</help>
+        <label><!-- Volunteer Manager Notes --></label>
+        <name>GW_Volunteers__Volunteer_Manager_Notes__c</name>
+    </fields>
+    <fields>
+        <help>Notas del voluntario. Tenga en cuenta que el formulario de registro web anexa los comentarios del volntario a este campo.</help>
+        <label><!-- Volunteer Notes --></label>
+        <name>GW_Volunteers__Volunteer_Notes__c</name>
+    </fields>
+    <fields>
+        <help>La organización, empresa o grupo de contacto se ofrecen como voluntarios en nombre de.</help>
+        <label><!-- Volunteer Organization --></label>
+        <name>GW_Volunteers__Volunteer_Organization__c</name>
+    </fields>
+    <fields>
+        <help>Seleciona la(s) habilidad(es) que tiene el contacto para encontrarlo mediante el Buscador de Voluntarios</help>
+        <label><!-- Volunteer Skills --></label>
+        <name>GW_Volunteers__Volunteer_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Computer usage</masterLabel>
+            <translation>Conocimientos en Informatica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning</masterLabel>
+            <translation>Planificación de Eventos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation>Desarrollo de Fondos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation>Paisajismo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual labor</masterLabel>
+            <translation>Trabajo Manual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Status --></label>
+        <name>GW_Volunteers__Volunteer_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Activo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation>Inactivo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Sign Up</masterLabel>
+            <translation>Nuevo Registro</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospective</masterLabel>
+            <translation>Prevista</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Género</label>
@@ -331,6 +480,10 @@
     <fields>
         <label><!-- Opportunity Raffle Ticket Count --></label>
         <name>Opportunity_Raffle_Ticket_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Name --></label>
+        <name>Owner_Name__c</name>
     </fields>
     <fields>
         <label><!-- Previous Level --></label>
@@ -1100,6 +1253,45 @@
             <section>Soft Credit Total</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Volunteers Contact Layout</layout>
+        <sections>
+            <label><!-- Contact Details --></label>
+            <section>Contact Details</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Totals --></label>
+            <section>Donation Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Household Address --></label>
+            <section>Household Address</section>
+        </sections>
+        <sections>
+            <label><!-- Household Donation Info --></label>
+            <section>Household Donation Info</section>
+        </sections>
+        <sections>
+            <label><!-- Membership Information --></label>
+            <section>Membership Information</section>
+        </sections>
+        <sections>
+            <label><!-- Misc --></label>
+            <section>Misc</section>
+        </sections>
+        <sections>
+            <label><!-- Soft Credit Total --></label>
+            <section>Soft Credit Total</section>
+        </sections>
+        <sections>
+            <label><!-- Volunteer Information --></label>
+            <section>Volunteer Information</section>
+        </sections>
+    </layouts>
     <quickActions>
         <label><!-- Create Estate --></label>
         <name>Create_Estate</name>
@@ -1181,6 +1373,10 @@
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Contact has no email address post donor anniversary letter.&quot;, &quot;Skip_WhatId__c&quot;: &quot;true&quot;} --></description>
         <name>Donor_Anniversary_Mail</name>
         <subject><!-- Donor Anniversary Mail --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description>Un correo electrónico automático de agradcimiento ha sido enviado al contacto por registrarse como voluntario</description>
+        <name>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Contact</name>
     </workflowTasks>
     <workflowTasks>
         <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;A year since Bequestor marked deceased, please update the Bequest&quot;, &quot;WhoId_Field&quot;: &quot;Bequest_Pledged_Opportunity_Id__c&quot;} --></description>
