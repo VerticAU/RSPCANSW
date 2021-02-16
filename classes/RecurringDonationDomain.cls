@@ -21,7 +21,7 @@ public without sharing class RecurringDonationDomain extends fflib_SObjectDomain
         vertic_AsyncProcess asyncProcess = new vertic_AsyncProcess();
         for (npe03__Recurring_Donation__c recurringDonation : (List<npe03__Recurring_Donation__c>) Records) {
             npe03__Recurring_Donation__c existingRecord = (npe03__Recurring_Donation__c) existingRecords.get(recurringDonation.Id);
-            if (!'Active'.equals(recurringDonation.npsp__Status__c) && existingRecord.npsp__Status__c != recurringDonation.npsp__Status__c && String.isNotBlank(recurringDonation.EziDebit_Customer_ID__c)) {
+            if (!'Active'.equals(recurringDonation.npsp__Status__c) && 'Active'.equals(existingRecord.npsp__Status__c) && String.isNotBlank(recurringDonation.EziDebit_Customer_ID__c)) {
                 Vertic_Async_Process__c vap = vertic_AsyncProcess.create(
                     EzidebitChangeCustomerStatusProc.class,
                     new Map<String, Object>{

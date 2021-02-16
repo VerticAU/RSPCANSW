@@ -77,6 +77,7 @@
     <tabs>Branch__c</tabs>
     <tabs>Shelter__c</tabs>
     <tabs>standard-report</tabs>
+    <tabs>Event__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Programs_UtilityBar</utilityBar>
 </CustomApplication>

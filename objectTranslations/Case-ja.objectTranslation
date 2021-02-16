@@ -13,12 +13,92 @@
         <name>caseman__OutboundReferralsRelatedList</name>
     </fieldSets>
     <fields>
+        <label><!-- Abuse Description --></label>
+        <name>Abuse_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access to Fire Arms --></label>
+        <name>Access_to_Fire_Arms__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not sure</masterLabel>
+            <translation><!-- Not sure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Adoption Date --></label>
         <name>Adoption_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Agrees to desex/microchip/vaccinate --></label>
+        <name>Agrees_to_desex_microchip_vaccinate__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Animal Breed --></label>
         <name>Animal_Breed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal impact with no help --></label>
+        <name>Animal_Consequence_with_no_help__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Current Location --></label>
+        <name>Animal_Current_Location__c</name>
+        <picklistValues>
+            <masterLabel>Client Home</masterLabel>
+            <translation><!-- Client Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friends or Family</masterLabel>
+            <translation><!-- Friends or Family --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shelter</masterLabel>
+            <translation><!-- Shelter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Animal Mistreatment --></label>
+        <name>Animal_Mistreatment__c</name>
+        <picklistValues>
+            <masterLabel>Food/water deprivation</masterLabel>
+            <translation><!-- Food/water deprivation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Giving animal illegal drugs/alcohol</masterLabel>
+            <translation><!-- Giving animal illegal drugs/alcohol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hitting / Kicking / Striking / Punching / Throwing</masterLabel>
+            <translation><!-- Hitting / Kicking / Striking / Punching / Throwing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leave outside in extreme heat/cold</masterLabel>
+            <translation><!-- Leave outside in extreme heat/cold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Animal Type --></label>
@@ -30,9 +110,85 @@
         <relationshipLabel><!-- Cases --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Assistance Required --></label>
+        <name>Assistance_Required__c</name>
+        <picklistValues>
+            <masterLabel>Boarding</masterLabel>
+            <translation><!-- Boarding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Vet Assistance</masterLabel>
+            <translation><!-- Financial Vet Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Visit</masterLabel>
+            <translation><!-- Home Visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transport</masterLabel>
+            <translation><!-- Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volunteer Assistance</masterLabel>
+            <translation><!-- Volunteer Assistance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Branch --></label>
         <name>Branch__c</name>
         <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Examination --></label>
+        <name>Examination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Friends and Family Details --></label>
+        <name>Friends_and_Family_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Friends or Family Available --></label>
+        <name>Friends_or_Family_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not sure</masterLabel>
+            <translation><!-- Not sure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- History --></label>
+        <name>History__c</name>
+    </fields>
+    <fields>
+        <label><!-- Legal Claim to Animals --></label>
+        <name>Legal_Claim_to_Animals__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not sure</masterLabel>
+            <translation><!-- Not sure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Perpetrator Name --></label>
+        <name>Perpetrator_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Perpetrator Residence --></label>
+        <name>Perpetrator_Residence__c</name>
     </fields>
     <fields>
         <label><!-- Program --></label>
@@ -45,6 +201,42 @@
         <relationshipLabel><!-- Cases --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Relationship to Perpetrator --></label>
+        <name>Relationship_to_Perpetrator__c</name>
+        <picklistValues>
+            <masterLabel>Brother</masterLabel>
+            <translation><!-- Brother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Father</masterLabel>
+            <translation><!-- Father --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Husband</masterLabel>
+            <translation><!-- Husband --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mother</masterLabel>
+            <translation><!-- Mother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neighbour</masterLabel>
+            <translation><!-- Neighbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sister</masterLabel>
+            <translation><!-- Sister --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wife</masterLabel>
+            <translation><!-- Wife --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Sex --></label>
         <name>Sex__c</name>
     </fields>
@@ -52,6 +244,67 @@
         <label><!-- Shelter --></label>
         <name>Shelter__c</name>
         <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Suitable Friend or Family Member --></label>
+        <name>Suitable_Friend_or_Family_Member__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Suitable for Foster Care --></label>
+        <name>Suitable_for_Foster_Care__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Threatened to Hurt Animal --></label>
+        <name>Threatened_to_Hurt_Animal__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Threatened to Kill Animal --></label>
+        <name>Threatened_to_Kill_Animal__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Treatment --></label>
+        <name>Treatment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vet --></label>
+        <name>Vet__c</name>
+        <relationshipLabel><!-- Vet Treatments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Weight --></label>
+        <name>Weight__c</name>
     </fields>
     <fields>
         <label><!-- Branch --></label>
@@ -160,6 +413,88 @@
         <name>npsp_plus__Origin__c</name>
     </fields>
     <layouts>
+        <layout>Access to Vet Care</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>項目</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Aged Care</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>項目</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Case Layout</layout>
         <sections>
             <label><!-- Animal Information --></label>
@@ -168,6 +503,127 @@
         <sections>
             <label><!-- Contact Information --></label>
             <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Common Ground</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>項目</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Delivery --></label>
+            <section>Service Delivery</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Domestic Violence</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Evidence of Abuse --></label>
+            <section>Evidence of Abuse</section>
+        </sections>
+        <sections>
+            <label>項目</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Perpetrator Information --></label>
+            <section>Perpetrator Information</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Homelessness</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>項目</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -190,8 +646,28 @@
         <name>NewChildCase</name>
     </quickActions>
     <recordTypes>
+        <label><!-- Access To Vet Care Intake --></label>
+        <name>Access_To_Vet_Care_Intake</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Aged Care --></label>
+        <name>Aged_Care</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Common Ground --></label>
+        <name>Common_Ground</name>
+    </recordTypes>
+    <recordTypes>
         <label><!-- Default --></label>
         <name>Default</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Domestic Violence --></label>
+        <name>Domestic_Violence</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Homelessness --></label>
+        <name>Homelessness</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Inbound Referral --></label>

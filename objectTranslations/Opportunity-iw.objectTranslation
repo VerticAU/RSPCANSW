@@ -90,6 +90,11 @@
         <name>Campaing_Id_Include_CCD__c</name>
     </fields>
     <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Cheque Drawer --></label>
         <name>Cheque_Drawer__c</name>
     </fields>
@@ -751,6 +756,11 @@
     <fields>
         <label><!-- Program Engagement --></label>
         <name>Program_Engagement__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
     </fields>
     <fields>

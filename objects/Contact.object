@@ -338,6 +338,16 @@
         <label>Animal Compact Layout</label>
     </compactLayouts>
     <compactLayouts>
+        <fullName>Communities_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>AccountId</fields>
+        <fields>Birthdate</fields>
+        <fields>Email</fields>
+        <fields>MobilePhone</fields>
+        <fields>GW_Volunteers__Volunteer_Status__c</fields>
+        <label>Communities Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
         <fullName>Individual_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>AccountId</fields>
@@ -1410,7 +1420,7 @@
     <recordTypes>
         <fullName>Individual</fullName>
         <active>true</active>
-        <compactLayoutAssignment>Individual_Compact_Layout</compactLayoutAssignment>
+        <compactLayoutAssignment>Communities_Compact_Layout</compactLayoutAssignment>
         <description>Record Type used to capture details about a RSPCA supporter.</description>
         <label>Individual</label>
         <picklistValues>

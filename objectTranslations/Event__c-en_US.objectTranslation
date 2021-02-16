@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Events</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active Registrations --></label>
+        <name>Active_Registrations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allocated Funding --></label>
+        <name>Allocated_Funding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Reminders --></label>
+        <name>Email_Reminders__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date &amp; Time --></label>
+        <name>End_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Description --></label>
+        <name>Event_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Status --></label>
+        <name>Event_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Event Type --></label>
+        <name>Event_Type__c</name>
+        <picklistValues>
+            <masterLabel>Community</masterLabel>
+            <translation><!-- Community --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outreach</masterLabel>
+            <translation><!-- Outreach --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Income --></label>
+        <name>Income__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <relationshipLabel><!-- Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Maximum Capacity --></label>
+        <name>Maximum_Capacity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Publish Online --></label>
+        <name>Publish_Online__c</name>
+    </fields>
+    <fields>
+        <label><!-- SMS Reminders --></label>
+        <name>SMS_Reminders__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send Surveys --></label>
+        <name>Send_Surveys__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Deliveries --></label>
+        <name>Service_Deliveries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date &amp; Time --></label>
+        <name>Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Registrations --></label>
+        <name>Target_Registrations__c</name>
+    </fields>
+    <layouts>
+        <layout>Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Event Settings --></label>
+            <section>Event Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Event Times --></label>
+            <section>Event Times</section>
+        </sections>
+        <sections>
+            <label><!-- Funding Information --></label>
+            <section>Funding Information</section>
+        </sections>
+        <sections>
+            <label><!-- Location Information --></label>
+            <section>Location Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

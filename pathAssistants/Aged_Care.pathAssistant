@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Aged Care</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Reminder prompt user to update ezyvet and sheltermate&lt;/p&gt;&lt;p&gt;Prompt user to create task: transport or vet visit&lt;/p&gt;&lt;p&gt;Prompt user to upload signed documentation to the record&lt;/p&gt;&lt;p&gt;Prompt user to update animal status in animal record as ‘Assistance’&lt;/p&gt;&lt;p&gt;Status changes to Finalised once an animal is no longer in the care of the RSPCA&lt;/p&gt;</info>
+        <picklistValueName>Assistance</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Reminder prompt user to update animal status in animal record  - status “in care”&lt;/p&gt;&lt;p&gt;Reminder prompt user to update ezyvet and sheltermate&lt;/p&gt;&lt;p&gt;Prompt user to upload signed documentation to the record&lt;/p&gt;</info>
+        <picklistValueName>Finalised</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Reminder prompt user to update ezyvet and sheltermate&lt;/p&gt;&lt;p&gt;Prompt user to upload signed documentation to the record&lt;/p&gt;&lt;p&gt;Status changes to Finalised once an animal is no longer in the care of the RSPCA&lt;/p&gt;</info>
+        <picklistValueName>In Care</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Workflow – Aged Care Intake&lt;/p&gt;&lt;p&gt;STATUS: New enquiry&lt;/p&gt;&lt;p&gt;Automatically generate: client number&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Mandatory fields&lt;/p&gt;&lt;p&gt;System will prompt user: Is the caller enquiring for themselves or someone else? Two tick box &lt;/p&gt;&lt;p&gt;options: self &amp;amp; someone else&lt;/p&gt;&lt;p&gt;If “self” selected: Client Name &amp;amp; Phone Number &lt;/p&gt;&lt;p&gt;If “someone else” selected: Referral Agency Type &amp;amp; contact details&lt;/p&gt;&lt;p&gt;Program Type – Drop down box with all program names, select “Aged Care”&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Assistance type – drop down box with multiple selections: Boarding/ Home Visit / Volunteer &lt;/p&gt;&lt;p&gt;/ Vet Visit - Non Urgent/Vet Visit - Urgent /Surrender/Impound/Pet Care &lt;/p&gt;&lt;p&gt;Supplies/Preventative Care / Other&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;The assistance type drop down box should be able to be replicated – for example some &lt;/p&gt;&lt;p&gt;clients will have Home Visit and Vet Visit as their main assistance types, so both options &lt;/p&gt;&lt;p&gt;should be reflected on the file.&lt;/p&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Prompt user to add an animal to the record  &lt;/p&gt;&lt;p&gt;Animal status drop down box options: select &lt;/p&gt;&lt;p&gt;pending&lt;/p&gt;&lt;p&gt;**Aged Care Cases can have a status of either Assistance or In Care from this point. Some clients &lt;/p&gt;&lt;p&gt;may end up with both status’ and salesforce needs to reflect this history**&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Status changes from Pending to In Care once an animal is physically in the care of the RSPCA&lt;/p&gt;</info>
+        <picklistValueName>Pending</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Aged_Care</recordTypeName>
+</PathAssistant>
