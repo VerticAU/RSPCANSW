@@ -138,6 +138,8 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             return new Component.DirectMailReceiptImage(dto = dto.getMap());
         } else if ('DirectMailReceiptDLVC'.equalsIgnoreCase(name)) {
             return new Component.DirectMailReceiptDLVC(dto = dto.getMap());
+        } else if ('DirectMailReceiptingFooter'.equalsIgnoreCase(name)) {
+            return new Component.DirectMailReceiptingFooter(dto = dto.getMap());
         } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'DLX') {
             return new Component.DirectMailReceiptAddressDLX(dto = dto.getMap());
         } else if ('DirectMailReceiptAddress'.equalsIgnoreCase(name) && envelopeType == 'C5') {
@@ -203,7 +205,7 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
             components.add(new Component.Apex.OutputText(value = 'No Donations'));
         }
         this.response.dto.put('components', components);
-        this.response.dto.put('head-component', new Component.DefaultAnnualReceiptStyles());
+        this.response.dto.put('head-component', new Component.DirectMailReceiptStyles());
 
         this.setFileName(ContributionService.formatReceiptFileName());
 

@@ -53,6 +53,10 @@
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
     <fields>
+        <label><!-- Active Member --></label>
+        <name>Active_Member__c</name>
+    </fields>
+    <fields>
         <label><!-- Active Membership --></label>
         <name>Active_Membership__c</name>
         <relationshipLabel><!-- Contacts (Active membership) --></relationshipLabel>
@@ -117,6 +121,10 @@
     <fields>
         <label><!-- Care Of --></label>
         <name>Care_Of__c</name>
+    </fields>
+    <fields>
+        <label><!-- Casesafe ID --></label>
+        <name>Casesafe_ID__c</name>
     </fields>
     <fields>
         <label><!-- Contact ID --></label>
@@ -189,6 +197,10 @@
     <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID (no zero) --></label>
+        <name>External_ID_no_zero__c</name>
     </fields>
     <fields>
         <label><!-- Facebook --></label>
@@ -370,6 +382,10 @@
         <name>Marital_Status__c</name>
     </fields>
     <fields>
+        <label><!-- Name Email ID --></label>
+        <name>Name_Email_ID__c</name>
+    </fields>
+    <fields>
         <label><!-- Occupation --></label>
         <name>Occupation__c</name>
         <picklistValues>
@@ -486,6 +502,102 @@
         <name>Owner_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Philanthropy Level --></label>
+        <name>Philanthropy_Level__c</name>
+        <picklistValues>
+            <masterLabel>Celebrity</masterLabel>
+            <translation><!-- Celebrity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed Bequestor - TIER 1</masterLabel>
+            <translation><!-- Confirmed Bequestor - TIER 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed Bequestor - TIER 2</masterLabel>
+            <translation><!-- Confirmed Bequestor - TIER 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed Bequestor - TIER 3</masterLabel>
+            <translation><!-- Confirmed Bequestor - TIER 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed Bequestor - TIER 4</masterLabel>
+            <translation><!-- Confirmed Bequestor - TIER 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Affiliated</masterLabel>
+            <translation><!-- Major Donor Affiliated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Annual</masterLabel>
+            <translation><!-- Major Donor Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Annual + Regular</masterLabel>
+            <translation><!-- Major Donor Annual + Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Annual + Regular - Engaged</masterLabel>
+            <translation><!-- Major Donor Annual + Regular - Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Annual - Engaged</masterLabel>
+            <translation><!-- Major Donor Annual - Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Lapsed</masterLabel>
+            <translation><!-- Major Donor Lapsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Regular</masterLabel>
+            <translation><!-- Major Donor Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Donor Regular - Engaged</masterLabel>
+            <translation><!-- Major Donor Regular - Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Giving Prospect</masterLabel>
+            <translation><!-- Major Giving Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Giving Prospect (DM segment MGP)</masterLabel>
+            <translation><!-- Major Giving Prospect (DM segment MGP) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Annual + Regular</masterLabel>
+            <translation><!-- Top Annual + Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Donor Annual</masterLabel>
+            <translation><!-- Top Donor Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Donor Annual + Regular</masterLabel>
+            <translation><!-- Top Donor Annual + Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Donor Annual + Regular - Engaged</masterLabel>
+            <translation><!-- Top Donor Annual + Regular - Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Donor Annual - Engaged</masterLabel>
+            <translation><!-- Top Donor Annual - Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Donor Regular</masterLabel>
+            <translation><!-- Top Donor Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Donor Regular - Engaged</masterLabel>
+            <translation><!-- Top Donor Regular - Engaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trusts and Foundations</masterLabel>
+            <translation><!-- Trusts and Foundations --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Previous Level --></label>
         <name>Previous_Level__c</name>
         <relationshipLabel><!-- Contacts (Previous Level) --></relationshipLabel>
@@ -586,6 +698,10 @@
     <fields>
         <label><!-- Twitter --></label>
         <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Branch --></label>
+        <name>Volunteer_Branch__c</name>
     </fields>
     <fields>
         <label><!-- Age Category --></label>

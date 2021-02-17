@@ -98,6 +98,10 @@
         <name>Deceased__c</name>
     </fields>
     <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
     </fields>
@@ -409,6 +413,10 @@
             <masterLabel>Male</masterLabel>
             <translation><!-- Male --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ShelterMate ID --></label>
+        <name>ShelterMate_ID__c</name>
     </fields>
     <layouts>
         <layout>Animal Layout</layout>

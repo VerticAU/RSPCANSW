@@ -79,7 +79,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             fflib_QueryFactory subQueryFactory = queryFactory.subselectQuery(childRelationshipName);
             subQueryFactory
                 .selectFields(this.childRelationshipToFields.get(childRelationshipKey))
-                .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true)
+                .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.DESCENDING, true)
                 .setLimit(1);
 
             if(condition != null){ subQueryFactory.setCondition(condition); }
@@ -103,7 +103,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         fflib_QueryFactory queryFactory = new fflib_QueryFactory(childRelationship.getChildSObject());
         queryFactory
             .selectFields(this.childRelationshipToFields.get(childRelationshipKey))
-            .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.ASCENDING, true)
+            .setOrdering('LastModifiedDate', fflib_QueryFactory.SortOrder.DESCENDING, true)
             .setLimit(1);
 
         if(condition != null){

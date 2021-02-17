@@ -1,0 +1,24 @@
+<apex:component id="DirectMailReceiptingFooter" layout="none">
+
+	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+
+	<footer style="position: fixed; left: 0; bottom: 0;">
+		<div style="margin: 10px;">
+			<div style="margin: 5px; text-align: center;">
+				<b style="font-size: 9pt; color: #1e8ab5">
+					The Royal Society for the Prevention of Cruetly to Animals New South Wales
+				</b>
+			</div>
+			<div style="margin: 5px; font-size: 9pt; text-align: center; color: #1e8ab5;">
+				PO Box 34, Yagoona NSW 2199
+				&nbsp;&nbsp;&nbsp;
+				<b style="font-size: 9pt; color: #1e8ab5">ABN</b> 87 000 001 641
+				&nbsp;&nbsp;&nbsp;
+				<b style="font-size: 9pt; color: #1e8ab5">Authority to Fundraise</b> No CFN11744
+			</div>
+		</div>
+
+		<img src="{!URLFOR($Resource.DMReceipting, 'DMReceipting/footer.png')}" style="width: 100%"/>
+	</footer>
+
+</apex:component>

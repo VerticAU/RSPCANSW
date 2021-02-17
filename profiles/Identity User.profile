@@ -1254,6 +1254,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.External_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1280,6 +1285,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Animal__c.Sex__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.ShelterMate_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2499,6 +2509,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.Active_Member__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.Active_Membership__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2580,6 +2595,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Care_Of__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Casesafe_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2680,6 +2700,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.External_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.External_ID_no_zero__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2838,6 +2863,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Name_Email_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Occupation__c</field>
         <readable>true</readable>
@@ -2880,6 +2910,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Owner_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Philanthropy_Level__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2945,6 +2980,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Twitter__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Volunteer_Branch__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

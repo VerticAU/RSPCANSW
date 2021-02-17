@@ -375,6 +375,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Active_Member__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active Member</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Active_Membership__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -561,6 +570,17 @@
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Casesafe_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Casesafe ID</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -785,6 +805,18 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>External_ID_no_zero__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(BEGINS(External_ID__c,&quot;0&quot;),
+RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>External ID (no zero)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Facebook__c</fullName>
         <externalId>false</externalId>
         <label>Facebook</label>
@@ -990,6 +1022,17 @@
         <fullName>Name</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Name_Email_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Email +  FirstName +  LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Name Email ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Occupation__c</fullName>
@@ -1203,6 +1246,135 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Philanthropy_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Philanthropy Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Celebrity</fullName>
+                    <default>false</default>
+                    <label>Celebrity</label>
+                </value>
+                <value>
+                    <fullName>Confirmed Bequestor - TIER 1</fullName>
+                    <default>false</default>
+                    <label>Confirmed Bequestor - TIER 1</label>
+                </value>
+                <value>
+                    <fullName>Confirmed Bequestor - TIER 2</fullName>
+                    <default>false</default>
+                    <label>Confirmed Bequestor - TIER 2</label>
+                </value>
+                <value>
+                    <fullName>Confirmed Bequestor - TIER 3</fullName>
+                    <default>false</default>
+                    <label>Confirmed Bequestor - TIER 3</label>
+                </value>
+                <value>
+                    <fullName>Confirmed Bequestor - TIER 4</fullName>
+                    <default>false</default>
+                    <label>Confirmed Bequestor - TIER 4</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Affiliated</fullName>
+                    <default>false</default>
+                    <label>Major Donor Affiliated</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Annual</fullName>
+                    <default>false</default>
+                    <label>Major Donor Annual</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Annual + Regular</fullName>
+                    <default>false</default>
+                    <label>Major Donor Annual + Regular</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Annual + Regular - Engaged</fullName>
+                    <default>false</default>
+                    <label>Major Donor Annual + Regular - Engaged</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Annual - Engaged</fullName>
+                    <default>false</default>
+                    <label>Major Donor Annual - Engaged</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Lapsed</fullName>
+                    <default>false</default>
+                    <label>Major Donor Lapsed</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Regular</fullName>
+                    <default>false</default>
+                    <label>Major Donor Regular</label>
+                </value>
+                <value>
+                    <fullName>Major Donor Regular - Engaged</fullName>
+                    <default>false</default>
+                    <label>Major Donor Regular - Engaged</label>
+                </value>
+                <value>
+                    <fullName>Major Giving Prospect</fullName>
+                    <default>false</default>
+                    <label>Major Giving Prospect</label>
+                </value>
+                <value>
+                    <fullName>Major Giving Prospect (DM segment MGP)</fullName>
+                    <default>false</default>
+                    <label>Major Giving Prospect (DM segment MGP)</label>
+                </value>
+                <value>
+                    <fullName>Top Annual + Regular</fullName>
+                    <default>false</default>
+                    <label>Top Annual + Regular</label>
+                </value>
+                <value>
+                    <fullName>Top Donor Annual</fullName>
+                    <default>false</default>
+                    <label>Top Donor Annual</label>
+                </value>
+                <value>
+                    <fullName>Top Donor Annual + Regular</fullName>
+                    <default>false</default>
+                    <label>Top Donor Annual + Regular</label>
+                </value>
+                <value>
+                    <fullName>Top Donor Annual + Regular - Engaged</fullName>
+                    <default>false</default>
+                    <label>Top Donor Annual + Regular - Engaged</label>
+                </value>
+                <value>
+                    <fullName>Top Donor Annual - Engaged</fullName>
+                    <default>false</default>
+                    <label>Top Donor Annual - Engaged</label>
+                </value>
+                <value>
+                    <fullName>Top Donor Regular</fullName>
+                    <default>false</default>
+                    <label>Top Donor Regular</label>
+                </value>
+                <value>
+                    <fullName>Top Donor Regular - Engaged</fullName>
+                    <default>false</default>
+                    <label>Top Donor Regular - Engaged</label>
+                </value>
+                <value>
+                    <fullName>Trusts and Foundations</fullName>
+                    <default>false</default>
+                    <label>Trusts and Foundations</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Phone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1408,6 +1580,17 @@
         <fullName>Twitter__c</fullName>
         <externalId>false</externalId>
         <label>Twitter</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Volunteer_Branch__c</fullName>
+        <externalId>false</externalId>
+        <label>Volunteer Branch</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1730,6 +1913,101 @@
             </values>
             <values>
                 <fullName>Sport and Recreation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Philanthropy_Level__c</picklist>
+            <values>
+                <fullName>Celebrity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed Bequestor - TIER 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed Bequestor - TIER 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed Bequestor - TIER 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed Bequestor - TIER 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Affiliated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Annual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Annual %2B Regular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Annual %2B Regular - Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Annual - Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Lapsed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Regular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Donor Regular - Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Giving Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Giving Prospect %28DM segment MGP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Annual %2B Regular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Donor Annual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Donor Annual %2B Regular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Donor Annual %2B Regular - Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Donor Annual - Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Donor Regular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Donor Regular - Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trusts and Foundations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
