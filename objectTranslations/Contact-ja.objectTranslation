@@ -207,6 +207,10 @@
         <name>Facebook__c</name>
     </fields>
     <fields>
+        <label><!-- Frequency Level Name --></label>
+        <name>Frequency_Level_Name__c</name>
+    </fields>
+    <fields>
         <help>最初のボランティア時間の開始日</help>
         <label><!-- First Volunteer Date --></label>
         <name>GW_Volunteers__First_Volunteer_Date__c</name>
@@ -378,8 +382,20 @@
         <name>LinkedIn__c</name>
     </fields>
     <fields>
+        <label><!-- Mailing Street Line 1 --></label>
+        <name>Mailing_Street_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mailing Street Line 2 --></label>
+        <name>Mailing_Street_Line_2__c</name>
+    </fields>
+    <fields>
         <label><!-- Marital Status --></label>
         <name>Marital_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monetary Level Name --></label>
+        <name>Monetary_Level_Name__c</name>
     </fields>
     <fields>
         <label><!-- Name Email ID --></label>
@@ -621,6 +637,10 @@
             <masterLabel>Postal Receipt</masterLabel>
             <translation><!-- Postal Receipt --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recency Level Name --></label>
+        <name>Recency_Level_Name__c</name>
     </fields>
     <fields>
         <label><!-- Recurring Donation Active Count --></label>

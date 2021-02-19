@@ -83,16 +83,17 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
 
         if(donation == null){ return '<p>Donation is not found.<\\p><p>Donation: ' + componentId + '<\\p>'; }
 
-        Direct_Mail_Receipt_Template__c template;
-        String campaignId = donation.CampaignId;
-
-        while (template == null){
-            if(Limits.getLimitQueries() < 10 || campaignId == null){
-                break;
-            }
-            template = queryTemplate(donation, campaignId);
-            campaignId = getParentCampaignId(campaignId);
-        }
+        Direct_Mail_Receipt_Template__c template = queryTemplate(donation, donation.CampaignId);
+//        Direct_Mail_Receipt_Template__c template;
+//        String campaignId = donation.CampaignId;
+//
+//        while (template == null){
+//            if(Limits.getLimitQueries() < 10 || campaignId == null){
+//                break;
+//            }
+//            template = queryTemplate(donation, campaignId);
+//            campaignId = getParentCampaignId(campaignId);
+//        }
 
         if(template == null){
             return '<p>Template is no found.<\\p>' +
@@ -121,14 +122,14 @@ public without sharing class DirectMailReceiptMetaProc extends vertic_TemplateMe
         ]);
     }
 
-    private String getParentCampaignId(String campaignId){
-        Campaign campaign = (Campaign) vertic_Utils.arrays.firstOrNull([
-            SELECT Id, ParentId
-            FROM Campaign
-            WHERE Id =: campaignId
-        ]);
-        return campaign.ParentId;
-    }
+//    private String getParentCampaignId(String campaignId){
+//        Campaign campaign = (Campaign) vertic_Utils.arrays.firstOrNull([
+//            SELECT Id, ParentId
+//            FROM Campaign
+//            WHERE Id =: campaignId
+//        ]);
+//        return campaign.ParentId;
+//    }
 
     protected override ApexPages.Component getComponentInstance(String name, vertic_DTO dto) {
         String envelopeType = vertic_Utils.strings.defaultIfBlank(dto.getString('envelopeType'), 'DLX');

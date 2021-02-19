@@ -833,6 +833,16 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Frequency_Level_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>npsp_plus__Frequency_Level__r.Name</formula>
+        <label>Frequency Level Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Gender__c</fullName>
         <description>This field is configured in NPSP Settings &gt; Relationships &gt; Relationships as the Gender field. Do not delete this field unless you remove the reference or select another Gender field there.</description>
         <externalId>false</externalId>
@@ -1001,6 +1011,28 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Mailing_Street_Line_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Mailing Street Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mailing_Street_Line_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Mailing Street Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Marital_Status__c</fullName>
         <externalId>false</externalId>
         <label>Marital Status</label>
@@ -1017,6 +1049,16 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <fullName>MobilePhone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Monetary_Level_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>npsp_plus__Monetary_Level__r.Name</formula>
+        <label>Monetary Level Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Name</fullName>
@@ -1432,6 +1474,16 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Recency_Level_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>npsp_plus__Recency_Level__r.Name</formula>
+        <label>Recency Level Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Recurring_Donation_Active_Count__c</fullName>

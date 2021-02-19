@@ -51,7 +51,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         } else if(this.parentSObjectType == Lead.SObjectType){
             return this.campaignMember.LeadId;
         }
-        return null;
+        throw new vertic_Structs.MissingDataException('SObject Type is missing in mapping!');
     }
 
     private void parseCMDTMappingAndRetrieveParentObject() {
@@ -179,7 +179,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
     }
 
     private void retrieveCMDTMapping(){
-        Map<String, Object> mapping = retrieveMapping();
+        Map<String, Object> mapping = retrieveMapping(this.campaignMember.Campaign.Clever_Contacts_Type__c);
 
         if(mapping == null) { return; }
 
@@ -205,7 +205,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
         }
     }
 
-    private Map<String, Object> retrieveMapping(){
+    public static Map<String, Object> retrieveMapping(String campaignType){
 
         if(Test.isRunningTest()){
             return new Map<String, Object>{
@@ -224,7 +224,7 @@ public class CleverContactsSyncMemberProc extends vertic_AbstractProcessor {
             if(setting == null){ return null; }
 
             Map<String, Object> valueMap = (Map<String, Object>) JSON.deserializeUntyped((String) setting.get('Value__c'));
-            Map<String, Object> mapping = (Map<String, Object>) valueMap.get(this.campaignMember.Campaign.Clever_Contacts_Type__c);
+            Map<String, Object> mapping = (Map<String, Object>) valueMap.get(campaignType);
 
             if(mapping == null){ mapping = (Map<String, Object>) valueMap.get('default'); }
 

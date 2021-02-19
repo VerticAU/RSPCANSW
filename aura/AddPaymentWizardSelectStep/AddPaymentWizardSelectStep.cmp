@@ -85,7 +85,7 @@
                                  type="date"
                                  value="{! v.meta.dto.payment.npe01__Scheduled_Date__c }"
                 />
-                <lightning:input name="paymentAmount" type="number" label="Payment Amount" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }" required="true"/>
+                <lightning:input name="paymentAmount" type="number" label="Payment Amount" step="0.01" value="{! v.meta.dto.payment.npe01__Payment_Amount__c }" required="true"/>
 
                 <lightning:select label="Acknowledgement Status"
                                   value="{! v.meta.dto.payment.npsp__Payment_Acknowledgment_Status__c }"
