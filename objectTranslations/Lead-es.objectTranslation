@@ -169,6 +169,22 @@
         <name>Facebook__c</name>
     </fields>
     <fields>
+        <label><!-- Form Name --></label>
+        <name>Form_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Submitted Date --></label>
+        <name>Form_Submitted_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form URL --></label>
+        <name>Form_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form of Contact Requested --></label>
+        <name>Form_of_Contact_Requested__c</name>
+    </fields>
+    <fields>
         <label><!-- Volunteer Availability --></label>
         <name>GW_Volunteers__Volunteer_Availability__c</name>
         <picklistValues>

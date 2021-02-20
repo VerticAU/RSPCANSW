@@ -33,8 +33,27 @@ public without sharing class ContactDomain extends fflib_SObjectDomain implement
         contact.Email = contact.Email != null ? contact.Email.toLowerCase() : null;
 
         contact.MailingCity = this.capitalizeAllWords(contact.MailingCity);
-        if(contact.MailingState != null && !contact.MailingState.isAllUpperCase()){
+        if(!String.isBlank(contact.MailingState) && !contact.MailingState.isAllUpperCase()){
             contact.MailingState = this.formatState(contact.MailingState);
+        }
+
+        if(!String.isBlank(contact.MailingStreet)){ this.splitStreet(contact); }
+    }
+
+    private void splitStreet(Contact contact){
+        List<String> lines = new List<String>();
+
+        if(contact.MailingStreet.contains('\r\n')){
+            lines = contact.MailingStreet.split('\r\n');
+        } else if (contact.MailingStreet.contains('\n')){
+            lines = contact.MailingStreet.split('\n');
+        }
+
+        if(lines.size() > 1){
+            contact.Mailing_Street_Line_1__c = lines[0];
+            contact.Mailing_Street_Line_2__c = lines[1];
+        } else {
+            contact.Mailing_Street_Line_1__c = contact.MailingStreet;
         }
     }
 
