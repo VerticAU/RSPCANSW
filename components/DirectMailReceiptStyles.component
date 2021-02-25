@@ -16,7 +16,7 @@
 		* {
 			font-family: sans-serif !important;
 			font-size: 15px;
-			line-height: 0.75;
+			line-height: 0.8;
 		}
 
 		p {
