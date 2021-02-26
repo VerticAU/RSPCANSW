@@ -95,6 +95,10 @@
                         <option label="{!option.label}" value="{!option.value}"/>
                     </aura:iteration>
                 </lightning:select>
+
+                <lightning:input label="Narrative"
+                                 value="{! v.meta.dto.payment.Narrative__c }"
+                />
             </div>
         </aura:if>
 

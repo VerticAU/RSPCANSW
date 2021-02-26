@@ -46,7 +46,7 @@ public without sharing class BulkDonationReceiptingGenerateProc extends vertic_A
             Map<String, String> pageRefParams = pageRef.getParameters();
             pageRefParams.put('proc', 'DirectMailReceipt');
             pageRefParams.put('ids', String.join((List<String>) mailIdsChunk, ','));
-            pageRefParams.put('afterProc', 'false');
+            pageRefParams.put('afterProc', 'true');
 
             links.add(new vertic_Structs.SelectOption(pageRef.getUrl(), ContributionService.formatReceiptFileName()));
         }

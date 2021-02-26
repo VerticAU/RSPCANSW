@@ -1121,7 +1121,7 @@
         <name>npsp__Ask_Date__c</name>
     </fields>
     <fields>
-        <help><!-- The batch that created this Opportunity. This field is automatically populated based on your Batch Number Settings in NPSP Settings. --></help>
+        <help>Der Batch, der diese Opportunity erstellt hat. Dieses Feld wird auf der Grundlage Ihrer Einstellungen für Batch-Nummern in den NPSP-Einstellungen automatisch aufgefüllt.</help>
         <label><!-- Batch Number --></label>
         <name>npsp__Batch_Number__c</name>
     </fields>

@@ -7,7 +7,8 @@
             sObjectType: 'Batch__c',
             upsert: [{
                 Id: cmp.get('v.recordId'),
-                Approved_By__c: $A.get("$SObjectType.CurrentUser.Id")
+                Approved_By__c: $A.get("$SObjectType.CurrentUser.Id"),
+                Batch_Status__c: 'Complete'
             }]
         }).then(function (response) {
             cmp.set('v.message', 'Batch was approved!');

@@ -1121,7 +1121,7 @@
         <name>npsp__Ask_Date__c</name>
     </fields>
     <fields>
-        <help><!-- The batch that created this Opportunity. This field is automatically populated based on your Batch Number Settings in NPSP Settings. --></help>
+        <help>この商談を作成したバッチ。この項目は、[NPSP 設定] の [バッチ番号設定] に基づいて自動的に入力されます。</help>
         <label><!-- Batch Number --></label>
         <name>npsp__Batch_Number__c</name>
     </fields>

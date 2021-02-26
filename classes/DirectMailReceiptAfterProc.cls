@@ -42,17 +42,24 @@ public class DirectMailReceiptAfterProc  extends vertic_AbstractProcessor implem
 
         for (String donationId : this.donationIds) {
 
-            Task newTask = new Task(
-                Subject = 'Donation Receipt',
-                Description = String.format('The Donation Receipt was generated on {0}', new List<String>{
-                    dateTimeVar.format()
-                }),
-                WhatId = donationId,
-                OwnerId = UserInfo.getUserId(),
-                ActivityDate = dateTimeVar.date(),
-                Status = 'Completed'
+            Opportunity donation = new Opportunity(
+                Id = donationId,
+                npsp__Acknowledgment_Status__c = 'Acknowledged',
+                npsp__Acknowledgment_Date__c = Date.today()
             );
-            uow.registerUpsert(newTask);
+            uow.registerDirty(donation);
+
+//            Task newTask = new Task(
+//                Subject = 'Donation Receipt',
+//                Description = String.format('The Donation Receipt was generated on {0}', new List<String>{
+//                    dateTimeVar.format()
+//                }),
+//                WhatId = donationId,
+//                OwnerId = UserInfo.getUserId(),
+//                ActivityDate = dateTimeVar.date(),
+//                Status = 'Completed'
+//            );
+//            uow.registerUpsert(newTask);
         }
 
         uow.commitWork();
