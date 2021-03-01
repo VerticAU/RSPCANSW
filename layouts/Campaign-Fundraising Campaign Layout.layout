@@ -22,35 +22,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Website_Fundraiser__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Narrative__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Campaign_Code__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>One_Drive_Folder_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Stripe_Account_Id__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Cost_Centre__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Program__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Clever_Contacts_Type__c</field>
+                <field>Campaign_Code__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -72,7 +48,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>npsp_plus__Donation_Receipt_Email_Template_Name__c</field>
+                <field>Cost_Centre__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -355,11 +331,6 @@
             <sortOrder>1</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Campaign.npsp_plus__Set_Stripe_Account</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>2</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Campaign.Sync_Clever_Contacts</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>3</sortOrder>
@@ -390,6 +361,11 @@
             <sortOrder>8</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
+            <actionName>Campaign.npsp_plus__Set_Stripe_Account</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>2</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>9</sortOrder>
@@ -403,11 +379,6 @@
             <actionName>NewOpportunity</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>11</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>FeedItem.LinkPost</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>12</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>FeedItem.PollPost</actionName>
@@ -434,6 +405,11 @@
             <actionType>StandardButton</actionType>
             <sortOrder>17</sortOrder>
         </platformActionListItems>
+        <platformActionListItems>
+            <actionName>FeedItem.LinkPost</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>12</sortOrder>
+        </platformActionListItems>
     </platformActionList>
     <relatedContent>
         <relatedContentItems>
@@ -443,6 +419,17 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
+    <relatedLists>
+        <customButtons>wbsendit__Send_to_Email_List</customButtons>
+        <fields>MEMBER_TYPE</fields>
+        <fields>STATUS</fields>
+        <fields>FIRST_NAME</fields>
+        <fields>LAST_NAME</fields>
+        <fields>TITLE</fields>
+        <fields>COMPANY</fields>
+        <fields>Clever_Contacts_Sync_Status__c</fields>
+        <relatedList>RelatedCampaignMemberList</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>OPPORTUNITY.NAME</fields>
         <fields>OPPORTUNITY.STAGE_NAME</fields>
@@ -483,17 +470,6 @@
         <fields>TOT_BUDGETED_COST</fields>
         <fields>TOT_ACTUAL_COST</fields>
         <relatedList>RelatedCampaignHierarchyList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <customButtons>wbsendit__Send_to_Email_List</customButtons>
-        <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
-        <fields>FIRST_NAME</fields>
-        <fields>LAST_NAME</fields>
-        <fields>TITLE</fields>
-        <fields>COMPANY</fields>
-        <fields>Clever_Contacts_Sync_Status__c</fields>
-        <relatedList>RelatedCampaignMemberList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>LABEL</fields>

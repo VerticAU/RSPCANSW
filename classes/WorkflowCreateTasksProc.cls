@@ -7,20 +7,11 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
      */
 
     private List<Task> records;
-    private Map<String, List<String>> groupMemberMap = new Map<String, List<String>>();
     private Map<String, SObject> whatAndWhoIdsBySObjectMap = new Map<String, SObject>();
-    private vertic_UnitOfWork uow = new vertic_UnitOfWork(new List<SObjectType>{
-        Task.SObjectType
-    });
 
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
-
         this.mapSObject();
-
-
-        fflib_SObjectDomain.getTriggerEvent(TaskDomain.class).disableBeforeInsert();
-        uow.commitWork();
 
         return this.response;
     }
@@ -34,30 +25,18 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
 
     private void mapSObject() {
         vertic_DTO payload = new vertic_DTO();
+
         this.records = (List<Task>) this.request.get('records');
-        System.debug('this.records:  ' + this.records);
-        this.groupMemberMap = WorkflowService.findUsersByGroups();
-        System.debug('this.groupMemberMap ' + this.groupMemberMap);
-        System.debug('before err');
 
         Set<Id> whoAndWhatIds = vertic_Utils.sObjects.getIdFieldValues(this.records, Task.WhatId);
-        System.debug('before err1');
-
         whoAndWhatIds.addAll(vertic_Utils.sObjects.getIdFieldValues(this.records, Task.WhoId));
-        System.debug('before err2');
 
         this.whatAndWhoIdsBySObjectMap = this.findWhoId(whoAndWhatIds);
 
         for (Task task : this.records) {
-
-
             try {
-                System.debug('before err3');
                 payload = new vertic_DTO(task.Description);
-                System.debug('1 payload ' + payload);
-                System.debug('payload.getMap(): ' + payload.getMap());
                 vertic_AutoMapper autoMapper = new vertic_AutoMapper(payload.getMap());
-                System.debug('autoMapper ' + autoMapper);
                 autoMapper.mapToSObject(task);
             } catch (Exception ex) {
                 System.debug('can\'t parse: err');
@@ -73,30 +52,8 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
             }
 
             this.setWhatAndWhoIds(task, payload);
-            System.debug('before - task.ActivityDate: ' + task.ActivityDate);
             task.ActivityDate = task.Activity_Days__c == null ? task.ActivityDate : WorkflowService.calcActivityDate(Integer.valueOf(task.Activity_Days__c));
-            System.debug('after - task.ActivityDate: ' + task.ActivityDate);
-
-
-            task.Group_Name__c = task.Group_Name__c != null ? task.Group_Name__c.replaceAll(' ','_') : '';
-            if (task.Group_Key__c == null && String.isNotBlank(task.Group_Name__c) && this.groupMemberMap.containsKey(task.Group_Name__c)) {
-
-                task.Group_Key__c = vertic_Utils.strings.newGuid();
-
-                List<String> userIds = this.groupMemberMap.get(task.Group_Name__c).clone();
-
-                if (userIds.size() > 0) {
-                    task.OwnerId = userIds.remove(0);
-                }
-
-                for (String userId : userIds) {
-                    Task newTask = task.clone(false, true);
-                    newTask.OwnerId = userId;
-                    this.uow.registerNew(newTask);
-                    System.debug('newTask: ' + newTask);
-                }
-
-            }
+            task.Group_Name__c = task.Group_Name__c != null ? task.Group_Name__c.replaceAll(' ', '_') : '';
         }
     }
 
@@ -106,44 +63,26 @@ public without sharing class WorkflowCreateTasksProc extends vertic_AbstractProc
 
             fflib_QueryFactory queryFactory;
             queryFactory = new fflib_QueryFactory(idVar.getSobjectType());
-//            queryFactory.selectFields(idVar.getSobjectType().getDescribe().fields.getMap().keySet());
             Set<String> objectFields = new Set<String>(idVar.getSobjectType().getDescribe().fields.getMap().keySet());
-            System.debug('All fields size: ' + objectFields.size());
-
             for (String field : objectFields) {
                 try {
                     queryFactory.selectField(field);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
             }
-
-            System.debug('Available field size: ' + queryFactory.getSelectedFields().size());
-
             queryFactory.setCondition('Id = :idVar');
-            System.debug('2 queryFactory= ' + queryFactory);
-
             sObjectsByIds.put(idVar, Database.query(queryFactory.toSOQL()));
         }
-        System.debug(sObjectsByIds);
         return sObjectsByIds;
     }
 
 
     private void setWhatAndWhoIds(Task task, vertic_DTO payload) {
-
-        System.debug('before changes: ');
-        System.debug('task.WhatId: ' + task.WhatId);
-        System.debug('task.Skip_WhatId__c: ' + task.Skip_WhatId__c);
-        System.debug('task.WhoId: ' + task.WhoId);
-        System.debug('task: ' + task);
-        System.debug('payload: ' + payload);
         if (task.WhatId != null && task.Skip_WhoId__c == false && payload.has('WhoId_Field')) {
             task.WhoId = (Id) ((SObject) this.whatAndWhoIdsBySObjectMap.get(task.WhatId)).get(payload.getString('WhoId_Field'));
         } else if (task.WhoId != null && task.Skip_WhatId__c == false && payload.has('WhatId_Field')) {
             task.WhatId = (Id) ((SObject) this.whatAndWhoIdsBySObjectMap.get(task.WhoId)).get(payload.getString('WhatId_Field'));
         }
-        System.debug('after changes: ');
-        System.debug('task.WhatId: ' + task.WhatId);
-        System.debug('task.WhoId: ' + task.WhoId);
     }
 
 

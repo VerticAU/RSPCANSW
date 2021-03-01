@@ -57,10 +57,8 @@ public without sharing class WorkflowUpdateTasksProc extends vertic_AbstractProc
                 'WhoId',
                 'Type'
             });
-            System.debug('1 task.Id ' + task.Id);
 
             if (isUpdated && task.Group_Key__c != null) {
-                System.debug('2 task.Id ' + task.Id);
                 this.taskIds.add(task.Id);
                 this.mapGroupKeyToMainTask.put(task.Group_Key__c, task);
             }

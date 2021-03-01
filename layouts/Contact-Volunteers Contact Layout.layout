@@ -772,6 +772,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Event__c</fields>
+        <fields>Role__c</fields>
         <relatedList>Event_Attendees__c.Contact__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
