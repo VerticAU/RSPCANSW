@@ -38,50 +38,12 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>cacheAge</name>
-                    <value>1440</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>reportFilter</name>
-                    <value>Account.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>reportName</name>
-                    <value>Account_Income_This_CY_by_Campaign_gVe</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showRefreshButton</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:reportChart</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-ecc74ee4-cc48-4137-b6a1-da552c06258d</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
                     <name>body</name>
                     <value>facet-e86694fc-02ce-4cd3-8d32-0983cd030cbf</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Standard.Tab.detail</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-ecc74ee4-cc48-4137-b6a1-da552c06258d</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Donor Summary</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
@@ -115,15 +77,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
+                    <value>GRID</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
             </componentInstance>
@@ -140,15 +94,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
+                    <value>GRID</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
             </componentInstance>

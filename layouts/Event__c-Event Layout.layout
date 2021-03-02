@@ -218,6 +218,23 @@
         <fields>Role__c</fields>
         <relatedList>Event_Attendees__c.Event__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.STATUS</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.END_DATE</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CAMPAIGN.NUM_CONTACTS</fields>
+        <fields>CAMPAIGN.NUM_LEADS</fields>
+        <fields>CAMPAIGN.NUM_RESPONSES</fields>
+        <fields>AMOUNT_WON</fields>
+        <fields>CAMPAIGN.RECORDTYPE</fields>
+        <relatedList>Campaign.Event__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Expense__c.Event__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

@@ -1681,6 +1681,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Event__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.ExpectedResponse</field>
         <readable>false</readable>
@@ -7500,6 +7505,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event__c-Event Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Expense__c-Expense Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Invoice__c-Invoice Layout</layout>

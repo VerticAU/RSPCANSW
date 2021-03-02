@@ -37,14 +37,14 @@
             <assignToReference>recurringDonation.npe03__Date_Established__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Flow.CurrentDate</elementReference>
+                <elementReference>recurringStartDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>recurringDonation.npsp__StartDate__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Flow.CurrentDate</elementReference>
+                <elementReference>recurringStartDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -136,6 +136,20 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>utmTestVariant</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurringDonation.npsp__PaymentMethod__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Credit Card</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>recurringDonation.npsp__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Active</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -346,6 +360,9 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDate</elementReference>
+        </value>
     </variables>
     <variables>
         <name>utmAdContent</name>
