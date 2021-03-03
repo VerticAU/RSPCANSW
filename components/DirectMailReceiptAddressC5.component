@@ -19,7 +19,7 @@
 			</td>
 			<td>
 				<div style="width: 80mm; text-align: right">
-					<img src="{!dto['imageUrl']}" style="height: 45mm; margin-top: 38mm"/>
+					<img src="{!dto['imageUrl']}" style="max-height: 45mm; max-width: 90mm; margin-top: 38mm"/>
 				</div>
 			</td>
 		</tr>
