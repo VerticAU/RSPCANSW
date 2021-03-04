@@ -5,22 +5,20 @@
 	<table>
 		<tr>
 			<td>
-				<div style="margin-left: 12mm; margin-top: 43mm; width: 95mm; height: 38mm;">
+				<div style="margin-left: 12mm; margin-top: 43mm; width: 75mm; height: 38mm;">
 					<div style="padding: 7mm">
 						<p style="font-size: 10pt; line-height: 0.9">Donor Member Number: {!dto['recipient'].Contact_ID__c}</p>
 						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].Letter_Salutation__c}</p>
 						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].Title} {!dto['recipient'].FirstName} {!dto['recipient'].LastName}</p>
 						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].Care_Of__c}</p>
 						<!--		<p style="font-size: 9pt;">{!dto['organisation'].Name}</p>-->
-						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingStreet} {!dto['recipient'].MailingCity}</p>
-						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingState} {!dto['recipient'].MailingCountry} {!dto['recipient'].MailingPostalCode}</p>
+						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingStreet}</p>
+						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingCity} {!dto['recipient'].MailingState} {!dto['recipient'].MailingPostalCode}</p>
 					</div>
 				</div>
 			</td>
-			<td>
-				<div style="width: 80mm; text-align: right">
-					<img src="{!dto['imageUrl']}" style="max-height: 45mm; max-width: 90mm; margin-top: 38mm"/>
-				</div>
+			<td style="text-align: right">
+				<img src="{!dto['imageUrl']}" style="width: 90mm; margin-top: 38mm"/>
 			</td>
 		</tr>
 	</table>
