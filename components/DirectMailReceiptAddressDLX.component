@@ -17,8 +17,10 @@
 					</div>
 				</div>
 			</td>
-			<td style="text-align: right">
-				<img src="{!dto['imageUrl']}" style="width: 90mm;"/>
+			<td>
+				<div style="max-height: 45mm; text-align: right">
+					<img src="{!dto['imageUrl']}" style="width: 90mm;"/>
+				</div>
 			</td>
 		</tr>
 	</table>

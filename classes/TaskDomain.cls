@@ -20,6 +20,8 @@ public without sharing class TaskDomain extends fflib_SObjectDomain {
 
     public override void onAfterInsert() {
 
+        if(System.isBatch()){ return; }
+
         Map<Id, Task> tasks = new Map<Id, Task>();
         for (Task task : (List<Task>) this.Records){
             tasks.put(task.Id, task);
