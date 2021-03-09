@@ -14,9 +14,11 @@ public without sharing class RecurringDonationDomain extends fflib_SObjectDomain
     public override void onBeforeInsert() {}
     
     public override void onAfterInsert() {}
-    
-    public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {}
-    
+
+    public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
+        setSetTemporaryPreviousOpportunityAmount(Records, existingRecords);
+    }
+
     public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
         vertic_AsyncProcess asyncProcess = new vertic_AsyncProcess();
         for (npe03__Recurring_Donation__c recurringDonation : (List<npe03__Recurring_Donation__c>) Records) {
@@ -33,7 +35,20 @@ public without sharing class RecurringDonationDomain extends fflib_SObjectDomain
                 asyncProcess.add(vap);
             }
         }
-        asyncProcess.enqueueAndRun();
+        if (System.isBatch() || System.isQueueable()) {
+            asyncProcess.enqueue();
+        } else {
+            asyncProcess.enqueueAndRun();
+        }
+    }
+
+    private static void setSetTemporaryPreviousOpportunityAmount(List<npe03__Recurring_Donation__c> recurringDonations, Map<Id, SObject> existingRecords) {
+        for (npe03__Recurring_Donation__c recurringDonationVar : recurringDonations) {
+            npe03__Recurring_Donation__c existingRD = (npe03__Recurring_Donation__c) existingRecords.get(recurringDonationVar.Id);
+            if (recurringDonationVar.npe03__Amount__c != existingRD.npe03__Amount__c) {
+                recurringDonationVar.Previous_Opportunity_Amount__c = recurringDonationVar.npe03__Amount__c;
+            }
+        }
     }
 
 }
