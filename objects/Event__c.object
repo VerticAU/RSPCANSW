@@ -144,7 +144,17 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>RSPCA_Event_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>RSPCA_Event_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Event_Status__c</fields>
+        <fields>Event_Type__c</fields>
+        <fields>Program__c</fields>
+        <fields>Location__c</fields>
+        <fields>Active_Registrations__c</fields>
+        <label>RSPCA Event Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -304,6 +314,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Profit_Loss_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Income__c - (Allocated_Funding__c + Total_Expenses__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Profit &amp; Loss Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Program__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -375,6 +398,17 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Expenses__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Expenses</label>
+        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
+        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
     </fields>
     <label>Event</label>
     <nameField>

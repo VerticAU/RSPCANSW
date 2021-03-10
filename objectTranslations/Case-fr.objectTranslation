@@ -125,8 +125,36 @@
             <translation><!-- Home Visit --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Impound</masterLabel>
+            <translation><!-- Impound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pet Care Supplies</masterLabel>
+            <translation><!-- Pet Care Supplies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preventative Care</masterLabel>
+            <translation><!-- Preventative Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Surrender</masterLabel>
+            <translation><!-- Surrender --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Transport</masterLabel>
             <translation><!-- Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vet Visit - Non Urgent</masterLabel>
+            <translation><!-- Vet Visit - Non Urgent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vet Visit - Urgent</masterLabel>
+            <translation><!-- Vet Visit - Urgent --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Volunteer Assistance</masterLabel>

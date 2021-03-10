@@ -1836,8 +1836,8 @@
         <name>Securities</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Service --></label>
-        <name>Service</name>
+        <label><!-- Service Delivery --></label>
+        <name>Service_Delivery</name>
     </recordTypes>
     <recordTypes>
         <description><!-- Record used to capture details about corporate sponsorship. --></description>

@@ -13019,10 +13019,10 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Service</fullName>
+        <fullName>Service_Delivery</fullName>
         <active>true</active>
         <businessProcess>npsp_plus_dres__Donation</businessProcess>
-        <label>Service</label>
+        <label>Service Delivery</label>
         <picklistValues>
             <picklist>Donor_Type__c</picklist>
             <values>

@@ -1,8 +1,6 @@
 <aura:component description="AddPaymentWizardSearchStep" extends="c:vertic_Step">
 
     <!-- ATTRIBUTE OVERRIDES -->
-    <aura:attribute name="batchId" type="String"/>
-
     <aura:set attribute="name" value="search"/>
     <aura:set attribute="showCancelButton" value="{!false}"/>
     <aura:set attribute="quickActionHeightPX" value="600"/>

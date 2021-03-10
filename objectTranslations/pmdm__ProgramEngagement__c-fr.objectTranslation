@@ -10,7 +10,7 @@
     </caseValues>
     <gender>Masculine</gender>
     <layouts>
-        <layout>Healthy Pet Day</layout>
+        <layout>Event Layout</layout>
         <sections>
             <label>Détails supplémentaires</label>
             <section>Additional Details</section>
@@ -30,6 +30,10 @@
         <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Costs --></label>
+            <section>Service Costs</section>
         </sections>
     </layouts>
     <nameFieldLabel>Nom de l&apos;engagement dans le programme</nameFieldLabel>

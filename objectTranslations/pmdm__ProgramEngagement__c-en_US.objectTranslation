@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <layouts>
-        <layout>Healthy Pet Day</layout>
+        <layout>Event Layout</layout>
         <sections>
             <label><!-- Additional Details --></label>
             <section>Additional Details</section>
@@ -21,6 +21,10 @@
         <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Costs --></label>
+            <section>Service Costs</section>
         </sections>
     </layouts>
 </CustomObjectTranslation>

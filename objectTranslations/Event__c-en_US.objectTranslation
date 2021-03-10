@@ -74,6 +74,10 @@
         <name>Maximum_Capacity__c</name>
     </fields>
     <fields>
+        <label><!-- Profit &amp; Loss Total --></label>
+        <name>Profit_Loss_Total__c</name>
+    </fields>
+    <fields>
         <label><!-- Program --></label>
         <name>Program__c</name>
         <relationshipLabel><!-- Events --></relationshipLabel>
@@ -102,15 +106,15 @@
         <label><!-- Target Registrations --></label>
         <name>Target_Registrations__c</name>
     </fields>
+    <fields>
+        <label><!-- Total Expenses --></label>
+        <name>Total_Expenses__c</name>
+    </fields>
     <layouts>
         <layout>Event Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Event Settings --></label>
-            <section>Event Settings</section>
         </sections>
         <sections>
             <label><!-- Event Times --></label>

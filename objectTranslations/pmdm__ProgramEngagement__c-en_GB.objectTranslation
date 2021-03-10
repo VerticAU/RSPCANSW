@@ -9,7 +9,7 @@
         <value>Program Engagements</value>
     </caseValues>
     <layouts>
-        <layout>Healthy Pet Day</layout>
+        <layout>Event Layout</layout>
         <sections>
             <label>Additional Details</label>
             <section>Additional Details</section>
@@ -29,6 +29,10 @@
         <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Costs --></label>
+            <section>Service Costs</section>
         </sections>
     </layouts>
     <nameFieldLabel>Program Engagement Name</nameFieldLabel>

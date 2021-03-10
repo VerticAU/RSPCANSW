@@ -1,10 +1,12 @@
 ({
     submit: function(cmp, helper) {
         return new Promise($A.getCallback(function (resolve, reject) {
+
+            var payment = cmp.get('v.meta.dto.payment');
+            payment.Batch__c = cmp.get('v.recordId');
+
             helper.execute(cmp, 'AddPaymentWizardSubmitProc',
-                {
-                    payment: cmp.get('v.meta.dto.payment')
-                },
+                { payment: payment },
                 function(response) {
                     helper.utils(cmp).showToast({
                         type: 'success',

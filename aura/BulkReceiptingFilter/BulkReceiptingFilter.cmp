@@ -62,7 +62,6 @@
                                        showRecentRecords="{!true}"
                                        disabled="{!v.isBusy}"
                                        value="{!v.meta.dto.filter.batchId}"
-                                       filter="Batch_Status__c = 'Pending'"
             />
 
             <lightning:input type="toggle"

@@ -13,5 +13,32 @@
         <name>Event__c</name>
         <relationshipLabel><!-- Expenses --></relationshipLabel>
     </fields>
+    <fields>
+        <label><!-- Expense Amount --></label>
+        <name>Expense_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expense Type --></label>
+        <name>Expense_Type__c</name>
+        <picklistValues>
+            <masterLabel>Location</masterLabel>
+            <translation><!-- Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resources</masterLabel>
+            <translation><!-- Resources --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Expense Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

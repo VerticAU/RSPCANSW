@@ -9,10 +9,6 @@
             AccountId: opp.accountid,
             npsp__Primary_Contact__c: opp.npsp__primary_contact__c,
         });
-
-        cmp.set('v.meta.dto.batch', {
-            Id: cmp.get('v.batchId')
-        });
     },
 
     filterChange: function(cmp, helper){

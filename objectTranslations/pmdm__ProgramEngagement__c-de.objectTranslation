@@ -42,7 +42,7 @@
     </caseValues>
     <gender>Feminine</gender>
     <layouts>
-        <layout>Healthy Pet Day</layout>
+        <layout>Event Layout</layout>
         <sections>
             <label>Weitere Details</label>
             <section>Additional Details</section>
@@ -62,6 +62,10 @@
         <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Costs --></label>
+            <section>Service Costs</section>
         </sections>
     </layouts>
     <nameFieldLabel>Name der Programmteilnahme</nameFieldLabel>

@@ -518,9 +518,44 @@
                     <label>Home Visit</label>
                 </value>
                 <value>
+                    <fullName>Impound</fullName>
+                    <default>false</default>
+                    <label>Impound</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Pet Care Supplies</fullName>
+                    <default>false</default>
+                    <label>Pet Care Supplies</label>
+                </value>
+                <value>
+                    <fullName>Preventative Care</fullName>
+                    <default>false</default>
+                    <label>Preventative Care</label>
+                </value>
+                <value>
+                    <fullName>Surrender</fullName>
+                    <default>false</default>
+                    <label>Surrender</label>
+                </value>
+                <value>
                     <fullName>Transport</fullName>
                     <default>false</default>
                     <label>Transport</label>
+                </value>
+                <value>
+                    <fullName>Vet Visit - Non Urgent</fullName>
+                    <default>false</default>
+                    <label>Vet Visit - Non Urgent</label>
+                </value>
+                <value>
+                    <fullName>Vet Visit - Urgent</fullName>
+                    <default>false</default>
+                    <label>Vet Visit - Urgent</label>
                 </value>
                 <value>
                     <fullName>Volunteer Assistance</fullName>
@@ -2863,19 +2898,31 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financial Vet Assistance</fullName>
+                <fullName>Impound</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Visit</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport</fullName>
+                <fullName>Pet Care Supplies</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Volunteer Assistance</fullName>
+                <fullName>Preventative Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surrender</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vet Visit - Non Urgent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vet Visit - Urgent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -76,7 +76,7 @@ public without sharing class BulkDonationReceiptingSearchProc extends vertic_Abs
         if (endDate != null) { conditions.add('CloseDate <= :endDate'); }
 
         if (String.isNotBlank(campaignId)) { conditions.add('CampaignId = :campaignId'); }
-        if (String.isNotBlank(batchId)) { conditions.add('Batch__C = :batchId'); }
+        if (String.isNotBlank(batchId)) { conditions.add('Batch__c = :batchId'); }
         if (String.isNotBlank(contactId)) { conditions.add('npsp__Primary_Contact__c = :contactId'); }
         if (String.isNotBlank(accountId)) { conditions.add('AccountId = :accountId'); }
 

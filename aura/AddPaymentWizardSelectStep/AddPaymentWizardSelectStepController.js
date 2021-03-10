@@ -22,7 +22,6 @@
     handleNewPayment: function(cmp, event, helper){
         cmp.set('v.meta.dto.payment', {
             npe01__Opportunity__c: cmp.get('v.meta.dto.opportunity.Id'),
-            Batch__c: cmp.get('v.meta.dto.batch.Id'),
             npe01__Payment_Date__c: new Date().toISOString(),
             npsp__Payment_Acknowledgment_Status__c: 'Do Not Acknowledge'
         });

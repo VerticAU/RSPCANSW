@@ -20,7 +20,6 @@
                 if(response.dto.records[0]) {
                     cmp.set('v.meta.dto.payment', response.dto.records[0]);
                     cmp.set('v.meta.dto.payment.npe01__Opportunity__c', cmp.get('v.meta.dto.opportunity.Id'));
-                    cmp.set('v.meta.dto.payment.Batch__c', cmp.get('v.meta.dto.batch.Id'));
                 }
             }
         });
