@@ -13,8 +13,36 @@
         <name>Adoption_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Age --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
         <label><!-- Animal Breed --></label>
         <name>Animal_Breed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Status --></label>
+        <name>Animal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Claim of Ownership</masterLabel>
+            <translation><!-- Claim of Ownership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Care</masterLabel>
+            <translation><!-- In Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Further Contact</masterLabel>
+            <translation><!-- No Further Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned to Owner</masterLabel>
+            <translation><!-- Returned to Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Surrendered</masterLabel>
+            <translation><!-- Surrendered --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Animal Type --></label>
@@ -100,6 +128,10 @@
     <fields>
         <label><!-- Description --></label>
         <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Desexed --></label>
+        <name>Desexed__c</name>
     </fields>
     <fields>
         <label><!-- External ID --></label>
@@ -422,6 +454,26 @@
     <fields>
         <label><!-- ShelterMate ID --></label>
         <name>ShelterMate_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vaccinated --></label>
+        <name>Vaccinated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vet Details --></label>
+        <name>Vet_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vet History Obtained --></label>
+        <name>Vet_History_Obtained__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
     </fields>
     <layouts>
         <layout>Animal Layout</layout>

@@ -199,6 +199,24 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Email_Text_Bottom__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Text Bottom</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Email_Text_Top__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Text Top</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>End_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>End Date &amp; Time</label>
@@ -206,6 +224,30 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Event Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Events</relationshipLabel>
+        <relationshipName>Events</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Event_Cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Event_Description__c</fullName>
@@ -216,6 +258,15 @@
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Event_Short_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Short Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Event_Status__c</fullName>
@@ -278,15 +329,111 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Featured_Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Featured Event</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Friendly_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Friendly URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Gifts__c</fullName>
+        <externalId>false</externalId>
+        <label>Gifts</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Group_Registration_Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Group Registration Enabled</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Image_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Image URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Important_Notice__c</fullName>
+        <externalId>false</externalId>
+        <label>Important Notice</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Income_Outstanding__c</fullName>
+        <externalId>false</externalId>
+        <label>Income Outstanding</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Income__c</fullName>
         <externalId>false</externalId>
-        <label>Income</label>
+        <label>Total Income</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Location_Actual__c</fullName>
+        <externalId>false</externalId>
+        <label>Location Actual</label>
+        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Expense__c.Expense_Type__c</field>
+            <operation>equals</operation>
+            <value>Location</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Location_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Location Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Location__c</fullName>
@@ -302,6 +449,34 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Marketing_Actual__c</fullName>
+        <externalId>false</externalId>
+        <label>Marketing Actual</label>
+        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Expense__c.Expense_Type__c</field>
+            <operation>equals</operation>
+            <value>Marketing</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Marketing Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Maximum_Capacity__c</fullName>
         <externalId>false</externalId>
         <label>Maximum Capacity</label>
@@ -312,6 +487,76 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_Discount_Percentage__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Discount Percentage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Membership_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Membership Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Online_Until__c</fullName>
+        <externalId>false</externalId>
+        <label>Online Until</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Paid_Event__c</fullName>
+        <externalId>false</externalId>
+        <label>Paid Event</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Profit_Loss_Total__c</fullName>
@@ -347,6 +592,74 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single Session</fullName>
+                    <default>false</default>
+                    <label>Single Session</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Registration_Cut_Off_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Registration Cut Off Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Resources_Actual__c</fullName>
+        <externalId>false</externalId>
+        <label>Resources Actual</label>
+        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Expense__c.Expense_Type__c</field>
+            <operation>equals</operation>
+            <value>Resources</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Resources_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Resources Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Room_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Room Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SMS_Reminders__c</fullName>
@@ -400,6 +713,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Time_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Time Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Total_Actual__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Actual</label>
+        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
+        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Total_Expenses__c</fullName>
         <externalId>false</externalId>
         <label>Total Expenses</label>
@@ -409,6 +742,33 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Turn_Off_Email__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Turn Off Email</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Turn_Off_SMS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Turn Off SMS</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Waitlist_Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Waitlist Enabled</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <label>Event</label>
     <nameField>

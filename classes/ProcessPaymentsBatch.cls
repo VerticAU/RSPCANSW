@@ -40,7 +40,7 @@ public class ProcessPaymentsBatch implements Database.Batchable<SObject>, Databa
                 payment.npsp_plus__Gateway_Transaction_ID__c = response.getRequiredString('paymentIntentId');
             }
 
-            payment.npe01__Payment_Date__c = Date.today();
+            payment.npe01__Payment_Date__c = payment.npe01__Payment_Date__c != null ? payment.npe01__Payment_Date__c : Date.today();
             payment.npe01__Written_Off__c = false;
             payment.npsp_plus__Status__c = 'Processed';
             payment.npe01__Paid__c = true;
@@ -50,7 +50,7 @@ public class ProcessPaymentsBatch implements Database.Batchable<SObject>, Databa
             }
 
         } catch (Exception e){
-            payment.npe01__Payment_Date__c = Date.today();
+            payment.npe01__Payment_Date__c = payment.npe01__Payment_Date__c != null ? payment.npe01__Payment_Date__c : Date.today();
             payment.npsp_plus__Status__c = 'Failed';
             payment.npe01__Paid__c = false;
             System.debug(e.getMessage());

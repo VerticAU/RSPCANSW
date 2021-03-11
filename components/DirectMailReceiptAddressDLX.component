@@ -1,28 +1,27 @@
 <apex:component id="DirectMailReceiptAddressDLX" layout="none">
 
-	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+    <apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
 
 
-	<table>
-		<tr>
-			<td>
-				<div style="margin-left: 22mm; margin-top: 8mm; width: 75mm; height: 38mm; margin-bottom: 5mm">
-					<div style="padding: 7mm">
-						<p style="font-size: 10pt; line-height: 0.9">Donor Member Number: {!dto['recipient'].Contact_ID__c}</p>
-						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].Letter_Salutation__c}</p>
-						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].Title} {!dto['recipient'].FirstName} {!dto['recipient'].LastName}</p>
-						<!--		<p style="font-size: 9pt;">{!dto['organisation'].Name}</p>-->
-						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingStreet}</p>
-						<p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingCity} {!dto['recipient'].MailingState} {!dto['recipient'].MailingPostalCode}</p>
-					</div>
-				</div>
-			</td>
-			<td>
-				<div style="max-height: 45mm; text-align: right">
-					<img src="{!dto['imageUrl']}" style="width: 90mm;"/>
-				</div>
-			</td>
-		</tr>
-	</table>
+    <table>
+        <tr>
+            <td>
+                <div style="margin-left: 22mm; margin-top: 8mm; width: 75mm; height: 38mm; margin-bottom: 5mm">
+                    <div style="padding: 7mm">
+                        <p style="font-size: 10pt; line-height: 0.9">Donor Member Number: {!dto['recipient'].Contact_ID__c}</p>
+                        <p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].Title} {!dto['recipient'].FirstName} {!dto['recipient'].LastName}</p>
+                        <!--        <p style="font-size: 9pt;">{!dto['organisation'].Name}</p>-->
+                        <p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingStreet}</p>
+                        <p style="font-size: 10pt; line-height: 0.9">{!dto['recipient'].MailingCity} {!dto['recipient'].MailingState} {!dto['recipient'].MailingPostalCode}</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="max-height: 45mm; text-align: right">
+                    <img src="{!dto['imageUrl']}" style="width: 90mm;"/>
+                </div>
+            </td>
+        </tr>
+    </table>
 
 </apex:component>

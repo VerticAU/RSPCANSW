@@ -163,6 +163,20 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( NOT( ISBLANK( Birthdate__c) ) , IF( DATE( 2000 , MONTH( Birthdate__c) , DAY( Birthdate__c) ) &lt;= DATE( 2000 , MONTH( TODAY() ) , DAY( TODAY() ) ), YEAR (Today()) - YEAR ( Birthdate__c), YEAR (Today()) - YEAR ( Birthdate__c) -1 ), null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Animal_Breed__c</fullName>
         <externalId>false</externalId>
         <label>Animal Breed</label>
@@ -172,6 +186,46 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Animal_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Claim of Ownership</fullName>
+                    <default>false</default>
+                    <label>Claim of Ownership</label>
+                </value>
+                <value>
+                    <fullName>In Care</fullName>
+                    <default>false</default>
+                    <label>In Care</label>
+                </value>
+                <value>
+                    <fullName>No Further Contact</fullName>
+                    <default>false</default>
+                    <label>No Further Contact</label>
+                </value>
+                <value>
+                    <fullName>Returned to Owner</fullName>
+                    <default>false</default>
+                    <label>Returned to Owner</label>
+                </value>
+                <value>
+                    <fullName>Surrendered</fullName>
+                    <default>false</default>
+                    <label>Surrendered</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Animal_Type__c</fullName>
@@ -314,6 +368,15 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Desexed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Desexed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>External_ID__c</fullName>
@@ -774,6 +837,51 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Vaccinated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Vaccinated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Vet_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Vet Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vet_History_Obtained__c</fullName>
+        <externalId>false</externalId>
+        <label>Vet History Obtained</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Animal</label>
     <nameField>

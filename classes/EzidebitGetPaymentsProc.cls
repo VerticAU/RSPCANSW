@@ -56,7 +56,8 @@ public class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
                 Amount = payment.PaymentAmount,
                 CloseDate = payment.SettlementDate.date(),
                 StageName = 'Closed Won',
-                npe01__Do_Not_Automatically_Create_Payment__c = true
+                npe01__Do_Not_Automatically_Create_Payment__c = true,
+                CampaignId = this.getRecentCampaign()?.Id
             );
             oppPayment = new npe01__OppPayment__c(
                 npe01__Payment_Method__c = payment.PaymentSource,
@@ -76,6 +77,19 @@ public class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
         if(payments.size() > 0){
             updateContact();
         }
+    }
+
+    private Campaign getRecentCampaign(){
+        return (Campaign) vertic_Utils.arrays.firstOrNull([
+            SELECT Id
+            FROM Campaign
+            WHERE Id IN (
+                SELECT CampaignId
+                FROM CampaignMember
+                WHERE ContactId =: this.contactVar.Id
+            )
+            ORDER BY StartDate DESC NULLS LAST
+        ]);
     }
 
     private void updateContact() {

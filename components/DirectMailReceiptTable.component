@@ -1,9 +1,12 @@
 <apex:component id="DirectMailReceiptTable" layout="none">
 
-	<apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
+    <apex:attribute name="dto" description="Data Transfer Object" type="Map"/>
 
-	<apex:outputPanel layout="none" rendered="{!dto['hasDonations'] == true}">
-		<table width="70%" border="0" cellspacing="0" style="width: 80%">
+    <apex:outputPanel layout="none" rendered="{!dto['hasDonations'] == true}">
+        <apex:image id="CEOSignature" value="{!$Resource.CEOSignature}"/>
+        <p>Steve Coleman - CHIEF EXECUTIVE OFFICER</p>
+        <br/>
+        <table width="70%" border="0" cellspacing="0" style="width: 80%">
             <tr>
                 <td colspan="2" style="font-size: 10pt; border: 1px solid; padding: 10px;">
                     <b style="font-size: 10pt;">RSPCA NSW</b><br/>
@@ -14,33 +17,33 @@
                     <b>FAX:</b> (02) 9770 7575
                 </td>
                 <td style="font-size: 10pt; border: 1px solid; padding: 10px;">
-					Official Receipt<br/>
-					{!dto['donations'][0].Receipt_Number_Formula__c}
-				</td>
+                    Official Receipt<br/>
+                    {!dto['donations'][0].Receipt_Number_Formula__c}
+                </td>
             </tr>
             <tr>
-				<th style="font-size: 10pt; border: 1px solid; padding: 10px;">DATE</th>
-				<th style="font-size: 10pt; border: 1px solid; padding: 10px;">RECEIVED FROM</th>
-				<th style="font-size: 10pt; border: 1px solid; padding: 10px;">PARTICULARS</th>
-				<th style="font-size: 10pt; border: 1px solid; padding: 10px;">AMOUNT</th>
-			</tr>
-			<tr>
-				<td style="font-size: 10pt; border: 1px solid; padding: 10px;">{!dto['donations'][0]['CloseDate']}</td>
-				<td style="font-size: 10pt; border: 1px solid; padding: 10px;">{!dto['recipient'].Name}</td>
-				<td style="font-size: 10pt; border: 1px solid; padding: 10px;">Donation</td>
-				<td style="font-size: 10pt; border: 1px solid; padding: 10px;">${!dto['donations'][0]['Amount']}</td>
-			</tr>
-			<tr>
-				<td colspan="2" style="font-size: 10pt; border: 1px solid; padding: 10px;"><b style="font-size: 9pt;">Gifts of $2 and over are tax deductible</b></td>
-				<td colspan="2" style="font-size: 10pt; border: 1px solid; padding: 10px;">Total Payment Received: ${!dto['totalAmount']}</td>
-			</tr>
-		</table>
-	</apex:outputPanel>
+                <th style="font-size: 10pt; border: 1px solid; padding: 10px;">DATE</th>
+                <th style="font-size: 10pt; border: 1px solid; padding: 10px;">RECEIVED FROM</th>
+                <th style="font-size: 10pt; border: 1px solid; padding: 10px;">PARTICULARS</th>
+                <th style="font-size: 10pt; border: 1px solid; padding: 10px;">AMOUNT</th>
+            </tr>
+            <tr>
+                <td style="font-size: 10pt; border: 1px solid; padding: 10px;">{!dto['donations'][0]['CloseDate']}</td>
+                <td style="font-size: 10pt; border: 1px solid; padding: 10px;">{!dto['recipient'].Name}</td>
+                <td style="font-size: 10pt; border: 1px solid; padding: 10px;">Donation</td>
+                <td style="font-size: 10pt; border: 1px solid; padding: 10px;">${!dto['donations'][0]['Amount']}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-size: 10pt; border: 1px solid; padding: 10px;"><b style="font-size: 9pt;">Gifts of $2 and over are tax deductible</b></td>
+                <td colspan="2" style="font-size: 10pt; border: 1px solid; padding: 10px;">Total Payment Received: ${!dto['totalAmount']}</td>
+            </tr>
+        </table>
+    </apex:outputPanel>
 
-	<apex:outputPanel layout="none" rendered="{!dto['hasDonations'] == false}">
-		<hr/><br/>
-		<p style="font-size: 10pt; padding-left: 10px">No Donations</p>
-		<br/><hr/>
-	</apex:outputPanel>
+    <apex:outputPanel layout="none" rendered="{!dto['hasDonations'] == false}">
+        <hr/><br/>
+        <p style="font-size: 10pt; padding-left: 10px">No Donations</p>
+        <br/><hr/>
+    </apex:outputPanel>
 
 </apex:component>

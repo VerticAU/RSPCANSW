@@ -21,12 +21,33 @@
         <name>Email_Reminders__c</name>
     </fields>
     <fields>
+        <label><!-- Email Text Bottom --></label>
+        <name>Email_Text_Bottom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Text Top --></label>
+        <name>Email_Text_Top__c</name>
+    </fields>
+    <fields>
         <label><!-- End Date &amp; Time --></label>
         <name>End_Date_Time__c</name>
     </fields>
     <fields>
+        <label><!-- Event Contact --></label>
+        <name>Event_Contact__c</name>
+        <relationshipLabel><!-- Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Event Cost --></label>
+        <name>Event_Cost__c</name>
+    </fields>
+    <fields>
         <label><!-- Event Description --></label>
         <name>Event_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Short Description --></label>
+        <name>Event_Short_Description__c</name>
     </fields>
     <fields>
         <label><!-- Event Status --></label>
@@ -61,8 +82,44 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Income --></label>
+        <label><!-- Featured Event --></label>
+        <name>Featured_Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- Friendly URL --></label>
+        <name>Friendly_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gifts --></label>
+        <name>Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Registration Enabled --></label>
+        <name>Group_Registration_Enabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Image URL --></label>
+        <name>Image_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Important Notice --></label>
+        <name>Important_Notice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income Outstanding --></label>
+        <name>Income_Outstanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Income --></label>
         <name>Income__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location Actual --></label>
+        <name>Location_Actual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location Budget --></label>
+        <name>Location_Budget__c</name>
     </fields>
     <fields>
         <label><!-- Location --></label>
@@ -70,8 +127,48 @@
         <relationshipLabel><!-- Events --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Marketing Actual --></label>
+        <name>Marketing_Actual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Budget --></label>
+        <name>Marketing_Budget__c</name>
+    </fields>
+    <fields>
         <label><!-- Maximum Capacity --></label>
         <name>Maximum_Capacity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Discount Percentage --></label>
+        <name>Member_Discount_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership Required --></label>
+        <name>Membership_Required__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Online Until --></label>
+        <name>Online_Until__c</name>
+    </fields>
+    <fields>
+        <label><!-- Paid Event --></label>
+        <name>Paid_Event__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Profit &amp; Loss Total --></label>
@@ -85,6 +182,30 @@
     <fields>
         <label><!-- Publish Online --></label>
         <name>Publish_Online__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>Record_Type__c</name>
+        <picklistValues>
+            <masterLabel>Single Session</masterLabel>
+            <translation><!-- Single Session --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Registration Cut Off Date --></label>
+        <name>Registration_Cut_Off_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resources Actual --></label>
+        <name>Resources_Actual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resources Budget --></label>
+        <name>Resources_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Name --></label>
+        <name>Room_Name__c</name>
     </fields>
     <fields>
         <label><!-- SMS Reminders --></label>
@@ -107,8 +228,28 @@
         <name>Target_Registrations__c</name>
     </fields>
     <fields>
+        <label><!-- Time Description --></label>
+        <name>Time_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Actual --></label>
+        <name>Total_Actual__c</name>
+    </fields>
+    <fields>
         <label><!-- Total Expenses --></label>
         <name>Total_Expenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Turn Off Email --></label>
+        <name>Turn_Off_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Turn Off SMS --></label>
+        <name>Turn_Off_SMS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Waitlist Enabled --></label>
+        <name>Waitlist_Enabled__c</name>
     </fields>
     <layouts>
         <layout>Event Layout</layout>
@@ -117,24 +258,32 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Event Times --></label>
-            <section>Event Times</section>
+            <label><!-- Event Description --></label>
+            <section>Event Description</section>
+        </sections>
+        <sections>
+            <label><!-- Event Expenses --></label>
+            <section>Event Expenses</section>
+        </sections>
+        <sections>
+            <label><!-- Event Settings --></label>
+            <section>Event Settings</section>
         </sections>
         <sections>
             <label><!-- Funding Information --></label>
             <section>Funding Information</section>
         </sections>
         <sections>
-            <label><!-- Location Information --></label>
-            <section>Location Information</section>
-        </sections>
-        <sections>
-            <label><!-- New Section --></label>
-            <section>New Section</section>
+            <label><!-- Online Detail --></label>
+            <section>Online Detail</section>
         </sections>
         <sections>
             <label><!-- Registration Information --></label>
             <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Session Detail --></label>
+            <section>Session Detail</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>

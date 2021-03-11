@@ -171,6 +171,18 @@
         <name>Examination__c</name>
     </fields>
     <fields>
+        <label><!-- Finding Accommodation Prevented/Delayed --></label>
+        <name>Finding_Accommodation_Prevented_Delayed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Friends and Family Details --></label>
         <name>Friends_and_Family_Details__c</name>
     </fields>
@@ -193,6 +205,10 @@
     <fields>
         <label><!-- History --></label>
         <name>History__c</name>
+    </fields>
+    <fields>
+        <label><!-- If Unable to Assist Animal --></label>
+        <name>If_Unable_to_Assist_Animal__c</name>
     </fields>
     <fields>
         <label><!-- Legal Claim to Animals --></label>
@@ -272,6 +288,10 @@
         <label><!-- Shelter --></label>
         <name>Shelter__c</name>
         <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Special Notes --></label>
+        <name>Special_Notes__c</name>
     </fields>
     <fields>
         <label><!-- Suitable Friend or Family Member --></label>

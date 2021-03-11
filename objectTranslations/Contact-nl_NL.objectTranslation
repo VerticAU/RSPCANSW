@@ -53,6 +53,10 @@
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
     <fields>
+        <label><!-- Aboriginal and/or Torres Islander --></label>
+        <name>Aboriginal_and_or_Torres_Islander__c</name>
+    </fields>
+    <fields>
         <label><!-- Active Member --></label>
         <name>Active_Member__c</name>
     </fields>
@@ -125,6 +129,10 @@
     <fields>
         <label><!-- Casesafe ID --></label>
         <name>Casesafe_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Centrelink Reference Number (CRN) --></label>
+        <name>Centrelink_Reference_Number_CRN__c</name>
     </fields>
     <fields>
         <label><!-- Contact ID --></label>

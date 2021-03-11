@@ -643,6 +643,32 @@
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>Finding_Accommodation_Prevented_Delayed__c</fullName>
+        <externalId>false</externalId>
+        <label>Finding Accommodation Prevented/Delayed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Friends_and_Family_Details__c</fullName>
         <externalId>false</externalId>
         <label>Friends and Family Details</label>
@@ -694,6 +720,18 @@
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>If_Unable_to_Assist_Animal__c</fullName>
+        <externalId>false</externalId>
+        <label>If Unable to Assist Animal</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>IsClosedOnCreate</fullName>
@@ -953,6 +991,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Special_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Notes</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Status</fullName>
@@ -1232,6 +1280,17 @@
             </values>
             <values>
                 <fullName>Volunteer Assistance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1572,6 +1631,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Friends_or_Family_Available__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1904,6 +1974,17 @@
             </values>
             <values>
                 <fullName>Volunteer Assistance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2244,6 +2325,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Friends_or_Family_Available__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2576,6 +2668,17 @@
             </values>
             <values>
                 <fullName>Volunteer Assistance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2923,6 +3026,17 @@
             </values>
             <values>
                 <fullName>Vet Visit - Urgent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
