@@ -17,6 +17,24 @@
         <name>Abuse_Description__c</name>
     </fields>
     <fields>
+        <help><!-- If the answer was yes to any of the above questions, how often did this happen? --></help>
+        <label><!-- Abuse Frequency --></label>
+        <name>Abuse_Frequency__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has the abuser ever threatened to, or, harmed the animal(s) in front of the children? --></help>
+        <label><!-- Abuser Threatened in front of Children --></label>
+        <name>Abused_Threatened_Infront_of_Children__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Access to Fire Arms --></label>
         <name>Access_to_Fire_Arms__c</name>
         <picklistValues>
@@ -167,12 +185,86 @@
         <relationshipLabel><!-- Cases --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- Checked alleged perpetration on Sheltermate --></help>
+        <label><!-- Checked Sheltermate --></label>
+        <name>Checked_Sheltermate__c</name>
+    </fields>
+    <fields>
+        <help><!-- If yes have the children who witnessed this ever threatened, injured, or killed a pet or other animal? --></help>
+        <label><!-- Children Threatened Pet --></label>
+        <name>Children_Threatened_Pet__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Do you have children? --></help>
+        <label><!-- Do You Have Children --></label>
+        <name>Do_You_Have_Children__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Examination --></label>
         <name>Examination__c</name>
     </fields>
     <fields>
+        <help><!-- Has fear that the abuser will harm your animal(s) ever caused you to delay calling the police for help? --></help>
+        <label><!-- Fear Caused Delay Calling Police --></label>
+        <name>Fear_Caused_Delay_Calling_Police__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Has fear that the abuser will harm your animal(s) ever caused you to delay going to a refuge or other safe place away from your partner? --></help>
+        <label><!-- Fear Caused Delay Seeking Refuge --></label>
+        <name>Fear_Caused_Delay_Seeking_Refuge__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Finding Accommodation Prevented/Delayed --></label>
         <name>Finding_Accommodation_Prevented_Delayed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- First Program Engagement Date --></label>
+        <name>First_Program_Engagement_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is there a friend or family member that could care for the animal as an alternative to housing the animal in a shelter? --></help>
+        <label><!-- Friend or Family Member Care --></label>
+        <name>Friend_or_Family_Member_Care__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
             <translation><!-- No --></translation>
@@ -207,8 +299,22 @@
         <name>History__c</name>
     </fields>
     <fields>
+        <help><!-- How many children do you have? --></help>
+        <label><!-- How Many Children --></label>
+        <name>How_Many_Children__c</name>
+    </fields>
+    <fields>
         <label><!-- If Unable to Assist Animal --></label>
         <name>If_Unable_to_Assist_Animal__c</name>
+    </fields>
+    <fields>
+        <help><!-- If yes, by how long? --></help>
+        <label><!-- If yes by how long --></label>
+        <name>If_yes_by_how_long__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Program Engagement Date --></label>
+        <name>Last_Program_Engagement_Date__c</name>
     </fields>
     <fields>
         <label><!-- Legal Claim to Animals --></label>
@@ -227,12 +333,29 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- Is the alleged perpetrator likely to come looking for the animal/s? --></help>
+        <label><!-- Perpetrator Likely to Look --></label>
+        <name>Perpetrator_Likely_to_Look__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Perpetrator Name --></label>
         <name>Perpetrator_Name__c</name>
     </fields>
     <fields>
         <label><!-- Perpetrator Residence --></label>
         <name>Perpetrator_Residence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program Engagement Count This Year --></label>
+        <name>Program_Engagement_Count_This_Year__c</name>
     </fields>
     <fields>
         <label><!-- Program --></label>
@@ -279,6 +402,23 @@
             <masterLabel>Wife</masterLabel>
             <translation><!-- Wife --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If not with the client is there a safe retrieval plan for the animal/s? --></help>
+        <label><!-- Safe Retrieval Plan --></label>
+        <name>Safe_Retrieval_Plan__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service Delivery Amount This Year --></label>
+        <name>Service_Delivery_Amount_This_Year__c</name>
     </fields>
     <fields>
         <label><!-- Sex --></label>
@@ -340,6 +480,18 @@
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Program Engagement --></label>
+        <name>Total_Program_Engagement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Service Delivery Amount --></label>
+        <name>Total_Service_Delivery_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Service Outstanding Amount --></label>
+        <name>Total_Service_Outstanding_Amount__c</name>
     </fields>
     <fields>
         <label><!-- Treatment --></label>
@@ -491,6 +643,10 @@
             <section>New Section</section>
         </sections>
         <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
+        </sections>
+        <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
         </sections>
@@ -534,6 +690,10 @@
             <section>New Section</section>
         </sections>
         <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
+        </sections>
+        <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
         </sections>
@@ -551,6 +711,10 @@
         <sections>
             <label><!-- Contact Information --></label>
             <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -578,6 +742,10 @@
         <sections>
             <label><!-- New Section --></label>
             <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
         </sections>
         <sections>
             <label><!-- Referral Information --></label>
@@ -627,6 +795,10 @@
             <section>Perpetrator Information</section>
         </sections>
         <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
+        </sections>
+        <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
         </sections>
@@ -666,6 +838,10 @@
             <section>New Section</section>
         </sections>
         <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
+        </sections>
+        <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
         </sections>
@@ -683,6 +859,10 @@
         <sections>
             <label><!-- Contact Information --></label>
             <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
         </sections>
     </layouts>
     <quickActions>

@@ -215,6 +215,10 @@
         <name>Facebook__c</name>
     </fields>
     <fields>
+        <label><!-- First Program Engagement Date --></label>
+        <name>First_Program_Engagement_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Frequency Level Name --></label>
         <name>Frequency_Level_Name__c</name>
     </fields>
@@ -375,6 +379,10 @@
     <fields>
         <label><!-- Last Payment Date --></label>
         <name>Last_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Program Engagement Date --></label>
+        <name>Last_Program_Engagement_Date__c</name>
     </fields>
     <fields>
         <label><!-- Letter Salutation --></label>
@@ -631,6 +639,10 @@
         <name>Previous_Names__c</name>
     </fields>
     <fields>
+        <label><!-- Program Engagement Count This Year --></label>
+        <name>Program_Engagement_Count_This_Year__c</name>
+    </fields>
+    <fields>
         <label><!-- Receipt Preference --></label>
         <name>Receipt_Preference__c</name>
         <picklistValues>
@@ -658,6 +670,10 @@
         <label><!-- Secondary Owner --></label>
         <name>Secondary_Owner__c</name>
         <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Delivery Amount This Year --></label>
+        <name>Service_Delivery_Amount_This_Year__c</name>
     </fields>
     <fields>
         <label><!-- Skype --></label>
@@ -722,6 +738,18 @@
     <fields>
         <label><!-- Sum Bequest Opp Payments Made --></label>
         <name>Sum_Bequest_Opp_Payments_Made__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Program Engagement --></label>
+        <name>Total_Program_Engagement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Service Delivery Amount --></label>
+        <name>Total_Service_Delivery_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Service Outstanding Amount --></label>
+        <name>Total_Service_Outstanding_Amount__c</name>
     </fields>
     <fields>
         <label><!-- Twitter --></label>

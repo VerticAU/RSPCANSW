@@ -854,6 +854,15 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>First_Program_Engagement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Program Engagement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Frequency_Level_Name__c</fullName>
         <externalId>false</externalId>
         <formula>npsp_plus__Frequency_Level__r.Name</formula>
@@ -980,6 +989,15 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <fullName>Last_Payment_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last Payment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Program_Engagement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Program Engagement Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1467,6 +1485,18 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Program_Engagement_Count_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Engagement Count This Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Receipt_Preference__c</fullName>
         <externalId>false</externalId>
         <label>Receipt Preference</label>
@@ -1535,6 +1565,17 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Delivery_Amount_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Delivery Amount This Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Skype__c</fullName>
@@ -1648,6 +1689,40 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <fullName>Title</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Total_Program_Engagement__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Program Engagement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Service_Delivery_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Service Delivery Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Service_Outstanding_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Service Outstanding Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Twitter__c</fullName>

@@ -86,6 +86,10 @@
         <name>Featured_Event__c</name>
     </fields>
     <fields>
+        <label><!-- First Application Date --></label>
+        <name>First_Application_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Friendly URL --></label>
         <name>Friendly_URL__c</name>
     </fields>
@@ -112,6 +116,10 @@
     <fields>
         <label><!-- Total Income --></label>
         <name>Income__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Application Date --></label>
+        <name>Last_Application_Date__c</name>
     </fields>
     <fields>
         <label><!-- Location Actual --></label>
