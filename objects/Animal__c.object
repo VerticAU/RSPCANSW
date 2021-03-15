@@ -829,10 +829,10 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>ShelterMate_ID__c</fullName>
+        <fullName>Sheltermate_Number__c</fullName>
         <businessStatus>Active</businessStatus>
         <externalId>false</externalId>
-        <label>ShelterMate ID</label>
+        <label>Sheltermate Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

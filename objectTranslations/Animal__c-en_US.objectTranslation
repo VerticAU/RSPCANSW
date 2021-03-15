@@ -452,8 +452,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- ShelterMate ID --></label>
-        <name>ShelterMate_ID__c</name>
+        <label><!-- Sheltermate Number --></label>
+        <name>Sheltermate_Number__c</name>
     </fields>
     <fields>
         <label><!-- Vaccinated --></label>

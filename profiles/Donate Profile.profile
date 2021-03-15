@@ -1317,7 +1317,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Animal__c.ShelterMate_ID__c</field>
+        <field>Animal__c.Sheltermate_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
