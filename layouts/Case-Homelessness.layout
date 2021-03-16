@@ -19,6 +19,14 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Long_Term_Accommodation_Plans_for_Pet__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Under_Trustee_Guardian__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -135,10 +143,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finding_Accommodation_Prevented_Delayed__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Suitable_Friend_or_Family_Member__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

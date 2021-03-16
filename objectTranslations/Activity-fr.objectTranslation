@@ -33,6 +33,10 @@
         <name>Next_Workflow_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Owner --></label>
+        <name>Owner__c</name>
+    </fields>
+    <fields>
         <label><!-- Skip WhatId --></label>
         <name>Skip_WhatId__c</name>
     </fields>

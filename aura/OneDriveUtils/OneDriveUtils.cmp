@@ -71,4 +71,6 @@
 
     </aura:method>
 
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
 </aura:component>

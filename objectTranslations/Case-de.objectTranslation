@@ -279,22 +279,6 @@
         <name>Friends_and_Family_Details__c</name>
     </fields>
     <fields>
-        <label><!-- Friends or Family Available --></label>
-        <name>Friends_or_Family_Available__c</name>
-        <picklistValues>
-            <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Not sure</masterLabel>
-            <translation><!-- Not sure --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- History --></label>
         <name>History__c</name>
     </fields>
@@ -331,6 +315,11 @@
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What plans does the client have for gaining long term accommodation that is suitable for their pet/s? --></help>
+        <label><!-- Long Term Accommodation Plans for Pet --></label>
+        <name>Long_Term_Accommodation_Plans_for_Pet__c</name>
     </fields>
     <fields>
         <help><!-- Is the alleged perpetrator likely to come looking for the animal/s? --></help>
@@ -434,18 +423,6 @@
         <name>Special_Notes__c</name>
     </fields>
     <fields>
-        <label><!-- Suitable Friend or Family Member --></label>
-        <name>Suitable_Friend_or_Family_Member__c</name>
-        <picklistValues>
-            <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Suitable for Foster Care --></label>
         <name>Suitable_for_Foster_Care__c</name>
         <picklistValues>
@@ -496,6 +473,18 @@
     <fields>
         <label><!-- Treatment --></label>
         <name>Treatment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Under Trustee &amp; Guardian --></label>
+        <name>Under_Trustee_Guardian__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Vet --></label>

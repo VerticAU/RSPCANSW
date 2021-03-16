@@ -1736,6 +1736,31 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Under_Trustee_Guardian__c</fullName>
+        <externalId>false</externalId>
+        <label>Under Trustee &amp; Guardian</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Volunteer_Branch__c</fullName>
         <externalId>false</externalId>
         <label>Volunteer Branch</label>
@@ -2222,6 +2247,17 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
             </values>
             <values>
                 <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

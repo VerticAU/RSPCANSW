@@ -756,6 +756,18 @@
         <name>Twitter__c</name>
     </fields>
     <fields>
+        <label><!-- Under Trustee &amp; Guardian --></label>
+        <name>Under_Trustee_Guardian__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Volunteer Branch --></label>
         <name>Volunteer_Branch__c</name>
     </fields>

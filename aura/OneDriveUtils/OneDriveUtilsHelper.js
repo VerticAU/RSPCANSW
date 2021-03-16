@@ -92,11 +92,16 @@
                     resolve(payload);
                 }
             } else {
-
+                payload.helper.showToast(
+                    payload.cmp,
+                    {
+                        message: 'The maximum file size is 3 MB.',
+                        variant: 'warning'
+                    }
+                );
                 reject([{
                     message: 'The maximum file size is 3 MB.'
                 }]);
-
             }
         });
     },
@@ -504,7 +509,9 @@
                     })
                 })
         });
+    },
+
+    showToast: function (cmp, messageToast) {
+        cmp.find('notifLib').showToast(messageToast);
     }
-
-
 })

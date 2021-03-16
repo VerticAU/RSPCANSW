@@ -156,10 +156,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Suitable_Friend_or_Family_Member__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Agrees_to_desex_microchip_vaccinate__c</field>
             </layoutItems>
         </layoutColumns>

@@ -884,37 +884,6 @@
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
-        <fullName>Friends_or_Family_Available__c</fullName>
-        <externalId>false</externalId>
-        <label>Friends or Family Available</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                    <label>Yes</label>
-                </value>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                    <label>No</label>
-                </value>
-                <value>
-                    <fullName>Not sure</fullName>
-                    <default>false</default>
-                    <label>Not sure</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>History__c</fullName>
         <externalId>false</externalId>
         <label>History</label>
@@ -1029,6 +998,17 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Long_Term_Accommodation_Plans_for_Pet__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What plans does the client have for gaining long term accommodation that is suitable for their pet/s?</inlineHelpText>
+        <label>Long Term Accommodation Plans for Pet</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>MilestoneStatus</fullName>
@@ -1344,32 +1324,6 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>Suitable_Friend_or_Family_Member__c</fullName>
-        <externalId>false</externalId>
-        <label>Suitable Friend or Family Member</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                    <label>Yes</label>
-                </value>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                    <label>No</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Suitable_for_Foster_Care__c</fullName>
         <externalId>false</externalId>
         <label>Suitable for Foster Care</label>
@@ -1517,6 +1471,32 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Under_Trustee_Guardian__c</fullName>
+        <externalId>false</externalId>
+        <label>Under Trustee &amp; Guardian</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Vet__c</fullName>
@@ -1722,21 +1702,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Friends_or_Family_Available__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Legal_Claim_to_Animals__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1862,17 +1827,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Suitable_Friend_or_Family_Member__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Suitable_for_Foster_Care__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1917,6 +1871,17 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2157,21 +2122,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Friends_or_Family_Available__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Legal_Claim_to_Animals__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2297,17 +2247,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Suitable_Friend_or_Family_Member__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Suitable_for_Foster_Care__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2352,6 +2291,17 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2592,21 +2542,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Friends_or_Family_Available__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Legal_Claim_to_Animals__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2732,17 +2667,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Suitable_Friend_or_Family_Member__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Suitable_for_Foster_Care__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2787,6 +2711,17 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3027,21 +2962,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Friends_or_Family_Available__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Legal_Claim_to_Animals__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3167,17 +3087,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Suitable_Friend_or_Family_Member__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Suitable_for_Foster_Care__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3222,6 +3131,17 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3462,21 +3382,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Friends_or_Family_Available__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Legal_Claim_to_Animals__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3602,17 +3507,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Suitable_Friend_or_Family_Member__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Suitable_for_Foster_Care__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3657,6 +3551,17 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3908,21 +3813,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Friends_or_Family_Available__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Legal_Claim_to_Animals__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4048,17 +3938,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Suitable_Friend_or_Family_Member__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Suitable_for_Foster_Care__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4103,6 +3982,17 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

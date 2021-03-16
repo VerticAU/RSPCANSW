@@ -513,6 +513,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UpdateTaskOwnerBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateTaskOwnerBatchTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WorkflowCreateTasksProc</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2287,11 +2295,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Friends_or_Family_Available__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.History__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2338,6 +2341,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Legal_Claim_to_Animals__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Long_Term_Accommodation_Plans_for_Pet__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2467,11 +2475,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Suitable_Friend_or_Family_Member__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.Suitable_for_Foster_Care__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2529,6 +2532,11 @@
         <editable>true</editable>
         <field>Case.Type</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Under_Trustee_Guardian__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3253,6 +3261,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Twitter__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Under_Trustee_Guardian__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4378,6 +4391,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Next_Workflow_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Owner__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7283,6 +7301,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Next_Workflow_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Owner__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
