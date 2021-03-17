@@ -499,6 +499,32 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Animal_Requires_Urgent_Vet_Attention__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Requires Urgent Vet Attention</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Animal_Type__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(Animal__r.Animal_Type__c)</formula>
@@ -530,6 +556,18 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assistance_Client_is_Seeking__c</fullName>
+        <externalId>false</externalId>
+        <label>Assistance Client is Seeking</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Assistance_Required__c</fullName>
@@ -730,6 +768,77 @@
                     <fullName>No</fullName>
                     <default>false</default>
                     <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Emergency_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Emergency Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>House Fire Flood</fullName>
+                    <default>false</default>
+                    <label>House Fire Flood</label>
+                </value>
+                <value>
+                    <fullName>Hospital</fullName>
+                    <default>false</default>
+                    <label>Hospital</label>
+                </value>
+                <value>
+                    <fullName>Mental Health</fullName>
+                    <default>false</default>
+                    <label>Mental Health</label>
+                </value>
+                <value>
+                    <fullName>Disability</fullName>
+                    <default>false</default>
+                    <label>Disability</label>
+                </value>
+                <value>
+                    <fullName>Jail</fullName>
+                    <default>false</default>
+                    <label>Jail</label>
+                </value>
+                <value>
+                    <fullName>Natural Disaster</fullName>
+                    <default>false</default>
+                    <label>Natural Disaster</label>
+                </value>
+                <value>
+                    <fullName>Witness Protection</fullName>
+                    <default>false</default>
+                    <label>Witness Protection</label>
+                </value>
+                <value>
+                    <fullName>Respite Care</fullName>
+                    <default>false</default>
+                    <label>Respite Care</label>
+                </value>
+                <value>
+                    <fullName>Hoarding Squalor</fullName>
+                    <default>false</default>
+                    <label>Hoarding Squalor</label>
+                </value>
+                <value>
+                    <fullName>Rehab</fullName>
+                    <default>false</default>
+                    <label>Rehab</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1088,6 +1197,32 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Prevented_Delayed_Finding_Accommodation__c</fullName>
+        <externalId>false</externalId>
+        <label>Prevented/Delayed Finding Accommodation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Priority</fullName>
@@ -1613,6 +1748,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Assistance_Required__c</picklist>
             <values>
                 <fullName>Boarding</fullName>
@@ -1654,6 +1800,53 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1733,6 +1926,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2033,6 +2237,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Assistance_Required__c</picklist>
             <values>
                 <fullName>Boarding</fullName>
@@ -2074,6 +2289,53 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2153,6 +2415,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2453,6 +2726,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Assistance_Required__c</picklist>
             <values>
                 <fullName>Boarding</fullName>
@@ -2494,6 +2778,53 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2573,6 +2904,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2873,6 +3215,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Assistance_Required__c</picklist>
             <values>
                 <fullName>Boarding</fullName>
@@ -2914,6 +3267,53 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2993,6 +3393,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3293,6 +3704,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Assistance_Required__c</picklist>
             <values>
                 <fullName>Boarding</fullName>
@@ -3334,6 +3756,53 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3413,6 +3882,517 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Relationship_to_Perpetrator__c</picklist>
+            <values>
+                <fullName>Brother</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Father</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mother</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sister</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wife</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Safe_Retrieval_Plan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Suitable_for_Foster_Care__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Threatened_to_Hurt_Animal__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Threatened_to_Kill_Animal__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>caseman__IncidentType__c</picklist>
+            <values>
+                <fullName>Attempted or actual physical assault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attempted or actual self-harm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property Damage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verbal threat%2Fabuse</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>caseman__ReferralResult__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Declined Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waitlisted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>caseman__Severity__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Emergency_Boarding</fullName>
+        <active>true</active>
+        <businessProcess>Domestic Violence</businessProcess>
+        <label>Emergency Boarding</label>
+        <picklistValues>
+            <picklist>Abused_Threatened_Infront_of_Children__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Access_to_Fire_Arms__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not sure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agrees_to_desex_microchip_vaccinate__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Animal_Current_Location__c</picklist>
+            <values>
+                <fullName>Client Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friends or Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Animal_Mistreatment__c</picklist>
+            <values>
+                <fullName>Food%2Fwater deprivation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Giving animal illegal drugs%2Falcohol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hitting %2F Kicking %2F Striking %2F Punching %2F Throwing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave outside in extreme heat%2Fcold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Assistance_Required__c</picklist>
+            <values>
+                <fullName>Boarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Impound</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet Care Supplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventative Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surrender</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vet Visit - Non Urgent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vet Visit - Urgent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Children_Threatened_Pet__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Do_You_Have_Children__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fear_Caused_Delay_Calling_Police__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fear_Caused_Delay_Seeking_Refuge__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Friend_or_Family_Member_Care__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Legal_Claim_to_Animals__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not sure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3712,6 +4692,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Assistance_Required__c</picklist>
             <values>
                 <fullName>Boarding</fullName>
@@ -3765,6 +4756,53 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Emergency_Type__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoarding Squalor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>House Fire Flood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Natural Disaster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Witness Protection</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3844,6 +4882,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>

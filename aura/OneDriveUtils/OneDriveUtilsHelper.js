@@ -76,17 +76,17 @@
     checkFileSizeLimits: function (payload) {
         return new Promise(function (resolve, reject) {
 
-            if (payload.file.size < 3 * 1024 * 1024) {
+            if (payload.file.size < 50 * 1024 * 1024) {
                 var dtoFiles = payload.cmp.get("v.meta.dto.files");
                 if (dtoFiles) {
                     var totalSize = payload.file.size;
                     for (var i = 0; i < dtoFiles.length; i++) {
                         totalSize += dtoFiles[i].size;
                     }
-                    if (totalSize < 20 * 1024 * 1024) {
+                    if (totalSize < 50 * 1024 * 1024) {
                         resolve(payload);
                     } else {
-                        reject(new Error("The maximum total files size is 20 MB."));
+                        reject(new Error("The maximum total files size is 50 MB."));
                     }
                 } else {
                     resolve(payload);
@@ -95,12 +95,12 @@
                 payload.helper.showToast(
                     payload.cmp,
                     {
-                        message: 'The maximum file size is 3 MB.',
+                        message: 'The maximum total files size is 50 MB.',
                         variant: 'warning'
                     }
                 );
                 reject([{
-                    message: 'The maximum file size is 3 MB.'
+                    message: 'The maximum total files size is 50 MB.'
                 }]);
             }
         });

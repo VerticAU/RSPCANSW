@@ -607,6 +607,15 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Client_Since__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Since</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Contact_ID__c</fullName>
         <externalId>false</externalId>
         <label>Contact ID</label>
@@ -1459,6 +1468,18 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <fullName>Phone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Preferred_Deducted_AMount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Minimum $10</inlineHelpText>
+        <label>Preferred Deducted AMount</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Previous_Level__c</fullName>

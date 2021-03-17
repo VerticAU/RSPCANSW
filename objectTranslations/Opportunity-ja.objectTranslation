@@ -103,6 +103,10 @@
         <name>Cheque_Number__c</name>
     </fields>
     <fields>
+        <label><!-- Client Funded Services Total --></label>
+        <name>Client_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
         <label><!-- Company --></label>
         <name>Company__c</name>
     </fields>
@@ -590,6 +594,10 @@
         <name>Paperwork_Received__c</name>
     </fields>
     <fields>
+        <label><!-- Partner Funded Services Total --></label>
+        <name>Partner_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
         <label><!-- Payment Frequency --></label>
         <name>Payment_Frequency__c</name>
         <picklistValues>
@@ -774,6 +782,10 @@
             <masterLabel>Land</masterLabel>
             <translation><!-- Land --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RSPCA Funded Services Total --></label>
+        <name>RSPCA_Funded_Services_Total__c</name>
     </fields>
     <fields>
         <label><!-- Receipt Auto Number --></label>

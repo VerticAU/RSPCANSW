@@ -9,6 +9,10 @@
         <value>Animals</value>
     </caseValues>
     <fields>
+        <label><!-- Activity Level --></label>
+        <name>Activity_Level__c</name>
+    </fields>
+    <fields>
         <label><!-- Adoption Date --></label>
         <name>Adoption_Date__c</name>
     </fields>
@@ -109,6 +113,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Behavioural Problems --></label>
+        <name>Behavioural_Problems__c</name>
+    </fields>
+    <fields>
         <label><!-- Birthdate --></label>
         <name>Birthdate__c</name>
     </fields>
@@ -136,6 +144,14 @@
     <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Important Medical Information --></label>
+        <name>Important_Medical_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Items with Animals --></label>
+        <name>Items_with_Animals__c</name>
     </fields>
     <fields>
         <label><!-- Lead --></label>

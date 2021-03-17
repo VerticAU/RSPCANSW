@@ -23,6 +23,10 @@
                 <behavior>Edit</behavior>
                 <field>Under_Trustee_Guardian__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assistance_Client_is_Seeking__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

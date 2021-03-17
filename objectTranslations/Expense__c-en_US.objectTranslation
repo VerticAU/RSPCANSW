@@ -9,6 +9,10 @@
         <value>Expenses</value>
     </caseValues>
     <fields>
+        <label><!-- Booking Date --></label>
+        <name>Booking_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Event --></label>
         <name>Event__c</name>
         <relationshipLabel><!-- Expenses --></relationshipLabel>
@@ -33,11 +37,39 @@
             <translation><!-- Resources --></translation>
         </picklistValues>
     </fields>
+    <fields>
+        <label><!-- Paid Date --></label>
+        <name>Paid_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid</masterLabel>
+            <translation><!-- Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+    </fields>
     <layouts>
         <layout>Expense Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Expense Information --></label>
+            <section>Expense Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status Information --></label>
+            <section>Status Information</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>

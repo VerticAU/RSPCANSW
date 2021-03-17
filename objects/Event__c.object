@@ -190,6 +190,28 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Client_Funded_Services_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Funded Services Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Client_Income_Outstanding__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Income Outstanding</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Email_Reminders__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -395,28 +417,6 @@
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
-        <fullName>Income_Outstanding__c</fullName>
-        <externalId>false</externalId>
-        <label>Income Outstanding</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Income__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Income</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Last_Application_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last Application Date</label>
@@ -577,17 +577,28 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Profit_Loss_Total__c</fullName>
+        <fullName>Partner_Funded_Services_Total__c</fullName>
         <externalId>false</externalId>
-        <formula>Income__c - (Allocated_Funding__c + Total_Expenses__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Profit &amp; Loss Total</label>
+        <label>Partner Funded Services Total</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Price_Book__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Price Book</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipLabel>Events</relationshipLabel>
+        <relationshipName>Events</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Program__c</fullName>
@@ -610,6 +621,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSPCA_Funded_Services_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>RSPCA Funded Services Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Record_Type__c</fullName>
@@ -639,6 +661,19 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Remaining_Funding__c</fullName>
+        <externalId>false</externalId>
+        <formula>Allocated_Funding__c - (RSPCA_Funded_Services_Total__c + Total_Expenses__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Remaining Funding</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Resources_Actual__c</fullName>
@@ -749,6 +784,20 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Event_Cost__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Expenses__c + RSPCA_Funded_Services_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total_Expenses__c + RSPCA_Funded_Services_Total__c</inlineHelpText>
+        <label>Total Event Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Total_Expenses__c</fullName>

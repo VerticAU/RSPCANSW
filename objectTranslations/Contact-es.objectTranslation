@@ -135,6 +135,10 @@
         <name>Centrelink_Reference_Number_CRN__c</name>
     </fields>
     <fields>
+        <label><!-- Client Since --></label>
+        <name>Client_Since__c</name>
+    </fields>
+    <fields>
         <label><!-- Contact ID --></label>
         <name>Contact_ID__c</name>
     </fields>
@@ -628,6 +632,11 @@
             <masterLabel>Trusts and Foundations</masterLabel>
             <translation><!-- Trusts and Foundations --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Minimum $10 --></help>
+        <label><!-- Preferred Deducted AMount --></label>
+        <name>Preferred_Deducted_AMount__c</name>
     </fields>
     <fields>
         <label><!-- Previous Level --></label>

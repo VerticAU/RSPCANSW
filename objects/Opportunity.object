@@ -825,6 +825,22 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Client_Funded_Services_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Funded Services Total</label>
+        <summarizedField>npe01__OppPayment__c.npe01__Payment_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npe01__Payment_Method__c</field>
+            <operation>notEqual</operation>
+            <value>Partner Funded, RSPCA Funded</value>
+        </summaryFilterItems>
+        <summaryForeignKey>npe01__OppPayment__c.npe01__Opportunity__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>CloseDate</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -1805,6 +1821,22 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Partner_Funded_Services_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Funded Services Total</label>
+        <summarizedField>npe01__OppPayment__c.npe01__Payment_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npe01__Payment_Method__c</field>
+            <operation>equals</operation>
+            <value>Partner Funded</value>
+        </summaryFilterItems>
+        <summaryForeignKey>npe01__OppPayment__c.npe01__Opportunity__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Payment_Frequency__c</fullName>
         <externalId>false</externalId>
         <label>Payment Frequency</label>
@@ -2159,6 +2191,22 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>RSPCA_Funded_Services_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>RSPCA Funded Services Total</label>
+        <summarizedField>npe01__OppPayment__c.npe01__Payment_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npe01__Payment_Method__c</field>
+            <operation>equals</operation>
+            <value>RSPCA Funded</value>
+        </summaryFilterItems>
+        <summaryForeignKey>npe01__OppPayment__c.npe01__Opportunity__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Receipt_Auto_Number__c</fullName>

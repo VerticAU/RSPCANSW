@@ -119,6 +119,18 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Animal Requires Urgent Vet Attention --></label>
+        <name>Animal_Requires_Urgent_Vet_Attention__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Animal Type --></label>
         <name>Animal_Type__c</name>
     </fields>
@@ -126,6 +138,10 @@
         <label><!-- Animal --></label>
         <name>Animal__c</name>
         <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Assistance Client is Seeking --></label>
+        <name>Assistance_Client_is_Seeking__c</name>
     </fields>
     <fields>
         <label><!-- Assistance Required --></label>
@@ -213,6 +229,54 @@
         <picklistValues>
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Emergency Type --></label>
+        <name>Emergency_Type__c</name>
+        <picklistValues>
+            <masterLabel>Disability</masterLabel>
+            <translation><!-- Disability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hoarding Squalor</masterLabel>
+            <translation><!-- Hoarding Squalor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital</masterLabel>
+            <translation><!-- Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>House Fire Flood</masterLabel>
+            <translation><!-- House Fire Flood --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jail</masterLabel>
+            <translation><!-- Jail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Natural Disaster</masterLabel>
+            <translation><!-- Natural Disaster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rehab</masterLabel>
+            <translation><!-- Rehab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respite Care</masterLabel>
+            <translation><!-- Respite Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Witness Protection</masterLabel>
+            <translation><!-- Witness Protection --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -341,6 +405,18 @@
     <fields>
         <label><!-- Perpetrator Residence --></label>
         <name>Perpetrator_Residence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevented/Delayed Finding Accommodation --></label>
+        <name>Prevented_Delayed_Finding_Accommodation__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Program Engagement Count This Year --></label>
@@ -797,6 +873,49 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Emergency Boarding</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>項目</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Program Engagement Information --></label>
+            <section>Program Engagement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Homelessness</layout>
         <sections>
             <label><!-- Additional Information --></label>
@@ -881,6 +1000,10 @@
     <recordTypes>
         <label><!-- Domestic Violence --></label>
         <name>Domestic_Violence</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Emergency Boarding --></label>
+        <name>Emergency_Boarding</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Homelessness --></label>

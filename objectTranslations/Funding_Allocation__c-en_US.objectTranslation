@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Funding Allocation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Funding Allocations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Allocation Amount --></label>
+        <name>Allocation_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allocation Date --></label>
+        <name>Allocation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event --></label>
+        <name>Event__c</name>
+        <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Funding Allocation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

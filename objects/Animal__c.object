@@ -154,6 +154,17 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Activity_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Adoption_Date__c</fullName>
         <externalId>false</externalId>
         <label>Adoption Date</label>
@@ -317,6 +328,17 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Behavioural_Problems__c</fullName>
+        <externalId>false</externalId>
+        <label>Behavioural Problems</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Birthdate__c</fullName>
         <externalId>false</externalId>
         <label>Birthdate</label>
@@ -382,6 +404,26 @@
         <fullName>External_ID__c</fullName>
         <externalId>false</externalId>
         <label>External ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Important_Medical_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Important Medical Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Items_with_Animals__c</fullName>
+        <externalId>false</externalId>
+        <label>Items with Animals</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>

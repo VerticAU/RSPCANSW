@@ -17,6 +17,14 @@
         <name>Allocated_Funding__c</name>
     </fields>
     <fields>
+        <label><!-- Client Funded Services Total --></label>
+        <name>Client_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Income Outstanding --></label>
+        <name>Client_Income_Outstanding__c</name>
+    </fields>
+    <fields>
         <label><!-- Email Reminders --></label>
         <name>Email_Reminders__c</name>
     </fields>
@@ -110,14 +118,6 @@
         <name>Important_Notice__c</name>
     </fields>
     <fields>
-        <label><!-- Income Outstanding --></label>
-        <name>Income_Outstanding__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Income --></label>
-        <name>Income__c</name>
-    </fields>
-    <fields>
         <label><!-- Last Application Date --></label>
         <name>Last_Application_Date__c</name>
     </fields>
@@ -179,8 +179,13 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Profit &amp; Loss Total --></label>
-        <name>Profit_Loss_Total__c</name>
+        <label><!-- Partner Funded Services Total --></label>
+        <name>Partner_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price Book --></label>
+        <name>Price_Book__c</name>
+        <relationshipLabel><!-- Events --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Program --></label>
@@ -190,6 +195,10 @@
     <fields>
         <label><!-- Publish Online --></label>
         <name>Publish_Online__c</name>
+    </fields>
+    <fields>
+        <label><!-- RSPCA Funded Services Total --></label>
+        <name>RSPCA_Funded_Services_Total__c</name>
     </fields>
     <fields>
         <label><!-- Record Type --></label>
@@ -202,6 +211,10 @@
     <fields>
         <label><!-- Registration Cut Off Date --></label>
         <name>Registration_Cut_Off_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remaining Funding --></label>
+        <name>Remaining_Funding__c</name>
     </fields>
     <fields>
         <label><!-- Resources Actual --></label>
@@ -244,6 +257,11 @@
         <name>Total_Actual__c</name>
     </fields>
     <fields>
+        <help><!-- Total_Expenses__c + RSPCA_Funded_Services_Total__c --></help>
+        <label><!-- Total Event Cost --></label>
+        <name>Total_Event_Cost__c</name>
+    </fields>
+    <fields>
         <label><!-- Total Expenses --></label>
         <name>Total_Expenses__c</name>
     </fields>
@@ -266,16 +284,16 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label><!-- Event Cost --></label>
+            <section>Event Cost</section>
+        </sections>
+        <sections>
             <label><!-- Event Description --></label>
             <section>Event Description</section>
         </sections>
         <sections>
             <label><!-- Event Expenses --></label>
             <section>Event Expenses</section>
-        </sections>
-        <sections>
-            <label><!-- Event Settings --></label>
-            <section>Event Settings</section>
         </sections>
         <sections>
             <label><!-- Funding Information --></label>
@@ -288,6 +306,10 @@
         <sections>
             <label><!-- Registration Information --></label>
             <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Delivery Expense Summary --></label>
+            <section>Service Delivery Expense Summary</section>
         </sections>
         <sections>
             <label><!-- Session Detail --></label>
