@@ -1199,32 +1199,6 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Prevented_Delayed_Finding_Accommodation__c</fullName>
-        <externalId>false</externalId>
-        <label>Prevented/Delayed Finding Accommodation</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                    <label>Yes</label>
-                </value>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                    <label>No</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Priority</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -1936,17 +1910,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Priority</picklist>
             <values>
                 <fullName>High</fullName>
@@ -2415,17 +2378,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2914,17 +2866,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Priority</picklist>
             <values>
                 <fullName>High</fullName>
@@ -3403,17 +3344,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Priority</picklist>
             <values>
                 <fullName>High</fullName>
@@ -3882,17 +3812,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4392,17 +4311,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Priority</picklist>
             <values>
                 <fullName>High</fullName>
@@ -4882,17 +4790,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Perpetrator_Likely_to_Look__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Prevented_Delayed_Finding_Accommodation__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>

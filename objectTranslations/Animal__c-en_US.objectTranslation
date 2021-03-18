@@ -497,6 +497,10 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
+        <sections>
+            <label><!-- Medical Detail --></label>
+            <section>Medical Detail</section>
+        </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

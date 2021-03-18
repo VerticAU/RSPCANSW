@@ -14,6 +14,10 @@
         <relationshipLabel><!-- Partners --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- End Time --></label>
+        <name>End_Time__c</name>
+    </fields>
+    <fields>
         <label><!-- Event --></label>
         <name>Event__c</name>
         <relationshipLabel><!-- Partners --></relationshipLabel>
@@ -34,11 +38,19 @@
             <translation><!-- Vet Services --></translation>
         </picklistValues>
     </fields>
+    <fields>
+        <label><!-- Start Time --></label>
+        <name>Start_Time__c</name>
+    </fields>
     <layouts>
         <layout>Partner Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Time --></label>
+            <section>Time</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>

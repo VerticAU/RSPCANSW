@@ -407,18 +407,6 @@
         <name>Perpetrator_Residence__c</name>
     </fields>
     <fields>
-        <label><!-- Prevented/Delayed Finding Accommodation --></label>
-        <name>Prevented_Delayed_Finding_Accommodation__c</name>
-        <picklistValues>
-            <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Program Engagement Count This Year --></label>
         <name>Program_Engagement_Count_This_Year__c</name>
     </fields>
@@ -832,6 +820,10 @@
             <section>Additional Information</section>
         </sections>
         <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
             <label><!-- Animal Information --></label>
             <section>Animal Information</section>
         </sections>
@@ -856,8 +848,8 @@
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Perpetrator Information --></label>
-            <section>Perpetrator Information</section>
+            <label><!-- Perpetrator &amp; Animal Action Plan --></label>
+            <section>Perpetrator &amp; Animal Action Plan</section>
         </sections>
         <sections>
             <label><!-- Program Engagement Information --></label>
@@ -897,6 +889,10 @@
         <sections>
             <label>Champs</label>
             <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
         </sections>
         <sections>
             <label><!-- New Section --></label>
@@ -940,6 +936,10 @@
         <sections>
             <label>Champs</label>
             <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
         </sections>
         <sections>
             <label><!-- New Section --></label>

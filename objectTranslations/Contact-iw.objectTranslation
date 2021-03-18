@@ -538,6 +538,50 @@
         <name>Owner_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Pension Type --></label>
+        <name>Pension_Type__c</name>
+        <picklistValues>
+            <masterLabel>Abstudy</masterLabel>
+            <translation><!-- Abstudy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Age Pension</masterLabel>
+            <translation><!-- Age Pension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Austudy</masterLabel>
+            <translation><!-- Austudy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carer Allowance</masterLabel>
+            <translation><!-- Carer Allowance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSP</masterLabel>
+            <translation><!-- DSP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FTB</masterLabel>
+            <translation><!-- FTB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jobseeker</masterLabel>
+            <translation><!-- Jobseeker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newstart</masterLabel>
+            <translation><!-- Newstart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parenting Payment</masterLabel>
+            <translation><!-- Parenting Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youth Allowance</masterLabel>
+            <translation><!-- Youth Allowance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Philanthropy Level --></label>
         <name>Philanthropy_Level__c</name>
         <picklistValues>
@@ -635,8 +679,8 @@
     </fields>
     <fields>
         <help><!-- Minimum $10 --></help>
-        <label><!-- Preferred Deducted AMount --></label>
-        <name>Preferred_Deducted_AMount__c</name>
+        <label><!-- Preferred Deducted Amount --></label>
+        <name>Preferred_Deducted_Amount__c</name>
     </fields>
     <fields>
         <label><!-- Previous Level --></label>

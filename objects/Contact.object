@@ -1336,6 +1336,71 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Pension_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Pension Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Abstudy</fullName>
+                    <default>false</default>
+                    <label>Abstudy</label>
+                </value>
+                <value>
+                    <fullName>Age Pension</fullName>
+                    <default>false</default>
+                    <label>Age Pension</label>
+                </value>
+                <value>
+                    <fullName>Austudy</fullName>
+                    <default>false</default>
+                    <label>Austudy</label>
+                </value>
+                <value>
+                    <fullName>Carer Allowance</fullName>
+                    <default>false</default>
+                    <label>Carer Allowance</label>
+                </value>
+                <value>
+                    <fullName>DSP</fullName>
+                    <default>false</default>
+                    <label>DSP</label>
+                </value>
+                <value>
+                    <fullName>FTB</fullName>
+                    <default>false</default>
+                    <label>FTB</label>
+                </value>
+                <value>
+                    <fullName>Jobseeker</fullName>
+                    <default>false</default>
+                    <label>Jobseeker</label>
+                </value>
+                <value>
+                    <fullName>Newstart</fullName>
+                    <default>false</default>
+                    <label>Newstart</label>
+                </value>
+                <value>
+                    <fullName>Parenting Payment</fullName>
+                    <default>false</default>
+                    <label>Parenting Payment</label>
+                </value>
+                <value>
+                    <fullName>Youth Allowance</fullName>
+                    <default>false</default>
+                    <label>Youth Allowance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Philanthropy_Level__c</fullName>
         <externalId>false</externalId>
         <label>Philanthropy Level</label>
@@ -1470,10 +1535,10 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Preferred_Deducted_AMount__c</fullName>
+        <fullName>Preferred_Deducted_Amount__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Minimum $10</inlineHelpText>
-        <label>Preferred Deducted AMount</label>
+        <label>Preferred Deducted Amount</label>
         <precision>4</precision>
         <required>false</required>
         <scale>0</scale>
@@ -2107,6 +2172,49 @@ RIGHT(External_ID__c, LEN(External_ID__c)- 1),External_ID__c)</formula>
             </values>
             <values>
                 <fullName>Sport and Recreation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pension_Type__c</picklist>
+            <values>
+                <fullName>Abstudy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Age Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austudy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carer Allowance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FTB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jobseeker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newstart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parenting Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youth Allowance</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
