@@ -219,6 +219,18 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Client Capacity --></label>
+        <name>Client_Capacity__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help><!-- Do you have children? --></help>
         <label><!-- Do You Have Children --></label>
         <name>Do_You_Have_Children__c</name>
@@ -352,6 +364,10 @@
         <name>How_Many_Children__c</name>
     </fields>
     <fields>
+        <label><!-- How Many Children and Age(s) --></label>
+        <name>How_Many_Children_and_Age_s__c</name>
+    </fields>
+    <fields>
         <label><!-- If Unable to Assist Animal --></label>
         <name>If_Unable_to_Assist_Animal__c</name>
     </fields>
@@ -378,6 +394,30 @@
         <picklistValues>
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Length Required in Animal Boarding --></label>
+        <name>Length_Required_in_Animal_Boarding__c</name>
+        <picklistValues>
+            <masterLabel>1 Month</masterLabel>
+            <translation><!-- 1 Month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Week</masterLabel>
+            <translation><!-- 1 Week --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Weeks</masterLabel>
+            <translation><!-- 2 Weeks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 Months</masterLabel>
+            <translation><!-- 3 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 Months</masterLabel>
+            <translation><!-- 6 Months --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -535,8 +575,25 @@
         <name>Total_Service_Outstanding_Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Transport Animal to Vet --></label>
+        <name>Transport_Animal_to_Vet__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Treatment --></label>
         <name>Treatment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trustee/Guardian Name --></label>
+        <name>Trustee_Guardian_Name__c</name>
+        <relationshipLabel><!-- Cases (Trustee/Guardian Name) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Under Trustee &amp; Guardian --></label>
@@ -704,6 +761,10 @@
             <section>Referral Information</section>
         </sections>
         <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+        <sections>
             <label><!-- Web Information --></label>
             <section>Web Information</section>
         </sections>
@@ -749,6 +810,10 @@
         <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
         </sections>
         <sections>
             <label><!-- Web Information --></label>
@@ -860,6 +925,10 @@
             <section>Referral Information</section>
         </sections>
         <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+        <sections>
             <label><!-- Web Information --></label>
             <section>Web Information</section>
         </sections>
@@ -907,6 +976,10 @@
             <section>Referral Information</section>
         </sections>
         <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+        <sections>
             <label><!-- Web Information --></label>
             <section>Web Information</section>
         </sections>
@@ -920,14 +993,6 @@
         <sections>
             <label><!-- Animal Action Plan --></label>
             <section>Animal Action Plan</section>
-        </sections>
-        <sections>
-            <label><!-- Animal Information --></label>
-            <section>Animal Information</section>
-        </sections>
-        <sections>
-            <label><!-- Case Information --></label>
-            <section>Case Information</section>
         </sections>
         <sections>
             <label>Aangepaste koppelingen</label>
@@ -952,6 +1017,10 @@
         <sections>
             <label><!-- Referral Information --></label>
             <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
         </sections>
         <sections>
             <label><!-- Web Information --></label>

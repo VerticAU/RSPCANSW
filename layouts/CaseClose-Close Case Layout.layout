@@ -66,6 +66,10 @@
                 <behavior>Edit</behavior>
                 <field>Total_Service_Outstanding_Amount__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Trustee_Guardian_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

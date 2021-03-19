@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Animal Boarding</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Animal Boarding</value>
+    </caseValues>
+    <fields>
+        <label><!-- Animal Status --></label>
+        <name>Animal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Claim of Ownership</masterLabel>
+            <translation><!-- Claim of Ownership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Care</masterLabel>
+            <translation><!-- In Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Further Contact</masterLabel>
+            <translation><!-- No Further Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned to Owner</masterLabel>
+            <translation><!-- Returned to Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Surrendered</masterLabel>
+            <translation><!-- Surrendered --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Animal --></label>
+        <name>Animal__c</name>
+        <relationshipLabel><!-- Animal Boarding --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current Contract End date --></label>
+        <name>Current_Contract_End_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Date In Care --></label>
+        <name>Final_Date_In_Care__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Date In Care --></label>
+        <name>First_Date_In_Care__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forwarding Address --></label>
+        <name>Forwarding_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Items with Animals --></label>
+        <name>Items_with_Animals__c</name>
+        <picklistValues>
+            <masterLabel>Collar</masterLabel>
+            <translation><!-- Collar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Example 3</masterLabel>
+            <translation><!-- Example 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Example 4</masterLabel>
+            <translation><!-- Example 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toys</masterLabel>
+            <translation><!-- Toys --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Shelter Location --></label>
+        <name>Shelter_Location__c</name>
+        <picklistValues>
+            <masterLabel>Blue Mountains</masterLabel>
+            <translation><!-- Blue Mountains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broken Hill</masterLabel>
+            <translation><!-- Broken Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cat Legacy</masterLabel>
+            <translation><!-- Cat Legacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central Coast</masterLabel>
+            <translation><!-- Central Coast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coffs Harbour</masterLabel>
+            <translation><!-- Coffs Harbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foster Care</masterLabel>
+            <translation><!-- Foster Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunter</masterLabel>
+            <translation><!-- Hunter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illawarra</masterLabel>
+            <translation><!-- Illawarra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sydney</masterLabel>
+            <translation><!-- Sydney --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Animal Boarding Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date In Care --></label>
+            <section>Date In Care</section>
+        </sections>
+        <sections>
+            <label><!-- Forwarding Address --></label>
+            <section>Forwarding Address</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

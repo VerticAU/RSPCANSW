@@ -135,6 +135,10 @@
         <name>Centrelink_Reference_Number_CRN__c</name>
     </fields>
     <fields>
+        <label><!-- Checked Sheltermate --></label>
+        <name>Checked_Sheltermate__c</name>
+    </fields>
+    <fields>
         <label><!-- Client Since --></label>
         <name>Client_Since__c</name>
     </fields>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Animal_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Care</fullName>
+                    <default>false</default>
+                    <label>In Care</label>
+                </value>
+                <value>
+                    <fullName>Returned to Owner</fullName>
+                    <default>false</default>
+                    <label>Returned to Owner</label>
+                </value>
+                <value>
+                    <fullName>Surrendered</fullName>
+                    <default>false</default>
+                    <label>Surrendered</label>
+                </value>
+                <value>
+                    <fullName>Claim of Ownership</fullName>
+                    <default>false</default>
+                    <label>Claim of Ownership</label>
+                </value>
+                <value>
+                    <fullName>No Further Contact</fullName>
+                    <default>false</default>
+                    <label>No Further Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Animal__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal</label>
+        <referenceTo>Animal__c</referenceTo>
+        <relationshipLabel>Animal Boarding</relationshipLabel>
+        <relationshipName>Animal_Boarding</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Current_Contract_End_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Contract End date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Date_In_Care__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Date In Care</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Date_In_Care__c</fullName>
+        <externalId>false</externalId>
+        <label>First Date In Care</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Forwarding_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Forwarding Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Items_with_Animals__c</fullName>
+        <externalId>false</externalId>
+        <label>Items with Animals</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Collar</fullName>
+                    <default>false</default>
+                    <label>Collar</label>
+                </value>
+                <value>
+                    <fullName>Toys</fullName>
+                    <default>false</default>
+                    <label>Toys</label>
+                </value>
+                <value>
+                    <fullName>Example 3</fullName>
+                    <default>false</default>
+                    <label>Example 3</label>
+                </value>
+                <value>
+                    <fullName>Example 4</fullName>
+                    <default>false</default>
+                    <label>Example 4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Shelter_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Shelter Location</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Blue Mountains</fullName>
+                    <default>false</default>
+                    <label>Blue Mountains</label>
+                </value>
+                <value>
+                    <fullName>Broken Hill</fullName>
+                    <default>false</default>
+                    <label>Broken Hill</label>
+                </value>
+                <value>
+                    <fullName>Cat Legacy</fullName>
+                    <default>false</default>
+                    <label>Cat Legacy</label>
+                </value>
+                <value>
+                    <fullName>Central Coast</fullName>
+                    <default>false</default>
+                    <label>Central Coast</label>
+                </value>
+                <value>
+                    <fullName>Coffs Harbour</fullName>
+                    <default>false</default>
+                    <label>Coffs Harbour</label>
+                </value>
+                <value>
+                    <fullName>Hunter</fullName>
+                    <default>false</default>
+                    <label>Hunter</label>
+                </value>
+                <value>
+                    <fullName>Illawarra</fullName>
+                    <default>false</default>
+                    <label>Illawarra</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Sydney</fullName>
+                    <default>false</default>
+                    <label>Sydney</label>
+                </value>
+                <value>
+                    <fullName>External</fullName>
+                    <default>false</default>
+                    <label>External</label>
+                </value>
+                <value>
+                    <fullName>Foster Care</fullName>
+                    <default>false</default>
+                    <label>Foster Care</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Animal Boarding</label>
+    <nameField>
+        <displayFormat>BOARD-{000000}</displayFormat>
+        <label>Animal Boarding Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Animal Boarding</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

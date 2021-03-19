@@ -188,9 +188,45 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Animal_Bitten_Someone__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Bitten Someone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Animal_Breed__c</fullName>
         <externalId>false</externalId>
         <label>Animal Breed</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Animal_Normally_Live_Sleep__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Normally Live/Sleep</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -328,6 +364,31 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Animal_on_Medication__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal on Medication</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Behavioural_Problems__c</fullName>
         <externalId>false</externalId>
         <label>Behavioural Problems</label>
@@ -373,6 +434,42 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Council_Deem_Animal_Dangerous__c</fullName>
+        <externalId>false</externalId>
+        <label>Council Deem Animal Dangerous</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Current_Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Contract End Date</label>
+        <summarizedField>Animal_Boarding__c.Current_Contract_End_date__c</summarizedField>
+        <summaryForeignKey>Animal_Boarding__c.Animal__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Deceased__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -412,6 +509,64 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Final_Date_In_Care__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Date In Care</label>
+        <summarizedField>Animal_Boarding__c.Final_Date_In_Care__c</summarizedField>
+        <summaryForeignKey>Animal_Boarding__c.Animal__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>First_Date_In_Care__c</fullName>
+        <externalId>false</externalId>
+        <label>First Date In Care</label>
+        <summarizedField>Animal_Boarding__c.Final_Date_In_Care__c</summarizedField>
+        <summaryForeignKey>Animal_Boarding__c.Animal__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Food_Normally_Fed__c</fullName>
+        <externalId>false</externalId>
+        <label>Food Normally Fed</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>House_Litter_Trained__c</fullName>
+        <externalId>false</externalId>
+        <label>House/Litter Trained</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Important_Medical_Information__c</fullName>
         <externalId>false</externalId>
         <label>Important Medical Information</label>
@@ -445,6 +600,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Microchip__c</fullName>
+        <externalId>false</externalId>
+        <label>Microchip</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Opportunity__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -467,6 +634,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Presenting_Medical_Issues__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are the presenting medical issues?</inlineHelpText>
+        <label>Presenting Medical Issues</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Region__c</fullName>
@@ -847,6 +1024,31 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Relevant_Medical_History__c</fullName>
+        <externalId>false</externalId>
+        <label>Relevant Medical History</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Sex__c</fullName>
         <externalId>false</externalId>
         <label>Sex</label>
@@ -871,14 +1073,28 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Shelter_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Shelter Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sheltermate_Number__c</fullName>
         <businessStatus>Active</businessStatus>
         <externalId>false</externalId>
         <label>Sheltermate Number</label>
+        <precision>7</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Number</type>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Vaccinated__c</fullName>

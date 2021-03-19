@@ -607,6 +607,15 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Checked_Sheltermate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Checked Sheltermate</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Client_Since__c</fullName>
         <externalId>false</externalId>
         <label>Client Since</label>

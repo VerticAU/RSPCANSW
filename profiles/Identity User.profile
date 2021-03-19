@@ -545,6 +545,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>dlrs_Animal_BoardingTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>dlrs_Funding_AllocationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1239,6 +1243,41 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal_Boarding__c.Animal_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal_Boarding__c.Current_Contract_End_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal_Boarding__c.Final_Date_In_Care__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal_Boarding__c.First_Date_In_Care__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal_Boarding__c.Forwarding_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal_Boarding__c.Items_with_Animals__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal_Boarding__c.Shelter_Location__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Activity_Level__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1254,7 +1293,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Animal_Bitten_Someone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Animal_Breed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.Animal_Normally_Live_Sleep__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1265,6 +1314,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Animal__c.Animal_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.Animal_on_Medication__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1289,6 +1343,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Council_Deem_Animal_Dangerous__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Animal__c.Current_Contract_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Deceased__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1308,6 +1372,26 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Animal__c.Final_Date_In_Care__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Animal__c.First_Date_In_Care__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.Food_Normally_Fed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.House_Litter_Trained__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Animal__c.Important_Medical_Information__c</field>
         <readable>true</readable>
@@ -1324,12 +1408,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Microchip__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Opportunity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Animal__c.Other__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.Presenting_Medical_Issues__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1344,7 +1438,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Relevant_Medical_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Sex__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Animal__c.Shelter_Location__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2264,6 +2368,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Client_Capacity__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.ClosedDate</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2344,6 +2453,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.How_Many_Children_and_Age_s__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.If_Unable_to_Assist_Animal__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2380,6 +2494,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Legal_Claim_to_Animals__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Length_Required_in_Animal_Boarding__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2564,7 +2683,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Transport_Animal_to_Vet__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Treatment__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Trustee_Guardian_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2860,6 +2989,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Centrelink_Reference_Number_CRN__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Checked_Sheltermate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7921,6 +8055,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Alert__c-Alert Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Animal_Boarding__c-Animal Boarding Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Animal__c-Animal Layout</layout>
