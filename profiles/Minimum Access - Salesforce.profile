@@ -1272,6 +1272,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal_Boarding__c.Foster_Care_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Animal_Boarding__c.Foster_Care_Phone_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal_Boarding__c.Items_with_Animals__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3059,6 +3069,11 @@
         <editable>false</editable>
         <field>Contact.Department</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Deposit_Client_Leaving__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8064,6 +8079,14 @@
         <layout>Animal_Boarding__c-Animal Boarding Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Animal_Boarding__c-Foster Care Page Layout</layout>
+        <recordType>Animal_Boarding__c.Foster_Care</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Animal_Boarding__c-Shelter Care Page Layout</layout>
+        <recordType>Animal_Boarding__c.Shelter_Care</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Animal__c-Animal Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8375,6 +8398,16 @@
         <default>false</default>
         <recordType>Account.npsp_plus_dres__Organization</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Animal_Boarding__c.Foster_Care</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Animal_Boarding__c.Shelter_Care</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>

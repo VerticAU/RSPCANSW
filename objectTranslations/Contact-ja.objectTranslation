@@ -183,6 +183,10 @@
         <name>Deceased_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Deposit Client Leaving --></label>
+        <name>Deposit_Client_Leaving__c</name>
+    </fields>
+    <fields>
         <label><!-- Do Not Contact Reason --></label>
         <name>Do_Not_Contact_Reason__c</name>
         <picklistValues>

@@ -523,7 +523,7 @@
         <fullName>First_Date_In_Care__c</fullName>
         <externalId>false</externalId>
         <label>First Date In Care</label>
-        <summarizedField>Animal_Boarding__c.Final_Date_In_Care__c</summarizedField>
+        <summarizedField>Animal_Boarding__c.First_Date_In_Care__c</summarizedField>
         <summaryForeignKey>Animal_Boarding__c.Animal__c</summaryForeignKey>
         <summaryOperation>max</summaryOperation>
         <trackHistory>false</trackHistory>

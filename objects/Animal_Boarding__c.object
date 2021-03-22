@@ -238,6 +238,29 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Foster_Care_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Foster Care Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Animal Boarding</relationshipLabel>
+        <relationshipName>Animal_Boarding</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Foster_Care_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Foster_Care_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Foster Care Phone Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Items_with_Animals__c</fullName>
         <externalId>false</externalId>
         <label>Items with Animals</label>
@@ -348,6 +371,194 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Animal Boarding</pluralLabel>
+    <recordTypes>
+        <fullName>Foster_Care</fullName>
+        <active>true</active>
+        <label>Foster Care</label>
+        <picklistValues>
+            <picklist>Animal_Status__c</picklist>
+            <values>
+                <fullName>Claim of Ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Further Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Returned to Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surrendered</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Items_with_Animals__c</picklist>
+            <values>
+                <fullName>Collar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Example 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Example 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toys</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Shelter_Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broken Hill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cat Legacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Coast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foster Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sydney</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Shelter_Care</fullName>
+        <active>true</active>
+        <label>Shelter Care</label>
+        <picklistValues>
+            <picklist>Animal_Status__c</picklist>
+            <values>
+                <fullName>Claim of Ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Further Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Returned to Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surrendered</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Items_with_Animals__c</picklist>
+            <values>
+                <fullName>Collar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Example 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Example 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toys</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Shelter_Location__c</picklist>
+            <values>
+                <fullName>Blue Mountains</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broken Hill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cat Legacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Coast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foster Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hunter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illawarra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sydney</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

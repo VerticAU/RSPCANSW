@@ -244,6 +244,11 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Animal_Status__c</fields>
+        <fields>Shelter_Location__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>First_Date_In_Care__c</fields>
+        <fields>Final_Date_In_Care__c</fields>
         <relatedList>Animal_Boarding__c.Animal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

@@ -54,6 +54,15 @@
         <name>Forwarding_Address__c</name>
     </fields>
     <fields>
+        <label><!-- Foster Care Name --></label>
+        <name>Foster_Care_Name__c</name>
+        <relationshipLabel><!-- Animal Boarding --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Foster Care Phone Number --></label>
+        <name>Foster_Care_Phone_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Items with Animals --></label>
         <name>Items_with_Animals__c</name>
         <picklistValues>
@@ -140,5 +149,55 @@
             <section>New Section</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Foster Care Page Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date In Care --></label>
+            <section>Date In Care</section>
+        </sections>
+        <sections>
+            <label><!-- Forwarding Address --></label>
+            <section>Forwarding Address</section>
+        </sections>
+        <sections>
+            <label><!-- Foster Care Information --></label>
+            <section>Foster Care Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Shelter Care Page Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date In Care --></label>
+            <section>Date In Care</section>
+        </sections>
+        <sections>
+            <label><!-- Forwarding Address --></label>
+            <section>Forwarding Address</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Foster Care --></label>
+        <name>Foster_Care</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Shelter Care --></label>
+        <name>Shelter_Care</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

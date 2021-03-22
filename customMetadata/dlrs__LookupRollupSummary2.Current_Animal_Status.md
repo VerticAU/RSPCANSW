@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>dlrs__AggregateOperation__c</field>
-        <value xsi:type="xsd:string">First</value>
+        <value xsi:type="xsd:string">Last</value>
     </values>
     <values>
         <field>dlrs__AggregateResultField__c</field>
@@ -44,7 +44,7 @@
     </values>
     <values>
         <field>dlrs__FieldToOrderBy__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">CreatedDate</value>
     </values>
     <values>
         <field>dlrs__ParentObject__c</field>

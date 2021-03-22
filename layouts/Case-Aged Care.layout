@@ -33,10 +33,6 @@
                 <behavior>Edit</behavior>
                 <field>caseman__Program__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>caseman__Intake__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -152,10 +148,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Friend_or_Family_Member_Care__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Friends_and_Family_Details__c</field>
             </layoutItems>
         </layoutColumns>
@@ -177,6 +169,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Friend_or_Family_Member_Care__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agrees_to_desex_microchip_vaccinate__c</field>

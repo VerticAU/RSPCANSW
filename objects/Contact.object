@@ -756,6 +756,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Deposit_Client_Leaving__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Client Leaving</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
