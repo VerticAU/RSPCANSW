@@ -2382,6 +2382,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Circumstances_Require_Vet_Assistance__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Client_Capacity__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2718,6 +2723,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Under_Trustee_Guardian__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Vet_History_Obtained__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4968,6 +4978,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Expense__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Financial_Agreement__c.Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Financial_Agreement__c.Financial_Agreement_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8271,6 +8291,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Financial_Agreement__c-Financial Agreement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Flow_Setting__mdt-Flow Setting Layout</layout>

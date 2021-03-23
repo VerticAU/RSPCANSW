@@ -587,6 +587,10 @@
     <layouts>
         <layout>Animal Layout</layout>
         <sections>
+            <label><!-- Behavioural Details --></label>
+            <section>Behavioural Details</section>
+        </sections>
+        <sections>
             <label><!-- Boarding Information --></label>
             <section>Boarding Information</section>
         </sections>

@@ -708,6 +708,17 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Circumstances_Require_Vet_Assistance__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Under what circumstance do you need emergency vet assistance?</inlineHelpText>
+        <label>Circumstances Require Vet Assistance</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Client_Capacity__c</fullName>
         <externalId>false</externalId>
         <label>Client Capacity</label>
@@ -1725,6 +1736,32 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Vet_History_Obtained__c</fullName>
+        <externalId>false</externalId>
+        <label>Vet History Obtained</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Vet__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2205,6 +2242,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2738,6 +2786,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
                 <fullName>Attempted or actual physical assault</fullName>
@@ -3251,6 +3310,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3784,6 +3854,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
                 <fullName>Attempted or actual physical assault</fullName>
@@ -4297,6 +4378,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4842,6 +4934,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
                 <fullName>Attempted or actual physical assault</fullName>
@@ -5367,6 +5470,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Under_Trustee_Guardian__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vet_History_Obtained__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>

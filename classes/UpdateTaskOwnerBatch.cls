@@ -2,7 +2,7 @@ public without sharing class UpdateTaskOwnerBatch implements Database.Batchable<
 
     private Map<String, String> TQFullNameMap = new Map<String, String>{
         'amyb' => 'Amy Brown',
-        'Taylor' => 'Taylor Mahoney ',
+        'Taylor' => 'Taylor Mahoney',
         'LisaJ' => 'Lisa Jenkins',
         'Mel' => 'Melanie Parent',
         'Rochelle' => 'Rochelle Van De Merwe (Temp)',

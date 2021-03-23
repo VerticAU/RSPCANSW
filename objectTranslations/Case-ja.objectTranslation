@@ -219,6 +219,11 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- Under what circumstance do you need emergency vet assistance? --></help>
+        <label><!-- Circumstances Require Vet Assistance --></label>
+        <name>Circumstances_Require_Vet_Assistance__c</name>
+    </fields>
+    <fields>
         <label><!-- Client Capacity --></label>
         <name>Client_Capacity__c</name>
         <picklistValues>
@@ -608,6 +613,18 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Vet History Obtained --></label>
+        <name>Vet_History_Obtained__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Vet --></label>
         <name>Vet__c</name>
         <relationshipLabel><!-- Vet Treatments --></relationshipLabel>
@@ -733,20 +750,16 @@
             <section>Animal Action Plan</section>
         </sections>
         <sections>
-            <label><!-- Animal Information --></label>
-            <section>Animal Information</section>
-        </sections>
-        <sections>
-            <label><!-- Case Information --></label>
-            <section>Case Information</section>
-        </sections>
-        <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
             <label>項目</label>
             <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
         </sections>
         <sections>
             <label><!-- New Section --></label>
@@ -778,14 +791,6 @@
         <sections>
             <label><!-- Animal Action Plan --></label>
             <section>Animal Action Plan</section>
-        </sections>
-        <sections>
-            <label><!-- Animal Information --></label>
-            <section>Animal Information</section>
-        </sections>
-        <sections>
-            <label><!-- Case Information --></label>
-            <section>Case Information</section>
         </sections>
         <sections>
             <label>カスタムリンク</label>
@@ -942,10 +947,6 @@
         <sections>
             <label><!-- Animal Action Plan --></label>
             <section>Animal Action Plan</section>
-        </sections>
-        <sections>
-            <label><!-- Animal Information --></label>
-            <section>Animal Information</section>
         </sections>
         <sections>
             <label><!-- Case Information --></label>
