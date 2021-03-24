@@ -38,6 +38,30 @@
         <name>Bequest_Stage__c</name>
     </fields>
     <fields>
+        <label><!-- Branch Activities --></label>
+        <name>Branch_Activities__c</name>
+        <picklistValues>
+            <masterLabel>Animal Adoptions</masterLabel>
+            <translation><!-- Animal Adoptions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAWS</masterLabel>
+            <translation><!-- CAWS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Community Events</masterLabel>
+            <translation><!-- Community Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desexing</masterLabel>
+            <translation><!-- Desexing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foster Care</masterLabel>
+            <translation><!-- Foster Care --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Cash Amount Received --></label>
         <name>Cash_Amount_Received__c</name>
     </fields>
@@ -226,6 +250,10 @@
     <fields>
         <label><!-- Instagram --></label>
         <name>Instagram__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Notes --></label>
+        <name>Key_Notes__c</name>
     </fields>
     <fields>
         <label><!-- Level --></label>

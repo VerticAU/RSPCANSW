@@ -207,6 +207,18 @@
         <fullName>AmountWonOpportunities</fullName>
     </fields>
     <fields>
+        <fullName>Branch__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Branch</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>BudgetedCost</fullName>
         <trackHistory>false</trackHistory>
     </fields>

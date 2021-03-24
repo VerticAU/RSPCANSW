@@ -81,11 +81,6 @@
         <name>Bequest_Percentage__c</name>
     </fields>
     <fields>
-        <label><!-- Branch --></label>
-        <name>Branch__c</name>
-        <relationshipLabel><!-- Opportunities --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Campaing Id (Include CCD) --></label>
         <name>Campaing_Id_Include_CCD__c</name>
     </fields>

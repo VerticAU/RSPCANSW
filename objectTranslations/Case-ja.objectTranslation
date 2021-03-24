@@ -196,11 +196,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Branch --></label>
-        <name>Branch__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
-    </fields>
-    <fields>
         <help><!-- Checked alleged perpetration on Sheltermate --></help>
         <label><!-- Checked Sheltermate --></label>
         <name>Checked_Sheltermate__c</name>
@@ -647,6 +642,10 @@
         <label><!-- Incident Type --></label>
         <name>caseman__IncidentType__c</name>
         <picklistValues>
+            <masterLabel>Animal Welfare</masterLabel>
+            <translation><!-- Animal Welfare --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Attempted or actual physical assault</masterLabel>
             <translation>暴行未遂または身体的暴行</translation>
         </picklistValues>
@@ -1050,6 +1049,10 @@
     <quickActions>
         <label><!-- NewChildCase --></label>
         <name>NewChildCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Case --></label>
+        <name>Update_Case</name>
     </quickActions>
     <recordTypes>
         <label><!-- Access To Vet Care Intake --></label>

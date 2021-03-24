@@ -45,6 +45,26 @@
         <name>Skip_WhoId__c</name>
     </fields>
     <fields>
+        <label><!-- Topics --></label>
+        <name>Topics__c</name>
+        <picklistValues>
+            <masterLabel>Cases</masterLabel>
+            <translation><!-- Cases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incidents</masterLabel>
+            <translation><!-- Incidents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiatives</masterLabel>
+            <translation><!-- Initiatives --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Completed Date --></label>
         <name>caseman__CompletedDate__c</name>
     </fields>

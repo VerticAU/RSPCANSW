@@ -29,10 +29,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Relationship_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Food_Normally_Fed__c</field>
             </layoutItems>
         </layoutColumns>
@@ -125,6 +121,10 @@
                 <behavior>Edit</behavior>
                 <field>Vet_History_Obtained__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Flea_Tx__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -142,6 +142,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Relevant_Medical_History__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Worm_Tx__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -261,6 +265,10 @@
         <fields>First_Date_In_Care__c</fields>
         <fields>Final_Date_In_Care__c</fields>
         <relatedList>Animal_Boarding__c.Animal__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Case_Animal__c.Animal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

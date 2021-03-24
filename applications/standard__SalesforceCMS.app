@@ -12,6 +12,7 @@
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
     <tabs>Batch__c</tabs>
+    <tabs>Case_Animal__c</tabs>
     <uiType>Lightning</uiType>
     <workspaceConfig>
         <mappings>
@@ -19,6 +20,9 @@
         </mappings>
         <mappings>
             <tab>Batch__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Case_Animal__c</tab>
         </mappings>
         <mappings>
             <tab>npsp__Trigger_Handler__c</tab>

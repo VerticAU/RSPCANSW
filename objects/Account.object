@@ -229,6 +229,13 @@
     </actionOverrides>
     <compactLayoutAssignment>NPSP_Organization_Account</compactLayoutAssignment>
     <compactLayouts>
+        <fullName>Branch_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Phone</fields>
+        <fields>NumberOfEmployees</fields>
+        <label>Branch Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
         <fullName>Estate_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>npe01__One2OneContact__c</fields>
@@ -341,6 +348,46 @@
         <fullName>BillingAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Branch_Activities__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Activities</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Animal Adoptions</fullName>
+                    <default>false</default>
+                    <label>Animal Adoptions</label>
+                </value>
+                <value>
+                    <fullName>CAWS</fullName>
+                    <default>false</default>
+                    <label>CAWS</label>
+                </value>
+                <value>
+                    <fullName>Community Events</fullName>
+                    <default>false</default>
+                    <label>Community Events</label>
+                </value>
+                <value>
+                    <fullName>Desexing</fullName>
+                    <default>false</default>
+                    <label>Desexing</label>
+                </value>
+                <value>
+                    <fullName>Foster Care</fullName>
+                    <default>false</default>
+                    <label>Foster Care</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Cash_Amount_Received__c</fullName>
@@ -746,6 +793,16 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Key_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Key Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
         <fullName>Level__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Sample Level field for use with Level feature. May be deleted or edited as needed.</description>
@@ -1040,6 +1097,29 @@
             </values>
             <values>
                 <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Branch_Activities__c</picklist>
+            <values>
+                <fullName>Animal Adoptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAWS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Desexing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foster Care</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

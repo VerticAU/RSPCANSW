@@ -647,20 +647,6 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Branch__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Branch</label>
-        <referenceTo>Branch__c</referenceTo>
-        <relationshipLabel>Cases</relationshipLabel>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>BusinessHoursId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2265,6 +2251,10 @@
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>
             </values>
@@ -2798,6 +2788,10 @@
         </picklistValues>
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
+            <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>
@@ -3333,6 +3327,10 @@
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>
             </values>
@@ -3867,6 +3865,10 @@
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>
             </values>
@@ -4400,6 +4402,10 @@
         </picklistValues>
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
+            <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>
@@ -4947,6 +4953,10 @@
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
             <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>
             </values>
@@ -5492,6 +5502,10 @@
         </picklistValues>
         <picklistValues>
             <picklist>caseman__IncidentType__c</picklist>
+            <values>
+                <fullName>Animal Welfare</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Attempted or actual physical assault</fullName>
                 <default>false</default>

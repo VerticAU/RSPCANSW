@@ -9,6 +9,16 @@
         <value>Financial Agreements</value>
     </caseValues>
     <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Financial Agreements --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Financial Agreements --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Date --></label>
         <name>Date__c</name>
     </fields>

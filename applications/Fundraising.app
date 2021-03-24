@@ -1924,6 +1924,7 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>Batch__c</tabs>
+    <tabs>Case_Animal__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Fundraising_UtilityBar</utilityBar>
 </CustomApplication>

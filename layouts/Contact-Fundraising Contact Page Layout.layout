@@ -883,7 +883,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Animal_Type__c</fields>
-        <fields>Relationship_Type__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>Animal__c.Contact__c</relatedList>
     </relatedLists>

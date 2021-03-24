@@ -56,7 +56,7 @@ public without sharing class UpdateTaskOwnerBatch implements Database.Batchable<
 
     public Database.QueryLocator start(Database.BatchableContext BC) {
         return Database.getQueryLocator('SELECT Id, Owner__c FROM Task WHERE Owner__c IN (\''+
-            String.join(new List<String>(this.TQFullNameMap.keySet()), '\',\'') + '\')');
+            String.join(new List<String>(this.TQFullNameMap.keySet()), '\',\'') + '\') ALL ROWS');
     }
 
     public void execute(Database.BatchableContext BC, List<Task> scope) {

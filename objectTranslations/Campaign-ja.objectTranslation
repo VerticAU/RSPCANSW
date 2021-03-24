@@ -13,6 +13,11 @@
         <name>Allocated__c</name>
     </fields>
     <fields>
+        <label><!-- Branch --></label>
+        <name>Branch__c</name>
+        <relationshipLabel><!-- Campaigns --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Campaign Code --></label>
         <name>Campaign_Code__c</name>
     </fields>

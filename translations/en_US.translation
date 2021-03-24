@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
+        <label><!-- Community --></label>
+        <name>Community</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Finance --></label>
         <name>Finance</name>
     </customApplications>
@@ -19,10 +23,6 @@
     <customApplications>
         <label><!-- Philanthropy --></label>
         <name>Philanthropy</name>
-    </customApplications>
-    <customApplications>
-        <label><!-- Programs --></label>
-        <name>Programs</name>
     </customApplications>
     <customLabels>
         <label><!-- Messages_Market_Required --></label>

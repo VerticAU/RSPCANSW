@@ -278,7 +278,7 @@
         <name>Waitlist_Enabled__c</name>
     </fields>
     <layouts>
-        <layout>Event Layout</layout>
+        <layout>Multi Session Event Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -316,5 +316,54 @@
             <section>Session Detail</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Single Session Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Event Cost --></label>
+            <section>Event Cost</section>
+        </sections>
+        <sections>
+            <label><!-- Event Description --></label>
+            <section>Event Description</section>
+        </sections>
+        <sections>
+            <label><!-- Event Expenses --></label>
+            <section>Event Expenses</section>
+        </sections>
+        <sections>
+            <label><!-- Funding Information --></label>
+            <section>Funding Information</section>
+        </sections>
+        <sections>
+            <label><!-- Online Detail --></label>
+            <section>Online Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service Delivery Expense Summary --></label>
+            <section>Service Delivery Expense Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Session Detail --></label>
+            <section>Session Detail</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- An Event that is run across multiple dates and/or locations. --></description>
+        <label><!-- Multi Session Event --></label>
+        <name>Multi_Session_Event</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- An event that is run within one session at one location. --></description>
+        <label><!-- Single Session Event --></label>
+        <name>Single_Session_Event</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
