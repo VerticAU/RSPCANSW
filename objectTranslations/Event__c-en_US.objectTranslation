@@ -50,6 +50,10 @@
         <name>Event_Cost__c</name>
     </fields>
     <fields>
+        <label><!-- Event Date --></label>
+        <name>Event_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Event Description --></label>
         <name>Event_Description__c</name>
     </fields>
@@ -188,6 +192,10 @@
         <relationshipLabel><!-- Events --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Program Engagements --></label>
+        <name>Program_Engagement__c</name>
+    </fields>
+    <fields>
         <label><!-- Program --></label>
         <name>Program__c</name>
         <relationshipLabel><!-- Events --></relationshipLabel>
@@ -235,6 +243,10 @@
     <fields>
         <label><!-- Send Surveys --></label>
         <name>Send_Surveys__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Deliveries This Calendar Year --></label>
+        <name>Service_Deliveries_This_Calendar_Year__c</name>
     </fields>
     <fields>
         <label><!-- Service Deliveries --></label>

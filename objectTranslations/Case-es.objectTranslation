@@ -1094,6 +1094,14 @@
         <label><!-- Outbound Referral --></label>
         <name>caseman__OutboundReferral</name>
     </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please add the number of children and their age(s) --></errorMessage>
+        <name>Have_Children</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please add the Trustee &amp; Guardian Name by selecting an existing or creating a new contact --></errorMessage>
+        <name>Trustee_And_Guardian_Mandatory</name>
+    </validationRules>
     <webLinks>
         <label><!-- CreateIntake --></label>
         <name>caseman__CreateIntake</name>

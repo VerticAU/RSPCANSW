@@ -18,5 +18,13 @@
         <name>Case__c</name>
         <relationshipLabel><!-- Case Animals --></relationshipLabel>
     </fields>
+    <fields>
+        <label><!-- Shelter Location --></label>
+        <name>Shelter_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sheltermate Number --></label>
+        <name>Sheltermate_Number__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

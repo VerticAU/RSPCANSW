@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Event Service Deliveries</label>
+    <label>Program Engagement Service Deliveries</label>
     <protected>false</protected>
     <values>
         <field>dlrs__Active__c</field>
@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>dlrs__AggregateOperation__c</field>
-        <value xsi:type="xsd:string">Count</value>
+        <value xsi:type="xsd:string">Sum</value>
     </values>
     <values>
         <field>dlrs__AggregateResultField__c</field>
@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>dlrs__ChildObject__c</field>
-        <value xsi:type="xsd:string">pmdm__ProgramEngagement__c</value>
+        <value xsi:type="xsd:string">pmdm__ServiceDelivery__c</value>
     </values>
     <values>
         <field>dlrs__ConcatenateDelimiter__c</field>
@@ -40,7 +40,7 @@
     </values>
     <values>
         <field>dlrs__FieldToAggregate__c</field>
-        <value xsi:type="xsd:string">Service_Deliveries__c</value>
+        <value xsi:type="xsd:string">pmdm__Quantity__c</value>
     </values>
     <values>
         <field>dlrs__FieldToOrderBy__c</field>
@@ -48,7 +48,7 @@
     </values>
     <values>
         <field>dlrs__ParentObject__c</field>
-        <value xsi:type="xsd:string">Event__c</value>
+        <value xsi:type="xsd:string">pmdm__ProgramEngagement__c</value>
     </values>
     <values>
         <field>dlrs__RelationshipCriteriaFields__c</field>
@@ -60,7 +60,7 @@
     </values>
     <values>
         <field>dlrs__RelationshipField__c</field>
-        <value xsi:type="xsd:string">Event__c</value>
+        <value xsi:type="xsd:string">pmdm__ProgramEngagement__c</value>
     </values>
     <values>
         <field>dlrs__RowLimit__c</field>

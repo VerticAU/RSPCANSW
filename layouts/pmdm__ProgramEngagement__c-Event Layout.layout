@@ -38,6 +38,14 @@
                 <behavior>Edit</behavior>
                 <field>Client_Funded_Services_Total__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Deliveries__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Deliveries_This_Calendar_Year__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

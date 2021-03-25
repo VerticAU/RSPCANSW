@@ -2854,7 +2854,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Common_Ground</fullName>
-        <active>true</active>
+        <active>false</active>
         <businessProcess>Common Ground</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Common Ground</label>
@@ -5588,4 +5588,26 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWriteTransfer</sharingModel>
+    <validationRules>
+        <fullName>Have_Children</fullName>
+        <active>true</active>
+        <description>If Client have children, they must specify number of children and their age(s)</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL( Do_You_Have_Children__c , &quot;Yes&quot;),
+ISBLANK( How_Many_Children_and_Age_s__c)
+)</errorConditionFormula>
+        <errorDisplayField>How_Many_Children_and_Age_s__c</errorDisplayField>
+        <errorMessage>Please add the number of children and their age(s)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Trustee_And_Guardian_Mandatory</fullName>
+        <active>true</active>
+        <description>If Trustee &amp; Guardian = Yes then Trustee &amp; Guardian Name</description>
+        <errorConditionFormula>AND (
+ISPICKVAL(Under_Trustee_Guardian__c, &quot;Yes&quot;), 
+ISBLANK( Trustee_Guardian_Name__c )
+)</errorConditionFormula>
+        <errorDisplayField>Trustee_Guardian_Name__c</errorDisplayField>
+        <errorMessage>Please add the Trustee &amp; Guardian Name by selecting an existing or creating a new contact</errorMessage>
+    </validationRules>
 </CustomObject>

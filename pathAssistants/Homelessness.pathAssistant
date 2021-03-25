@@ -4,5 +4,11 @@
     <entityName>Case</entityName>
     <fieldName>Status</fieldName>
     <masterLabel>Homelessness</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Long_Term_Accommodation_Plans_for_Pet__c</fieldNames>
+        <fieldNames>Do_You_Have_Children__c</fieldNames>
+        <fieldNames>How_Many_Children__c</fieldNames>
+        <picklistValueName>Pending</picklistValueName>
+    </pathAssistantSteps>
     <recordTypeName>Homelessness</recordTypeName>
 </PathAssistant>

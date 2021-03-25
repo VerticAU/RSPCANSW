@@ -179,6 +179,28 @@
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
+    <fields>
+        <fullName>Shelter_Location__c</fullName>
+        <externalId>false</externalId>
+        <formula>Animal__r.Shelter_Location__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Shelter Location</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sheltermate_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Animal__r.Sheltermate_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sheltermate Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Case Animal</label>
     <nameField>
         <displayFormat>CA-{000000}</displayFormat>
