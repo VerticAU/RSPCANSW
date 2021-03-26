@@ -5,9 +5,11 @@
     <fieldName>Status</fieldName>
     <masterLabel>Homelessness</masterLabel>
     <pathAssistantSteps>
-        <fieldNames>Long_Term_Accommodation_Plans_for_Pet__c</fieldNames>
-        <fieldNames>Do_You_Have_Children__c</fieldNames>
-        <fieldNames>How_Many_Children__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;Update ezyvet and sheltermate&lt;/li&gt;&lt;li&gt;Upload signed documentation to the case&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Active</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Add an animal to the record&lt;/li&gt;&lt;/ul&gt;</info>
         <picklistValueName>Pending</picklistValueName>
     </pathAssistantSteps>
     <recordTypeName>Homelessness</recordTypeName>

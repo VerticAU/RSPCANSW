@@ -867,6 +867,12 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>OperatingHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Other_Phone__c</fullName>
         <externalId>false</externalId>
         <label>Other Phone</label>

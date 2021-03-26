@@ -1,0 +1,58 @@
+<aura:component description="CampaignRecurringReceiptTemplateQA" implements="force:lightningQuickActionWithoutHeader,force:appHostable" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="processor" value="RecurringReceiptTemplateQAMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.baseHandleInit}"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <c:vertic_QuickActionModal aura:id="modal"
+                               heightPX="550"
+                               title="Acknowledgement Template"
+                               refreshOnCancel="{!false}"
+                               cancelLabel="Close"
+                               minWidthRem="45">
+
+        <aura:if isTrue="{!v.meta.dto}">
+            <lightning:layout multipleRows="true" class="slds-p-horizontal_small">
+                <lightning:layoutItem size="12">
+                    <div class="slds-scoped-notification slds-scoped-notification_light slds-m-vertical_small site" role="status">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <lightning:icon iconName="utility:info" size="small" alternativeText="Notification" variant="info"/>
+                            </div>
+                            <div class="slds-media__body">
+                                Please select the Acknowledgement you would like to associate with this Campaign. All processed recurring donations associated with this Campaign will receive the select Receipt via Email.
+                            </div>
+                        </div>
+                    </div>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem size="12">
+                    <c:strike_lookup_clickable label="Recurring Donation Acknowledgement Email Template"
+                                               object="EmailTemplate"
+                                               searchField="Name"
+                                               subtitleField="Description"
+                                               showRecentRecords="{!true}"
+                                               iconName="standard:email"
+                                               value="{! v.meta.dto.recurringAcknowledgementTemplateId }"
+                                               filter="IsActive = true"
+                                               limit="5"
+                    />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+
+        <aura:set attribute="footer">
+            <lightning:button label="Confirm"
+                              disabled="{!v.isBusy}"
+                              variant="brand"
+                              onclick="{!c.handleSubmitClick}"
+            />
+        </aura:set>
+
+    </c:vertic_QuickActionModal>
+
+</aura:component>

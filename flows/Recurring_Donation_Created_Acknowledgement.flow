@@ -89,12 +89,12 @@
             <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
-                    <stringValue>String</stringValue>
+                    <stringValue>Formula</stringValue>
                 </value>
             </processMetadataValues>
             <name>emailName</name>
             <value>
-                <stringValue>RG_Acknowledgement_1603715778446</stringValue>
+                <elementReference>formula_2_myRule_1_A1_4462472349</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -178,7 +178,7 @@
             </processMetadataValues>
             <name>fromEmailAddress</name>
             <value>
-                <elementReference>formula_2_myRule_1_A1_2577486469</elementReference>
+                <elementReference>formula_3_myRule_1_A1_8402037527</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -339,14 +339,37 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
+                <stringValue>IF(
+	OR(
+		ISBLANK([npe03__Recurring_Donation__c].npe03__Recurring_Donation_Campaign__c), ISBLANK([npe03__Recurring_Donation__c].npe03__Recurring_Donation_Campaign__c.Recurring_Acknowledgement_Template_Name__c)
+	), 
+	&apos;RG_Acknowledgement_1603715778446&apos;,
+	[npe03__Recurring_Donation__c].npe03__Recurring_Donation_Campaign__c.Recurring_Acknowledgement_Template_Name__c
+) </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_4462472349</name>
+        <dataType>String</dataType>
+        <expression>IF(
+	OR(
+		ISBLANK({!myVariable_current.npe03__Recurring_Donation_Campaign__c}), ISBLANK({!myVariable_current.npe03__Recurring_Donation_Campaign__r.Recurring_Acknowledgement_Template_Name__c})
+	), 
+	&apos;RG_Acknowledgement_1603715778446&apos;,
+	{!myVariable_current.npe03__Recurring_Donation_Campaign__r.Recurring_Acknowledgement_Template_Name__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
                 <stringValue>$CustomMetadata.npsp_plus__Settings__mdt.npsp_plus__Settings.npsp_plus__Default_Org_wide_Email__c</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_2577486469</name>
+        <name>formula_3_myRule_1_A1_8402037527</name>
         <dataType>String</dataType>
         <expression>{!$CustomMetadata.npsp_plus__Settings__mdt.npsp_plus__Settings.npsp_plus__Default_Org_Wide_Email__c}</expression>
     </formulas>
-    <interviewLabel>Recurring_Donation_Created_Acknowledgement-1_InterviewLabel</interviewLabel>
+    <interviewLabel>Recurring_Donation_Created_Acknowledgement-2_InterviewLabel</interviewLabel>
     <label>Recurring Donation Created Acknowledgement</label>
     <processMetadataValues>
         <name>ObjectType</name>

@@ -585,6 +585,10 @@
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Recurring Acknowledgement Template Name --></label>
+        <name>Recurring_Acknowledgement_Template_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Start Time --></label>
         <name>Start_Time__c</name>
     </fields>
@@ -822,6 +826,10 @@
     <quickActions>
         <label><!-- Generate CRN --></label>
         <name>Generate_CRN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Set Recurring Donation Acknowledgement Template --></label>
+        <name>Set_Recurring_Donation_Acknowledgement_Template</name>
     </quickActions>
     <quickActions>
         <label><!-- Sync Clever Contacts --></label>

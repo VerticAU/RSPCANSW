@@ -29,7 +29,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Food_Normally_Fed__c</field>
+                <field>Deceased__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -52,10 +52,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Deceased__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -80,7 +76,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Other__c</field>
+                <field>Food_Normally_Fed__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -95,6 +91,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Animal_Normally_Live_Sleep__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Other__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

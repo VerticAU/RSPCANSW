@@ -26,5 +26,12 @@
         <label><!-- Financial Agreement Details --></label>
         <name>Financial_Agreement_Details__c</name>
     </fields>
+    <layouts>
+        <layout>Financial Agreement Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

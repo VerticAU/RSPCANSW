@@ -200,6 +200,26 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
+        <fullName>Case Management</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finalised</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Common Ground</fullName>
         <isActive>true</isActive>
         <values>
@@ -223,30 +243,6 @@
             <default>true</default>
         </values>
     </businessProcesses>
-    <businessProcesses>
-        <fullName>Domestic Violence</fullName>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Assistance</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Finalised</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>In Care</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>New</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Pending</fullName>
-            <default>false</default>
-        </values>
-    </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Case_Compact_Layout</fullName>
@@ -262,9 +258,9 @@
         <fullName>Programs_Compact_Layout</fullName>
         <fields>CaseNumber</fields>
         <fields>ContactId</fields>
-        <fields>Animal__c</fields>
         <fields>caseman__Program__c</fields>
         <fields>Status</fields>
+        <fields>Days_In_Care__c</fields>
         <fields>Priority</fields>
         <fields>OwnerId</fields>
         <label>Programs Compact Layout</label>
@@ -376,6 +372,7 @@
     <fields>
         <fullName>Agrees_to_desex_microchip_vaccinate__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>Does the owner agree to desexing/microchipping/vaccination (as appropriate)?</inlineHelpText>
         <label>Agrees to desex/microchip/vaccinate</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -573,7 +570,7 @@
         <fullName>Assistance_Required__c</fullName>
         <externalId>false</externalId>
         <label>Assistance Required</label>
-        <required>false</required>
+        <required>true</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -581,7 +578,7 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Boarding</fullName>
                     <default>false</default>
@@ -652,6 +649,32 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Enquiry_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Enquiry Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Self</fullName>
+                    <default>false</default>
+                    <label>Self</label>
+                </value>
+                <value>
+                    <fullName>Someone else</fullName>
+                    <default>false</default>
+                    <label>Someone else</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Checked_Sheltermate__c</fullName>
@@ -762,6 +785,19 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Days_In_Care__c</fullName>
+        <externalId>false</externalId>
+        <formula>Today() -  In_Care_Date__c</formula>
+        <label>Days In Care</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -769,9 +805,7 @@
     </fields>
     <fields>
         <fullName>Do_You_Have_Children__c</fullName>
-        <description>Do you have children?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Do you have children?</inlineHelpText>
         <label>Do You Have Children</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -943,6 +977,7 @@
     <fields>
         <fullName>Finding_Accommodation_Prevented_Delayed__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>Has caring for the animal prevented/delayed the individual from finding safe accommodation for themselves?</inlineHelpText>
         <label>Finding Accommodation Prevented/Delayed</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1052,8 +1087,21 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>If_Prevented_Delayed_by_how_long__c</fullName>
+        <externalId>false</externalId>
+        <label>If Prevented/Delayed by how long</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>If_Unable_to_Assist_Animal__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>What would happen to the animal if we are unable to assist?</inlineHelpText>
         <label>If Unable to Assist Animal</label>
         <length>255</length>
         <required>false</required>
@@ -1064,18 +1112,14 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>If_yes_by_how_long__c</fullName>
-        <description>If yes, by how long?</description>
+        <fullName>In_Care_Date__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>If yes, by how long?</inlineHelpText>
-        <label>If yes by how long</label>
-        <length>255</length>
+        <label>In Care Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>IsClosedOnCreate</fullName>
@@ -1388,6 +1432,16 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Safe_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Safe Address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Safe_Retrieval_Plan__c</fullName>
@@ -1779,7 +1833,7 @@
     <recordTypes>
         <fullName>Access_To_Vet_Care_Intake</fullName>
         <active>true</active>
-        <businessProcess>Domestic Violence</businessProcess>
+        <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Access To Vet Care Intake</label>
         <picklistValues>
@@ -1892,6 +1946,17 @@
             </values>
             <values>
                 <fullName>Volunteer Assistance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Enquiry_Type__c</picklist>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Someone else</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2317,7 +2382,7 @@
     <recordTypes>
         <fullName>Aged_Care</fullName>
         <active>true</active>
-        <businessProcess>Domestic Violence</businessProcess>
+        <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Aged Care</label>
         <picklistValues>
@@ -2434,540 +2499,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Children_Threatened_Pet__c</picklist>
+            <picklist>Case_Enquiry_Type__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Self</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Client_Capacity__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Do_You_Have_Children__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Emergency_Type__c</picklist>
-            <values>
-                <fullName>Disability</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hoarding Squalor</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hospital</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>House Fire Flood</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mental Health</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Natural Disaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rehab</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Respite Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Witness Protection</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Fear_Caused_Delay_Calling_Police__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Fear_Caused_Delay_Seeking_Refuge__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Finding_Accommodation_Prevented_Delayed__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Friend_or_Family_Member_Care__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Legal_Claim_to_Animals__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Length_Required_in_Animal_Boarding__c</picklist>
-            <values>
-                <fullName>1 Month</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1 Week</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2 Weeks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3 Months</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6 Months</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Perpetrator_Likely_to_Look__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Relationship_to_Perpetrator__c</picklist>
-            <values>
-                <fullName>Brother</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Father</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Husband</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mother</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Neighbour</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sister</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wife</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Safe_Retrieval_Plan__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Suitable_for_Foster_Care__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Threatened_to_Hurt_Animal__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Threatened_to_Kill_Animal__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transport_Animal_to_Vet__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Feature Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Question</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Under_Trustee_Guardian__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Vet_History_Obtained__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>caseman__IncidentType__c</picklist>
-            <values>
-                <fullName>Animal Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Attempted or actual physical assault</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Attempted or actual self-harm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property Damage</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Verbal threat%2Fabuse</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>caseman__ReferralResult__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Client Declined Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Waitlisted</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>caseman__Severity__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Common_Ground</fullName>
-        <active>false</active>
-        <businessProcess>Common Ground</businessProcess>
-        <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
-        <label>Common Ground</label>
-        <picklistValues>
-            <picklist>Abused_Threatened_Infront_of_Children__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Access_to_Fire_Arms__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not sure</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Agrees_to_desex_microchip_vaccinate__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Animal_Current_Location__c</picklist>
-            <values>
-                <fullName>Client Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Friends or Family</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shelter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Animal_Mistreatment__c</picklist>
-            <values>
-                <fullName>Food%2Fwater deprivation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Giving animal illegal drugs%2Falcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hitting %2F Kicking %2F Striking %2F Punching %2F Throwing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leave outside in extreme heat%2Fcold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Animal_Requires_Urgent_Vet_Attention__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Assistance_Required__c</picklist>
-            <values>
-                <fullName>Boarding</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Vet Assistance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Home Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Volunteer Assistance</fullName>
+                <fullName>Someone else</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3510,6 +3048,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Enquiry_Type__c</picklist>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Children_Threatened_Pet__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3931,7 +3480,7 @@
     <recordTypes>
         <fullName>Domestic_Violence</fullName>
         <active>true</active>
-        <businessProcess>Domestic Violence</businessProcess>
+        <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Domestic Violence</label>
         <picklistValues>
@@ -4044,6 +3593,17 @@
             </values>
             <values>
                 <fullName>Volunteer Assistance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Enquiry_Type__c</picklist>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Someone else</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4469,7 +4029,7 @@
     <recordTypes>
         <fullName>Emergency_Boarding</fullName>
         <active>true</active>
-        <businessProcess>Domestic Violence</businessProcess>
+        <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Emergency Boarding</label>
         <picklistValues>
@@ -4594,6 +4154,17 @@
             </values>
             <values>
                 <fullName>Vet Visit - Urgent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Enquiry_Type__c</picklist>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Someone else</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5019,7 +4590,7 @@
     <recordTypes>
         <fullName>Homelessness</fullName>
         <active>true</active>
-        <businessProcess>Domestic Violence</businessProcess>
+        <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Homelessness</label>
         <picklistValues>
@@ -5144,6 +4715,17 @@
             </values>
             <values>
                 <fullName>Vet Visit - Urgent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Enquiry_Type__c</picklist>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Someone else</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5588,6 +5170,38 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWriteTransfer</sharingModel>
+    <validationRules>
+        <fullName>Case_Enquiry_Self</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+ ISPICKVAL (Case_Enquiry_Type__c, &quot;Self&quot;),
+ISBLANK ( ContactId )
+)</errorConditionFormula>
+        <errorDisplayField>ContactId</errorDisplayField>
+        <errorMessage>The caller is making an enquiring for themselves, please enter their name</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Case_Enquiry_Someone_Else</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+ISPICKVAL (Case_Enquiry_Type__c, &quot;Someone else&quot;),
+OR (
+ISBLANK (  caseman__ReferralOrganization__c),
+ISBLANK ( caseman__ReferralOrganizationContact__c )
+)
+)</errorConditionFormula>
+        <errorMessage>The caller is making an enquiring for someone else, please enter the name of the Referral Organisation or Contact</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Finding_Accommodation_Prevented_Delayed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+ ISPICKVAL( Finding_Accommodation_Prevented_Delayed__c , &quot;Yes&quot;),
+ ISBLANK( If_Prevented_Delayed_by_how_long__c )  
+)</errorConditionFormula>
+        <errorDisplayField>If_Prevented_Delayed_by_how_long__c</errorDisplayField>
+        <errorMessage>Indicate the length that it was prevented/delayed</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Have_Children</fullName>
         <active>true</active>
