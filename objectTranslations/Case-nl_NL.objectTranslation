@@ -930,10 +930,6 @@
             <section>Animal Action Plan</section>
         </sections>
         <sections>
-            <label><!-- Case Information --></label>
-            <section>Case Information</section>
-        </sections>
-        <sections>
             <label>Aangepaste koppelingen</label>
             <section>Custom Links</section>
         </sections>

@@ -8611,9 +8611,6 @@
         <layout>CommunityMemberLayout-Community Member Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Contact-Fundraising Contact Page Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ContactPointAddress-Contact Point Address Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
