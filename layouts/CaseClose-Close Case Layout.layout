@@ -79,6 +79,10 @@
                 <field>Days_In_Care__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Price_Book__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Assistance_Required__c</field>
             </layoutItems>

@@ -384,6 +384,11 @@
         <name>Instagram__c</name>
     </fields>
     <fields>
+        <label><!-- LGA --></label>
+        <name>LGA__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Last Opportunity Id --></label>
         <name>Last_Opportunity_Id__c</name>
         <relationshipLabel><!-- Contacts --></relationshipLabel>

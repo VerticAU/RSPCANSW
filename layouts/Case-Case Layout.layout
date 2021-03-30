@@ -94,6 +94,10 @@
                 <behavior>Edit</behavior>
                 <field>Trustee_Guardian_Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Price_Book__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -494,8 +498,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>caseman__Client__c</fields>
-        <fields>caseman__Subject__c</fields>
+        <fields>caseman__InteractionDate__c</fields>
+        <fields>caseman__Content__c</fields>
         <relatedList>caseman__ClientNote__c.Case__c</relatedList>
     </relatedLists>
     <relatedLists>

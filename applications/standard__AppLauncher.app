@@ -9,4 +9,5 @@
     <tabs>Alert__c</tabs>
     <tabs>Batch__c</tabs>
     <tabs>Case_Animal__c</tabs>
+    <tabs>LGA__c</tabs>
 </CustomApplication>

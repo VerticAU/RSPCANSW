@@ -262,6 +262,7 @@
         <fields>Status</fields>
         <fields>Days_In_Care__c</fields>
         <fields>Priority</fields>
+        <fields>Price_Book__c</fields>
         <fields>OwnerId</fields>
         <label>Programs Compact Layout</label>
     </compactLayouts>
@@ -1315,6 +1316,20 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Price_Book__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Price Book</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Priority</fullName>

@@ -4,5 +4,17 @@
     <entityName>Case</entityName>
     <fieldName>Status</fieldName>
     <masterLabel>Domestic Violence</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Update ezyvet and sheltermate&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;Upload signed documentation to the record&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;Update animal status as either “Assistance” or “In Care Boarding”&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Active</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Update animal status in animal record - status “in care”&lt;/li&gt;&lt;li&gt;Update ezyvet and sheltermate&lt;/li&gt;&lt;li&gt;Upload signed documentation to the record&lt;/li&gt;&lt;li&gt;Ask exit interview questionnaire&lt;/li&gt;&lt;li&gt;Update financial record&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Finalised</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Add an animal to the record&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Pending</picklistValueName>
+    </pathAssistantSteps>
     <recordTypeName>Domestic_Violence</recordTypeName>
 </PathAssistant>

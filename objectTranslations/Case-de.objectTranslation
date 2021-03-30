@@ -468,6 +468,11 @@
         <name>Perpetrator_Residence__c</name>
     </fields>
     <fields>
+        <label><!-- Price Book --></label>
+        <name>Price_Book__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Program Engagement Count This Year --></label>
         <name>Program_Engagement_Count_This_Year__c</name>
     </fields>

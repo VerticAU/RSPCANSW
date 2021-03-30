@@ -37,7 +37,7 @@ public without sharing class MembershipService {
         String membershipRecordType = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Membership');
         for(Opportunity opportunity : opportunities){
             Opportunity oldOpportunity = oldOpportunityMap.get(opportunity.Id);
-            if(opportunity.RecordTypeId == membershipRecordType && opportunity.StageName == 'Enrolled' && oldOpportunity.StageName == 'Pending'){
+            if(opportunity.RecordTypeId == membershipRecordType && opportunity.StageName == 'Enrolled' && oldOpportunity.StageName != 'Enrolled'){
                 memberships.add(opportunity);
             }
         }

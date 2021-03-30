@@ -183,6 +183,7 @@
     <tabs>Alert__c</tabs>
     <tabs>Batch__c</tabs>
     <tabs>Case_Animal__c</tabs>
+    <tabs>LGA__c</tabs>
     <workspaceConfig>
         <mappings>
             <tab>Alert__c</tab>
@@ -192,6 +193,9 @@
         </mappings>
         <mappings>
             <tab>Case_Animal__c</tab>
+        </mappings>
+        <mappings>
+            <tab>LGA__c</tab>
         </mappings>
         <mappings>
             <tab>npsp__Trigger_Handler__c</tab>

@@ -25,6 +25,7 @@
     <tabs>Alert__c</tabs>
     <tabs>Batch__c</tabs>
     <tabs>Case_Animal__c</tabs>
+    <tabs>LGA__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Nonprofit_Success_Pack_UtilityBar</utilityBar>
 </CustomApplication>

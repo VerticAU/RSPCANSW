@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Related List --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Related Lists --></value>
+    </caseValues>
+    <nameFieldLabel><!-- Related List Name --></nameFieldLabel>
+    <startsWith><!-- Consonant --></startsWith>
+</CustomObjectTranslation>

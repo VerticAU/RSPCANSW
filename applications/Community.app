@@ -65,7 +65,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>Community_Case_Record_Page_2_Region</content>
+        <content>Community_Case_Record_Page_2_Region_Client_Notes</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -74,7 +74,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>Community_Case_Record_Page_2_Region</content>
+        <content>Community_Case_Record_Page_2_Region_Client_Notes</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -92,6 +92,24 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Community</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Community_Case_Record_Page_2_Region_Client_Notes</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Domestic_Violence</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Community_Case_Record_Page_2_Region_Client_Notes</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Domestic_Violence</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
@@ -104,6 +122,7 @@
     <tabs>pmdm__Service__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>Case_Animal__c</tabs>
+    <tabs>LGA__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Programs_UtilityBar</utilityBar>
 </CustomApplication>
