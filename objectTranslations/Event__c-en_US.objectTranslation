@@ -323,10 +323,6 @@
             <label><!-- Service Delivery Expense Summary --></label>
             <section>Service Delivery Expense Summary</section>
         </sections>
-        <sections>
-            <label><!-- Session Detail --></label>
-            <section>Session Detail</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Single Session Event Layout</layout>

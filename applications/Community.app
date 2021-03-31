@@ -80,6 +80,24 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Case</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Animal_Record_Page_2_Region</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Animal__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Animal_Record_Page_2_Region</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Animal__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#2B92ED</headerColor>
         <logo>rspcansw</logo>

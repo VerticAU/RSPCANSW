@@ -6515,6 +6515,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Session__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.Share_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7496,6 +7501,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ServiceTerritoryMember.Role</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Session_Registration__c.Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8846,6 +8856,9 @@
         <layout>ServiceTerritoryWorkType-Service Territory Work Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Session_Registration__c-Session Registration Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Session__c-Session Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9506,6 +9519,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>ServiceTerritory</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Session_Registration__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

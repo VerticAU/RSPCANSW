@@ -880,10 +880,6 @@
             <section>Animal Action Plan</section>
         </sections>
         <sections>
-            <label><!-- Animal Information --></label>
-            <section>Animal Information</section>
-        </sections>
-        <sections>
             <label><!-- Case Information --></label>
             <section>Case Information</section>
         </sections>

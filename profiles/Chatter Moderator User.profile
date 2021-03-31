@@ -6507,6 +6507,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Session__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Share_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7489,6 +7494,11 @@
         <editable>true</editable>
         <field>ServiceTerritoryMember.Role</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Session_Registration__c.Contact__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8796,6 +8806,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>ServiceTerritoryWorkType-Service Territory Work Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Session_Registration__c-Session Registration Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Session__c-Session Layout</layout>

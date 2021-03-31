@@ -1142,5 +1142,12 @@
     <pluralLabel>Animals</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Microchip_15</fullName>
+        <active>false</active>
+        <errorConditionFormula>LEN( Microchip__c)!= 15</errorConditionFormula>
+        <errorDisplayField>Microchip__c</errorDisplayField>
+        <errorMessage>A microchip number must contain 15 digits</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

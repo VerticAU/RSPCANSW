@@ -831,6 +831,11 @@
         <name>Send_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Session --></label>
+        <name>Session__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Share Value --></label>
         <name>Share_Value__c</name>
     </fields>

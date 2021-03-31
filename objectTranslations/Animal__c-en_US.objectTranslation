@@ -608,4 +608,8 @@
         <name>Quick_Update</name>
     </quickActions>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A microchip number must contain 15 digits --></errorMessage>
+        <name>Microchip_15</name>
+    </validationRules>
 </CustomObjectTranslation>

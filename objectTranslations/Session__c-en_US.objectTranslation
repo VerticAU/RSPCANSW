@@ -42,5 +42,16 @@
             <translation><!-- Planning --></translation>
         </picklistValues>
     </fields>
+    <layouts>
+        <layout>Session Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date &amp; Location --></label>
+            <section>Date &amp; Location</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
