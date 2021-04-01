@@ -1161,6 +1161,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.npsp__CustomizableRollups_UseSkewMode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.npsp__Funding_Focus__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3917,6 +3922,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.npsp__Current_Address__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.npsp__CustomizableRollups_UseSkewMode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

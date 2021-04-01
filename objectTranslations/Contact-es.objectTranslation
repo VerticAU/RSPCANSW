@@ -1305,6 +1305,11 @@
         <relationshipLabel><!-- Contacts (Current Address) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- When checked, Customizable Rollups will always use &apos;Skew Mode&apos; to rollup Hard Credit and Soft Credits for this record. --></help>
+        <label><!-- Customizable Rollups: Force Skew Mode --></label>
+        <name>npsp__CustomizableRollups_UseSkewMode__c</name>
+    </fields>
+    <fields>
         <help>Cuando se encuentra seleccionado, se excluye al contacto de el nombre y saludos de la familia, correos electrónicos y llamados.</help>
         <label><!-- Deceased --></label>
         <name>npsp__Deceased__c</name>

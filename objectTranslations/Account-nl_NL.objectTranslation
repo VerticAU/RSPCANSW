@@ -475,6 +475,11 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- When checked, Customizable Rollups will always use &apos;Skew Mode&apos; to rollup Hard Credit and Soft Credits for this record. --></help>
+        <label><!-- Customizable Rollups: Force Skew Mode --></label>
+        <name>npsp__CustomizableRollups_UseSkewMode__c</name>
+    </fields>
+    <fields>
         <help>De standaard programma gebieden die deze organisatie financiert.</help>
         <label><!-- Funding Focus --></label>
         <name>npsp__Funding_Focus__c</name>
