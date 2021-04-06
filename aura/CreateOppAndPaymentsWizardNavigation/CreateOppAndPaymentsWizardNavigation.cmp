@@ -1,6 +1,13 @@
-<!--
- - Created by macos on 4/5/21.
- -->
+<aura:component>
 
-<aura:component description="CreateOppAndPaymentsWizardNavigation">
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="currentStep" type="String" access="global" required="{!true}" default="type"/>
+
+    <div class="progress-container">
+        <lightning:progressIndicator currentStep="{!v.currentStep}" type="base" variant="base">
+            <lightning:progressStep label="Select Services to process" value="select"/>
+            <lightning:progressStep label="Select Payment types" value="confirm"/>
+        </lightning:progressIndicator>
+    </div>
+
 </aura:component>

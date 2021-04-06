@@ -27,4 +27,8 @@
             <section>Service Costs</section>
         </sections>
     </layouts>
+    <quickActions>
+        <label><!-- Create Opportunity &amp; Payments --></label>
+        <name>Create_Opportunity_Payments</name>
+    </quickActions>
 </CustomObjectTranslation>

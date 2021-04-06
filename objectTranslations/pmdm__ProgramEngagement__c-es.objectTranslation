@@ -37,4 +37,8 @@
         </sections>
     </layouts>
     <nameFieldLabel>Nombre de Participación en programa</nameFieldLabel>
+    <quickActions>
+        <label><!-- Create Opportunity &amp; Payments --></label>
+        <name>Create_Opportunity_Payments</name>
+    </quickActions>
 </CustomObjectTranslation>

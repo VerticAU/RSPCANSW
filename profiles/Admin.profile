@@ -274,6 +274,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateOppAndPaymentsWizardMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DateCalculator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1166,7 +1170,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.npsp__CustomizableRollups_UseSkewMode__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3931,7 +3935,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.npsp__CustomizableRollups_UseSkewMode__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4701,7 +4705,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Owner__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -7951,7 +7955,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Owner__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

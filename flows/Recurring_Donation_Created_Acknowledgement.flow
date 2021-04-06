@@ -13,6 +13,7 @@
         <locationY>200</locationY>
         <actionName>npsp_plus__SendEmailTemplateInvocable</actionName>
         <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <processMetadataValues>
                 <name>dataType</name>

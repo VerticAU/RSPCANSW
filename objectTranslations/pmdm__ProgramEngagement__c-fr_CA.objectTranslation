@@ -37,5 +37,9 @@
         </sections>
     </layouts>
     <nameFieldLabel><!-- Program Engagement Name --></nameFieldLabel>
+    <quickActions>
+        <label><!-- Create Opportunity &amp; Payments --></label>
+        <name>Create_Opportunity_Payments</name>
+    </quickActions>
     <startsWith><!-- Consonant --></startsWith>
 </CustomObjectTranslation>

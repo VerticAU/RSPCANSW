@@ -1,6 +1,30 @@
-<!--
- - Created by macos on 4/5/21.
- -->
+<aura:component extends="c:vertic_Step">
+    <!-- ATTRIBUTE OVERRIDES -->
+    <aura:set attribute="name" value="confirm"/>
+    <aura:set attribute="nextStepButtonLabel" value="Save"/>
+    <aura:set attribute="showCancelButton" value="{!false}"/>
+    <aura:set attribute="quickActionHeightPX" value="600"/>
+    <aura:set attribute="quickActionMaxWidthRem" value="70"/>
 
-<aura:component description="CreateOppAndPaymentsWizardConfirmStep">
+    <aura:set attribute="content">
+        <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Create Opportunity &amp; Payments</h2>
+        <div class="slds-m-around_x-large">
+
+
+        </div>
+    </aura:set>
+
+    <aura:set attribute="customButtons">
+        <div class="slds-grid">
+            <div class="slds-col slds-text-align_left slds-size_1-of-5">
+                {!v.previousButton}
+            </div>
+            <div class="slds-col slds-size_3-of-5">
+                <c:CreateOppAndPaymentsWizardNavigation currentStep="{!v.name}"/>
+            </div>
+            <div class="slds-col slds-text-align_right slds-size_1-of-5">
+                {!v.nextStepButton}
+            </div>
+        </div>
+    </aura:set>
 </aura:component>

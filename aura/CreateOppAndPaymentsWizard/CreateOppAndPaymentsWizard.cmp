@@ -1,6 +1,36 @@
-<!--
- - Created by macos on 4/5/21.
- -->
+<aura:component extends="c:vertic_Stepper" implements="force:lightningQuickActionWithoutHeader,force:appHostable,force:hasRecordId">
+    <!-- ATTRIBUTE OVERRIDES -->
+    <aura:set attribute="processor" value="CreateOppAndPaymentsWizardMetaProc"/>
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+    <aura:set attribute="class" value="{!'slds-is-relative ' + v.class}"/>
+    <aura:set attribute="spinner">
+        <lightning:spinner variant="brand" size="medium" alternativeText="Loading"/>
+    </aura:set>
 
-<aura:component description="CreateOppAndPaymentsWizard">
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="stepFooter" type="Aura.Component[]" access="public"/>
+    <aura:attribute name="refreshOnSubmit" type="Boolean" default="{!true}"/>
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.baseHandleInit}"/>
+    <aura:handler name="onNext" event="c:vertic_ComponentEvent" action="{!c.handleNextStep}"/>
+    <aura:handler name="onPrevious" event="c:vertic_ComponentEvent" action="{!c.handlePreviousStep}"/>
+    <aura:handler name="onNavigate" event="c:vertic_ComponentEvent" action="{!c.handleNavigate}"/>
+    <aura:handler name="onInit" event="c:vertic_ComponentEvent" action="{!c.handleInitStep}"/>
+
+    <aura:set attribute="step">
+        <c:CreateOppAndPaymentsWizardSelectStep meta="{!v.meta}" isModal="{!v.isModal}" modalInstance="{!v.modalInstance}"/>
+    </aura:set>
+
+    <aura:set attribute="footer">
+        <aura:if isTrue="{!v.isModal}">
+            <div style="width: 100%">
+                {!v.stepFooter}
+            </div>
+
+            <aura:set attribute="else">
+                {!v.stepFooter}
+            </aura:set>
+        </aura:if>
+    </aura:set>
 </aura:component>
