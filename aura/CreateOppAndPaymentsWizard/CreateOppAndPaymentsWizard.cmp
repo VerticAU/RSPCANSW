@@ -19,7 +19,9 @@
     <aura:handler name="onInit" event="c:vertic_ComponentEvent" action="{!c.handleInitStep}"/>
 
     <aura:set attribute="step">
-        <c:CreateOppAndPaymentsWizardSelectStep meta="{!v.meta}" isModal="{!v.isModal}" modalInstance="{!v.modalInstance}"/>
+        <aura:if isTrue="{! not(empty(v.meta))}">
+            <c:CreateOppAndPaymentsWizardSelectStep meta="{!v.meta}" isModal="{!v.isModal}" modalInstance="{!v.modalInstance}"/>
+        </aura:if>
     </aura:set>
 
     <aura:set attribute="footer">

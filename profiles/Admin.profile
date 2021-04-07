@@ -278,6 +278,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateOppAndPaymentsWizardSelectMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CreateOppAndPaymentsWizardSubmitProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DateCalculator</apexClass>
         <enabled>true</enabled>
     </classAccesses>

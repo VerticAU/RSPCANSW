@@ -1,5 +1,7 @@
 ({
     handleInitStep: function (cmp, event, helper) {
+        cmp.set('v.meta.dto.engagementId', cmp.get('v.recordId'))
+
         var payload = event.getParam('payload');
         cmp.set('v.stepFooter', payload.footer);
     },
@@ -11,9 +13,7 @@
         if (payload.step === 'select') {
             nextCMP = 'c:CreateOppAndPaymentsWizardConfirmStep';
         } else if (payload.step === 'confirm') {
-            console.log(JSON.stringify(payload.meta));
-            cmp.set('v.meta', payload.meta);
-            helper.submit(cmp, helper).then(function (response) {
+            helper.submit(cmp, helper, payload.meta).then(function (response) {
                 helper.closeModal();
             })
             return;

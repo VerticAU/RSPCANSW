@@ -6,10 +6,73 @@
     <aura:set attribute="quickActionHeightPX" value="600"/>
     <aura:set attribute="quickActionMaxWidthRem" value="70"/>
 
+    <aura:attribute name="columns" type="Map"/>
+    <aura:attribute name="paymentValidationEnabled" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
     <aura:set attribute="content">
         <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Create Opportunity &amp; Payments</h2>
-        <div class="slds-m-around_x-large">
+        <div class="slds-m-around_medium">
+            <div class="slds-text-body_regular">Amount: <b>${! v.meta.dto.opportunity.Amount }</b></div>
+            <div class="slds-text-body_regular">Paid: <b>${! v.meta.dto.paidAmount }</b></div>
+            <div class="slds-m-top_medium">
+                <aura:if isTrue="{! not(empty(v.meta.dto.payments)) }">
+                    <div class="slds-box--border">
+                        <lightning:datatable keyField="id"
+                                             data="{! v.meta.dto.payments }"
+                                             columns="{! v.columns }"
+                                             onrowaction="{! c.handleRowAction }"
+                                             onsave="{!c.handleSave}"
+                                             hideCheckboxColumn="true"/>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-box--border">
+                            <div class="slds-p-around--x-small slds-text-align--center">
+                                No Payments
+                            </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
 
+                <div class="slds-grid slds-wrap slds-gutters_xx-small slds-m-top_medium">
+                    <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
+                        <div class="slds-m-around_xxx-small">
+                            <c:vertic_Select label="Payment Method"
+                                             value="{!v.meta.dto.draftPayment.npe01__Payment_Method__c}"
+                                             options="{!v.meta.selectOptions.npe01PaymentMethodOptions}"
+                                             required="{! v.paymentValidationEnabled }"
+                            />
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
+                        <div class="slds-m-around_xxx-small">
+                            <lightning:input label="Amount"
+                                             type="number"
+                                             value="{!v.meta.dto.draftPayment.npe01__Payment_Amount__c}"
+                                             max="{! v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount }"
+                                             messageWhenRangeOverflow="{! 'It remains to pay only $' + (v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount)}"
+                                             min="0"
+                                             placeholder="{! 'Remain: $' + (v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount) }"
+                                             required="{! v.paymentValidationEnabled }"
+                            />
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
+                        <div class="slds-m-around_xxx-small">
+                            <c:vertic_Select label="Status"
+                                             value="{!v.meta.dto.draftPayment.npsp_plus__Status__c}"
+                                             options="{!v.meta.selectOptions.npsp_plusStatusOptions}"
+                                             required="{! v.paymentValidationEnabled }"
+                            />
+                        </div>
+
+                        <div class="slds-text-align--right slds-m-top--medium">
+                            <lightning:button variant="brand-outline" label="Add Payment" title="Brand action" onclick="{! c.handleAddPayment }"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </aura:set>

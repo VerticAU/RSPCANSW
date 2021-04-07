@@ -1,12 +1,14 @@
 ({
-    submit: function(cmp, helper) {
+    submit: function(cmp, helper, meta) {
         return new Promise($A.getCallback(function (resolve, reject) {
 
-            var payment = cmp.get('v.meta.dto.payment');
-            payment.Batch__c = cmp.get('v.recordId');
+            var opportunity = meta.dto.opportunity;
+            opportunity.Program_Engagement__c = cmp.get('v.recordId');
 
             helper.execute(cmp, 'CreateOppAndPaymentsWizardSubmitProc',
-                { payment: payment },
+                {
+                    opportunity: opportunity
+                },
                 function(response) {
                     helper.utils(cmp).showToast({
                         type: 'success',

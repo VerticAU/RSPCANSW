@@ -7,8 +7,10 @@
     <aura:set attribute="quickActionMaxWidthRem" value="70"/>
 
     <aura:attribute name="columns" type="Map"/>
+    <aura:attribute name="recordId" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+    <aura:handler name="change" value="{!v.meta.dto.pricebookId}" action="{!c.handlePriceBookChange}"/>
 
     <aura:set attribute="content">
         <h2 class="slds-text-heading--small slds-text-align--center slds-m-bottom--x-small">Create Opportunity &amp; Payments</h2>
@@ -31,10 +33,12 @@
         <aura:if isTrue="{! not(empty(v.meta.dto.productItems)) }">
             <div class="slds-m-around_medium">
                 <div class="slds-box--border">
-                    <lightning:datatable keyField="id"
+                    <lightning:datatable aura:id="productTable"
+                                         keyField="id"
                                          data="{! v.meta.dto.productItems }"
                                          columns="{! v.columns }"
                                          onrowaction="{! c.handleRowAction }"
+                                         onsave="{!c.handleSave}"
                                          hideCheckboxColumn="true"/>
                 </div>
             </div>
