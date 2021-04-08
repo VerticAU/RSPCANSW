@@ -56,6 +56,10 @@
             <masterLabel>Planning</masterLabel>
             <translation><!-- Planning --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponed</masterLabel>
+            <translation><!-- Postponed --></translation>
+        </picklistValues>
     </fields>
     <layouts>
         <layout>Expense Layout</layout>

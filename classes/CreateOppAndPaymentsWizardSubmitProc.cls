@@ -1,4 +1,4 @@
-public without sharing class CreateOppAndPaymentsWizardSubmitProc extends vertic_AbstractProcessor implements vertic_Structs.IRollbackable {
+public without sharing class CreateOppAndPaymentsWizardSubmitProc extends vertic_AbstractProcessor {
 
     /**
      * ==============================================================================================================
@@ -24,23 +24,25 @@ public without sharing class CreateOppAndPaymentsWizardSubmitProc extends vertic
 
     private void doSubmit() {
 
-        Opportunity opportunity = new Opportunity();
-        this.request.getMapper().mapToSObject('opportunity', opportunity);
+        Opportunity opp = new Opportunity();
+        this.request.getMapper().mapToSObject('opportunity', opp);
 
         pmdm__ProgramEngagement__c programEngagement = (pmdm__ProgramEngagement__c) vertic_Utils.arrays.firstOrException([
             SELECT Id, pmdm__Contact__c
             FROM pmdm__ProgramEngagement__c
-            WHERE Id = :opportunity.Program_Engagement__c
+            WHERE Id = :opp.Program_Engagement__c
         ]);
 
-        opportunity.Name = 'Donation';
-        opportunity.StageName = 'Closed Won';
-        opportunity.isCompleted__c = true;
-        opportunity.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.getSObjectType(), 'Donation');
-        opportunity.CloseDate = Date.today();
-        opportunity.ContactId = programEngagement.pmdm__Contact__c;
+        opp.Name = 'Donation';
+        opp.StageName = 'Closed Won';
+        opp.isCompleted__c = true;
+        opp.RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.getSObjectType(), 'Donation');
+        opp.CloseDate = Date.today();
+        opp.ContactId = programEngagement.pmdm__Contact__c;
+        opp.npe01__Do_Not_Automatically_Create_Payment__c = true;
 
-        this.uow.registerNew(opportunity);
+        System.debug(opp);
+        this.uow.registerNew(opp);
 
         List<npe01__OppPayment__c> payments = this.request.getMapper().mapToListSObjects('payments', npe01__OppPayment__c.SObjectType);
         for(npe01__OppPayment__c oppPayment : payments){
@@ -50,11 +52,11 @@ public without sharing class CreateOppAndPaymentsWizardSubmitProc extends vertic
             oppPayment.npe01__Written_Off__c = false;
 
             this.uow.registerNew(oppPayment);
-            this.uow.registerRelationship(oppPayment, npe01__OppPayment__c.npe01__Opportunity__c, opportunity);
+            this.uow.registerRelationship(oppPayment, npe01__OppPayment__c.npe01__Opportunity__c, opp);
         }
 
         this.uow.commitWork();
-        this.response.put('opportunityId', opportunity.Id);
+        this.response.put('opportunityId', opp.Id);
     }
 
     /**
@@ -64,8 +66,8 @@ public without sharing class CreateOppAndPaymentsWizardSubmitProc extends vertic
      */
 
     private vertic_UnitOfWork uow = new vertic_UnitOfWork(new List<SObjectType> {
-        npe01__OppPayment__c.SObjectType,
-        Opportunity.SObjectType
+        Opportunity.SObjectType,
+        npe01__OppPayment__c.SObjectType
     });
 
     // Proposed Live Templates to override Super properties:

@@ -2,30 +2,52 @@
     submit: function(cmp, helper, meta) {
         return new Promise($A.getCallback(function (resolve, reject) {
 
-            var opportunity = meta.dto.opportunity;
-            opportunity.Program_Engagement__c = cmp.get('v.recordId');
+            if(!helper.isConfirmStepValid(cmp, meta)){ return; }
 
+            meta.dto.opportunity.Program_Engagement__c = cmp.get('v.recordId');
             helper.execute(cmp, 'CreateOppAndPaymentsWizardSubmitProc',
                 {
-                    opportunity: opportunity
+                    opportunity: meta.dto.opportunity,
+                    payments: meta.dto.payments
                 },
                 function(response) {
-                    helper.utils(cmp).showToast({
-                        type: 'success',
+                    cmp.find('notifLib').showToast({
+                        variant: 'success',
                         message: 'Opportunity and Payments successfully created.'
                     });
                     resolve(response);
                 },
                 function(errors) {
-                    helper.utils(cmp).showToast({
-                        title: "Error!",
+                    cmp.find('notifLib').showToast({
                         message: errors[0].message,
-                        type: 'error'
+                        variant: 'error'
                     });
                     reject(errors);
                 }
             );
         }));
+    },
+
+    isSelectStepValid: function(cmp, meta){
+        if($A.util.isUndefinedOrNull(meta.dto.productItems) || meta.dto.productItems.length === 0){
+            cmp.find('notifLib').showToast({
+                variant: 'error',
+                message: 'Please select Products!'
+            });
+            return false;
+        }
+        return true;
+    },
+
+    isConfirmStepValid: function(cmp, meta){
+        if(meta.dto.opportunity.Amount !== meta.dto.paidAmount){
+            cmp.find('notifLib').showToast({
+                variant: 'error',
+                message: 'Amount is not paid!'
+            });
+            return false;
+        }
+        return true;
     },
 
     closeModal: function(cmp){

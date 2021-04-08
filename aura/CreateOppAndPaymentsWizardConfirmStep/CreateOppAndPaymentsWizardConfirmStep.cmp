@@ -35,45 +35,52 @@
                     </aura:set>
                 </aura:if>
 
-                <div class="slds-grid slds-wrap slds-gutters_xx-small slds-m-top_medium">
-                    <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
-                        <div class="slds-m-around_xxx-small">
-                            <c:vertic_Select label="Payment Method"
-                                             value="{!v.meta.dto.draftPayment.npe01__Payment_Method__c}"
-                                             options="{!v.meta.selectOptions.npe01PaymentMethodOptions}"
-                                             required="{! v.paymentValidationEnabled }"
-                            />
+                <aura:if isTrue="{! v.meta.dto.opportunity.Amount != v.meta.dto.paidAmount }">
+                    <div class="slds-grid slds-wrap slds-gutters_xx-small slds-m-top_medium">
+                        <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
+                            <div class="slds-m-around_xxx-small">
+                                <c:vertic_Select label="Payment Method"
+                                                 value="{!v.meta.dto.draftPayment.npe01__Payment_Method__c}"
+                                                 options="{!v.meta.selectOptions.npe01PaymentMethodOptions}"
+                                                 required="{! v.paymentValidationEnabled }"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
-                        <div class="slds-m-around_xxx-small">
-                            <lightning:input label="Amount"
-                                             type="number"
-                                             value="{!v.meta.dto.draftPayment.npe01__Payment_Amount__c}"
-                                             max="{! v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount }"
-                                             messageWhenRangeOverflow="{! 'It remains to pay only $' + (v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount)}"
-                                             min="0"
-                                             placeholder="{! 'Remain: $' + (v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount) }"
-                                             required="{! v.paymentValidationEnabled }"
-                            />
+                        <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
+                            <div class="slds-m-around_xxx-small">
+                                <lightning:input label="Amount"
+                                                 type="number"
+                                                 value="{!v.meta.dto.draftPayment.npe01__Payment_Amount__c}"
+                                                 max="{! v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount }"
+                                                 messageWhenRangeOverflow="{! 'It remains to pay only $' + (v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount)}"
+                                                 min="0"
+                                                 placeholder="{! 'Remain: $' + (v.meta.dto.opportunity.Amount - v.meta.dto.paidAmount) }"
+                                                 required="{! v.paymentValidationEnabled }"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
-                        <div class="slds-m-around_xxx-small">
-                            <c:vertic_Select label="Status"
-                                             value="{!v.meta.dto.draftPayment.npsp_plus__Status__c}"
-                                             options="{!v.meta.selectOptions.npsp_plusStatusOptions}"
-                                             required="{! v.paymentValidationEnabled }"
-                            />
-                        </div>
+                        <div class="slds-col slds-large-size--1-of-3 slds-size_1-of-1">
+                            <div class="slds-m-around_xxx-small">
+                                <c:vertic_Select label="Status"
+                                                 value="{!v.meta.dto.draftPayment.npsp_plus__Status__c}"
+                                                 options="{!v.meta.selectOptions.npsp_plusStatusOptions}"
+                                                 required="{! v.paymentValidationEnabled }"
+                                />
+                            </div>
 
-                        <div class="slds-text-align--right slds-m-top--medium">
-                            <lightning:button variant="brand-outline" label="Add Payment" title="Brand action" onclick="{! c.handleAddPayment }"/>
+                            <div class="slds-text-align--right slds-m-top--medium">
+                                <lightning:button variant="brand-outline" label="Add Payment" title="Brand action" onclick="{! c.handleAddPayment }"/>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <aura:set attribute="else">
+                        <div class="slds-m-top_medium slds-p-around_medium slds-text-body_regular slds-text-color_weak slds-text-align_center" style="background: rgba(200, 213, 230, 1) linear-gradient(45deg, rgba(0, 0, 0, 0.025) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.025) 50%, rgba(0, 0, 0, 0.025) 75%, transparent 75%, transparent); background-size: 64px 64px;">
+                            Opportunity and Payments are ready to save!
+                        </div>
+                    </aura:set>
+                </aura:if>
             </div>
-
         </div>
     </aura:set>
 

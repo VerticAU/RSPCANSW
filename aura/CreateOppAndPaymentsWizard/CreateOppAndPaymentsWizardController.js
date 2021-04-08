@@ -11,6 +11,7 @@
         var nextCMP;
 
         if (payload.step === 'select') {
+            if(!helper.isSelectStepValid(cmp, payload.meta)){ return; }
             nextCMP = 'c:CreateOppAndPaymentsWizardConfirmStep';
         } else if (payload.step === 'confirm') {
             helper.submit(cmp, helper, payload.meta).then(function (response) {

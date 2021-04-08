@@ -436,6 +436,14 @@
         <name>Net_Profit_Loss__c</name>
     </fields>
     <fields>
+        <label><!-- Number of Failed Payments --></label>
+        <name>Number_of_Failed_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Pending Payments --></label>
+        <name>Number_of_Pending_Payments__c</name>
+    </fields>
+    <fields>
         <label><!-- Number of Tickets Purchased --></label>
         <name>Number_of_Tickets_Purchased__c</name>
     </fields>

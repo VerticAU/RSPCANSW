@@ -94,6 +94,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Expected_Participants__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Maximum_Capacity__c</field>
             </layoutItems>
             <layoutItems>

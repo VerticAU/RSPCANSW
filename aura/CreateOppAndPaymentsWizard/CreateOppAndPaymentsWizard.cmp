@@ -18,6 +18,8 @@
     <aura:handler name="onNavigate" event="c:vertic_ComponentEvent" action="{!c.handleNavigate}"/>
     <aura:handler name="onInit" event="c:vertic_ComponentEvent" action="{!c.handleInitStep}"/>
 
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
     <aura:set attribute="step">
         <aura:if isTrue="{! not(empty(v.meta))}">
             <c:CreateOppAndPaymentsWizardSelectStep meta="{!v.meta}" isModal="{!v.isModal}" modalInstance="{!v.modalInstance}"/>

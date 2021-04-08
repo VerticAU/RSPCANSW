@@ -1577,6 +1577,46 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Number_of_Failed_Payments__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Failed Payments</label>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npsp_plus__Status__c</field>
+            <operation>equals</operation>
+            <value>Dishonoured, Failed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>npe01__OppPayment__c.npe01__Opportunity__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Pending_Payments__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Pending Payments</label>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npsp_plus__Status__c</field>
+            <operation>equals</operation>
+            <value>Initialized, Pending, NULL</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npe01__Paid__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>npe01__OppPayment__c.npe01__Written_Off__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>npe01__OppPayment__c.npe01__Opportunity__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Number_of_Tickets_Purchased__c</fullName>
         <externalId>false</externalId>
         <label>Number of Tickets Purchased</label>

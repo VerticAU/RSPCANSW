@@ -86,6 +86,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>EziDebit_Opportunity_Stage_Management</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Get_Campaign</fullName>
     </flowDefinitions>
     <flowDefinitions>

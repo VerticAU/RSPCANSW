@@ -25,8 +25,8 @@
         draftValues.forEach(draft => {
             helper.populateChangedProperties(
                 helper.getItemById(originalValues, draft.id), draft
-            )
-        })
+            );
+        });
 
         cmp.set('v.meta.dto.productItems', []);
         cmp.set('v.meta.dto.productItems', originalValues);

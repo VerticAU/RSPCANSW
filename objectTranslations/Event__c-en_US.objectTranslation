@@ -65,6 +65,14 @@
         <label><!-- Event Status --></label>
         <name>Event_Status__c</name>
         <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Completed</masterLabel>
             <translation><!-- Completed --></translation>
         </picklistValues>
@@ -76,6 +84,10 @@
             <masterLabel>Planning</masterLabel>
             <translation><!-- Planning --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponed</masterLabel>
+            <translation><!-- Postponed --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Event Type --></label>
@@ -85,6 +97,10 @@
             <translation><!-- Community --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Fundraising</masterLabel>
             <translation><!-- Fundraising --></translation>
         </picklistValues>
@@ -92,6 +108,10 @@
             <masterLabel>Outreach</masterLabel>
             <translation><!-- Outreach --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Expected Participants --></label>
+        <name>Expected_Participants__c</name>
     </fields>
     <fields>
         <label><!-- Featured Event --></label>
@@ -207,14 +227,6 @@
     <fields>
         <label><!-- RSPCA Funded Services Total --></label>
         <name>RSPCA_Funded_Services_Total__c</name>
-    </fields>
-    <fields>
-        <label><!-- Record Type --></label>
-        <name>Record_Type__c</name>
-        <picklistValues>
-            <masterLabel>Single Session</masterLabel>
-            <translation><!-- Single Session --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Registration Cut Off Date --></label>
