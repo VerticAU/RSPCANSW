@@ -20,6 +20,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
         private List<Opportunity> oppRecurrings = new List<Opportunity>();
         private List<Opportunity> oppMemberships = new List<Opportunity>();
         private List<Opportunity> oppRaffleTickets = new List<Opportunity>();
+        private List<Opportunity> oppHEADonors = new List<Opportunity>();
 
         private BadgesResponse response = new BadgesResponse();
 
@@ -44,6 +45,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
         private void populateBadges() {
             initMetaData();
+            populateHEAIcon();
             populateGiWDonorIcon();
             populateMajorGifDonorIcon();
             populateRecurringIcon();
@@ -56,7 +58,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
         private void initMetaData() {
             this.contact = (Contact) vertic_Utils.arrays.firstOrNull([
-                SELECT Id, Active_Membership__c, npsp__Deceased__c
+                SELECT Id, Active_Membership__c, npsp__Deceased__c, Philanthropy_Level__c
                 FROM Contact
                 WHERE Id = :this.recordId
             ]);
@@ -83,6 +85,25 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
                 if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Raffle_Ticket') {
                     this.oppRaffleTickets.add(opp);
                 }
+                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Home_Ever_After' && opp.StageName == 'Pledged') {
+                    this.oppHEADonors.add(opp);
+                }
+            }
+        }
+
+        private void populateHEAIcon() {
+            Decimal total = calcTotal(this.oppHEADonors);
+            if (this.oppHEADonors.size() > 0) {
+                this.response.badges.add(new Badge(
+                    'standard:home',
+                    String.format(
+                        'Home Ever After Donation Count: {0} Total value: {1}',
+                        new List<String>{
+                            String.valueOf(this.oppHEADonors.size()),
+                            String.valueOf(total)
+                        }
+                    )
+                ));
             }
         }
 
@@ -105,7 +126,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
 
         private void populateMajorGifDonorIcon() {
             Decimal total = calcTotal(this.oppMajorGifDonors);
-            if (this.oppMajorGifDonors.size() > 0) {
+            if (this.oppMajorGifDonors.size() > 0 && this.contact.Philanthropy_Level__c != null && this.contact.Philanthropy_Level__c.contains('Donor')) {
                 this.response.badges.add(new Badge(
                     'custom:custom17',
                     String.format(
