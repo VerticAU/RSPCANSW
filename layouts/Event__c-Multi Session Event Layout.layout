@@ -19,10 +19,6 @@
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Expected_Participants__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -68,6 +64,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Target_Registrations__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expected_Participants__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
