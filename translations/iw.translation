@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
-        <label><!-- Community --></label>
-        <name>Community</name>
+        <label><!-- Branches --></label>
+        <name>Branches</name>
     </customApplications>
     <customApplications>
         <label><!-- Finance --></label>
@@ -19,6 +19,10 @@
     <customApplications>
         <label><!-- Nonprofit Success Pack --></label>
         <name>Nonprofit_Success_Pack</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Outreach --></label>
+        <name>Outreach</name>
     </customApplications>
     <customApplications>
         <label><!-- Philanthropy --></label>

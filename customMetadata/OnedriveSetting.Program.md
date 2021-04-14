@@ -4,10 +4,10 @@
     <protected>false</protected>
     <values>
         <field>DriveName__c</field>
-        <value xsi:type="xsd:string">Organisations</value>
+        <value xsi:type="xsd:string">Programs</value>
     </values>
     <values>
         <field>RecordApiName__c</field>
-        <value xsi:type="xsd:string">Program__c</value>
+        <value xsi:type="xsd:string">pmdm__Program__c</value>
     </values>
 </CustomMetadata>

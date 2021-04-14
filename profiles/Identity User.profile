@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>Community</application>
+        <application>Branches</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -24,6 +24,11 @@
         <application>Nonprofit_Success_Pack</application>
         <default>false</default>
         <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Outreach</application>
+        <default>false</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Philanthropy</application>
@@ -2597,6 +2602,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.One_Drive_Folder_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Origin</field>
         <readable>true</readable>
@@ -4842,6 +4852,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Event__c.Event_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Event__c.Event_Short_Description__c</field>
         <readable>true</readable>
@@ -4939,6 +4954,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event__c.Membership_Required__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event__c.One_Drive_Folder_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8602,6 +8622,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Fundraising Campaign Layout</layout>
+        <recordType>Campaign.Community_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Fundraising Campaign Layout</layout>
         <recordType>Campaign.Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -9059,6 +9083,11 @@
         <default>false</default>
         <recordType>Campaign.Campaign</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Community_Campaign</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

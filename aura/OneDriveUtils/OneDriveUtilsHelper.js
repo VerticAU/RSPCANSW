@@ -1,14 +1,8 @@
-/**
- * Created by verticdev on 12/12/19.
- */
 ({
 
     getOverrides: function (payload) {
         return new Promise(function (resolve, reject) {
-
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_SOQLPRoc',
+            payload.helper.execute(payload.cmp, 'vertic_SOQLPRoc',
                 {
                     SOQL: 'SELECT DeveloperName, RecordApiName__c, DriveName__c FROM OnedriveSetting__mdt'
                 }
@@ -25,16 +19,11 @@
                     return resolve(payload);
 
                 } else {
-
                     return reject([{
                         message: 'Settings not exist'
                     }]);
-
                 }
-            },
-
-           reject)
-
+            }, reject);
         });
     },
 
@@ -42,9 +31,7 @@
         return new Promise(function (resolve, reject) {
             var siteName = payload.cmp.get('v.siteName');
 
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
+            payload.helper.execute(payload.cmp, 'vertic_HttpRequestProc',
                 {
                     endpoint: 'callout:OneDrive/sites/rspcansw.sharepoint.com:/sites/' + siteName + ':/drives',
                     headers: {
@@ -69,7 +56,6 @@
                 return resolve(payload);
 
             }, reject)
-
         });
     },
 
@@ -126,9 +112,7 @@
     checkIsExistFolder: function (payload) {
         return new Promise(function (resolve, reject) {
 
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
+            payload.helper.execute(payload.cmp, 'vertic_HttpRequestProc',
                 {
                     endpoint: 'callout:OneDrive/drives/' + payload.drive + '/root/children/' + encodeURIComponent(payload.folder) + '/children',
                     headers: {
@@ -167,10 +151,7 @@
                     })
                 };
 
-                payload.helper.utils(payload.cmp).execute(
-                    payload.cmp,
-                    'vertic_HttpRequestProc',
-                    request,
+                payload.helper.utils(payload.cmp).execute(payload.cmp, 'vertic_HttpRequestProc', request,
 
                     function (response) {
                         var resp = JSON.parse(response.dto.response);
@@ -211,10 +192,7 @@
                     }
                 })
             };
-            payload.helper.utils(payload.cmp).execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
-                request,
+            payload.helper.utils(payload.cmp).execute(payload.cmp, 'vertic_HttpRequestProc', request,
 
                 function (response) {
 
@@ -234,11 +212,10 @@
                                     return sequential(arr, index + 1)
                                 }))
                         }
-
                         sequential(chunks).then($A.getCallback(function () {
                             resolve(payload);
                         }));
-                    }, reject))
+                    }, reject));
 
                 }, function (error) {
                     debugger
@@ -290,7 +267,6 @@
             payload.helper.blobToDataUrl(blob).then($A.getCallback(function (dataUrl) {
                 var contentSize = payload.arrayBuffer.byteLength;
                 var endpoint = payload.uploadUrl;
-
                 var request = {
                     endpoint: endpoint,
                     method: 'PUT',
@@ -325,9 +301,7 @@
         return new Promise(function (resolve, reject) {
 
             var items = [];
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
+            payload.helper.execute(payload.cmp, 'vertic_HttpRequestProc',
                 {
                     endpoint: 'callout:OneDrive/drives/' + payload.drive + '/root:/' + encodeURIComponent(payload.folder) + ':/children',
                     headers: {
@@ -359,19 +333,11 @@
     renameItem: function (payload) {
         return new Promise(function (resolve, reject) {
 
+            var body = JSON.stringify({
+                "name": payload.name
+            });
 
-            var body;
-
-                body = JSON.stringify({
-
-                    "name": payload.name
-
-                })
-
-
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
+            payload.helper.execute(payload.cmp, 'vertic_HttpRequestProc',
                 {
                     method: methodsMap.get(optons.get('method')),
                     endpoint: 'callout:OneDrive/drives/' + encodeURIComponent(payload.drive) + '/items/' + encodeURIComponent(payload.file),
@@ -383,7 +349,6 @@
                 function (response) {
                     return resolve(response);
                 },
-
                 function (errors) {
                     return reject([{
                         message: 'Error'
@@ -395,11 +360,7 @@
 
     getLinkFileView: function (payload) {
         return new Promise(function (resolve, reject) {
-
-
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
+            payload.helper.execute(payload.cmp, 'vertic_HttpRequestProc',
                 {
                     method: 'POST',
                     endpoint: 'callout:OneDrive/drives/' + payload.drive + '/items/' + encodeURIComponent(payload.file) + '/preview',
@@ -411,12 +372,10 @@
                 },
                 function (response) {
                     var urlToViewFile = JSON.parse(response.dto.response).getUrl;
-
                     payload.urlToViewFile = urlToViewFile;
                     debugger
                     resolve(payload);
                 },
-
                 function (errors) {
                     reject(errors);
                 })
@@ -438,21 +397,15 @@
 
             if (optons.get('method') == 'Archive') {
                 body = JSON.stringify({
-
                     "name": "DELETED_" + payload.name
-
                 })
             } else if (optons.get('method') == 'Rename') {
                 body = JSON.stringify({
-
                     "name": payload.name
-
                 })
             }
 
-            payload.helper.execute(
-                payload.cmp,
-                'vertic_HttpRequestProc',
+            payload.helper.execute(payload.cmp, 'vertic_HttpRequestProc',
                 {
                     method: methodsMap.get(optons.get('method')),
                     endpoint: 'callout:OneDrive/drives/' + encodeURIComponent(payload.drive) + '/items/' + encodeURIComponent(payload.file),

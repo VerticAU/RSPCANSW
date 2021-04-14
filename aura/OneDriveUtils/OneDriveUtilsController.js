@@ -1,13 +1,11 @@
-/**
- * Created by verticdev on 12/12/19.
- */
 ({
     handleInit: function (cmp, event, helper) {
 
         helper.getOverrides({
             cmp: cmp,
             helper: helper
-        }).then(helper.getDrives)
+        })
+            .then(helper.getDrives)
             .then(function (value) {
                 cmp.getEvent('onLoad').fire();
             })
@@ -30,24 +28,18 @@
         }
 
         return new Promise(function (resolve, reject) {
-            var all = [];
-                return helper.upFile({
-                        cmp: cmp,
-                        event: event,
-                        helper: helper,
-                        file: file,
-                        folder: folderName,
-                        drive: driveIdToSObjectName.get(sObjectName),
-                        prefix: prefix
-                    }
-                );
-
-
-
+            return helper.upFile({
+                    cmp: cmp,
+                    event: event,
+                    helper: helper,
+                    file: file,
+                    folder: folderName,
+                    drive: driveIdToSObjectName.get(sObjectName),
+                    prefix: prefix
+                }
+            );
         })
-
     },
-
 
     handleUpload: function (cmp, event, helper) {
         var args = event.getParam("arguments");
@@ -57,6 +49,10 @@
         var folderName = args.folderName;
         var driveIdToSObjectName = cmp.get('v.driveIdToSObjectName');
         var options = args.options || {};
+
+        console.log('sObjectName', sObjectName);
+        console.log('driveIdToSObjectName', JSON.stringify(driveIdToSObjectName));
+        console.log('driveIdToSObjectName.get(sObjectName)', driveIdToSObjectName.get(sObjectName));
 
         if (options.size > 0 && options.has('prefix')) {
             prefix = options.get('prefix');
@@ -80,9 +76,7 @@
                 console.log('upload result', value);
                 return resolve(value);
             });
-
         })
-
     },
 
     handleDriveItems: function (cmp, event, helper) {
@@ -175,7 +169,6 @@
         var options = new Map();
         options.set('method', 'Rename');
 
-
         var itemId = args.itemId;
         var itemName = args.name;
 
@@ -208,6 +201,4 @@
             drive: driveIdToSObjectName.get(sObjectName)
         })
     }
-
-
 })
