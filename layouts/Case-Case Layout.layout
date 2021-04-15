@@ -72,10 +72,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Animal_Breed__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Sex__c</field>
             </layoutItems>
             <layoutItems>
@@ -97,6 +93,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Assistance_Required__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Financial_Agreement_Details__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -503,7 +503,6 @@
         <fields>Animal__c.NAME</fields>
         <fields>Animal__c.Age__c</fields>
         <fields>Animal__c.Animal_Type__c</fields>
-        <fields>Animal__c.Sex__c</fields>
         <fields>Animal__c.Sheltermate_Number__c</fields>
         <relatedList>Case_Animal__c.Case__c</relatedList>
     </relatedLists>

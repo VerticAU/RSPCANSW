@@ -19,6 +19,10 @@
                 <behavior>Edit</behavior>
                 <field>Current_Contract_End_date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>External_Shelter_Location_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

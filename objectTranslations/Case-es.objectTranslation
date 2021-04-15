@@ -68,10 +68,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Animal Breed --></label>
-        <name>Animal_Breed__c</name>
-    </fields>
-    <fields>
         <label><!-- Animal impact with no help --></label>
         <name>Animal_Consequence_with_no_help__c</name>
     </fields>
@@ -336,6 +332,14 @@
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Financial Agreement Date --></label>
+        <name>Financial_Agreement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financial Agreement Details --></label>
+        <name>Financial_Agreement_Details__c</name>
     </fields>
     <fields>
         <help><!-- Has caring for the animal prevented/delayed the individual from finding safe accommodation for themselves? --></help>
@@ -791,6 +795,10 @@
             <section>Fields</section>
         </sections>
         <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
             <label><!-- First Contact --></label>
             <section>First Contact</section>
         </sections>
@@ -832,6 +840,10 @@
         <sections>
             <label>Campos</label>
             <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
         </sections>
         <sections>
             <label><!-- First Contact --></label>
@@ -900,6 +912,10 @@
             <section>Fields</section>
         </sections>
         <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
             <label><!-- New Section --></label>
             <section>New Section</section>
         </sections>
@@ -943,6 +959,10 @@
             <section>Fields</section>
         </sections>
         <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
             <label><!-- First Contact --></label>
             <section>First Contact</section>
         </sections>
@@ -984,6 +1004,10 @@
         <sections>
             <label>Campos</label>
             <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
         </sections>
         <sections>
             <label><!-- First Contact --></label>

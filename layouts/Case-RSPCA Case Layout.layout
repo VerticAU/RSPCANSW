@@ -128,10 +128,6 @@
                 <behavior>Readonly</behavior>
                 <field>Animal_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Animal_Breed__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

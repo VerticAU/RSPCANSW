@@ -42,6 +42,10 @@
         <name>Current_Contract_End_date__c</name>
     </fields>
     <fields>
+        <label><!-- External Shelter Location Name --></label>
+        <name>External_Shelter_Location_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Final Date In Care --></label>
         <name>Final_Date_In_Care__c</name>
     </fields>
@@ -66,16 +70,24 @@
         <label><!-- Items with Animals --></label>
         <name>Items_with_Animals__c</name>
         <picklistValues>
+            <masterLabel>Bed</masterLabel>
+            <translation><!-- Bed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cage</masterLabel>
+            <translation><!-- Cage --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Collar</masterLabel>
             <translation><!-- Collar --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Example 3</masterLabel>
-            <translation><!-- Example 3 --></translation>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Example 4</masterLabel>
-            <translation><!-- Example 4 --></translation>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Toys</masterLabel>
@@ -108,10 +120,6 @@
         <picklistValues>
             <masterLabel>External</masterLabel>
             <translation><!-- External --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Foster Care</masterLabel>
-            <translation><!-- Foster Care --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hunter</masterLabel>
@@ -200,4 +208,8 @@
         <name>Shelter_Care</name>
     </recordTypes>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter the External Shelter Location Name --></errorMessage>
+        <name>External_Shelter_Location</name>
+    </validationRules>
 </CustomObjectTranslation>

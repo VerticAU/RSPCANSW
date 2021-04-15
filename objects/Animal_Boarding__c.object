@@ -214,6 +214,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>External_Shelter_Location_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>External Shelter Location Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Final_Date_In_Care__c</fullName>
         <externalId>false</externalId>
         <label>Final Date In Care</label>
@@ -270,26 +280,36 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Bed</fullName>
+                    <default>false</default>
+                    <label>Bed</label>
+                </value>
+                <value>
+                    <fullName>Cage</fullName>
+                    <default>false</default>
+                    <label>Cage</label>
+                </value>
                 <value>
                     <fullName>Collar</fullName>
                     <default>false</default>
                     <label>Collar</label>
                 </value>
                 <value>
+                    <fullName>Lead</fullName>
+                    <default>false</default>
+                    <label>Lead</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
                     <fullName>Toys</fullName>
                     <default>false</default>
                     <label>Toys</label>
-                </value>
-                <value>
-                    <fullName>Example 3</fullName>
-                    <default>false</default>
-                    <label>Example 3</label>
-                </value>
-                <value>
-                    <fullName>Example 4</fullName>
-                    <default>false</default>
-                    <label>Example 4</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -356,11 +376,6 @@
                     <default>false</default>
                     <label>External</label>
                 </value>
-                <value>
-                    <fullName>Foster Care</fullName>
-                    <default>false</default>
-                    <label>Foster Care</label>
-                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -401,15 +416,23 @@
         <picklistValues>
             <picklist>Items_with_Animals__c</picklist>
             <values>
+                <fullName>Bed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cage</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Collar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Example 3</fullName>
+                <fullName>Lead</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Example 4</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -441,10 +464,6 @@
             </values>
             <values>
                 <fullName>External</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foster Care</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -495,15 +514,23 @@
         <picklistValues>
             <picklist>Items_with_Animals__c</picklist>
             <values>
+                <fullName>Bed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cage</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Collar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Example 3</fullName>
+                <fullName>Lead</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Example 4</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -538,10 +565,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Foster Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hunter</fullName>
                 <default>false</default>
             </values>
@@ -561,5 +584,15 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>External_Shelter_Location</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+ISPICKVAL ( Shelter_Location__c , &quot;External&quot;),
+ISBLANK (  External_Shelter_Location_Name__c  )
+)</errorConditionFormula>
+        <errorDisplayField>External_Shelter_Location_Name__c</errorDisplayField>
+        <errorMessage>Please enter the External Shelter Location Name</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

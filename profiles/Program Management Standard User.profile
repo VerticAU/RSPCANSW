@@ -1327,6 +1327,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal_Boarding__c.External_Shelter_Location_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal_Boarding__c.Final_Date_In_Care__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2376,11 +2381,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Animal_Breed__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Animal_Consequence_with_no_help__c</field>
         <readable>true</readable>
@@ -2503,6 +2503,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Fear_Caused_Delay_Seeking_Refuge__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Financial_Agreement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Financial_Agreement_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5118,21 +5128,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Expense__c.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Financial_Agreement__c.Contact__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Financial_Agreement__c.Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Financial_Agreement__c.Financial_Agreement_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8747,9 +8742,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Financial_Agreement__c-Financial Agreement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Flow_Setting__mdt-Flow Setting Layout</layout>
