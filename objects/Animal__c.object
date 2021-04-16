@@ -1760,6 +1760,306 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Animal_Colour__c</fullName>
+        <externalId>false</externalId>
+        <label>Animal Colour</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Albino</fullName>
+                    <default>false</default>
+                    <label>Albino</label>
+                </value>
+                <value>
+                    <fullName>Appaloosa</fullName>
+                    <default>false</default>
+                    <label>Appaloosa</label>
+                </value>
+                <value>
+                    <fullName>Apricot</fullName>
+                    <default>false</default>
+                    <label>Apricot</label>
+                </value>
+                <value>
+                    <fullName>Bay</fullName>
+                    <default>false</default>
+                    <label>Bay</label>
+                </value>
+                <value>
+                    <fullName>Black</fullName>
+                    <default>false</default>
+                    <label>Black</label>
+                </value>
+                <value>
+                    <fullName>Black Brindle</fullName>
+                    <default>false</default>
+                    <label>Black Brindle</label>
+                </value>
+                <value>
+                    <fullName>Black Brown</fullName>
+                    <default>false</default>
+                    <label>Black Brown</label>
+                </value>
+                <value>
+                    <fullName>Blenheim</fullName>
+                    <default>false</default>
+                    <label>Blenheim</label>
+                </value>
+                <value>
+                    <fullName>Blonde</fullName>
+                    <default>false</default>
+                    <label>Blonde</label>
+                </value>
+                <value>
+                    <fullName>Blue</fullName>
+                    <default>false</default>
+                    <label>Blue</label>
+                </value>
+                <value>
+                    <fullName>Blue Cream Tortoiseshell</fullName>
+                    <default>false</default>
+                    <label>Blue Cream Tortoiseshell</label>
+                </value>
+                <value>
+                    <fullName>Blue Point</fullName>
+                    <default>false</default>
+                    <label>Blue Point</label>
+                </value>
+                <value>
+                    <fullName>Brindle</fullName>
+                    <default>false</default>
+                    <label>Brindle</label>
+                </value>
+                <value>
+                    <fullName>Brown</fullName>
+                    <default>false</default>
+                    <label>Brown</label>
+                </value>
+                <value>
+                    <fullName>Buckskin</fullName>
+                    <default>false</default>
+                    <label>Buckskin</label>
+                </value>
+                <value>
+                    <fullName>Calico</fullName>
+                    <default>false</default>
+                    <label>Calico</label>
+                </value>
+                <value>
+                    <fullName>Champagne</fullName>
+                    <default>false</default>
+                    <label>Champagne</label>
+                </value>
+                <value>
+                    <fullName>Chestnut</fullName>
+                    <default>false</default>
+                    <label>Chestnut</label>
+                </value>
+                <value>
+                    <fullName>Chocolate</fullName>
+                    <default>false</default>
+                    <label>Chocolate</label>
+                </value>
+                <value>
+                    <fullName>Chocolate Point</fullName>
+                    <default>false</default>
+                    <label>Chocolate Point</label>
+                </value>
+                <value>
+                    <fullName>Cream</fullName>
+                    <default>false</default>
+                    <label>Cream</label>
+                </value>
+                <value>
+                    <fullName>Cremello</fullName>
+                    <default>false</default>
+                    <label>Cremello</label>
+                </value>
+                <value>
+                    <fullName>Dappled Grey</fullName>
+                    <default>false</default>
+                    <label>Dappled Grey</label>
+                </value>
+                <value>
+                    <fullName>Fawn</fullName>
+                    <default>false</default>
+                    <label>Fawn</label>
+                </value>
+                <value>
+                    <fullName>Flame Point</fullName>
+                    <default>false</default>
+                    <label>Flame Point</label>
+                </value>
+                <value>
+                    <fullName>Ginger</fullName>
+                    <default>false</default>
+                    <label>Ginger</label>
+                </value>
+                <value>
+                    <fullName>Gold</fullName>
+                    <default>false</default>
+                    <label>Gold</label>
+                </value>
+                <value>
+                    <fullName>Green</fullName>
+                    <default>false</default>
+                    <label>Green</label>
+                </value>
+                <value>
+                    <fullName>Grey</fullName>
+                    <default>false</default>
+                    <label>Grey</label>
+                </value>
+                <value>
+                    <fullName>Grey Tabby</fullName>
+                    <default>false</default>
+                    <label>Grey Tabby</label>
+                </value>
+                <value>
+                    <fullName>Grey Tabby Tortoiseshell</fullName>
+                    <default>false</default>
+                    <label>Grey Tabby Tortoiseshell</label>
+                </value>
+                <value>
+                    <fullName>Harlequin</fullName>
+                    <default>false</default>
+                    <label>Harlequin</label>
+                </value>
+                <value>
+                    <fullName>Lilac</fullName>
+                    <default>false</default>
+                    <label>Lilac</label>
+                </value>
+                <value>
+                    <fullName>Lilac Point</fullName>
+                    <default>false</default>
+                    <label>Lilac Point</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Paint</fullName>
+                    <default>false</default>
+                    <label>Paint</label>
+                </value>
+                <value>
+                    <fullName>Palomino</fullName>
+                    <default>false</default>
+                    <label>Palomino</label>
+                </value>
+                <value>
+                    <fullName>Pied</fullName>
+                    <default>false</default>
+                    <label>Pied</label>
+                </value>
+                <value>
+                    <fullName>Pink</fullName>
+                    <default>false</default>
+                    <label>Pink</label>
+                </value>
+                <value>
+                    <fullName>Pinto</fullName>
+                    <default>false</default>
+                    <label>Pinto</label>
+                </value>
+                <value>
+                    <fullName>Rainbow</fullName>
+                    <default>false</default>
+                    <label>Rainbow</label>
+                </value>
+                <value>
+                    <fullName>Red</fullName>
+                    <default>false</default>
+                    <label>Red</label>
+                </value>
+                <value>
+                    <fullName>Red Point</fullName>
+                    <default>false</default>
+                    <label>Red Point</label>
+                </value>
+                <value>
+                    <fullName>Sable</fullName>
+                    <default>false</default>
+                    <label>Sable</label>
+                </value>
+                <value>
+                    <fullName>Salt and Pepper</fullName>
+                    <default>false</default>
+                    <label>Salt and Pepper</label>
+                </value>
+                <value>
+                    <fullName>Seal Point</fullName>
+                    <default>false</default>
+                    <label>Seal Point</label>
+                </value>
+                <value>
+                    <fullName>Silver</fullName>
+                    <default>false</default>
+                    <label>Silver</label>
+                </value>
+                <value>
+                    <fullName>Silver Tabby</fullName>
+                    <default>false</default>
+                    <label>Silver Tabby</label>
+                </value>
+                <value>
+                    <fullName>Silver Tabby Tortoiseshell</fullName>
+                    <default>false</default>
+                    <label>Silver Tabby Tortoiseshell</label>
+                </value>
+                <value>
+                    <fullName>Tabby</fullName>
+                    <default>false</default>
+                    <label>Tabby</label>
+                </value>
+                <value>
+                    <fullName>Tabby Tortoiseshell</fullName>
+                    <default>false</default>
+                    <label>Tabby Tortoiseshell</label>
+                </value>
+                <value>
+                    <fullName>Tawny</fullName>
+                    <default>false</default>
+                    <label>Tawny</label>
+                </value>
+                <value>
+                    <fullName>Ticked Tabby</fullName>
+                    <default>false</default>
+                    <label>Ticked Tabby</label>
+                </value>
+                <value>
+                    <fullName>Tortoiseshell</fullName>
+                    <default>false</default>
+                    <label>Tortoiseshell</label>
+                </value>
+                <value>
+                    <fullName>White</fullName>
+                    <default>false</default>
+                    <label>White</label>
+                </value>
+                <value>
+                    <fullName>Wolf Grey</fullName>
+                    <default>false</default>
+                    <label>Wolf Grey</label>
+                </value>
+                <value>
+                    <fullName>Yellow</fullName>
+                    <default>false</default>
+                    <label>Yellow</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Animal_Normally_Live_Sleep__c</fullName>
         <externalId>false</externalId>
         <label>Animal Normally Live/Sleep</label>

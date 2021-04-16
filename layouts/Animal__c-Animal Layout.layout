@@ -47,6 +47,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Animal_Colour__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Microchip__c</field>
             </layoutItems>
             <layoutItems>

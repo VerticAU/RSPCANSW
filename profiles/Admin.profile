@@ -1396,6 +1396,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Animal_Colour__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Animal_Normally_Live_Sleep__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9834,11 +9839,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Homelessness</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Case.caseman__InboundReferral</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

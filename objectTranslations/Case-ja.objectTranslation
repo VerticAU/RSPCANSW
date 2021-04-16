@@ -990,16 +990,16 @@
     <layouts>
         <layout>Homelessness</layout>
         <sections>
-            <label><!-- Additional Information --></label>
-            <section>Additional Information</section>
-        </sections>
-        <sections>
             <label><!-- Animal Action Plan --></label>
             <section>Animal Action Plan</section>
         </sections>
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Enquiry Type --></label>
+            <section>Enquiry Type</section>
         </sections>
         <sections>
             <label>項目</label>
@@ -1020,10 +1020,6 @@
         <sections>
             <label><!-- Program Engagement Information --></label>
             <section>Program Engagement Information</section>
-        </sections>
-        <sections>
-            <label><!-- Referral Information --></label>
-            <section>Referral Information</section>
         </sections>
         <sections>
             <label><!-- Trustee &amp; Guardian --></label>

@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>dlrs__ConcatenateDelimiter__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">;</value>
     </values>
     <values>
         <field>dlrs__Description__c</field>
