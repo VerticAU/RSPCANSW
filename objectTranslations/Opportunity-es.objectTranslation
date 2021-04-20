@@ -844,6 +844,16 @@
         <name>Send_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Service Participant --></label>
+        <name>Service_Participant__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Schedule --></label>
+        <name>Service_Schedule__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Session --></label>
         <name>Session__c</name>
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
@@ -1770,20 +1780,16 @@
             <section>Acknowledgement Information</section>
         </sections>
         <sections>
-            <label><!-- Cheque Information --></label>
-            <section>Cheque Information</section>
-        </sections>
-        <sections>
             <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label><!-- Contact Preferences --></label>
-            <section>Contact Preferences</section>
-        </sections>
-        <sections>
             <label>Información de donación</label>
             <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Related Records --></label>
+            <section>Related Records</section>
         </sections>
     </layouts>
     <quickActions>
