@@ -286,6 +286,14 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <fields>Name</fields>
+        <fields>Account</fields>
+        <fields>ParentRecord</fields>
+        <fields>SchedStartTime</fields>
+        <fields>SchedEndTime</fields>
+        <relatedList>ServiceAppointments</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>ContactName</fields>
         <fields>Role</fields>
         <fields>ContactAccountName</fields>
