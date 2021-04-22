@@ -128,14 +128,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Expense_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
+        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -144,17 +141,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
-    <compactLayoutAssignment>RSPCA_Expense_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>RSPCA_Expense_Compact_Layout</fullName>
-        <fields>Name</fields>
-        <fields>Expense_Type__c</fields>
-        <fields>Expense_Amount__c</fields>
-        <fields>Status__c</fields>
-        <fields>Booking_Date__c</fields>
-        <fields>Paid_Date__c</fields>
-        <label>RSPCA Expense Compact Layout</label>
-    </compactLayouts>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -167,77 +154,58 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
-        <fullName>Booking_Date__c</fullName>
+        <fullName>Achieved__c</fullName>
         <externalId>false</externalId>
-        <label>Booking Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Expense_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Expense Amount</label>
+        <label>Achieved</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Expense_Type__c</fullName>
+        <fullName>Branch__c</fullName>
         <externalId>false</externalId>
-        <label>Expense Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Marketing</fullName>
-                    <default>false</default>
-                    <label>Marketing</label>
-                </value>
-                <value>
-                    <fullName>Location</fullName>
-                    <default>false</default>
-                    <label>Location</label>
-                </value>
-                <value>
-                    <fullName>Resources</fullName>
-                    <default>false</default>
-                    <label>Resources</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Paid_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Paid Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Service_Session__c</fullName>
-        <externalId>false</externalId>
-        <label>Service Session</label>
-        <referenceTo>pmdm__ServiceSession__c</referenceTo>
-        <relationshipLabel>Expenses</relationshipLabel>
-        <relationshipName>Expenses</relationshipName>
+        <label>Branch</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Branch Goals</relationshipLabel>
+        <relationshipName>Branch_Goals</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Goal_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Goal Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
@@ -251,35 +219,57 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Planning</fullName>
+                    <fullName>Planned</fullName>
                     <default>false</default>
-                    <label>Planning</label>
+                    <label>Planned</label>
                 </value>
                 <value>
-                    <fullName>Paid</fullName>
+                    <fullName>On Track</fullName>
                     <default>false</default>
-                    <label>Paid</label>
+                    <label>On Track</label>
+                </value>
+                <value>
+                    <fullName>Not on track</fullName>
+                    <default>false</default>
+                    <label>Not on track</label>
+                </value>
+                <value>
+                    <fullName>Completed Successfully</fullName>
+                    <default>false</default>
+                    <label>Completed Successfully</label>
+                </value>
+                <value>
+                    <fullName>Not Completed Successfully</fullName>
+                    <default>false</default>
+                    <label>Not Completed Successfully</label>
                 </value>
                 <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
                     <label>Cancelled</label>
                 </value>
-                <value>
-                    <fullName>Postponed</fullName>
-                    <default>false</default>
-                    <label>Postponed</label>
-                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <label>Expense</label>
+    <fields>
+        <fullName>Target__c</fullName>
+        <externalId>false</externalId>
+        <label>Target</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Branch Goal</label>
     <nameField>
-        <label>Expense Name</label>
+        <label>Branch Goal Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Expenses</pluralLabel>
+    <pluralLabel>Branch Goals</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

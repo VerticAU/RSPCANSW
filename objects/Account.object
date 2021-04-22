@@ -231,8 +231,11 @@
     <compactLayouts>
         <fullName>Branch_Compact_Layout</fullName>
         <fields>Name</fields>
+        <fields>RecordTypeId</fields>
         <fields>Phone</fields>
-        <fields>NumberOfEmployees</fields>
+        <fields>OwnerId</fields>
+        <fields>Goal_Success_Rate__c</fields>
+        <fields>Branch_Goals_Star_Rating__c</fields>
         <label>Branch Compact Layout</label>
     </compactLayouts>
     <compactLayouts>
@@ -388,6 +391,22 @@
             </valueSetDefinition>
         </valueSet>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Branch_Goals_Star_Rating__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Goal_Success_Rate__c &gt;= 0.90,IMAGE(&quot;/img/samples/stars_500.gif&quot;, &quot;5 Stars&quot;),
+IF(Goal_Success_Rate__c &gt;= 0.75,IMAGE(&quot;/img/samples/stars_400.gif&quot;, &quot;4 Stars&quot;), 
+IF(Goal_Success_Rate__c &gt;= 0.50,IMAGE(&quot;/img/samples/stars_300.gif&quot;, &quot;3 Stars&quot;), 
+IF(Goal_Success_Rate__c &gt;= 0.30,IMAGE(&quot;/img/samples/stars_200.gif&quot;, &quot;2 Stars&quot;), 
+IF(Goal_Success_Rate__c &gt;= 0.15,IMAGE(&quot;/img/samples/stars_100.gif&quot;, &quot;1 Star&quot;), 
+IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch Goals Star Rating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Cash_Amount_Received__c</fullName>
@@ -556,6 +575,15 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_Founded__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Founded</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Date_Legacy_Notified__c</fullName>
@@ -766,6 +794,75 @@
             <value>Gifts In Wills</value>
         </summaryFilterItems>
         <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Goal_Success_Rate__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Goals_Completed_Successfully__c + Goals_On_Track__c)/
+(Goals_Completed_Successfully__c + Goals_On_Track__c + Goals_Not_Completed_Successfully__c + Goals_Not_On_Track__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Goal Success Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Goals_Completed_Successfully__c</fullName>
+        <externalId>false</externalId>
+        <label>Goals Completed Successfully</label>
+        <summaryFilterItems>
+            <field>Branch_Goal__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed Successfully</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Branch_Goal__c.Branch__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Goals_Not_Completed_Successfully__c</fullName>
+        <externalId>false</externalId>
+        <label>Goals Not Completed Successfully</label>
+        <summaryFilterItems>
+            <field>Branch_Goal__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Not Completed Successfully</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Branch_Goal__c.Branch__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Goals_Not_On_Track__c</fullName>
+        <externalId>false</externalId>
+        <label>Goals Not On Track</label>
+        <summaryFilterItems>
+            <field>Branch_Goal__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Not on track</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Branch_Goal__c.Branch__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Goals_On_Track__c</fullName>
+        <externalId>false</externalId>
+        <label>Goals On Track</label>
+        <summaryFilterItems>
+            <field>Branch_Goal__c.Status__c</field>
+            <operation>equals</operation>
+            <value>On Track</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Branch_Goal__c.Branch__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
         <type>Summary</type>

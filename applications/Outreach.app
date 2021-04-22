@@ -131,16 +131,11 @@
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
-    <tabs>standard-Event</tabs>
     <tabs>pmdm__Program__c</tabs>
-    <tabs>Event__c</tabs>
-    <tabs>pmdm__ProgramCohort__c</tabs>
-    <tabs>pmdm__ProgramEngagement__c</tabs>
-    <tabs>standard-Case</tabs>
     <tabs>pmdm__Service__c</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>standard-Case</tabs>
     <tabs>standard-report</tabs>
-    <tabs>Case_Animal__c</tabs>
-    <tabs>LGA__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Programs_UtilityBar</utilityBar>
 </CustomApplication>

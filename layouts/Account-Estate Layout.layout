@@ -341,6 +341,14 @@
         <fields>npo02__TotalOppAmount__c</fields>
         <relatedList>Account.Estate_Managed_By__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>caseman__Intake__c.Account_Name__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>caseman__Intake__c.Referral_Organization__c</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

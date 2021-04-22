@@ -272,17 +272,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Event_Date__c</fullName>
-        <externalId>false</externalId>
-        <formula>DATEVALUE(Start_Date_Time__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Event Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Event_Description__c</fullName>
         <externalId>false</externalId>
         <label>Event Description</label>
@@ -478,22 +467,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Location_Actual__c</fullName>
-        <externalId>false</externalId>
-        <label>Location Actual</label>
-        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
-        <summaryFilterItems>
-            <field>Expense__c.Expense_Type__c</field>
-            <operation>equals</operation>
-            <value>Location</value>
-        </summaryFilterItems>
-        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <fields>
         <fullName>Location_Budget__c</fullName>
         <externalId>false</externalId>
         <label>Location Budget</label>
@@ -516,22 +489,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Marketing_Actual__c</fullName>
-        <externalId>false</externalId>
-        <label>Marketing Actual</label>
-        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
-        <summaryFilterItems>
-            <field>Expense__c.Expense_Type__c</field>
-            <operation>equals</operation>
-            <value>Marketing</value>
-        </summaryFilterItems>
-        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Marketing_Budget__c</fullName>
@@ -716,35 +673,6 @@
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Remaining_Funding__c</fullName>
-        <externalId>false</externalId>
-        <formula>Allocated_Funding__c - (RSPCA_Funded_Services_Total__c + Total_Expenses__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Remaining Funding</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Resources_Actual__c</fullName>
-        <externalId>false</externalId>
-        <label>Resources Actual</label>
-        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
-        <summaryFilterItems>
-            <field>Expense__c.Expense_Type__c</field>
-            <operation>equals</operation>
-            <value>Resources</value>
-        </summaryFilterItems>
-        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <fields>
         <fullName>Resources_Budget__c</fullName>
         <externalId>false</externalId>
         <label>Resources Budget</label>
@@ -837,42 +765,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Total_Actual__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Actual</label>
-        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
-        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Total_Event_Cost__c</fullName>
-        <externalId>false</externalId>
-        <formula>Total_Expenses__c + RSPCA_Funded_Services_Total__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Total_Expenses__c + RSPCA_Funded_Services_Total__c</inlineHelpText>
-        <label>Total Event Cost</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Total_Expenses__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Expenses</label>
-        <summarizedField>Expense__c.Expense_Amount__c</summarizedField>
-        <summaryForeignKey>Expense__c.Event__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Turn_Off_Email__c</fullName>

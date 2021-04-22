@@ -161,7 +161,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -183,19 +183,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Time</type>
-    </fields>
-    <fields>
-        <fullName>Event__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Event</label>
-        <referenceTo>Event__c</referenceTo>
-        <relationshipLabel>Partners</relationshipLabel>
-        <relationshipName>Partners</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Role__c</fullName>
@@ -228,6 +215,20 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Service_Session__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Session</label>
+        <referenceTo>pmdm__ServiceSession__c</referenceTo>
+        <relationshipLabel>Partners</relationshipLabel>
+        <relationshipName>Partners</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
         <fullName>Start_Time__c</fullName>
         <externalId>false</externalId>
         <label>Start Time</label>
@@ -245,6 +246,6 @@
     </nameField>
     <pluralLabel>Partners</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

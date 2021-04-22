@@ -62,6 +62,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Branch Goals Star Rating --></label>
+        <name>Branch_Goals_Star_Rating__c</name>
+    </fields>
+    <fields>
         <label><!-- Cash Amount Received --></label>
         <name>Cash_Amount_Received__c</name>
     </fields>
@@ -170,6 +174,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Date Founded --></label>
+        <name>Date_Founded__c</name>
+    </fields>
+    <fields>
         <label><!-- Date Legacy Notified --></label>
         <name>Date_Legacy_Notified__c</name>
     </fields>
@@ -246,6 +254,26 @@
     <fields>
         <label><!-- Gifts In Wills Opportunties --></label>
         <name>Gifts_In_Wills_Opportunties__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal Success Rate --></label>
+        <name>Goal_Success_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals Completed Successfully --></label>
+        <name>Goals_Completed_Successfully__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals Not Completed Successfully --></label>
+        <name>Goals_Not_Completed_Successfully__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals Not On Track --></label>
+        <name>Goals_Not_On_Track__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals On Track --></label>
+        <name>Goals_On_Track__c</name>
     </fields>
     <fields>
         <label><!-- Instagram --></label>
@@ -676,6 +704,10 @@
             <section>Social Media</section>
         </sections>
     </layouts>
+    <quickActions>
+        <label><!-- Update Account --></label>
+        <name>Goals_Summary</name>
+    </quickActions>
     <quickActions>
         <label><!-- New Donation --></label>
         <name>New_Donation</name>

@@ -174,19 +174,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Event__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Event</label>
-        <referenceTo>Event__c</referenceTo>
-        <relationshipLabel>Funding Allocations</relationshipLabel>
-        <relationshipName>Funding_Allocations</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Opportunity__c</fullName>
         <externalId>false</externalId>
         <label>Opportunity</label>
@@ -195,6 +182,20 @@
         <relationshipName>Funding_Allocations</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Service_Schedule__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Schedule</label>
+        <referenceTo>pmdm__ServiceSchedule__c</referenceTo>
+        <relationshipLabel>Funding Allocations</relationshipLabel>
+        <relationshipName>Funding_Allocations</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>

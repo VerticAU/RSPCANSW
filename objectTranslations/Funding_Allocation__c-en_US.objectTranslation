@@ -17,13 +17,13 @@
         <name>Allocation_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Event --></label>
-        <name>Event__c</name>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
         <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Opportunity --></label>
-        <name>Opportunity__c</name>
+        <label><!-- Service Schedule --></label>
+        <name>Service_Schedule__c</name>
         <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
     </fields>
     <layouts>

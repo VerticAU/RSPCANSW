@@ -1865,7 +1865,7 @@
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Access_To_Vet_Care_Intake</fullName>
-        <active>true</active>
+        <active>false</active>
         <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Access To Vet Care Intake</label>
@@ -2418,7 +2418,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Aged_Care</fullName>
-        <active>true</active>
+        <active>false</active>
         <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Aged Care</label>
@@ -3520,7 +3520,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Domestic_Violence</fullName>
-        <active>true</active>
+        <active>false</active>
         <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Domestic Violence</label>
@@ -4085,7 +4085,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Emergency_Boarding</fullName>
-        <active>true</active>
+        <active>false</active>
         <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Emergency Boarding</label>
@@ -4650,7 +4650,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Homelessness</fullName>
-        <active>true</active>
+        <active>false</active>
         <businessProcess>Case Management</businessProcess>
         <compactLayoutAssignment>Programs_Compact_Layout</compactLayoutAssignment>
         <label>Homelessness</label>

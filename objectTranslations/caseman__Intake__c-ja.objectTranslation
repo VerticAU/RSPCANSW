@@ -4,5 +4,59 @@
         <plural>false</plural>
         <value>受入</value>
     </caseValues>
+    <layouts>
+        <layout>Access to Vet Care Intake</layout>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Domestic Violence Layout</layout>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
+            <label><!-- Perpetrator &amp; Animal Action Plan --></label>
+            <section>Perpetrator &amp; Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>受入名</nameFieldLabel>
 </CustomObjectTranslation>

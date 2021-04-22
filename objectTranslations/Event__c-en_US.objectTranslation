@@ -50,10 +50,6 @@
         <name>Event_Cost__c</name>
     </fields>
     <fields>
-        <label><!-- Event Date --></label>
-        <name>Event_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Event Description --></label>
         <name>Event_Description__c</name>
     </fields>
@@ -150,10 +146,6 @@
         <name>Last_Application_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Location Actual --></label>
-        <name>Location_Actual__c</name>
-    </fields>
-    <fields>
         <label><!-- Location Budget --></label>
         <name>Location_Budget__c</name>
     </fields>
@@ -161,10 +153,6 @@
         <label><!-- Location --></label>
         <name>Location__c</name>
         <relationshipLabel><!-- Events --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Marketing Actual --></label>
-        <name>Marketing_Actual__c</name>
     </fields>
     <fields>
         <label><!-- Marketing Budget --></label>
@@ -241,14 +229,6 @@
         <name>Registration_Cut_Off_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Remaining Funding --></label>
-        <name>Remaining_Funding__c</name>
-    </fields>
-    <fields>
-        <label><!-- Resources Actual --></label>
-        <name>Resources_Actual__c</name>
-    </fields>
-    <fields>
         <label><!-- Resources Budget --></label>
         <name>Resources_Budget__c</name>
     </fields>
@@ -283,19 +263,6 @@
     <fields>
         <label><!-- Time Description --></label>
         <name>Time_Description__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Actual --></label>
-        <name>Total_Actual__c</name>
-    </fields>
-    <fields>
-        <help><!-- Total_Expenses__c + RSPCA_Funded_Services_Total__c --></help>
-        <label><!-- Total Event Cost --></label>
-        <name>Total_Event_Cost__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Expenses --></label>
-        <name>Total_Expenses__c</name>
     </fields>
     <fields>
         <label><!-- Turn Off Email --></label>

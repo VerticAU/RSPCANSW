@@ -13,11 +13,6 @@
         <name>Booking_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Event --></label>
-        <name>Event__c</name>
-        <relationshipLabel><!-- Expenses --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Expense Amount --></label>
         <name>Expense_Amount__c</name>
     </fields>
@@ -40,6 +35,11 @@
     <fields>
         <label><!-- Paid Date --></label>
         <name>Paid_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Session --></label>
+        <name>Service_Session__c</name>
+        <relationshipLabel><!-- Expenses --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Status --></label>

@@ -134,6 +134,9 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>IsPrimaryResource</fullName>
+    </fields>
+    <fields>
         <fullName>IsRequiredResource</fullName>
     </fields>
     <fields>
