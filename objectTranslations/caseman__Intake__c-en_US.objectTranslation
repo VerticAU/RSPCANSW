@@ -28,7 +28,7 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Domestic Violence Layout</layout>
+        <layout>Aged Care Layout</layout>
         <sections>
             <label><!-- Animal Action Plan --></label>
             <section>Animal Action Plan</section>
@@ -42,8 +42,93 @@
             <section>Financial Agreement</section>
         </sections>
         <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Domestic Violence Layout</layout>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Evidence of Abuse --></label>
+            <section>Evidence of Abuse</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
             <label><!-- Perpetrator &amp; Animal Action Plan --></label>
             <section>Perpetrator &amp; Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Emergency Boarding Layout</layout>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Trustee &amp; Guardian --></label>
+            <section>Trustee &amp; Guardian</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Homelessness</layout>
+        <sections>
+            <label><!-- Animal Action Plan --></label>
+            <section>Animal Action Plan</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Agreement --></label>
+            <section>Financial Agreement</section>
+        </sections>
+        <sections>
+            <label><!-- First Contact --></label>
+            <section>First Contact</section>
         </sections>
         <sections>
             <label><!-- Referral Information --></label>

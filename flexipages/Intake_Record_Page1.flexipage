@@ -4,77 +4,41 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>templateGroupFieldName</name>
-                    <value>caseman__ActionPlanTemplateGroup__c</value>
+                    <name>collapsed</name>
+                    <value>false</value>
                 </componentInstanceProperties>
-                <componentName>caseman:actionPlanChecklist</componentName>
+                <componentInstanceProperties>
+                    <name>enableActionsConfiguration</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>hideChatterActions</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>numVisibleActions</name>
+                    <value>3</value>
+                </componentInstanceProperties>
+                <componentName>force:highlightsPanel</componentName>
             </componentInstance>
         </itemInstances>
-        <name>left</name>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>hideUpdateButton</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>variant</name>
+                    <value>linear</value>
+                </componentInstanceProperties>
+                <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>childRelationshipName</name>
-                    <value>caseman__Referrals</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>fieldSetName</name>
-                    <value>caseman__InboundReferralsRelatedList</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>recordType</name>
-                    <value>InboundReferral</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Inbound Referrals</value>
-                </componentInstanceProperties>
-                <componentName>caseman:relatedList</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-d127fcbf-8dc1-46d9-89d5-d223ced17aa6</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>active</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-d127fcbf-8dc1-46d9-89d5-d223ced17aa6</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Intake Source</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-e2148814-47cb-431d-872b-c673a49ee108</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>contactLookupFieldName</name>
-                    <value>caseman__Contact__c</value>
-                </componentInstanceProperties>
-                <componentName>caseman:clientSearch</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
-                        <operator>EQUAL</operator>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -193,135 +157,35 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>active</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-c65100ab-3071-48de-aed7-54b1c608bfd9</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Client Information</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
+                <componentName>force:detailPanel</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-a7562a9d-73d5-48f8-a95f-39da71162c22</name>
+        <name>Facet-28f90ae7-479f-4a0b-8749-573105af6f79</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>caseman__Intake__c.Id</value>
+                    <name>childRelationshipName</name>
+                    <value>caseman__Referrals</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>AttachedContentDocuments</value>
+                    <name>fieldSetName</name>
+                    <value>caseman__InboundReferralsRelatedList</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-7ab95647-8442-46b7-9590-72d291525b24</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>decorate</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>richTextValue</name>
-                    <value>&lt;p style=&quot;text-align: center;&quot;&gt;Add a Contact to this Intake to see related files.&lt;/p&gt;</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:richText</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
-                        <operator>EQUAL</operator>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>caseman__Intake__c.caseman__Contact__c</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>AttachedContentDocuments</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
-                        <operator>NE</operator>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-c1b805c5-d675-4c29-820f-d564ab2f6606</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-7ab95647-8442-46b7-9590-72d291525b24</value>
+                    <name>recordType</name>
+                    <value>InboundReferral</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Intake Files</value>
+                    <value>Inbound Referrals</value>
                 </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
+                <componentName>caseman:relatedList</componentName>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-c1b805c5-d675-4c29-820f-d564ab2f6606</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Client Files</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-b6c669b3-87aa-42e7-972d-c27a9dfd48ca</name>
+        <name>Facet-62120a6e-a25a-4aee-8a44-69e6a36ed708</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -405,7 +269,7 @@
                 <componentName>caseman:relatedList</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-aa9bb07e-1d92-40f7-bb7e-ba9f12bc7f03</name>
+        <name>Facet-01f134a2-3401-45ce-acd7-1de55b807857</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -417,7 +281,46 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-aa9bb07e-1d92-40f7-bb7e-ba9f12bc7f03</value>
+                    <value>Facet-c65100ab-3071-48de-aed7-54b1c608bfd9</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Client Information</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-28f90ae7-479f-4a0b-8749-573105af6f79</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Intake Details</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-62120a6e-a25a-4aee-8a44-69e6a36ed708</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Intake Source</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-01f134a2-3401-45ce-acd7-1de55b807857</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
@@ -426,19 +329,10 @@
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-fe71dc71-82a6-4862-8301-613c32309e12</name>
+        <name>Facet-a7562a9d-73d5-48f8-a95f-39da71162c22</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>tabs</name>
-                    <value>Facet-e2148814-47cb-431d-872b-c673a49ee108</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tabset</componentName>
-            </componentInstance>
-        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -451,12 +345,25 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>tabs</name>
-                    <value>Facet-b6c669b3-87aa-42e7-972d-c27a9dfd48ca</value>
+                    <name>templateGroupFieldName</name>
+                    <value>caseman__ActionPlanTemplateGroup__c</value>
                 </componentInstanceProperties>
-                <componentName>flexipage:tabset</componentName>
+                <componentName>caseman:actionPlanChecklist</componentName>
             </componentInstance>
         </itemInstances>
+        <name>leftcol</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>runtime_sales_activities:activityPanel</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-f0ce81ae-3af5-45d8-a7ff-8c48d2e8f78c</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -465,7 +372,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
-                    <value>caseman__Assessments__r</value>
+                    <value>AttachedContentDocuments</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
@@ -482,60 +389,82 @@
                 <componentName>force:relatedListSingleContainer</componentName>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>tabs</name>
-                    <value>Facet-fe71dc71-82a6-4862-8301-613c32309e12</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tabset</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>right</name>
-        <type>Region</type>
+        <name>Facet-0d908aba-7bac-4ec1-a6f7-388e8132f19d</name>
+        <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>collapsed</name>
-                    <value>false</value>
+                    <name>context</name>
+                    <value>RECORD</value>
+                </componentInstanceProperties>
+                <componentName>forceChatter:exposedFeed</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-2f0151dc-65f7-44ec-bc63-27c5bcd4c5c5</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-f0ce81ae-3af5-45d8-a7ff-8c48d2e8f78c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>enableActionsConfiguration</name>
-                    <value>false</value>
+                    <name>title</name>
+                    <value>Standard.Tab.activity</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>hideChatterActions</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>numVisibleActions</name>
-                    <value>3</value>
-                </componentInstanceProperties>
-                <componentName>force:highlightsPanel</componentName>
+                <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>hideUpdateButton</name>
-                    <value>false</value>
+                    <name>body</name>
+                    <value>Facet-0d908aba-7bac-4ec1-a6f7-388e8132f19d</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>variant</name>
-                    <value>linear</value>
+                    <name>title</name>
+                    <value>Intake Files</value>
                 </componentInstanceProperties>
-                <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
-        <name>header</name>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-2f0151dc-65f7-44ec-bc63-27c5bcd4c5c5</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Standard.Tab.collaborate</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-e2148814-47cb-431d-872b-c673a49ee108</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>tabs</name>
+                    <value>Facet-e2148814-47cb-431d-872b-c673a49ee108</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tabset</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>rightcol</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Intake Record Page</masterLabel>
     <sobjectType>caseman__Intake__c</sobjectType>
     <template>
-        <name>caseman:ActionPlanChecklistLayout</name>
+        <name>flexipage:recordHomeTwoColEqualHeaderTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

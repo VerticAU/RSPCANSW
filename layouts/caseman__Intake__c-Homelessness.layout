@@ -86,15 +86,18 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>If_Unable_to_Assist_Animal__c</field>
+                <field>Long_Term_Accomodation__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Circumstances_Require_Vet_Assistance__c</field>
+                <field>Do_You_Have_Children__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>How_Many_Children_and_Age_s__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -109,17 +112,25 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vet_History_Obtained__c</field>
+                <field>If_Unable_to_Assist_Animal__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finding_Accomodation_Prevented_Delayed__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Transport_Animal_to_Vet__c</field>
+                <field>Friend_or_Family_Member_Care__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agrees_to_desex_microchip_vaccinate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>If_Prevented_Delayed_by_how_long__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -225,24 +236,29 @@
             <sortOrder>9</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>caseman__NewEvent</actionName>
+            <actionName>SendEmail</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>10</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>NewTask</actionName>
+            <actionName>caseman__LogACall</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>11</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>SendEmail</actionName>
+            <actionName>NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>12</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>FeedItem.TextPost</actionName>
+            <actionName>caseman__NewEvent</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>13</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>FeedItem.TextPost</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>14</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
@@ -307,7 +323,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h1y000000zp7y</masterLabel>
+        <masterLabel>00h1y000000zpik</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
