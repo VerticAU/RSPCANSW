@@ -9,18 +9,18 @@ public without sharing class TaskUpdateScheduledProc extends vertic_ScheduledPro
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-        List<Task> tasks = new List<Task>([SELECT Id FROM Task WHERE Owner.Name = 'Vertic Developer' AND CreatedDate = TODAY AND Group_Name__c != NULL LIMIT 5000]);
+        List<Task> tasks = new List<Task>([SELECT Id FROM Task WHERE Owner.Name = 'Vertic Developer' AND Group_Name__c != NULL LIMIT 5000]);
         update tasks;
 
         return this.response;
     }
 
     public override String getScheduledJobName() {
-        return 'Update Tasks for reassign to QUEUE - Every Day at 1 AM';
+        return 'Update Tasks for reassign to QUEUE - Every Day at 23 PM';
     }
 
     public override String getScheduledCRON() {
-        return '0 0 1 * * ? *'; //Every Day at 1 AM
+        return '0 0 23 * * ? *'; //Every Day at 23 PM
     }
 
     public override Type getScheduledProcType() {
