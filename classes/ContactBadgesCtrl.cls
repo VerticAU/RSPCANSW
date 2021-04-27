@@ -85,7 +85,7 @@ public class ContactBadgesCtrl extends BadgesBaseCtrl {
                 if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Raffle_Ticket') {
                     this.oppRaffleTickets.add(opp);
                 }
-                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Home_Ever_After' && opp.StageName == 'Pledged') {
+                if (opp.RecordType != null && opp.RecordType.DeveloperName == 'Home_Ever_After' && opp.StageName == 'Enrolled') {
                     this.oppHEADonors.add(opp);
                 }
             }

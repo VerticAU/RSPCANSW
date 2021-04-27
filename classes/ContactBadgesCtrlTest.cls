@@ -53,7 +53,7 @@ private class ContactBadgesCtrlTest {
 
         Opportunity opp5 = new Opportunity(
             Name = 'test',
-            StageName = 'Pledged',
+            StageName = 'Enrolled',
             npsp__Primary_Contact__c = contact.Id,
             CloseDate = Date.today().addDays(5),
             RecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Home_Ever_After')
