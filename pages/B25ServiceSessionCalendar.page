@@ -1,0 +1,11 @@
+<apex:page showHeader="true" sidebar="false" applyBodyTag="false">
+    <style>
+        html,body{height:100%}iframe.page-iframe{height:100%;width:100%;position:absolute;top:0;bottom:0;left:0;right:0}html body.sfdcBody{padding:0 !important}#contentWrapper{height:calc(100% - 152px)}.outerNoSidebar{height:100%;padding:0 !important}.noSidebarCell{padding:0 !important}.bodyDiv{overflow:hidden !important}
+    </style>
+    <iframe id='page-iframe' class="page-iframe" src="" frameborder="0"></iframe>
+    <script>
+        var calendarName = "Service Session Calendar";
+        var baseUrl = "{!$Page.B25__MultiResourceCalendar}";
+        var d=function(){var r={};var e=document.location.search.substring(1);if(!e){return r}var a=e.split("&");a.forEach(function(e){var a=e.split("=");if(a.length===1){r[a[0]]=""}else{r[a[0]]=decodeURIComponent(a[1])}});return r};var f=function(e){var a="";for(var r in e){if(e.hasOwnProperty(r)){a+=a?"&":"?";a+=r+"="+encodeURIComponent(e[r])}}return a};var r=function(e,a){if(c()||typeof history==="undefined"||typeof history.replaceState==="undefined"){return}if(window.location!=window.parent.location&&typeof window.parent.postMessage==="function"){var r={cmd:"B25::updateParameter",parameter:e,value:a};window.parent.postMessage(r,"*")}var t=d();t[e]=a;var n=f(t);var o=document.location.pathname;var i=o+n;history.replaceState({},"",i)};var c=function(){return typeof sforce!=="undefined"&&typeof sforce.one!=="undefined"};var t=function(e){if(e.origin!==window.location.origin){return}if(typeof e.data!="object"||e.data.cmd!=="B25::updateParameter"){return}r(e.data.parameter,e.data.value)};window.addEventListener("message",t,false);var n=d();n.calendar=calendarName;var o=f(n);var i=document.getElementById("page-iframe");i.src=baseUrl+o;
+    </script>
+</apex:page>

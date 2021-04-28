@@ -836,6 +836,11 @@
         <name>Refund_Reason__c</name>
     </fields>
     <fields>
+        <label><!-- Reservation --></label>
+        <name>Reservation__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Run Workflow Rule With Name --></label>
         <name>Run_Workflow_Rule_With_Name__c</name>
     </fields>

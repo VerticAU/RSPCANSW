@@ -290,7 +290,6 @@
     </relatedLists>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>pmdm__Stage__c</fields>
         <fields>pmdm__ProgramCohort__c</fields>
@@ -320,7 +319,6 @@
     </relatedLists>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.NAME</fields>
         <fields>CASES.CREATED_DATE_DATE_ONLY</fields>

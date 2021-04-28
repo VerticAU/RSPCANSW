@@ -2344,6 +2344,20 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Reservation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reservation</label>
+        <referenceTo>B25__Reservation__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Run_Workflow_Rule_With_Name__c</fullName>
         <externalId>false</externalId>
         <label>Run Workflow Rule With Name</label>

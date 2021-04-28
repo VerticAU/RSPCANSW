@@ -21,6 +21,10 @@
         <label><!-- Role --></label>
         <name>Role__c</name>
         <picklistValues>
+            <masterLabel>Branch</masterLabel>
+            <translation><!-- Branch --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Event Location</masterLabel>
             <translation><!-- Event Location --></translation>
         </picklistValues>

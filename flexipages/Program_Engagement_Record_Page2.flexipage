@@ -176,6 +176,23 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>calendarId</name>
+                    <value>Resources</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>maxHeight</name>
+                    <value>700</value>
+                </componentInstanceProperties>
+                <componentName>B25:contextAwareMultiCalendarWrapper</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-093c1866-5b40-463a-a321-42329a579afe</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
                 <componentName>OneDriveFiles</componentName>
             </componentInstance>
         </itemInstances>
@@ -196,6 +213,19 @@
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Standard.Tab.relatedLists</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-093c1866-5b40-463a-a321-42329a579afe</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Calendar</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>

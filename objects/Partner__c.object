@@ -195,11 +195,11 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
-                    <fullName>Vet Services</fullName>
+                    <fullName>Branch</fullName>
                     <default>false</default>
-                    <label>Vet Services</label>
+                    <label>Branch</label>
                 </value>
                 <value>
                     <fullName>Event Location</fullName>
@@ -210,6 +210,11 @@
                     <fullName>Sponsor</fullName>
                     <default>false</default>
                     <label>Sponsor</label>
+                </value>
+                <value>
+                    <fullName>Vet Services</fullName>
+                    <default>false</default>
+                    <label>Vet Services</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

@@ -208,15 +208,6 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>quickActionName</name>
-                    <value>caseman__NewProgramEngagement</value>
-                </componentInstanceProperties>
-                <componentName>caseman:quickActionButton</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
                     <name>parentFieldApiName</name>
                     <value>caseman__Intake__c.Id</value>
                 </componentInstanceProperties>
@@ -237,15 +228,6 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>quickActionName</name>
-                    <value>caseman__NewOutboundReferral</value>
-                </componentInstanceProperties>
-                <componentName>caseman:quickActionButton</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -340,6 +322,31 @@
                     <value>Facet-a7562a9d-73d5-48f8-a95f-39da71162c22</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>caseman__Intake__c.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>Histories</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>

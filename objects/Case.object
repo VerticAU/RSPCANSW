@@ -558,7 +558,7 @@
         <fullName>Assistance_Required__c</fullName>
         <externalId>false</externalId>
         <label>Assistance Required</label>
-        <required>true</required>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
