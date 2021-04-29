@@ -490,13 +490,6 @@
         <fields>caseman__Content__c</fields>
         <relatedList>caseman__ClientNote__c.Case__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>Animal__c.NAME</fields>
-        <fields>Animal__c.Age__c</fields>
-        <fields>Animal__c.Animal_Type__c</fields>
-        <fields>Animal__c.Sheltermate_Number__c</fields>
-        <relatedList>Case_Animal__c.Case__c</relatedList>
-    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>

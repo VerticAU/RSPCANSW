@@ -144,4 +144,8 @@
         </sections>
     </layouts>
     <nameFieldLabel>受入名</nameFieldLabel>
+    <quickActions>
+        <label><!-- Update Intake --></label>
+        <name>DV_Update</name>
+    </quickActions>
 </CustomObjectTranslation>

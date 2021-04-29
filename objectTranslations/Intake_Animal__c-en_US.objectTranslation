@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Intake Animal</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Intake Animals</value>
+    </caseValues>
+    <fields>
+        <label><!-- Animal --></label>
+        <name>Animal__c</name>
+        <relationshipLabel><!-- Intake Animals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Intake --></label>
+        <name>Intake__c</name>
+        <relationshipLabel><!-- Intake Animals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Shelter Location --></label>
+        <name>Shelter_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sheltermate Number --></label>
+        <name>Sheltermate_Number__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

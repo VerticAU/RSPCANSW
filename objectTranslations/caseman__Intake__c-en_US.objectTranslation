@@ -139,4 +139,8 @@
             <section>Trustee &amp; Guardian</section>
         </sections>
     </layouts>
+    <quickActions>
+        <label><!-- Update Intake --></label>
+        <name>DV_Update</name>
+    </quickActions>
 </CustomObjectTranslation>

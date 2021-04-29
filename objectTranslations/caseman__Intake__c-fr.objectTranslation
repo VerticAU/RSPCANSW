@@ -149,5 +149,9 @@
         </sections>
     </layouts>
     <nameFieldLabel>Nom de l’admission</nameFieldLabel>
+    <quickActions>
+        <label><!-- Update Intake --></label>
+        <name>DV_Update</name>
+    </quickActions>
     <startsWith>Vowel</startsWith>
 </CustomObjectTranslation>

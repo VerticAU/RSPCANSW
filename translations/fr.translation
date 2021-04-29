@@ -5,6 +5,10 @@
         <name>Branches</name>
     </customApplications>
     <customApplications>
+        <label><!-- Case Management --></label>
+        <name>Case_Management</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Finance --></label>
         <name>Finance</name>
     </customApplications>
@@ -147,6 +151,47 @@
     <flowDefinitions>
         <flows/>
         <fullName>Recurring_Donation_Created_Acknowledgement</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>displayError</name>
+                </fields>
+                <name>screenDisplayError</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>displayExistingIntake</name>
+                </fields>
+                <name>screenExistingIntake</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Return</name>
+                </fields>
+                <name>screenReturnToRecord</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>inputIntakeRecordType</name>
+                </fields>
+                <name>screenSelectIntakeRecordType</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>navigateToExistingIntake</name>
+                </fields>
+                <name>screenViewExistingIntake</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>navigateToIntakeRecord</name>
+                </fields>
+                <name>screenViewIntake</name>
+            </screens>
+        </flows>
+        <fullName>Referral_To_Intake</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>

@@ -14,6 +14,6 @@
     <tabs>npsp__Trigger_Handler__c</tabs>
     <tabs>Alert__c</tabs>
     <tabs>Batch__c</tabs>
-    <tabs>Case_Animal__c</tabs>
+    <tabs>Intake_Animal__c</tabs>
     <tabs>LGA__c</tabs>
 </CustomApplication>

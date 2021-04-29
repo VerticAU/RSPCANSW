@@ -149,4 +149,8 @@
         </sections>
     </layouts>
     <nameFieldLabel>Naam intake</nameFieldLabel>
+    <quickActions>
+        <label><!-- Update Intake --></label>
+        <name>DV_Update</name>
+    </quickActions>
 </CustomObjectTranslation>

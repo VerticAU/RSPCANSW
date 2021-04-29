@@ -6,6 +6,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Case_Management</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Finance</application>
         <default>false</default>
         <visible>true</visible>
@@ -2981,16 +2986,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case_Animal__c.Shelter_Location__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case_Animal__c.Sheltermate_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>CommSubscription.DataUsePurposeId</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5328,6 +5323,21 @@
         <editable>false</editable>
         <field>Individual.Website</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Intake_Animal__c.Intake__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Intake_Animal__c.Shelter_Location__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Intake_Animal__c.Sheltermate_Number__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8707,9 +8717,6 @@
         <layout>CaseMilestone-Case Milestone Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case_Animal__c-Case Animal Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Communication_List__c-Communication List Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8749,6 +8756,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Funding_Allocation__c-Funding Allocation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Intake_Animal__c-Case Animal Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Invoice__c-Invoice Layout</layout>
@@ -9209,10 +9219,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Case_Animal__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Communication__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -9231,6 +9237,10 @@
     <tabVisibilities>
         <tab>GW_Volunteers__Volunteer_Shift__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Intake_Animal__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Invoice__c</tab>

@@ -886,6 +886,17 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Copy of Inbound Referral</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Domestic Violence</layout>
         <sections>
             <label><!-- Additional Information --></label>
@@ -1113,6 +1124,10 @@
         <errorMessage><!-- Please add the Trustee &amp; Guardian Name by selecting an existing or creating a new contact --></errorMessage>
         <name>Trustee_And_Guardian_Mandatory</name>
     </validationRules>
+    <webLinks>
+        <label><!-- Create_Intake_Record --></label>
+        <name>Create_Intake_Record</name>
+    </webLinks>
     <webLinks>
         <label><!-- CreateIntake --></label>
         <name>caseman__CreateIntake</name>

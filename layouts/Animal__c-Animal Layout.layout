@@ -252,8 +252,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Case.CASE_RECORDTYPE</fields>
-        <relatedList>Case_Animal__c.Animal__c</relatedList>
+        <relatedList>Intake_Animal__c.Animal__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

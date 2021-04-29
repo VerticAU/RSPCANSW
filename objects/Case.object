@@ -5289,4 +5289,15 @@ ISBLANK( Trustee_Guardian_Name__c )
         <errorDisplayField>Trustee_Guardian_Name__c</errorDisplayField>
         <errorMessage>Please add the Trustee &amp; Guardian Name by selecting an existing or creating a new contact</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Create_Intake_Record</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Intake Record</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/lightning/cmp/caseman__flowNavigator?c__caseId={!Case.Id}&amp;c__flowApiName=Referral_To_Intake</url>
+    </webLinks>
 </CustomObject>

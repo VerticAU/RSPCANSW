@@ -440,7 +440,7 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>Batch__c</tabs>
-    <tabs>Case_Animal__c</tabs>
+    <tabs>Intake_Animal__c</tabs>
     <tabs>LGA__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Membership_UtilityBar</utilityBar>
