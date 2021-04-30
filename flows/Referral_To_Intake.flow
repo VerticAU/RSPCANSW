@@ -65,7 +65,7 @@
             <field>SobjectType</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Intake__c</stringValue>
+                <stringValue>caseman__Intake__c</stringValue>
             </value>
         </filters>
         <object>RecordType</object>
