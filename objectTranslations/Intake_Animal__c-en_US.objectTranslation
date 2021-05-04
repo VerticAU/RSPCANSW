@@ -18,13 +18,5 @@
         <name>Intake__c</name>
         <relationshipLabel><!-- Intake Animals --></relationshipLabel>
     </fields>
-    <fields>
-        <label><!-- Shelter Location --></label>
-        <name>Shelter_Location__c</name>
-    </fields>
-    <fields>
-        <label><!-- Sheltermate Number --></label>
-        <name>Sheltermate_Number__c</name>
-    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

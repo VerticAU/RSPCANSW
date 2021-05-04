@@ -1,4 +1,4 @@
-public class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
+public without sharing class EzidebitGetPaymentsProc extends vertic_AbstractProcessor{
 
     /**
      * ==============================================================================================================

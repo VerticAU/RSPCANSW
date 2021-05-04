@@ -330,8 +330,10 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>Animal__c</fields>
-        <fields>Sheltermate_Number__c</fields>
+        <fields>Animal__c.NAME</fields>
+        <fields>Animal__c.Age__c</fields>
+        <fields>Animal__c.Animal_Type__c</fields>
+        <fields>Animal__c.Sheltermate_Number__c</fields>
         <relatedList>Intake_Animal__c.Intake__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

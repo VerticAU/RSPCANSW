@@ -15,15 +15,7 @@
                 <field>Animal__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Sheltermate_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Shelter_Location__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Intake__c</field>
             </layoutItems>
         </layoutColumns>
