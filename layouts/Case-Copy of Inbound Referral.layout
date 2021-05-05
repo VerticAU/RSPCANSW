@@ -143,11 +143,12 @@
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
+    <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showKnowledgeComponent>false</showKnowledgeComponent>
-    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h1y000000zv8d</masterLabel>

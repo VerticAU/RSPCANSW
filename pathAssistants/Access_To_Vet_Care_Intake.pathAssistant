@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>caseman__Intake__c</entityName>
+    <fieldName>caseman__Stage__c</fieldName>
+    <masterLabel>Access To Vet Care Intake</masterLabel>
+    <recordTypeName>Access_To_Vet_Care_Intake</recordTypeName>
+</PathAssistant>

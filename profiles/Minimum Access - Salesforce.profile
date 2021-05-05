@@ -1343,6 +1343,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>ActionPlan.ActionPlanState</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Alert__c.Alert_Detail__c</field>
         <readable>false</readable>
@@ -9278,6 +9283,10 @@
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ActionPlan</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Asset</tab>

@@ -150,7 +150,15 @@
     </layouts>
     <nameFieldLabel>Nombre de admisión</nameFieldLabel>
     <quickActions>
+        <label><!-- Create New Intake Animal --></label>
+        <name>Create_Intake_Animal</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Update Intake --></label>
         <name>DV_Update</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Program Engagement --></label>
+        <name>New_Program_Engagement</name>
     </quickActions>
 </CustomObjectTranslation>

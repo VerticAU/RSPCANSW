@@ -42,6 +42,115 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>lookupFieldName</name>
+                    <value>Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>titleFieldName</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>updateQuickActionName</name>
+                    <value>caseman__Intake__c.caseman__UpdateIntakeResult</value>
+                </componentInstanceProperties>
+                <componentName>console:relatedRecord</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>caseman__Intake__c.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>caseman__Program_Engagements__r</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>ADVGRID</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>childRelationshipName</name>
+                    <value>caseman__Referrals</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>fieldSetName</name>
+                    <value>caseman__OutboundReferralsRelatedList</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>recordType</name>
+                    <value>OutboundReferral</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Outbound Referrals</value>
+                </componentInstanceProperties>
+                <componentName>caseman:relatedList</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-b0c4eb17-d2b2-4cbc-a1d6-cec03a82476a</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>active</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-b0c4eb17-d2b2-4cbc-a1d6-cec03a82476a</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Intake Result</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-06648501-be51-47a5-9c25-a513d001680e</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>templateGroupFieldName</name>
+                    <value>caseman__ActionPlanTemplateGroup__c</value>
+                </componentInstanceProperties>
+                <componentName>caseman:actionPlanChecklist</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>tabs</name>
+                    <value>Facet-06648501-be51-47a5-9c25-a513d001680e</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tabset</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>showBadge</name>
                     <value>false</value>
                 </componentInstanceProperties>
@@ -68,6 +177,31 @@
                         <operator>NE</operator>
                     </criteria>
                 </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>caseman__Intake__c.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>Intake_Animals__r</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -151,187 +285,6 @@
                 </visibilityRule>
             </componentInstance>
         </itemInstances>
-        <name>Facet-22e3be06-3e86-4f9a-9f7d-0421d2c1ac18</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>active</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-22e3be06-3e86-4f9a-9f7d-0421d2c1ac18</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Client Information</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-1f1b151a-9d7f-4755-bcc2-68651b77c54c</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>tabs</name>
-                    <value>Facet-1f1b151a-9d7f-4755-bcc2-68651b77c54c</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tabset</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>caseman__Intake__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Intake_Animals__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>templateGroupFieldName</name>
-                    <value>caseman__ActionPlanTemplateGroup__c</value>
-                </componentInstanceProperties>
-                <componentName>caseman:actionPlanChecklist</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>leftcol</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>force:detailPanel</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-28f90ae7-479f-4a0b-8749-573105af6f79</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>childRelationshipName</name>
-                    <value>caseman__Referrals</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>fieldSetName</name>
-                    <value>caseman__InboundReferralsRelatedList</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>recordType</name>
-                    <value>InboundReferral</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Inbound Referrals</value>
-                </componentInstanceProperties>
-                <componentName>caseman:relatedList</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-62120a6e-a25a-4aee-8a44-69e6a36ed708</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>lookupFieldName</name>
-                    <value>Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>titleFieldName</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>updateQuickActionName</name>
-                    <value>caseman__Intake__c.caseman__UpdateIntakeResult</value>
-                </componentInstanceProperties>
-                <componentName>console:relatedRecord</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>caseman__Intake__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>caseman__Program_Engagements__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>ADVGRID</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>childRelationshipName</name>
-                    <value>caseman__Referrals</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>fieldSetName</name>
-                    <value>caseman__OutboundReferralsRelatedList</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>recordType</name>
-                    <value>OutboundReferral</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Outbound Referrals</value>
-                </componentInstanceProperties>
-                <componentName>caseman:relatedList</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-01f134a2-3401-45ce-acd7-1de55b807857</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>runtime_sales_activities:activityPanel</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-7684d905-31f4-483e-8734-69c148549ff5</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -357,15 +310,75 @@
                 <componentName>force:relatedListSingleContainer</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-h62nouilblv</name>
+        <name>Facet-22e3be06-3e86-4f9a-9f7d-0421d2c1ac18</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>force:detailPanel</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-v3k56dthv7o</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>runtime_sales_activities:activityPanel</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-ed5d0cf4-8ac6-45af-8e6a-66e1a3a2f34c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>childRelationshipName</name>
+                    <value>caseman__Referrals</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>fieldSetName</name>
+                    <value>caseman__InboundReferralsRelatedList</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>recordType</name>
+                    <value>InboundReferral</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Inbound Referrals</value>
+                </componentInstanceProperties>
+                <componentName>caseman:relatedList</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-c0e0bcac-c68f-4df7-ac25-3a1f9e2f5262</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>active</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-28f90ae7-479f-4a0b-8749-573105af6f79</value>
+                    <value>Facet-22e3be06-3e86-4f9a-9f7d-0421d2c1ac18</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Client Information</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-v3k56dthv7o</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
@@ -378,7 +391,20 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-62120a6e-a25a-4aee-8a44-69e6a36ed708</value>
+                    <value>Facet-ed5d0cf4-8ac6-45af-8e6a-66e1a3a2f34c</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Standard.Tab.activity</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-c0e0bcac-c68f-4df7-ac25-3a1f9e2f5262</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
@@ -387,46 +413,7 @@
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-01f134a2-3401-45ce-acd7-1de55b807857</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Intake Result</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-7684d905-31f4-483e-8734-69c148549ff5</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Standard.Tab.feed</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-h62nouilblv</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Files</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-a7562a9d-73d5-48f8-a95f-39da71162c22</name>
+        <name>Facet-1f1b151a-9d7f-4755-bcc2-68651b77c54c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -434,18 +421,18 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>tabs</name>
-                    <value>Facet-a7562a9d-73d5-48f8-a95f-39da71162c22</value>
+                    <value>Facet-1f1b151a-9d7f-4755-bcc2-68651b77c54c</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
             </componentInstance>
         </itemInstances>
-        <name>rightcol</name>
+        <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Intake Record Page</masterLabel>
     <sobjectType>caseman__Intake__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeTwoColEqualHeaderTemplateDesktop</name>
+        <name>flexipage:recordHomeLeftSidebarTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

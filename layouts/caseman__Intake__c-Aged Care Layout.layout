@@ -175,7 +175,7 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>caseman__Intake__c.caseman__NewProgramEngagement</actionName>
+            <actionName>caseman__Intake__c.New_Program_Engagement</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>0</sortOrder>
         </platformActionListItems>

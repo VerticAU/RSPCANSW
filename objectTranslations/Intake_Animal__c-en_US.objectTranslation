@@ -19,4 +19,8 @@
         <relationshipLabel><!-- Intake Animals --></relationshipLabel>
     </fields>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Client does not own Animal --></errorMessage>
+        <name>Client_Owns_Animal</name>
+    </validationRules>
 </CustomObjectTranslation>
