@@ -1548,6 +1548,10 @@
         </sections>
     </layouts>
     <quickActions>
+        <label><!-- Create New Program Engagement --></label>
+        <name>Add_Contact_to_Program</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Create Estate --></label>
         <name>Create_Estate</name>
     </quickActions>
