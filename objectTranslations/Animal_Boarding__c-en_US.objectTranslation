@@ -9,33 +9,25 @@
         <value>Animal Boarding</value>
     </caseValues>
     <fields>
-        <label><!-- Animal Status --></label>
-        <name>Animal_Status__c</name>
+        <label><!-- Animal --></label>
+        <name>Animal__c</name>
+        <relationshipLabel><!-- Animal Boarding --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Boarding Status --></label>
+        <name>Boarding_Status__c</name>
         <picklistValues>
-            <masterLabel>Claim of Ownership</masterLabel>
-            <translation><!-- Claim of Ownership --></translation>
+            <masterLabel>Finalised</masterLabel>
+            <translation><!-- Finalised --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>In Care</masterLabel>
             <translation><!-- In Care --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>No Further Contact</masterLabel>
-            <translation><!-- No Further Contact --></translation>
+            <masterLabel>Transferred</masterLabel>
+            <translation><!-- Transferred --></translation>
         </picklistValues>
-        <picklistValues>
-            <masterLabel>Returned to Owner</masterLabel>
-            <translation><!-- Returned to Owner --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Surrendered</masterLabel>
-            <translation><!-- Surrendered --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Animal --></label>
-        <name>Animal__c</name>
-        <relationshipLabel><!-- Animal Boarding --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Current Contract End date --></label>
@@ -67,8 +59,8 @@
         <name>Foster_Care_Phone_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Items with Animals --></label>
-        <name>Items_with_Animals__c</name>
+        <label><!-- Items with Animal --></label>
+        <name>Items_with_Animal__c</name>
         <picklistValues>
             <masterLabel>Bed</masterLabel>
             <translation><!-- Bed --></translation>
@@ -176,8 +168,8 @@
             <section>Foster Care Information</section>
         </sections>
         <sections>
-            <label><!-- New Section --></label>
-            <section>New Section</section>
+            <label><!-- Items with Animal --></label>
+            <section>Items with Animal</section>
         </sections>
     </layouts>
     <layouts>

@@ -1166,6 +1166,10 @@
         <name>Last_Flea_Tx__c</name>
     </fields>
     <fields>
+        <label><!-- Last Vaccination Date --></label>
+        <name>Last_Vaccination_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Last Worm Tx --></label>
         <name>Last_Worm_Tx__c</name>
     </fields>
@@ -1499,10 +1503,6 @@
     <fields>
         <label><!-- Sheltermate Number --></label>
         <name>Sheltermate_Number__c</name>
-    </fields>
-    <fields>
-        <label><!-- Vaccinated --></label>
-        <name>Vaccinated__c</name>
     </fields>
     <fields>
         <label><!-- Vet Details --></label>

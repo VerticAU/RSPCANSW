@@ -180,6 +180,56 @@
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Returned to Owner</fullName>
+                    <default>false</default>
+                    <label>Returned to Owner</label>
+                </value>
+                <value>
+                    <fullName>Owner Surrender</fullName>
+                    <default>false</default>
+                    <label>Owner Surrender</label>
+                </value>
+                <value>
+                    <fullName>RSPCA Claim Ownership</fullName>
+                    <default>false</default>
+                    <label>RSPCA Claim Ownership</label>
+                </value>
+                <value>
+                    <fullName>Not Eligible for Assistance</fullName>
+                    <default>false</default>
+                    <label>Not Eligible for Assistance</label>
+                </value>
+                <value>
+                    <fullName>Unable to Assist - Case Capacity</fullName>
+                    <default>false</default>
+                    <label>Unable to Assist - Case Capacity</label>
+                </value>
+                <value>
+                    <fullName>Unable to Assist - Shelter Capacity</fullName>
+                    <default>false</default>
+                    <label>Unable to Assist - Shelter Capacity</label>
+                </value>
+                <value>
+                    <fullName>No Further Contact</fullName>
+                    <default>false</default>
+                    <label>No Further Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>Intake Animal</label>
     <nameField>
         <displayFormat>IA-{000000}</displayFormat>

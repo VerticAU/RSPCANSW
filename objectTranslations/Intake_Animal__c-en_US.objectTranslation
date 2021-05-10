@@ -18,6 +18,38 @@
         <name>Intake__c</name>
         <relationshipLabel><!-- Intake Animals --></relationshipLabel>
     </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>No Further Contact</masterLabel>
+            <translation><!-- No Further Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Eligible for Assistance</masterLabel>
+            <translation><!-- Not Eligible for Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Surrender</masterLabel>
+            <translation><!-- Owner Surrender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA Claim Ownership</masterLabel>
+            <translation><!-- RSPCA Claim Ownership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned to Owner</masterLabel>
+            <translation><!-- Returned to Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to Assist - Case Capacity</masterLabel>
+            <translation><!-- Unable to Assist - Case Capacity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to Assist - Shelter Capacity</masterLabel>
+            <translation><!-- Unable to Assist - Shelter Capacity --></translation>
+        </picklistValues>
+    </fields>
     <startsWith>Consonant</startsWith>
     <validationRules>
         <errorMessage><!-- Client does not own Animal --></errorMessage>

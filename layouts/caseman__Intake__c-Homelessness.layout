@@ -37,6 +37,14 @@
                 <behavior>Edit</behavior>
                 <field>Priority__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>caseman__Stage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>caseman__Result__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -317,6 +325,7 @@
     </relatedLists>
     <relatedLists>
         <fields>Animal__c.NAME</fields>
+        <fields>Status__c</fields>
         <fields>Animal__c.Age__c</fields>
         <fields>Animal__c.Animal_Type__c</fields>
         <fields>Animal__c.Sheltermate_Number__c</fields>

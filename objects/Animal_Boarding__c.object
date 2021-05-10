@@ -154,9 +154,22 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
-        <fullName>Animal_Status__c</fullName>
+        <fullName>Animal__c</fullName>
         <externalId>false</externalId>
-        <label>Animal Status</label>
+        <label>Animal</label>
+        <referenceTo>Animal__c</referenceTo>
+        <relationshipLabel>Animal Boarding</relationshipLabel>
+        <relationshipName>Animal_Boarding</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Boarding_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Boarding Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -170,40 +183,41 @@
                     <label>In Care</label>
                 </value>
                 <value>
-                    <fullName>Returned to Owner</fullName>
+                    <fullName>Transferred</fullName>
                     <default>false</default>
-                    <label>Returned to Owner</label>
+                    <label>Transferred</label>
                 </value>
                 <value>
-                    <fullName>Surrendered</fullName>
+                    <fullName>Finalised</fullName>
                     <default>false</default>
-                    <label>Surrendered</label>
+                    <label>Finalised</label>
                 </value>
                 <value>
                     <fullName>Claim of Ownership</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Claim of Ownership</label>
                 </value>
                 <value>
                     <fullName>No Further Contact</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>No Further Contact</label>
+                </value>
+                <value>
+                    <fullName>Returned to Owner</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Returned to Owner</label>
+                </value>
+                <value>
+                    <fullName>Surrendered</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Surrendered</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Animal__c</fullName>
-        <externalId>false</externalId>
-        <label>Animal</label>
-        <referenceTo>Animal__c</referenceTo>
-        <relationshipLabel>Animal Boarding</relationshipLabel>
-        <relationshipName>Animal_Boarding</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Current_Contract_End_date__c</fullName>
@@ -271,16 +285,16 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Items_with_Animals__c</fullName>
+        <fullName>Items_with_Animal__c</fullName>
         <externalId>false</externalId>
-        <label>Items with Animals</label>
+        <label>Items with Animal</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Bed</fullName>
                     <default>false</default>
@@ -391,9 +405,9 @@
         <active>true</active>
         <label>Foster Care</label>
         <picklistValues>
-            <picklist>Animal_Status__c</picklist>
+            <picklist>Boarding_Status__c</picklist>
             <values>
-                <fullName>Claim of Ownership</fullName>
+                <fullName>Finalised</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -401,20 +415,12 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Further Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Returned to Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Surrendered</fullName>
+                <fullName>Transferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Items_with_Animals__c</picklist>
+            <picklist>Items_with_Animal__c</picklist>
             <values>
                 <fullName>Bed</fullName>
                 <default>false</default>
@@ -489,9 +495,9 @@
         <active>true</active>
         <label>Shelter Care</label>
         <picklistValues>
-            <picklist>Animal_Status__c</picklist>
+            <picklist>Boarding_Status__c</picklist>
             <values>
-                <fullName>Claim of Ownership</fullName>
+                <fullName>Finalised</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -499,20 +505,12 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Further Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Returned to Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Surrendered</fullName>
+                <fullName>Transferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Items_with_Animals__c</picklist>
+            <picklist>Items_with_Animal__c</picklist>
             <values>
                 <fullName>Bed</fullName>
                 <default>false</default>

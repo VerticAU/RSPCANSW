@@ -27,7 +27,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Animal_Status__c</field>
+                <field>Boarding_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -48,7 +48,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Items_with_Animals__c</field>
+                <field>Items_with_Animal__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

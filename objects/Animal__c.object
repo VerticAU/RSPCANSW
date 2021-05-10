@@ -2437,6 +2437,15 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Last_Vaccination_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Vaccination Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Last_Worm_Tx__c</fullName>
         <externalId>false</externalId>
         <label>Last Worm Tx</label>
@@ -2928,15 +2937,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vaccinated__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Vaccinated</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Vet_Details__c</fullName>

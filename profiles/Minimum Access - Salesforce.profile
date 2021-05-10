@@ -1374,7 +1374,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Animal_Boarding__c.Animal_Status__c</field>
+        <field>Animal_Boarding__c.Boarding_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1414,7 +1414,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Animal_Boarding__c.Items_with_Animals__c</field>
+        <field>Animal_Boarding__c.Items_with_Animal__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1559,6 +1559,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Last_Vaccination_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Last_Worm_Tx__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1610,11 +1615,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Animal__c.Sheltermate_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Animal__c.Vaccinated__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3321,6 +3321,11 @@
         <editable>false</editable>
         <field>Contact.Email</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Emergency_Mobile_Phone__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5335,6 +5340,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Individual.Website</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Intake_Animal__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

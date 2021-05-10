@@ -137,15 +137,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vaccinated__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Important_Medical_Information__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Relevant_Medical_History__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Vaccination_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -243,7 +243,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Animal_Status__c</fields>
+        <fields>Boarding_Status__c</fields>
         <fields>Shelter_Location__c</fields>
         <fields>RECORDTYPE</fields>
         <fields>First_Date_In_Care__c</fields>
@@ -257,10 +257,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>pmdm__ProgramEngagement__c.Animal__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>pmdm__ServiceDelivery__c.Animal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

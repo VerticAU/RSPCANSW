@@ -215,6 +215,10 @@
         <name>Do_Not_SMS__c</name>
     </fields>
     <fields>
+        <label><!-- Emergency Mobile Phone --></label>
+        <name>Emergency_Mobile_Phone__c</name>
+    </fields>
+    <fields>
         <label><!-- External ID --></label>
         <name>External_ID__c</name>
     </fields>

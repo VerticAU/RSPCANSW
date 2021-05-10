@@ -37,6 +37,14 @@
                 <behavior>Edit</behavior>
                 <field>Priority__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>caseman__Stage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>caseman__Result__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -200,11 +208,6 @@
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>ChangeOwnerOne</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>5</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>caseman__NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>6</sortOrder>
@@ -238,6 +241,11 @@
             <actionName>SendEmail</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>12</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>ChangeOwnerOne</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>5</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>FeedItem.TextPost</actionName>
@@ -304,6 +312,7 @@
     </relatedLists>
     <relatedLists>
         <fields>Animal__c.NAME</fields>
+        <fields>Status__c</fields>
         <fields>Animal__c.Age__c</fields>
         <fields>Animal__c.Animal_Type__c</fields>
         <fields>Animal__c.Sheltermate_Number__c</fields>
