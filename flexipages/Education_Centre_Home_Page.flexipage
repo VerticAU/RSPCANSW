@@ -32,19 +32,10 @@
                 <componentName>runtime_sales_activities:todayTaskContainer</componentName>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>context</name>
-                    <value>NEWS</value>
-                </componentInstanceProperties>
-                <componentName>forceChatter:exposedFeed</componentName>
-            </componentInstance>
-        </itemInstances>
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>desktopDefault</masterLabel>
+    <masterLabel>Education Centre Home Page</masterLabel>
     <template>
         <name>caseman:CaseManagementHomeLayout</name>
     </template>

@@ -11,6 +11,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Education_Centre</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Finance</application>
         <default>false</default>
         <visible>false</visible>
@@ -2391,6 +2396,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.wbsendit__World_View_Email_Tracking__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.BPAY_CRN__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9309,6 +9319,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Direct_Mail_Receipt_Template__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Education_Centre_Calendar</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

@@ -9,6 +9,10 @@
         <name>Case_Management</name>
     </customApplications>
     <customApplications>
+        <label><!-- Education Centre --></label>
+        <name>Education_Centre</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Finance --></label>
         <name>Finance</name>
     </customApplications>
@@ -47,6 +51,10 @@
     <customTabs>
         <label><!-- CSV Data Import --></label>
         <name>CSV_Data_Import</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Education Centre Calendar --></label>
+        <name>Education_Centre_Calendar</name>
     </customTabs>
     <customTabs>
         <label><!-- Platform Events Listener --></label>

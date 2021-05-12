@@ -11,6 +11,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Education_Centre</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Finance</application>
         <default>false</default>
         <visible>true</visible>
@@ -2399,6 +2404,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.wbsendit__World_View_Email_Tracking__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.BPAY_CRN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5349,7 +5359,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Intake_Animal__c.Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -10088,6 +10098,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Direct_Mail_Receipt_Template__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Education_Centre_Calendar</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

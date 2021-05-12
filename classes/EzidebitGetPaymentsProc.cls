@@ -65,7 +65,9 @@ public without sharing class EzidebitGetPaymentsProc extends vertic_AbstractProc
                 npe01__Paid__c = true,
                 EziDebit_Transaction_ID__c = payment.PaymentID,
                 npe01__Payment_Date__c = payment.SettlementDate.date(),
-                npe01__Payment_Amount__c = payment.PaymentAmount
+                npe01__Payment_Amount__c = payment.PaymentAmount,
+                BPAY_Reference_Number__c = payment.PaymentReference,
+                BPAY_Settlement_Date__c = payment.SettlementDate.date()
             );
 
             this.uow.registerNew(opp);
