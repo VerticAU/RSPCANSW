@@ -239,6 +239,16 @@
         <label>Branch Compact Layout</label>
     </compactLayouts>
     <compactLayouts>
+        <fullName>Communities_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>npe01__One2OneContact__c</fields>
+        <fields>Partner_Status__c</fields>
+        <fields>Phone</fields>
+        <fields>Total_Service_Deliveries__c</fields>
+        <fields>Last_Partner_Service_Date__c</fields>
+        <label>Communities Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
         <fullName>Estate_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>npe01__One2OneContact__c</fields>
@@ -785,6 +795,15 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>First_Service_Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Service Delivery Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Gifts_In_Wills_Opportunties__c</fullName>
         <externalId>false</externalId>
         <label>Gifts In Wills Opportunties</label>
@@ -900,6 +919,15 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>Last_Partner_Service_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Partner Service Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Level__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Sample Level field for use with Level feature. May be deleted or edited as needed.</description>
@@ -1006,6 +1034,30 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <type>Hierarchy</type>
     </fields>
     <fields>
+        <fullName>Partner_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Phone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1061,6 +1113,41 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Services__c</fullName>
+        <externalId>false</externalId>
+        <label>Services</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Desex</fullName>
+                    <default>false</default>
+                    <label>Desex</label>
+                </value>
+                <value>
+                    <fullName>Health Check</fullName>
+                    <default>false</default>
+                    <label>Health Check</label>
+                </value>
+                <value>
+                    <fullName>Microchip</fullName>
+                    <default>false</default>
+                    <label>Microchip</label>
+                </value>
+                <value>
+                    <fullName>Vaccination</fullName>
+                    <default>false</default>
+                    <label>Vaccination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Shares_Amount_Received__c</fullName>
@@ -1129,6 +1216,18 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Service_Deliveries__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Service Deliveries</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Twitter__c</fullName>
@@ -1479,6 +1578,17 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Partner_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -1490,6 +1600,25 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services__c</picklist>
+            <values>
+                <fullName>Desex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Microchip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaccination</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

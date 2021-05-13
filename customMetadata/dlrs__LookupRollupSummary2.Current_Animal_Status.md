@@ -40,7 +40,7 @@
     </values>
     <values>
         <field>dlrs__FieldToAggregate__c</field>
-        <value xsi:type="xsd:string">Animal_Status__c</value>
+        <value xsi:type="xsd:string">Boarding_Status__c</value>
     </values>
     <values>
         <field>dlrs__FieldToOrderBy__c</field>

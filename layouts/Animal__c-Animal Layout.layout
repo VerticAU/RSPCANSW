@@ -252,11 +252,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>caseman__Intake__c.CUST_RECORDTYPE</fields>
+        <fields>Status__c</fields>
         <relatedList>Intake_Animal__c.Animal__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>pmdm__ProgramEngagement__c.Animal__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

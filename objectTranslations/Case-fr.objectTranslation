@@ -888,6 +888,10 @@
     <layouts>
         <layout>Copy of Inbound Referral</layout>
         <sections>
+            <label><!-- Assistance Required --></label>
+            <section>Assistance Required</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>

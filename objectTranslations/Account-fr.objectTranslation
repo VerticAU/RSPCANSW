@@ -252,6 +252,10 @@
         <name>Facebook__c</name>
     </fields>
     <fields>
+        <label><!-- First Service Delivery Date --></label>
+        <name>First_Service_Delivery_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Gifts In Wills Opportunties --></label>
         <name>Gifts_In_Wills_Opportunties__c</name>
     </fields>
@@ -284,6 +288,10 @@
         <name>Key_Notes__c</name>
     </fields>
     <fields>
+        <label><!-- Last Partner Service Date --></label>
+        <name>Last_Partner_Service_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Level --></label>
         <name>Level__c</name>
         <relationshipLabel><!-- Households --></relationshipLabel>
@@ -313,6 +321,18 @@
         <name>Paperwork_Received__c</name>
     </fields>
     <fields>
+        <label><!-- Partner Status --></label>
+        <name>Partner_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Previous Level --></label>
         <name>Previous_Level__c</name>
         <relationshipLabel><!-- Households (Previous Level) --></relationshipLabel>
@@ -327,6 +347,26 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Services --></label>
+        <name>Services__c</name>
+        <picklistValues>
+            <masterLabel>Desex</masterLabel>
+            <translation><!-- Desex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Check</masterLabel>
+            <translation><!-- Health Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Microchip</masterLabel>
+            <translation><!-- Microchip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccination</masterLabel>
+            <translation><!-- Vaccination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Shares Amount Received --></label>
         <name>Shares_Amount_Received__c</name>
     </fields>
@@ -337,6 +377,10 @@
     <fields>
         <label><!-- Total Amount Received --></label>
         <name>Total_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Service Deliveries --></label>
+        <name>Total_Service_Deliveries__c</name>
     </fields>
     <fields>
         <label><!-- Twitter --></label>
@@ -619,6 +663,33 @@
         <label><!-- ACN/ABN --></label>
         <name>npsp_plus__ACN_ABN__c</name>
     </fields>
+    <layouts>
+        <layout>Communities Organisation Layout</layout>
+        <sections>
+            <label>Adresse</label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label>Champs</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Partner Profile --></label>
+            <section>Partner Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Social Media --></label>
+            <section>Social Media</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Estate Layout</layout>
         <sections>

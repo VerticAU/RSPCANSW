@@ -882,6 +882,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.First_Service_Delivery_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Gifts_In_Wills_Opportunties__c</field>
         <readable>true</readable>
@@ -929,6 +934,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Key_Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Last_Partner_Service_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -988,6 +998,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Partner_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1009,6 +1024,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Secondary_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Services__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1049,6 +1069,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Total_Amount_Received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_Service_Deliveries__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8621,6 +8646,10 @@
         <field>npsp_plus__Settings__mdt.npsp_plus__Version__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout>Account-Communities Organisation Layout</layout>
+        <recordType>Account.npsp_plus_dres__Organization</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Estate Layout</layout>
         <recordType>Account.Estate</recordType>

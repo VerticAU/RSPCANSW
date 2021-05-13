@@ -189,15 +189,16 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>calendarId</name>
-                    <value>Resources</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>maxHeight</name>
-                    <value>700</value>
-                </componentInstanceProperties>
-                <componentName>B25:contextAwareMultiCalendarWrapper</componentName>
+                <componentName>SydneyResourcesCalendar</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-46301776-341a-404f-9bd0-b037fcee4c80</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>AssetsCalendar</componentName>
             </componentInstance>
         </itemInstances>
         <name>Facet-093c1866-5b40-463a-a321-42329a579afe</name>
@@ -234,11 +235,24 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
+                    <value>Facet-46301776-341a-404f-9bd0-b037fcee4c80</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Resources Calendar</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
                     <value>Facet-093c1866-5b40-463a-a321-42329a579afe</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Calendar</value>
+                    <value>Assets Calendar</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>

@@ -243,7 +243,7 @@
     <validationRules>
         <fullName>Client_Owns_Animal</fullName>
         <active>true</active>
-        <errorConditionFormula>Animal__r.Contact__r.Id =  Animal__r.Contact__r.Id</errorConditionFormula>
+        <errorConditionFormula>Animal__r.Contact__r.Id  &lt;&gt;  Intake__r.caseman__Contact__r.Id</errorConditionFormula>
         <errorMessage>Client does not own Animal</errorMessage>
     </validationRules>
     <visibility>Public</visibility>

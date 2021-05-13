@@ -4,40 +4,22 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>clientsHelpedListViewJson</name>
-                    <value>{&quot;listViewApiName&quot;:&quot;npsp__AllAccounts&quot;,&quot;objectApiName&quot;:&quot;Account&quot;}</value>
+                    <name>dashboardName</name>
+                    <value>LVsCpZsEKhFadnnsHPtUekoDbvUIjO</value>
                 </componentInstanceProperties>
-                <componentName>caseman:homeHeader</componentName>
+                <componentInstanceProperties>
+                    <name>hideOnError</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>desktopDashboards:embeddedDashboard</componentName>
             </componentInstance>
         </itemInstances>
-        <name>topLeft</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>caseman:homeQuickActions</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>topRight</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <name>main</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>runtime_sales_activities:todayTaskContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Education Centre Home Page</masterLabel>
     <template>
-        <name>caseman:CaseManagementHomeLayout</name>
+        <name>runtime_commerce_oci:homeTemplateOneRegion</name>
     </template>
     <type>HomePage</type>
 </FlexiPage>
