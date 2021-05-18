@@ -212,6 +212,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Pledged</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Prospecting</fullName>
             <default>false</default>
         </values>

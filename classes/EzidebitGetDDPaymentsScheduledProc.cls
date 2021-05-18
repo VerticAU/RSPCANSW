@@ -48,10 +48,8 @@ public without sharing class EzidebitGetDDPaymentsScheduledProc extends vertic_S
         queryFactory.selectFields(npe01__OppPayment__c.SObjectType.getDescribe().fields.getMap().keySet().clone());
         List<String> conditions = new List<String>{
             'npe01__Payment_Method__c = \'EziDebit\'',
-            'npe01__Paid__c = FALSE',
             'npsp_plus__Status__c = \'Pending\'',
-            'EziDebit_Transaction_ID__c != NULL',
-            'npe01__Written_Off__c = FALSE'
+            'EziDebit_Transaction_ID__c != NULL'
         };
         if (this.recordIds != null && this.recordIds.size() > 0) {
             conditions = new List<String> {'Id IN :recordIds'};

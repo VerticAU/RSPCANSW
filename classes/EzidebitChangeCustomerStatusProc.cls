@@ -39,7 +39,7 @@ public without sharing class EzidebitChangeCustomerStatusProc extends vertic_Abs
         ], 'Recurring Donation not found.');
 
         if (String.isNotBlank(recurringDonation.EziDebit_Customer_ID__c) && 'EziDebit'.equals(recurringDonation.npsp__PaymentMethod__c)) {
-            String eziDebitStatus = 'Active'.equals(recurringDonation.npsp__Status__c) ? 'A' : 'C';
+            String eziDebitStatus = 'Active'.equals(recurringDonation.npsp__Status__c) ? 'A' : 'H';
             new EzidebitPaymentProcessor(
                 payment_ProcessorFactory.getGatewayCredentials('EziDebit')
             ).changeCustomerStatus(recurringDonation.EziDebit_Customer_ID__c, eziDebitStatus);
