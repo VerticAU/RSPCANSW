@@ -6,6 +6,12 @@
         type="B25__Reservation__c"
     />
     
+    <aura:attribute
+        name="myFilters"
+        type="Object[]"
+        default="[{'fieldName':'B25__Parent__c', 'operator':'=', 'value':'a301y0000001PK7AAM'}]"
+    />
+    
     <B25:multiCalendarWrapper
         calendarId="Resources"
         view="day"
