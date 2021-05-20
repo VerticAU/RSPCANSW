@@ -919,6 +919,19 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>LGA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LGA</label>
+        <referenceTo>LGA__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Last_Partner_Service_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last Partner Service Date</label>

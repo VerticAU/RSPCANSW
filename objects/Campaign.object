@@ -716,6 +716,18 @@ IF(
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Schedule__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Schedule</label>
+        <referenceTo>pmdm__ServiceSchedule__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>StartDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>

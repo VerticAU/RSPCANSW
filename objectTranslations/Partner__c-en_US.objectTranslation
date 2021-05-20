@@ -46,6 +46,22 @@
         <label><!-- Start Time --></label>
         <name>Start_Time__c</name>
     </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested</masterLabel>
+            <translation><!-- Interested --></translation>
+        </picklistValues>
+    </fields>
     <layouts>
         <layout>Partner Layout</layout>
         <sections>

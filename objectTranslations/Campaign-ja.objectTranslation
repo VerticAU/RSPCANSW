@@ -589,6 +589,11 @@
         <name>Recurring_Acknowledgement_Template_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Service Schedule --></label>
+        <name>Service_Schedule__c</name>
+        <relationshipLabel><!-- Campaigns --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Start Time --></label>
         <name>Start_Time__c</name>
     </fields>
@@ -759,14 +764,6 @@
         <sections>
             <label><!-- Campaign Hierarchy Information --></label>
             <section>Campaign Hierarchy Information</section>
-        </sections>
-        <sections>
-            <label><!-- Campaign Monitor Statistics --></label>
-            <section>Campaign Monitor Statistics</section>
-        </sections>
-        <sections>
-            <label><!-- Giving Strategy Information --></label>
-            <section>Giving Strategy Information</section>
         </sections>
         <sections>
             <label><!-- New Section --></label>

@@ -552,6 +552,11 @@
         <name>Service_Delivery_Amount_This_Year__c</name>
     </fields>
     <fields>
+        <label><!-- Service Session --></label>
+        <name>Service_Session__c</name>
+        <relationshipLabel><!-- Outbound Referrals --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Sex --></label>
         <name>Sex__c</name>
     </fields>

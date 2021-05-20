@@ -288,6 +288,11 @@
         <name>Key_Notes__c</name>
     </fields>
     <fields>
+        <label><!-- LGA --></label>
+        <name>LGA__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Last Partner Service Date --></label>
         <name>Last_Partner_Service_Date__c</name>
     </fields>

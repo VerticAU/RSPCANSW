@@ -938,6 +938,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.LGA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Last_Partner_Service_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2313,6 +2318,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Campaign.Service_Schedule__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Campaign.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2844,6 +2854,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Service_Delivery_Amount_This_Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Service_Session__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3644,6 +3659,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Previous_Names__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Primary_Language_Spoken_at_Home__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7289,6 +7309,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Partner__c.Start_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Partner__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
