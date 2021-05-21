@@ -2085,6 +2085,7 @@
                 <value>
                     <fullName>Claim of Ownership</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Claim of Ownership</label>
                 </value>
                 <value>
@@ -2095,7 +2096,18 @@
                 <value>
                     <fullName>No Further Contact</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>No Further Contact</label>
+                </value>
+                <value>
+                    <fullName>Ongoing Assistance</fullName>
+                    <default>false</default>
+                    <label>Ongoing Assistance</label>
+                </value>
+                <value>
+                    <fullName>Owner Surrender</fullName>
+                    <default>false</default>
+                    <label>Owner Surrender</label>
                 </value>
                 <value>
                     <fullName>Returned to Owner</fullName>
@@ -2103,8 +2115,14 @@
                     <label>Returned to Owner</label>
                 </value>
                 <value>
+                    <fullName>RSPCA Claim Ownership</fullName>
+                    <default>false</default>
+                    <label>RSPCA Claim Ownership</label>
+                </value>
+                <value>
                     <fullName>Surrendered</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Surrendered</label>
                 </value>
             </valueSetDefinition>

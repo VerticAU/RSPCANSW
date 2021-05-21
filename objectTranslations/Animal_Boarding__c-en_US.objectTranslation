@@ -187,8 +187,8 @@
             <section>Forwarding Address</section>
         </sections>
         <sections>
-            <label><!-- New Section --></label>
-            <section>New Section</section>
+            <label><!-- Items with Animal --></label>
+            <section>Items with Animal</section>
         </sections>
     </layouts>
     <recordTypes>

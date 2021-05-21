@@ -980,24 +980,24 @@
         <label><!-- Animal Status --></label>
         <name>Animal_Status__c</name>
         <picklistValues>
-            <masterLabel>Claim of Ownership</masterLabel>
-            <translation><!-- Claim of Ownership --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>In Care</masterLabel>
             <translation><!-- In Care --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>No Further Contact</masterLabel>
-            <translation><!-- No Further Contact --></translation>
+            <masterLabel>Ongoing Assistance</masterLabel>
+            <translation><!-- Ongoing Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Surrender</masterLabel>
+            <translation><!-- Owner Surrender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA Claim Ownership</masterLabel>
+            <translation><!-- RSPCA Claim Ownership --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned to Owner</masterLabel>
             <translation><!-- Returned to Owner --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Surrendered</masterLabel>
-            <translation><!-- Surrendered --></translation>
         </picklistValues>
     </fields>
     <fields>

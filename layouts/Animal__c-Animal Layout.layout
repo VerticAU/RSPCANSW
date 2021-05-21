@@ -13,6 +13,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Animal_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Sheltermate_Number__c</field>
             </layoutItems>
             <layoutItems>
@@ -175,10 +179,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Animal_Status__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>First_Date_In_Care__c</field>
             </layoutItems>
@@ -243,6 +243,10 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <relatedList>pmdm__ServiceDelivery__c.Animal__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>Boarding_Status__c</fields>
         <fields>Shelter_Location__c</fields>
         <fields>RECORDTYPE</fields>
@@ -252,9 +256,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>caseman__Intake__c.CUST_RECORDTYPE</fields>
-        <fields>Status__c</fields>
-        <relatedList>Intake_Animal__c.Animal__c</relatedList>
+        <relatedList>pmdm__ProgramEngagement__c.Animal__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
