@@ -439,7 +439,7 @@
     <tabs>standard-Contact</tabs>
     <tabs>pmdm__Program__c</tabs>
     <tabs>standard-Case</tabs>
-    <tabs>standard-Event</tabs>
+    <tabs>B25__Lightning_Calendar</tabs>
     <tabs>standard-report</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Branches_UtilityBar</utilityBar>

@@ -613,6 +613,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>dlrs_CampaignTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_CaseTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>dlrs_EventTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -625,6 +633,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>dlrs_TaskTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>dlrs_npe03_Recurring_DonationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -634,6 +646,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>dlrs_pmdm_ServiceDeliveryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_pmdm_ServiceSessionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -714,6 +730,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Active_Members__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.AnnualRevenue</field>
         <readable>true</readable>
@@ -721,6 +742,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Anonymous__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Average_Days_to_Close_Incident__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -751,6 +777,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Branch_Goals_Star_Rating__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Branch_Incident_Tracking__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -909,6 +940,21 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Incidents_Closed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Income_This_Year__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Income_Total__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Industry</field>
         <readable>true</readable>
@@ -969,6 +1015,21 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Open_Incident_Days_Current__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Open_Incident_Days_Total__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Open_Incidents__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.OperatingHoursId</field>
         <readable>true</readable>
@@ -1025,6 +1086,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Service_Sessions_Events_This_Year__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Service_Sessions_Events_Total__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Services__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1051,6 +1122,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Site</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Site_Visits_This_Year__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Site_Visits_Total__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2314,6 +2395,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Service_Session__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.StartDate</field>
         <readable>true</readable>
@@ -2566,6 +2652,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.BusinessHoursId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Case_Age__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

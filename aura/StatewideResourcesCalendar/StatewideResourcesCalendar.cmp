@@ -15,7 +15,7 @@
     <B25:multiCalendarWrapper
         calendarId="Resources"
         view="day"
-        startDate="2021-05-12"
+        startDate="2021-06-01"
         prototypeReservation="{!v.myPrototypeReservation}"
         hiddenDimensionFilters="{!v.myFilters}"
         maxHeight="1200px"

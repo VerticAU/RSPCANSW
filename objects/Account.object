@@ -236,6 +236,7 @@
         <fields>OwnerId</fields>
         <fields>Goal_Success_Rate__c</fields>
         <fields>Branch_Goals_Star_Rating__c</fields>
+        <fields>Branch_Incident_Tracking__c</fields>
         <label>Branch Compact Layout</label>
     </compactLayouts>
     <compactLayouts>
@@ -308,6 +309,18 @@
         <type>AutoNumber</type>
     </fields>
     <fields>
+        <fullName>Active_Members__c</fullName>
+        <externalId>false</externalId>
+        <label>Active Members</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AnnualRevenue</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -320,6 +333,19 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Average_Days_to_Close_Incident__c</fullName>
+        <externalId>false</externalId>
+        <formula>Open_Incident_Days_Current__c / (Open_Incidents__c + Incidents_Closed__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Average Days to Close Incident</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Bequest_Amount__c</fullName>
@@ -413,6 +439,20 @@ IF(Goal_Success_Rate__c &gt;= 0.15,IMAGE(&quot;/img/samples/stars_100.gif&quot;,
 IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Branch Goals Star Rating</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Branch_Incident_Tracking__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Open_Incident_Days_Current__c &lt; 2, IMAGE(&quot;/resource/SCA_Images/Green_Light_Icon.jpg&quot;, &quot;green&quot;,16,16),
+IF( Open_Incident_Days_Current__c &gt; 2, IMAGE(&quot;/resource/SCA_Images/Red_Light_Icon.jpg&quot;, &quot;red&quot;,16,16),
+IMAGE(&quot;/resource/SCA_Images/Yellow_Light_icon.jpg&quot;, &quot;yellow&quot;,16,16)
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch Incident Tracking</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -887,6 +927,40 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Incidents_Closed__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Incidents</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Income_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Income This Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Income_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Income Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Industry</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1002,6 +1076,42 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Open_Incident_Days_Current__c</fullName>
+        <externalId>false</externalId>
+        <label>Open Incident Days Current</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Open_Incident_Days_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Open Incident Days Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Open_Incidents__c</fullName>
+        <externalId>false</externalId>
+        <label>Open Incidents</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -1128,6 +1238,30 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Service_Sessions_Events_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Sessions (Events) This Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Sessions_Events_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Sessions (Events) Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Services__c</fullName>
         <externalId>false</externalId>
         <label>Services</label>
@@ -1201,6 +1335,30 @@ IMAGE(&quot;/img/samples/stars_000.gif&quot;, &quot;0 Stars&quot;))))))</formula
         <fullName>Site</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Site_Visits_This_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Visits This Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_Visits_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Visits Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Skype__c</fullName>

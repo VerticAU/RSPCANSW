@@ -639,6 +639,24 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Case_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+	ISBLANK(ClosedDate),
+	TODAY () - DATEVALUE(CreatedDate),
+	DATEVALUE(ClosedDate) - DATEVALUE(CreatedDate)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Case_Enquiry_Type__c</fullName>
         <externalId>false</externalId>
         <label>Case Enquiry Type</label>

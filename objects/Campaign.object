@@ -728,6 +728,18 @@ IF(
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Service_Session__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Session</label>
+        <referenceTo>pmdm__ServiceSession__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>StartDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>

@@ -21,8 +21,16 @@
         <name>Account_ID__c</name>
     </fields>
     <fields>
+        <label><!-- Active Members --></label>
+        <name>Active_Members__c</name>
+    </fields>
+    <fields>
         <label><!-- Anonymous --></label>
         <name>Anonymous__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Days to Close Incident --></label>
+        <name>Average_Days_to_Close_Incident__c</name>
     </fields>
     <fields>
         <label><!-- Bequest Amount --></label>
@@ -64,6 +72,10 @@
     <fields>
         <label><!-- Branch Goals Star Rating --></label>
         <name>Branch_Goals_Star_Rating__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Incident Tracking --></label>
+        <name>Branch_Incident_Tracking__c</name>
     </fields>
     <fields>
         <label><!-- Cash Amount Received --></label>
@@ -280,6 +292,18 @@
         <name>Goals_On_Track__c</name>
     </fields>
     <fields>
+        <label><!-- Closed Incidents --></label>
+        <name>Incidents_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income This Year --></label>
+        <name>Income_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income Total --></label>
+        <name>Income_Total__c</name>
+    </fields>
+    <fields>
         <label><!-- Instagram --></label>
         <name>Instagram__c</name>
     </fields>
@@ -318,6 +342,18 @@
         <name>One_Drive_Folder_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Open Incident Days Current --></label>
+        <name>Open_Incident_Days_Current__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Incident Days Total --></label>
+        <name>Open_Incident_Days_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Incidents --></label>
+        <name>Open_Incidents__c</name>
+    </fields>
+    <fields>
         <label><!-- Other Phone --></label>
         <name>Other_Phone__c</name>
     </fields>
@@ -352,6 +388,14 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Service Sessions (Events) This Year --></label>
+        <name>Service_Sessions_Events_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Sessions (Events) Total --></label>
+        <name>Service_Sessions_Events_Total__c</name>
+    </fields>
+    <fields>
         <label><!-- Services --></label>
         <name>Services__c</name>
         <picklistValues>
@@ -374,6 +418,14 @@
     <fields>
         <label><!-- Shares Amount Received --></label>
         <name>Shares_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Visits This Year --></label>
+        <name>Site_Visits_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Visits Total --></label>
+        <name>Site_Visits_Total__c</name>
     </fields>
     <fields>
         <label><!-- Skype --></label>

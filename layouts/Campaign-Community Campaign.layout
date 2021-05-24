@@ -32,6 +32,10 @@
                 <behavior>Edit</behavior>
                 <field>Service_Schedule__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Session__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -3,70 +3,19 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>hideUpdateButton</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>variant</name>
-                    <value>linear</value>
-                </componentInstanceProperties>
-                <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <componentName>OutreachResourcesCalendar</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-01b20b0b-60ae-4976-a893-48b09e7a0af6</name>
+        <name>Facet-2683fcb8-4f54-43fb-86ab-5309d0589d08</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>SydneyResourcesCalendar</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.LGA_Name__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Sydney</rightValue>
-                    </criteria>
-                </visibilityRule>
+                <componentName>StatewideResourcesCalendar</componentName>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>BathurstResourcesCalendar</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.LGA_Name__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Bathurst Regional</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>BlueMountainsResourcesCalendar</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.LGA_Name__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Blue Mountains</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>CentralCoastResourcesCalendar</componentName>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.LGA_Name__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Central Coast</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-2683fcb8-4f54-43fb-86ab-5309d0589d08</name>
+        <name>Facet-c36b67d8-7bb0-4313-84a3-7998b989517c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -83,23 +32,6 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-01b20b0b-60ae-4976-a893-48b09e7a0af6</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Service Session Status</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>name</name>
-                    <value>accordionSection--hev4dwh9xpl</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordionSection</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
                     <value>Facet-2683fcb8-4f54-43fb-86ab-5309d0589d08</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -109,6 +41,23 @@
                 <componentInstanceProperties>
                     <name>name</name>
                     <value>accordionSection1</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:accordionSection</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-c36b67d8-7bb0-4313-84a3-7998b989517c</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>RSPCA Internal Resources</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>name</name>
+                    <value>accordionSection--uz4p6y3mroq</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:accordionSection</componentName>
             </componentInstance>
@@ -162,12 +111,21 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>accordionSections</name>
-                    <value>Facet-56fec75a-b8c4-41fb-a28e-7d67f818327c</value>
+                    <name>hideUpdateButton</name>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>defaultSectionName</name>
-                    <value>accordionSection--hev4dwh9xpl</value>
+                    <name>variant</name>
+                    <value>linear</value>
+                </componentInstanceProperties>
+                <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>accordionSections</name>
+                    <value>Facet-56fec75a-b8c4-41fb-a28e-7d67f818327c</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:accordion</componentName>
             </componentInstance>
@@ -370,6 +328,31 @@
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
                     <value>Expenses__r</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>pmdm__ServiceSession__c.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>Campaigns__r</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>

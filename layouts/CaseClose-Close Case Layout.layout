@@ -90,6 +90,10 @@
                 <behavior>Edit</behavior>
                 <field>Financial_Agreement_Details__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Case_Age__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

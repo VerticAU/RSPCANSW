@@ -594,6 +594,11 @@
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Service Session --></label>
+        <name>Service_Session__c</name>
+        <relationshipLabel><!-- Campaigns --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Start Time --></label>
         <name>Start_Time__c</name>
     </fields>
