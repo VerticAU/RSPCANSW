@@ -5311,6 +5311,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Expense__c.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Expense__c.Expense_Amount__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5321,7 +5326,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Expense__c.Number_Purchased__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Expense__c.Paid_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Expense__c.Partner__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7377,6 +7392,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Partner__c.Account__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Partner__c.Contact_Roles__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Partner__c.Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

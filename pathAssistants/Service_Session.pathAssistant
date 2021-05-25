@@ -5,8 +5,20 @@
     <fieldName>pmdm__Status__c</fieldName>
     <masterLabel>Service Session</masterLabel>
     <pathAssistantSteps>
+        <info>&lt;p&gt;Generate a &lt;b&gt;Partner Schedule&lt;/b&gt; report to communicate schedule to partners.&lt;/p&gt;&lt;p&gt;Check clients in via Salesforce using laptop or iPad.&lt;/p&gt;&lt;p&gt;Collect outbound referrals.&lt;/p&gt;</info>
+        <picklistValueName>In Progress</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Request for RSPCA Vets and common partners like VBB and Greencross.&lt;/p&gt;&lt;p&gt;Create flyers and promote event (use Salesforce campaigns).&lt;/p&gt;&lt;p&gt;Reach out to foundations for donations.&lt;/p&gt;</info>
+        <picklistValueName>Partner Engagement &amp; Marketing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
         <info>&lt;p&gt;Identify the area for the event.&lt;/p&gt;&lt;p&gt;Contact and confirm involvement with council, community groups, local vets and branch (add as partners).&lt;/p&gt;&lt;p&gt;Confirm the location where the event will take place.&lt;/p&gt;</info>
         <picklistValueName>Planning</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Generate a &lt;b&gt;Service Participants&lt;/b&gt; report to add contacts to a campaign for follow up communications.&lt;/p&gt;&lt;p&gt;Generate an &lt;b&gt;Outbound Referrals&lt;/b&gt; report to send to partners.&lt;/p&gt;&lt;p&gt;Generate a &lt;b&gt;Payment Summary&lt;/b&gt; report to review financial summary of the event.&lt;/p&gt;</info>
+        <picklistValueName>Post Event</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <info>&lt;p&gt;Order supplies for the event.&lt;/p&gt;&lt;p&gt;Book accommodation for regional events.&lt;/p&gt;&lt;p&gt;RA &amp;amp; COVID sale docs.&lt;/p&gt;&lt;p&gt;Confirm all resources (staff, volunteers, partners).&lt;/p&gt;&lt;p&gt;Start booking clients.&lt;/p&gt;</info>

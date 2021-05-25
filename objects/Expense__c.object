@@ -176,6 +176,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
         <fullName>Expense_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Expense Amount</label>
@@ -213,8 +223,25 @@
                     <default>false</default>
                     <label>Resources</label>
                 </value>
+                <value>
+                    <fullName>Vet Supplies</fullName>
+                    <default>false</default>
+                    <label>Vet Supplies</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_Purchased__c</fullName>
+        <externalId>false</externalId>
+        <label>Number Purchased</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Paid_Date__c</fullName>
@@ -224,6 +251,19 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Partner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Partner</label>
+        <referenceTo>Partner__c</referenceTo>
+        <relationshipLabel>Expenses</relationshipLabel>
+        <relationshipName>Expenses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Service_Session__c</fullName>

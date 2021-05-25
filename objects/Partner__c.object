@@ -176,6 +176,137 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Contact_Roles__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Roles</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Community Liaison</fullName>
+                    <default>false</default>
+                    <label>Community Liaison</label>
+                </value>
+                <value>
+                    <fullName>Council Desexer 1</fullName>
+                    <default>false</default>
+                    <label>Council Desexer 1</label>
+                </value>
+                <value>
+                    <fullName>Council Desexer 2</fullName>
+                    <default>false</default>
+                    <label>Council Desexer 2</label>
+                </value>
+                <value>
+                    <fullName>Council Desexer 3</fullName>
+                    <default>false</default>
+                    <label>Council Desexer 3</label>
+                </value>
+                <value>
+                    <fullName>Council Microchipper 1</fullName>
+                    <default>false</default>
+                    <label>Council Microchipper 1</label>
+                </value>
+                <value>
+                    <fullName>Council Microchipper 2</fullName>
+                    <default>false</default>
+                    <label>Council Microchipper 2</label>
+                </value>
+                <value>
+                    <fullName>Council Microchipper 3</fullName>
+                    <default>false</default>
+                    <label>Council Microchipper 3</label>
+                </value>
+                <value>
+                    <fullName>DVM Student 1</fullName>
+                    <default>false</default>
+                    <label>DVM Student 1</label>
+                </value>
+                <value>
+                    <fullName>DVM Student 2</fullName>
+                    <default>false</default>
+                    <label>DVM Student 2</label>
+                </value>
+                <value>
+                    <fullName>DVM Student 3</fullName>
+                    <default>false</default>
+                    <label>DVM Student 3</label>
+                </value>
+                <value>
+                    <fullName>Hygiene Marshall</fullName>
+                    <default>false</default>
+                    <label>Hygiene Marshall</label>
+                </value>
+                <value>
+                    <fullName>Registration Desk 1</fullName>
+                    <default>false</default>
+                    <label>Registration Desk 1</label>
+                </value>
+                <value>
+                    <fullName>Registration Desk 2</fullName>
+                    <default>false</default>
+                    <label>Registration Desk 2</label>
+                </value>
+                <value>
+                    <fullName>Survey Assistant</fullName>
+                    <default>false</default>
+                    <label>Survey Assistant</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Marshall</fullName>
+                    <default>false</default>
+                    <label>Vehicle Marshall</label>
+                </value>
+                <value>
+                    <fullName>Veterinarian 1</fullName>
+                    <default>false</default>
+                    <label>Veterinarian 1</label>
+                </value>
+                <value>
+                    <fullName>Veterinarian 2</fullName>
+                    <default>false</default>
+                    <label>Veterinarian 2</label>
+                </value>
+                <value>
+                    <fullName>Veterinarian 3</fullName>
+                    <default>false</default>
+                    <label>Veterinarian 3</label>
+                </value>
+                <value>
+                    <fullName>Vet Nurse 1</fullName>
+                    <default>false</default>
+                    <label>Vet Nurse 1</label>
+                </value>
+                <value>
+                    <fullName>Vet Nurse 2</fullName>
+                    <default>false</default>
+                    <label>Vet Nurse 2</label>
+                </value>
+                <value>
+                    <fullName>Vet Nurse 3</fullName>
+                    <default>false</default>
+                    <label>Vet Nurse 3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
         <fullName>End_Time__c</fullName>
         <externalId>false</externalId>
         <label>End Time</label>
@@ -202,9 +333,29 @@
                     <label>Branch</label>
                 </value>
                 <value>
+                    <fullName>Community</fullName>
+                    <default>false</default>
+                    <label>Community</label>
+                </value>
+                <value>
+                    <fullName>Council</fullName>
+                    <default>false</default>
+                    <label>Council</label>
+                </value>
+                <value>
                     <fullName>Event Location</fullName>
                     <default>false</default>
                     <label>Event Location</label>
+                </value>
+                <value>
+                    <fullName>Foundation</fullName>
+                    <default>false</default>
+                    <label>Foundation</label>
+                </value>
+                <value>
+                    <fullName>NFP</fullName>
+                    <default>false</default>
+                    <label>NFP</label>
                 </value>
                 <value>
                     <fullName>Sponsor</fullName>
@@ -257,6 +408,11 @@
                     <fullName>Interested</fullName>
                     <default>false</default>
                     <label>Interested</label>
+                </value>
+                <value>
+                    <fullName>Tentative</fullName>
+                    <default>false</default>
+                    <label>Tentative</label>
                 </value>
                 <value>
                     <fullName>Confirmed</fullName>

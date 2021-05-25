@@ -13,6 +13,10 @@
         <name>Booking_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <label><!-- Expense Amount --></label>
         <name>Expense_Amount__c</name>
     </fields>
@@ -31,10 +35,23 @@
             <masterLabel>Resources</masterLabel>
             <translation><!-- Resources --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Vet Supplies</masterLabel>
+            <translation><!-- Vet Supplies --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number Purchased --></label>
+        <name>Number_Purchased__c</name>
     </fields>
     <fields>
         <label><!-- Paid Date --></label>
         <name>Paid_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner --></label>
+        <name>Partner__c</name>
+        <relationshipLabel><!-- Expenses --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Service Session --></label>
@@ -66,6 +83,10 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
         </sections>
         <sections>
             <label><!-- Expense Information --></label>

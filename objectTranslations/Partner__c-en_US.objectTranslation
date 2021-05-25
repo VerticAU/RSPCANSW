@@ -14,6 +14,98 @@
         <relationshipLabel><!-- Partners --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Contact Roles --></label>
+        <name>Contact_Roles__c</name>
+        <picklistValues>
+            <masterLabel>Community Liaison</masterLabel>
+            <translation><!-- Community Liaison --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council Desexer 1</masterLabel>
+            <translation><!-- Council Desexer 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council Desexer 2</masterLabel>
+            <translation><!-- Council Desexer 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council Desexer 3</masterLabel>
+            <translation><!-- Council Desexer 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council Microchipper 1</masterLabel>
+            <translation><!-- Council Microchipper 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council Microchipper 2</masterLabel>
+            <translation><!-- Council Microchipper 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council Microchipper 3</masterLabel>
+            <translation><!-- Council Microchipper 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DVM Student 1</masterLabel>
+            <translation><!-- DVM Student 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DVM Student 2</masterLabel>
+            <translation><!-- DVM Student 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DVM Student 3</masterLabel>
+            <translation><!-- DVM Student 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hygiene Marshall</masterLabel>
+            <translation><!-- Hygiene Marshall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Desk 1</masterLabel>
+            <translation><!-- Registration Desk 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Desk 2</masterLabel>
+            <translation><!-- Registration Desk 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey Assistant</masterLabel>
+            <translation><!-- Survey Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Marshall</masterLabel>
+            <translation><!-- Vehicle Marshall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vet Nurse 1</masterLabel>
+            <translation><!-- Vet Nurse 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vet Nurse 2</masterLabel>
+            <translation><!-- Vet Nurse 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vet Nurse 3</masterLabel>
+            <translation><!-- Vet Nurse 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veterinarian 1</masterLabel>
+            <translation><!-- Veterinarian 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veterinarian 2</masterLabel>
+            <translation><!-- Veterinarian 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veterinarian 3</masterLabel>
+            <translation><!-- Veterinarian 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <label><!-- End Time --></label>
         <name>End_Time__c</name>
     </fields>
@@ -25,8 +117,24 @@
             <translation><!-- Branch --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Community</masterLabel>
+            <translation><!-- Community --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council</masterLabel>
+            <translation><!-- Council --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Event Location</masterLabel>
             <translation><!-- Event Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foundation</masterLabel>
+            <translation><!-- Foundation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NFP</masterLabel>
+            <translation><!-- NFP --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sponsor</masterLabel>
@@ -61,12 +169,24 @@
             <masterLabel>Interested</masterLabel>
             <translation><!-- Interested --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Tentative</masterLabel>
+            <translation><!-- Tentative --></translation>
+        </picklistValues>
     </fields>
     <layouts>
         <layout>Partner Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Roles --></label>
+            <section>Roles</section>
         </sections>
         <sections>
             <label><!-- Time --></label>
