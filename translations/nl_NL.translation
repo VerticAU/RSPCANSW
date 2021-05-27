@@ -57,6 +57,10 @@
         <name>Education_Centre_Calendar</name>
     </customTabs>
     <customTabs>
+        <label><!-- Outreach Calendar --></label>
+        <name>Outreach_Calendar</name>
+    </customTabs>
+    <customTabs>
         <label><!-- Platform Events Listener --></label>
         <name>Platform_Events_Listener</name>
     </customTabs>

@@ -4,6 +4,7 @@
     <aura:attribute
         name="myPrototypeReservation"
         type="B25__Reservation__c"
+        default="{'sobjectType':'B25__Reservation__c', 'B25__Staff__c':'a361y0000000KLxAAM'}"
     />
     
     <aura:attribute

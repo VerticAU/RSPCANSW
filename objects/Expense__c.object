@@ -207,16 +207,21 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Location</fullName>
+                    <default>false</default>
+                    <label>Location</label>
+                </value>
                 <value>
                     <fullName>Marketing</fullName>
                     <default>false</default>
                     <label>Marketing</label>
                 </value>
                 <value>
-                    <fullName>Location</fullName>
+                    <fullName>Partner Invoice</fullName>
                     <default>false</default>
-                    <label>Location</label>
+                    <label>Partner Invoice</label>
                 </value>
                 <value>
                     <fullName>Resources</fullName>

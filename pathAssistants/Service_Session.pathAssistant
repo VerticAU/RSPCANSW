@@ -5,7 +5,7 @@
     <fieldName>pmdm__Status__c</fieldName>
     <masterLabel>Service Session</masterLabel>
     <pathAssistantSteps>
-        <info>&lt;p&gt;Generate a &lt;b&gt;Partner Schedule&lt;/b&gt; report to communicate schedule to partners.&lt;/p&gt;&lt;p&gt;Check clients in via Salesforce using laptop or iPad.&lt;/p&gt;&lt;p&gt;Collect outbound referrals.&lt;/p&gt;</info>
+        <info>&lt;p&gt;Generate a &lt;b&gt;Partner Schedule&lt;/b&gt; report to communicate schedule to partners.&lt;/p&gt;&lt;p&gt;Check clients in via Salesforce using laptop or iPad.&lt;/p&gt;&lt;p&gt;Collect outbound referrals.&lt;/p&gt;&lt;p&gt;Survey event attendees.&lt;/p&gt;</info>
         <picklistValueName>In Progress</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>

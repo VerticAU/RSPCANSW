@@ -9525,6 +9525,10 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Outreach_Calendar</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Partner__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

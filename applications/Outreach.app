@@ -543,6 +543,7 @@
         <profile>Webhook Profile</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
+    <tabs>Outreach_Calendar</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>pmdm__Program__c</tabs>
@@ -551,7 +552,6 @@
     <tabs>pmdm__ServiceSession__c</tabs>
     <tabs>standard-Campaign</tabs>
     <tabs>standard-Case</tabs>
-    <tabs>B25__Lightning_Calendar</tabs>
     <tabs>standard-report</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Programs_UtilityBar</utilityBar>

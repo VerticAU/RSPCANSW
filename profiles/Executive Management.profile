@@ -9766,6 +9766,10 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Outreach_Calendar</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Partner__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

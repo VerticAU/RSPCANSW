@@ -32,6 +32,10 @@
             <translation><!-- Marketing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Partner Invoice</masterLabel>
+            <translation><!-- Partner Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Resources</masterLabel>
             <translation><!-- Resources --></translation>
         </picklistValues>
