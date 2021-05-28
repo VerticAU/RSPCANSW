@@ -260,7 +260,6 @@
         <fields>ContactId</fields>
         <fields>caseman__Program__c</fields>
         <fields>Status</fields>
-        <fields>Days_In_Care__c</fields>
         <fields>Priority</fields>
         <fields>OwnerId</fields>
         <label>Programs Compact Layout</label>

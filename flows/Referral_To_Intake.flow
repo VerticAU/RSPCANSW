@@ -165,6 +165,12 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>caseman__Intake__c</field>
             <value>
                 <elementReference>varIntake.Id</elementReference>

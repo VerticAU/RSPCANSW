@@ -39,15 +39,15 @@
                 <behavior>Edit</behavior>
                 <field>caseman__Intake__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Case_Age__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Case_Enquiry_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assistance_Required__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -73,21 +73,12 @@
                 <behavior>Edit</behavior>
                 <field>Priority</field>
             </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Assistance Required</label>
-        <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Assistance_Required__c</field>
+                <behavior>Edit</behavior>
+                <field>caseman__Program__c</field>
             </layoutItems>
         </layoutColumns>
-        <style>OneColumn</style>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -146,6 +137,10 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>caseman__ClientNoteRelationship__c.caseman__Case__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <relatedList>RelatedCaseContactRoleList</relatedList>
     </relatedLists>

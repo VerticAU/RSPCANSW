@@ -8,6 +8,14 @@
         <field>pmdm__Role__c</field>
         <literalValue>Client</literalValue>
     </fieldOverrides>
+    <fieldOverrides>
+        <field>pmdm__Stage__c</field>
+        <literalValue>Enrolled</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>pmdm__StartDate__c</field>
+        <formula>Today()</formula>
+    </fieldOverrides>
     <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
@@ -19,7 +27,17 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
-                <field>pmdm__ProgramCohort__c</field>
+                <field>pmdm__Program__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>caseman__Intake__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>pmdm__Stage__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
@@ -28,18 +46,7 @@
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
         </quickActionLayoutColumns>
-        <quickActionLayoutColumns>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>pmdm__Program__c</field>
-                <uiBehavior>Required</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>pmdm__Stage__c</field>
-                <uiBehavior>Required</uiBehavior>
-            </quickActionLayoutItems>
-        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
     </quickActionLayout>
     <standardLabel>CreateNew</standardLabel>
     <targetObject>pmdm__ProgramEngagement__c</targetObject>

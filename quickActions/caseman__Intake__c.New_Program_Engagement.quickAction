@@ -8,6 +8,18 @@
         <field>pmdm__Contact__c</field>
         <formula>caseman__Intake__c.caseman__Contact__c</formula>
     </fieldOverrides>
+    <fieldOverrides>
+        <field>pmdm__Role__c</field>
+        <literalValue>Client</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>pmdm__Stage__c</field>
+        <literalValue>Enrolled</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>pmdm__StartDate__c</field>
+        <formula>Today()</formula>
+    </fieldOverrides>
     <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
@@ -15,11 +27,6 @@
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
                 <field>pmdm__Program__c</field>
-                <uiBehavior>Required</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>pmdm__Role__c</field>
                 <uiBehavior>Required</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>

@@ -138,6 +138,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Intake_Completed_Date</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Membership_Renewal_Set_Date_Offset</fullName>
     </flowDefinitions>
     <flowDefinitions>
@@ -252,6 +256,10 @@
     <flowDefinitions>
         <flows/>
         <fullName>Update_In_Care_Date</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Update_Intake_Name</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
