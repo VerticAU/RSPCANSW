@@ -24,6 +24,10 @@
         <label><!-- Expense Type --></label>
         <name>Expense_Type__c</name>
         <picklistValues>
+            <masterLabel>Accommodation</masterLabel>
+            <translation><!-- Accommodation --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Location</masterLabel>
             <translation><!-- Location --></translation>
         </picklistValues>

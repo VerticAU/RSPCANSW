@@ -209,6 +209,11 @@
             <valueSetDefinition>
                 <sorted>true</sorted>
                 <value>
+                    <fullName>Accommodation</fullName>
+                    <default>false</default>
+                    <label>Accommodation</label>
+                </value>
+                <value>
                     <fullName>Location</fullName>
                     <default>false</default>
                     <label>Location</label>
