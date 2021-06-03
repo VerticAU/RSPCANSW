@@ -212,8 +212,8 @@
         <externalId>false</externalId>
         <label>Branch</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Campaigns</relationshipLabel>
-        <relationshipName>Campaigns</relationshipName>
+        <relationshipLabel>Branch Campaigns</relationshipLabel>
+        <relationshipName>Branch_Campaigns</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
@@ -1263,10 +1263,6 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cup Cake Day</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
@@ -1275,23 +1271,11 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guardian Angel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Million Paws Walk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Program</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tax Appeal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1846,10 +1830,6 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cup Cake Day</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
@@ -1858,23 +1838,11 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guardian Angel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Million Paws Walk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Program</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tax Appeal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2430,10 +2398,6 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cup Cake Day</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
@@ -2442,19 +2406,7 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guardian Angel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Million Paws Walk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tax Appeal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3009,10 +2961,6 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cup Cake Day</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
@@ -3021,19 +2969,7 @@ IF(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guardian Angel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Million Paws Walk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tax Appeal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

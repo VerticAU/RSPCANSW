@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Animal_Requires_Urgent_Vet_Attention__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>One_Drive_Folder_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -7450,6 +7450,16 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Postcode__c.Postcode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Postcode__c.Suburb__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Description</field>
         <readable>true</readable>
@@ -9065,6 +9075,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Payment_EziDebit_Settings__mdt-Payment EziDebit Settings Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Postcode__c-Postcode Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>

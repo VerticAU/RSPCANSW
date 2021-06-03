@@ -15,7 +15,7 @@
     <fields>
         <label><!-- Branch --></label>
         <name>Branch__c</name>
-        <relationshipLabel><!-- Campaigns --></relationshipLabel>
+        <relationshipLabel><!-- Branch Campaigns --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Campaign Code --></label>
