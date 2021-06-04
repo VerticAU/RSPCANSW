@@ -26,8 +26,31 @@
                 <componentName>force:highlightsPanel</componentName>
             </componentInstance>
         </itemInstances>
+        <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListContainer</componentName>
+            </componentInstance>
+        </itemInstances>
+        <mode>Replace</mode>
+        <name>relatedTabContent</name>
+        <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
@@ -35,10 +58,24 @@
                 <componentName>force:detailPanel</componentName>
             </componentInstance>
         </itemInstances>
+        <mode>Replace</mode>
         <name>detailTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>relatedTabContent</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Standard.Tab.relatedLists</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -56,6 +93,7 @@
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
+        <mode>Replace</mode>
         <name>maintabs</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -69,87 +107,9 @@
                 <componentName>flexipage:tabset</componentName>
             </componentInstance>
         </itemInstances>
-        <name>leftcol</name>
+        <mode>Replace</mode>
+        <name>main</name>
         <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>pmdm__ServiceSchedule__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>pmdm__ServiceSessions__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>pmdm__ServiceSchedule__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Funding_Allocations__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>pmdm__ServiceSchedule__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Campaigns__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-fac25e2e-313c-4f04-b13e-817ba474e587</name>
-        <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
@@ -157,36 +117,18 @@
                 <componentName>runtime_sales_activities:activityPanel</componentName>
             </componentInstance>
         </itemInstances>
+        <mode>Replace</mode>
         <name>activityTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>pmdm__ServiceSchedule__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>AttachedContentNotes</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
+                <componentName>forceChatter:recordFeedContainer</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-b647fae6-9255-412a-a8fd-fdad4a6a4ccb</name>
+        <mode>Replace</mode>
+        <name>feedTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -195,28 +137,15 @@
                 <componentName>OneDriveFiles</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-g38r75f7ds6</name>
+        <name>Facet-e3ffe1c6-f0ff-41f1-95db-1be621b2113c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-fac25e2e-313c-4f04-b13e-817ba474e587</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Standard.Tab.relatedLists</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
                     <name>active</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>body</name>
@@ -233,11 +162,11 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-b647fae6-9255-412a-a8fd-fdad4a6a4ccb</value>
+                    <value>feedTabContent</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Notes</value>
+                    <value>Standard.Tab.collaborate</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
@@ -246,7 +175,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-g38r75f7ds6</value>
+                    <value>Facet-e3ffe1c6-f0ff-41f1-95db-1be621b2113c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
@@ -255,6 +184,7 @@
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
+        <mode>Replace</mode>
         <name>sidebartabs</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -268,13 +198,15 @@
                 <componentName>flexipage:tabset</componentName>
             </componentInstance>
         </itemInstances>
-        <name>rightcol</name>
+        <mode>Replace</mode>
+        <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Service Schedule Record Page</masterLabel>
-    <sobjectType>pmdm__ServiceSchedule__c</sobjectType>
+    <masterLabel>Intake Record Page</masterLabel>
+    <parentFlexiPage>flexipage__default_rec_L</parentFlexiPage>
+    <sobjectType>caseman__Intake__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeTwoColEqualHeaderTemplateDesktop</name>
+        <name>flexipage:recordHomeTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

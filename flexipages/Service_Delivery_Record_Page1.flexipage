@@ -62,6 +62,15 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>OneDriveFiles</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-18b7251b-a76e-4988-a939-f1ea48992445</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>active</name>
                     <value>true</value>
@@ -86,6 +95,19 @@
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Standard.Tab.relatedLists</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-18b7251b-a76e-4988-a939-f1ea48992445</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>OneDrive</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>

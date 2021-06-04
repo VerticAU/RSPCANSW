@@ -430,19 +430,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>pmdm__ServiceSession__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>AttachedContentDocuments</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>GRID</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
+                <componentName>OneDriveFiles</componentName>
             </componentInstance>
         </itemInstances>
         <name>Facet-71ecd115-4d6f-419c-bdfd-ca0b628fd1fa</name>
@@ -504,7 +492,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Files</value>
+                    <value>OneDrive</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
