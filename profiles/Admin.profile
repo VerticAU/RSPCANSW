@@ -121,6 +121,14 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AccountDomain</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountDomainTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AddPaymentWizardMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -7455,6 +7463,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Payment_EziDebit_Settings__mdt.Username__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Postcode__c.LGA__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

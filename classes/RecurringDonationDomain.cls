@@ -40,6 +40,8 @@ public without sharing class RecurringDonationDomain extends fflib_SObjectDomain
         } else {
             asyncProcess.enqueueAndRun();
         }
+
+        this.populateCampaignFromRD(this.Records);
     }
 
     private static void setSetTemporaryPreviousOpportunityAmount(List<npe03__Recurring_Donation__c> recurringDonations, Map<Id, SObject> existingRecords) {
@@ -51,4 +53,19 @@ public without sharing class RecurringDonationDomain extends fflib_SObjectDomain
         }
     }
 
+    private void populateCampaignFromRD(List<npe03__Recurring_Donation__c> recurringDonations){
+        List<Opportunity> opportunities = [
+            SELECT Id, CampaignId, npe03__Recurring_Donation__c, npe03__Recurring_Donation__r.npe03__Recurring_Donation_Campaign__c
+            FROM Opportunity
+            WHERE npe03__Recurring_Donation__r.npe03__Recurring_Donation_Campaign__c != NULL
+            AND Created_By_Recurring_Donation__c = TRUE
+            AND CampaignId = NULL
+            AND npe03__Recurring_Donation__c IN: vertic_Utils.sObjects.getStringFieldValues(recurringDonations, 'Id')
+        ];
+
+        for(Opportunity opp: opportunities){
+            opp.CampaignId = opp.npe03__Recurring_Donation__r.npe03__Recurring_Donation_Campaign__c;
+        }
+        update opportunities;
+    }
 }

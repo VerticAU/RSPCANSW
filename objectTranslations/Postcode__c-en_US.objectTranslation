@@ -9,6 +9,11 @@
         <value>Postcodes</value>
     </caseValues>
     <fields>
+        <label><!-- LGA --></label>
+        <name>LGA__c</name>
+        <relationshipLabel><!-- Postcodes --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Postcode --></label>
         <name>Postcode__c</name>
     </fields>

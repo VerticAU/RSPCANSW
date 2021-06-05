@@ -154,6 +154,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>LGA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LGA</label>
+        <referenceTo>LGA__c</referenceTo>
+        <relationshipLabel>Postcodes</relationshipLabel>
+        <relationshipName>Postcodes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Postcode__c</fullName>
         <externalId>false</externalId>
         <label>Postcode</label>

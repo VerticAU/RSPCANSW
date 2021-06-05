@@ -35,6 +35,7 @@ public class PopulateOpportunityCampaignScript extends vertic_AbstractProcessor 
             opp.CampaignId = opp.npe03__Recurring_Donation__r.npe03__Recurring_Donation_Campaign__c;
         }
 
+        fflib_SObjectDomain.getTriggerEvent(OpportunityDomain.class).disableAll();
         update opportunities;
     }
 

@@ -13,10 +13,17 @@ public without sharing class ContactDomain extends fflib_SObjectDomain implement
 
     public override void onBeforeInsert() {
         this.formatContacts(this.Records);
+        this.populateLGA(this.Records);
     }
     public override void onAfterInsert() {}
     public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
         this.formatContacts(this.Records);
+        this.populateLGA(
+            this.filterByChangedFields(
+                this.Records,
+                existingRecords,
+                new List<String>{'MailingCity', 'MailingPostalCode'})
+        );
     }
     public override void onAfterUpdate(Map<Id, SObject> existingRecords) {}
 
@@ -103,5 +110,39 @@ public without sharing class ContactDomain extends fflib_SObjectDomain implement
 
         String formattedState = stateAbbr.get(suburb.toLowerCase().trim().deleteWhitespace());
         return formattedState == null ? suburb : formattedState;
+    }
+
+    private List<Contact> filterByChangedFields(List<Contact> newRecords, Map<Id, SObject> existingRecords, List<String> fieldsToCheck){
+        List<Contact> changedRecords = new List<Contact>();
+        for(Contact contact : newRecords){
+            if(vertic_Utils.sObjects.isSomeFieldChanged(contact, existingRecords.get(contact.Id), fieldsToCheck)){
+                changedRecords.add(contact);
+            }
+        }
+        return changedRecords;
+    }
+
+    private void populateLGA(List<Contact> contacts){
+        Set<String> cityValues = vertic_Utils.sObjects.getStringFieldValues(contacts, 'MailingCity');
+        Set<String> postcodeValues = vertic_Utils.sObjects.getStringFieldValues(contacts, 'MailingPostalCode');
+
+        List<Postcode__c> postcodes = [
+            SELECT Id, LGA__c, Postcode__c, Suburb__c
+            FROM Postcode__c
+            WHERE Suburb__c IN :cityValues
+            AND Postcode__c IN :postcodeValues
+            AND LGA__c != NULL
+            AND Suburb__c != NULL
+            AND Postcode__c != NULL
+        ];
+
+        for(Contact contact: contacts){
+            for(Postcode__c postcode: postcodes){
+                if(contact.MailingCity == postcode.Suburb__c && contact.MailingPostalCode == postcode.Postcode__c){
+                    contact.LGA__c = postcode.LGA__c;
+                    continue;
+                }
+            }
+        }
     }
 }
