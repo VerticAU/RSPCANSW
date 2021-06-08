@@ -1089,6 +1089,10 @@
         <name>Birthdate__c</name>
     </fields>
     <fields>
+        <label><!-- Body Condition Score --></label>
+        <name>Body_Condition_Score__c</name>
+    </fields>
+    <fields>
         <label><!-- Contact Name --></label>
         <name>Contact_Name__c</name>
     </fields>
@@ -1124,6 +1128,14 @@
     <fields>
         <label><!-- Desexed --></label>
         <name>Desexed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- External ID --></label>
@@ -1162,8 +1174,24 @@
         <name>Items_with_Animals__c</name>
     </fields>
     <fields>
+        <label><!-- Lactating --></label>
+        <name>Lactating__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Last Flea Tx --></label>
         <name>Last_Flea_Tx__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Litter Date --></label>
+        <name>Last_Litter_Date__c</name>
     </fields>
     <fields>
         <label><!-- Last Vaccination Date --></label>
@@ -1195,6 +1223,718 @@
         <help><!-- What are the presenting medical issues? --></help>
         <label><!-- Presenting Medical Issues --></label>
         <name>Presenting_Medical_Issues__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Breed --></label>
+        <name>Primary_Breed__c</name>
+        <picklistValues>
+            <masterLabel>Abyssinian</masterLabel>
+            <translation><!-- Abyssinian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>African Grey Parrot</masterLabel>
+            <translation><!-- African Grey Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Akita</masterLabel>
+            <translation><!-- Akita --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alaskan Malamute</masterLabel>
+            <translation><!-- Alaskan Malamute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alexandrine Parrot</masterLabel>
+            <translation><!-- Alexandrine Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Bulldog</masterLabel>
+            <translation><!-- American Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Pit Bull Terrier</masterLabel>
+            <translation><!-- American Pit Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Staffordshire Terrier</masterLabel>
+            <translation><!-- American Staffordshire Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anatolian Shepherd</masterLabel>
+            <translation><!-- Anatolian Shepherd --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Angora</masterLabel>
+            <translation><!-- Angora --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Angus</masterLabel>
+            <translation><!-- Angus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arab</masterLabel>
+            <translation><!-- Arab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Bulldog</masterLabel>
+            <translation><!-- Australian Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Cattle Dog</masterLabel>
+            <translation><!-- Australian Cattle Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Kelpie</masterLabel>
+            <translation><!-- Australian Kelpie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Mist</masterLabel>
+            <translation><!-- Australian Mist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Silky Terrier</masterLabel>
+            <translation><!-- Australian Silky Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Stock Horse</masterLabel>
+            <translation><!-- Australian Stock Horse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Terrier</masterLabel>
+            <translation><!-- Australian Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basset Hound</masterLabel>
+            <translation><!-- Basset Hound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beagle</masterLabel>
+            <translation><!-- Beagle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bearded Dragon</masterLabel>
+            <translation><!-- Bearded Dragon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bengal</masterLabel>
+            <translation><!-- Bengal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bernese Mountain Dog</masterLabel>
+            <translation><!-- Bernese Mountain Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bichon Frise</masterLabel>
+            <translation><!-- Bichon Frise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Birman</masterLabel>
+            <translation><!-- Birman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Tonuge Lizard</masterLabel>
+            <translation><!-- Blue Tonuge Lizard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Border Collie</masterLabel>
+            <translation><!-- Border Collie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Borzoi</masterLabel>
+            <translation><!-- Borzoi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Boston Terrier</masterLabel>
+            <translation><!-- Boston Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Boxer</masterLabel>
+            <translation><!-- Boxer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>British Bulldog</masterLabel>
+            <translation><!-- British Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>British Shorthair</masterLabel>
+            <translation><!-- British Shorthair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Budgerigar</masterLabel>
+            <translation><!-- Budgerigar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bull Terrier</masterLabel>
+            <translation><!-- Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bullmastiff</masterLabel>
+            <translation><!-- Bullmastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burmese</masterLabel>
+            <translation><!-- Burmese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burmilla</masterLabel>
+            <translation><!-- Burmilla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canary</masterLabel>
+            <translation><!-- Canary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cane Corso</masterLabel>
+            <translation><!-- Cane Corso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cavalier King Charles Spaniel</masterLabel>
+            <translation><!-- Cavalier King Charles Spaniel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cavoodle</masterLabel>
+            <translation><!-- Cavoodle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chicken</masterLabel>
+            <translation><!-- Chicken --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chicken (juvenile)</masterLabel>
+            <translation><!-- Chicken (juvenile) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chihuahua</masterLabel>
+            <translation><!-- Chihuahua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese Crested Dog</masterLabel>
+            <translation><!-- Chinese Crested Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chow Chow</masterLabel>
+            <translation><!-- Chow Chow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clydesdale</masterLabel>
+            <translation><!-- Clydesdale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cockatiel</masterLabel>
+            <translation><!-- Cockatiel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cockatoo</masterLabel>
+            <translation><!-- Cockatoo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cocker Spaniel (English)</masterLabel>
+            <translation><!-- Cocker Spaniel (English) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collie (Rough)</masterLabel>
+            <translation><!-- Collie (Rough) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conure Parrot</masterLabel>
+            <translation><!-- Conure Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corella</masterLabel>
+            <translation><!-- Corella --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cornish Rex</masterLabel>
+            <translation><!-- Cornish Rex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curly Coated Retriever</masterLabel>
+            <translation><!-- Curly Coated Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dachshund</masterLabel>
+            <translation><!-- Dachshund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dalmatian</masterLabel>
+            <translation><!-- Dalmatian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Devon Rex</masterLabel>
+            <translation><!-- Devon Rex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dobermann</masterLabel>
+            <translation><!-- Dobermann --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dogue de Bordeaux</masterLabel>
+            <translation><!-- Dogue de Bordeaux --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Longhair</masterLabel>
+            <translation><!-- Domestic Longhair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Medium Hair</masterLabel>
+            <translation><!-- Domestic Medium Hair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Short Hair</masterLabel>
+            <translation><!-- Domestic Short Hair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Donkey</masterLabel>
+            <translation><!-- Donkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dove</masterLabel>
+            <translation><!-- Dove --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duck</masterLabel>
+            <translation><!-- Duck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dwarf</masterLabel>
+            <translation><!-- Dwarf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eclectus Parrot</masterLabel>
+            <translation><!-- Eclectus Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Egyptian Mau</masterLabel>
+            <translation><!-- Egyptian Mau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English Springer Spaniel</masterLabel>
+            <translation><!-- English Springer Spaniel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferret</masterLabel>
+            <translation><!-- Ferret --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finch</masterLabel>
+            <translation><!-- Finch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fox Terrier</masterLabel>
+            <translation><!-- Fox Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French Bulldog</masterLabel>
+            <translation><!-- French Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frog</masterLabel>
+            <translation><!-- Frog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Galah</masterLabel>
+            <translation><!-- Galah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Koolie</masterLabel>
+            <translation><!-- German Koolie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Pinscher</masterLabel>
+            <translation><!-- German Pinscher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Shepherd Dog</masterLabel>
+            <translation><!-- German Shepherd Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Shorthaired Pointer</masterLabel>
+            <translation><!-- German Shorthaired Pointer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golden Retriever</masterLabel>
+            <translation><!-- Golden Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goldfish</masterLabel>
+            <translation><!-- Goldfish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goose</masterLabel>
+            <translation><!-- Goose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Great Dane</masterLabel>
+            <translation><!-- Great Dane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greyhound</masterLabel>
+            <translation><!-- Greyhound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Havanese</masterLabel>
+            <translation><!-- Havanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hungarian Vizsla</masterLabel>
+            <translation><!-- Hungarian Vizsla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indian Ringneck</masterLabel>
+            <translation><!-- Indian Ringneck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Irish Setter</masterLabel>
+            <translation><!-- Irish Setter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Irish Wolfhound</masterLabel>
+            <translation><!-- Irish Wolfhound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jack Russell Terrier</masterLabel>
+            <translation><!-- Jack Russell Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese Chin</masterLabel>
+            <translation><!-- Japanese Chin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese Spitz</masterLabel>
+            <translation><!-- Japanese Spitz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Keeshond</masterLabel>
+            <translation><!-- Keeshond --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labrador Retriever</masterLabel>
+            <translation><!-- Labrador Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leonberger</masterLabel>
+            <translation><!-- Leonberger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lhasa Apso</masterLabel>
+            <translation><!-- Lhasa Apso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lizard</masterLabel>
+            <translation><!-- Lizard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lop Eared</masterLabel>
+            <translation><!-- Lop Eared --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lorikeet</masterLabel>
+            <translation><!-- Lorikeet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lovebird</masterLabel>
+            <translation><!-- Lovebird --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macaw</masterLabel>
+            <translation><!-- Macaw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maine Coon</masterLabel>
+            <translation><!-- Maine Coon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maltese</masterLabel>
+            <translation><!-- Maltese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manx</masterLabel>
+            <translation><!-- Manx --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maremma Sheepdog</masterLabel>
+            <translation><!-- Maremma Sheepdog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mastiff</masterLabel>
+            <translation><!-- Mastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mini Foxie</masterLabel>
+            <translation><!-- Mini Foxie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mini Rex</masterLabel>
+            <translation><!-- Mini Rex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miniature Dachshund</masterLabel>
+            <translation><!-- Miniature Dachshund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miniature Pinscher</masterLabel>
+            <translation><!-- Miniature Pinscher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Munchkin</masterLabel>
+            <translation><!-- Munchkin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neapolitan Mastiff</masterLabel>
+            <translation><!-- Neapolitan Mastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newfoundland</masterLabel>
+            <translation><!-- Newfoundland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nova Scotia Duck Tolling Retriever</masterLabel>
+            <translation><!-- Nova Scotia Duck Tolling Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Old English Sheepdog</masterLabel>
+            <translation><!-- Old English Sheepdog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oriental Longhair</masterLabel>
+            <translation><!-- Oriental Longhair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Papillon</masterLabel>
+            <translation><!-- Papillon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parrot</masterLabel>
+            <translation><!-- Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peacock</masterLabel>
+            <translation><!-- Peacock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pekingese</masterLabel>
+            <translation><!-- Pekingese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persian</masterLabel>
+            <translation><!-- Persian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persian (Chinchilla)</masterLabel>
+            <translation><!-- Persian (Chinchilla) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pig - Common</masterLabel>
+            <translation><!-- Pig - Common --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pigeon</masterLabel>
+            <translation><!-- Pigeon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pit Bull Terrier</masterLabel>
+            <translation><!-- Pit Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pointer</masterLabel>
+            <translation><!-- Pointer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pomeranian</masterLabel>
+            <translation><!-- Pomeranian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poodle (Miniature)</masterLabel>
+            <translation><!-- Poodle (Miniature) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poodle (Standard)</masterLabel>
+            <translation><!-- Poodle (Standard) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poodle (Toy)</masterLabel>
+            <translation><!-- Poodle (Toy) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pug</masterLabel>
+            <translation><!-- Pug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quail</masterLabel>
+            <translation><!-- Quail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarter Horse</masterLabel>
+            <translation><!-- Quarter Horse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rabbit</masterLabel>
+            <translation><!-- Rabbit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ragdoll</masterLabel>
+            <translation><!-- Ragdoll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rhodesian Ridgeback</masterLabel>
+            <translation><!-- Rhodesian Ridgeback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rosella</masterLabel>
+            <translation><!-- Rosella --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rottweiler</masterLabel>
+            <translation><!-- Rottweiler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Bernard</masterLabel>
+            <translation><!-- Saint Bernard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saluki</masterLabel>
+            <translation><!-- Saluki --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samoyed</masterLabel>
+            <translation><!-- Samoyed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schnauzer</masterLabel>
+            <translation><!-- Schnauzer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scottish Fold Short Hair</masterLabel>
+            <translation><!-- Scottish Fold Short Hair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scottish Terrier</masterLabel>
+            <translation><!-- Scottish Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shar Pei</masterLabel>
+            <translation><!-- Shar Pei --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sheep - Common</masterLabel>
+            <translation><!-- Sheep - Common --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shetland Pony</masterLabel>
+            <translation><!-- Shetland Pony --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shetland Sheepdog</masterLabel>
+            <translation><!-- Shetland Sheepdog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shiba Inu</masterLabel>
+            <translation><!-- Shiba Inu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shih Tzu</masterLabel>
+            <translation><!-- Shih Tzu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Siamese</masterLabel>
+            <translation><!-- Siamese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Siberian Husky</masterLabel>
+            <translation><!-- Siberian Husky --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Snake</masterLabel>
+            <translation><!-- Snake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Snowshoe</masterLabel>
+            <translation><!-- Snowshoe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spider</masterLabel>
+            <translation><!-- Spider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staffordshire Bull Terrier</masterLabel>
+            <translation><!-- Staffordshire Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staghound</masterLabel>
+            <translation><!-- Staghound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standardbred</masterLabel>
+            <translation><!-- Standardbred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terrier</masterLabel>
+            <translation><!-- Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thoroughbred</masterLabel>
+            <translation><!-- Thoroughbred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tibetan Mastiff</masterLabel>
+            <translation><!-- Tibetan Mastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tibetan Spaniel</masterLabel>
+            <translation><!-- Tibetan Spaniel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tiffanie</masterLabel>
+            <translation><!-- Tiffanie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tonkinese</masterLabel>
+            <translation><!-- Tonkinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tropical Fish</masterLabel>
+            <translation><!-- Tropical Fish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkish Van</masterLabel>
+            <translation><!-- Turkish Van --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turtle</masterLabel>
+            <translation><!-- Turtle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weimaraner</masterLabel>
+            <translation><!-- Weimaraner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welsh Corgi</masterLabel>
+            <translation><!-- Welsh Corgi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welsh Pony</masterLabel>
+            <translation><!-- Welsh Pony --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>West Highland White Terrier</masterLabel>
+            <translation><!-- West Highland White Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Whippet</masterLabel>
+            <translation><!-- Whippet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yorkshire Terrier</masterLabel>
+            <translation><!-- Yorkshire Terrier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Colour --></label>
+        <name>Primary_Colour__c</name>
     </fields>
     <fields>
         <label><!-- Region --></label>
@@ -1485,6 +2225,718 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Secondary Breed --></label>
+        <name>Secondary_Breed__c</name>
+        <picklistValues>
+            <masterLabel>Abyssinian</masterLabel>
+            <translation><!-- Abyssinian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>African Grey Parrot</masterLabel>
+            <translation><!-- African Grey Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Akita</masterLabel>
+            <translation><!-- Akita --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alaskan Malamute</masterLabel>
+            <translation><!-- Alaskan Malamute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alexandrine Parrot</masterLabel>
+            <translation><!-- Alexandrine Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Bulldog</masterLabel>
+            <translation><!-- American Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Pit Bull Terrier</masterLabel>
+            <translation><!-- American Pit Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Staffordshire Terrier</masterLabel>
+            <translation><!-- American Staffordshire Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anatolian Shepherd</masterLabel>
+            <translation><!-- Anatolian Shepherd --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Angora</masterLabel>
+            <translation><!-- Angora --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Angus</masterLabel>
+            <translation><!-- Angus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arab</masterLabel>
+            <translation><!-- Arab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Bulldog</masterLabel>
+            <translation><!-- Australian Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Cattle Dog</masterLabel>
+            <translation><!-- Australian Cattle Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Kelpie</masterLabel>
+            <translation><!-- Australian Kelpie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Mist</masterLabel>
+            <translation><!-- Australian Mist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Silky Terrier</masterLabel>
+            <translation><!-- Australian Silky Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Stock Horse</masterLabel>
+            <translation><!-- Australian Stock Horse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Terrier</masterLabel>
+            <translation><!-- Australian Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basset Hound</masterLabel>
+            <translation><!-- Basset Hound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beagle</masterLabel>
+            <translation><!-- Beagle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bearded Dragon</masterLabel>
+            <translation><!-- Bearded Dragon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bengal</masterLabel>
+            <translation><!-- Bengal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bernese Mountain Dog</masterLabel>
+            <translation><!-- Bernese Mountain Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bichon Frise</masterLabel>
+            <translation><!-- Bichon Frise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Birman</masterLabel>
+            <translation><!-- Birman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Tonuge Lizard</masterLabel>
+            <translation><!-- Blue Tonuge Lizard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Border Collie</masterLabel>
+            <translation><!-- Border Collie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Borzoi</masterLabel>
+            <translation><!-- Borzoi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Boston Terrier</masterLabel>
+            <translation><!-- Boston Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Boxer</masterLabel>
+            <translation><!-- Boxer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>British Bulldog</masterLabel>
+            <translation><!-- British Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>British Shorthair</masterLabel>
+            <translation><!-- British Shorthair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Budgerigar</masterLabel>
+            <translation><!-- Budgerigar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bull Terrier</masterLabel>
+            <translation><!-- Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bullmastiff</masterLabel>
+            <translation><!-- Bullmastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burmese</masterLabel>
+            <translation><!-- Burmese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burmilla</masterLabel>
+            <translation><!-- Burmilla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canary</masterLabel>
+            <translation><!-- Canary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cane Corso</masterLabel>
+            <translation><!-- Cane Corso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cavalier King Charles Spaniel</masterLabel>
+            <translation><!-- Cavalier King Charles Spaniel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cavoodle</masterLabel>
+            <translation><!-- Cavoodle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chicken</masterLabel>
+            <translation><!-- Chicken --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chicken (juvenile)</masterLabel>
+            <translation><!-- Chicken (juvenile) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chihuahua</masterLabel>
+            <translation><!-- Chihuahua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese Crested Dog</masterLabel>
+            <translation><!-- Chinese Crested Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chow Chow</masterLabel>
+            <translation><!-- Chow Chow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clydesdale</masterLabel>
+            <translation><!-- Clydesdale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cockatiel</masterLabel>
+            <translation><!-- Cockatiel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cockatoo</masterLabel>
+            <translation><!-- Cockatoo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cocker Spaniel (English)</masterLabel>
+            <translation><!-- Cocker Spaniel (English) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collie (Rough)</masterLabel>
+            <translation><!-- Collie (Rough) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conure Parrot</masterLabel>
+            <translation><!-- Conure Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corella</masterLabel>
+            <translation><!-- Corella --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cornish Rex</masterLabel>
+            <translation><!-- Cornish Rex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curly Coated Retriever</masterLabel>
+            <translation><!-- Curly Coated Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dachshund</masterLabel>
+            <translation><!-- Dachshund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dalmatian</masterLabel>
+            <translation><!-- Dalmatian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Devon Rex</masterLabel>
+            <translation><!-- Devon Rex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dobermann</masterLabel>
+            <translation><!-- Dobermann --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dogue de Bordeaux</masterLabel>
+            <translation><!-- Dogue de Bordeaux --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Longhair</masterLabel>
+            <translation><!-- Domestic Longhair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Medium Hair</masterLabel>
+            <translation><!-- Domestic Medium Hair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Short Hair</masterLabel>
+            <translation><!-- Domestic Short Hair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Donkey</masterLabel>
+            <translation><!-- Donkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dove</masterLabel>
+            <translation><!-- Dove --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duck</masterLabel>
+            <translation><!-- Duck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dwarf</masterLabel>
+            <translation><!-- Dwarf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eclectus Parrot</masterLabel>
+            <translation><!-- Eclectus Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Egyptian Mau</masterLabel>
+            <translation><!-- Egyptian Mau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English Springer Spaniel</masterLabel>
+            <translation><!-- English Springer Spaniel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferret</masterLabel>
+            <translation><!-- Ferret --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finch</masterLabel>
+            <translation><!-- Finch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fox Terrier</masterLabel>
+            <translation><!-- Fox Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French Bulldog</masterLabel>
+            <translation><!-- French Bulldog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frog</masterLabel>
+            <translation><!-- Frog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Galah</masterLabel>
+            <translation><!-- Galah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Koolie</masterLabel>
+            <translation><!-- German Koolie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Pinscher</masterLabel>
+            <translation><!-- German Pinscher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Shepherd Dog</masterLabel>
+            <translation><!-- German Shepherd Dog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German Shorthaired Pointer</masterLabel>
+            <translation><!-- German Shorthaired Pointer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golden Retriever</masterLabel>
+            <translation><!-- Golden Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goldfish</masterLabel>
+            <translation><!-- Goldfish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goose</masterLabel>
+            <translation><!-- Goose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Great Dane</masterLabel>
+            <translation><!-- Great Dane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greyhound</masterLabel>
+            <translation><!-- Greyhound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Havanese</masterLabel>
+            <translation><!-- Havanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hungarian Vizsla</masterLabel>
+            <translation><!-- Hungarian Vizsla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indian Ringneck</masterLabel>
+            <translation><!-- Indian Ringneck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Irish Setter</masterLabel>
+            <translation><!-- Irish Setter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Irish Wolfhound</masterLabel>
+            <translation><!-- Irish Wolfhound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jack Russell Terrier</masterLabel>
+            <translation><!-- Jack Russell Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese Chin</masterLabel>
+            <translation><!-- Japanese Chin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese Spitz</masterLabel>
+            <translation><!-- Japanese Spitz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Keeshond</masterLabel>
+            <translation><!-- Keeshond --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labrador Retriever</masterLabel>
+            <translation><!-- Labrador Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leonberger</masterLabel>
+            <translation><!-- Leonberger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lhasa Apso</masterLabel>
+            <translation><!-- Lhasa Apso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lizard</masterLabel>
+            <translation><!-- Lizard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lop Eared</masterLabel>
+            <translation><!-- Lop Eared --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lorikeet</masterLabel>
+            <translation><!-- Lorikeet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lovebird</masterLabel>
+            <translation><!-- Lovebird --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macaw</masterLabel>
+            <translation><!-- Macaw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maine Coon</masterLabel>
+            <translation><!-- Maine Coon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maltese</masterLabel>
+            <translation><!-- Maltese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manx</masterLabel>
+            <translation><!-- Manx --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maremma Sheepdog</masterLabel>
+            <translation><!-- Maremma Sheepdog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mastiff</masterLabel>
+            <translation><!-- Mastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mini Foxie</masterLabel>
+            <translation><!-- Mini Foxie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mini Rex</masterLabel>
+            <translation><!-- Mini Rex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miniature Dachshund</masterLabel>
+            <translation><!-- Miniature Dachshund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miniature Pinscher</masterLabel>
+            <translation><!-- Miniature Pinscher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Munchkin</masterLabel>
+            <translation><!-- Munchkin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neapolitan Mastiff</masterLabel>
+            <translation><!-- Neapolitan Mastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newfoundland</masterLabel>
+            <translation><!-- Newfoundland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nova Scotia Duck Tolling Retriever</masterLabel>
+            <translation><!-- Nova Scotia Duck Tolling Retriever --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Old English Sheepdog</masterLabel>
+            <translation><!-- Old English Sheepdog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oriental Longhair</masterLabel>
+            <translation><!-- Oriental Longhair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Papillon</masterLabel>
+            <translation><!-- Papillon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parrot</masterLabel>
+            <translation><!-- Parrot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peacock</masterLabel>
+            <translation><!-- Peacock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pekingese</masterLabel>
+            <translation><!-- Pekingese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persian</masterLabel>
+            <translation><!-- Persian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persian (Chinchilla)</masterLabel>
+            <translation><!-- Persian (Chinchilla) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pig - Common</masterLabel>
+            <translation><!-- Pig - Common --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pigeon</masterLabel>
+            <translation><!-- Pigeon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pit Bull Terrier</masterLabel>
+            <translation><!-- Pit Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pointer</masterLabel>
+            <translation><!-- Pointer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pomeranian</masterLabel>
+            <translation><!-- Pomeranian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poodle (Miniature)</masterLabel>
+            <translation><!-- Poodle (Miniature) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poodle (Standard)</masterLabel>
+            <translation><!-- Poodle (Standard) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poodle (Toy)</masterLabel>
+            <translation><!-- Poodle (Toy) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pug</masterLabel>
+            <translation><!-- Pug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quail</masterLabel>
+            <translation><!-- Quail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarter Horse</masterLabel>
+            <translation><!-- Quarter Horse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rabbit</masterLabel>
+            <translation><!-- Rabbit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ragdoll</masterLabel>
+            <translation><!-- Ragdoll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rhodesian Ridgeback</masterLabel>
+            <translation><!-- Rhodesian Ridgeback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rosella</masterLabel>
+            <translation><!-- Rosella --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rottweiler</masterLabel>
+            <translation><!-- Rottweiler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Bernard</masterLabel>
+            <translation><!-- Saint Bernard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saluki</masterLabel>
+            <translation><!-- Saluki --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samoyed</masterLabel>
+            <translation><!-- Samoyed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schnauzer</masterLabel>
+            <translation><!-- Schnauzer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scottish Fold Short Hair</masterLabel>
+            <translation><!-- Scottish Fold Short Hair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scottish Terrier</masterLabel>
+            <translation><!-- Scottish Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shar Pei</masterLabel>
+            <translation><!-- Shar Pei --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sheep - Common</masterLabel>
+            <translation><!-- Sheep - Common --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shetland Pony</masterLabel>
+            <translation><!-- Shetland Pony --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shetland Sheepdog</masterLabel>
+            <translation><!-- Shetland Sheepdog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shiba Inu</masterLabel>
+            <translation><!-- Shiba Inu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shih Tzu</masterLabel>
+            <translation><!-- Shih Tzu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Siamese</masterLabel>
+            <translation><!-- Siamese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Siberian Husky</masterLabel>
+            <translation><!-- Siberian Husky --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Snake</masterLabel>
+            <translation><!-- Snake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Snowshoe</masterLabel>
+            <translation><!-- Snowshoe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spider</masterLabel>
+            <translation><!-- Spider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staffordshire Bull Terrier</masterLabel>
+            <translation><!-- Staffordshire Bull Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staghound</masterLabel>
+            <translation><!-- Staghound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standardbred</masterLabel>
+            <translation><!-- Standardbred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terrier</masterLabel>
+            <translation><!-- Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thoroughbred</masterLabel>
+            <translation><!-- Thoroughbred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tibetan Mastiff</masterLabel>
+            <translation><!-- Tibetan Mastiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tibetan Spaniel</masterLabel>
+            <translation><!-- Tibetan Spaniel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tiffanie</masterLabel>
+            <translation><!-- Tiffanie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tonkinese</masterLabel>
+            <translation><!-- Tonkinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tropical Fish</masterLabel>
+            <translation><!-- Tropical Fish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkish Van</masterLabel>
+            <translation><!-- Turkish Van --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turtle</masterLabel>
+            <translation><!-- Turtle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weimaraner</masterLabel>
+            <translation><!-- Weimaraner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welsh Corgi</masterLabel>
+            <translation><!-- Welsh Corgi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welsh Pony</masterLabel>
+            <translation><!-- Welsh Pony --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>West Highland White Terrier</masterLabel>
+            <translation><!-- West Highland White Terrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Whippet</masterLabel>
+            <translation><!-- Whippet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yorkshire Terrier</masterLabel>
+            <translation><!-- Yorkshire Terrier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Secondary Colour --></label>
+        <name>Secondary_Colour__c</name>
+    </fields>
+    <fields>
         <label><!-- Sex --></label>
         <name>Sex__c</name>
         <picklistValues>
@@ -1505,6 +2957,14 @@
         <name>Sheltermate_Number__c</name>
     </fields>
     <fields>
+        <label><!-- Skin Score --></label>
+        <name>Skin_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tick Score --></label>
+        <name>Tick_Score__c</name>
+    </fields>
+    <fields>
         <label><!-- Vet Details --></label>
         <name>Vet_Details__c</name>
     </fields>
@@ -1519,6 +2979,10 @@
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Weight (KG) --></label>
+        <name>Weight_KG__c</name>
     </fields>
     <layouts>
         <layout>Animal Layout</layout>

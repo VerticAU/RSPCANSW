@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Albino</fullName>
+        <default>false</default>
+        <label>Albino</label>
+    </customValue>
+    <customValue>
+        <fullName>Appaloosa</fullName>
+        <default>false</default>
+        <label>Appaloosa</label>
+    </customValue>
+    <customValue>
+        <fullName>Apricot</fullName>
+        <default>false</default>
+        <label>Apricot</label>
+    </customValue>
+    <customValue>
+        <fullName>Bay</fullName>
+        <default>false</default>
+        <label>Bay</label>
+    </customValue>
+    <customValue>
+        <fullName>Black</fullName>
+        <default>false</default>
+        <label>Black</label>
+    </customValue>
+    <customValue>
+        <fullName>Black Brindle</fullName>
+        <default>false</default>
+        <label>Black Brindle</label>
+    </customValue>
+    <customValue>
+        <fullName>Black Brown</fullName>
+        <default>false</default>
+        <label>Black Brown</label>
+    </customValue>
+    <customValue>
+        <fullName>Blenheim</fullName>
+        <default>false</default>
+        <label>Blenheim</label>
+    </customValue>
+    <customValue>
+        <fullName>Blonde</fullName>
+        <default>false</default>
+        <label>Blonde</label>
+    </customValue>
+    <customValue>
+        <fullName>Blue</fullName>
+        <default>false</default>
+        <label>Blue</label>
+    </customValue>
+    <customValue>
+        <fullName>Blue Cream Tortoiseshell</fullName>
+        <default>false</default>
+        <label>Blue Cream Tortoiseshell</label>
+    </customValue>
+    <customValue>
+        <fullName>Blue Point</fullName>
+        <default>false</default>
+        <label>Blue Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Brindle</fullName>
+        <default>false</default>
+        <label>Brindle</label>
+    </customValue>
+    <customValue>
+        <fullName>Brown</fullName>
+        <default>false</default>
+        <label>Brown</label>
+    </customValue>
+    <customValue>
+        <fullName>Buckskin</fullName>
+        <default>false</default>
+        <label>Buckskin</label>
+    </customValue>
+    <customValue>
+        <fullName>Calico</fullName>
+        <default>false</default>
+        <label>Calico</label>
+    </customValue>
+    <customValue>
+        <fullName>Champagne</fullName>
+        <default>false</default>
+        <label>Champagne</label>
+    </customValue>
+    <customValue>
+        <fullName>Chestnut</fullName>
+        <default>false</default>
+        <label>Chestnut</label>
+    </customValue>
+    <customValue>
+        <fullName>Chocolate</fullName>
+        <default>false</default>
+        <label>Chocolate</label>
+    </customValue>
+    <customValue>
+        <fullName>Chocolate Point</fullName>
+        <default>false</default>
+        <label>Chocolate Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Cream</fullName>
+        <default>false</default>
+        <label>Cream</label>
+    </customValue>
+    <customValue>
+        <fullName>Cremello</fullName>
+        <default>false</default>
+        <label>Cremello</label>
+    </customValue>
+    <customValue>
+        <fullName>Dappled Grey</fullName>
+        <default>false</default>
+        <label>Dappled Grey</label>
+    </customValue>
+    <customValue>
+        <fullName>Fawn</fullName>
+        <default>false</default>
+        <label>Fawn</label>
+    </customValue>
+    <customValue>
+        <fullName>Flame Point</fullName>
+        <default>false</default>
+        <label>Flame Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Ginger</fullName>
+        <default>false</default>
+        <label>Ginger</label>
+    </customValue>
+    <customValue>
+        <fullName>Gold</fullName>
+        <default>false</default>
+        <label>Gold</label>
+    </customValue>
+    <customValue>
+        <fullName>Green</fullName>
+        <default>false</default>
+        <label>Green</label>
+    </customValue>
+    <customValue>
+        <fullName>Grey</fullName>
+        <default>false</default>
+        <label>Grey</label>
+    </customValue>
+    <customValue>
+        <fullName>Grey Tabby</fullName>
+        <default>false</default>
+        <label>Grey Tabby</label>
+    </customValue>
+    <customValue>
+        <fullName>Grey Tabby Tortoiseshell</fullName>
+        <default>false</default>
+        <label>Grey Tabby Tortoiseshell</label>
+    </customValue>
+    <customValue>
+        <fullName>Harlequin</fullName>
+        <default>false</default>
+        <label>Harlequin</label>
+    </customValue>
+    <customValue>
+        <fullName>Lilac</fullName>
+        <default>false</default>
+        <label>Lilac</label>
+    </customValue>
+    <customValue>
+        <fullName>Lilac Point</fullName>
+        <default>false</default>
+        <label>Lilac Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Orange</fullName>
+        <default>false</default>
+        <label>Orange</label>
+    </customValue>
+    <customValue>
+        <fullName>Paint</fullName>
+        <default>false</default>
+        <label>Paint</label>
+    </customValue>
+    <customValue>
+        <fullName>Palomino</fullName>
+        <default>false</default>
+        <label>Palomino</label>
+    </customValue>
+    <customValue>
+        <fullName>Pied</fullName>
+        <default>false</default>
+        <label>Pied</label>
+    </customValue>
+    <customValue>
+        <fullName>Pink</fullName>
+        <default>false</default>
+        <label>Pink</label>
+    </customValue>
+    <customValue>
+        <fullName>Pinto</fullName>
+        <default>false</default>
+        <label>Pinto</label>
+    </customValue>
+    <customValue>
+        <fullName>Rainbow</fullName>
+        <default>false</default>
+        <label>Rainbow</label>
+    </customValue>
+    <customValue>
+        <fullName>Red</fullName>
+        <default>false</default>
+        <label>Red</label>
+    </customValue>
+    <customValue>
+        <fullName>Red Point</fullName>
+        <default>false</default>
+        <label>Red Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Sable</fullName>
+        <default>false</default>
+        <label>Sable</label>
+    </customValue>
+    <customValue>
+        <fullName>Salt and Pepper</fullName>
+        <default>false</default>
+        <label>Salt and Pepper</label>
+    </customValue>
+    <customValue>
+        <fullName>Seal Point</fullName>
+        <default>false</default>
+        <label>Seal Point</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver</fullName>
+        <default>false</default>
+        <label>Silver</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver Tabby</fullName>
+        <default>false</default>
+        <label>Silver Tabby</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver Tabby Tortoiseshell</fullName>
+        <default>false</default>
+        <label>Silver Tabby Tortoiseshell</label>
+    </customValue>
+    <customValue>
+        <fullName>Tabby</fullName>
+        <default>false</default>
+        <label>Tabby</label>
+    </customValue>
+    <customValue>
+        <fullName>Tabby Tortoiseshell</fullName>
+        <default>false</default>
+        <label>Tabby Tortoiseshell</label>
+    </customValue>
+    <customValue>
+        <fullName>Tawny</fullName>
+        <default>false</default>
+        <label>Tawny</label>
+    </customValue>
+    <customValue>
+        <fullName>Ticked Tabby</fullName>
+        <default>false</default>
+        <label>Ticked Tabby</label>
+    </customValue>
+    <customValue>
+        <fullName>Tortoiseshell</fullName>
+        <default>false</default>
+        <label>Tortoiseshell</label>
+    </customValue>
+    <customValue>
+        <fullName>White</fullName>
+        <default>false</default>
+        <label>White</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolf Grey</fullName>
+        <default>false</default>
+        <label>Wolf Grey</label>
+    </customValue>
+    <customValue>
+        <fullName>Yellow</fullName>
+        <default>false</default>
+        <label>Yellow</label>
+    </customValue>
+    <masterLabel>Animal Colour</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

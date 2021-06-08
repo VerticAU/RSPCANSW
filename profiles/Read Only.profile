@@ -716,7 +716,7 @@
         <apexClass>vertic_UpdateRecordsBatchTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <custom>false</custom>
+    <custom>true</custom>
     <customMetadataTypeAccesses>
         <enabled>true</enabled>
         <name>dlrs__LookupRollupSummary2__mdt</name>
