@@ -3706,6 +3706,10 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Dog</controllingFieldValue>
+                <valueName>Akita</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dog</controllingFieldValue>
                 <valueName>Alaskan Malamute</valueName>
             </valueSettings>
             <valueSettings>
