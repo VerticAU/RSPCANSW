@@ -1,6 +1,7 @@
-<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable" access="global">
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable" extends="c:vertic_Base" access="global">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="startDate" type="String" />
     <aura:attribute
         name="myPrototypeReservation"
         type="B25__Reservation__c"
@@ -16,7 +17,7 @@
     <B25:multiCalendarWrapper
         calendarId="Resources"
         view="day"
-        startDate="2021-06-01"
+        startDate="{! v.meta.dto.startDate }"
         prototypeReservation="{!v.myPrototypeReservation}"
         hiddenDimensionFilters="{!v.myFilters}"
         maxHeight="1200px"

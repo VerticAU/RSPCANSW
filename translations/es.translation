@@ -98,6 +98,10 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows/>
+        <fullName>Create_Service_Participant</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
         <fullName>Create_Task_Welcome_pack</fullName>
     </flowDefinitions>
     <flowDefinitions>
