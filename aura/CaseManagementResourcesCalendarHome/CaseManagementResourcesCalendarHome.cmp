@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="startDate" type="String" />
+    <aura:attribute
+        name="myPrototypeReservation"
+        type="B25__Reservation__c"
+        default="{'sobjectType':'B25__Reservation__c', 'B25__Staff__c':'a361s000000POm9AAG'}"
+    />
+    
+    <aura:attribute
+        name="myFilters"
+        type="Object[]"
+        default="[{'fieldName':'B25__Parent__c', 'operator':'=', 'value':'a301s0000004zh2AAA'}]"
+    />
+    
+    <B25:multiCalendarWrapper
+        calendarId="Resources"
+        view="day"
+        startDate="{!v.startDate}"
+        prototypeReservation="{!v.myPrototypeReservation}"
+        hiddenDimensionFilters="{!v.myFilters}"
+        maxHeight="1200px"
+    >
+    </B25:multiCalendarWrapper>
+</aura:component>
