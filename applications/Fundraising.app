@@ -297,7 +297,7 @@
         <pageOrSobjectType>pmdm__Program__c</pageOrSobjectType>
         <recordType>pmdm__Program__c.Education</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -306,7 +306,7 @@
         <pageOrSobjectType>pmdm__Program__c</pageOrSobjectType>
         <recordType>pmdm__Program__c.Education</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -774,7 +774,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.caseman__Branch</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -783,7 +783,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.caseman__Branch</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1143,7 +1143,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Membership</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1152,7 +1152,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Membership</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1467,7 +1467,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Property_Transfer</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1476,7 +1476,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Property_Transfer</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1737,7 +1737,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Merchandise</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1746,7 +1746,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Merchandise</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -2070,7 +2070,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Event_Ticket</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -2079,7 +2079,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Event_Ticket</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -2457,7 +2457,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Securities</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -2466,7 +2466,7 @@
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
         <recordType>Opportunity.Securities</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>

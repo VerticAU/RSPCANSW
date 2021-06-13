@@ -4,7 +4,6 @@
         <profiles>
             <profile>Admin</profile>
             <profile>Standard</profile>
-            <profile>ReadOnly</profile>
             <profile>SolutionManager</profile>
             <profile>MarketingProfile</profile>
             <profile>ContractManager</profile>
@@ -17,6 +16,7 @@
             <profile>Membership User</profile>
             <profile>Minimum Access - Salesforce</profile>
             <profile>Program Management Standard User</profile>
+            <profile>Read Only1</profile>
             <profile>Testing Profile</profile>
         </profiles>
     </assignments>

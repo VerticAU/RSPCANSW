@@ -177,6 +177,10 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>ApptBookingInfoUrl</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>ArrivalWindowEndTime</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -223,6 +227,11 @@
     </fields>
     <fields>
         <fullName>IsAnonymousBooking</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsOffsiteAppointment</fullName>
+        <inlineHelpText>Any type of work that can be done remotely.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>

@@ -319,7 +319,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.caseman__Branch</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -328,7 +328,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.caseman__Branch</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -715,7 +715,7 @@
         <pageOrSobjectType>pmdm__Program__c</pageOrSobjectType>
         <recordType>pmdm__Program__c.Education</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -724,7 +724,7 @@
         <pageOrSobjectType>pmdm__Program__c</pageOrSobjectType>
         <recordType>pmdm__Program__c.Education</recordType>
         <type>Flexipage</type>
-        <profile>ReadOnly</profile>
+        <profile>Read Only1</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
