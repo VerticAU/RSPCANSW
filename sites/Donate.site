@@ -10,9 +10,9 @@
     <authorizationRequiredPage>Unauthorized</authorizationRequiredPage>
     <bandwidthExceededPage>BandwidthExceeded</bandwidthExceededPage>
     <browserXssProtection>true</browserXssProtection>
+    <cachePublicVisualforcePagesInProxyServers>true</cachePublicVisualforcePagesInProxyServers>
     <clickjackProtectionLevel>SameOriginOnly</clickjackProtectionLevel>
     <contentSniffingProtection>true</contentSniffingProtection>
-    <cspUpgradeInsecureRequests>true</cspUpgradeInsecureRequests>
     <enableAuraRequests>true</enableAuraRequests>
     <fileNotFoundPage>FileNotFound</fileNotFoundPage>
     <genericErrorPage>Exception</genericErrorPage>
@@ -20,8 +20,8 @@
     <inactiveIndexPage>InMaintenance</inactiveIndexPage>
     <indexPage>npsp_plus__Donate</indexPage>
     <masterLabel>Donate</masterLabel>
+    <redirectToCustomDomain>false</redirectToCustomDomain>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
-    <requireHttps>true</requireHttps>
     <siteAdmin>developer+rspcansw@vertic.com.au</siteAdmin>
     <siteGuestRecordDefaultOwner>developer+rspcansw@vertic.com.au</siteGuestRecordDefaultOwner>
     <siteTemplate>SiteTemplate</siteTemplate>
