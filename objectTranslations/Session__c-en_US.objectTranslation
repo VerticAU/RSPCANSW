@@ -43,6 +43,17 @@
         </picklistValues>
     </fields>
     <layouts>
+        <layout>Education Session Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date &amp; Location --></label>
+            <section>Date &amp; Location</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Session Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>

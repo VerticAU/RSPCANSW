@@ -9,5 +9,28 @@
         <value>Sesiones de servicio</value>
     </caseValues>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Education Session Layout</layout>
+        <sections>
+            <label>Vínculos personalizados</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Location Information --></label>
+            <section>Location Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Session Date &amp; Time --></label>
+            <section>Session Date &amp; Time</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Nombre de Sesión de servicio</nameFieldLabel>
 </CustomObjectTranslation>
