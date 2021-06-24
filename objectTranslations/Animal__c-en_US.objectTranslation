@@ -1937,6 +1937,10 @@
         <name>Primary_Colour__c</name>
     </fields>
     <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
         <label><!-- Region --></label>
         <name>Region__c</name>
         <picklistValues>
@@ -3003,6 +3007,25 @@
             <section>Medical Detail</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Multiple Animal Layout</layout>
+        <sections>
+            <label><!-- Behavioural Details --></label>
+            <section>Behavioural Details</section>
+        </sections>
+        <sections>
+            <label><!-- Boarding Information --></label>
+            <section>Boarding Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Medical Detail --></label>
+            <section>Medical Detail</section>
+        </sections>
+    </layouts>
     <quickActions>
         <label><!-- Boarding Information --></label>
         <name>Boarding_Information</name>
@@ -3011,6 +3034,14 @@
         <label><!-- Quick Update --></label>
         <name>Quick_Update</name>
     </quickActions>
+    <recordTypes>
+        <label><!-- Multiple --></label>
+        <name>Multiple</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Single --></label>
+        <name>Single</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
     <validationRules>
         <errorMessage><!-- A microchip number must contain 15 digits --></errorMessage>

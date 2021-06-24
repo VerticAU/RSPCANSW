@@ -1744,6 +1744,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Quantity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8907,6 +8912,14 @@
         <layout>Animal__c-Animal Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Animal__c-Animal Layout</layout>
+        <recordType>Animal__c.Multiple</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Animal__c-Animal Layout</layout>
+        <recordType>Animal__c.Single</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9421,6 +9434,16 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Animal_Boarding__c.Shelter_Care</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Animal__c.Multiple</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Animal__c.Single</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
