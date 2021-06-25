@@ -1579,6 +1579,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Animal__c.Animal_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Animal__c.Animal_Normally_Live_Sleep__c</field>
         <readable>false</readable>
     </fieldPermissions>

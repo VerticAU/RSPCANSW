@@ -1583,6 +1583,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Animal__c.Animal_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Animal__c.Animal_Normally_Live_Sleep__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8917,11 +8922,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Animal__c-Animal Layout</layout>
-        <recordType>Animal__c.Multiple</recordType>
+        <recordType>Animal__c.Single</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Animal__c-Animal Layout</layout>
-        <recordType>Animal__c.Single</recordType>
+        <layout>Animal__c-Multiple Animal Layout</layout>
+        <recordType>Animal__c.Multiple</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>

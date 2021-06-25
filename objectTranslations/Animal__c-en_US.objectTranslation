@@ -973,6 +973,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Animal Name --></label>
+        <name>Animal_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- Animal Normally Live/Sleep --></label>
         <name>Animal_Normally_Live_Sleep__c</name>
     </fields>
@@ -3009,10 +3013,6 @@
     </layouts>
     <layouts>
         <layout>Multiple Animal Layout</layout>
-        <sections>
-            <label><!-- Behavioural Details --></label>
-            <section>Behavioural Details</section>
-        </sections>
         <sections>
             <label><!-- Boarding Information --></label>
             <section>Boarding Information</section>
