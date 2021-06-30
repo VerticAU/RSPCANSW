@@ -2211,6 +2211,11 @@
                     <label>Pig</label>
                 </value>
                 <value>
+                    <fullName>Poultry</fullName>
+                    <default>false</default>
+                    <label>Poultry</label>
+                </value>
+                <value>
                     <fullName>Rabbit</fullName>
                     <default>false</default>
                     <label>Rabbit</label>
@@ -6621,6 +6626,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Poultry</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rabbit</fullName>
                 <default>false</default>
             </values>
@@ -9901,6 +9910,10 @@
             </values>
             <values>
                 <fullName>Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poultry</fullName>
                 <default>false</default>
             </values>
             <values>

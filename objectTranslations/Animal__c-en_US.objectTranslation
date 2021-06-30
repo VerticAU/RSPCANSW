@@ -1056,6 +1056,10 @@
             <translation><!-- Pig --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Poultry</masterLabel>
+            <translation><!-- Poultry --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Rabbit</masterLabel>
             <translation><!-- Rabbit --></translation>
         </picklistValues>
@@ -2997,6 +3001,10 @@
         <sections>
             <label><!-- Behavioural Details --></label>
             <section>Behavioural Details</section>
+        </sections>
+        <sections>
+            <label><!-- Birthdate --></label>
+            <section>Birthdate</section>
         </sections>
         <sections>
             <label><!-- Boarding Information --></label>
