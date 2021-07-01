@@ -17,8 +17,28 @@
         <name>Adoption_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Age Entered Date --></label>
+        <name>Age_Entered_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age - Month(s) --></label>
+        <name>Age_Month_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age - Week(s) --></label>
+        <name>Age_Week_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age - Year(s) --></label>
+        <name>Age_Year_s__c</name>
+    </fields>
+    <fields>
         <label><!-- Age --></label>
         <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Age --></label>
+        <name>Animal_Age__c</name>
     </fields>
     <fields>
         <label><!-- Animal Bitten Someone --></label>
@@ -983,6 +1003,10 @@
     <fields>
         <label><!-- Animal Status --></label>
         <name>Animal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Assistance Finalised</masterLabel>
+            <translation><!-- Assistance Finalised --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>In Care</masterLabel>
             <translation><!-- In Care --></translation>
@@ -2999,12 +3023,12 @@
     <layouts>
         <layout>Animal Layout</layout>
         <sections>
-            <label><!-- Behavioural Details --></label>
-            <section>Behavioural Details</section>
+            <label><!-- Animal Age --></label>
+            <section>Animal Age</section>
         </sections>
         <sections>
-            <label><!-- Birthdate --></label>
-            <section>Birthdate</section>
+            <label><!-- Behavioural Details --></label>
+            <section>Behavioural Details</section>
         </sections>
         <sections>
             <label><!-- Boarding Information --></label>
@@ -3051,6 +3075,10 @@
         <name>Single</name>
     </recordTypes>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Animal&apos;s Age should not exceed the following: 7 Weeks OR 11 Months OR 100 Years --></errorMessage>
+        <name>Animal_Age</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- A microchip number must contain 15 digits --></errorMessage>
         <name>Microchip_15</name>

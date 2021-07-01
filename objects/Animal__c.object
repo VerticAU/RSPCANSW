@@ -174,6 +174,51 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Age_Entered_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Age Entered Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Age_Month_s__c</fullName>
+        <externalId>false</externalId>
+        <label>Age - Month(s)</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Age_Week_s__c</fullName>
+        <externalId>false</externalId>
+        <label>Age - Week(s)</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Age_Year_s__c</fullName>
+        <externalId>false</externalId>
+        <label>Age - Year(s)</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Age__c</fullName>
         <externalId>false</externalId>
         <formula>IF( NOT( ISBLANK( Birthdate__c) ) , IF( DATE( 2000 , MONTH( Birthdate__c) , DAY( Birthdate__c) ) &lt;= DATE( 2000 , MONTH( TODAY() ) , DAY( TODAY() ) ), YEAR (Today()) - YEAR ( Birthdate__c), YEAR (Today()) - YEAR ( Birthdate__c) -1 ), null)</formula>
@@ -185,6 +230,28 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Animal_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+
+NOT(ISNULL( Birthdate__c )), /* Condition */
+
+TEXT(FLOOR((TODAY()-Birthdate__c)/365.2425)) &amp; &quot; year(s) &quot; &amp;
+
+TEXT(FLOOR(MOD((TODAY()-Birthdate__c),365.2425)/30)) &amp; &quot; month(s) &quot; &amp; Text(Floor(MOD(Floor(MOD((TODAY()-Birthdate__c),365.2425)),30))) &amp; &quot; day(s)&quot; , /* Value IF True */
+
+&quot;&quot; /* Value IF False */
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Animal Age</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2093,6 +2160,11 @@
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>true</sorted>
+                <value>
+                    <fullName>Assistance Finalised</fullName>
+                    <default>false</default>
+                    <label>Assistance Finalised</label>
+                </value>
                 <value>
                     <fullName>Claim of Ownership</fullName>
                     <default>false</default>
@@ -6555,6 +6627,10 @@
         <picklistValues>
             <picklist>Animal_Status__c</picklist>
             <values>
+                <fullName>Assistance Finalised</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>In Care</fullName>
                 <default>false</default>
             </values>
@@ -9842,6 +9918,10 @@
         <picklistValues>
             <picklist>Animal_Status__c</picklist>
             <values>
+                <fullName>Assistance Finalised</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>In Care</fullName>
                 <default>false</default>
             </values>
@@ -12175,6 +12255,16 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Animal_Age</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+ Age_Week_s__c  &gt;7 ,
+ Age_Month_s__c &gt;11,
+ Age_Year_s__c &gt;100
+)</errorConditionFormula>
+        <errorMessage>The Animal&apos;s Age should not exceed the following: 7 Weeks OR 11 Months OR 100 Years</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Microchip_15</fullName>
         <active>false</active>
