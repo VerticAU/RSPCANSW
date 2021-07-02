@@ -604,7 +604,7 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- When checked, Customizable Rollups will always use &apos;Skew Mode&apos; to rollup Hard Credit and Soft Credits for this record. --></help>
+        <help>Als Aanpasbare totaliseringen ingeschakeld is, wordt altijd de verschuivingsmodus gebruikt voor het totaliseren van hard credits en soft credits voor deze record.</help>
         <label><!-- Customizable Rollups: Force Skew Mode --></label>
         <name>npsp__CustomizableRollups_UseSkewMode__c</name>
     </fields>

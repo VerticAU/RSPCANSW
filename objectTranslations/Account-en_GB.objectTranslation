@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- BDE Entry FS --></label>
+        <name>npsp__BDE_Entry_FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- BDE List FS --></label>
+        <name>npsp__BDE_List_FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Manage Household Custom --></label>
+        <name>npsp__Manage_Household_Custom</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Account Created Date --></label>
+        <name>Account_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account ID --></label>
+        <name>Account_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active Members --></label>
+        <name>Active_Members__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anonymous --></label>
+        <name>Anonymous__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Days to Close Incident --></label>
+        <name>Average_Days_to_Close_Incident__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bequest Amount --></label>
+        <name>Bequest_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bequest Opportunity --></label>
+        <name>Bequest_Opportunity__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Bequest Stage --></label>
+        <name>Bequest_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Activities --></label>
+        <name>Branch_Activities__c</name>
+        <picklistValues>
+            <masterLabel>Animal Adoptions</masterLabel>
+            <translation><!-- Animal Adoptions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAWS</masterLabel>
+            <translation><!-- CAWS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Community Events</masterLabel>
+            <translation><!-- Community Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desexing</masterLabel>
+            <translation><!-- Desexing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foster Care</masterLabel>
+            <translation><!-- Foster Care --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Branch Goals Star Rating --></label>
+        <name>Branch_Goals_Star_Rating__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Incident Tracking --></label>
+        <name>Branch_Incident_Tracking__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cash Amount Received --></label>
+        <name>Cash_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditions Met --></label>
+        <name>Conditions_Met__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contested --></label>
+        <name>Contested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Corporate Type --></label>
+        <name>Corporate_Type__c</name>
+        <picklistValues>
+            <masterLabel>Agriculture</masterLabel>
+            <translation><!-- Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Animal Care and Services</masterLabel>
+            <translation><!-- Animal Care and Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Banking</masterLabel>
+            <translation><!-- Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communications</masterLabel>
+            <translation><!-- Communications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronics</masterLabel>
+            <translation><!-- Electronics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy</masterLabel>
+            <translation><!-- Energy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering</masterLabel>
+            <translation><!-- Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entertainment</masterLabel>
+            <translation><!-- Entertainment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental</masterLabel>
+            <translation><!-- Environmental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food &amp; Beverage</masterLabel>
+            <translation><!-- Food &amp; Beverage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthcare</masterLabel>
+            <translation><!-- Healthcare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospitality</masterLabel>
+            <translation><!-- Hospitality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance</masterLabel>
+            <translation><!-- Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturing</masterLabel>
+            <translation><!-- Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recreation</masterLabel>
+            <translation><!-- Recreation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology</masterLabel>
+            <translation><!-- Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation</masterLabel>
+            <translation><!-- Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utilities</masterLabel>
+            <translation><!-- Utilities --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date Founded --></label>
+        <name>Date_Founded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Legacy Notified --></label>
+        <name>Date_Legacy_Notified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Will --></label>
+        <name>Date_of_Will__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Account Created --></label>
+        <name>Days_Since_Account_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deceased Donor --></label>
+        <name>Deceased_Donor__c</name>
+        <relationshipLabel><!-- Estates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Do Not Contact Reason --></label>
+        <name>Do_Not_Contact_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Reason 1</masterLabel>
+            <translation><!-- Reason 1 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Do Not Contact --></label>
+        <name>Do_Not_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Mail From --></label>
+        <name>Do_Not_Mail_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Mail To --></label>
+        <name>Do_Not_Mail_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Mail --></label>
+        <name>Do_Not_Mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estate Balance --></label>
+        <name>Estate_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estate Conditions --></label>
+        <name>Estate_Conditions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estate Managed By --></label>
+        <name>Estate_Managed_By__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Estate Received Till Date --></label>
+        <name>Estate_Received_Till_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estate Value --></label>
+        <name>Estate_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facebook --></label>
+        <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Service Delivery Date --></label>
+        <name>First_Service_Delivery_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gifts In Wills Opportunties --></label>
+        <name>Gifts_In_Wills_Opportunties__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal Success Rate --></label>
+        <name>Goal_Success_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals Completed Successfully --></label>
+        <name>Goals_Completed_Successfully__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals Not Completed Successfully --></label>
+        <name>Goals_Not_Completed_Successfully__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals Not On Track --></label>
+        <name>Goals_Not_On_Track__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goals On Track --></label>
+        <name>Goals_On_Track__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Incidents --></label>
+        <name>Incidents_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income This Year --></label>
+        <name>Income_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income Total --></label>
+        <name>Income_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instagram --></label>
+        <name>Instagram__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Notes --></label>
+        <name>Key_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- LGA --></label>
+        <name>LGA__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Last Partner Service Date --></label>
+        <name>Last_Partner_Service_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level --></label>
+        <name>Level__c</name>
+        <relationshipLabel><!-- Households --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Life Tenancy --></label>
+        <name>Life_Tenancy__c</name>
+    </fields>
+    <fields>
+        <label><!-- LinkedIn --></label>
+        <name>LinkedIn__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- One Drive Folder Name --></label>
+        <name>One_Drive_Folder_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Incident Days Current --></label>
+        <name>Open_Incident_Days_Current__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Incident Days Total --></label>
+        <name>Open_Incident_Days_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Incidents --></label>
+        <name>Open_Incidents__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Phone --></label>
+        <name>Other_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Paperwork Received --></label>
+        <name>Paperwork_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Status --></label>
+        <name>Partner_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Previous Level --></label>
+        <name>Previous_Level__c</name>
+        <relationshipLabel><!-- Households (Previous Level) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Property Amount Received --></label>
+        <name>Property_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Owner --></label>
+        <name>Secondary_Owner__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Sessions (Events) This Year --></label>
+        <name>Service_Sessions_Events_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Sessions (Events) Total --></label>
+        <name>Service_Sessions_Events_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Services --></label>
+        <name>Services__c</name>
+        <picklistValues>
+            <masterLabel>Desex</masterLabel>
+            <translation><!-- Desex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Check</masterLabel>
+            <translation><!-- Health Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Microchip</masterLabel>
+            <translation><!-- Microchip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccination</masterLabel>
+            <translation><!-- Vaccination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Shares Amount Received --></label>
+        <name>Shares_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Visits This Year --></label>
+        <name>Site_Visits_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Visits Total --></label>
+        <name>Site_Visits_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Skype --></label>
+        <name>Skype__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Amount Received --></label>
+        <name>Total_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Service Deliveries --></label>
+        <name>Total_Service_Deliveries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Twitter --></label>
+        <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <help><!-- The maximum client-serving capacity of an organization, location, or partner organization. --></help>
+        <label><!-- Maximum Clients Served At Any Time --></label>
+        <name>caseman__MaximumClientsServed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact --></label>
+        <name>npe01__One2OneContact__c</name>
+        <relationshipLabel><!-- Account --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- _SYSTEM: IsIndividual --></label>
+        <name>npe01__SYSTEMIsIndividual__c</name>
+    </fields>
+    <fields>
+        <help>Indicates which Account Model this account is for: Household Account, One-to-One, or Individual (bucket).</help>
+        <label><!-- _SYSTEM: AccountType --></label>
+        <name>npe01__SYSTEM_AccountType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Gift --></label>
+        <name>npo02__AverageAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Best Gift Year Total --></label>
+        <name>npo02__Best_Gift_Year_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Best Gift Year --></label>
+        <name>npo02__Best_Gift_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Gift Date --></label>
+        <name>npo02__FirstCloseDate__c</name>
+    </fields>
+    <fields>
+        <help>For Household Accounts, uses fields of non-excluded, ordered related Contacts. Generated automatically.</help>
+        <label><!-- Formal Greeting --></label>
+        <name>npo02__Formal_Greeting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Household Phone --></label>
+        <name>npo02__HouseholdPhone__c</name>
+    </fields>
+    <fields>
+        <help>For Household Accounts, uses fields of non-excluded, ordered related Contacts. Generated automatically.</help>
+        <label><!-- Informal Greeting --></label>
+        <name>npo02__Informal_Greeting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Largest Gift --></label>
+        <name>npo02__LargestAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Gift Date --></label>
+        <name>npo02__LastCloseDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Membership Amount --></label>
+        <name>npo02__LastMembershipAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Membership Date --></label>
+        <name>npo02__LastMembershipDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Membership Level --></label>
+        <name>npo02__LastMembershipLevel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Membership Origin --></label>
+        <name>npo02__LastMembershipOrigin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Gift Amount --></label>
+        <name>npo02__LastOppAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership End Date --></label>
+        <name>npo02__MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership Join Date --></label>
+        <name>npo02__MembershipJoinDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Gifts --></label>
+        <name>npo02__NumberOfClosedOpps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Memberships --></label>
+        <name>npo02__NumberOfMembershipOpps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gifts Two Years Ago --></label>
+        <name>npo02__OppAmount2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gifts Last N Days --></label>
+        <name>npo02__OppAmountLastNDays__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gifts Last Year --></label>
+        <name>npo02__OppAmountLastYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gifts This Year --></label>
+        <name>npo02__OppAmountThisYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Gifts Two Years Ago --></label>
+        <name>npo02__OppsClosed2YearsAgo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Gifts Last N Days --></label>
+        <name>npo02__OppsClosedLastNDays__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Gifts Last Year --></label>
+        <name>npo02__OppsClosedLastYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Gifts This Year --></label>
+        <name>npo02__OppsClosedThisYear__c</name>
+    </fields>
+    <fields>
+        <help>For Household Accounts, specifies which name related fields should not be automatically populated by the Householding code.</help>
+        <label><!-- _SYSTEM: CUSTOM NAMING --></label>
+        <name>npo02__SYSTEM_CUSTOM_NAMING__c</name>
+        <picklistValues>
+            <masterLabel>Formal_Greeting__c</masterLabel>
+            <translation><!-- Formal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Informal_Greeting__c</masterLabel>
+            <translation><!-- Informal_Greeting__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Name</masterLabel>
+            <translation><!-- Name --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Smallest Gift --></label>
+        <name>npo02__SmallestAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Membership Amount --></label>
+        <name>npo02__TotalMembershipOppAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gifts --></label>
+        <name>npo02__TotalOppAmount__c</name>
+    </fields>
+    <fields>
+        <help>The batch this Account was created in.</help>
+        <label><!-- Batch --></label>
+        <name>npsp__Batch__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>When checked, Customisable Rollups will always use &apos;Skew Mode&apos; to rollup Hard Credit and Soft Credits for this record.</help>
+        <label><!-- Customizable Rollups: Force Skew Mode --></label>
+        <name>npsp__CustomizableRollups_UseSkewMode__c</name>
+    </fields>
+    <fields>
+        <help>The general program area(s) that this organistion funds.</help>
+        <label><!-- Funding Focus --></label>
+        <name>npsp__Funding_Focus__c</name>
+        <picklistValues>
+            <masterLabel>Animal Welfare</masterLabel>
+            <translation>Animal Welfare</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arts and Culture</masterLabel>
+            <translation>Arts and Culture</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capacity Building</masterLabel>
+            <translation>Capacity Building</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation>Education</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental</masterLabel>
+            <translation>Environmental</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Services</masterLabel>
+            <translation>Health Services</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Services</masterLabel>
+            <translation>Human Services</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Indicates that this organistion is a grantmaking organistion.</help>
+        <label><!-- Grantmaker --></label>
+        <name>npsp__Grantmaker__c</name>
+    </fields>
+    <fields>
+        <help>The name of the company&apos;s Matching Gift administrator.</help>
+        <label><!-- Matching Gift Administrator Name --></label>
+        <name>npsp__Matching_Gift_Administrator_Name__c</name>
+    </fields>
+    <fields>
+        <help>The maximum amount the company will match on any single gift.</help>
+        <label><!-- Matching Gift Amount Max --></label>
+        <name>npsp__Matching_Gift_Amount_Max__c</name>
+    </fields>
+    <fields>
+        <help>The smallest amount the company will match on any single gift.</help>
+        <label><!-- Matching Gift Amount Min --></label>
+        <name>npsp__Matching_Gift_Amount_Min__c</name>
+    </fields>
+    <fields>
+        <help>The maximum amount the company will match each year for an employee.</help>
+        <label><!-- Matching Gift Annual Employee Max --></label>
+        <name>npsp__Matching_Gift_Annual_Employee_Max__c</name>
+    </fields>
+    <fields>
+        <help>Additional notes about the company&apos;s Matching Gift program.</help>
+        <label><!-- Matching Gift Comments --></label>
+        <name>npsp__Matching_Gift_Comments__c</name>
+    </fields>
+    <fields>
+        <help>Indicates that this company offers Matching Gifts.</help>
+        <label><!-- Matching Gift Company --></label>
+        <name>npsp__Matching_Gift_Company__c</name>
+    </fields>
+    <fields>
+        <help>Email of the company&apos;s Matching Gift administrator.</help>
+        <label><!-- Matching Gift Email --></label>
+        <name>npsp__Matching_Gift_Email__c</name>
+    </fields>
+    <fields>
+        <help>The date you last updated the Matching Gift information.</help>
+        <label><!-- Matching Gift Info Updated --></label>
+        <name>npsp__Matching_Gift_Info_Updated__c</name>
+    </fields>
+    <fields>
+        <help>The portion of a gift the company will match.</help>
+        <label><!-- Matching Gift Percent --></label>
+        <name>npsp__Matching_Gift_Percent__c</name>
+    </fields>
+    <fields>
+        <help>The phone number of the company&apos;s Matching Gift administrator.</help>
+        <label><!-- Matching Gift Phone --></label>
+        <name>npsp__Matching_Gift_Phone__c</name>
+    </fields>
+    <fields>
+        <help>Use this field to note any age restrictions this company places on Matching Gift eligibility.</help>
+        <label><!-- Matching Gift Request Deadline --></label>
+        <name>npsp__Matching_Gift_Request_Deadline__c</name>
+    </fields>
+    <fields>
+        <help>The number of years that a member of this Household has had a Membership (read only).</help>
+        <label><!-- Membership Span --></label>
+        <name>npsp__Membership_Span__c</name>
+    </fields>
+    <fields>
+        <help>The Membership status of this Household, for example, Current, Expired, or Grace Period. The value is based on Membership End Date and Grace Period. The Default Grace Period is set in NPSP Settings, under Household Settings. This field is read only.</help>
+        <label><!-- Membership Status --></label>
+        <name>npsp__Membership_Status__c</name>
+    </fields>
+    <fields>
+        <help>The number of Contacts who are members of this Household.</help>
+        <label><!-- Number of Household Members --></label>
+        <name>npsp__Number_of_Household_Members__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACN/ABN --></label>
+        <name>npsp_plus__ACN_ABN__c</name>
+    </fields>
+    <layouts>
+        <layout>Communities Organisation Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Partner Profile --></label>
+            <section>Partner Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Social Media --></label>
+            <section>Social Media</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Estate Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Estate Details --></label>
+            <section>Estate Details</section>
+        </sections>
+        <sections>
+            <label><!-- Estate Financial Summary --></label>
+            <section>Estate Financial Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Household Lightning Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Totals --></label>
+            <section>Donation Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Social Media --></label>
+            <section>Social Media</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Organization Lightning Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Totals --></label>
+            <section>Donation Totals</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Grantmaking Information --></label>
+            <section>Grantmaking Information</section>
+        </sections>
+        <sections>
+            <label><!-- Matching Gift Information --></label>
+            <section>Matching Gift Information</section>
+        </sections>
+        <sections>
+            <label><!-- Membership Information --></label>
+            <section>Membership Information</section>
+        </sections>
+        <sections>
+            <label><!-- Social Media --></label>
+            <section>Social Media</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Update Account --></label>
+        <name>Goals_Summary</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Donation --></label>
+        <name>New_Donation</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Grant --></label>
+        <name>New_Grant</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Major Gift --></label>
+        <name>New_Major_Gift</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Matching Gift --></label>
+        <name>New_Matching_Gift</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Membership --></label>
+        <name>New_Membership</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Use this record type when creating an estate for a deceased donor with a bequest --></description>
+        <label><!-- Estate --></label>
+        <name>Estate</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- An Account representing a branch of your organization --></description>
+        <label><!-- Branch --></label>
+        <name>caseman__Branch</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- An Account representing a Household containing one or more individuals --></description>
+        <label><!-- Household Account --></label>
+        <name>npsp_plus_dres__HH_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- An Account representing an organization --></description>
+        <label><!-- Organization --></label>
+        <name>npsp_plus_dres__Organization</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- Manage_Household --></label>
+        <name>npsp__Manage_Household</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Gift --></label>
+        <name>npsp__New_Gift</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Recalculate_Rollups --></label>
+        <name>npsp__Recalculate_Rollups</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;No payment received in the last one year on the estate, follow up on Probate.&quot;, &quot;WhoId_Field&quot;: &quot;npe01__One2OneContact__c&quot;} --></description>
+        <name>Follow_up_Probate_1</name>
+        <subject><!-- Follow up Probate --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Outstanding payments on related Bequest&quot;, &quot;WhoId_Field&quot;: &quot;npe01__One2OneContact__c&quot;} --></description>
+        <name>Update_on_distributio8ns</name>
+        <subject><!-- Update on distributions --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Outstanding payments on related Bequest&quot;, &quot;WhoId_Field&quot;: &quot;npe01__One2OneContact__c&quot;} --></description>
+        <name>Update_on_distributions</name>
+        <subject><!-- Update on distributions --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

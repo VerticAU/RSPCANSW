@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- BDE Entry FS v2 --></label>
+        <name>npsp__BDE_Entry_FS_v2</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- New BDE List v2 --></label>
+        <name>npsp__BDE_List_FS_v2</name>
+    </fieldSets>
+    <fields>
+        <label><!-- ASX Code --></label>
+        <name>ASX_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Created Date --></label>
+        <name>Account_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount x2 the last gift --></label>
+        <name>Amount_x2_the_last_gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Adopt a Pet ID --></label>
+        <name>Animal_Adopt_a_Pet_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Name --></label>
+        <name>Animal_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Type --></label>
+        <name>Animal_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal --></label>
+        <name>Animal__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Application Submitted Date --></label>
+        <name>Application_Submitted_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attended --></label>
+        <name>Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- BSB --></label>
+        <name>BSB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Name --></label>
+        <name>Bank_Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>Bank_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Branch --></label>
+        <name>Bank_Branch__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Number --></label>
+        <name>Bank_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch --></label>
+        <name>Batch__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Outline any specific items, i.e. property or shares, or conditions that are stated in the Will --></help>
+        <label><!-- Bequest Conditions --></label>
+        <name>Bequest_Conditions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates the value of the Percentage stated as part of a Residual or Percentage Based Bequest --></help>
+        <label><!-- Bequest Percentage --></label>
+        <name>Bequest_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch --></label>
+        <name>Branch__c</name>
+        <relationshipLabel><!-- Branch Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Campaing Id (Include CCD) --></label>
+        <name>Campaing_Id_Include_CCD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cheque Drawer --></label>
+        <name>Cheque_Drawer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cheque Number --></label>
+        <name>Cheque_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Funded Services Total --></label>
+        <name>Client_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company --></label>
+        <name>Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Condition Met --></label>
+        <name>Condition_Met__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By Recurring Donation --></label>
+        <name>Created_By_Recurring_Donation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Notified of Death --></label>
+        <name>Date_Notified_of_Death__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Will --></label>
+        <name>Date_of_Will__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Marked Deceased --></label>
+        <name>Days_Since_Marked_Deceased__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deceased Date --></label>
+        <name>Deceased_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Code --></label>
+        <name>Discount_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Percentage --></label>
+        <name>Discount_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Donor Type --></label>
+        <name>Donor_Type__c</name>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation><!-- Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organisation</masterLabel>
+            <translation><!-- Organisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Value % --></label>
+        <name>Expected_Value_Bequest__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Value % --></label>
+        <name>Expected_Value_P__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Value --></label>
+        <name>Expected_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fulfilment Requirements --></label>
+        <name>Fulfilment_Requirements__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Card To --></label>
+        <name>Gift_Card_To__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Gift In Will Type --></label>
+        <name>Gift_In_Will_Type__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Property</masterLabel>
+            <translation><!-- Property --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shares</masterLabel>
+            <translation><!-- Shares --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Gift Value --></label>
+        <name>Gift_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instalment Value --></label>
+        <name>Instalment_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Sent Date --></label>
+        <name>Invoice_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Membership Confirmed --></label>
+        <name>Is_Membership_Confirmed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is This First Donation --></label>
+        <name>Is_This_First_Donation__c</name>
+    </fields>
+    <fields>
+        <label><!-- LOI Submitted Date --></label>
+        <name>LOI_Submitted_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Life Tenancy --></label>
+        <name>Life_Tenancy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Linked Opportunity --></label>
+        <name>Linked_Opportunity__c</name>
+        <relationshipLabel><!-- Home Ever After Membership --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Local Volunteer Branch --></label>
+        <name>Local_Volunteer_Branch__c</name>
+        <picklistValues>
+            <masterLabel>Albury</masterLabel>
+            <translation><!-- Albury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armidale</masterLabel>
+            <translation><!-- Armidale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bathurst</masterLabel>
+            <translation><!-- Bathurst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Mountains</masterLabel>
+            <translation><!-- Blue Mountains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broken Hill</masterLabel>
+            <translation><!-- Broken Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central West</masterLabel>
+            <translation><!-- Central West --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cooma</masterLabel>
+            <translation><!-- Cooma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eurobodalla</masterLabel>
+            <translation><!-- Eurobodalla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Glen Innes</masterLabel>
+            <translation><!-- Glen Innes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Goulburn</masterLabel>
+            <translation><!-- Goulburn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gunnedah</masterLabel>
+            <translation><!-- Gunnedah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunter</masterLabel>
+            <translation><!-- Hunter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illawarra</masterLabel>
+            <translation><!-- Illawarra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inverell</masterLabel>
+            <translation><!-- Inverell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mudgee</masterLabel>
+            <translation><!-- Mudgee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port Macquarie</masterLabel>
+            <translation><!-- Port Macquarie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sapphire Coast</masterLabel>
+            <translation><!-- Sapphire Coast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shoalhaven</masterLabel>
+            <translation><!-- Shoalhaven --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sydney</masterLabel>
+            <translation><!-- Sydney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tamworth</masterLabel>
+            <translation><!-- Tamworth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taree</masterLabel>
+            <translation><!-- Taree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tenterfield</masterLabel>
+            <translation><!-- Tenterfield --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Blue Mountains</masterLabel>
+            <translation><!-- Blue Mountains --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coffs Harbour</masterLabel>
+            <translation><!-- Coffs Harbour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunter</masterLabel>
+            <translation><!-- Hunter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illawarra</masterLabel>
+            <translation><!-- Illawarra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yagoona</masterLabel>
+            <translation><!-- Yagoona --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lost Reason --></label>
+        <name>Lost_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Bequest Revoked</masterLabel>
+            <translation><!-- Bequest Revoked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Error - Never Confirmed</masterLabel>
+            <translation><!-- Error - Never Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estate Failed - Insolvency</masterLabel>
+            <translation><!-- Estate Failed - Insolvency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estate Failed - Lost Contestation</masterLabel>
+            <translation><!-- Estate Failed - Lost Contestation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estate Failed - RSPCA Aus/MS claimed</masterLabel>
+            <translation><!-- Estate Failed - RSPCA Aus/MS claimed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failure to pay</masterLabel>
+            <translation><!-- Failure to pay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legacy Pet Deceased</masterLabel>
+            <translation><!-- Legacy Pet Deceased --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Bequest Received</masterLabel>
+            <translation><!-- No Bequest Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Interested</masterLabel>
+            <translation><!-- Not Interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participant withdraw</masterLabel>
+            <translation><!-- Participant withdraw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA cancel</masterLabel>
+            <translation><!-- RSPCA cancel --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Member Number --></label>
+        <name>Member_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership ID --></label>
+        <name>Membership_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership Type --></label>
+        <name>Membership_Type__c</name>
+        <picklistValues>
+            <masterLabel>Home Ever After</masterLabel>
+            <translation><!-- Home Ever After --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA NSW Membership</masterLabel>
+            <translation><!-- RSPCA NSW Membership --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Name on Cheque --></label>
+        <name>Name_on_Cheque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Narrative --></label>
+        <name>Narrative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Net Profit/Loss --></label>
+        <name>Net_Profit_Loss__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Failed Payments --></label>
+        <name>Number_of_Failed_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Pending Payments --></label>
+        <name>Number_of_Pending_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Tickets Purchased --></label>
+        <name>Number_of_Tickets_Purchased__c</name>
+    </fields>
+    <fields>
+        <label><!-- One Drive Folder Name --></label>
+        <name>One_Drive_Folder_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Source --></label>
+        <name>Opportunity_Source__c</name>
+        <picklistValues>
+            <masterLabel>Adoption pack</masterLabel>
+            <translation><!-- Adoption pack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australian Cat/Dog Lovers</masterLabel>
+            <translation><!-- Australian Cat/Dog Lovers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brochure_other</masterLabel>
+            <translation><!-- Brochure_other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brochure_shelter</masterLabel>
+            <translation><!-- Brochure_shelter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation><!-- DM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DRTV</masterLabel>
+            <translation><!-- DRTV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facebook</masterLabel>
+            <translation><!-- Facebook --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Function</masterLabel>
+            <translation><!-- Function --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GiW newsletter</masterLabel>
+            <translation><!-- GiW newsletter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Care worker</masterLabel>
+            <translation><!-- Health Care worker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latte Life</masterLabel>
+            <translation><!-- Latte Life --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Council</masterLabel>
+            <translation><!-- Local Council --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meals on Wheels</masterLabel>
+            <translation><!-- Meals on Wheels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Centre</masterLabel>
+            <translation><!-- Medical Centre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NRMA magazine</masterLabel>
+            <translation><!-- NRMA magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NSW Seniors Festival</masterLabel>
+            <translation><!-- NSW Seniors Festival --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newcastle Weekly</masterLabel>
+            <translation><!-- Newcastle Weekly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Over 50s Lifestyle magazine</masterLabel>
+            <translation><!-- Over 50s Lifestyle magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petbarn</masterLabel>
+            <translation><!-- Petbarn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA NSW rep/brand</masterLabel>
+            <translation><!-- RSPCA NSW rep/brand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA NSW website</masterLabel>
+            <translation><!-- RSPCA NSW website --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA Survey</masterLabel>
+            <translation><!-- RSPCA Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retirement home</masterLabel>
+            <translation><!-- Retirement home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Search engine result</masterLabel>
+            <translation><!-- Search engine result --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior for Seniors</masterLabel>
+            <translation><!-- Senior for Seniors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation><!-- Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solicitor/advisor</masterLabel>
+            <translation><!-- Solicitor/advisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TM</masterLabel>
+            <translation><!-- TM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Senior</masterLabel>
+            <translation><!-- The Senior --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veterinarian</masterLabel>
+            <translation><!-- Veterinarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website_other</masterLabel>
+            <translation><!-- Website_other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Word of Mouth</masterLabel>
+            <translation><!-- Word of Mouth --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Indicates if all the supporting paperwork received has been received and attached. --></help>
+        <label><!-- Paperwork Received --></label>
+        <name>Paperwork_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Funded Services Total --></label>
+        <name>Partner_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Frequency --></label>
+        <name>Payment_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Off</masterLabel>
+            <translation><!-- One Off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payment Method --></label>
+        <name>Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Asset - Property Transfer</masterLabel>
+            <translation><!-- Asset - Property Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset - Securities</masterLabel>
+            <translation><!-- Asset - Securities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BPAY</masterLabel>
+            <translation><!-- BPAY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CentrePay</masterLabel>
+            <translation><!-- CentrePay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cheque</masterLabel>
+            <translation><!-- Cheque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EziDebit</masterLabel>
+            <translation><!-- EziDebit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PayPal</masterLabel>
+            <translation><!-- PayPal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pledge Plan --></label>
+        <name>Pledge_Plan__c</name>
+        <picklistValues>
+            <masterLabel>Continuous</masterLabel>
+            <translation><!-- Continuous --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed</masterLabel>
+            <translation><!-- Fixed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pledge Type --></label>
+        <name>Pledge_Type__c</name>
+        <picklistValues>
+            <masterLabel>Irregular Payment</masterLabel>
+            <translation><!-- Irregular Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular Payment</masterLabel>
+            <translation><!-- Regular Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Payment</masterLabel>
+            <translation><!-- Single Payment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact 2xLargest Amount --></label>
+        <name>Primary_Contact_2xLargest_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact Do Not Call --></label>
+        <name>Primary_Contact_Do_Not_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact Do Not Contact --></label>
+        <name>Primary_Contact_Do_Not_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact Email --></label>
+        <name>Primary_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact Has Opt Out Of Email --></label>
+        <name>Primary_Contact_Has_Opt_Out_Of_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact Phone --></label>
+        <name>Primary_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program Area --></label>
+        <name>Program_Area__c</name>
+        <picklistValues>
+            <masterLabel>Branch</masterLabel>
+            <translation><!-- Branch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capacity Building</masterLabel>
+            <translation><!-- Capacity Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capital/Equipment</masterLabel>
+            <translation><!-- Capital/Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinics/Veterinary</masterLabel>
+            <translation><!-- Clinics/Veterinary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events/Fundraising</masterLabel>
+            <translation><!-- Events/Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation><!-- IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inspectorate</masterLabel>
+            <translation><!-- Inspectorate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outreach</masterLabel>
+            <translation><!-- Outreach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Programs</masterLabel>
+            <translation><!-- Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wildlife</masterLabel>
+            <translation><!-- Wildlife --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program Engagement --></label>
+        <name>Program_Engagement__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Property Type --></label>
+        <name>Property_Type__c</name>
+        <picklistValues>
+            <masterLabel>Farm</masterLabel>
+            <translation><!-- Farm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Land</masterLabel>
+            <translation><!-- Land --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RSPCA Funded Services Total --></label>
+        <name>RSPCA_Funded_Services_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receipt Auto Number --></label>
+        <name>Receipt_Auto_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receipt Number --></label>
+        <name>Receipt_Number_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manual Receipt Number --></label>
+        <name>Receipt_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receipt Preference --></label>
+        <name>Receipt_Preference__c</name>
+        <picklistValues>
+            <masterLabel>Email Receipt</masterLabel>
+            <translation><!-- Email Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Receipt</masterLabel>
+            <translation><!-- No Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postal Receipt</masterLabel>
+            <translation><!-- Postal Receipt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Record_Type --></label>
+        <name>Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refund Information --></label>
+        <name>Refund_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refund Reason --></label>
+        <name>Refund_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reservation --></label>
+        <name>Reservation__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Run Workflow Rule With Name --></label>
+        <name>Run_Workflow_Rule_With_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send Date --></label>
+        <name>Send_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Participant --></label>
+        <name>Service_Participant__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Schedule --></label>
+        <name>Service_Schedule__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Session --></label>
+        <name>Session__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Share Value --></label>
+        <name>Share_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship Type --></label>
+        <name>Sponsorship_Type__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Kind</masterLabel>
+            <translation><!-- In Kind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Services</masterLabel>
+            <translation><!-- Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsorship</masterLabel>
+            <translation><!-- Sponsorship --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Disputed</masterLabel>
+            <translation><!-- Disputed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hard Rejection</masterLabel>
+            <translation><!-- Hard Rejection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refunded</masterLabel>
+            <translation><!-- Refunded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retrying</masterLabel>
+            <translation><!-- Retrying --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soft Rejection</masterLabel>
+            <translation><!-- Soft Rejection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Stripe Customer Id --></label>
+        <name>Stripe_Customer_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stripe Payment Id --></label>
+        <name>Stripe_Payment_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sum Bequest Opp Amount Outstanding --></label>
+        <name>Sum_Bequest_Opp_Amount_Outstanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sum Bequest Opp Payments Made --></label>
+        <name>Sum_Bequest_Opp_Payments_Made__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Variant --></label>
+        <name>Test_Variant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ticket Location --></label>
+        <name>Ticket_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Child Tickets Amount --></label>
+        <name>Total_Child_Tickets_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Child Tickets --></label>
+        <name>Total_Child__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Concession Tickets Amount --></label>
+        <name>Total_Concession_Tickets_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Concession Tickets --></label>
+        <name>Total_Concession_Tickets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Family Tickets Amount --></label>
+        <name>Total_Family_Tickets_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Family Tickets --></label>
+        <name>Total_Family_Tickets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Merchandise Items --></label>
+        <name>Total_Merchandise_Items__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Tickets Amount --></label>
+        <name>Total_Tickets_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transfer Date --></label>
+        <name>Transfer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transfer Value --></label>
+        <name>Transfer_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- UTM Ad Content --></label>
+        <name>UTM_Ad_Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- UTM Campaign --></label>
+        <name>UTM_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- UTM Medium --></label>
+        <name>UTM_Medium__c</name>
+    </fields>
+    <fields>
+        <label><!-- UTM Source --></label>
+        <name>UTM_Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- UTM Term --></label>
+        <name>UTM_Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Will Gap --></label>
+        <name>Will_Gap__c</name>
+    </fields>
+    <fields>
+        <label><!-- isCompleted --></label>
+        <name>isCompleted__c</name>
+    </fields>
+    <fields>
+        <help>Formula: The Amount of this Opportunity minus the Payment Writeoff Amount and Payment Amount Received.</help>
+        <label><!-- Remaining Balance --></label>
+        <name>npe01__Amount_Outstanding__c</name>
+    </fields>
+    <fields>
+        <help>Total value of the Payments marked as written-off or noncollectable for this Opportunity.</help>
+        <label><!-- Payment Writeoff Amount --></label>
+        <name>npe01__Amount_Written_Off__c</name>
+    </fields>
+    <fields>
+        <help>Hidden field for passing a Contact Id for Contact Role creation.</help>
+        <label><!-- Contact Id for Role --></label>
+        <name>npe01__Contact_Id_for_Role__c</name>
+    </fields>
+    <fields>
+        <help>If payments are active, and if checked, a new payment will not be automatically created for this Opportunity.</help>
+        <label><!-- Do Not Automatically Create Payment --></label>
+        <name>npe01__Do_Not_Automatically_Create_Payment__c</name>
+    </fields>
+    <fields>
+        <help>Formula: Whether or not the related Account is defined as an individual (SYSTEMIsIndividual__c)</help>
+        <label><!-- Is Opp From Individual --></label>
+        <name>npe01__Is_Opp_From_Individual__c</name>
+    </fields>
+    <fields>
+        <help>Determines the value on the Contact or Account of the Last Membership Level field.</help>
+        <label><!-- Member Level --></label>
+        <name>npe01__Member_Level__c</name>
+        <picklistValues>
+            <masterLabel>Annual Member (Pension Card Holder)</masterLabel>
+            <translation><!-- Annual Member (Pension Card Holder) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual member (18+ yrs)</masterLabel>
+            <translation><!-- Annual member (18+ yrs) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Junior Member (17 yrs &amp; under)</masterLabel>
+            <translation><!-- Junior Member (17 yrs &amp; under) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Life Member (18+ yrs)</masterLabel>
+            <translation><!-- Life Member (18+ yrs) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Date membership period ends.</help>
+        <label><!-- Membership End Date --></label>
+        <name>npe01__Membership_End_Date__c</name>
+    </fields>
+    <fields>
+        <help>Is this a renewal, a new membership, or a membership with someone who lapsed and has returned.</help>
+        <label><!-- Membership Origin --></label>
+        <name>npe01__Membership_Origin__c</name>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>New</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reacquire</masterLabel>
+            <translation>Reacquire</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation>Renewal</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Date when membership period starts</help>
+        <label><!-- Membership Start Date --></label>
+        <name>npe01__Membership_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help>Total number of payments for this Opportunity (Donation)</help>
+        <label><!-- Number of Payments --></label>
+        <name>npe01__Number_of_Payments__c</name>
+    </fields>
+    <fields>
+        <help>The total value of Payments marked as paid for this Opportunity.</help>
+        <label><!-- Payment Amount Received --></label>
+        <name>npe01__Payments_Made__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Donation --></label>
+        <name>npe03__Recurring_Donation__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Formula: Concatenated fields used during rollups to locate the most recent opportunity.</help>
+        <label><!-- Combined Rollup Fieldset --></label>
+        <name>npo02__CombinedRollupFieldset__c</name>
+    </fields>
+    <fields>
+        <help>Controls if Household contact roles are created for Opportunities.  DEPRECATED.  Replaced by custom settings.</help>
+        <label><!-- _SYSTEM: HOUSEHOLD CONTACT ROLEPROCESSOR --></label>
+        <name>npo02__systemHouseholdContactRoleProcessor__c</name>
+        <picklistValues>
+            <masterLabel>All Opportunities</masterLabel>
+            <translation>All Opportunities</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Opportunities</masterLabel>
+            <translation>No Opportunities</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>The date that you acknowledged this Opportunity.</help>
+        <label><!-- Acknowledgment Date --></label>
+        <name>npsp__Acknowledgment_Date__c</name>
+    </fields>
+    <fields>
+        <help>The acknowledgement status of this Opportunity.</help>
+        <label><!-- Acknowledgment Status --></label>
+        <name>npsp__Acknowledgment_Status__c</name>
+        <picklistValues>
+            <masterLabel>Acknowledged</masterLabel>
+            <translation>Acknowledged</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Do Not Acknowledge</masterLabel>
+            <translation>Do Not Acknowledge</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Acknowledgment Not Sent</masterLabel>
+            <translation>Email Acknowledgment Not Sent</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Acknowledgment Now</masterLabel>
+            <translation>Email Acknowledgment Now</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Renewal Now</masterLabel>
+            <translation><!-- Email Renewal Now --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To Be Acknowledged</masterLabel>
+            <translation>To Be Acknowledged</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>The date the donor was asked for this Donation. This may be different from the date you received it.</help>
+        <label><!-- Ask Date --></label>
+        <name>npsp__Ask_Date__c</name>
+    </fields>
+    <fields>
+        <help>The batch that created this Opportunity. This field is automatically populated based on your Batch Number Settings in NPSP Settings.</help>
+        <label><!-- Batch Number --></label>
+        <name>npsp__Batch_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch --></label>
+        <name>npsp__Batch__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Notes on why the donation ask was not successful.</help>
+        <label><!-- Closed Lost Reason --></label>
+        <name>npsp__Closed_Lost_Reason__c</name>
+    </fields>
+    <fields>
+        <help>External identifier for Salesforce.org payment service integration.</help>
+        <label><!-- Elevate Recurring Id --></label>
+        <name>npsp__CommitmentId__c</name>
+    </fields>
+    <fields>
+        <help>When selected, this field disables several aspects of NPSP Opportunity Contact Role automation, potentially resulting in incorrect or duplicate data. Refer to the product documentation for more details.</help>
+        <label><!-- Disable Contact Role Automation --></label>
+        <name>npsp__DisableContactRoleAutomation__c</name>
+    </fields>
+    <fields>
+        <help>The Fair Market Value of an In-Kind gift.</help>
+        <label><!-- Fair Market Value --></label>
+        <name>npsp__Fair_Market_Value__c</name>
+    </fields>
+    <fields>
+        <help>Categorises the type of ask for this Opportunity, for example, New Donor.</help>
+        <label><!-- Gift Strategy --></label>
+        <name>npsp__Gift_Strategy__c</name>
+        <picklistValues>
+            <masterLabel>New Donor</masterLabel>
+            <translation>New Donor</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation>Renewal</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation>Upgrade</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>The date of the Grant&apos;s inception, according to the document or contract sent by the grantmaking organisation.</help>
+        <label><!-- Grant Contract Date --></label>
+        <name>npsp__Grant_Contract_Date__c</name>
+    </fields>
+    <fields>
+        <help>Use this to track unique numbers sometimes assigned by grantmaking organisations.</help>
+        <label><!-- Grant Contract Number --></label>
+        <name>npsp__Grant_Contract_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Grant Period End Date --></label>
+        <name>npsp__Grant_Period_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Grant Period Start Date --></label>
+        <name>npsp__Grant_Period_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help>Use this to describe the funding areas for the Grant or Donation. For example, the names of the programs the Grant or Donation is designated for.</help>
+        <label><!-- Program Areas --></label>
+        <name>npsp__Grant_Program_Area_s__c</name>
+    </fields>
+    <fields>
+        <help>A URL that points to the grant requirements on the grantmaker&apos;s website.</help>
+        <label><!-- Grant Requirements Website --></label>
+        <name>npsp__Grant_Requirements_Website__c</name>
+    </fields>
+    <fields>
+        <help>Lookup to the Contact record of the honoree for this Donation.</help>
+        <label><!-- Honoree Contact --></label>
+        <name>npsp__Honoree_Contact__c</name>
+        <relationshipLabel><!-- Opportunities (Honoree Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>The honoree name as provided by the donor. If this field is left blank, and the Honoree Contact field contains a value, NPSP automatically populates this field with that value.</help>
+        <label><!-- Honoree Name --></label>
+        <name>npsp__Honoree_Name__c</name>
+    </fields>
+    <fields>
+        <help>Holds any rich text description of the In-Kind Gift, including pictures.</help>
+        <label><!-- In-Kind Description --></label>
+        <name>npsp__In_Kind_Description__c</name>
+    </fields>
+    <fields>
+        <help>Indicates whether the donor provided the Fair Market Value for this In-Kind Gift.</help>
+        <label><!-- In-Kind Donor Declared Value --></label>
+        <name>npsp__In_Kind_Donor_Declared_Value__c</name>
+    </fields>
+    <fields>
+        <help>The type of In-Kind Gift, for example, Goods or Services.</help>
+        <label><!-- In-Kind Type --></label>
+        <name>npsp__In_Kind_Type__c</name>
+        <picklistValues>
+            <masterLabel>Goods</masterLabel>
+            <translation>Goods</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Services</masterLabel>
+            <translation>Services</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Indicates whether the Grant is a renewal of a previous Grant.</help>
+        <label><!-- Is Grant Renewal --></label>
+        <name>npsp__Is_Grant_Renewal__c</name>
+    </fields>
+    <fields>
+        <help>Lookup to the Account record of the company that will match this Donation.</help>
+        <label><!-- Matching Gift Account --></label>
+        <name>npsp__Matching_Gift_Account__c</name>
+        <relationshipLabel><!-- Matched Gifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>The name of the company that will match this Donation.</help>
+        <label><!-- Matching Gift Employer --></label>
+        <name>npsp__Matching_Gift_Employer__c</name>
+    </fields>
+    <fields>
+        <help>The status of the Matching Gift for this Donation, for example, Submitted or Received.</help>
+        <label><!-- Matching Gift Status --></label>
+        <name>npsp__Matching_Gift_Status__c</name>
+        <picklistValues>
+            <masterLabel>Potential</masterLabel>
+            <translation>Potential</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received</masterLabel>
+            <translation>Received</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation>Submitted</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Lookup to the Opportunity record for the Matching Gift for this Donation.</help>
+        <label><!-- Matching Gift --></label>
+        <name>npsp__Matching_Gift__c</name>
+        <relationshipLabel><!-- Matched Gifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>The due date for this Opportunity&apos;s next Deliverable (read only).</help>
+        <label><!-- Next Deliverable Date --></label>
+        <name>npsp__Next_Grant_Deadline_Due_Date__c</name>
+    </fields>
+    <fields>
+        <help>A personalised message for the notification recipient.</help>
+        <label><!-- Notification Message --></label>
+        <name>npsp__Notification_Message__c</name>
+    </fields>
+    <fields>
+        <help>Indicates how the notification recipient should be notified, for example, by email or phone.</help>
+        <label><!-- Notification Preference --></label>
+        <name>npsp__Notification_Preference__c</name>
+        <picklistValues>
+            <masterLabel>Do Not Notify</masterLabel>
+            <translation>Do Not Notify</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>Email</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation>Phone</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postal Mail</masterLabel>
+            <translation>Postal Mail</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Lookup to the Contact record of the person who should be notified about this Donation.</help>
+        <label><!-- Notification Recipient Contact --></label>
+        <name>npsp__Notification_Recipient_Contact__c</name>
+        <relationshipLabel><!-- Opportunities (Notification Recipient) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Enter any contact information such as address, phone, or email that the donor provided for the notification recipient.</help>
+        <label><!-- Notification Recipient Information --></label>
+        <name>npsp__Notification_Recipient_Information__c</name>
+    </fields>
+    <fields>
+        <help>The name that the donor provided of the person you should notify about this Donation. If this field is left blank and the Notification Recipient Contact field contains a value, NPSP automatically populates this field with that value.</help>
+        <label><!-- Notification Recipient Name --></label>
+        <name>npsp__Notification_Recipient_Name__c</name>
+    </fields>
+    <fields>
+        <help>If this Grant is a renewal of a previous Grant, use this field to relate this record to the previous Grant.</help>
+        <label><!-- Previous Grant/Gift Opportunity --></label>
+        <name>npsp__Previous_Grant_Opportunity__c</name>
+        <relationshipLabel><!-- Related Grants/Gifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>The status NPSP uses when it creates a Campaign Member for this Opportunity&apos;s Primary Contact and Primary Campaign Source. Leave blank to default to a responded status for Closed/Won Opportunities, and a non-responded status for other Opportunities.</help>
+        <label><!-- Primary Contact Campaign Member Status --></label>
+        <name>npsp__Primary_Contact_Campaign_Member_Status__c</name>
+    </fields>
+    <fields>
+        <help>The Primary Contact for this Opportunity. If this is an individual Donation, NPSP attributes the Donation to the Primary Contact. If this is an organisational Donation, NPSP attributes a soft credit to the Primary Contact.</help>
+        <label><!-- Primary Contact --></label>
+        <name>npsp__Primary_Contact__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>The date your organisation identified this donor as qualifying for this Donation.</help>
+        <label><!-- Qualified Date --></label>
+        <name>npsp__Qualified_Date__c</name>
+    </fields>
+    <fields>
+        <help>The installment name for inclusion in Opportunity naming. Shows the installment number in parentheses for open ended Recurring Donations, or the installment number out of the total for Recurring Donations with a set number of installments.</help>
+        <label><!-- Recurring Donation Installment Name --></label>
+        <name>npsp__Recurring_Donation_Installment_Name__c</name>
+    </fields>
+    <fields>
+        <help>The installment number of this Opportunity&apos;s Recurring Donation schedule.</help>
+        <label><!-- Recurring Donation Installment Number --></label>
+        <name>npsp__Recurring_Donation_Installment_Number__c</name>
+    </fields>
+    <fields>
+        <help>The amount you are requesting. This number might be different from the final award amount.</help>
+        <label><!-- Requested Amount --></label>
+        <name>npsp__Requested_Amount__c</name>
+    </fields>
+    <fields>
+        <help>Indicates whether the Donation is in honor or in memory of an individual.</help>
+        <label><!-- Tribute Type --></label>
+        <name>npsp__Tribute_Type__c</name>
+        <picklistValues>
+            <masterLabel>Gift Card</masterLabel>
+            <translation><!-- Gift Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honor</masterLabel>
+            <translation>Honor</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial</masterLabel>
+            <translation>Memorial</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>npsp_plus__Channel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Fees --></label>
+        <name>npsp_plus__Payment_Fees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Net Amount Received --></label>
+        <name>npsp_plus__Payment_Net_Amount_Received__c</name>
+    </fields>
+    <layouts>
+        <layout>Bequest Layout</layout>
+        <sections>
+            <label><!-- Bequest Information --></label>
+            <section>Bequest Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Hidden Section --></label>
+            <section>Hidden Section</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Schedule --></label>
+            <section>Payment Schedule</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Corporate Partnerships</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Partnership Information --></label>
+            <section>Partnership Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sponsorship Information --></label>
+            <section>Sponsorship Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Corporate Support Day layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Corporate Support Day Information --></label>
+            <section>Corporate Support Day Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Hidden Section --></label>
+            <section>Hidden Section</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Event Ticket Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Hidden Section --></label>
+            <section>Hidden Section</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Ticket Information --></label>
+            <section>Ticket Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Fundraising Donation Layout</layout>
+        <sections>
+            <label><!-- Acknowledgement Information --></label>
+            <section>Acknowledgement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Gift Card Information --></label>
+            <section>Gift Card Information</section>
+        </sections>
+        <sections>
+            <label><!-- Matching Gift Information --></label>
+            <section>Matching Gift Information</section>
+        </sections>
+        <sections>
+            <label><!-- Tribute Information --></label>
+            <section>Tribute Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Gift Card</layout>
+        <sections>
+            <label><!-- Animal Information --></label>
+            <section>Animal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Home Ever After</layout>
+        <sections>
+            <label><!-- Acknowledgement Information --></label>
+            <section>Acknowledgement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Home Ever After Information --></label>
+            <section>Home Ever After Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Merchandise Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Merchandise Information --></label>
+            <section>Merchandise Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Property Transfers</layout>
+        <sections>
+            <label><!-- Acknowledgement Information --></label>
+            <section>Acknowledgement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Hidden Section --></label>
+            <section>Hidden Section</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- Property Transfer Details --></label>
+            <section>Property Transfer Details</section>
+        </sections>
+        <sections>
+            <label><!-- Property Transfer Information --></label>
+            <section>Property Transfer Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Raffle Ticket</layout>
+        <sections>
+            <label><!-- Acknowledgement Status --></label>
+            <section>Acknowledgement Status</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Ticket Information --></label>
+            <section>Ticket Information</section>
+        </sections>
+        <sections>
+            <label><!-- UTM Information --></label>
+            <section>UTM Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Securities</layout>
+        <sections>
+            <label><!-- Acknowledgement Information --></label>
+            <section>Acknowledgement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Service Layout</layout>
+        <sections>
+            <label><!-- Acknowledgement Information --></label>
+            <section>Acknowledgement Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Donation Information --></label>
+            <section>Donation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Related Records --></label>
+            <section>Related Records</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Deliverable --></label>
+        <name>New_Deliverable</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Record used to capture details about a bequest that has been pledged by a donor. --></description>
+        <label><!-- Gifts In Wills --></label>
+        <name>Bequest</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Captures details about a corporate support day with RSPCA. --></description>
+        <label><!-- Corporate Support Day --></label>
+        <name>Corporate_Support_Day</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about an event ticket sale. --></description>
+        <label><!-- Event Ticket --></label>
+        <name>Event_Ticket</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details of a gift card. --></description>
+        <label><!-- Gift Card --></label>
+        <name>Gift_Card</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Records used to capture details about the grant prospecting process. --></description>
+        <label><!-- Grant --></label>
+        <name>Grant</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about a Home Ever After Opportunity. --></description>
+        <label><!-- Home Ever After --></label>
+        <name>Home_Ever_After</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about goods or services received as in-kind. --></description>
+        <label><!-- In-Kind Gift --></label>
+        <name>InKindGift</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about a large donation from a major donor. --></description>
+        <label><!-- Major Gift --></label>
+        <name>MajorGift</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture a matching donation from an donor&apos;s employer or other organisation. --></description>
+        <label><!-- Matching Gift --></label>
+        <name>MatchingGift</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about a membership. --></description>
+        <label><!-- Membership --></label>
+        <name>Membership</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about a merchandise sale. --></description>
+        <label><!-- Merchandise --></label>
+        <name>Merchandise</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about a property transfer. --></description>
+        <label><!-- Property Transfer --></label>
+        <name>Property_Transfer</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about a raffle ticket purchase. --></description>
+        <label><!-- Raffle Ticket --></label>
+        <name>Raffle_Ticket</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about securities. --></description>
+        <label><!-- Securities --></label>
+        <name>Securities</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Service Delivery --></label>
+        <name>Service_Delivery</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record used to capture details about corporate sponsorship. --></description>
+        <label><!-- Sponsorship --></label>
+        <name>Sponsorship</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Donation being prospected or already received --></description>
+        <label><!-- Donation --></label>
+        <name>npsp_plus_dres__Donation</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please ensure the paperwork received checkbox is ticked --></errorMessage>
+        <name>Closed_Won_Bequest</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_Matching_Donation --></label>
+        <name>npe01__Add_Matching_Donation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Matching_Donation --></label>
+        <name>npe01__Matching_Donation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Contact_Donation --></label>
+        <name>npe01__New_Contact_Donation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Organization_Donation --></label>
+        <name>npe01__New_Organization_Donation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Email_Acknowledgment --></label>
+        <name>npsp__Email_Acknowledgment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Email_Acknowledgments --></label>
+        <name>npsp__Email_Acknowledgments</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Find_Matched_Gifts --></label>
+        <name>npsp__Find_Matched_Gifts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Soft_Credits --></label>
+        <name>npsp__Manage_Soft_Credits</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refresh_Name --></label>
+        <name>npsp__Refresh_Name</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;One-Off donation amount greater than $500 less than $999&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Call_Donor</name>
+        <subject><!-- Call Donor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;One-Off donation amount double the largest gift amount&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Call_Donor_2</name>
+        <subject><!-- Call Donor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Enquiry Step 2 Send Bequest Information&quot;} --></description>
+        <name>Call_Email_Bequestor</name>
+        <subject><!-- Call/Email Bequestor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Estate Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;90 days since all payments received and Bequest closed please ensure all paperwork is received.&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Check_Paperwork_Received_checkbox</name>
+        <subject><!-- Check Paperwork Received checkbox --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Estate Administration Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;90 days since all payments received and Bequest closed please ensure all paperwork is received.&quot;} --></description>
+        <name>Check_Paperwork_Received_checkbox_test</name>
+        <subject><!-- Check Paperwork Received checkbox --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Corporate Relationships Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Sponsorship is still in Prospecting status please check-in with Partner&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Check_in_with_Partner</name>
+        <subject><!-- Check-in with Partner --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Corporate Relationships Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Sponsorship is still in Prospecting status please check-in with Partner&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Check_in_with_Partner_test</name>
+        <subject><!-- Check-in with Partner test --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;One-Off donation amount double the last gift amount&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Email_Donor</name>
+        <subject><!-- Email Donor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Bequest_Administration_Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Gifts In Wills Information sent 14 days ago, follow up required&quot;} --></description>
+        <name>Follow_up_Bequestor</name>
+        <subject><!-- Follow up Bequestor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Major Giving Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Donor has donated $1000 or more in a single transaction&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Major_Donor_Thank_you_Call</name>
+        <subject><!-- Major Donor Thank you Call --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;WorkflowName&quot;: &quot;OpportunityWorkflow&quot;, &quot;GroupOwnerName&quot;: &quot;Estate Administration Team&quot;, &quot;ActivityDays&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;A year since Bequestor marked deceased, please update the Bequest&quot;} --></description>
+        <name>Pending_Bequest</name>
+        <subject><!-- Pending Bequest --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Phone_Call_To_thank_and_discuss2</name>
+        <subject><!-- Phone Call To thank and discuss --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;3&quot;, &quot;Description&quot;: &quot;Phone call to thank and discuss&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Gift Of Will - Enquiry Response Step 2 (dependent)&quot;} --></description>
+        <name>Phone_call_to_thank_and_discuss</name>
+        <subject><!-- Phone Call To thank and discuss --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Posted/Email info pack (donor preference)&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Posted_Email_info_pack_donor_preference</name>
+        <subject><!-- Posted/Email info pack (donor preference) --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Bequest_Information</name>
+        <subject><!-- Send Bequest Information --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest_Administration_Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot; &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Gifts_In_Wills_Information</name>
+        <subject><!-- Send Gifts In Wills Information --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_HEA_Welcome_Pack</name>
+        <subject><!-- Send HEA Welcome Pack --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Corporate Relationships Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Send sponsorship proposal for upcoming campaign&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Proposal</name>
+        <subject><!-- Send Proposal --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Support Coordinator Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;First One Off Donation&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Welcome_Pack</name>
+        <subject><!-- Send Welcome Pack --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;7&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please send welcome pack&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Send_Welcome_Pack_2</name>
+        <subject><!-- Send Welcome Pack --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Test</name>
+        <subject><!-- Test --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Corporate Fundraising Team&quot;, &quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Donor has donated $200 or more to a CCD fundraiser &quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;} --></description>
+        <name>Thank_CCD_Donor</name>
+        <subject><!-- Thank CCD Donor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Activity_Days__c&quot;: &quot;5&quot;, &quot;Description&quot;: &quot;Grant Awarded&quot;, &quot;Skip_WhoId__c&quot;: &quot;true&quot;} --></description>
+        <name>Thank_you_Call</name>
+        <subject><!-- Thank you Call --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;Group_Name__c&quot;: &quot;Bequest Administration Team&quot;, &quot;Activity_Days__c&quot;: &quot;2&quot;, &quot;Description&quot;: &quot;Bequest has been confirmed please call/email Bequestor&quot;, &quot;WhoId_Field&quot;: &quot;npsp__Primary_Contact__c&quot;, &quot;Next_Workflow_Name__c&quot;: &quot;Donation Bequest - Send Bequest&quot;} --></description>
+        <name>Thank_you_Call_Email_to_Bequestor</name>
+        <subject><!-- Thank you Call/Email to Bequestor --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- {&quot;WorkflowName&quot;: &quot;AccountWorkflow200&quot;, &quot;GroupOwnerName&quot;: &quot;Estate Administration Team&quot;, &quot;ActivityDate&quot;:&quot;5&quot;, &quot;Description&quot;: &quot;Outstanding payments on related Bequest&quot;} --></description>
+        <name>Update_on_distributions</name>
+        <subject><!-- Update on distributions --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

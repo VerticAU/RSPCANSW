@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Metadata to control behaviour of certain product features.</description>
+    <fields>
+        <fullName>pmdm__IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Feature Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Feature Gate</label>
+    <listViews>
+        <fullName>pmdm__Active</fullName>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>NamespacePrefix</columns>
+        <columns>pmdm__IsActive__c</columns>
+        <columns>IsProtected</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>pmdm__IsActive__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active</label>
+        <language>en_US</language>
+    </listViews>
+    <pluralLabel>Feature Gates</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

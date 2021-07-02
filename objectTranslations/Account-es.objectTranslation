@@ -604,7 +604,7 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- When checked, Customizable Rollups will always use &apos;Skew Mode&apos; to rollup Hard Credit and Soft Credits for this record. --></help>
+        <help>Cuando está marcada, Totalizaciones personalizables siempre utilizará el modo Desfase para totalizar los créditos duros y blandos para este registro.</help>
         <label><!-- Customizable Rollups: Force Skew Mode --></label>
         <name>npsp__CustomizableRollups_UseSkewMode__c</name>
     </fields>

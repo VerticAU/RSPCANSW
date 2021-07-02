@@ -2069,7 +2069,7 @@
         <relationshipLabel><!-- Contacts (Current Address) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- When checked, Customizable Rollups will always use &apos;Skew Mode&apos; to rollup Hard Credit and Soft Credits for this record. --></help>
+        <help>オンになっていると、カスタマイズ可能な積み上げ集計では常に「スキューモード」を使用してこのレコードのハードクレジットとソフトクレジットを積み上げ集計します。</help>
         <label><!-- Customizable Rollups: Force Skew Mode --></label>
         <name>npsp__CustomizableRollups_UseSkewMode__c</name>
     </fields>
@@ -2222,8 +2222,33 @@
         <name>npsp_plus__Years_of_Support__c</name>
     </fields>
     <fields>
+        <label><!-- Attendance Rate --></label>
+        <name>pmdm__AttendanceRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attendance Summary --></label>
+        <name>pmdm__AttendanceSummary__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of consecutive absences for this Contact, counting back from today. Clears to 0 when most recent Service Delivery was present. --></help>
+        <label><!-- Consecutive Absences --></label>
+        <name>pmdm__ConsecutiveAbsences__c</name>
+    </fields>
+    <fields>
         <label><!-- Client --></label>
         <name>pmdm__IsClient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Service Date --></label>
+        <name>pmdm__LastServiceDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Absent Service Deliveries --></label>
+        <name>pmdm__NumAbsentServiceDeliveries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Present Service Deliveries --></label>
+        <name>pmdm__NumPresentServiceDeliveries__c</name>
     </fields>
     <layouts>
         <layout>Fundraising Contact Page Layout</layout>

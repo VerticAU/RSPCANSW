@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Field whose values can be bucketed into logical groupings, similar to Case.Status values have &quot;Open&quot; and &quot;Closed&quot; groupings.</description>
+    <fields>
+        <fullName>pmdm__Field__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Field</label>
+        <metadataRelationshipControllingField>pmdm__BucketedField__mdt.pmdm__Object__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>Bucketed_Fields</relationshipLabel>
+        <relationshipName>Bucketed_Fields</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pmdm__Object__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Object</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Bucketed_Fields</relationshipLabel>
+        <relationshipName>Bucketed_Fields</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>Bucketed Field</label>
+    <pluralLabel>Bucketed Fields</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

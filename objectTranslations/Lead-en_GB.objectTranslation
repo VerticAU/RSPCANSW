@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- BDE Entry FS --></label>
+        <name>npsp__BDE_Entry_FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- BDE List FS --></label>
+        <name>npsp__BDE_List_FS</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Additional Information --></label>
+        <name>Additional_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age Group --></label>
+        <name>Age_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agree With Information About CSD --></label>
+        <name>Agree_With_Information_About_CSD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Age --></label>
+        <name>Animal_Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Breed --></label>
+        <name>Animal_Breed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Character Description --></label>
+        <name>Animal_Character_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Colour --></label>
+        <name>Animal_Colour__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Description --></label>
+        <name>Animal_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Location --></label>
+        <name>Animal_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal RON --></label>
+        <name>Animal_RON__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Sex --></label>
+        <name>Animal_Sex__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Address 1 --></label>
+        <name>Animal_Shelter_Address_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Address 2 --></label>
+        <name>Animal_Shelter_Address_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Email --></label>
+        <name>Animal_Shelter_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Name --></label>
+        <name>Animal_Shelter_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Phone --></label>
+        <name>Animal_Shelter_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Postcode --></label>
+        <name>Animal_Shelter_Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter State --></label>
+        <name>Animal_Shelter_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Shelter Suburb --></label>
+        <name>Animal_Shelter_Suburb__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Size --></label>
+        <name>Animal_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Animal Type --></label>
+        <name>Animal_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Any Pets Living At Home --></label>
+        <name>Any_Pets_Living_At_Home__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anything Else To Know About CSD --></label>
+        <name>Anything_Else_To_Know_About_CSD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anything Else To Share --></label>
+        <name>Anything_Else_To_Share__c</name>
+    </fields>
+    <fields>
+        <label><!-- Breed Primary --></label>
+        <name>Breed_Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Breed Secondary --></label>
+        <name>Breed_Secondary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Children Under 18 Living At Home --></label>
+        <name>Children_Under_18_Living_At_Home__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company ABN --></label>
+        <name>Company_ABN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost --></label>
+        <name>Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By Name --></label>
+        <name>Created_By_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Corporate Support Day --></label>
+        <name>Date_of_Corporate_Support_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of birth utc --></label>
+        <name>Date_of_birth_utc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Desexing --></label>
+        <name>Desexing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Did you have any ideas? --></label>
+        <name>Did_you_have_any_ideas__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do you have any pets? --></label>
+        <name>Do_you_have_any_pets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Education session --></label>
+        <name>Education_session__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email my information booklet --></label>
+        <name>Email_my_information_booklet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enjoy CSD --></label>
+        <name>Enjoy_CSD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facebook --></label>
+        <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Name --></label>
+        <name>Form_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Submitted Date --></label>
+        <name>Form_Submitted_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form URL --></label>
+        <name>Form_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form of Contact Requested --></label>
+        <name>Form_of_Contact_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Availability --></label>
+        <name>GW_Volunteers__Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon</masterLabel>
+            <translation><!-- Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning</masterLabel>
+            <translation><!-- Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekdays</masterLabel>
+            <translation><!-- Weekdays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekends</masterLabel>
+            <translation><!-- Weekends --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Notes --></label>
+        <name>GW_Volunteers__Volunteer_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates which skills this Lead has. You can filter on skills when you look for volunteers for particular Jobs. --></help>
+        <label><!-- Volunteer Skills --></label>
+        <name>GW_Volunteers__Volunteer_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Computer usage</masterLabel>
+            <translation><!-- Computer usage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning</masterLabel>
+            <translation><!-- Event Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation><!-- Landscaping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual labor</masterLabel>
+            <translation><!-- Manual labor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Status --></label>
+        <name>GW_Volunteers__Volunteer_Status__c</name>
+        <picklistValues>
+            <masterLabel>New Sign Up</masterLabel>
+            <translation><!-- New Sign Up --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Has MIcrochip --></label>
+        <name>Has_MIcrochip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Have Been Brands Ambassador --></label>
+        <name>Have_Been_Brands_Ambassador__c</name>
+    </fields>
+    <fields>
+        <label><!-- Home Description --></label>
+        <name>Home_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- How Did You Hear About Program --></label>
+        <name>How_Did_You_Hear_About_Program__c</name>
+    </fields>
+    <fields>
+        <label><!-- How did you hear about us? --></label>
+        <name>How_did_you_hear_about_us__c</name>
+    </fields>
+    <fields>
+        <label><!-- How were you thinking of celebrating? --></label>
+        <name>How_were_you_thinking_of_celebrating__c</name>
+    </fields>
+    <fields>
+        <label><!-- I&apos;m officially excited --></label>
+        <name>Im_officially_excited__c</name>
+    </fields>
+    <fields>
+        <label><!-- Image Source --></label>
+        <name>Image_Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instagram --></label>
+        <name>Instagram__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Vaccinated --></label>
+        <name>Is_Vaccinated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is there anything else we should know? --></label>
+        <name>Is_there_anything_else_we_should_know__c</name>
+    </fields>
+    <fields>
+        <label><!-- Know How To Get To Shelter --></label>
+        <name>Know_How_To_Get_To_Shelter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Channel --></label>
+        <name>Lead_Channel__c</name>
+        <picklistValues>
+            <masterLabel>Adopt Form</masterLabel>
+            <translation><!-- Adopt Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ambassador Application Form</masterLabel>
+            <translation><!-- Ambassador Application Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Become an RSPCA NSW Fundraiser</masterLabel>
+            <translation><!-- Become an RSPCA NSW Fundraiser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CSD Feedback Form</masterLabel>
+            <translation><!-- CSD Feedback Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CSD Participant Form</masterLabel>
+            <translation><!-- CSD Participant Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid Safe</masterLabel>
+            <translation><!-- Covid Safe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Express your interest in becoming an RSPCA NSW exceptional owner</masterLabel>
+            <translation><!-- Express your interest in becoming an RSPCA NSW exceptional owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HEA for business</masterLabel>
+            <translation><!-- HEA for business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have your details changed?</masterLabel>
+            <translation><!-- Have your details changed? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can we help (GIW)</masterLabel>
+            <translation><!-- How can we help (GIW) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can we help (HEA)</masterLabel>
+            <translation><!-- How can we help (HEA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in RSPCA education visit?</masterLabel>
+            <translation><!-- Interested in RSPCA education visit? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in a Corporate Visit</masterLabel>
+            <translation><!-- Interested in a Corporate Visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in a corporate support day?</masterLabel>
+            <translation><!-- Interested in a corporate support day? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in an RSPCA community group education visit?</masterLabel>
+            <translation><!-- Interested in an RSPCA community group education visit? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our Family Fun Day?</masterLabel>
+            <translation><!-- Interested in our Family Fun Day? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our Microchipping course?</masterLabel>
+            <translation><!-- Interested in our Microchipping course? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our School Holiday Program?</masterLabel>
+            <translation><!-- Interested in our School Holiday Program? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in our animal first aid course?</masterLabel>
+            <translation><!-- Interested in our animal first aid course? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in workplace giving?</masterLabel>
+            <translation><!-- Interested in workplace giving? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Is your adoptaversary coming up?</masterLabel>
+            <translation><!-- Is your adoptaversary coming up? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Join Team RSPCA</masterLabel>
+            <translation><!-- Join Team RSPCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Join Team RSPCA at City2Surf</masterLabel>
+            <translation><!-- Join Team RSPCA at City2Surf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Join Team RSPCA at the Sydney Morning Herald Half Marathon</masterLabel>
+            <translation><!-- Join Team RSPCA at the Sydney Morning Herald Half Marathon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learn more about honouring a loved one</masterLabel>
+            <translation><!-- Learn more about honouring a loved one --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learn more about leaving a gift in your will</masterLabel>
+            <translation><!-- Learn more about leaving a gift in your will --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSPCA at Blackmore&apos;s Running Festival</masterLabel>
+            <translation><!-- RSPCA at Blackmore&apos;s Running Festival --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Cruelty</masterLabel>
+            <translation><!-- Report Cruelty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support RSPCA at your wedding or event</masterLabel>
+            <translation><!-- Support RSPCA at your wedding or event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tell Us your Birthday</masterLabel>
+            <translation><!-- Tell Us your Birthday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual RSVP</masterLabel>
+            <translation><!-- Virtual RSVP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lifestyle Description --></label>
+        <name>Lifestyle_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Long Term Pet --></label>
+        <name>Long_Term_Pet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Project --></label>
+        <name>Maintenance_Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Microchip No --></label>
+        <name>Microchip_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Most Passionate Issues --></label>
+        <name>Most_Passionate_Issues__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of attendants --></label>
+        <name>Number_of_attendants__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of people --></label>
+        <name>Number_of_people__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opening Hours --></label>
+        <name>Opening_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Relevant Information --></label>
+        <name>Other_Relevant_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other --></label>
+        <name>Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please call me --></label>
+        <name>Please_call_me__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please list any medical conditions --></label>
+        <name>Please_list_any_medical_conditions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please tell us about them --></label>
+        <name>Please_tell_us_about_them__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Post my information booklet --></label>
+        <name>Post_my_information_booklet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postcode --></label>
+        <name>Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prefered Contact Method --></label>
+        <name>Prefered_Contact_Method__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Date 2 --></label>
+        <name>Preferred_Date_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Date 3 --></label>
+        <name>Preferred_Date_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Date --></label>
+        <name>Preferred_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Time --></label>
+        <name>Preferred_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Pet Experience --></label>
+        <name>Previous_Pet_Experience__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Color --></label>
+        <name>Primary_Color__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requesting Assistance --></label>
+        <name>Requesting_Assistance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Color --></label>
+        <name>Secondary_Color__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shelter Be Visiting For CSD --></label>
+        <name>Shelter_Be_Visiting_For_CSD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shelter and veterinary tour --></label>
+        <name>Shelter_and_veterinary_tour__c</name>
+    </fields>
+    <fields>
+        <label><!-- Snapchat --></label>
+        <name>Snapchat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Needs --></label>
+        <name>Special_Needs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spending time with animals --></label>
+        <name>Spending_time_with_animals__c</name>
+    </fields>
+    <fields>
+        <label><!-- Staff Experience --></label>
+        <name>Staff_Experience__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street Name --></label>
+        <name>Street_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suburb --></label>
+        <name>Suburb__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tell us about your pets --></label>
+        <name>Tell_us_about_your_pets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tell us about yourself --></label>
+        <name>Tell_us_about_yourself__c</name>
+    </fields>
+    <fields>
+        <label><!-- Terms and conditions --></label>
+        <name>Terms_and_conditions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Topic --></label>
+        <name>Topic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Twitter --></label>
+        <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Understand Participant Expectations --></label>
+        <name>Understand_Participant_Expectations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Understand What To Wear --></label>
+        <name>Understand_What_To_Wear__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unsertand Animal Handling Guidelines --></label>
+        <name>Unsertand_Animal_Handling_Guidelines__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upload a photo of your pet --></label>
+        <name>Upload_a_photo_of_your_pet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upload a photo of yourself --></label>
+        <name>Upload_a_photo_of_yourself__c</name>
+    </fields>
+    <fields>
+        <label><!-- Website --></label>
+        <name>Website__c</name>
+    </fields>
+    <fields>
+        <label><!-- What stage best applies to your group? --></label>
+        <name>What_stage_best_applies_to_your_group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Where To Find --></label>
+        <name>Where_To_Find__c</name>
+    </fields>
+    <fields>
+        <label><!-- Which Brands Ambassador For --></label>
+        <name>Which_Brands_Ambassador_For__c</name>
+    </fields>
+    <fields>
+        <label><!-- Youtube --></label>
+        <name>Youtube__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Email --></label>
+        <name>npe01__Preferred_Email__c</name>
+        <picklistValues>
+            <masterLabel>Alternate</masterLabel>
+            <translation>Alternate</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal</masterLabel>
+            <translation>Personal</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work</masterLabel>
+            <translation>Work</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Phone --></label>
+        <name>npe01__Preferred_Phone__c</name>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation>Home</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation>Mobile</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work</masterLabel>
+            <translation>Work</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>The batch this lead was created from.</help>
+        <label><!-- Batch --></label>
+        <name>npsp__Batch__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Company City --></label>
+        <name>npsp__CompanyCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Country --></label>
+        <name>npsp__CompanyCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Zip/Postal Code --></label>
+        <name>npsp__CompanyPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company State/Province --></label>
+        <name>npsp__CompanyState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Street --></label>
+        <name>npsp__CompanyStreet__c</name>
+    </fields>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Add_Emails_to_List --></label>
+        <name>wbsendit__Add_Emails_to_List</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- An automatic email has been sent to the lead thanking them for signing up to be a volunteer. --></description>
+        <name>GW_Volunteers__Volunteer_Signup_Thank_You_Sent_Lead</name>
+        <subject><!-- Volunteer Signup Thank You Sent - Lead --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>
