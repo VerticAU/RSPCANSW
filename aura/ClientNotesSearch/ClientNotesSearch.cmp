@@ -1,0 +1,46 @@
+<aura:component description="ClientNotesSearch" extends="c:vertic_Base" implements="force:appHostable,flexipage:availableForAllPageTypes">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="isFilterVisible" type="Boolean" default="{!true}"/>
+
+    <!-- Events -->
+    <!-- <aura:registerEvent name="onSuccess" type="c:vertic_ComponentEvent"/>-->
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <c:vertic_ModalService aura:id="modalService"/>
+
+    <lightning:card variant="base" iconName="standard:text_template">
+        <aura:set attribute="title">
+            Client Notes Search
+        </aura:set>
+        <div class="slds-grid listViewContainer safari-workaround">
+            <div class="slds-col slds-no-space forceListViewManagerPrimaryDisplayManager">
+                <lightning:accordion aura:id="accordion" activeSectionName="Select">
+                    <lightning:accordionSection name="table" label="{! 'Results: ' + v.meta.dto.totals.total }">
+                        <aura:set attribute="actions">
+                            <lightning:buttonIconStateful iconName="utility:filterList"
+                                                          selected="{! v.isFilterVisible }"
+                                                          alternativeText="Search"
+                                                          class="slds-m-right_x-small"
+                                                          onclick="{!c.handleToggleSearchClick}"
+                            />
+                        </aura:set>
+    <!--                    <c:ClientNotesSearchTable aura:id="table"/>-->
+                    </lightning:accordionSection>
+                </lightning:accordion>
+            </div>
+            <c:ClientNotesSearchFilter class="slds-grid slds-no-flex forceListViewManagerSecondaryDisplayManager1"
+                                       meta="{!v.meta}"
+                                       forceHiddenSpinner="{!true}"
+                                       isBusy="{!v.isBusy}"
+                                       onSearch="{!c.handleSearch}"
+                                       isVisible="{!v.isFilterVisible}"
+            />
+        </div>
+    </lightning:card>
+</aura:component>

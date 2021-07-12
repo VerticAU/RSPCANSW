@@ -9672,6 +9672,14 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Client_Notes_Custom_Search</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Client_Notes_Search</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Communication__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

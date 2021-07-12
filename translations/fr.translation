@@ -53,6 +53,14 @@
         <name>CSV_Data_Import</name>
     </customTabs>
     <customTabs>
+        <label><!-- Client Notes Search --></label>
+        <name>Client_Notes_Custom_Search</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Client Notes Search --></label>
+        <name>Client_Notes_Search</name>
+    </customTabs>
+    <customTabs>
         <label><!-- Education Centre Calendar --></label>
         <name>Education_Centre_Calendar</name>
     </customTabs>

@@ -1,0 +1,111 @@
+<aura:component description="ClientNotesSearchFilter" extends="c:vertic_Base">
+
+    <!-- Attribute Overrides -->
+    <aura:set attribute="hideContentOnBusy" value="{!false}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="class" type="String"/>
+    <aura:attribute name="isVisible" type="Boolean" default="{!true}"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="onSearch" type="c:vertic_ComponentEvent"/>
+
+    <!-- Handlers -->
+    <!--<aura:handler name="change" value="{!v.meta.dto.filter}" action="{!c.handleFilterChange}"/>-->
+
+    <aura:method name="refresh" action="{!c.handleFilterChange}"/>
+
+    <c:DockedPanel class="{!v.class}"
+                   isVisible="{!v.isVisible}"
+                   title="Search">
+
+        <aura:set attribute="items">
+
+            <lightning:input label="Start Date"
+                             type="date"
+                             class="slds-size_1-of-1"
+                             disabled="{!v.isBusy}"
+                             value="{!v.meta.dto.filter.startDate}"
+            />
+
+            <lightning:input label="End Date"
+                             type="date"
+                             class="slds-size_1-of-1"
+                             disabled="{!v.isBusy}"
+                             value="{!v.meta.dto.filter.endDate}"
+                             min="{!v.meta.dto.filter.startDate}"
+            />
+
+            <c:strike_lookup_clickable label="Client Name"
+                                       object="Contact"
+                                       searchField="Name"
+                                       placeholder="Select a Contact..."
+                                       iconName="standard:contact"
+                                       subtitleField="Email"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{! v.isBusy }"
+                                       value="{!v.meta.dto.filter.contactId}"
+            />
+
+            <c:strike_lookup_clickable label="Client Note Owner"
+                                       object="User"
+                                       searchField="Name"
+                                       placeholder="Select a User..."
+                                       iconName="standard:user"
+                                       subtitleField="Email"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.userId}"
+            />
+
+            <c:strike_lookup_clickable label="Case"
+                                       object="Case"
+                                       searchField="Name"
+                                       placeholder="Select a Case..."
+                                       iconName="standard:case"
+                                       subtitleField="Subject"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.caseId}"
+            />
+
+            <c:strike_lookup_clickable label="Program Engagement"
+                                       object="pmdm__ProgramEngagement__c"
+                                       searchField="Name"
+                                       placeholder="Select a Program Engagement..."
+                                       iconName="standard:case"
+                                       subtitleField="Program_Engagement_ID__c"
+                                       order="Name"
+                                       limit="8"
+                                       loadingMessage="Loading..."
+                                       errorMessage="Invalid input"
+                                       showRecentRecords="{!true}"
+                                       disabled="{!v.isBusy}"
+                                       value="{!v.meta.dto.filter.programEngagementId}"
+            />
+
+            <lightning:input type="text" name="keyword" label="Keyword" value="{! v.meta.dto.filter.programEngagementId }"/>
+
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:button label="Search"
+                              iconName="utility:search"
+                              disabled="{!v.isBusy}"
+                              onclick="{!c.handleFilterChange}"
+            />
+        </aura:set>
+    </c:DockedPanel>
+
+</aura:component>

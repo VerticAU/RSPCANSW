@@ -10473,6 +10473,14 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Client_Notes_Custom_Search</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Client_Notes_Search</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Communication__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
