@@ -68,11 +68,11 @@
 
             <c:strike_lookup_clickable label="Case"
                                        object="Case"
-                                       searchField="Name"
+                                       searchField="CaseNumber"
                                        placeholder="Select a Case..."
                                        iconName="standard:case"
                                        subtitleField="Subject"
-                                       order="Name"
+                                       order="CaseNumber"
                                        limit="8"
                                        loadingMessage="Loading..."
                                        errorMessage="Invalid input"
@@ -85,7 +85,7 @@
                                        object="pmdm__ProgramEngagement__c"
                                        searchField="Name"
                                        placeholder="Select a Program Engagement..."
-                                       iconName="standard:case"
+                                       iconName="standard:channel_programs"
                                        subtitleField="Program_Engagement_ID__c"
                                        order="Name"
                                        limit="8"
@@ -96,8 +96,27 @@
                                        value="{!v.meta.dto.filter.programEngagementId}"
             />
 
-            <lightning:input type="text" name="keyword" label="Keyword" value="{! v.meta.dto.filter.programEngagementId }"/>
+            <c:vertic_Select label="Type of Interaction"
+                             options="{!v.meta.selectOptions.casemanTypeOfInteractionOptions}"
+                             disabled="{!v.isBusy}"
+                             class="slds-size_1-of-1"
+                             value="{!v.meta.dto.filter.typeOfInteraction}"
+            />
 
+            <lightning:input type="text"
+                             name="keyword"
+                             label="Keyword"
+                             class="slds-size_1-of-1"
+                             value="{! v.meta.dto.filter.keyword }"
+            />
+            <lightning:input type="toggle"
+                             label="Fuzzy Search"
+                             class="slds-size_1-of-1"
+                             checked="{! v.meta.dto.filter.fuzzy }"
+                             disabled="{!v.isBusy}"
+                             messageToggleActive=""
+                             messageToggleInactive=""
+            />
         </aura:set>
         <aura:set attribute="footer">
             <lightning:button label="Search"

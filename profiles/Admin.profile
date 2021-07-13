@@ -278,6 +278,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ClientNotesSearchMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ClientNotesSearchProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactBadgesCtrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -4471,17 +4479,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.pmdm__AttendanceRate__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.pmdm__AttendanceSummary__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.pmdm__ConsecutiveAbsences__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4491,17 +4499,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.pmdm__LastServiceDate__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.pmdm__NumAbsentServiceDeliveries__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.pmdm__NumPresentServiceDeliveries__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8951,12 +8959,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>pmdm__BucketedField__mdt.pmdm__Field__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>pmdm__FeatureGate__mdt.pmdm__IsActive__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Communities Organisation Layout</layout>

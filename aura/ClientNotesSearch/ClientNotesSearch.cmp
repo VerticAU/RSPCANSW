@@ -30,7 +30,7 @@
                                                           onclick="{!c.handleToggleSearchClick}"
                             />
                         </aura:set>
-    <!--                    <c:ClientNotesSearchTable aura:id="table"/>-->
+                        <c:ClientNotesSearchTable aura:id="table"/>
                     </lightning:accordionSection>
                 </lightning:accordion>
             </div>

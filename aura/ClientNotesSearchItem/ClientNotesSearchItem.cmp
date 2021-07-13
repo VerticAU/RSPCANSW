@@ -1,0 +1,67 @@
+<aura:component description="ClientNotesSearchItem">
+
+    <aura:attribute name="record" type="Map"/>
+    <aura:attribute name="index" type="Integer"/>
+    <aura:registerEvent name="onSelectedChange" type="c:vertic_ComponentEvent"/>
+
+    <tr>
+<!--        <td style="width: 50px;">-->
+<!--            <lightning:input type="checkbox"-->
+<!--                             label="Select"-->
+<!--                             variant="label-hidden"-->
+<!--                             checked="{!v.record.selected}"-->
+<!--                             onchange="{! c.handleSelectedChange }"-->
+<!--                             disabled="{!v.record.isDisabled}"-->
+
+<!--            />-->
+<!--        </td>-->
+        <td style="width: 50px;">
+            <div class="slds-truncate" title="{#(v.index + 1)}">
+                {#(v.index + 1)}
+            </div>
+        </td>
+        <td>
+            <div class="slds-truncate" title="{#v.record.Name}">
+                <a href="{# '/' + v.record.Id}" target="_blank">
+                    {#v.record.Name}
+                </a>
+            </div>
+        </td>
+        <td>
+            <div class="slds-truncate" title="{#v.record.caseman__Client__r.Name}">
+                <lightning:icon iconName="standard:contact" size="x-small" class="slds-m-right_x-small"/>
+                <a href="{# '/' + v.record.caseman__Client__c}" target="_blank">
+                    {#v.record.caseman__Client__r.Name}
+                </a>
+            </div>
+        </td>
+        <td>
+            <aura:if isTrue="{#not(empty(v.record.caseman__InteractionDate__c))}">
+                <div class="slds-truncate" title="">
+                    <lightning:formattedDateTime value="{#v.record.caseman__InteractionDate__c}"
+                                                 year="numeric"
+                                                 month="short"
+                                                 day="numeric"
+                    />
+                </div>
+            </aura:if>
+        </td>
+        <td>
+            <div class="slds-truncate" title="{#v.record.caseman__TypeOfInteraction__c}">
+                <span>{# v.record.caseman__TypeOfInteraction__c }</span>
+            </div>
+        </td>
+        <td>
+            <div class="slds-truncate" title="{#v.record.Owner.Name}">
+                <a href="{# '/' + v.record.OwnerId}" target="_blank">
+                    {#v.record.Owner.Name}
+                </a>
+            </div>
+        </td>
+    </tr>
+    <lightning:accordion aura:id="accordion" activeSectionName="content">
+        <lightning:accordionSection name="content" label="">
+            <p>test</p>
+        </lightning:accordionSection>
+    </lightning:accordion>
+</aura:component>
