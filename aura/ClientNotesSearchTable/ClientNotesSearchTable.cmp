@@ -3,7 +3,7 @@
     <!-- Attribute Overrides -->
 
     <!-- Attributes -->
-    <aura:attribute name="allSelected" type="Boolean" default="false"/>
+    <aura:attribute name="allExpanded" type="Boolean"/>
     <aura:attribute name="items" type="List"/>
     <aura:attribute name="hasMore" type="Boolean"/>
     <aura:attribute name="limit" type="Integer"/>
@@ -15,9 +15,8 @@
     <!-- Handlers -->
     <!-- <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>-->
 
-    <aura:method name="selectAll" action="{!c.handleSelectAll}"/>
-    <aura:method name="resetSelection" action="{!c.handleResetSelection}"/>
-    <aura:method name="getSelected" action="{!c.handleGetSelected}"/>
+    <aura:method name="сhangeAllExpanded" action="{!c.handleAllExpandedChange}"/>
+    <aura:method name="getExpanded" action="{!c.handleGetExpanded}"/>
 
     <aura:if isTrue="{! not(empty(v.items)) }">
 
@@ -32,54 +31,42 @@
             <div class="slds-scrollable_y" style="height: 700px;">
                 <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table--fixed-layout slds-table--header-fixed">
                     <thead>
-                    <tr class="slds-text-title_caps">
-<!--                        <th scope="col" style="width: 50px;">-->
-<!--                            <div class="slds-truncate slds-cell-fixed">-->
-<!--                                <lightning:input type="checkbox"-->
-<!--                                                 label="Select"-->
-<!--                                                 variant="label-hidden"-->
-<!--                                                 checked="{!v.allSelected}"-->
-<!--                                                 onchange="{! c.handleAllSelectedChange }"-->
-<!--                                />-->
-<!--                            </div>-->
-<!--                        </th>-->
-                        <th scope="col" style="width: 50px;">
-                            <div class="slds-truncate slds-cell-fixed" title="#">#</div>
-                        </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Donation">Client Note Name</div>
-                        </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Contact">Client Name</div>
-                        </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Email">Interaction Date/Time</div>
-                        </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Date">Type of Interaction</div>
-                        </th>
-                        <th scope="col">
-                            <div class="slds-truncate slds-cell-fixed" title="Amount">Client Note Owner</div>
-                        </th>
-                    </tr>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col" style="width: 50px;">
+                                <div class="slds-truncate slds-cell-fixed" title="#">#</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate slds-cell-fixed" title="Donation">Client Note Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate slds-cell-fixed" title="Contact">Client Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate slds-cell-fixed" title="Email">Interaction Date/Time</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate slds-cell-fixed" title="Date">Type of Interaction</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate slds-cell-fixed" title="Amount">Client Note Owner</div>
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <aura:iteration var="record" items="{! v.items }" indexVar="index">
-                        <c:ClientNotesSearchItem record="{! record }"
-                                                 index="{! index }"
-                                                 onSelectedChange="{! c.handleSelectedChange }"/>
-                    </aura:iteration>
+                        <aura:iteration var="record" items="{! v.items }" indexVar="index">
+                            <c:ClientNotesSearchItem record="{! record }"
+                                                     index="{! index }"
+                            />
+                        </aura:iteration>
                     </tbody>
                 </table>
             </div>
         </div>
-        <!--</aura:if>-->
-
     </aura:if>
 
     <aura:if isTrue="{!and(not(v.isBusy), empty(v.items))}">
         <p class="slds-gutters slds-m-around_medium slds-text-align_center">
-            No Donations
+            No Client Notes
         </p>
     </aura:if>
 

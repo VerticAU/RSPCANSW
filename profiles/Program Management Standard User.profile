@@ -9347,6 +9347,9 @@
         <layout>ServiceTerritoryWorkType-Service Territory Work Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Service_Delivery_Animal__c-Service Delivery Animal Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Session_Registration__c-Session Registration Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

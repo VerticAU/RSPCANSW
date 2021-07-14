@@ -2,19 +2,8 @@
 
     <aura:attribute name="record" type="Map"/>
     <aura:attribute name="index" type="Integer"/>
-    <aura:registerEvent name="onSelectedChange" type="c:vertic_ComponentEvent"/>
 
     <tr>
-<!--        <td style="width: 50px;">-->
-<!--            <lightning:input type="checkbox"-->
-<!--                             label="Select"-->
-<!--                             variant="label-hidden"-->
-<!--                             checked="{!v.record.selected}"-->
-<!--                             onchange="{! c.handleSelectedChange }"-->
-<!--                             disabled="{!v.record.isDisabled}"-->
-
-<!--            />-->
-<!--        </td>-->
         <td style="width: 50px;">
             <div class="slds-truncate" title="{#(v.index + 1)}">
                 {#(v.index + 1)}
@@ -36,12 +25,11 @@
             </div>
         </td>
         <td>
-            <aura:if isTrue="{#not(empty(v.record.caseman__InteractionDate__c))}">
+            <aura:if isTrue="{#not(empty(v.record.Interaction_Date_Time__c))}">
                 <div class="slds-truncate" title="">
-                    <lightning:formattedDateTime value="{#v.record.caseman__InteractionDate__c}"
-                                                 year="numeric"
-                                                 month="short"
-                                                 day="numeric"
+                    <lightning:formattedDateTime value="{#v.record.Interaction_Date_Time__c}"
+                                                 year="numeric" month="short" day="numeric"
+                                                 hour="numeric" minute="numeric"
                     />
                 </div>
             </aura:if>
@@ -59,9 +47,24 @@
             </div>
         </td>
     </tr>
-    <lightning:accordion aura:id="accordion" activeSectionName="content">
-        <lightning:accordionSection name="content" label="">
-            <p>test</p>
-        </lightning:accordionSection>
-    </lightning:accordion>
+
+    <aura:if isTrue="{! not(empty(v.record.caseman__Content__c)) }">
+        <tr>
+            <td class="slds-align-top">
+                <lightning:buttonIcon size="medium" variant="bare" alternativeText="Expand"
+                                      iconName="{! v.record.expanded ? 'utility:chevrondown' : 'utility:chevronright'}"
+                                      onclick="{! c.handleExpandedChange }"
+                />
+            </td>
+            <td colspan="5">
+                <lightning:formattedRichText name="content"
+                                             readonly="true"
+                                             label="" variant="label-hidden"
+                                             class="{! v.record.expanded ? '' : 'visible_lines_5' }"
+                                             value="{! v.record.caseman__Content__c }"
+                />
+            </td>
+        </tr>
+    </aura:if>
+
 </aura:component>

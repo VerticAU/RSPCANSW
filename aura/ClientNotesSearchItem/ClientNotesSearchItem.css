@@ -1,0 +1,11 @@
+.THIS .slds-rich-text-editor__output > span > p{
+    white-space: pre-wrap;
+}
+
+.THIS .visible_lines_5 > span > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:5; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}

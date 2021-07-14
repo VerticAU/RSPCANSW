@@ -22,7 +22,7 @@ public without sharing class ClientNotesSearchProc extends vertic_AbstractProces
      */
 
     private List<caseman__ClientNote__c> clientNotes;
-    public static final Integer SEARCH_LIMIT = 100;
+    public static final Integer SEARCH_LIMIT = 10;
     public String searchQuery;
 
     private void doSubmit() {
@@ -38,13 +38,14 @@ public without sharing class ClientNotesSearchProc extends vertic_AbstractProces
         String userId = this.request.getString('filter.userId');
         String caseId = this.request.getString('filter.caseId');
         String programEngagementId = this.request.getString('filter.programEngagementId');
+        String typeOfInteraction = this.request.getString('filter.typeOfInteraction');
         String keyword = this.request.getString('filter.keyword');
         Boolean fuzzy = this.request.getBoolean('filter.fuzzy');
 
         Set<String> fields = new Set<String>{
             'Id', 'Name',
             'caseman__Content__c',
-            'caseman__InteractionDate__c',
+            'Interaction_Date_Time__c',
             'caseman__Client__r.Name',
             'Owner.Name',
             'Case__r.CaseNumber',
@@ -53,12 +54,13 @@ public without sharing class ClientNotesSearchProc extends vertic_AbstractProces
         };
 
         List<String> conditions = new List<String>{};
-        if (startDate != null) { conditions.add('caseman__InteractionDate__c >= :startDate'); }
-        if (endDate != null) { conditions.add('caseman__InteractionDate__c <= :endDate'); }
+        if (startDate != null) { conditions.add('Interaction_Date_Time__c >= :startDate'); }
+        if (endDate != null) { conditions.add('Interaction_Date_Time__c <= :endDate'); }
         if (String.isNotBlank(contactId)) { conditions.add('caseman__Client__c = :contactId'); }
         if (String.isNotBlank(userId)) { conditions.add('OwnerId = :userId'); }
         if (String.isNotBlank(caseId)) { conditions.add('Case__c = :caseId'); }
         if (String.isNotBlank(programEngagementId)) { conditions.add('caseman__ProgramEngagement__c = :programEngagementId'); }
+        if (String.isNotBlank(typeOfInteraction)) { conditions.add('caseman__TypeOfInteraction__c = :typeOfInteraction'); }
 
         if(String.isNotBlank(keyword)){
             keyword = String.escapeSingleQuotes(keyword);
@@ -79,7 +81,8 @@ public without sharing class ClientNotesSearchProc extends vertic_AbstractProces
                                 ' RETURNING caseman__ClientNote__c ( ' +
                                     String.join(new List<String>(fields), ', ') +
                                     ' WHERE ' + String.join(conditions, ' AND ') +
-                                    ' LIMIT ' + SEARCH_LIMIT +
+                                    ' ORDER BY Interaction_Date_Time__c DESC ' +
+                                    ' LIMIT ' + (SEARCH_LIMIT + 1) +
                                 ' )';
 
             List<List<SObject>> searchList = Search.query(this.searchQuery);
@@ -90,10 +93,10 @@ public without sharing class ClientNotesSearchProc extends vertic_AbstractProces
             queryFactory.setCondition(String.join(conditions, ' AND '));
             queryFactory.getOrderings().clear();
             queryFactory.addOrdering(
-                caseman__ClientNote__c.caseman__InteractionDate__c,
-                fflib_QueryFactory.SortOrder.ASCENDING, false
+                caseman__ClientNote__c.Interaction_Date_Time__c,
+                fflib_QueryFactory.SortOrder.DESCENDING, true
             );
-            queryFactory.setLimit(SEARCH_LIMIT);
+            queryFactory.setLimit(SEARCH_LIMIT + 1);
 
             this.searchQuery = queryFactory.toSOQL();
             this.clientNotes = (List<caseman__ClientNote__c>) Database.query(this.searchQuery);

@@ -9370,6 +9370,9 @@
         <layout>ServiceTerritoryWorkType-Service Territory Work Type Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Service_Delivery_Animal__c-Service Delivery Animal Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Session_Registration__c-Session Registration Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10072,6 +10075,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>ServiceTerritory</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Service_Delivery_Animal__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

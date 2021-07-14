@@ -1,5 +1,5 @@
 ({
-    handleSelectedChange: function (cmp, event, helper) {
-        cmp.getEvent('onSelectedChange').fire();
+    handleExpandedChange: function (cmp, event, helper) {
+        cmp.set('v.record.expanded', !cmp.get('v.record.expanded'));
     },
 });

@@ -12253,7 +12253,10 @@ TEXT(FLOOR(MOD((TODAY()-Birthdate__c),365.2425)/30)) &amp; &quot; month(s) &quot
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Animal_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Animal_Age</fullName>

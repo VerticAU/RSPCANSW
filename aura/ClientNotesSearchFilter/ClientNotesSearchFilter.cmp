@@ -49,6 +49,7 @@
                                        showRecentRecords="{!true}"
                                        disabled="{! v.isBusy }"
                                        value="{!v.meta.dto.filter.contactId}"
+                                       filter="Id IN (SELECT caseman__Client__c FROM caseman__ClientNote__c)"
             />
 
             <c:strike_lookup_clickable label="Client Note Owner"
@@ -64,6 +65,7 @@
                                        showRecentRecords="{!true}"
                                        disabled="{!v.isBusy}"
                                        value="{!v.meta.dto.filter.userId}"
+                                       filter="Id IN (SELECT OwnerId FROM caseman__ClientNote__c)"
             />
 
             <c:strike_lookup_clickable label="Case"
@@ -79,6 +81,7 @@
                                        showRecentRecords="{!true}"
                                        disabled="{!v.isBusy}"
                                        value="{!v.meta.dto.filter.caseId}"
+                                       filter="Id IN (SELECT Case__c FROM caseman__ClientNote__c)"
             />
 
             <c:strike_lookup_clickable label="Program Engagement"
@@ -94,6 +97,7 @@
                                        showRecentRecords="{!true}"
                                        disabled="{!v.isBusy}"
                                        value="{!v.meta.dto.filter.programEngagementId}"
+                                       filter="Id IN (SELECT caseman__ProgramEngagement__c FROM caseman__ClientNote__c)"
             />
 
             <c:vertic_Select label="Type of Interaction"
