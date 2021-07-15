@@ -282,7 +282,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ClientNotesSearchProc</apexClass>
+        <apexClass>ClientNotesSearchSubmitProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ClientNotesTargetedTableMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

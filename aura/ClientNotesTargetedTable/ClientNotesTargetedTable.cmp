@@ -1,0 +1,24 @@
+<aura:component description="ClientNotesTargetedTable" extends="c:vertic_Base" implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
+    <aura:attribute name="allExpanded" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <aura:attribute name="contactRelation" type="String"/>
+    <aura:attribute name="targetRelation" type="String"/>
+
+    <lightning:accordion aura:id="accordion" activeSectionName="Select">
+        <lightning:accordionSection name="table" label="{! 'Results: ' + v.meta.dto.totals.total }">
+            <aura:set attribute="actions">
+                <lightning:input type="toggle"
+                                 label="Expand All"
+                                 class="slds-m-right_medium"
+                                 checked="{! v.allExpanded }"
+                                 disabled="{! v.isBusy }"
+                                 messageToggleActive="Enabled"
+                                 messageToggleInactive="Disabled"
+                                 onchange="{! c.handleAllExpandedChange }"
+                />
+            </aura:set>
+            <c:ClientNotesSearchTable aura:id="table" allExpanded="{! v.allExpanded }"/>
+        </lightning:accordionSection>
+    </lightning:accordion>
+</aura:component>

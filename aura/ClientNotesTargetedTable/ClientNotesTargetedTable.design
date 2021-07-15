@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="contactRelation" label="Contact Relation on Target Object" description="Target Object -> Contact (Lookup/MD field API name)"/>
+    <design:attribute name="targetRelation" label="Target Object Relation on Client Note" description="Client Note -> Target Object (Lookup/MD field API name)"/>
+</design:component>
