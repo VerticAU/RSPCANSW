@@ -1,4 +1,4 @@
-<aura:component description="ClientNotesSearch" extends="c:vertic_Base" implements="force:appHostable,flexipage:availableForAllPageTypes">
+<aura:component description="ClientNotesSearch" extends="c:vertic_Base" implements="force:appHostable,flexipage:availableForAllPageTypes,lightning:isUrlAddressable">
 
     <!-- Attribute Overrides -->
     <aura:set attribute="hideContentOnBusy" value="{!false}"/>
@@ -12,6 +12,7 @@
 
     <!-- Handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.handleInit}"/>
 
     <c:vertic_ModalService aura:id="modalService"/>
 

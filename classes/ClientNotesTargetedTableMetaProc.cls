@@ -26,7 +26,7 @@ public without sharing class ClientNotesTargetedTableMetaProc extends vertic_Met
      */
 
     private List<caseman__ClientNote__c> clientNotes;
-    public static final Integer SEARCH_LIMIT = 10;
+    public static final Integer SEARCH_LIMIT = 100;
     public String searchQuery;
 
     private void init() {

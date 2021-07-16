@@ -20,5 +20,17 @@
             total: records.length,
         };
         cmp.set('v.meta.dto.totals', totals);
+    },
+
+    getFilterRecordId: function (cmp, helper) {
+        if(!$A.util.isEmpty(cmp.get('v.contactRelation'))) {
+            var items = cmp.find('table').get('v.items');
+            if(items && items.length > 0){
+                return items[0].caseman__Client__c;
+            }
+        } else if (!$A.util.isEmpty(cmp.get('v.targetRelation'))){
+            return cmp.get('v.recordId');
+        }
+        return null;
     }
 });

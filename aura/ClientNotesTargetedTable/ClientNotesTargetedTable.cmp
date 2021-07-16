@@ -5,7 +5,9 @@
     <aura:attribute name="contactRelation" type="String"/>
     <aura:attribute name="targetRelation" type="String"/>
 
-    <lightning:accordion aura:id="accordion" activeSectionName="Select">
+    <lightning:navigation aura:id="navService"/>
+
+    <lightning:accordion aura:id="accordion" activeSectionName="Select" class="slds-box_border">
         <lightning:accordionSection name="table" label="{! 'Results: ' + v.meta.dto.totals.total }">
             <aura:set attribute="actions">
                 <lightning:input type="toggle"
@@ -18,7 +20,12 @@
                                  onchange="{! c.handleAllExpandedChange }"
                 />
             </aura:set>
-            <c:ClientNotesSearchTable aura:id="table" allExpanded="{! v.allExpanded }"/>
+            <c:ClientNotesSearchTable aura:id="table" allExpanded="{! v.allExpanded }" displayClientColumn="{! empty(v.contactRelation) }"/>
+
+            <div class="slds-text-align_center">
+                <lightning:button variant="base" class="slds-m-top_small" label="View All" onclick="{! c.handleViewAll }"/>
+            </div>
+
         </lightning:accordionSection>
     </lightning:accordion>
 </aura:component>

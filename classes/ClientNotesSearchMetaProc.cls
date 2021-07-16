@@ -27,7 +27,24 @@ public without sharing class ClientNotesSearchMetaProc extends vertic_MetadataPr
      */
 
     private void init() {
+        Id filterRecordId = this.request.getString('filterRecordId');
+        if(String.isNotBlank(filterRecordId)){
+            SObjectType filterRecordSObjectType = filterRecordId.getSobjectType();
 
+            String filterName;
+            if(filterRecordSObjectType == Contact.SObjectType){
+                filterName = 'contactId';
+            } else if(filterRecordSObjectType == User.SObjectType){
+                filterName = 'userId';
+            } else if(filterRecordSObjectType == Case.SObjectType){
+                filterName = 'caseId';
+            } else if(filterRecordSObjectType == pmdm__ProgramEngagement__c.SObjectType){
+                filterName = 'programEngagementId';
+            } else {
+                return;
+            }
+            this.response.put('filter.' + filterName, filterRecordId);
+        }
     }
 
     /**

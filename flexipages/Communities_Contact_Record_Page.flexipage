@@ -285,6 +285,15 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>targetRelation</name>
+                    <value>caseman__Client__c</value>
+                </componentInstanceProperties>
+                <componentName>ClientNotesTargetedTable</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>parentFieldApiName</name>
                     <value>Contact.Id</value>
                 </componentInstanceProperties>

@@ -7,6 +7,8 @@
     <aura:attribute name="items" type="List"/>
     <aura:attribute name="hasMore" type="Boolean"/>
     <aura:attribute name="limit" type="Integer"/>
+
+    <aura:attribute name="displayClientColumn" type="Boolean" default="true"/>
     <!--<aura:attribute name="limitMessage" type="String" default=""/>-->
 
     <!-- Events -->
@@ -27,8 +29,8 @@
             </div>
         </aura:if>
 
-        <div class="slds-table--header-fixed_container" style="height: 700px;">
-            <div class="slds-scrollable_y" style="height: 700px;">
+        <div class="slds-table--header-fixed_container">
+            <div class="slds-scrollable_y">
                 <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table--fixed-layout slds-table--header-fixed">
                     <thead>
                         <tr class="slds-text-title_caps">
@@ -38,9 +40,11 @@
                             <th scope="col">
                                 <div class="slds-truncate slds-cell-fixed" title="Donation">Client Note Name</div>
                             </th>
-                            <th scope="col">
-                                <div class="slds-truncate slds-cell-fixed" title="Contact">Client Name</div>
-                            </th>
+                            <aura:if isTrue="{! v.displayClientColumn }">
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed" title="Contact">Client Name</div>
+                                </th>
+                            </aura:if>
                             <th scope="col">
                                 <div class="slds-truncate slds-cell-fixed" title="Email">Interaction Date/Time</div>
                             </th>
@@ -56,6 +60,7 @@
                         <aura:iteration var="record" items="{! v.items }" indexVar="index">
                             <c:ClientNotesSearchItem record="{! record }"
                                                      index="{! index }"
+                                                     displayClientColumn="{! v.displayClientColumn }"
                             />
                         </aura:iteration>
                     </tbody>

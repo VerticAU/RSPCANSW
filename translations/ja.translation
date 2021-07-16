@@ -54,10 +54,6 @@
     </customTabs>
     <customTabs>
         <label><!-- Client Notes Search --></label>
-        <name>Client_Notes_Custom_Search</name>
-    </customTabs>
-    <customTabs>
-        <label><!-- Client Notes Search --></label>
         <name>Client_Notes_Search</name>
     </customTabs>
     <customTabs>

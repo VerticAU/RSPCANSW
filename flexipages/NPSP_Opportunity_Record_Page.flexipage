@@ -77,6 +77,40 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>contactRelation</name>
+                    <value>npsp__Primary_Contact__c</value>
+                </componentInstanceProperties>
+                <componentName>ClientNotesTargetedTable</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-d9677b60-ffbe-4029-a79e-c850b0510c98</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>active</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-d9677b60-ffbe-4029-a79e-c850b0510c98</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Client Notes</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-d1fe2f3b-3244-462d-9ddb-d5373e502a03</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>parentFieldApiName</name>
                     <value>Opportunity.Id</value>
                 </componentInstanceProperties>
@@ -147,6 +181,15 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>tabs</name>
+                    <value>Facet-d1fe2f3b-3244-462d-9ddb-d5373e502a03</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tabset</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>

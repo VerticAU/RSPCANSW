@@ -211,6 +211,22 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>contactRelation</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>targetRelation</name>
+                    <value>Case__c</value>
+                </componentInstanceProperties>
+                <componentName>ClientNotesTargetedTable</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-2e37e036-9553-4b4d-8ca2-4f249cc008e4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>active</name>
                     <value>true</value>
                 </componentInstanceProperties>
@@ -251,6 +267,19 @@
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Files</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-2e37e036-9553-4b4d-8ca2-4f249cc008e4</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Client Notes</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>

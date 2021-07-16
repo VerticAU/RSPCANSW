@@ -3,11 +3,6 @@
     <apiVersion>49.0</apiVersion>
     <packageVersions>
         <majorNumber>1</majorNumber>
-        <minorNumber>27</minorNumber>
-        <namespace>caseman</namespace>
-    </packageVersions>
-    <packageVersions>
-        <majorNumber>1</majorNumber>
         <minorNumber>24</minorNumber>
         <namespace>pmdm</namespace>
     </packageVersions>
