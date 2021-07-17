@@ -61,12 +61,13 @@
                 />
             </td>
             <td colspan="{! if(v.displayClientColumn, '5', '4') }">
-                <lightning:formattedRichText name="content"
-                                             readonly="true"
-                                             label="" variant="label-hidden"
-                                             class="{! v.record.expanded ? '' : 'visible_lines_5' }"
-                                             value="{! v.record.caseman__Content__c }"
-                />
+                <div class="{! 'slds-scrollable_x' + (v.record.expanded ? '' : ' visible_lines_5') }">
+                    <lightning:formattedRichText name="content"
+                                                 readonly="true"
+                                                 label="" variant="label-hidden"
+                                                 value="{! v.record.caseman__Content__c }"
+                    />
+                </div>
             </td>
         </tr>
     </aura:if>

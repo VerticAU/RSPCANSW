@@ -2,10 +2,14 @@
     white-space: pre-wrap;
 }
 
-.THIS .visible_lines_5 > span > p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp:5; /* number of lines to show */
-    -webkit-box-orient: vertical;
+.THIS .visible_lines_5 {
+    max-height: 95px;
 }
+
+/*.THIS .visible_lines_5 > span > p {*/
+/*    overflow: hidden;*/
+/*    text-overflow: ellipsis;*/
+/*    display: -webkit-box;*/
+/*    -webkit-line-clamp:5; !* number of lines to show *!*/
+/*    -webkit-box-orient: vertical;*/
+/*}*/
