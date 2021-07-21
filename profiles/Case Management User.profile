@@ -518,6 +518,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OpportunityNaming_TDTM</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityNaming_TDTM_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PopulateOpportunityCampaignScript</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -6836,6 +6844,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Pledge_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Primary_Campaign_Source_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

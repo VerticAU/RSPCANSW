@@ -694,6 +694,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Primary Campaign Source Code --></label>
+        <name>Primary_Campaign_Source_Code__c</name>
+    </fields>
+    <fields>
         <label><!-- Primary Contact 2xLargest Amount --></label>
         <name>Primary_Contact_2xLargest_Amount__c</name>
     </fields>
