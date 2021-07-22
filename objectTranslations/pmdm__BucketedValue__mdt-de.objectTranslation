@@ -3,43 +3,53 @@
     <caseValues>
         <caseType>Nominative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value><!-- Bucket-Wert --></value>
     </caseValues>
     <caseValues>
         <caseType>Nominative</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value><!-- Bucket-Werte --></value>
     </caseValues>
     <caseValues>
         <caseType>Accusative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value><!-- Bucket-Wert --></value>
     </caseValues>
     <caseValues>
         <caseType>Accusative</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value><!-- Bucket-Werte --></value>
     </caseValues>
     <caseValues>
         <caseType>Genitive</caseType>
         <plural>false</plural>
-        <value>Förderprogramms</value>
+        <value><!-- Bucket-Werts --></value>
     </caseValues>
     <caseValues>
         <caseType>Genitive</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value><!-- Bucket-Werte --></value>
     </caseValues>
     <caseValues>
         <caseType>Dative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value><!-- Bucket-Wert --></value>
     </caseValues>
     <caseValues>
         <caseType>Dative</caseType>
         <plural>true</plural>
-        <value>Förderprogrammen</value>
+        <value><!-- Bucket-Werten --></value>
     </caseValues>
-    <gender>Neuter</gender>
-    <nameFieldLabel>Name des Finanzierungsprogramms</nameFieldLabel>
+    <fields>
+        <help>Zu welchem Bucket gehört dieser Wert?</help>
+        <label><!-- Bucket --></label>
+        <name>pmdm__Bucket__c</name>
+        <relationshipLabel><!-- Bucketed Values --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>Der genaue Wert, der im Bucket erfasst werden soll. Wenn es sich bei dem Feld um eine Auswahlliste handelt, sollte dies der API-Wert des Werts aus der Auswahlliste sein.</help>
+        <label><!-- Value --></label>
+        <name>pmdm__Value__c</name>
+    </fields>
+    <gender><!-- Masculine --></gender>
 </CustomObjectTranslation>

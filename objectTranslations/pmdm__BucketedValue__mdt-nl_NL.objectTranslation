@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Bucketwaarde --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Bucketwaarden --></value>
+    </caseValues>
+    <fields>
+        <help>Tot welke bucket behoort deze waarde?</help>
+        <label><!-- Bucket --></label>
+        <name>pmdm__Bucket__c</name>
+        <relationshipLabel><!-- Bucketed Values --></relationshipLabel>
+    </fields>
+    <fields>
+        <help>De exacte waarde die in een bucket moet worden geplaatst. Als het veld een keuzelijst is, moet dit de API-waarde van de keuzelijstwaarde zijn.</help>
+        <label><!-- Value --></label>
+        <name>pmdm__Value__c</name>
+    </fields>
+    <gender><!-- Feminine --></gender>
+</CustomObjectTranslation>

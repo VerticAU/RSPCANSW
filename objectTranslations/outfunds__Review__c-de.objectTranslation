@@ -3,43 +3,43 @@
     <caseValues>
         <caseType>Nominative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value>�berpr�fung</value>
     </caseValues>
     <caseValues>
         <caseType>Nominative</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value>�berpr�fungen</value>
     </caseValues>
     <caseValues>
         <caseType>Accusative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value>�berpr�fung</value>
     </caseValues>
     <caseValues>
         <caseType>Accusative</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value>�berpr�fungen</value>
     </caseValues>
     <caseValues>
         <caseType>Genitive</caseType>
         <plural>false</plural>
-        <value>Förderprogramms</value>
+        <value>�berpr�fung</value>
     </caseValues>
     <caseValues>
         <caseType>Genitive</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value>�berpr�fungen</value>
     </caseValues>
     <caseValues>
         <caseType>Dative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value>�berpr�fung</value>
     </caseValues>
     <caseValues>
         <caseType>Dative</caseType>
         <plural>true</plural>
-        <value>Förderprogrammen</value>
+        <value>�berpr�fungen</value>
     </caseValues>
-    <gender>Neuter</gender>
-    <nameFieldLabel>Name des Finanzierungsprogramms</nameFieldLabel>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Name der �berpr�fung</nameFieldLabel>
 </CustomObjectTranslation>

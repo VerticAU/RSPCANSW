@@ -3,43 +3,50 @@
     <caseValues>
         <caseType>Nominative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value><!-- Bucket-Feld --></value>
     </caseValues>
     <caseValues>
         <caseType>Nominative</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value><!-- Bucket-Felder --></value>
     </caseValues>
     <caseValues>
         <caseType>Accusative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value><!-- Bucket-Feld --></value>
     </caseValues>
     <caseValues>
         <caseType>Accusative</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value><!-- Bucket-Felder --></value>
     </caseValues>
     <caseValues>
         <caseType>Genitive</caseType>
         <plural>false</plural>
-        <value>Förderprogramms</value>
+        <value><!-- Bucket-Felds --></value>
     </caseValues>
     <caseValues>
         <caseType>Genitive</caseType>
         <plural>true</plural>
-        <value>Förderprogramme</value>
+        <value><!-- Bucket-Felder --></value>
     </caseValues>
     <caseValues>
         <caseType>Dative</caseType>
         <plural>false</plural>
-        <value>Förderprogramm</value>
+        <value><!-- Bucket-Feld --></value>
     </caseValues>
     <caseValues>
         <caseType>Dative</caseType>
         <plural>true</plural>
-        <value>Förderprogrammen</value>
+        <value><!-- Bucket-Feldern --></value>
     </caseValues>
-    <gender>Neuter</gender>
-    <nameFieldLabel>Name des Finanzierungsprogramms</nameFieldLabel>
+    <fields>
+        <label><!-- Field --></label>
+        <name>pmdm__Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object --></label>
+        <name>pmdm__Object__c</name>
+    </fields>
+    <gender><!-- Neuter --></gender>
 </CustomObjectTranslation>

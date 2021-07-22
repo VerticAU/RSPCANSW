@@ -2230,7 +2230,7 @@
         <name>pmdm__AttendanceSummary__c</name>
     </fields>
     <fields>
-        <help><!-- The number of consecutive absences for this Contact, counting back from today. Clears to 0 when most recent Service Delivery was present. --></help>
+        <help>現在の日付からさかぼってカウントされるこの取引先責任者の連続欠席日数。最新のサービス提供が出席だった場合は 0 にクリアされます。</help>
         <label><!-- Consecutive Absences --></label>
         <name>pmdm__ConsecutiveAbsences__c</name>
     </fields>

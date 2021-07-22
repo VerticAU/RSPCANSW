@@ -2,12 +2,13 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>Función de solicitud de fondos</value>
+        <value>Examen</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>Funciones de solicitud de fondos</value>
+        <value>Examens</value>
     </caseValues>
-    <gender>Feminine</gender>
-    <nameFieldLabel>Nombre de función de solicitud de fondos</nameFieldLabel>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Nom de l’examen</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
 </CustomObjectTranslation>

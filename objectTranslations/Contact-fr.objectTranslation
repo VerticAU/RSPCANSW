@@ -2230,7 +2230,7 @@
         <name>pmdm__AttendanceSummary__c</name>
     </fields>
     <fields>
-        <help><!-- The number of consecutive absences for this Contact, counting back from today. Clears to 0 when most recent Service Delivery was present. --></help>
+        <help>Nombre d’absences consécutives de ce contact jusqu’à aujourd’hui. Se remet à 0 lorsque la livraison de services la plus récente a été effectuée.</help>
         <label><!-- Consecutive Absences --></label>
         <name>pmdm__ConsecutiveAbsences__c</name>
     </fields>
