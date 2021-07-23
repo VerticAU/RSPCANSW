@@ -22,7 +22,7 @@ public without sharing class ClientNotesSearchSubmitProc extends vertic_Abstract
      */
 
     private List<caseman__ClientNote__c> clientNotes;
-    public static final Integer SEARCH_LIMIT = 100;
+    public static final Integer SEARCH_LIMIT = 1999;
     public String searchQuery;
 
     private void doSubmit() {
