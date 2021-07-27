@@ -63,6 +63,10 @@
         <label><!-- Process --></label>
         <name>Process</name>
     </quickActions>
+    <quickActions>
+        <label><!-- Process CentrePay Payments --></label>
+        <name>Process_CentrePay_Payments</name>
+    </quickActions>
     <recordTypes>
         <label><!-- Opportunities Batch --></label>
         <name>Opportunities_Batch</name>
