@@ -254,6 +254,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CentrePayPaymentMatchProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CentrePayProcessPaymentsBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CentrePayProcessPaymentsSubmitProc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ChangePasswordController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2125,6 +2137,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Batch__c.Number_of_Items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch__c.One_Drive_Folder_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

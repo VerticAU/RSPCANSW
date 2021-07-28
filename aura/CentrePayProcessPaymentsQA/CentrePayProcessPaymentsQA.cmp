@@ -6,6 +6,16 @@
 
     <aura:attribute name="disabled" type="Boolean" default="true"/>
 
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Id, One_Drive_Folder_Name__c"
+                      targetFields="{!v.recordFields }"
+                      targetError="{!v.recordError}"
+    />
+    <aura:attribute name="recordName" type="String" access="global" default="{!v.recordFields.One_Drive_Folder_Name__c == null ? v.recordId : v.recordFields.One_Drive_Folder_Name__c }"/>
+
+<!--    <c:OneDriveUtils aura:id="OneDriveUtils"/>-->
+
     <c:vertic_QuickActionModal aura:id="modal"
                                heightPX="250"
                                title="Process CentrePay Payments"

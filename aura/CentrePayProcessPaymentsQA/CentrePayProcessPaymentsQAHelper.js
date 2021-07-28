@@ -24,37 +24,4 @@
         return data;
     },
 
-    // readFile: function (file) {
-    //
-    //     return new Promise(function (resolve, reject) {
-    //         var reader = new FileReader();
-    //
-    //         reader.onload = $A.getCallback(function () {
-    //             resolve(reader.result);
-    //         });
-    //         reader.onerror = $A.getCallback(function (errors) {
-    //             reject(errors);
-    //         });
-    //
-    //         reader.readAsArrayBuffer(file);
-    //     });
-    // },
-
-    // handleFilesChange: function (component, event, helper) {
-    //     // This will contain the List of File uploaded data and status
-    //     var uploadFile = event.getSource().get("v.files");
-    //     var self = this;
-    //     var file = uploadFile[0]; // getting the first file, loop for multiple files
-    //     var reader = new FileReader();
-    //     reader.onload =  $A.getCallback(function() {
-    //         var dataURL = reader.result;
-    //         var base64 = 'base64,';
-    //         var dataStart = dataURL.indexOf(base64) + base64.length;
-    //         dataURL= dataURL.substring(dataStart);
-    //         helper.upload(component, file, dataURL)
-    //     });
-    //     reader.readAsDataURL(file);
-    // }
-
-
 });

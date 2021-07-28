@@ -15,38 +15,25 @@
 
     handleFilesChange: function(cmp, event, helper){
 
+        var sObjectName = cmp.get('v.sObjectName') ? cmp.get('v.sObjectName') : null;
+        var recordName = cmp.get('v.recordName') ? cmp.get('v.recordName') : null;
+
         var files = event.getSource().get('v.files');
 
         if(!files || !files.length){
             return;
         }
 
-        files[0].text().then(markup => {
-            var el = new DOMParser().parseFromString(markup, "text/html");
-            var table = el.getElementsByTagName('table')[2];
-            console.log(table);
-            console.log(helper.parseTable(table));
-        });
-
-        // helper.readFile(files[0]).then(result => {
-        //     console.log(result);
-        // })
-
-        // cmp.set('v.meta.dto.parsedData', null);
-        // cmp.set('v.isBusy', true);
-        //
-        // helper.parseFile(cmp, files[0]).then(function (parsedData) {
-        //
-        //
-        //     cmp.set('v.meta.dto.parsedData', parsedData);
-        // }).catch(function (error) {
-        //     helper.utils(cmp).showToast({
-        //         message: JSON.stringify(error),
-        //         type: 'error'
-        //     });
-        // }).finally(function () {
-        //     cmp.set('v.isBusy', false);
+        cmp.set('v.isBusy', true);
+        // var oneDriveUtils = cmp.find("OneDriveUtils");
+        // oneDriveUtils.upload(files, sObjectName, recordName).then(responses => {
+            files[0].text().then(markup => {
+                var el = new DOMParser().parseFromString(markup, "text/html");
+                var table = el.getElementsByTagName('table')[2];
+                console.log(table);
+                console.log(helper.parseTable(table));
+            });
+            cmp.set('v.isBusy', false);
         // });
-
     },
 });

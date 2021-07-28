@@ -219,11 +219,23 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>One_Drive_Folder_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Name + &apos;_dev&apos;</formula>
+        <label>One Drive Folder Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Batch</label>
     <nameField>
-        <label>Batch Name</label>
+        <displayFormat>B-{0000000}</displayFormat>
+        <label>Batch Id</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Batches (custom)</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
