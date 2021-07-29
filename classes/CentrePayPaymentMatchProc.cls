@@ -10,22 +10,47 @@ public without sharing class CentrePayPaymentMatchProc extends vertic_AbstractPr
     public override vertic_Response process(vertic_Request request) {
         this.request = request;
 
-        this.init();
         this.match();
 
         return this.response;
     }
 
-    private void init(){
-        this.paymentWrapper = (CentrePayProcessPaymentsSubmitProc.PaymentWrapper)
-            this.request.get('wrapper', CentrePayProcessPaymentsSubmitProc.PaymentWrapper.class);
-    }
-
     private void match(){
+        String centrelinkCRN = this.request.getRequiredString('centrelink_crn');
+        Decimal deductionAmount = this.request.getDecimal('deduction_amount'); //todo: remove $ sign in lightning
+//        String feeAmount = this.request.getDecimal('fee_amount');
+        Date paymentDate = this.request.getISODate('delivery_date'); // todo: parse date in lightning
 
+        Contact contact = (Contact) vertic_Utils.arrays.firstOrException([
+            SELECT Id
+            FROM Contact
+            WHERE Centrelink_Reference_Number_CRN__c =: centrelinkCRN
+        ], 'Contact with CRN = ' + centrelinkCRN + ' does not exists.');
+
+        List<npe01__OppPayment__c> payments = [
+            SELECT Id
+            FROM npe01__OppPayment__c
+            WHERE npe01__Opportunity__r.npsp__Primary_Contact__c =: contact.Id
+            AND npe01__Opportunity__r.StageName NOT IN ('Closed Won', 'Closed Lost')
+            AND npe01__Payment_Amount__c =: deductionAmount
+            AND npe01__Payment_Date__c =: paymentDate
+            AND npe01__Paid__c = FALSE
+            AND npe01__Written_Off__c = FALSE
+        ];
+
+        if(payments.isEmpty()){
+            throw new vertic_Structs.MissingDataException('Payment is not found.');
+        } else if (payments.size() > 0){
+            throw new vertic_Structs.MissingDataException('Several Payments were found: ' + String.join(
+                new List<String>(vertic_Utils.sObjects.getStringFieldValues(payments, 'Id')), ', '
+            ));
+        } else {
+            npe01__OppPayment__c payment = payments[0];
+            payment.npe01__Paid__c = true;
+            update payment;
+
+            this.response.put('paymentId', payment.Id);
+        }
     }
-
-    private String batchId;
-    private CentrePayProcessPaymentsSubmitProc.PaymentWrapper paymentWrapper;
 
 }

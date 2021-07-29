@@ -258,6 +258,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CentrePayPaymentMatchProcTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CentrePayProcessPaymentsBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2121,6 +2125,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Badge__mdt.Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Batch_Line_Item__c.Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Batch_Line_Item__c.Payload__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Batch_Line_Item__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9088,6 +9107,9 @@
         <layout>Badge__mdt-Badge Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Batch_Line_Item__c-Batch Line Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Batch__c-Opportunities Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9577,6 +9599,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>AuthorizationFormText</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Batch_Line_Item__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

@@ -258,6 +258,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CentrePayPaymentMatchProcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CentrePayProcessPaymentsBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2113,6 +2117,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Badge__mdt.Title__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch_Line_Item__c.Details__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch_Line_Item__c.Payload__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Batch_Line_Item__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9070,6 +9089,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Badge__mdt-Badge Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Batch_Line_Item__c-Batch Line Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Batch__c-Opportunities Layout</layout>
