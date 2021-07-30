@@ -17,9 +17,8 @@ public without sharing class CentrePayPaymentMatchProc extends vertic_AbstractPr
 
     private void match(){
         String centrelinkCRN = this.request.getRequiredString('centrelink_crn');
-        Decimal deductionAmount = this.request.getDecimal('deduction_amount'); //todo: remove $ sign in lightning
-//        String feeAmount = this.request.getDecimal('fee_amount');
-        Date paymentDate = this.request.getISODate('delivery_date'); // todo: parse date in lightning
+        Decimal deductionAmount = this.request.getDecimal('deduction_amount');
+        Date paymentDate = this.request.getISODate('delivery_date');
 
         Contact contact = (Contact) vertic_Utils.arrays.firstOrException([
             SELECT Id

@@ -4,7 +4,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
-    <aura:attribute name="disabled" type="Boolean" default="true"/>
+    <aura:attribute name="step" type="String" default="results"/>
 
     <force:recordData aura:id="recordLoader"
                       recordId="{!v.recordId}"
@@ -24,24 +24,49 @@
                                minWidthRem="20"
                                showCancel="false">
 
-        <div class="slds-grid slds-align_absolute-center slds-m-around_large">
-            <div class="slds-m-horizontal_medium">
-                <p>Drag and drop or search for the import file you wish to process.</p>
+        <aura:if isTrue="{! or(v.step == 'file', v.step == 'process') }">
+            <div class="slds-grid slds-align_absolute-center slds-m-around_large">
+                <div class="slds-m-horizontal_medium">
+                    <p>Drag and drop or search for the import file you wish to process:</p>
+                </div>
+                <aura:if isTrue="{! empty(v.meta.dto.fileName) }">
+                    <lightning:input label="Upload"
+                                     aura:id="upload"
+                                     variant="label-hidden"
+                                     type="file"
+                                     accept=".html"
+                                     multiple="{!false}"
+                                     onchange="{!c.handleFilesChange}"
+                                     disabled="{!v.isBusy}"
+                    />
+                    <aura:set attribute="else">
+                        <lightning:icon iconName="utility:file"
+                                        title="{! v.meta.dto.fileName }"
+                                        alternativeText="File"
+                        />
+                        <p class="slds-m-left_x-small">{! v.meta.dto.fileName }</p>
+                    </aura:set>
+                </aura:if>
             </div>
-            <lightning:input label="Upload"
-                             aura:id="upload"
-                             variant="label-hidden"
-                             type="file"
-                             accept=".csv"
-                             multiple="{!false}"
-                             onchange="{!c.handleFilesChange}"
-                             disabled="{!v.isBusy}"
-            />
-        </div>
+        </aura:if>
+        <aura:if isTrue="{! v.step == 'batch' }">
+            <c:BatchProgress aura:id="batchProgress"
+                             title="Payment Processing..."
+                             onComplete="{! c.handleBatchProgressComplete }"/>
+        </aura:if>
+        <aura:if isTrue="{! v.step == 'results' }">
+            <div class="slds-scrollable" style="max-height: 235px">
+                <c:vertic_SOQLDatatable aura:id="line-data-table"
+                                        sObjectType="Batch_Line_Item__c"
+                                        condition="{! 'Batch__c = \'' + v.recordId + '\'' }"
+                                        fields="{! 'Id, Payment__c, Status__c, Details__c' }"
+                                        limit="1000" orderBy="name"/>
+            </div>
+        </aura:if>
 
         <aura:set attribute="footer">
             <lightning:button label="Close" variant="neutral" type="submit" onclick="{!c.handleCloseClick}"/>
-            <lightning:button label="Process" variant="brand" type="submit" disabled="{! or(v.isBusy, v.disabled) }" onclick="{!c.handleProcess}"/>
+            <lightning:button label="Process" variant="brand" type="submit" disabled="{! or(v.isBusy, v.step != 'process') }" onclick="{!c.handleProcess}"/>
         </aura:set>
     </c:vertic_QuickActionModal>
 

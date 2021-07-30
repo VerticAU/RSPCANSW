@@ -14,7 +14,7 @@ public without sharing class CentrePayProcessPaymentsBatch implements Database.B
 
     public void execute(Database.BatchableContext context, List<Map<String, Object>> scope) {
 
-        Batch_Line_Item__c lineItem = new Batch_Line_Item__c( //todo: retrieve all line items to show in final screen
+        Batch_Line_Item__c lineItem = new Batch_Line_Item__c(
             Batch__c = this.batchId,
             Status__c = 'Completed'
         );

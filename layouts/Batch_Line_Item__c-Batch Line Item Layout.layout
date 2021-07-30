@@ -15,7 +15,7 @@
                 <field>Batch__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Payment__c</field>
             </layoutItems>
             <layoutItems>

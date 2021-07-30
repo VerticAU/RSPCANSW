@@ -27,7 +27,7 @@ public without sharing class CentrePayProcessPaymentsSubmitProc extends vertic_A
 
     private void matchPayments(){
         String batchId = Database.executeBatch(new CentrePayProcessPaymentsBatch(this.paymentRows, this.recordId), 1);
-        this.response.getMapper().mapAnyValue('batchId', batchId); //todo: add batch progress bar to lightning
+        this.response.getMapper().mapAnyValue('batchId', batchId);
     }
 
     /**

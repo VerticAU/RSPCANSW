@@ -185,16 +185,15 @@
     </fields>
     <fields>
         <fullName>Payment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Payment</label>
         <referenceTo>npe01__OppPayment__c</referenceTo>
         <relationshipLabel>Batch Line Items</relationshipLabel>
         <relationshipName>Batch_Line_Items</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Status__c</fullName>

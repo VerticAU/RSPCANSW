@@ -2139,6 +2139,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Batch_Line_Item__c.Payment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Batch_Line_Item__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
