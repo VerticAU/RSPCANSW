@@ -4,7 +4,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
 
-    <aura:attribute name="step" type="String" default="results"/>
+    <aura:attribute name="step" type="String" default="file"/>
 
     <force:recordData aura:id="recordLoader"
                       recordId="{!v.recordId}"
@@ -17,7 +17,7 @@
 <!--    <c:OneDriveUtils aura:id="OneDriveUtils"/>-->
 
     <c:vertic_QuickActionModal aura:id="modal"
-                               heightPX="250"
+                               heightPX="{! v.step == 'results' ? 450 : 250 }"
                                title="Process CentrePay Payments"
                                widthPercentage="80"
                                maxWidthRem="60"
@@ -55,11 +55,18 @@
                              onComplete="{! c.handleBatchProgressComplete }"/>
         </aura:if>
         <aura:if isTrue="{! v.step == 'results' }">
-            <div class="slds-scrollable" style="max-height: 235px">
+            <aura:if isTrue="{! and(not(empty(v.meta.dto.totals.completedCount)), not(empty(v.meta.dto.totals.completedCount))) }">
+                <div class="slds-m-bottom--small">
+                    <div class="slds-text-body--regular slds-m-bottom_xx-small">Total found: {! v.meta.dto.totals.completedCount }</div>
+                    <div class="slds-text-body--regular">Total not found: {! v.meta.dto.totals.failedCount }</div>
+                </div>
+            </aura:if>
+            <div class="slds-box_border">
                 <c:vertic_SOQLDatatable aura:id="line-data-table"
                                         sObjectType="Batch_Line_Item__c"
                                         condition="{! 'Batch__c = \'' + v.recordId + '\'' }"
                                         fields="{! 'Id, Payment__c, Status__c, Details__c' }"
+                                        onAfterSOQLDatatableLoad="{! c.handleTotalsCalculation}"
                                         limit="1000" orderBy="name"/>
             </div>
         </aura:if>

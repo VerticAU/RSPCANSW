@@ -58,21 +58,11 @@
         }));
     },
 
-    retrieveResults: function (cmp, helper) {
-        return new Promise($A.getCallback(function (resolve, reject) {
-            helper.execute(cmp, 'vertic_SOQLProc',
-                {
-                    SOQL: 'SELECT Id, Details__c, Payment__c, Status__c FROM Batch_Line_Item__c WHERE Batch__c = \'' + cmp.get('v.recordId') + '\''
-                }
-            ).then(function (response) {
-                if (response.isValid) {
-                    cmp.set('v.meta.dto.batchLineItems', response.dto.records || []);
-                    resolve(response);
-                }
-            }).catch(function (reason) {
-                reject(reason);
-            });
-        }));
+    calculateTotals: function (cmp, helper, results) {
+        console.log('results', results);
+
+        cmp.set('v.meta.dto.totals.failedCount', results.filter((row) => row.status__c === 'Failed').length);
+        cmp.set('v.meta.dto.totals.completedCount', results.filter((row) => row.status__c === 'Completed').length);
     },
 
     showMessage: function(cmp, variant, message){

@@ -35,8 +35,11 @@
 
     handleBatchProgressComplete: function (cmp, event, helper) {
         helper.showMessage(cmp, 'Success', 'Payment processing completed!');
-        // helper.retrieveResults(cmp, helper).then(response => {
-        //     cmp.set('v.step', 'results');
-        // });
+        cmp.set('v.step', 'results');
+    },
+
+    handleTotalsCalculation: function (cmp, event, helper) {
+        var data = event.getSource().get('v.data') || [];
+        helper.calculateTotals(cmp, helper, data);
     },
 });
