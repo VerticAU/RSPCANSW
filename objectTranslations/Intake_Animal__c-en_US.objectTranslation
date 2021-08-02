@@ -50,6 +50,13 @@
             <translation><!-- Unable to Assist - Shelter Capacity --></translation>
         </picklistValues>
     </fields>
+    <layouts>
+        <layout>Case Animal Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
         <errorMessage><!-- Client does not own Animal --></errorMessage>
