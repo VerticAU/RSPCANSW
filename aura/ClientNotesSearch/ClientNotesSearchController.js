@@ -14,9 +14,12 @@
         helper.execute(cmp, 'ClientNotesSearchMetaProc', request).then(function (response) {
             if (response.isValid) {
                 cmp.set('v.meta', response);
-                var today = new Date();
-                cmp.set('v.meta.dto.filter.endDate', $A.localizationService.formatDate(today, 'yyyy-MM-dd'));
-                cmp.set('v.meta.dto.filter.startDate', $A.localizationService.formatDate(today.setFullYear(today.getFullYear() - 1), 'yyyy-MM-dd'));
+                var curr = new Date;
+                var firstDayOfWeek = new Date(curr.setDate(curr.getDate() - curr.getDay()+ (curr.getDay() === 0 ? -6:1) ));
+                var lastDayOfWeek = new Date(curr.setDate(curr.getDate() - curr.getDay() +7));
+                cmp.set('v.meta.dto.filter.startDate', $A.localizationService.formatDate(firstDayOfWeek, 'yyyy-MM-dd'));
+                cmp.set('v.meta.dto.filter.endDate', $A.localizationService.formatDate(lastDayOfWeek, 'yyyy-MM-dd'));
+
 
                 if(!$A.util.isEmpty(filterRecordId)){
                     helper.searchNotes(cmp, event, helper, cmp.get('v.meta.dto.filter'));

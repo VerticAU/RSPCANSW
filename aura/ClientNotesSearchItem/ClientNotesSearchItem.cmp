@@ -33,7 +33,7 @@
                 <div class="slds-truncate" title="">
                     <lightning:formattedDateTime value="{#v.record.Interaction_Date_Time__c}"
                                                  year="numeric" month="short" day="numeric"
-                                                 hour="numeric" minute="numeric"
+                                                 hour="numeric" minute="numeric" timeZone="Australia/Brisbane"
                     />
                 </div>
             </aura:if>

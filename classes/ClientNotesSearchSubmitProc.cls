@@ -54,8 +54,8 @@ public without sharing class ClientNotesSearchSubmitProc extends vertic_Abstract
         };
 
         List<String> conditions = new List<String>{};
-        if (startDate != null) { conditions.add('Interaction_Date_Time__c >= :startDate'); }
-        if (endDate != null) { conditions.add('Interaction_Date_Time__c <= :endDate'); }
+        if (startDate != null) { conditions.add('DAY_ONLY(convertTimezone(Interaction_Date_Time__c)) >= :startDate'); }
+        if (endDate != null) { conditions.add('DAY_ONLY(convertTimezone(Interaction_Date_Time__c)) <= :endDate'); }
         if (String.isNotBlank(contactId)) { conditions.add('caseman__Client__c = :contactId'); }
         if (String.isNotBlank(userId)) { conditions.add('OwnerId = :userId'); }
         if (String.isNotBlank(caseId)) { conditions.add('Case__c = :caseId'); }

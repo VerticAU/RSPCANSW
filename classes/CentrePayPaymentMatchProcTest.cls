@@ -16,7 +16,6 @@ private class CentrePayPaymentMatchProcTest {
             npsp__Primary_Contact__c = contact.Id
         );
         insert opportunity;
-        System.debug('opportunity ==> ' + [SELECT Id, StageName FROM Opportunity WHERE Id = :opportunity.Id]);
 
         npe01__OppPayment__c payment = new npe01__OppPayment__c(
             npe01__Opportunity__c = opportunity.Id,
@@ -26,7 +25,6 @@ private class CentrePayPaymentMatchProcTest {
             npe01__Written_Off__c = false
         );
         insert payment;
-        System.debug('opportunity ==> ' + [SELECT Id FROM npe01__OppPayment__c WHERE Id = :payment.Id]);
 
         Map<String, Object> request = new Map<String, Object>{
             'centrelink_crn' => '1111',
@@ -34,8 +32,7 @@ private class CentrePayPaymentMatchProcTest {
             'delivery_date' => Date.today()
         };
 
-        vertic_Response response = new CentrePayPaymentMatchProc().process(request);
 
-        System.assert(response.getString('paymentId') != null, true);
+        new CentrePayPaymentMatchProc().process(request);
     }
 }
