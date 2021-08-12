@@ -51,7 +51,12 @@ public without sharing class AnimalDomain extends fflib_SObjectDomain implements
                 birthdate = birthdate.addYears(-animal.Age_Year_s__c.intValue());
             }
 
-            animal.Birthdate__c = birthdate;
+            if(animal.Age_Month_s__c == null && animal.Age_Week_s__c == null && animal.Age_Year_s__c == null){
+                animal.Birthdate__c = null;
+            } else {
+                animal.Birthdate__c = birthdate;
+            }
+
         }
     }
 }
