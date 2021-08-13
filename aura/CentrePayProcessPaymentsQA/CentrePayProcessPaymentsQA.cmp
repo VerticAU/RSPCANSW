@@ -65,7 +65,7 @@
                 <c:vertic_SOQLDatatable aura:id="line-data-table"
                                         sObjectType="Batch_Line_Item__c"
                                         condition="{! 'Batch__c = \'' + v.recordId + '\'' }"
-                                        fields="{! 'Id, Payment__c, Status__c, Details__c' }"
+                                        fields="{! 'Id, Payment__c, Payment__r.npe01__Opportunity__r.npsp__Primary_Contact__r.Name, Status__c, Details__c' }"
                                         onAfterSOQLDatatableLoad="{! c.handleTotalsCalculation}"
                                         limit="1000" orderBy="name"/>
             </div>
