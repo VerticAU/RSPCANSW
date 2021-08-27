@@ -75,7 +75,7 @@ public with sharing class MembershipServiceTest {
             Name = 'test2',
             Amount = 1234,
             RecordTypeId = donationRecordTypeId,
-            StageName = 'Closed Won',
+            StageName = 'Enrolled',
             CloseDate = Date.today(),
             npsp__Primary_Contact__c = cnt.Id,
             Linked_Opportunity__c = opp.Id

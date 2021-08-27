@@ -20,7 +20,7 @@ public without sharing class MembershipService {
             if(contact.Active_Membership__c != null){
                 lastActiveMemberships.add(new Opportunity(
                     Id = contact.Active_Membership__c,
-                    StageName = 'Closed Won'
+                    StageName = 'Enrolled'
                 ));
             }
 
