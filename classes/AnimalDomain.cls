@@ -38,22 +38,22 @@ public without sharing class AnimalDomain extends fflib_SObjectDomain implements
 
     private void calculateBirthdate(List<Animal__c> animals){
         for(Animal__c animal : animals){
-            animal.Age_Entered_Date__c = Date.today();
+            if(animal.Age_Month_s__c == null && animal.Age_Week_s__c == null && animal.Age_Year_s__c == null && animal.Birthdate__c != null){
 
-            Date birthdate = animal.Age_Entered_Date__c;
-            if(animal.Age_Week_s__c != null){
-                birthdate = birthdate.addDays(-7 * animal.Age_Week_s__c.intValue());
-            }
-            if(animal.Age_Month_s__c != null){
-                birthdate = birthdate.addMonths(-animal.Age_Month_s__c.intValue());
-            }
-            if(animal.Age_Year_s__c != null){
-                birthdate = birthdate.addYears(-animal.Age_Year_s__c.intValue());
-            }
-
-            if(animal.Age_Month_s__c == null && animal.Age_Week_s__c == null && animal.Age_Year_s__c == null){
-                animal.Birthdate__c = null;
             } else {
+                animal.Age_Entered_Date__c = Date.today();
+
+                Date birthdate = animal.Age_Entered_Date__c;
+                if(animal.Age_Week_s__c != null){
+                    birthdate = birthdate.addDays(-7 * animal.Age_Week_s__c.intValue());
+                }
+                if(animal.Age_Month_s__c != null){
+                    birthdate = birthdate.addMonths(-animal.Age_Month_s__c.intValue());
+                }
+                if(animal.Age_Year_s__c != null){
+                    birthdate = birthdate.addYears(-animal.Age_Year_s__c.intValue());
+                }
+
                 animal.Birthdate__c = birthdate;
             }
 
