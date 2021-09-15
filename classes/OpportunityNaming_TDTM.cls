@@ -11,7 +11,7 @@ global class OpportunityNaming_TDTM extends npsp.TDTM_Runnable{
         Map<Id, Account> accountMap = new Map<Id, Account>([SELECT Id, Name FROM Account WHERE Id IN :vertic_Utils.sObjects.getStringFieldValues(newlist, 'AccountId')]);
 
         Id donationRecordTypeId = vertic_Utils.sObjects.recordTypeIdByAPIName(Opportunity.SObjectType, 'Donation');
-        if (triggerAction == npsp.TDTM_Runnable.Action.BeforeInsert || triggerAction == npsp.TDTM_Runnable.Action.BeforeInsert) {
+        if (triggerAction == npsp.TDTM_Runnable.Action.BeforeInsert || triggerAction == npsp.TDTM_Runnable.Action.BeforeUpdate) {
             for(Opportunity opportunity: (List<Opportunity>) newlist){
                 if('Donation'.equalsIgnoreCase(opportunity.Name) && donationRecordTypeId == opportunity.RecordTypeId){
                     opportunity.Name = '';
