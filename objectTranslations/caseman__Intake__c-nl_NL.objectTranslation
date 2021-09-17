@@ -150,6 +150,10 @@
     </layouts>
     <nameFieldLabel>Naam intake</nameFieldLabel>
     <quickActions>
+        <label><!-- Add Intake Animals --></label>
+        <name>Add_Intake_Animals</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Create New Intake Animal --></label>
         <name>Create_Intake_Animal</name>
     </quickActions>

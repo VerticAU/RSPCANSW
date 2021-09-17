@@ -69,6 +69,65 @@
         <name>Platform_Events_Listener</name>
     </customTabs>
     <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>DisplaySelected</name>
+                </fields>
+                <name>Confirm_Selected_Values</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>SuccessMessage</name>
+                </fields>
+                <name>Display_Results</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>ErrorNotification</name>
+                </fields>
+                <name>Error</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Error_Display_No_RecordId</name>
+                </fields>
+                <name>Error_No_Record_Provided</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>NoSelectionMade</name>
+                </fields>
+                <name>Error_No_Selection</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Select_Animals</name>
+                </fields>
+                <name>Search_and_Select_Records</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>InstructionsScreen_0</name>
+                </fields>
+                <fields>
+                    <name>Select_Contacts_0</name>
+                </fields>
+                <name>Search_and_Select_Records_0</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Contact_Role</name>
+                </fields>
+                <fields>
+                    <name>SelectContactRole</name>
+                </fields>
+                <name>Update_Selected_Records</name>
+            </screens>
+        </flows>
+        <fullName>Adding_Multiple_Animal_Records_to_Intake</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
         <flows/>
         <fullName>Animal_Age_Update</fullName>
     </flowDefinitions>

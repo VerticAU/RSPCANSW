@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <description>Create all the values required for creating new junction object records</description>
+        <name>Create_New_Junction_Object_Record_Variable</name>
+        <label>Create New Junction Object Record Variable</label>
+        <locationX>930</locationX>
+        <locationY>1790</locationY>
+        <assignmentItems>
+            <assignToReference>CaseContactRoleVar.CasesId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CaseContactRoleVar.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ContactLoopVar.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CaseContactRoleVar.Role</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CaseContactRolePicklistChoiceSet</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Junction_Object_Records</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Reset user-selected values to enable re-selecting or searching</description>
+        <name>Reset_ConcatenateTextVar</name>
+        <label>Reset ConcatenateTextVar</label>
+        <locationX>490</locationX>
+        <locationY>1550</locationY>
+        <assignmentItems>
+            <assignToReference>ConcatenateTextVar</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SelectedContactCollectionVar</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SearchVar</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Concatenate a string that holds the values that the user selected</description>
+        <name>Store_Value</name>
+        <label>Store Value</label>
+        <locationX>754</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>SelectedContactCollectionVar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ContactLoopVar</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ConcatenateTextVar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>* Name: </stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ConcatenateTextVar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ContactLoopVar.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ConcatenateTextVar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>, Email: </stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ConcatenateTextVar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>ContactLoopVar.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ConcatenateTextVar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>LineBreakConstant</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Collection</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <description>Constant value to add a line break in the concatenated string</description>
+        <name>LineBreakConstant</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>&lt;br /&gt;</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Check_for_recordId</name>
+        <label>Check for recordId</label>
+        <locationX>812</locationX>
+        <locationY>214</locationY>
+        <defaultConnector>
+            <targetReference>Error_No_Record_Provided</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_recordId_provided</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get</targetReference>
+            </connector>
+            <label>Is recordId provided</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check if the user is using the search bar</description>
+        <name>Check_for_Search_Input</name>
+        <label>Check for Search Input</label>
+        <locationX>666</locationX>
+        <locationY>1310</locationY>
+        <defaultConnector>
+            <targetReference>Confirm_Selected_Values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Search_bar_with_value</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SearchVar</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Search_and_Select_Records_0</targetReference>
+            </connector>
+            <label>Search bar with value</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check for selected values in the collection</description>
+        <name>Check_for_Selected_Values</name>
+        <label>Check for Selected Values</label>
+        <locationX>886</locationX>
+        <locationY>878</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Through_Collection</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_Selected</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Select_Animals</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>AnimalLoopVar.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Store_Value</targetReference>
+            </connector>
+            <label>If Selected</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Did_user_provide_an_input</name>
+        <label>Did user provide an input</label>
+        <locationX>350</locationX>
+        <locationY>510</locationY>
+        <defaultConnector>
+            <targetReference>Get_Animal_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_input_provided</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Select_Animals</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_No_Selection</targetReference>
+            </connector>
+            <label>No input provided</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>AnimalRecordChoiceSet</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Contact__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get.caseman__Contact__c</elementReference>
+            </value>
+        </filters>
+        <limit>15</limit>
+        <object>Animal__c</object>
+        <outputAssignments>
+            <assignToReference>AnimalLoopVar.Vet_History_Obtained__c</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>Name</sortField>
+        <sortOrder>Desc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <description>Role Picklist of Case Contact Role</description>
+        <name>CaseContactRolePicklistChoiceSet</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Role</picklistField>
+        <picklistObject>CaseContactRole</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <description>Record Choice Set to store the values selected in Checkbox Group</description>
+        <name>ContactRecordChoiceSet</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <limit>15</limit>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>$Flow.CurrentRecord</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>FirstName</sortField>
+        <sortOrder>Asc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <description>To show the user options to select based on the search</description>
+        <name>SearchResultsRecordChiceSet</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>Contains</operator>
+            <value>
+                <elementReference>SearchVar</elementReference>
+            </value>
+        </filters>
+        <limit>15</limit>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>$Flow.CurrentRecord</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <interviewLabel>Adding Multiple Animal Records to Intake {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Adding Multiple Animal Records to Intake</label>
+    <loops>
+        <description>Loop through a collection variable</description>
+        <name>Loop_Through_Collection</name>
+        <label>Loop Through Collection</label>
+        <locationX>666</locationX>
+        <locationY>758</locationY>
+        <assignNextValueToReference>AnimalLoopVar</assignNextValueToReference>
+        <collectionReference>AnimalCollectionVar</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Check_for_Selected_Values</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Check_for_Search_Input</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Loop through selected records to get the user to update those records</description>
+        <name>Loop_Through_Selected_Records</name>
+        <label>Loop Through Selected Records</label>
+        <locationX>842</locationX>
+        <locationY>1550</locationY>
+        <assignNextValueToReference>ContactLoopVar</assignNextValueToReference>
+        <collectionReference>SelectedContactCollectionVar</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Update_Selected_Records</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Display_Results</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <description>Create a record of the junction object</description>
+        <name>Create_Junction_Object_Records</name>
+        <label>Create Junction Object Records</label>
+        <locationX>930</locationX>
+        <locationY>1910</locationY>
+        <connector>
+            <targetReference>Loop_Through_Selected_Records</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error</targetReference>
+        </faultConnector>
+        <inputReference>CaseContactRoleVar</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Get Intake Record</description>
+        <name>Get</name>
+        <label>Get Intake Record</label>
+        <locationX>543</locationX>
+        <locationY>208</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Search_and_Select_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>caseman__Intake__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Animal_Records</name>
+        <label>Get Animal Records</label>
+        <locationX>666</locationX>
+        <locationY>518</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Records</targetReference>
+        </connector>
+        <object>Animal__c</object>
+        <outputReference>AnimalCollectionVar</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Animal_Name__c</queriedFields>
+        <sortField>Animal_Name__c</sortField>
+        <sortOrder>Desc</sortOrder>
+    </recordLookups>
+    <recordLookups>
+        <description>Query for records</description>
+        <name>Get_Records</name>
+        <label>Get Records</label>
+        <locationX>666</locationX>
+        <locationY>638</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Collection</targetReference>
+        </connector>
+        <object>Contact</object>
+        <outputReference>ContactCollectionVar</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Email</queriedFields>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <screens>
+        <description>Showing the user selected values</description>
+        <name>Confirm_Selected_Values</name>
+        <label>Confirm Selected Values</label>
+        <locationX>842</locationX>
+        <locationY>1430</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Loop_Through_Selected_Records</targetReference>
+        </connector>
+        <fields>
+            <name>DisplaySelected</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Add the following selected records to the related list?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;i&gt;{!ConcatenateTextVar}&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);&quot;&gt;Click &apos;&lt;/span&gt;&lt;b style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);&quot;&gt;Next&lt;/b&gt;&lt;span style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);&quot;&gt;&apos; to add.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Display a message that the process finished successfully</description>
+        <name>Display_Results</name>
+        <label>Display Results</label>
+        <locationX>842</locationX>
+        <locationY>2390</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>SuccessMessage</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Success! The following items successfully added to the related list of this record:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;{!ConcatenateTextVar}&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Error screen</description>
+        <name>Error</name>
+        <label>Error</label>
+        <locationX>1194</locationX>
+        <locationY>2030</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>ErrorNotification</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Duplicate Value Error, please change the Contact Role&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>In case there is no recordID as an input for this flow</description>
+        <name>Error_No_Record_Provided</name>
+        <label>Error- No Record Provided</label>
+        <locationX>1280</locationX>
+        <locationY>214</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Error_Display_No_RecordId</name>
+            <fieldText>&lt;p&gt;Error: No RecordId provided to this flow, please make sure that you pass RecordId value to this flow&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Error message if the user didn&apos;t provide any input</description>
+        <name>Error_No_Selection</name>
+        <label>Error- No Selection</label>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Search_and_Select_Records</targetReference>
+        </connector>
+        <fields>
+            <name>NoSelectionMade</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 18px; color: rgb(255, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;No selection made, please try again&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>In this screen users can use the search or/and select records</description>
+        <name>Search_and_Select_Records</name>
+        <label>Search and Select Records</label>
+        <locationX>358</locationX>
+        <locationY>210</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Did_user_provide_an_input</targetReference>
+        </connector>
+        <fields>
+            <name>Select_Animals</name>
+            <choiceReferences>AnimalRecordChoiceSet</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <stringValue>test</stringValue>
+            </defaultValue>
+            <fieldText>Select Animals</fieldText>
+            <fieldType>MultiSelectCheckboxes</fieldType>
+            <helpText>&lt;p&gt;You can select multiple records to add&lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>In this screen users can use the search or/and select records</description>
+        <name>Search_and_Select_Records_0</name>
+        <label>Search and Select Records</label>
+        <locationX>490</locationX>
+        <locationY>1430</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Reset_ConcatenateTextVar</targetReference>
+        </connector>
+        <fields>
+            <name>InstructionsScreen_0</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);&quot;&gt;Selected Records:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);&quot;&gt;&lt;i&gt;{!ConcatenateTextVar}&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Select_Contacts_0</name>
+            <choiceReferences>SearchResultsRecordChiceSet</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select Contact/s From Search Results:</fieldText>
+            <fieldType>MultiSelectCheckboxes</fieldType>
+            <helpText>&lt;p&gt;You can select multiple records to add&lt;/p&gt;</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Update the selected record</description>
+        <name>Update_Selected_Records</name>
+        <label>Update Selected Records</label>
+        <locationX>930</locationX>
+        <locationY>1670</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_New_Junction_Object_Record_Variable</targetReference>
+        </connector>
+        <fields>
+            <name>SelectContactRole</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Select role for &lt;/span&gt;&lt;b style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;&lt;i&gt;{!ContactLoopVar.Name}&lt;/i&gt;&lt;/b&gt;&lt;span style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt; :&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Contact_Role</name>
+            <choiceReferences>CaseContactRolePicklistChoiceSet</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Contact Role</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>694</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_for_recordId</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>AnimalCollectionVar</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Animal__c</objectType>
+    </variables>
+    <variables>
+        <name>AnimalLoopVar</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Animal__c</objectType>
+    </variables>
+    <variables>
+        <description>Case Contact Role Record Variable</description>
+        <name>CaseContactRoleVar</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>CaseContactRole</objectType>
+    </variables>
+    <variables>
+        <description>String variable to store a concatenated string with selected values</description>
+        <name>ConcatenateTextVar</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Collection Variable of Contact records</description>
+        <name>ContactCollectionVar</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <description>Loop variable</description>
+        <name>ContactLoopVar</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <description>List Animals</description>
+        <name>ListAnimals</name>
+        <dataType>Picklist</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Variable to hold the search input</description>
+        <name>SearchVar</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Selected records collection variable</description>
+        <name>SelectedContactCollectionVar</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>testAnimal</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
