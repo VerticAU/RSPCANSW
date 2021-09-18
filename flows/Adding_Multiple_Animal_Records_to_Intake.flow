@@ -61,8 +61,8 @@
         <description>Concatenate a string that holds the values that the user selected</description>
         <name>Store_Value</name>
         <label>Store Value</label>
-        <locationX>754</locationX>
-        <locationY>998</locationY>
+        <locationX>886</locationX>
+        <locationY>954</locationY>
         <assignmentItems>
             <assignToReference>SelectedContactCollectionVar</assignToReference>
             <operator>Add</operator>
@@ -172,8 +172,8 @@
         <description>Check for selected values in the collection</description>
         <name>Check_for_Selected_Values</name>
         <label>Check for Selected Values</label>
-        <locationX>886</locationX>
-        <locationY>878</locationY>
+        <locationX>1146</locationX>
+        <locationY>837</locationY>
         <defaultConnector>
             <targetReference>Loop_Through_Collection</targetReference>
         </defaultConnector>
@@ -197,8 +197,8 @@
     <decisions>
         <name>Did_user_provide_an_input</name>
         <label>Did user provide an input</label>
-        <locationX>350</locationX>
-        <locationY>510</locationY>
+        <locationX>349</locationX>
+        <locationY>518</locationY>
         <defaultConnector>
             <targetReference>Get_Animal_Records</targetReference>
         </defaultConnector>
@@ -234,7 +234,7 @@
         <limit>15</limit>
         <object>Animal__c</object>
         <outputAssignments>
-            <assignToReference>AnimalLoopVar.Vet_History_Obtained__c</assignToReference>
+            <assignToReference>SelectedAnmalIds</assignToReference>
             <field>Id</field>
         </outputAssignments>
         <sortField>Name</sortField>
@@ -294,8 +294,8 @@
         <description>Loop through a collection variable</description>
         <name>Loop_Through_Collection</name>
         <label>Loop Through Collection</label>
-        <locationX>666</locationX>
-        <locationY>758</locationY>
+        <locationX>667</locationX>
+        <locationY>832</locationY>
         <assignNextValueToReference>AnimalLoopVar</assignNextValueToReference>
         <collectionReference>AnimalCollectionVar</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -381,16 +381,26 @@
         <name>Get_Animal_Records</name>
         <label>Get Animal Records</label>
         <locationX>666</locationX>
-        <locationY>518</locationY>
+        <locationY>516</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Records</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SelectedAnmalIds</elementReference>
+            </value>
+        </filters>
         <object>Animal__c</object>
         <outputReference>AnimalCollectionVar</outputReference>
         <queriedFields>Id</queriedFields>
-        <queriedFields>Animal_Name__c</queriedFields>
-        <sortField>Animal_Name__c</sortField>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Age__c</queriedFields>
+        <queriedFields>Animal_Type__c</queriedFields>
+        <sortField>Name</sortField>
         <sortOrder>Desc</sortOrder>
     </recordLookups>
     <recordLookups>
@@ -398,13 +408,21 @@
         <name>Get_Records</name>
         <label>Get Records</label>
         <locationX>666</locationX>
-        <locationY>638</locationY>
+        <locationY>639</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Through_Collection</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get.caseman__Contact__c</elementReference>
+            </value>
+        </filters>
         <object>Contact</object>
-        <outputReference>ContactCollectionVar</outputReference>
+        <outputReference>ContactLoopVar</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>Name</queriedFields>
         <queriedFields>Email</queriedFields>
@@ -667,6 +685,13 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SelectedAnmalIds</name>
+        <dataType>Picklist</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <description>Selected records collection variable</description>
