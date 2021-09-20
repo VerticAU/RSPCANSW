@@ -1,0 +1,20 @@
+<aura:component description="FlowMultiSelectPicklist" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="options" type="String[]" default="[]" access="global"/>
+    <aura:attribute name="values" type="String[]" default="[]" access="global"/>
+    <aura:attribute name="label" type="String" default="Select Options" access="global"/>
+    <aura:attribute name="requiredOptions" type="String[]" default="[]" access="global"/>
+
+    <aura:attribute name="selectOptions" type="List" default="[]" access="private"/>
+    <aura:attribute name="selectRequiredOptions" type="List" default="[]" access="private"/>
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <lightning:dualListbox name="multipleOptions"
+                           label="{!v.label}"
+                           sourceLabel="Available"
+                           selectedLabel="Selected"
+                           options="{!v.selectOptions}"
+                           requiredOptions="{!v.requiredOptions}"
+                           value="{!v.values}"/>
+</aura:component>

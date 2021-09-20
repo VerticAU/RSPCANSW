@@ -1,0 +1,60 @@
+<aura:component description="ClientNotesCreateRecord" extends="c:vertic_Modal">
+
+    <c:strike_lookup label="Client"
+                     searchField="Name"
+                     object="Contact"
+                     iconName="standard:contact"
+                     showRecentRecords="true"
+                     limit="10"/>
+
+    <lightning:input type="text"
+                     label="Subject"
+                     class="slds-p-top_x-small"
+    />
+
+    <div class="slds-p-top_x-small">
+        <aura:text value="Interaction Date/Time"/>
+    </div>
+
+    <div class="slds-grid slds-gutters slds-p-top_x-small">
+
+        <lightning:input type="date"
+                         label="Date"
+                         class="slds-col"/>
+
+        <lightning:input type="time"
+                         label="Time"
+                         class="slds-col"/>
+    </div>
+
+    <lightning:select label="Type of Interaction"
+                      value="{! v.meta.dto.payment.npe01__Payment_Method__c }"
+                      onchange="{! c.handlePaymentMethodChange }"
+                      required="{!false}"
+                      class="slds-p-top_x-small">
+        <option value="">--None--</option>
+        <aura:iteration items="{! v.meta.selectOptions.paymentMethodOptions }" var="option">
+            <option label="{!option.label}" value="{!option.value}"/>
+        </aura:iteration>
+    </lightning:select>
+
+    <div class="slds-p-top_x-small">
+        <lightning:inputRichText label="Content"
+                                 labelVisible="true"/>
+    </div>
+
+
+
+    <aura:set attribute="footer">
+        <lightning:button label="Cancel"
+                          type="button"
+                          variant="brand"
+                          onclick="{! c.handleCancelClick }"
+        />
+        <lightning:button label="Save"
+                          type="button"
+                          variant="brand"
+                          onclick=""
+        />
+    </aura:set>
+</aura:component>

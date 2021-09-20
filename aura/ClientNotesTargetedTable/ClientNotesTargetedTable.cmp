@@ -5,6 +5,8 @@
     <aura:attribute name="contactRelation" type="String"/>
     <aura:attribute name="targetRelation" type="String"/>
 
+    <c:vertic_ModalService aura:id="modalService"/>
+
     <lightning:navigation aura:id="navService"/>
 
     <lightning:accordion aura:id="accordion" activeSectionName="Select" class="slds-box_border">
@@ -18,6 +20,11 @@
                                  messageToggleActive="Enabled"
                                  messageToggleInactive="Disabled"
                                  onchange="{! c.handleAllExpandedChange }"
+                />
+                <lightning:button label="New Client Note"
+                                  variant="brand"
+                                  onclick="{! c.newClientNote }"
+                                  class="slds-m-left_x-small"
                 />
             </aura:set>
             <c:ClientNotesSearchTable aura:id="table" allExpanded="{! v.allExpanded }" displayClientColumn="{! empty(v.contactRelation) }"/>

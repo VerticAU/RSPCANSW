@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="options" label="Select Options"/>
+    <design:attribute name="values" label="Selected Values"/>
+    <design:attribute name="label" label="Label"/>
+    <design:attribute name="requiredOptions" label="Required Options"/>
+</design:component>

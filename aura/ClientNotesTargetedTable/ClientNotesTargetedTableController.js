@@ -36,4 +36,19 @@
 
         navService.navigate(pageRef);
     },
+
+    newClientNote: function (cmp, event, helper) {
+        console.log('v.meta.dto == ' + JSON.stringify(cmp.get('v.meta')));
+        cmp.find('modalService').show(
+            'c:ClientNotesCreateRecord',
+            {
+                heightPX: '500px'
+            },
+            {
+                header: 'Create New Client Note',
+                cssClass: 'slds-modal_small',
+                showfooter: true
+            }
+        );
+    }
 })
