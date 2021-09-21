@@ -212,6 +212,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>contactRelation</name>
+                    <value>ContactId</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>targetRelation</name>

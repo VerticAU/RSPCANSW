@@ -1,5 +1,12 @@
 <aura:component description="ClientNotesCreateRecord" extends="c:vertic_Modal">
 
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="contactRelation" type="String"/>
+
+
     <c:strike_lookup label="Client"
                      searchField="Name"
                      object="Contact"

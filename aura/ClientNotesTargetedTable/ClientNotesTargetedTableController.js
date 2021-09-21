@@ -38,11 +38,12 @@
     },
 
     newClientNote: function (cmp, event, helper) {
-        console.log('v.meta.dto == ' + JSON.stringify(cmp.get('v.meta')));
         cmp.find('modalService').show(
             'c:ClientNotesCreateRecord',
             {
-                heightPX: '500px'
+                recordId: cmp.get('v.recordId'),
+                sObjectName: cmp.get('v.sObjectName'),
+                contactRelation: cmp.get('v.contactRelation')
             },
             {
                 header: 'Create New Client Note',

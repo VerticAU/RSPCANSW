@@ -302,6 +302,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ClientNotesCreateRecordMetaProc</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ClientNotesSearchMetaProc</apexClass>
         <enabled>true</enabled>
     </classAccesses>
