@@ -4,13 +4,16 @@
 
     <aura:attribute name="contactRelation" type="String"/>
     <aura:attribute name="targetRelation" type="String"/>
+    <aura:attribute name="hasMore" type="boolean" default="false"/>
 
     <c:vertic_ModalService aura:id="modalService"/>
 
     <lightning:navigation aura:id="navService"/>
 
     <lightning:accordion aura:id="accordion" activeSectionName="Select" class="slds-box_border">
-        <lightning:accordionSection name="table" label="{! 'Results: ' + v.meta.dto.totals.total }">
+        <lightning:accordionSection name="table" label="{! v.hasMore == true ?
+                                                            'Client Notes (10+)' :
+                                                            'Client Note Results: ' + v.meta.dto.totals.total }">
             <aura:set attribute="actions">
                 <lightning:input type="toggle"
                                  label="Expand All"
@@ -21,13 +24,13 @@
                                  messageToggleInactive="Disabled"
                                  onchange="{! c.handleAllExpandedChange }"
                 />
-                <lightning:button label="New Client Note"
-                                  variant="brand"
+                <lightning:button label="New"
+                                  variant="Neutral"
                                   onclick="{! c.newClientNote }"
                                   class="slds-m-left_x-small"
                 />
             </aura:set>
-            <c:ClientNotesSearchTable aura:id="table" allExpanded="{! v.allExpanded }" displayClientColumn="{! empty(v.contactRelation) }"/>
+            <c:ClientNotesSearchTable aura:id="table" isClientNotesTargetedTable="{!true}" allExpanded="{! v.allExpanded }" displayClientColumn="{! empty(v.contactRelation) }"/>
 
             <div class="slds-text-align_center">
                 <lightning:button variant="base" class="slds-m-top_small" label="View All" onclick="{! c.handleViewAll }"/>

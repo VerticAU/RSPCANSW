@@ -9,6 +9,8 @@
     <aura:attribute name="limit" type="Integer"/>
 
     <aura:attribute name="displayClientColumn" type="Boolean" default="true"/>
+    <aura:attribute name="displayOwnerColumn" type="Boolean" default="true"/>
+    <aura:attribute name="isClientNotesTargetedTable" type="Boolean" default="false"/>
     <!--<aura:attribute name="limitMessage" type="String" default=""/>-->
 
     <!-- Events -->
@@ -34,26 +36,47 @@
                 <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table--fixed-layout slds-table--header-fixed">
                     <thead>
                         <tr class="slds-text-title_caps">
-                            <th scope="col" style="width: 50px;">
+                            <th scope="col" style="{! v.isClientNotesTargetedTable ?
+                                                        'width: 39px' :
+                                                        'width: 50px'
+                                                        }">
                                 <div class="slds-truncate slds-cell-fixed" title="#">#</div>
                             </th>
-                            <th scope="col">
-                                <div class="slds-truncate slds-cell-fixed" title="Donation">Client Note Name</div>
+                            <th scope="col" style="{! v.isClientNotesTargetedTable ?
+                                                        'width: 95px' :
+                                                        'width: 20%'
+                                                        }">
+                                <div class="slds-truncate slds-cell-fixed" title="Donation">Client Note</div>
                             </th>
                             <aura:if isTrue="{! v.displayClientColumn }">
-                                <th scope="col">
+                                <th scope="col" style="{! v.isClientNotesTargetedTable ?
+                                                        'width: 145px' :
+                                                        'width: 20%'
+                                                        }">
                                     <div class="slds-truncate slds-cell-fixed" title="Contact">Client Name</div>
                                 </th>
                             </aura:if>
-                            <th scope="col">
-                                <div class="slds-truncate slds-cell-fixed" title="Email">Interaction Date/Time</div>
+                            <th scope="col" style="{! v.isClientNotesTargetedTable ?
+                                                        'width: 140px' :
+                                                        'width: 20%'
+                                                        }">
+                                <div class="slds-truncate slds-cell-fixed" title="Email">Interaction Date</div>
                             </th>
-                            <th scope="col">
-                                <div class="slds-truncate slds-cell-fixed" title="Date">Type of Interaction</div>
+                            <th scope="col" style="{! v.isClientNotesTargetedTable ?
+                                                        'width: 135px' :
+                                                        'width: 20%'
+                                                        }">
+                                <div class="slds-truncate slds-cell-fixed" title="Date">Type</div>
                             </th>
-                            <th scope="col">
-                                <div class="slds-truncate slds-cell-fixed" title="Amount">Client Note Owner</div>
-                            </th>
+                            <aura:if isTrue="{! v.displayOwnerColumn }">
+                                <th scope="col" style="{! v.isClientNotesTargetedTable ?
+                                                        'width: 140px' :
+                                                        'width: 20%'
+                                                        }">
+                                    <div class="slds-truncate slds-cell-fixed" title="Amount">Owner</div>
+                                </th>
+                            </aura:if>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +84,7 @@
                             <c:ClientNotesSearchItem record="{! record }"
                                                      index="{! index }"
                                                      displayClientColumn="{! v.displayClientColumn }"
+                                                     displayOwnerColumn="{! v.displayOwnerColumn }"
                             />
                         </aura:iteration>
                     </tbody>

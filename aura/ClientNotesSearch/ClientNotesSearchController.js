@@ -1,6 +1,7 @@
 ({
     handleInit: function(cmp, event, helper){
         var request = {};
+        cmp.set('v.meta.dto.filter.contactId', null);
 
         var pageReference = cmp.get('v.pageReference');
         var filterRecordId;
@@ -14,12 +15,21 @@
         helper.execute(cmp, 'ClientNotesSearchMetaProc', request).then(function (response) {
             if (response.isValid) {
                 cmp.set('v.meta', response);
-                var curr = new Date;
-                var firstDayOfWeek = new Date(curr.setDate(curr.getDate() - curr.getDay()+ (curr.getDay() === 0 ? -6:1) ));
-                var lastDayOfWeek = new Date(curr.setDate(curr.getDate() - curr.getDay() +7));
-                cmp.set('v.meta.dto.filter.startDate', $A.localizationService.formatDate(firstDayOfWeek, 'yyyy-MM-dd'));
-                cmp.set('v.meta.dto.filter.endDate', $A.localizationService.formatDate(lastDayOfWeek, 'yyyy-MM-dd'));
+                var curr = new Date();
+                var startDate;
+                var endDate;
+                if(pageReference.state.c__filterRecordId != null){
+                    startDate = new Date( curr.getFullYear(), 0 , 1);
+                    endDate = new Date( curr.getFullYear(), 11, 31);
+                } else {
+                    startDate = new Date(curr.setDate(curr.getDate() - curr.getDay()+ (curr.getDay() === 0 ? -6:1) ));
+                    endDate = new Date(curr.setDate(curr.getDate() - curr.getDay() +7));
+                }
 
+                cmp.set('v.meta.dto.filter.startDate', $A.localizationService.formatDate(startDate, 'yyyy-MM-dd'));
+                cmp.set('v.meta.dto.filter.endDate', $A.localizationService.formatDate(endDate, 'yyyy-MM-dd'));
+
+                console.log('ClientNotesSearch v.meta.dto.filter == >> ' + JSON.stringify(cmp.get('v.meta.dto.filter')));
 
                 if(!$A.util.isEmpty(filterRecordId)){
                     helper.searchNotes(cmp, event, helper, cmp.get('v.meta.dto.filter'));

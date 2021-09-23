@@ -8,6 +8,7 @@
             });
             cmp.set('v.items', items);
         }
+        console.log('isClientNotesTargetedTable == ' + JSON.stringify(cmp.get('v.isClientNotesTargetedTable')));
     },
 
     handleGetExpanded: function (cmp, event, helper) {

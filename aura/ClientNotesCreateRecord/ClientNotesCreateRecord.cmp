@@ -6,17 +6,18 @@
     <aura:attribute name="sObjectName" type="String"/>
     <aura:attribute name="contactRelation" type="String"/>
 
-
     <c:strike_lookup label="Client"
                      searchField="Name"
                      object="Contact"
                      iconName="standard:contact"
                      showRecentRecords="true"
+                     value="{! v.meta.dto.client.Id}"
                      limit="10"/>
 
     <lightning:input type="text"
                      label="Subject"
                      class="slds-p-top_x-small"
+                     value="{! v.meta.dto.clientNote.caseman__Subject__c }"
     />
 
     <div class="slds-p-top_x-small">
@@ -27,26 +28,28 @@
 
         <lightning:input type="date"
                          label="Date"
+                         value="{! v.meta.dto.clientNote.date }"
                          class="slds-col"/>
 
         <lightning:input type="time"
                          label="Time"
+                         value="{! v.meta.dto.clientNote.time }"
                          class="slds-col"/>
     </div>
 
     <lightning:select label="Type of Interaction"
-                      value="{! v.meta.dto.payment.npe01__Payment_Method__c }"
-                      onchange="{! c.handlePaymentMethodChange }"
+                      value="{! v.meta.dto.clientNote.caseman__TypeOfInteraction__c }"
                       required="{!false}"
                       class="slds-p-top_x-small">
         <option value="">--None--</option>
-        <aura:iteration items="{! v.meta.selectOptions.paymentMethodOptions }" var="option">
+        <aura:iteration items="{! v.meta.selectOptions.casemanTypeOfInteractionOptions }" var="option">
             <option label="{!option.label}" value="{!option.value}"/>
         </aura:iteration>
     </lightning:select>
 
     <div class="slds-p-top_x-small">
         <lightning:inputRichText label="Content"
+                                 value="{! v.meta.dto.clientNote.caseman__Content__c }"
                                  labelVisible="true"/>
     </div>
 
@@ -61,7 +64,7 @@
         <lightning:button label="Save"
                           type="button"
                           variant="brand"
-                          onclick=""
+                          onclick="{! c.handleSubmit }"
         />
     </aura:set>
 </aura:component>

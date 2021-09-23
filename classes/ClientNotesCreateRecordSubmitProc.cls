@@ -1,4 +1,4 @@
-public without sharing class ClientNotesCreateRecordMetaProc extends vertic_MetadataProcessor {
+public without sharing class ClientNotesCreateRecordSubmitProc extends vertic_MetadataProcessor {
 
     /**
      * ==============================================================================================================
@@ -9,13 +9,9 @@ public without sharing class ClientNotesCreateRecordMetaProc extends vertic_Meta
     public override vertic_Response process(vertic_Request request) {
         this.request = request == null ? new MetadataRequest() : (MetadataRequest) request;
 
-        this.request.fields = new Set<SObjectField>{
-            caseman__ClientNote__c.caseman__TypeOfInteraction__c
-        };
-
         super.process(this.request);
 
-        this.retrieveContactRecord();
+        this.doSubmit();
 
         return this.response;
     }
@@ -26,25 +22,17 @@ public without sharing class ClientNotesCreateRecordMetaProc extends vertic_Meta
      * ==============================================================================================================
      */
 
-    private void retrieveContactRecord() {
+    caseman__ClientNote__c clientNote = new caseman__ClientNote__c();
 
-        String recordId = this.request.getRequiredString('recordId');
-        SObjectType sObjectName = vertic_Utils.sObjects.stringToSObjectType(this.request.getRequiredString('sObjectName'));
+    private void doSubmit() {
+        this.request.getMapper().mapToSObject('clientNote', this.clientNote);
 
-        String contactRelation = this.request.getString('contactRelation');
-
-        if (String.isNotBlank(contactRelation)) {
-            fflib_QueryFactory queryFactory = new fflib_QueryFactory(sObjectName);
-            queryFactory.selectField(contactRelation);
-
-            queryFactory.setCondition('Id  =: recordId');
-
-            Set<Id> contactIds = vertic_Utils.sObjects.getIdFieldValues(Database.query(queryFactory.toSOQL()), contactRelation);
-
-            if(contactIds.size() > 0){
-                response.dto.put('client', [SELECT Id, Name, LastName FROM Contact WHERE Id =: contactIds].get(0));
-            }
+        if(this.request.getString('clientNote.date') != null && this.request.getString('clientNote.time') != null){
+            this.clientNote.Interaction_Date_Time__c = Datetime.newInstance(this.request.getISODate('clientNote.date'), vertic_Utils.dates.timeStringToTime(this.request.getString('clientNote.time')));
         }
+
+        insert clientNote;
+
     }
 
     /**
