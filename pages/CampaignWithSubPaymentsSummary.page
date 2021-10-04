@@ -1,0 +1,155 @@
+<apex:page id="CampaignWithSubPaymentsSummary">
+    <body lang="EN-US" style="height: auto; min-height: auto;">
+    <p class="MsoNormal" style="margin-right: 13.05pt;"><img alt="oneoffheader"
+                                                             src="https://rspcansw--developer--c.documentforce.com/file-asset-public/oneoffheader1?oid=00D1y0000008pgX"
+                                                             style="max-width: 725px; width: 725px;"
+                                                             title="oneoffheader"/></p>
+
+    <div class="WordSection1" style="width: 625px; padding-left: 55px; padding-top: 10px; padding-bottom: 10px">
+        <p class="MsoNormal" style="margin-top: 0cm; margin-bottom: 0cm; margin-bottom: 0.0001pt;">
+            {{{Opportunity.today__c}}}</p>
+
+        <p class="MsoNormal" style="margin-right: -50.75pt;"><span lang="EN-AU"
+                                                                   style="font-family: 'Calibri Light', sans-serif;">&nbsp;</span>
+        </p>
+
+        <p class="MsoNormal" style="margin-top: 0cm; margin-bottom: 0cm; margin-bottom: 0.0001pt;"><span
+                    style="font-size:14px;"><span lang="EN-AU"
+                                                  style="font-family: 'Calibri Light', sans-serif; color: #262626;">{{{Recipient.Name}}}<br/>
+{{{Recipient.MailingStreet}}}<br/>
+{{{Recipient.MailingCity}}}<br/>
+{{{Recipient.MailingState}}}<br/>
+{{{Recipient.MailingCountry}}}<br/>
+{{{Recipient.MailingPostalCode}}}</span><span lang="EN-AU"
+                                              style="font-family: &quot;Calibri Light&quot;, sans-serif; color: rgb(38, 38, 38);">&nbsp;</span></span>
+        </p>
+
+        <p class="Body" style="margin-right: -50.75pt;"><span lang="EN-AU"
+                                                              style="font-size: 11pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span>
+        </p>
+
+        <p class="Body" style="margin-top: 10pt; margin-bottom: 10pt;"><span lang="EN-AU"
+                                                                             style="font-size: 11pt; font-family: 'Calibri Light', sans-serif;">Dear </span>
+            <span style="font-size:14px;"><span lang="EN-AU"
+                                                style="font-family: &quot;Calibri Light&quot;, sans-serif; color: rgb(38, 38, 38);">{{{Recipient.Title}}}&nbsp;</span><span
+                        lang="EN-AU" style="font-family: 'Calibri Light', sans-serif; color: #262626;">{{{Recipient.Name}}}</span><span
+                        lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">,</span></span></p>
+
+        <p class="Body" style="margin-top: 10pt; margin-bottom: 10pt;"><b><u><span lang="EN-AU"
+                                                                                   style="font-size: 11pt; font-family: 'Calibri Light', sans-serif;">Thank you. Thank you. Thank you</span></u>
+            </b> <span lang="EN-AU" style="font-size: 11pt; font-family: 'Calibri Light', sans-serif;">. </span></p>
+
+        <p class="Body" style="margin-top: 10pt; margin-bottom: 10pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                           style="font-family: &quot;Calibri Light&quot;, sans-serif;">Each year, RSPCA NSW is able to care for </span> <span
+                        style="font-family: &quot;Calibri Light&quot;, sans-serif;">a staggering 26,000 animals and investigate more than 14,000 animal cruelty complaints &ndash; all thanks to animal lovers like you. </span> <span
+                        lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;"> If it wasn&rsquo;t for generosity like yours, the animals of our state wouldn&rsquo;t have the protection, shelter and emergency veterinary care the can only turn to RSPCA for &ndash; every day. </span></span>
+        </p>
+
+        <p class="Body" style="margin-top: 10pt; margin-bottom: 10pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                           style="font-family: &quot;Calibri Light&quot;, sans-serif;">Your financial contribution keeps vital services running and continues to fight the daily battle against animal cruelty. </span></span>
+        </p>
+
+        <p class="MsoNormal" style="margin-top: 10pt; margin-bottom: 10pt;"><span style="font-size:14px;"><span
+                        lang="EN-AU" style="font-family: 'Calibri Light', sans-serif;">If you would like to learn more about the difference you can make for the domestic, wild and farm animals of NSW, please see our website: <u>www.rspcansw.org.au</u>. Should you have any queries, please get in touch with one of our Supporter Care team on 1300 777 221 who would be delighted to assist you in any way. </span></span>
+        </p>
+
+        <p class="Body" style="margin-top: 10pt; margin-bottom: 10pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                           style="font-family: &quot;Calibri Light&quot;, sans-serif;">On behalf of all all your friends at RSPCA, four-legged and two, thank you again for your generosity.</span></span>
+        </p>
+
+        <p class="Body" style="margin-top: 0cm; margin-bottom: 0cm; margin-bottom: 0.0001pt;"><span lang="EN-AU"
+                                                                                                    style="font-size: 11pt; font-family: 'Calibri Light', sans-serif;">Yours sincerely,</span><br/>
+            &nbsp;</p>
+
+        <p class="Body" style="margin-top: 0cm; margin-bottom: 0cm; margin-bottom: 0.0001pt;"><img
+                    alt="steve_coleman_signature"
+                    src="https://rspcansw--developer--c.documentforce.com/file-asset-public/stevecolemansignature?oid=00D1y0000008pgX"
+                    style="max-width: 2100.56875px" title="steve_coleman_signature"/></p>
+
+        <p class="Body" style="margin-top: 0cm; margin-bottom: 0cm; margin-bottom: 0.0001pt;"><br/>
+            <span lang="EN-AU" style="font-size: 11pt; font-family: 'Calibri Light', sans-serif;">Steve Coleman<br/>
+Chief Executive Officer </span></p>
+
+        <p class="Body"><span lang="EN-AU">&nbsp;</span></p>
+
+        <table border="1" cellpadding="0" cellspacing="0" class="MsoTable15Grid2Accent5"
+               style="margin-left: -8.8pt; border-collapse: collapse; border: none;" width="633">
+            <tbody>
+            <tr>
+                <td colspan="4"
+                    style="width: 474.9pt; border: none; border-bottom: solid #1f3864 1pt; padding: 0cm 5.4pt 0cm 5.4pt;"
+                    valign="top" width="633">
+                    <p align="right" class="MsoNormal"
+                       style="margin-top: 0cm; margin-right: 0cm; margin-bottom: 6pt; margin-left: 14.2pt; text-align: right;">
+                        <b><span lang="EN-AU" style="font-size: 10pt; font-family: 'Calibri', sans-serif;">TAX DEDUCTIBLE GIFT RECEIPT #&nbsp;{{{Opportunity.Receipt_Number_Formula__c}}}</span></b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 70.9pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                    valign="top" width="95">
+                    <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                           style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">DATE</span></b>
+                    </p>
+
+                    <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;">{{{Opportunity.CloseDate}}}</span>
+                    </p>
+                </td>
+                <td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                    valign="top" width="246">
+                    <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                           style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">RECEIVED FROM</span></b>
+                    </p>
+
+                    <p class="MsoNormal" style="margin-bottom: 3pt;"><span lang="EN-AU"
+                                                                           style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;"><span
+                                    style="font-size:14px;">{{{Recipient.Name}}}<br/>
+			{{{Recipient.MailingAddress}}}</span><br/>
+			<br/>
+			&nbsp;</span></p>
+                </td>
+                <td style="width: 120.5pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                    valign="top" width="161">
+                    <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                           style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">PARTICULARS</span></b>
+                    </p>
+
+                    <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                      style="font-family: &quot;Calibri Light&quot;, sans-serif;">{{{Opportunity.Type}}}</span></span>
+                    </p>
+
+                    <p class="MsoNormal"
+                       style="margin-top: 3pt; margin-right: 0cm; margin-bottom: 0cm; margin-left: 14.2pt; margin-bottom: 0.0001pt;">
+                        <span lang="EN-AU"
+                              style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span></p>
+                </td>
+                <td style="width: 99.2pt; border: none; border-bottom: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                    valign="top" width="132">
+                    <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                           style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">AMOUNT</span></b>
+                    </p>
+
+                    <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                      style="font-family: &quot;Calibri Light&quot;, sans-serif;">{{{Opportunity.Amount}}}</span></span>
+                    </p>
+
+                    <p class="MsoNormal" style="margin-top: 3pt;"><span lang="EN-AU"
+                                                                        style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="width: 474.9pt; border: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"
+                    width="633">&nbsp;
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="MsoNormal" style="margin-right: 37.45pt;"><img alt="oneofffooter"
+                                                             src="https://rspcansw--developer--c.documentforce.com/file-asset-public/oneofffooter?oid=00D1y0000008pgX"
+                                                             style="max-width: 725px; width: 725px;"
+                                                             title="oneofffooter"/></p>
+    </body>
+</apex:page>

@@ -49,6 +49,11 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Funding Allocation --></label>
+        <name>Funding_Allocation__c</name>
+        <relationshipLabel><!-- Expenses --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Number Purchased --></label>
         <name>Number_Purchased__c</name>
     </fields>

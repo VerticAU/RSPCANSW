@@ -863,6 +863,11 @@
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Service Session --></label>
+        <name>Service_Session__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Session --></label>
         <name>Session__c</name>
         <relationshipLabel><!-- Opportunities --></relationshipLabel>
@@ -950,6 +955,10 @@
     <fields>
         <label><!-- Ticket Location --></label>
         <name>Ticket_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Allocation Amount --></label>
+        <name>Total_Allocation_Amount__c</name>
     </fields>
     <fields>
         <label><!-- Total Child Tickets Amount --></label>
@@ -1424,6 +1433,10 @@
     <fields>
         <label><!-- Payment Net Amount Received --></label>
         <name>npsp_plus__Payment_Net_Amount_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- today --></label>
+        <name>today__c</name>
     </fields>
     <layouts>
         <layout>Bequest Layout</layout>

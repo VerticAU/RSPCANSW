@@ -17,20 +17,62 @@
         <name>Allocation_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Opportunity --></label>
-        <name>Opportunity__c</name>
-        <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
+        <label><!-- Funds Remaining --></label>
+        <name>Funds_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- Funds Spent --></label>
+        <name>Funds_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Description --></label>
+        <name>Gift_Description__c</name>
     </fields>
     <fields>
         <label><!-- Service Schedule --></label>
         <name>Service_Schedule__c</name>
         <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
     </fields>
+    <fields>
+        <label><!-- Service Session --></label>
+        <name>Service_Session__c</name>
+        <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Source Opportunity --></label>
+        <name>Source_Opportunity__c</name>
+        <relationshipLabel><!-- Funding Allocations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target Opportunity --></label>
+        <name>Target_Opportunity__c</name>
+        <relationshipLabel><!-- Allocated Funds --></relationshipLabel>
+    </fields>
     <layouts>
         <layout>Funding Allocation Layout</layout>
         <sections>
+            <label><!-- Allocation Information --></label>
+            <section>Allocation Information</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
