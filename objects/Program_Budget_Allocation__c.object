@@ -128,14 +128,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Expense_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
+        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -144,19 +141,9 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
-    <compactLayoutAssignment>RSPCA_Expense_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>RSPCA_Expense_Compact_Layout</fullName>
-        <fields>Name</fields>
-        <fields>Expense_Type__c</fields>
-        <fields>Expense_Amount__c</fields>
-        <fields>Status__c</fields>
-        <fields>Booking_Date__c</fields>
-        <fields>Paid_Date__c</fields>
-        <label>RSPCA Expense Compact Layout</label>
-    </compactLayouts>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <enableActivities>true</enableActivities>
+    <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -167,28 +154,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
-        <fullName>Booking_Date__c</fullName>
+        <fullName>Allocation_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Booking Date</label>
+        <label>Allocation Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Description__c</fullName>
+        <fullName>Amount__c</fullName>
         <externalId>false</externalId>
-        <label>Description</label>
-        <length>32768</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Html</type>
-        <visibleLines>10</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Expense_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Expense Amount</label>
+        <label>Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -197,118 +174,51 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Expense_Type__c</fullName>
+        <fullName>Funds_Remaining__c</fullName>
         <externalId>false</externalId>
-        <label>Expense Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>true</sorted>
-                <value>
-                    <fullName>Accommodation</fullName>
-                    <default>false</default>
-                    <label>Accommodation</label>
-                </value>
-                <value>
-                    <fullName>Location</fullName>
-                    <default>false</default>
-                    <label>Location</label>
-                </value>
-                <value>
-                    <fullName>Marketing</fullName>
-                    <default>false</default>
-                    <label>Marketing</label>
-                </value>
-                <value>
-                    <fullName>Partner Invoice</fullName>
-                    <default>false</default>
-                    <label>Partner Invoice</label>
-                </value>
-                <value>
-                    <fullName>Resources</fullName>
-                    <default>false</default>
-                    <label>Resources</label>
-                </value>
-                <value>
-                    <fullName>Vet Supplies</fullName>
-                    <default>false</default>
-                    <label>Vet Supplies</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Funding_Allocation__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Funding Allocation</label>
-        <referenceTo>Funding_Allocation__c</referenceTo>
-        <relationshipLabel>Expenses</relationshipLabel>
-        <relationshipName>Expenses</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Number_Purchased__c</fullName>
-        <externalId>false</externalId>
-        <label>Number Purchased</label>
+        <formula>Amount__c - Funds_Spent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Funds Remaining</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
+        <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Paid_Date__c</fullName>
+        <fullName>Funds_Spent__c</fullName>
         <externalId>false</externalId>
-        <label>Paid Date</label>
+        <label>Funds Spent</label>
+        <precision>18</precision>
         <required>false</required>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Partner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>General_Accounting_Unit__c</fullName>
         <externalId>false</externalId>
-        <label>Partner</label>
-        <referenceTo>Partner__c</referenceTo>
-        <relationshipLabel>Expenses</relationshipLabel>
-        <relationshipName>Expenses</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Program_Budget_Allocation__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Program Budget Allocation</label>
-        <referenceTo>Program_Budget_Allocation__c</referenceTo>
-        <relationshipLabel>Expenses</relationshipLabel>
-        <relationshipName>Expenses</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Service_Session__c</fullName>
-        <externalId>false</externalId>
-        <label>Service Session</label>
-        <referenceTo>pmdm__ServiceSession__c</referenceTo>
-        <relationshipLabel>Expenses</relationshipLabel>
-        <relationshipName>Expenses</relationshipName>
+        <label>General Accounting Unit</label>
+        <referenceTo>npsp__General_Accounting_Unit__c</referenceTo>
+        <relationshipLabel>Program Budget Allocations</relationshipLabel>
+        <relationshipName>Program_Budget_Allocations</relationshipName>
         <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>pmdm__Program__c</referenceTo>
+        <relationshipLabel>Program Budget Allocations</relationshipLabel>
+        <relationshipName>Program_Budget_Allocations</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -327,35 +237,36 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Planning</fullName>
+                    <fullName>Planned</fullName>
                     <default>false</default>
-                    <label>Planning</label>
+                    <label>Planned</label>
                 </value>
                 <value>
-                    <fullName>Paid</fullName>
+                    <fullName>Active</fullName>
                     <default>false</default>
-                    <label>Paid</label>
+                    <label>Active</label>
                 </value>
                 <value>
-                    <fullName>Cancelled</fullName>
+                    <fullName>Inactive</fullName>
                     <default>false</default>
-                    <label>Cancelled</label>
+                    <label>Inactive</label>
                 </value>
                 <value>
-                    <fullName>Postponed</fullName>
+                    <fullName>Completed</fullName>
                     <default>false</default>
-                    <label>Postponed</label>
+                    <label>Completed</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <label>Expense</label>
+    <label>Program Budget Allocation</label>
     <nameField>
-        <label>Expense Name</label>
+        <displayFormat>PBA-{00000}</displayFormat>
+        <label>Program Budget Allocation ID</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Expenses</pluralLabel>
+    <pluralLabel>Program Budget Allocations</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

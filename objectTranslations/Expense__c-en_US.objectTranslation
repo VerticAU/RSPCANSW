@@ -67,6 +67,11 @@
         <relationshipLabel><!-- Expenses --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Program Budget Allocation --></label>
+        <name>Program_Budget_Allocation__c</name>
+        <relationshipLabel><!-- Expenses --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Service Session --></label>
         <name>Service_Session__c</name>
         <relationshipLabel><!-- Expenses --></relationshipLabel>

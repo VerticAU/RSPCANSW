@@ -1,6 +1,147 @@
-<!--
- - Created by Александр on 04.10.2021.
- -->
+<apex:component id="OpportunitySplitPaymentsTable" controller="OpportunitySplitPaymentsTableCtrl" access="global">
 
-<apex:component id="OpportunitySplitPaymentsTable">
+    <apex:attribute name="oppId" description="Opportunity Split Payments Table" type="Id" assignTo="{!opportunityId}"/>
+
+
+    <table border="1" cellpadding="0" cellspacing="0" class="MsoTable15Grid2Accent5"
+           style="margin-left: -8.8pt; border-collapse: collapse; border: none;" width="633">
+        <tbody>
+        <tr>
+            <td colspan="4"
+                style="width: 474.9pt; border: none; border-bottom: solid #1f3864 1pt; padding: 0cm 5.4pt 0cm 5.4pt;"
+                valign="top" width="633">
+                <p align="right" class="MsoNormal"
+                   style="margin-top: 0cm; margin-right: 0cm; margin-bottom: 6pt; margin-left: 14.2pt; text-align: right;">
+                    <b><span lang="EN-AU" style="font-size: 10pt; font-family: 'Calibri', sans-serif;">TAX DEDUCTIBLE GIFT RECEIPT #&nbsp;{! opportunity.Receipt_Number_Formula__c}</span></b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 70.9pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                valign="top" width="95">
+                <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                       style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">DATE</span></b>
+                </p>
+
+                <p class="MsoNormal" style="margin-top: 3pt;"><span
+                            style="font-size:14px;">{! opportunity.CloseDate}</span>
+                </p>
+            </td>
+            <td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                valign="top" width="246">
+                <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                       style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">RECEIVED FROM</span></b>
+                </p>
+
+                <p class="MsoNormal" style="margin-bottom: 3pt;"><span lang="EN-AU" style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">
+                                                <span style="font-size:14px;">{! opportunity.npsp__Primary_Contact__r.Name}<br/></span>
+                        <apex:outputPanel rendered="{! !ISNULL(opportunity)}">
+                            <apex:outputPanel rendered="{! !ISBLANK(opportunity.npsp__Primary_Contact__r.MailingStreet)}">
+                                <span>{! opportunity.npsp__Primary_Contact__r.MailingStreet }</span><br/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{! !ISBLANK(opportunity.npsp__Primary_Contact__r.MailingCity)}">
+                                <span>{! opportunity.npsp__Primary_Contact__r.MailingCity }</span><br/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{! !ISBLANK(opportunity.npsp__Primary_Contact__r.MailingState)}">
+                                <span>{! opportunity.npsp__Primary_Contact__r.MailingState }</span><br/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{! !ISBLANK(opportunity.npsp__Primary_Contact__r.MailingCountry)}">
+                                <span>{! opportunity.npsp__Primary_Contact__r.MailingCountry }</span><br/>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{! !ISBLANK(opportunity.npsp__Primary_Contact__r.MailingPostalCode)}">
+                                <span>{! opportunity.npsp__Primary_Contact__r.MailingPostalCode }</span><br/>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+
+			&nbsp;</span></p>
+            </td>
+            <td style="width: 120.5pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                valign="top" width="161">
+                <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                       style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">PARTICULARS</span></b>
+                </p>
+
+                <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                  style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesSplitPayment.size = 0, " ", opportunitiesSplitPayment[0].RecordType.DeveloperName)  }</span></span>
+                </p>
+
+                <p class="MsoNormal"
+                   style="margin-top: 3pt; margin-right: 0cm; margin-bottom: 0cm; margin-left: 14.2pt; margin-bottom: 0.0001pt;">
+                        <span lang="EN-AU"
+                              style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span></p>
+            </td>
+            <td style="width: 99.2pt; border: none; border-bottom: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                valign="top" width="132">
+                <p class="MsoNormal" style="margin-top: 3pt;"><b><span lang="EN-AU"
+                                                                       style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">AMOUNT</span></b>
+                </p>
+
+                <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                  style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesSplitPayment.size = 0, " ", opportunitiesSplitPayment[0].Amount) }</span></span>
+                </p>
+
+                <p class="MsoNormal" style="margin-top: 3pt;"><span lang="EN-AU"
+                                                                    style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span>
+                </p>
+            </td>
+        </tr>
+
+        <apex:outputPanel rendered="{! opportunitiesSplitPayment.size > 1}">
+
+            <apex:repeat var="opportunityVar" value="{!opportunitiesSplitPayment}" first="1">
+
+                <tr>
+
+                    <td style="width: 70.9pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                        valign="top" width="95">
+                        <p class="MsoNormal" style="margin-top: 3pt;">
+                        </p>
+
+
+                    </td>
+                    <td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                        valign="top" width="246">
+                        <p class="MsoNormal" style="margin-top: 3pt;">
+                        </p>
+
+                    </td>
+                    <td style="width: 120.5pt; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                        valign="top" width="161">
+
+                        <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                          style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! opportunityVar.RecordType.DeveloperName  }</span></span>
+                        </p>
+
+                        <p class="MsoNormal"
+                           style="margin-top: 3pt; margin-right: 0cm; margin-bottom: 0cm; margin-left: 14.2pt; margin-bottom: 0.0001pt;">
+                        <span lang="EN-AU"
+                              style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span></p>
+                    </td>
+                    <td style="width: 99.2pt; border: none; border-bottom: solid #1f3864 1pt; padding: 4.25pt 5.4pt 0cm 5.4pt;"
+                        valign="top" width="132">
+                        <p class="MsoNormal" style="margin-top: 3pt;">
+                        </p>
+
+                        <p class="MsoNormal" style="margin-top: 3pt;"><span style="font-size:14px;"><span lang="EN-AU"
+                                                                                                          style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! opportunityVar.Amount }</span></span>
+                        </p>
+
+                        <p class="MsoNormal" style="margin-top: 3pt;"><span lang="EN-AU"
+                                                                            style="font-size: 10pt; font-family: 'Calibri Light', sans-serif;">&nbsp;</span>
+                        </p>
+                    </td>
+
+                </tr>
+
+            </apex:repeat>
+
+        </apex:outputPanel>
+
+        <tr>
+            <td colspan="4" style="width: 474.9pt; border: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"
+                width="633">&nbsp;
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </apex:component>

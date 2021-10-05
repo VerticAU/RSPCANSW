@@ -602,6 +602,11 @@
         <name>Paperwork_Received__c</name>
     </fields>
     <fields>
+        <label><!-- Parent Opportunity --></label>
+        <name>Parent_Opportunity__c</name>
+        <relationshipLabel><!-- Opportunities (Split Payment) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Partner Funded Services Total --></label>
         <name>Partner_Funded_Services_Total__c</name>
     </fields>
@@ -838,6 +843,10 @@
     <fields>
         <label><!-- Refund Reason --></label>
         <name>Refund_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remaining Funds --></label>
+        <name>Remaining_Funds__c</name>
     </fields>
     <fields>
         <label><!-- Reservation --></label>
