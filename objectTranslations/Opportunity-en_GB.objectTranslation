@@ -1902,6 +1902,11 @@
         <name>Service_Delivery</name>
     </recordTypes>
     <recordTypes>
+        <description><!-- Parent record used to capture split payment --></description>
+        <label><!-- Split Payment --></label>
+        <name>Split_Payment</name>
+    </recordTypes>
+    <recordTypes>
         <description><!-- Record used to capture details about corporate sponsorship. --></description>
         <label><!-- Sponsorship --></label>
         <name>Sponsorship</name>

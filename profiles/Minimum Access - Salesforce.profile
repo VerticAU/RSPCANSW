@@ -9788,6 +9788,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Opportunity.Split_Payment</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Opportunity.Sponsorship</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
