@@ -31,4 +31,12 @@ public class OpportunitySplitPaymentsTableCtrl {
     public List<Opportunity> getOpportunitiesSplitPayment() {
         return opportunitiesSplitPayment;
     }
+
+    public Decimal getPaymentTotal() {
+        return vertic_Utils.sObjects.sum(this.opportunitiesSplitPayment, 'Amount');
+    }
+
+//    public Integer getOpportunitiesSplitPaymentCount() {
+//        return vertic_Utils.objects.defaultIfNull();
+//    }
 }

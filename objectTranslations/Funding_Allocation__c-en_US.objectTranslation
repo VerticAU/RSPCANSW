@@ -76,4 +76,8 @@
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Opportunity funds have been over allocated --></errorMessage>
+        <name>Opportunity_funds_over_allocated</name>
+    </validationRules>
 </CustomObjectTranslation>

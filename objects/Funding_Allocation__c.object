@@ -295,5 +295,11 @@
     <pluralLabel>Funding Allocations</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Opportunity_funds_over_allocated</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISNEW(), (Allocation_Amount__c +  Source_Opportunity__r.Total_Allocation_Amount__c) &gt;  Source_Opportunity__r.Amount)</errorConditionFormula>
+        <errorMessage>The Opportunity funds have been over allocated</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
