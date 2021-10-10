@@ -49,7 +49,7 @@ public without sharing class ExpenceDomain extends fflib_SObjectDomain{
         List<Program_Budget_Allocation__c> parentProgramBudgetAllocations = new List<Program_Budget_Allocation__c>();
 
         for(Expense__c expenseRecord: expenses){
-            Boolean expenseToBeProcessed = (expenseRecord.Status__c.equals('Planning') ||  expenseRecord.Status__c.equals('Paid'))
+            Boolean expenseToBeProcessed = ('Planning'.equals(expenseRecord?.Status__c) ||  'Paid'.equals(expenseRecord?.Status__c))
                 && expenseRecord.Program_Budget_Allocation__c == null && expenseRecord.Funding_Allocation__c == null;
 
             if(expenseToBeProcessed && expenseRecord.Service_Session__c != null){

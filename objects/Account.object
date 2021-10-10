@@ -1377,6 +1377,9 @@ IMAGE(&quot;/resource/SCA_Images/Yellow_Light_icon.jpg&quot;, &quot;yellow&quot;
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Tier</fullName>
+    </fields>
+    <fields>
         <fullName>Total_Amount_Received__c</fullName>
         <externalId>false</externalId>
         <formula>Property_Amount_Received__c + Cash_Amount_Received__c + Shares_Amount_Received__c</formula>
