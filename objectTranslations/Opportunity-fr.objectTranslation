@@ -862,6 +862,11 @@
         <name>Send_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Service Delivery --></label>
+        <name>Service_Delivery__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Service Participant --></label>
         <name>Service_Participant__c</name>
         <relationshipLabel><!-- Opportunities --></relationshipLabel>

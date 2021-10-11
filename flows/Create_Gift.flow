@@ -2,6 +2,19 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
+        <name>Assignment_Split_Payment_Opportunity</name>
+        <label>Assignment Split Payment Opportunity</label>
+        <locationX>1058</locationX>
+        <locationY>1033</locationY>
+        <assignmentItems>
+            <assignToReference>splitPaymentOpportunity.Amount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>PlusAmount</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>Gift_Card_Assigment</name>
         <label>Gift Card Assigment</label>
         <locationX>928</locationX>
@@ -103,7 +116,7 @@
     <decisions>
         <name>Gif_Card_Null</name>
         <label>Gif Card (Null)</label>
-        <locationX>840</locationX>
+        <locationX>839</locationX>
         <locationY>206</locationY>
         <defaultConnector>
             <targetReference>Get_Campaign</targetReference>
@@ -122,10 +135,38 @@
             <label>Null</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Split_Payment_Opportunity</name>
+        <label>Split Payment Opportunity I</label>
+        <locationX>921</locationX>
+        <locationY>866</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Was_set</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>splitPaymentOpportunity</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assignment_Split_Payment_Opportunity</targetReference>
+            </connector>
+            <label>Was set</label>
+        </rules>
+    </decisions>
     <formulas>
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
         <expression>IF({!Get_Campaign.campaign.Id}=null, {!campaign.Id}, {!Get_Campaign.campaign.Id})</expression>
+    </formulas>
+    <formulas>
+        <name>PlusAmount</name>
+        <dataType>Currency</dataType>
+        <expression>{!splitPaymentOpportunity.Amount}+{!giftAmount}</expression>
+        <scale>2</scale>
     </formulas>
     <formulas>
         <name>StageName</name>
@@ -158,6 +199,9 @@
         <label>Create Gift Card</label>
         <locationX>928</locationX>
         <locationY>686</locationY>
+        <connector>
+            <targetReference>Split_Payment_Opportunity</targetReference>
+        </connector>
         <faultConnector>
             <targetReference>Output_Error</targetReference>
         </faultConnector>
@@ -201,7 +245,7 @@
             <targetReference>Gif_Card_Null</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
@@ -385,5 +429,13 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>splitPaymentOpportunity</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
     </variables>
 </Flow>

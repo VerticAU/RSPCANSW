@@ -2,10 +2,26 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
+        <name>Assignment_S</name>
+        <label>Assignment Split Payment Opportunity</label>
+        <locationX>1116</locationX>
+        <locationY>3344</locationY>
+        <assignmentItems>
+            <assignToReference>splitPaymentOpportunityId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>donationId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Gift</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Output_Assignment</name>
         <label>Output Assignment</label>
-        <locationX>976</locationX>
-        <locationY>3532</locationY>
+        <locationX>986</locationX>
+        <locationY>3914</locationY>
         <assignmentItems>
             <assignToReference>donationId</assignToReference>
             <operator>Assign</operator>
@@ -53,7 +69,7 @@
         <name>Output_Contact_Error</name>
         <label>Output Contact Error</label>
         <locationX>688</locationX>
-        <locationY>664</locationY>
+        <locationY>759</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -66,7 +82,7 @@
         <name>Output_Error_Campaign</name>
         <label>Output Error Campaign</label>
         <locationX>667</locationX>
-        <locationY>1024</locationY>
+        <locationY>1119</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -79,7 +95,7 @@
         <name>Output_Error_Donation</name>
         <label>Output Error Donation</label>
         <locationX>682</locationX>
-        <locationY>1966</locationY>
+        <locationY>2061</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -91,8 +107,8 @@
     <assignments>
         <name>Output_Error_Gift</name>
         <label>Output Error Gift</label>
-        <locationX>660</locationX>
-        <locationY>3287</locationY>
+        <locationX>601</locationX>
+        <locationY>3678</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -105,7 +121,7 @@
         <name>Output_Error_Payment</name>
         <label>Output Error Payment</label>
         <locationX>676</locationX>
-        <locationY>2414</locationY>
+        <locationY>2509</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -118,7 +134,7 @@
         <name>Output_Error_Recurring</name>
         <label>Output Error Recurring</label>
         <locationX>686</locationX>
-        <locationY>1504</locationY>
+        <locationY>1599</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -131,7 +147,7 @@
         <name>Output_Error_Ticket</name>
         <label>Output Error Ticket</label>
         <locationX>664</locationX>
-        <locationY>2879</locationY>
+        <locationY>2974</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -141,10 +157,35 @@
         </assignmentItems>
     </assignments>
     <decisions>
+        <name>Decision_Split_Payment_Opportunity_Id_filled_in</name>
+        <label>Decision Split Payment Opportunity Id filled in?</label>
+        <locationX>976</locationX>
+        <locationY>3210</locationY>
+        <defaultConnector>
+            <targetReference>Assignment_S</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>splitPaymentOpportunityId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Gift</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>FaultMessage_Campaign</name>
         <label>FaultMessage Campaign</label>
         <locationX>971</locationX>
-        <locationY>1024</locationY>
+        <locationY>1119</locationY>
         <defaultConnector>
             <targetReference>Create_Recurring</targetReference>
         </defaultConnector>
@@ -169,7 +210,7 @@
         <name>FaultMessage_Contact</name>
         <label>FaultMessage Contact</label>
         <locationX>968</locationX>
-        <locationY>662</locationY>
+        <locationY>757</locationY>
         <defaultConnector>
             <targetReference>Create_Campaign</targetReference>
         </defaultConnector>
@@ -194,7 +235,7 @@
         <name>FaultMessage_Donation</name>
         <label>FaultMessage Donation</label>
         <locationX>970</locationX>
-        <locationY>1966</locationY>
+        <locationY>2061</locationY>
         <defaultConnector>
             <targetReference>Create_Payment</targetReference>
         </defaultConnector>
@@ -219,7 +260,7 @@
         <name>FaultMessage_Gift</name>
         <label>FaultMessage Gift</label>
         <locationX>971</locationX>
-        <locationY>3286</locationY>
+        <locationY>3680</locationY>
         <defaultConnector>
             <targetReference>Output_Assignment</targetReference>
         </defaultConnector>
@@ -244,7 +285,7 @@
         <name>FaultMessage_Payment</name>
         <label>FaultMessage Payment</label>
         <locationX>970</locationX>
-        <locationY>2417</locationY>
+        <locationY>2512</locationY>
         <defaultConnector>
             <targetReference>Create_Ticket</targetReference>
         </defaultConnector>
@@ -269,7 +310,7 @@
         <name>FaultMessage_Recurring</name>
         <label>FaultMessage Recurring</label>
         <locationX>970</locationX>
-        <locationY>1502</locationY>
+        <locationY>1597</locationY>
         <defaultConnector>
             <targetReference>Create_Donation</targetReference>
         </defaultConnector>
@@ -294,9 +335,9 @@
         <name>FaultMessage_Ticket</name>
         <label>FaultMessage Ticket</label>
         <locationX>968</locationX>
-        <locationY>2886</locationY>
+        <locationY>2981</locationY>
         <defaultConnector>
-            <targetReference>Create_Gift</targetReference>
+            <targetReference>Decision_Split_Payment_Opportunity_Id_filled_in</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Ticket Succsesful</defaultConnectorLabel>
         <rules>
@@ -318,8 +359,8 @@
     <decisions>
         <name>Organisation_null</name>
         <label>Organisation null</label>
-        <locationX>968</locationX>
-        <locationY>206</locationY>
+        <locationX>961</locationX>
+        <locationY>313</locationY>
         <defaultConnector>
             <targetReference>Create_Organisation</targetReference>
         </defaultConnector>
@@ -368,8 +409,8 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>842</locationX>
-        <locationY>48</locationY>
+        <locationX>841</locationX>
+        <locationY>50</locationY>
         <connector>
             <targetReference>Organisation_null</targetReference>
         </connector>
@@ -379,7 +420,7 @@
         <name>Create_Campaign</name>
         <label>Create Campaign</label>
         <locationX>976</locationX>
-        <locationY>901</locationY>
+        <locationY>996</locationY>
         <connector>
             <targetReference>FaultMessage_Campaign</targetReference>
         </connector>
@@ -420,7 +461,7 @@
         <name>Create_Contact</name>
         <label>Create Contact</label>
         <locationX>968</locationX>
-        <locationY>542</locationY>
+        <locationY>637</locationY>
         <connector>
             <targetReference>FaultMessage_Contact</targetReference>
         </connector>
@@ -504,7 +545,7 @@
         <name>Create_Donation</name>
         <label>Create Donation</label>
         <locationX>979</locationX>
-        <locationY>1760</locationY>
+        <locationY>1855</locationY>
         <connector>
             <targetReference>FaultMessage_Donation</targetReference>
         </connector>
@@ -616,8 +657,8 @@
     <subflows>
         <name>Create_Gift</name>
         <label>Create Gift</label>
-        <locationX>976</locationX>
-        <locationY>3125</locationY>
+        <locationX>979</locationX>
+        <locationY>3488</locationY>
         <connector>
             <targetReference>FaultMessage_Gift</targetReference>
         </connector>
@@ -718,7 +759,7 @@
         <name>Create_Organisation</name>
         <label>Create Organisation</label>
         <locationX>1192</locationX>
-        <locationY>367</locationY>
+        <locationY>462</locationY>
         <connector>
             <targetReference>Create_Contact</targetReference>
         </connector>
@@ -768,7 +809,7 @@
         <name>Create_Payment</name>
         <label>Create Payment</label>
         <locationX>978</locationX>
-        <locationY>2221</locationY>
+        <locationY>2316</locationY>
         <connector>
             <targetReference>FaultMessage_Payment</targetReference>
         </connector>
@@ -803,7 +844,7 @@
         <name>Create_Recurring</name>
         <label>Create Recurring</label>
         <locationX>977</locationX>
-        <locationY>1280</locationY>
+        <locationY>1375</locationY>
         <connector>
             <targetReference>FaultMessage_Recurring</targetReference>
         </connector>
@@ -910,7 +951,7 @@
         <name>Create_Ticket</name>
         <label>Create Ticket</label>
         <locationX>976</locationX>
-        <locationY>2654</locationY>
+        <locationY>2749</locationY>
         <connector>
             <targetReference>FaultMessage_Ticket</targetReference>
         </connector>
@@ -1460,6 +1501,13 @@
     </variables>
     <variables>
         <name>recurringParentCampaignCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>splitPaymentOpportunityId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

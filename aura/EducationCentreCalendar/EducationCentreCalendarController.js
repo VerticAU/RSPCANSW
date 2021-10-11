@@ -7,6 +7,7 @@
                 { 'fieldName': 'B25__Parent__c', 'operator': '=', 'value': 'a3g2x000000c5t0AAA'},
                 { 'fieldName': 'B25__Parent__c', 'operator': '=', 'value': 'a3g2x000000c5t5AAA'},
                 { 'fieldName': 'B25__Parent__c', 'operator': '=', 'value': 'a3g2x000000c5svAAA'},
+                { 'fieldName': 'B25__Parent__c', 'operator': '=', 'value': 'a3g2x000000c60QAAQ'},
                 { 'fieldName': 'B25__Parent__c', 'operator': '=', 'value': 'a3g2x000000c5t6AAA'}
             ]
         }]);

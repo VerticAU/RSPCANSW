@@ -634,6 +634,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ServiceSessionDomain</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SiteLoginController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -7111,6 +7115,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Send_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Service_Delivery__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
