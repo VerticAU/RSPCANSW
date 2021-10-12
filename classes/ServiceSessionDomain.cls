@@ -10,21 +10,35 @@ public without sharing class ServiceSessionDomain extends fflib_SObjectDomain{
         }
     }
 
-    public override void onBeforeInsert() {
+    public override void onAfterInsert() {
         populateProgramEngagementForEducation(this.Records, null);
     }
 
-    private void populateProgramEngagementForEducation(List<pmdm__ServiceSession__c> records, List<pmdm__ServiceSession__c> existingRecords){
-        Id educationRecordType = vertic_Utils.sObjects.recordTypeIdByAPIName(pmdm__ServiceSession__c.SObjectType, 'Education');
+    private void populateProgramEngagementForEducation(List<pmdm__ServiceSession__c> records, Map<Id, SObject> existingRecords){
+        Id educationRecordType = vertic_Utils.sObjects.recordTypeIdByAPIName(pmdm__Program__c.SObjectType, 'Education');
         Set<Id> programIds = vertic_Utils.sObjects.getIdFieldValues(records, pmdm__ServiceSession__c.Program__c);
-        List<Program__c> programs = [
-            SELECT Id
-            FROM Program__c
+
+        Map<Id, pmdm__Program__c> programs = new Map<Id, pmdm__Program__c>([
+            SELECT Id, RecordTypeId, Default_Price_Book__c
+            FROM pmdm__Program__c
             WHERE Id IN :programIds
-        ];
+        ]);
+
+        List<pmdm__ProgramEngagement__c> programEngagements = new List<pmdm__ProgramEngagement__c>();
 
         for(pmdm__ServiceSession__c serviceSession : records){
-
+            if(educationRecordType.equals(programs.get(serviceSession.Program__c).RecordTypeId)) {
+                pmdm__ProgramEngagement__c programEngagement = new pmdm__ProgramEngagement__c();
+                programEngagement.Service_Session__c = serviceSession.Id;
+                programEngagement.pmdm__Program__c = serviceSession.Program__c;
+                programEngagement.pmdm__StartDate__c = serviceSession?.pmdm__SessionStart__c?.date();
+                programEngagement.pmdm__EndDate__c = serviceSession?.pmdm__SessionEnd__c?.date();
+                programEngagement.Price_Book__c = programs.get(serviceSession.Program__c)?.Default_Price_Book__c;
+                programEngagement.pmdm__Stage__c = 'Active';
+                programEngagements.add(programEngagement);
+            }
         }
+
+        insert programEngagements;
     }
 }

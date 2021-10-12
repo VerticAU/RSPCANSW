@@ -149,7 +149,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">recurringId,raceiptNumber,contactId,donationId,giftId,ticketId</value>
+        <value xsi:type="xsd:string">recurringId,raceiptNumber,contactId,donationId,giftId,ticketId,splitPaymentOpportunityId</value>
     </values>
     <values>
         <field>Tags__c</field>
