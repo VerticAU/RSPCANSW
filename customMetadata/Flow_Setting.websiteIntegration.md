@@ -138,8 +138,8 @@
 &quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,
 &quot;parentCampaignCode&quot;: &quot;dto.campaign.parentCode&quot;,
 &quot;fundraiserId&quot;: &quot;dto.campaign.fundraiserId&quot;,
-&quot;fundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;
-
+&quot;fundraiserURL&quot;: &quot;dto.campaign.fundraiserURL&quot;,
+&quot;parentOpportunityId&quot;:&quot;dto.parentOpportunityId&quot;
 
 }</value>
     </values>
@@ -149,7 +149,7 @@
     </values>
     <values>
         <field>Output__c</field>
-        <value xsi:type="xsd:string">recurringId,raceiptNumber,contactId,donationId,giftId,ticketId,splitPaymentOpportunityId</value>
+        <value xsi:type="xsd:string">recurringId,raceiptNumber,contactId,donationId,giftId,ticketId,parentOpportunityId</value>
     </values>
     <values>
         <field>Tags__c</field>

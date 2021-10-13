@@ -68,6 +68,10 @@
                 <behavior>Edit</behavior>
                 <field>Recurring_Acknowledgement_Template_Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Flexible_Image_Header__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

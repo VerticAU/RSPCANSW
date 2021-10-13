@@ -2,26 +2,10 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>49.0</apiVersion>
     <assignments>
-        <name>Assignment_S</name>
-        <label>Assignment Split Payment Opportunity</label>
-        <locationX>1116</locationX>
-        <locationY>3344</locationY>
-        <assignmentItems>
-            <assignToReference>splitPaymentOpportunityId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>donationId</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Gift</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Output_Assignment</name>
         <label>Output Assignment</label>
-        <locationX>986</locationX>
-        <locationY>3914</locationY>
+        <locationX>990</locationX>
+        <locationY>3863</locationY>
         <assignmentItems>
             <assignToReference>donationId</assignToReference>
             <operator>Assign</operator>
@@ -62,6 +46,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Create_Ticket.eventticket.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentOpportunityId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_Or_updated_Split_Payment_Opportunity.donation.Id</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -107,8 +98,8 @@
     <assignments>
         <name>Output_Error_Gift</name>
         <label>Output Error Gift</label>
-        <locationX>601</locationX>
-        <locationY>3678</locationY>
+        <locationX>653</locationX>
+        <locationY>3464</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -156,31 +147,6 @@
             </value>
         </assignmentItems>
     </assignments>
-    <decisions>
-        <name>Decision_Split_Payment_Opportunity_Id_filled_in</name>
-        <label>Decision Split Payment Opportunity Id filled in?</label>
-        <locationX>976</locationX>
-        <locationY>3210</locationY>
-        <defaultConnector>
-            <targetReference>Assignment_S</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
-        <rules>
-            <name>Yes</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>splitPaymentOpportunityId</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Create_Gift</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
     <decisions>
         <name>FaultMessage_Campaign</name>
         <label>FaultMessage Campaign</label>
@@ -259,10 +225,10 @@
     <decisions>
         <name>FaultMessage_Gift</name>
         <label>FaultMessage Gift</label>
-        <locationX>971</locationX>
-        <locationY>3680</locationY>
+        <locationX>969</locationX>
+        <locationY>3465</locationY>
         <defaultConnector>
-            <targetReference>Output_Assignment</targetReference>
+            <targetReference>Create_Or_updated_Split_Payment_Opportunity</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Gift Succsesful</defaultConnectorLabel>
         <rules>
@@ -337,7 +303,7 @@
         <locationX>968</locationX>
         <locationY>2981</locationY>
         <defaultConnector>
-            <targetReference>Decision_Split_Payment_Opportunity_Id_filled_in</targetReference>
+            <targetReference>Create_Gift</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Ticket Succsesful</defaultConnectorLabel>
         <rules>
@@ -544,8 +510,8 @@
     <subflows>
         <name>Create_Donation</name>
         <label>Create Donation</label>
-        <locationX>979</locationX>
-        <locationY>1855</locationY>
+        <locationX>980</locationX>
+        <locationY>1856</locationY>
         <connector>
             <targetReference>FaultMessage_Donation</targetReference>
         </connector>
@@ -657,8 +623,8 @@
     <subflows>
         <name>Create_Gift</name>
         <label>Create Gift</label>
-        <locationX>979</locationX>
-        <locationY>3488</locationY>
+        <locationX>978</locationX>
+        <locationY>3283</locationY>
         <connector>
             <targetReference>FaultMessage_Gift</targetReference>
         </connector>
@@ -751,6 +717,101 @@
             <name>parentCampaignCode</name>
             <value>
                 <elementReference>giftParentCampaignCode</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Create_Or_updated_Split_Payment_Opportunity</name>
+        <label>Create Or updated Split Payment Opportunity</label>
+        <locationX>989</locationX>
+        <locationY>3684</locationY>
+        <connector>
+            <targetReference>Output_Assignment</targetReference>
+        </connector>
+        <flowName>Create_Split_Payment_Opportunity</flowName>
+        <inputAssignments>
+            <name>campaign</name>
+            <value>
+                <elementReference>Create_Campaign.campaign</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>campaignCode</name>
+            <value>
+                <elementReference>donationCampaignCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>campaignFundraiserId</name>
+            <value>
+                <elementReference>donationCampaignFundraiserId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>campaignFundraiserURL</name>
+            <value>
+                <elementReference>donationCampaignFundraiserURL</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>CloseDate</name>
+            <value>
+                <elementReference>CloseDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>contact</name>
+            <value>
+                <elementReference>contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>donationAmount</name>
+            <value>
+                <elementReference>Create_Donation.donation.Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>donationId</name>
+            <value>
+                <elementReference>Create_Donation.donation.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>donationStage</name>
+            <value>
+                <elementReference>donationStage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>gifId</name>
+            <value>
+                <elementReference>Create_Gift.giftCard.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>giftAmount</name>
+            <value>
+                <elementReference>Create_Gift.giftCard.Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>recurringDonationAmount</name>
+            <value>
+                <elementReference>recurringDonationAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>recurringId</name>
+            <value>
+                <elementReference>recurringId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>splitPaymentOpportunityId</name>
+            <value>
+                <elementReference>parentOpportunityId</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1420,6 +1481,13 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>parentOpportunityId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
         <name>paymentFee</name>
         <dataType>Currency</dataType>
         <isCollection>false</isCollection>
@@ -1507,11 +1575,11 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>splitPaymentOpportunityId</name>
+        <name>splitPaymentOpportunity</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>ticketAduitAmount</name>

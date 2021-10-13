@@ -35,6 +35,10 @@ public without sharing class ServiceSessionDomain extends fflib_SObjectDomain{
                 programEngagement.pmdm__EndDate__c = serviceSession?.pmdm__SessionEnd__c?.date();
                 programEngagement.Price_Book__c = programs.get(serviceSession.Program__c)?.Default_Price_Book__c;
                 programEngagement.pmdm__Stage__c = 'Active';
+                //programEngagement.Name = serviceSession.Primary_Service_Organisation__r.Name != null ? serviceSession.Primary_Service_Organisation__r.Name + ' ' : '' + serviceSession.pmdm__SessionStart__c != null ? serviceSession.pmdm__SessionStart__c : '';
+                if(''.equals(programEngagement.Name)){
+                    programEngagement.pmdm__AutoName_Override__c = true;// string.valueof
+                }
                 programEngagements.add(programEngagement);
             }
         }

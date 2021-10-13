@@ -116,6 +116,10 @@
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Flexible Image Header --></label>
+        <name>Flexible_Image_Header__c</name>
+    </fields>
+    <fields>
         <label><!-- Fundraiser ID --></label>
         <name>Fundraiser_ID__c</name>
     </fields>

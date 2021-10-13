@@ -405,6 +405,15 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Flexible_Image_Header__c</fullName>
+        <description>Show the image from the link in header</description>
+        <externalId>false</externalId>
+        <label>Flexible Image Header</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
         <fullName>Fundraiser_ID__c</fullName>
         <externalId>false</externalId>
         <label>Fundraiser ID</label>
