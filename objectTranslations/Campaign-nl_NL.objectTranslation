@@ -116,6 +116,10 @@
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Flexible Email Body Text --></label>
+        <name>Flexible_Email_Body_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- Flexible Image Header --></label>
         <name>Flexible_Image_Header__c</name>
     </fields>

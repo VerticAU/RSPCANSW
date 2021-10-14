@@ -405,6 +405,15 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Flexible_Email_Body_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Flexible Email Body Text</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
         <fullName>Flexible_Image_Header__c</fullName>
         <description>Show the image from the link in header</description>
         <externalId>false</externalId>

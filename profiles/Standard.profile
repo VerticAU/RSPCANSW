@@ -2388,6 +2388,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Campaign.Flexible_Email_Body_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Campaign.Flexible_Image_Header__c</field>
         <readable>true</readable>
     </fieldPermissions>

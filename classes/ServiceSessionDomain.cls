@@ -17,6 +17,7 @@ public without sharing class ServiceSessionDomain extends fflib_SObjectDomain{
     private void populateProgramEngagementForEducation(List<pmdm__ServiceSession__c> records, Map<Id, SObject> existingRecords){
         Id educationRecordType = vertic_Utils.sObjects.recordTypeIdByAPIName(pmdm__Program__c.SObjectType, 'Education');
         Set<Id> programIds = vertic_Utils.sObjects.getIdFieldValues(records, pmdm__ServiceSession__c.Program__c);
+        Set<Id> accountIds = vertic_Utils.sObjects.getIdFieldValues(records, pmdm__ServiceSession__c.Primary_Service_Organisation__c);
 
         Map<Id, pmdm__Program__c> programs = new Map<Id, pmdm__Program__c>([
             SELECT Id, RecordTypeId, Default_Price_Book__c
@@ -24,10 +25,16 @@ public without sharing class ServiceSessionDomain extends fflib_SObjectDomain{
             WHERE Id IN :programIds
         ]);
 
+        Map<Id, Account> accounts = new Map<Id, Account>([
+            SELECT Id, Name
+            FROM Account
+            WHERE Id IN :accountIds
+        ]);
+
         List<pmdm__ProgramEngagement__c> programEngagements = new List<pmdm__ProgramEngagement__c>();
 
         for(pmdm__ServiceSession__c serviceSession : records){
-            if(educationRecordType.equals(programs.get(serviceSession.Program__c).RecordTypeId)) {
+            if(educationRecordType.equals(programs.get(serviceSession?.Program__c)?.RecordTypeId)) {
                 pmdm__ProgramEngagement__c programEngagement = new pmdm__ProgramEngagement__c();
                 programEngagement.Service_Session__c = serviceSession.Id;
                 programEngagement.pmdm__Program__c = serviceSession.Program__c;
@@ -35,9 +42,16 @@ public without sharing class ServiceSessionDomain extends fflib_SObjectDomain{
                 programEngagement.pmdm__EndDate__c = serviceSession?.pmdm__SessionEnd__c?.date();
                 programEngagement.Price_Book__c = programs.get(serviceSession.Program__c)?.Default_Price_Book__c;
                 programEngagement.pmdm__Stage__c = 'Active';
-                //programEngagement.Name = serviceSession.Primary_Service_Organisation__r.Name != null ? serviceSession.Primary_Service_Organisation__r.Name + ' ' : '' + serviceSession.pmdm__SessionStart__c != null ? serviceSession.pmdm__SessionStart__c : '';
-                if(''.equals(programEngagement.Name)){
-                    programEngagement.pmdm__AutoName_Override__c = true;// string.valueof
+                String programEngagementName;
+                if(serviceSession.Primary_Service_Organisation__c != null){
+                    programEngagementName = accounts.get(serviceSession.Primary_Service_Organisation__c).Name;
+                    System.debug(programEngagementName);
+                    programEngagementName = programEngagementName + vertic_Utils.dates.datetimeToDate(serviceSession.pmdm__SessionStart__c) != null ?
+                        String.valueOf(vertic_Utils.dates.datetimeToDate(serviceSession.pmdm__SessionStart__c)) : '';
+                }
+                if(programEngagementName != null){
+                    programEngagement.Name = programEngagementName;
+                    programEngagement.pmdm__AutoName_Override__c = true;
                 }
                 programEngagements.add(programEngagement);
             }
