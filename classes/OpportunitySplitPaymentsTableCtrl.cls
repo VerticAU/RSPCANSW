@@ -18,7 +18,7 @@ public class OpportunitySplitPaymentsTableCtrl {
                                                                             FROM Opportunity
                                                                             WHERE Id = :this.opportunityId]);
 
-        this.opportunitiesSplitPayment = (List<Opportunity>) [SELECT Id, RecordType.DeveloperName, Amount
+        this.opportunitiesSplitPayment = (List<Opportunity>) [SELECT Id, RecordType.DeveloperName, Amount, RecordType.Name
                                                               FROM Opportunity
                                                               WHERE Parent_Opportunity__c = :this.opportunityId
                                                               AND StageName = 'Closed Won'];

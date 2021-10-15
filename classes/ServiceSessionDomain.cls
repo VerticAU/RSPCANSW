@@ -45,9 +45,9 @@ public without sharing class ServiceSessionDomain extends fflib_SObjectDomain{
                 String programEngagementName;
                 if(serviceSession.Primary_Service_Organisation__c != null){
                     programEngagementName = accounts.get(serviceSession.Primary_Service_Organisation__c).Name;
-                    System.debug(programEngagementName);
-                    programEngagementName = programEngagementName + vertic_Utils.dates.datetimeToDate(serviceSession.pmdm__SessionStart__c) != null ?
-                        String.valueOf(vertic_Utils.dates.datetimeToDate(serviceSession.pmdm__SessionStart__c)) : '';
+                    if(vertic_Utils.dates.datetimeToDate(serviceSession.pmdm__SessionStart__c) != null){
+                        programEngagementName = programEngagementName + ' ' + String.valueOf(vertic_Utils.dates.datetimeToDate(serviceSession.pmdm__SessionStart__c));
+                    }
                 }
                 if(programEngagementName != null){
                     programEngagement.Name = programEngagementName;
