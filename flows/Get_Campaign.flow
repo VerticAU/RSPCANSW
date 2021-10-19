@@ -90,12 +90,19 @@
         <defaultConnectorLabel>Fundraiser</defaultConnectorLabel>
         <rules>
             <name>Is_Standard</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>parentCampaignCode</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>parentCampaignCode</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>

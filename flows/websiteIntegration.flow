@@ -52,7 +52,7 @@
             <assignToReference>parentOpportunityId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Create_Or_updated_Split_Payment_Opportunity.donation.Id</elementReference>
+                <elementReference>Create_Or_updated_Split_Payment_Opportunity.PaymentOpportunity.Id</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -724,8 +724,8 @@
     <subflows>
         <name>Create_Or_updated_Split_Payment_Opportunity</name>
         <label>Create Or updated Split Payment Opportunity</label>
-        <locationX>989</locationX>
-        <locationY>3684</locationY>
+        <locationX>987</locationX>
+        <locationY>3687</locationY>
         <connector>
             <targetReference>Output_Assignment</targetReference>
         </connector>
@@ -785,15 +785,15 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <name>gifId</name>
-            <value>
-                <elementReference>Create_Gift.giftCard.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <name>giftAmount</name>
             <value>
                 <elementReference>Create_Gift.giftCard.Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>giftId</name>
+            <value>
+                <elementReference>Create_Gift.giftCard.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
