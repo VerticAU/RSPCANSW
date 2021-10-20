@@ -63,6 +63,10 @@
                 <behavior>Readonly</behavior>
                 <field>Remaining_Funds__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>multiple_GC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

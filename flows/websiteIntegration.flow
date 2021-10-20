@@ -571,6 +571,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <name>giftAmount</name>
+            <value>
+                <elementReference>giftAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <name>parentCampaignCode</name>
             <value>
                 <elementReference>donationParentCampaignCode</elementReference>
@@ -660,6 +666,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <name>donationAmount</name>
+            <value>
+                <elementReference>donationAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <name>giftAmount</name>
             <value>
                 <elementReference>giftAmount</elementReference>
@@ -714,6 +726,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <name>multipleGiftCards</name>
+            <value>
+                <elementReference>giftmultipleGiftCards</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <name>parentCampaignCode</name>
             <value>
                 <elementReference>giftParentCampaignCode</elementReference>
@@ -725,7 +743,7 @@
         <name>Create_Or_updated_Split_Payment_Opportunity</name>
         <label>Create Or updated Split Payment Opportunity</label>
         <locationX>987</locationX>
-        <locationY>3687</locationY>
+        <locationY>3684</locationY>
         <connector>
             <targetReference>Output_Assignment</targetReference>
         </connector>
@@ -739,19 +757,7 @@
         <inputAssignments>
             <name>campaignCode</name>
             <value>
-                <elementReference>donationCampaignCode</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>campaignFundraiserId</name>
-            <value>
-                <elementReference>donationCampaignFundraiserId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>campaignFundraiserURL</name>
-            <value>
-                <elementReference>donationCampaignFundraiserURL</elementReference>
+                <stringValue>GuardianAngelOneOff</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -779,12 +785,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <name>donationStage</name>
-            <value>
-                <elementReference>donationStage</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <name>giftAmount</name>
             <value>
                 <elementReference>Create_Gift.giftCard.Amount</elementReference>
@@ -797,6 +797,18 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <name>lastGiftCard</name>
+            <value>
+                <elementReference>giftLastGiftCard</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>multipleGiftCards</name>
+            <value>
+                <elementReference>giftmultipleGiftCards</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <name>recurringDonationAmount</name>
             <value>
                 <elementReference>recurringDonationAmount</elementReference>
@@ -805,7 +817,7 @@
         <inputAssignments>
             <name>recurringId</name>
             <value>
-                <elementReference>recurringId</elementReference>
+                <elementReference>Create_Recurring.recurringDonation.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1389,8 +1401,22 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>giftLastGiftCard</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>giftMessage</name>
         <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>giftmultipleGiftCards</name>
+        <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>

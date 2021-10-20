@@ -131,8 +131,8 @@
 &quot;giftAnimaAdoptID&quot; : &quot;dto.gift.id&quot;,
 &quot;giftAmount&quot; : &quot;dto.gift.amount&quot;,
 &quot;giftFromName&quot; : &quot;dto.gift.fromeName&quot;,
-
-
+&quot;giftmultipleGiftCards&quot; : &quot;dto.gift.multipleGiftCards&quot;,
+&quot;giftlastGiftCard&quot; : &quot;dto.gift.lastGiftCard&quot;,
 
 
 &quot;campaignCode&quot;: &quot;dto.campaign.code&quot;,

@@ -4,8 +4,28 @@
     <assignments>
         <name>Assignment_Split_Payment_Opportunity</name>
         <label>Assignment Split Payment Opportunity</label>
-        <locationX>1113</locationX>
-        <locationY>1043</locationY>
+        <locationX>1174</locationX>
+        <locationY>1125</locationY>
+        <assignmentItems>
+            <assignToReference>splitPaymentOpportunityAmount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>PlusAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>splitPaymentOpportunity.npsp__Acknowledgment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Email Acknowledgment Now</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assignment_Split_Payment_Opportunity_0</name>
+        <label>Assignment Split Payment Opportunity</label>
+        <locationX>1082</locationX>
+        <locationY>1335</locationY>
         <assignmentItems>
             <assignToReference>splitPaymentOpportunityAmount</assignToReference>
             <operator>Assign</operator>
@@ -19,6 +39,99 @@
         <label>Gift Card Assigment</label>
         <locationX>928</locationX>
         <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>giftCard.npsp__Primary_Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>giftMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.Animal_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>giftAnimalType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.Animal_Adopt_a_Pet_ID__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>giftAnimalAdoptID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.Animal_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>giftAnimalName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.Amount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>giftAmount</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.CloseDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>giftClosedate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>StageName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Gift Card</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Gift_Card_Record_Type.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.CampaignId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>getCampaignIdFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>giftCard.npsp__Acknowledgment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>acknowledgementStatus</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Gift_Card</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Gift_Card_Assigment_0</name>
+        <label>Gift Card Assigment</label>
+        <locationX>1271</locationX>
+        <locationY>720</locationY>
         <assignmentItems>
             <assignToReference>giftCard.npsp__Primary_Contact__c</assignToReference>
             <operator>Assign</operator>
@@ -114,6 +227,38 @@
         </assignmentItems>
     </assignments>
     <decisions>
+        <name>donationAmount_Null_OR_Multiple_GC</name>
+        <label>donationAmount (Null) OR Multiple GC</label>
+        <locationX>1264</locationX>
+        <locationY>501</locationY>
+        <defaultConnector>
+            <targetReference>Gift_Card_Assigment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Not_Null_or_Multiple_GC</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>donationAmount</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>multipleGiftCards</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Gift_Card_Assigment_0</targetReference>
+            </connector>
+            <label>Not Null or Multiple GC</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Gif_Card_Null</name>
         <label>Gif Card (Null)</label>
         <locationX>839</locationX>
@@ -133,6 +278,31 @@
                 </rightValue>
             </conditions>
             <label>Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Last_Gift_TRUE</name>
+        <label>Last Gift = TRUE</label>
+        <locationX>917</locationX>
+        <locationY>1053</locationY>
+        <defaultConnector>
+            <targetReference>Assignment_Split_Payment_Opportunity_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Last_Git_TRUE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>lastGiftCard</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assignment_Split_Payment_Opportunity</targetReference>
+            </connector>
+            <label>Last Git = TRUE</label>
         </rules>
     </decisions>
     <decisions>
@@ -157,6 +327,11 @@
             <label>Was set</label>
         </rules>
     </decisions>
+    <formulas>
+        <name>acknowledgementStatus</name>
+        <dataType>String</dataType>
+        <expression>IF ({!StageName}=&quot;Closed Won&quot;, &quot;Email Acknowledgment Now&quot;, null)</expression>
+    </formulas>
     <formulas>
         <name>getCampaignIdFormula</name>
         <dataType>String</dataType>
@@ -214,7 +389,7 @@
         <locationY>450</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Gift_Card_Assigment</targetReference>
+            <targetReference>donationAmount_Null_OR_Multiple_GC</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Output_Error</targetReference>
@@ -245,7 +420,7 @@
         <locationY>873</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assignment_Split_Payment_Opportunity</targetReference>
+            <targetReference>Last_Gift_TRUE</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -355,6 +530,14 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>donationAmount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
         <name>FaultMessage</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -445,6 +628,20 @@
         <value>
             <stringValue>Closed Won</stringValue>
         </value>
+    </variables>
+    <variables>
+        <name>lastGiftCard</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>multipleGiftCards</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>parentCampaignCode</name>

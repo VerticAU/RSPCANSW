@@ -11,6 +11,10 @@ public without sharing class ReservationDomain extends fflib_SObjectDomain{
     }
 
     public override void onBeforeInsert(){
+        //someMethod(this.Records, null);
+    }
+
+    public override void onAfterInsert(){
         someMethod(this.Records, null);
     }
 
@@ -31,11 +35,19 @@ public without sharing class ReservationDomain extends fflib_SObjectDomain{
             WHERE Id IN :sessionIds
         ]);
 
+        Map<Id,pmdm__ServiceDelivery__c> serviceDeliveryList = new Map<Id,pmdm__ServiceDelivery__c>([
+            SELECT Id, Reservation__c
+            FROM pmdm__ServiceDelivery__c
+            WHERE Reservation__c IN :records
+        ]);
+
         for(B25__Reservation__c reservation: records){
             if(reservation.Service_Session__c != null && outreachEventRecordType.equals(serviceSessionList.get(reservation?.Service_Session__c)?.RecordTypeId)
                 && ((reservationTypeList.get(reservation.B25__Reservation_Type__c)?.Name == 'Partner' || reservationTypeList.get(reservation.B25__Reservation_Type__c)?.Name == 'RSPCA Staff'))){
                 if(reservation.Create_Program_Engagement__c == true){
-                    
+                    //reservation.Service_Delivery__c
+                    //pmdm__ProgramEngagement__c programEngagement = new pmdm__ProgramEngagement__c();
+                    //programEngagement.pmdm__Program__c = hui;
                 }
             }
         }

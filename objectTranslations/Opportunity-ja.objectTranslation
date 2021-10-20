@@ -1043,6 +1043,10 @@
         <name>isCompleted__c</name>
     </fields>
     <fields>
+        <label><!-- multiple GC --></label>
+        <name>multiple_GC__c</name>
+    </fields>
+    <fields>
         <help>数式: この支援から取消支払金額と受取支払金額を差し引いた金額。</help>
         <label><!-- Remaining Balance --></label>
         <name>npe01__Amount_Outstanding__c</name>

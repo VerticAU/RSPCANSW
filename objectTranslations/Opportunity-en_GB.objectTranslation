@@ -1043,6 +1043,10 @@
         <name>isCompleted__c</name>
     </fields>
     <fields>
+        <label><!-- multiple GC --></label>
+        <name>multiple_GC__c</name>
+    </fields>
+    <fields>
         <help>Formula: The Amount of this Opportunity minus the Payment Writeoff Amount and Payment Amount Received.</help>
         <label><!-- Remaining Balance --></label>
         <name>npe01__Amount_Outstanding__c</name>
