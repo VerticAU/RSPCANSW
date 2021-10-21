@@ -10197,7 +10197,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Opportunity.npsp_plus_dres__Donation</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

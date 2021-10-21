@@ -4,7 +4,7 @@
     <assignments>
         <name>Assignment_Donation</name>
         <label>Assignment Donation</label>
-        <locationX>944</locationX>
+        <locationX>1018</locationX>
         <locationY>1549</locationY>
         <assignmentItems>
             <assignToReference>donation.Parent_Opportunity__c</assignToReference>
@@ -34,7 +34,7 @@
     <assignments>
         <name>Assignment_Donation_Reccuring</name>
         <label>Assignment Donation Reccuring</label>
-        <locationX>962</locationX>
+        <locationX>1036</locationX>
         <locationY>2059</locationY>
         <assignmentItems>
             <assignToReference>donationRecurring.Parent_Opportunity__c</assignToReference>
@@ -57,7 +57,7 @@
     <assignments>
         <name>Assignment_Split_Payment_Opportunity</name>
         <label>Assignment Split Payment Opportunity</label>
-        <locationX>163</locationX>
+        <locationX>237</locationX>
         <locationY>476</locationY>
         <assignmentItems>
             <assignToReference>PaymentOpportunity.Amount</assignToReference>
@@ -73,7 +73,7 @@
     <assignments>
         <name>Assignment_Split_Payment_Opportunity_0</name>
         <label>Assignment Split Payment Opportunity</label>
-        <locationX>38</locationX>
+        <locationX>112</locationX>
         <locationY>766</locationY>
         <assignmentItems>
             <assignToReference>PaymentOpportunity.Amount</assignToReference>
@@ -96,8 +96,8 @@
     <assignments>
         <name>Assignment_Split_Payment_Opportunity_Id</name>
         <label>Assignment Split Payment Opportunity Id</label>
-        <locationX>764</locationX>
-        <locationY>2639</locationY>
+        <locationX>600</locationX>
+        <locationY>2676</locationY>
         <assignmentItems>
             <assignToReference>splitPaymentOpportunityId</assignToReference>
             <operator>Assign</operator>
@@ -105,11 +105,37 @@
                 <elementReference>PaymentOpportunity.Id</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assignment_Split_Payment_Opportunity_Id_0</name>
+        <label>Assignment Split Payment Opportunity Id</label>
+        <locationX>845</locationX>
+        <locationY>2805</locationY>
+        <assignmentItems>
+            <assignToReference>splitPaymentOpportunityId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>PaymentOpportunity.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PaymentOpportunity.npsp__Acknowledgment_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Email Acknowledgment Now</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>Gift_1</name>
         <label>Gift Assignment</label>
-        <locationX>586</locationX>
+        <locationX>660</locationX>
         <locationY>471</locationY>
         <assignmentItems>
             <assignToReference>gift.Id</assignToReference>
@@ -139,7 +165,7 @@
     <assignments>
         <name>Gift_Assignment</name>
         <label>Gift Assignment</label>
-        <locationX>975</locationX>
+        <locationX>1049</locationX>
         <locationY>2371</locationY>
         <assignmentItems>
             <assignToReference>gift.Id</assignToReference>
@@ -169,7 +195,7 @@
     <assignments>
         <name>Output_Error</name>
         <label>Output Error</label>
-        <locationX>1923</locationX>
+        <locationX>1997</locationX>
         <locationY>1186</locationY>
         <assignmentItems>
             <assignToReference>FaultMessage</assignToReference>
@@ -182,8 +208,8 @@
     <assignments>
         <name>Payment_Opportunity_Assigment</name>
         <label>Split Payment Opportunity Assigment</label>
-        <locationX>728</locationX>
-        <locationY>1223</locationY>
+        <locationX>50</locationX>
+        <locationY>1388</locationY>
         <assignmentItems>
             <assignToReference>PaymentOpportunity.Amount</assignToReference>
             <operator>Assign</operator>
@@ -289,16 +315,13 @@
                 <elementReference>Get_Campaign.campaign.Id</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Create_Payment_Opportunity</targetReference>
-        </connector>
     </assignments>
     <assignments>
         <description>No receipt is to be sent</description>
         <name>Split_Payment_Opportunity_Assignment</name>
         <label>Split Payment Opportunity Assignment</label>
-        <locationX>491</locationX>
-        <locationY>1393</locationY>
+        <locationX>809</locationX>
+        <locationY>1226</locationY>
         <assignmentItems>
             <assignToReference>PaymentOpportunity.Amount</assignToReference>
             <operator>Assign</operator>
@@ -404,7 +427,7 @@
     <decisions>
         <name>Amount_Donation_Null</name>
         <label>Amount Donation (Null)</label>
-        <locationX>50</locationX>
+        <locationX>124</locationX>
         <locationY>94</locationY>
         <defaultConnectorLabel>Not Null</defaultConnectorLabel>
         <rules>
@@ -423,7 +446,7 @@
     <decisions>
         <name>Amount_Not_Null_OR_Multiple_Gift_Cards</name>
         <label>Amount (Not Null) OR Multiple Gift Cards</label>
-        <locationX>720</locationX>
+        <locationX>794</locationX>
         <locationY>276</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -459,7 +482,7 @@
     <decisions>
         <name>Donation_ID_Was_Set</name>
         <label>Donation ID Was Set ?</label>
-        <locationX>734</locationX>
+        <locationX>808</locationX>
         <locationY>1551</locationY>
         <defaultConnector>
             <targetReference>Recurring_Donation_ID_Was_Set</targetReference>
@@ -491,10 +514,10 @@
     <decisions>
         <name>Gift_ID_Was_Set</name>
         <label>Gift ID Was Set ?</label>
-        <locationX>762</locationX>
+        <locationX>836</locationX>
         <locationY>2400</locationY>
         <defaultConnector>
-            <targetReference>Assignment_Split_Payment_Opportunity_Id</targetReference>
+            <targetReference>When_multiple_Gift_Cards_TRUE</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -523,7 +546,7 @@
     <decisions>
         <name>ID_Was_Set</name>
         <label>ID Was Set</label>
-        <locationX>720</locationX>
+        <locationX>794</locationX>
         <locationY>471</locationY>
         <defaultConnector>
             <targetReference>Gift_1</targetReference>
@@ -548,7 +571,7 @@
     <decisions>
         <name>Recurring_Donation_ID_Was_Set</name>
         <label>Recurring Donation ID Was Set ?</label>
-        <locationX>734</locationX>
+        <locationX>808</locationX>
         <locationY>1904</locationY>
         <defaultConnector>
             <targetReference>Gift_ID_Was_Set</targetReference>
@@ -580,8 +603,8 @@
     <decisions>
         <name>When_last_Gift_Card_TRUE</name>
         <label>When last Gift Card = TRUE</label>
-        <locationX>245</locationX>
-        <locationY>699</locationY>
+        <locationX>319</locationX>
+        <locationY>701</locationY>
         <defaultConnector>
             <targetReference>Assignment_Split_Payment_Opportunity</targetReference>
         </defaultConnector>
@@ -605,10 +628,10 @@
     <decisions>
         <name>When_multiple_Gift_Cards_TRUE</name>
         <label>When multiple Gift Cards = TRUE</label>
-        <locationX>483</locationX>
-        <locationY>1150</locationY>
+        <locationX>834</locationX>
+        <locationY>2612</locationY>
         <defaultConnector>
-            <targetReference>Payment_Opportunity_Assigment</targetReference>
+            <targetReference>Assignment_Split_Payment_Opportunity_Id_0</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -622,7 +645,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Split_Payment_Opportunity_Assignment</targetReference>
+                <targetReference>Assignment_Split_Payment_Opportunity_Id</targetReference>
             </connector>
             <label>Multiple GC = TRUE</label>
         </rules>
@@ -669,7 +692,7 @@
     <recordCreates>
         <name>Create_Payment_Opportunity</name>
         <label>Create Split Payment Opportunity</label>
-        <locationX>734</locationX>
+        <locationX>808</locationX>
         <locationY>1393</locationY>
         <connector>
             <targetReference>Donation_ID_Was_Set</targetReference>
@@ -682,14 +705,14 @@
     <recordCreates>
         <name>Create_Subsequent_Gift_Cards</name>
         <label>Create Subsequent Gift Cards</label>
-        <locationX>497</locationX>
+        <locationX>571</locationX>
         <locationY>630</locationY>
         <inputReference>gift</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_Record_Type_Donation_Recurring</name>
         <label>Get Record Type Donation Recurring</label>
-        <locationX>2442</locationX>
+        <locationX>2516</locationX>
         <locationY>363</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <filterLogic>and</filterLogic>
@@ -721,11 +744,11 @@
     <recordLookups>
         <name>Get_Record_Type_Split_Payment</name>
         <label>Get Record Type Split Payment</label>
-        <locationX>734</locationX>
+        <locationX>808</locationX>
         <locationY>1072</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>When_multiple_Gift_Cards_TRUE</targetReference>
+            <targetReference>Split_Payment_Opportunity_Assignment</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Output_Error</targetReference>
@@ -759,7 +782,7 @@
     <recordLookups>
         <name>Get_Recuring_Donation_Opportunity</name>
         <label>Get Recuring Donation Opportunity</label>
-        <locationX>962</locationX>
+        <locationX>1036</locationX>
         <locationY>1912</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -793,7 +816,7 @@
     <recordLookups>
         <name>Get_Split_Payment_Opportunity</name>
         <label>Get Split Payment Opportunity</label>
-        <locationX>328</locationX>
+        <locationX>402</locationX>
         <locationY>476</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -820,7 +843,7 @@
     <recordUpdates>
         <name>Add_New_Gift</name>
         <label>Add New Gift</label>
-        <locationX>389</locationX>
+        <locationX>463</locationX>
         <locationY>242</locationY>
         <connector>
             <targetReference>Get_Split_Payment_Opportunity</targetReference>
@@ -828,16 +851,23 @@
         <inputReference>gift</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Opportunity</name>
+        <label>Update Opportunity</label>
+        <locationX>677</locationX>
+        <locationY>2844</locationY>
+        <inputReference>PaymentOpportunity</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Split_Payment_Opportunity</name>
         <label>Update Split Payment Opportunity</label>
-        <locationX>3</locationX>
-        <locationY>476</locationY>
+        <locationX>77</locationX>
+        <locationY>481</locationY>
         <inputReference>PaymentOpportunity</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Updated_Donation</name>
         <label>Updated Donation</label>
-        <locationX>946</locationX>
+        <locationX>1020</locationX>
         <locationY>1733</locationY>
         <connector>
             <targetReference>Recurring_Donation_ID_Was_Set</targetReference>
@@ -847,7 +877,7 @@
     <recordUpdates>
         <name>Updated_Donation_Recurring</name>
         <label>Updated Donation Recurring</label>
-        <locationX>958</locationX>
+        <locationX>1032</locationX>
         <locationY>2207</locationY>
         <connector>
             <targetReference>Gift_ID_Was_Set</targetReference>
@@ -857,15 +887,15 @@
     <recordUpdates>
         <name>Updated_Gift_Opportunity</name>
         <label>Updated Gift Opportunity</label>
-        <locationX>954</locationX>
+        <locationX>1028</locationX>
         <locationY>2659</locationY>
         <connector>
-            <targetReference>Assignment_Split_Payment_Opportunity_Id</targetReference>
+            <targetReference>When_multiple_Gift_Cards_TRUE</targetReference>
         </connector>
         <inputReference>gift</inputReference>
     </recordUpdates>
     <start>
-        <locationX>602</locationX>
+        <locationX>676</locationX>
         <locationY>66</locationY>
         <connector>
             <targetReference>Amount_Not_Null_OR_Multiple_Gift_Cards</targetReference>
@@ -875,7 +905,7 @@
     <subflows>
         <name>Get_Campaign</name>
         <label>Get Campaign</label>
-        <locationX>723</locationX>
+        <locationX>797</locationX>
         <locationY>666</locationY>
         <connector>
             <targetReference>Get_Record_Type_Split_Payment</targetReference>
@@ -884,7 +914,7 @@
         <inputAssignments>
             <name>campaignCode</name>
             <value>
-                <stringValue>GuardianAngelOneOff</stringValue>
+                <elementReference>campaignCode</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

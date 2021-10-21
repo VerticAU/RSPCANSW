@@ -757,7 +757,7 @@
         <inputAssignments>
             <name>campaignCode</name>
             <value>
-                <stringValue>GuardianAngelOneOff</stringValue>
+                <elementReference>campaignCode</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -799,7 +799,7 @@
         <inputAssignments>
             <name>lastGiftCard</name>
             <value>
-                <elementReference>giftLastGiftCard</elementReference>
+                <elementReference>giftlastGiftCard</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1401,7 +1401,7 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
-        <name>giftLastGiftCard</name>
+        <name>giftlastGiftCard</name>
         <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

@@ -41,13 +41,16 @@ public without sharing class ReservationDomain extends fflib_SObjectDomain{
             WHERE Reservation__c IN :records
         ]);
 
+        Map<B25__Reservation__c, Map<Id, pmdm__ServiceDelivery__c>> reservationServiceDeliveryMap = new Map<B25__Reservation__c, Map<Id, pmdm__ServiceDelivery__c>>();
+
         for(B25__Reservation__c reservation: records){
             if(reservation.Service_Session__c != null && outreachEventRecordType.equals(serviceSessionList.get(reservation?.Service_Session__c)?.RecordTypeId)
                 && ((reservationTypeList.get(reservation.B25__Reservation_Type__c)?.Name == 'Partner' || reservationTypeList.get(reservation.B25__Reservation_Type__c)?.Name == 'RSPCA Staff'))){
                 if(reservation.Create_Program_Engagement__c == true){
-                    //reservation.Service_Delivery__c
-                    //pmdm__ProgramEngagement__c programEngagement = new pmdm__ProgramEngagement__c();
-                    //programEngagement.pmdm__Program__c = hui;
+
+                    System.debug(reservation.Service_Delivery__r);
+//                    pmdm__ProgramEngagement__c programEngagement = new pmdm__ProgramEngagement__c();
+//                    programEngagement.pmdm__Program__c = hui;
                 }
             }
         }
