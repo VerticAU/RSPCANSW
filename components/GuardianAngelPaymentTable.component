@@ -63,7 +63,7 @@
                 </p>
 
                 <p class="MsoNormal" style="margin-top: 11pt;"><span style="font-size:14px;"><span lang="EN-AU"
-                                                                                                  style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesSplitPayment.size = 0, " ", opportunitiesSplitPayment[0].RecordType.Name)  }</span></span>
+                                                                                                  style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesInTable.size = 0, " ", opportunitiesInTable[0].RecordType.Name)  }</span></span>
                 </p>
 
 <!--                <p class="MsoNormal"-->
@@ -78,7 +78,7 @@
                 </p>
 
                 <p class="MsoNormal" style="margin-top: 11pt;"><span style="font-size:14px;"><span lang="EN-AU"
-                                                                                                  style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesSplitPayment.size = 0, " ",'$' + TEXT(opportunitiesSplitPayment[0].Amount)) }</span></span>
+                                                                                                  style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesInTable.size = 0, " ",'$' + TEXT(opportunitiesInTable[0].Amount)) }</span></span>
                 </p>
 
 <!--                <p class="MsoNormal" style="margin-top: 3pt;"><span lang="EN-AU"-->
@@ -87,9 +87,9 @@
             </td>
         </tr>
 
-        <apex:outputPanel rendered="{! opportunitiesSplitPayment.size > 1}">
+        <apex:outputPanel rendered="{! opportunitiesInTable.size > 1}">
 
-            <apex:repeat var="opportunityVar" value="{!opportunitiesSplitPayment}" first="1">
+            <apex:repeat var="opportunityVar" value="{!opportunitiesInTable}" first="1">
 
                 <tr>
 
