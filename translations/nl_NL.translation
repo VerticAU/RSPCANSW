@@ -263,6 +263,10 @@
             </screens>
             <screens>
                 <fields>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value/>
+                    </inputParameters>
                     <name>Return</name>
                 </fields>
                 <name>screenReturnToRecord</name>
@@ -275,12 +279,20 @@
             </screens>
             <screens>
                 <fields>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value/>
+                    </inputParameters>
                     <name>navigateToExistingIntake</name>
                 </fields>
                 <name>screenViewExistingIntake</name>
             </screens>
             <screens>
                 <fields>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value/>
+                    </inputParameters>
                     <name>navigateToIntakeRecord</name>
                 </fields>
                 <name>screenViewIntake</name>

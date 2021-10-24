@@ -570,6 +570,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OpportunitySplitPaymentsTableCtrlTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PopulateOpportunityCampaignScript</apexClass>
         <enabled>true</enabled>
     </classAccesses>

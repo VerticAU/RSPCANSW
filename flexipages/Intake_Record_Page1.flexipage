@@ -20,6 +20,7 @@
                     <value>3</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -33,6 +34,7 @@
                     <value>linear</value>
                 </componentInstanceProperties>
                 <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <identifier>runtime_sales_pathassistant_pathAssistant</identifier>
             </componentInstance>
         </itemInstances>
         <name>header</name>
@@ -62,6 +64,7 @@
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentName>caseman:clientSnapshot</componentName>
+                <identifier>caseman_clientSnapshot</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
@@ -93,6 +96,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -118,6 +122,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer2</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -139,6 +144,7 @@
                     <value>Contact.caseman__Demographic_Information</value>
                 </componentInstanceProperties>
                 <componentName>console:relatedRecord</componentName>
+                <identifier>console_relatedRecord</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
@@ -166,6 +172,7 @@
                     <value>Contact.caseman__Contact_Information</value>
                 </componentInstanceProperties>
                 <componentName>console:relatedRecord</componentName>
+                <identifier>console_relatedRecord2</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
@@ -193,6 +200,7 @@
                     <value>Contact.caseman__Emergency_Contact_Information</value>
                 </componentInstanceProperties>
                 <componentName>console:relatedRecord</componentName>
+                <identifier>console_relatedRecord3</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.caseman__Contact__r.LastName}</leftValue>
@@ -220,6 +228,7 @@
                     <value>Intake Result</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-06648501-be51-47a5-9c25-a513d001680e</name>
@@ -233,6 +242,7 @@
                     <value>caseman__ActionPlanTemplateGroup__c</value>
                 </componentInstanceProperties>
                 <componentName>caseman:actionPlanChecklist</componentName>
+                <identifier>caseman_actionPlanChecklist</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -242,6 +252,7 @@
                     <value>Facet-06648501-be51-47a5-9c25-a513d001680e</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
         <name>sidebar</name>
@@ -251,6 +262,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -276,6 +288,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer3</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-v3k56dthv7o</name>
@@ -305,6 +318,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer4</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -326,6 +340,7 @@
                     <value>Outbound Referrals</value>
                 </componentInstanceProperties>
                 <componentName>caseman:relatedList</componentName>
+                <identifier>caseman_relatedList</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-22e3be06-3e86-4f9a-9f7d-0421d2c1ac18</name>
@@ -335,6 +350,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>runtime_sales_activities:activityPanel</componentName>
+                <identifier>runtime_sales_activities_activityPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-ed5d0cf4-8ac6-45af-8e6a-66e1a3a2f34c</name>
@@ -360,6 +376,7 @@
                     <value>Inbound Referrals</value>
                 </componentInstanceProperties>
                 <componentName>caseman:relatedList</componentName>
+                <identifier>caseman_relatedList2</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-c0e0bcac-c68f-4df7-ac25-3a1f9e2f5262</name>
@@ -381,6 +398,7 @@
                     <value>Intake Details</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab2</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -398,6 +416,7 @@
                     <value>Intake Result</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab3</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -411,6 +430,7 @@
                     <value>Standard.Tab.activity</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>activityTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -424,6 +444,7 @@
                     <value>Intake Source</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab4</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-1f1b151a-9d7f-4755-bcc2-68651b77c54c</name>
@@ -437,6 +458,7 @@
                     <value>Facet-1f1b151a-9d7f-4755-bcc2-68651b77c54c</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset2</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>

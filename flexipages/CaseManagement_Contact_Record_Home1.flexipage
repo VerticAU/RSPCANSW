@@ -20,6 +20,7 @@
                     <value>4</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>header</name>
@@ -29,6 +30,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>caseman:viewProgramEngagementUI</componentName>
+                <identifier>caseman_viewProgramEngagementUI</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -38,6 +40,7 @@
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentName>caseman:ClientNotesContainer</componentName>
+                <identifier>caseman_ClientNotesContainer</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-30957648-fc76-4262-9f77-d371664962ba</name>
@@ -67,6 +70,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-514b3da7-95f8-448e-93cf-0c0113fce250</name>
@@ -76,6 +80,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>caseman:casePlanCreator</componentName>
+                <identifier>caseman_casePlanCreator</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -101,6 +106,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer2</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-4cccc3ff-8f8e-4e69-8d90-50fcf3516346</name>
@@ -110,6 +116,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>caseman:assessmentChart</componentName>
+                <identifier>caseman_assessmentChart</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -135,6 +142,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer3</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-c8a2711d-2116-4d57-9248-1ec834a6d0ba</name>
@@ -144,6 +152,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-d5dfff6a-faa7-4d07-9e92-2f4ebd947f1e</name>
@@ -173,6 +182,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer4</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -198,6 +208,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer5</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -223,6 +234,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer6</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -248,6 +260,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer7</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -273,6 +286,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer8</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -298,6 +312,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer9</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -323,6 +338,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer10</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -348,6 +364,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer11</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -357,6 +374,7 @@
                     <value>BOTH</value>
                 </componentInstanceProperties>
                 <componentName>runtime_sales_merge:mergeCandidatesPreviewCard</componentName>
+                <identifier>runtime_sales_merge_mergeCandidatesPreviewCard</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-5d1fa29d-6210-4989-bf3d-99d5a8e5fea6</name>
@@ -386,6 +404,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer12</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-1d46e058-ce95-42cb-b55d-dbd0223f3b02</name>
@@ -403,6 +422,7 @@
                     <value>Program Engagements</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -416,6 +436,7 @@
                     <value>Notes</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab2</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -429,6 +450,7 @@
                     <value>Case Plans</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab3</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -442,6 +464,7 @@
                     <value>Assessments</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab4</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -455,6 +478,7 @@
                     <value>Standard.Tab.detail</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>detailTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -472,6 +496,7 @@
                     <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>relatedListsTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -485,6 +510,7 @@
                     <value>Files</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab5</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-cb3e482b-4c1e-4a18-83c9-df8e484bb242</name>
@@ -498,6 +524,7 @@
                     <value>Facet-cb3e482b-4c1e-4a18-83c9-df8e484bb242</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>
@@ -507,16 +534,19 @@
         <itemInstances>
             <componentInstance>
                 <componentName>caseman:newNote</componentName>
+                <identifier>caseman_newNote</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentName>caseman:incidents</componentName>
+                <identifier>caseman_incidents</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentName>runtime_sales_activities:activityPanel</componentName>
+                <identifier>runtime_sales_activities_activityPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>right</name>
@@ -538,6 +568,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>caseman:clientphoto</componentName>
+                <identifier>caseman_clientphoto</identifier>
             </componentInstance>
         </itemInstances>
         <name>cardPhoto</name>
@@ -559,6 +590,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>caseman:clientCardDetails</componentName>
+                <identifier>caseman_clientCardDetails</identifier>
             </componentInstance>
         </itemInstances>
         <name>cardFields</name>

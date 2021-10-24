@@ -24,6 +24,7 @@
                     <value>3</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>header</name>
@@ -33,6 +34,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>detailTabContent</name>
@@ -54,6 +56,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListContainer</componentName>
+                <identifier>force_relatedListContainer</identifier>
             </componentInstance>
         </itemInstances>
         <name>relatedTabContent</name>
@@ -63,6 +66,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>OneDriveFiles</componentName>
+                <identifier>OneDriveFiles</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-18b7251b-a76e-4988-a939-f1ea48992445</name>
@@ -84,6 +88,7 @@
                     <value>Standard.Tab.detail</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>detailTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -97,6 +102,7 @@
                     <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>relatedListsTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -110,6 +116,7 @@
                     <value>OneDrive</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab</identifier>
             </componentInstance>
         </itemInstances>
         <name>maintabs</name>
@@ -123,6 +130,7 @@
                     <value>maintabs</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
         <name>sidebar</name>
@@ -132,6 +140,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>AssetsCalendar</componentName>
+                <identifier>AssetsCalendar</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-61ad533e-d539-4f41-a315-f97d53ba072e</name>
@@ -153,6 +162,7 @@
                     <value>Vehicle Calendar</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab2</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-c7b2af0d-6f21-42be-8cff-609d600cb54c</name>
@@ -162,6 +172,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>SydneyResourcesCalendar</componentName>
+                <identifier>SydneyResourcesCalendar</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-607c0518-6a00-4fd1-8770-dd249933ab67</name>
@@ -183,6 +194,7 @@
                     <value>Team Resource Calendar</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab3</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-bc988b51-959b-4eaf-b018-165f12359b53</name>
@@ -212,6 +224,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -221,6 +234,7 @@
                     <value>Facet-c7b2af0d-6f21-42be-8cff-609d600cb54c</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset2</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -230,6 +244,7 @@
                     <value>Facet-bc988b51-959b-4eaf-b018-165f12359b53</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset3</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>

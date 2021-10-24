@@ -24,6 +24,7 @@
                     <value>3</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>header</name>
@@ -41,6 +42,7 @@
                     <value>linear</value>
                 </componentInstanceProperties>
                 <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <identifier>runtime_sales_pathassistant_pathAssistant</identifier>
             </componentInstance>
         </itemInstances>
         <name>subheader</name>
@@ -50,6 +52,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-984c5e7d-b19a-41df-893a-1472f337dad5</name>
@@ -67,6 +70,7 @@
                     <value>Standard.Tab.detail</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>detailTab</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-b8a4c2c6-c364-4268-936c-65d43bf7b36e</name>
@@ -80,6 +84,7 @@
                     <value>Facet-b8a4c2c6-c364-4268-936c-65d43bf7b36e</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
         <name>sidebar</name>
@@ -89,6 +94,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>EducationCentreCalendar</componentName>
+                <identifier>EducationCentreCalendar</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-02487fc4-2e7f-4942-b7a9-ce2422baeb38</name>
@@ -110,6 +116,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListContainer</componentName>
+                <identifier>force_relatedListContainer1</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-afe9149e-a0b9-44ba-b431-8002e28b066a</name>
@@ -139,6 +146,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer5</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-c4958ee5-9581-4f72-b76d-9f54dc056e4f</name>
@@ -156,6 +164,7 @@
                     <value>Calendar</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -173,6 +182,7 @@
                     <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>relatedListsTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -186,6 +196,7 @@
                     <value>Files</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab2</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-42cc238d-af01-4a71-b6ba-5e0dd30799d2</name>
@@ -199,6 +210,7 @@
                     <value>Facet-42cc238d-af01-4a71-b6ba-5e0dd30799d2</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset2</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>

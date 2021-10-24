@@ -44,6 +44,7 @@
                     <value>3</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>header</name>
@@ -53,6 +54,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-33e7ddeb-8106-4318-b3ec-07feaf292a47</name>
@@ -74,6 +76,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListContainer</componentName>
+                <identifier>force_relatedListContainer</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-e895b635-646a-424e-8b4b-60e6c2d56baf</name>
@@ -91,6 +94,7 @@
                     <value>Standard.Tab.detail</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>detailTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -108,6 +112,7 @@
                     <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>relatedListsTab</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-bb07d5d6-f053-4ca8-a804-110dab3358bb</name>
@@ -121,6 +126,7 @@
                     <value>facet-bb07d5d6-f053-4ca8-a804-110dab3358bb</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>
@@ -154,6 +160,7 @@
                     <value>EziDebit Processes</value>
                 </componentInstanceProperties>
                 <componentName>vertic_AsyncProcesses</componentName>
+                <identifier>vertic_AsyncProcesses</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.npe01__Payment_Method__c}</leftValue>

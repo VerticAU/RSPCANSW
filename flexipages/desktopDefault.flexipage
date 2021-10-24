@@ -8,6 +8,7 @@
                     <value>{&quot;listViewApiName&quot;:&quot;npsp__AllAccounts&quot;,&quot;objectApiName&quot;:&quot;Account&quot;}</value>
                 </componentInstanceProperties>
                 <componentName>caseman:homeHeader</componentName>
+                <identifier>caseman_homeHeader</identifier>
             </componentInstance>
         </itemInstances>
         <name>topLeft</name>
@@ -17,6 +18,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>caseman:homeQuickActions</componentName>
+                <identifier>caseman_homeQuickActions</identifier>
             </componentInstance>
         </itemInstances>
         <name>topRight</name>
@@ -30,6 +32,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>runtime_sales_activities:todayTaskContainer</componentName>
+                <identifier>runtime_sales_activities_todayTaskContainer</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -39,6 +42,7 @@
                     <value>NEWS</value>
                 </componentInstanceProperties>
                 <componentName>forceChatter:exposedFeed</componentName>
+                <identifier>forceChatter_exposedFeed</identifier>
             </componentInstance>
         </itemInstances>
         <name>sidebar</name>

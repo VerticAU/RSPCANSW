@@ -38,6 +38,7 @@
                     <value>800</value>
                 </componentInstanceProperties>
                 <componentName>caseman:clientSearch</componentName>
+                <identifier>caseman_clientSearch</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -77,6 +78,7 @@
                     <value>1200</value>
                 </componentInstanceProperties>
                 <componentName>caseman:ClientNotesContainer</componentName>
+                <identifier>caseman_ClientNotesContainer</identifier>
             </componentInstance>
         </itemInstances>
         <name>utilityItems</name>
