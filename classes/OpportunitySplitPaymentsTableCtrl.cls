@@ -1,8 +1,6 @@
-public class OpportunitySplitPaymentsTableCtrl {
+public with sharing class OpportunitySplitPaymentsTableCtrl {
 
     Opportunity oppVar;
-    Opportunity mainOpportunity;
-    Id mainOpportunityId;
     List<Opportunity> opportunitiesInTable;
 
     public Id opportunityId {
@@ -27,8 +25,7 @@ public class OpportunitySplitPaymentsTableCtrl {
                 npsp__Primary_Contact__r.MailingStreet,
                 npsp__Primary_Contact__r.MailingState,
                 npsp__Primary_Contact__r.MailingPostalCode,
-                RecordType.Name,
-                Name
+                RecordType.Name
             FROM Opportunity
             WHERE Id = :this.opportunityId
         ]);
@@ -39,6 +36,7 @@ public class OpportunitySplitPaymentsTableCtrl {
                 SELECT Id, RecordType.DeveloperName, Amount, RecordType.Name
                 FROM Opportunity
                 WHERE Parent_Opportunity__c = :this.opportunityId
+                AND StageName = 'Closed Won'
             ];
 
         } else {
@@ -46,6 +44,7 @@ public class OpportunitySplitPaymentsTableCtrl {
                 SELECT Id, RecordType.DeveloperName, Amount, RecordType.Name
                 FROM Opportunity
                 WHERE Id = :this.opportunityId
+                AND StageName = 'Closed Won'
             ];
         }
     }
