@@ -86,7 +86,8 @@
             </td>
         </tr>
 
-        <apex:outputPanel rendered="{! opportunitiesInTable.size > 1}">
+
+        <apex:outputPanel layout="none" rendered="{! opportunitiesInTable.size > 1}">
 
             <apex:repeat var="opportunityVar" value="{!opportunitiesInTable}" first="1">
                 <tr>
