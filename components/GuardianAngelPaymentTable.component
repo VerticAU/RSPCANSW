@@ -79,7 +79,11 @@
 
                 <p class="MsoNormal" style="margin-top: 11pt;">
                     <span style="font-size:14px;">
-                        <span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">{! IF(opportunitiesInTable.size = 0, " ", '$') }{! IF(opportunitiesInTable.size = 0, " ", opportunitiesInTable[0].Amount) }</span>
+                        <span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">
+                            <apex:outputText value="{0, Number, Currency}" rendered="{!opportunitiesInTable.size > 0}">
+                                <apex:param value="{!opportunitiesInTable[0].Total_Amount__c}" />
+                            </apex:outputText>
+                        </span>
                     </span>
                 </p>
 
@@ -102,7 +106,11 @@
                     <td style="height: 40px; border-top: none; border-left: none; border-bottom: solid #1f3864 1pt; border-right: solid #1f3864 1pt; padding: 5.4pt; vertical-align: middle;" valign="top" width="133">
                         <p class="MsoNormal" style="margin-top: 3pt;">
                             <span style="font-size:14px;">
-                                <span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">${! opportunityVar.Amount }</span>
+                                <span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">
+                                    <apex:outputText value="{0, Number, Currency}">
+                                        <apex:param value="{!opportunityVar.Total_Amount__c}" />
+                                    </apex:outputText>
+                                </span>
                             </span>
                         </p>
                     </td>
@@ -120,7 +128,11 @@
                     <p class="MsoNormal" style="margin-top: 3pt;">
                     </p>
 
-                    <p class="MsoNormal" style="margin-top: 3pt;"><span style="color: #36bdb3; font-size:14px;"><b><span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">${! PaymentTotal }</span></b></span>
+                    <p class="MsoNormal" style="margin-top: 3pt;"><span style="color: #36bdb3; font-size:14px;"><b><span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">
+                                    <apex:outputText value="{0, Number, Currency}">
+                                        <apex:param value="{!PaymentTotal}" />
+                                    </apex:outputText>
+                                </span></b></span>
                     </p>
                 </td>
             </tr>

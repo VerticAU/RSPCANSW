@@ -975,6 +975,10 @@
         <name>Total_Allocation_Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Total Amount --></label>
+        <name>Total_Amount__c</name>
+    </fields>
+    <fields>
         <label><!-- Total Child Tickets Amount --></label>
         <name>Total_Child_Tickets_Amount__c</name>
     </fields>

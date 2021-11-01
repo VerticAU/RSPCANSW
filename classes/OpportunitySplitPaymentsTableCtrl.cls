@@ -25,15 +25,16 @@ public with sharing class OpportunitySplitPaymentsTableCtrl {
                 npsp__Primary_Contact__r.MailingStreet,
                 npsp__Primary_Contact__r.MailingState,
                 npsp__Primary_Contact__r.MailingPostalCode,
-                RecordType.Name
+                RecordType.Name,
+                npsp_plus__Payment_Fees__c
             FROM Opportunity
             WHERE Id = :this.opportunityId
         ]);
 
-        if (this.oppVar.RecordType.Name == 'Split Payment') {
+        if ('Split Payment'.equalsIgnoreCase(this.oppVar?.RecordType?.Name)) {
 
             this.opportunitiesInTable = (List<Opportunity>) [
-                SELECT Id, RecordType.DeveloperName, Amount, RecordType.Name
+                SELECT Id, RecordType.DeveloperName, Total_Amount__c, Amount, RecordType.Name
                 FROM Opportunity
                 WHERE Parent_Opportunity__c = :this.opportunityId
                 AND StageName = 'Closed Won'
@@ -41,7 +42,7 @@ public with sharing class OpportunitySplitPaymentsTableCtrl {
 
         } else {
             this.opportunitiesInTable = (List<Opportunity>) [
-                SELECT Id, RecordType.DeveloperName, Amount, RecordType.Name
+                SELECT Id, RecordType.DeveloperName, Total_Amount__c, Amount, RecordType.Name
                 FROM Opportunity
                 WHERE Id = :this.opportunityId
                 AND StageName = 'Closed Won'
@@ -58,7 +59,11 @@ public with sharing class OpportunitySplitPaymentsTableCtrl {
     }
 
     public Decimal getPaymentTotal() {
-        return vertic_Utils.sObjects.sum(this.opportunitiesInTable, 'Amount');
+        Decimal sum = vertic_Utils.sObjects.sum(this.opportunitiesInTable, 'Total_Amount__c');
+        if ('Split Payment'.equalsIgnoreCase(this.oppVar?.RecordType?.Name)) {
+            return sum + vertic_Utils.objects.defaultIfNull(this.oppVar?.npsp_plus__Payment_Fees__c, 0);
+        }
+        return sum;
     }
 
 //    public Integer getOpportunitiesSplitPaymentCount() {
