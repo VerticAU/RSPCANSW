@@ -81,7 +81,7 @@
                     <span style="font-size:14px;">
                         <span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">
                             <apex:outputText value="{0, Number, Currency}" rendered="{!opportunitiesInTable.size > 0}">
-                                <apex:param value="{!opportunitiesInTable[0].Total_Amount__c}" />
+                                <apex:param value="{!opportunitiesInTable[0].Amount}" />
                             </apex:outputText>
                         </span>
                     </span>
@@ -108,7 +108,7 @@
                             <span style="font-size:14px;">
                                 <span lang="EN-AU" style="font-family: &quot;Calibri Light&quot;, sans-serif;">
                                     <apex:outputText value="{0, Number, Currency}">
-                                        <apex:param value="{!opportunityVar.Total_Amount__c}" />
+                                        <apex:param value="{!opportunityVar.Amount}" />
                                     </apex:outputText>
                                 </span>
                             </span>

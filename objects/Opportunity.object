@@ -2703,19 +2703,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Total_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>Amount + npsp_plus__Payment_Fees__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Total Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Total_Child_Tickets_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Total Child Tickets Amount</label>
