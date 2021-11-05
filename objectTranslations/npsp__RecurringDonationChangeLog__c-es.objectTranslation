@@ -2,11 +2,12 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Customisable Rollup Settings --></value>
+        <value>Registro de cambios de donación recurrente</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value><!-- Customizable Rollup Settings --></value>
+        <value>Registros de cambios de donaciones recurrentes</value>
     </caseValues>
-    <startsWith><!-- Consonant --></startsWith>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Número de registro de cambios de donació</nameFieldLabel>
 </CustomObjectTranslation>

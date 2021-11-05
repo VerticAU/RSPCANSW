@@ -1556,6 +1556,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.npsp__Undeliverable_Address__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.npsp_plus__ACN_ABN__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4562,6 +4567,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.npsp__Soft_Credit_Last_N_Days__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.npsp__Undeliverable_Address__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

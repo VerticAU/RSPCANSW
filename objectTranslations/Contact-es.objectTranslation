@@ -52,6 +52,10 @@
         <label><!-- Contact Merge Found FS --></label>
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
+    <fieldSets>
+        <label><!-- CreateContact --></label>
+        <name>pmdm__CreateContact</name>
+    </fieldSets>
     <fields>
         <label><!-- Aboriginal and/or Torres Islander --></label>
         <name>Aboriginal_and_or_Torres_Islander__c</name>
@@ -2173,6 +2177,10 @@
         <help>Monto total de crédito blando, ganado en los últimos N días. N se define en la configuración del NPSP.</help>
         <label><!-- Soft Credit Last N Days --></label>
         <name>npsp__Soft_Credit_Last_N_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Undeliverable Mailing Address --></label>
+        <name>npsp__Undeliverable_Address__c</name>
     </fields>
     <fields>
         <help>Si seleccionado, la dirección en el campo Dirección actual en el contacto sobrescribe la dirección por defecto o la dirección de la temporada de la familia.</help>

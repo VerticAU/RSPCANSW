@@ -717,6 +717,10 @@
         <name>npsp__Number_of_Household_Members__c</name>
     </fields>
     <fields>
+        <label><!-- Undeliverable Billing Address --></label>
+        <name>npsp__Undeliverable_Address__c</name>
+    </fields>
+    <fields>
         <label><!-- ACN/ABN --></label>
         <name>npsp_plus__ACN_ABN__c</name>
     </fields>

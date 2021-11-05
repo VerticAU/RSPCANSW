@@ -6,7 +6,7 @@
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value><!-- Deployment Events --></value>
+        <value><!-- DeploymentEvent --></value>
     </caseValues>
     <fields>
         <label><!-- Completed Date --></label>

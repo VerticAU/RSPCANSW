@@ -52,6 +52,10 @@
         <label><!-- Contact Merge Found FS --></label>
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
+    <fieldSets>
+        <label><!-- CreateContact --></label>
+        <name>pmdm__CreateContact</name>
+    </fieldSets>
     <fields>
         <label><!-- Aboriginal and/or Torres Islander --></label>
         <name>Aboriginal_and_or_Torres_Islander__c</name>
@@ -2173,6 +2177,10 @@
         <help>De totale hoeveelheid van soft credit, gesloten in het laatste nummer van dagen gedefinieerd in de Huishoud Instellingen.</help>
         <label><!-- Soft Credit Last N Days --></label>
         <name>npsp__Soft_Credit_Last_N_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Undeliverable Mailing Address --></label>
+        <name>npsp__Undeliverable_Address__c</name>
     </fields>
     <fields>
         <help>Indien aangevinkt, dan overschrijft het huidige adres opzoekrelatie van de contactpersoon het adres van het Huishouden of het seizoensgebonden adres.</help>

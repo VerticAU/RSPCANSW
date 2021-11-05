@@ -52,6 +52,10 @@
         <label><!-- Contact Merge Found FS --></label>
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
+    <fieldSets>
+        <label><!-- CreateContact --></label>
+        <name>pmdm__CreateContact</name>
+    </fieldSets>
     <fields>
         <label><!-- Aboriginal and/or Torres Islander --></label>
         <name>Aboriginal_and_or_Torres_Islander__c</name>
@@ -2173,6 +2177,10 @@
         <help><!-- The total amount of soft credit attributed to this Contact in the last N days. The value of N is set in NPSP Settings | Donations | Donor Statistics. --></help>
         <label><!-- Soft Credit Last N Days --></label>
         <name>npsp__Soft_Credit_Last_N_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Undeliverable Mailing Address --></label>
+        <name>npsp__Undeliverable_Address__c</name>
     </fields>
     <fields>
         <help><!-- When selected, NPSP will not sync this Contact&apos;s address with the Household Default or Seasonal Address. Use this to maintain a separate Mailing Address for this particular Contact. --></help>

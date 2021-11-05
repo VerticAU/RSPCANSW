@@ -52,6 +52,10 @@
         <label><!-- Contact Merge Found FS --></label>
         <name>npsp__ContactMergeFoundFS</name>
     </fieldSets>
+    <fieldSets>
+        <label><!-- CreateContact --></label>
+        <name>pmdm__CreateContact</name>
+    </fieldSets>
     <fields>
         <label><!-- Aboriginal and/or Torres Islander --></label>
         <name>Aboriginal_and_or_Torres_Islander__c</name>
@@ -2173,6 +2177,10 @@
         <help>Der Gesamtbetrag des weichen Kredits, der in den letzten Tagen abgeschlossen wurde, wie in den Haushalt-Einstellungen definiert</help>
         <label><!-- Soft Credit Last N Days --></label>
         <name>npsp__Soft_Credit_Last_N_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Undeliverable Mailing Address --></label>
+        <name>npsp__Undeliverable_Address__c</name>
     </fields>
     <fields>
         <help>Wenn diese Option aktiviert ist, wird die Standardadresse oder saisonale Adresse des Haushalts durch die aktuelle Adresse des Kontakts überschrieben.</help>
